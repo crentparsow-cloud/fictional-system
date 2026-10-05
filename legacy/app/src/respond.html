@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Akana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,650&display=swap">
+<style>
+:root{--paper:#F7F5F0;--surface:#FFFFFF;--ink:#16222B;--ink-soft:#4A5864;--primary:#1F4E5A;--primary-ink:#FFFFFF;--line:#E2DED3}
+@media (prefers-color-scheme: dark){:root{--paper:#0F1719;--surface:#172226;--ink:#ECEFEA;--ink-soft:#A9B6B9;--primary:#7FC2CF;--primary-ink:#0F1719;--line:#2A3A40;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.6 "Atkinson Hyperlegible Next",-apple-system,"Segoe UI",Arial,sans-serif}
+main{max-width:520px;margin:12vh auto 0;padding:0 20px}
+.brand{display:flex;align-items:center;gap:8px;font:650 19px "Bricolage Grotesque",system-ui,sans-serif;margin-bottom:16px;color:var(--ink)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 24px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 20px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:16px}
+h1{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:650;letter-spacing:-.015em;line-height:1.15;margin:0;font-size:1.8rem}
+p{margin:0;color:var(--ink-soft)}
+button{font:inherit;font-weight:600;border:0;border-radius:999px;min-height:52px;padding:14px 20px;background:var(--primary);color:var(--primary-ink);cursor:pointer}
+button:disabled{opacity:.5}
+</style>
+</head>
+<body>
+<main><div class="brand"><svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="17" width="8" height="10" rx="2.4" fill="var(--primary)" opacity=".55"/><rect x="10" y="10" width="8" height="17" rx="2.4" fill="var(--primary)" opacity=".78"/><rect x="19" y="2" width="8" height="25" rx="2.4" fill="var(--primary)"/></svg>Akana</div><div class="card" aria-live="polite"><h1 id="t">One moment</h1><p id="m">Checking your link.</p><div id="b"></div></div></main>
+<script>
+// Partner and unsubscribe links land here. Nothing changes until the reader or partner taps the button.
+const FN = "https://mcehwfsvtzeayluabxyj.supabase.co/functions/v1/app/";
+const KEY = "sb_publishable_QTCkAX0I9edLx_owFXf75A_qCO0Zp6f";
+const q = new URLSearchParams(location.search);
+const a = q.get("a");
+const isUnsub = a === "unsubscribe";
+const route = isUnsub ? "notify" : "partner";
+const body = isUnsub ? {op: "unsubscribe", u: q.get("u"), k: q.get("k"), s: q.get("s")} : {op: "respond", a, t: q.get("t")};
+history.replaceState(null, "", location.pathname); // keep the token out of history and screenshots
+const show = r => { document.getElementById("t").textContent = r.title || "Something went wrong";
+  document.getElementById("m").textContent = r.message || "Please try the link again later."; };
+async function call(extra){
+  const res = await fetch(FN + route, {method: "POST", headers: {"Content-Type": "application/json", apikey: KEY}, body: JSON.stringify({...body, ...extra})});
+  return res.json().catch(() => ({}));
+}
+(async () => {
+  try{
+    // Ask first, so an email scanner opening the link changes nothing.
+    const r = isUnsub ? {title: "Turn off these emails?", message: "You can turn them back on anytime in Akana, under You, then Emails.", button: "Turn them off"} : await call({confirm: false});
+    show(r);
+    if(r.button){
+      const btn = Object.assign(document.createElement("button"), {textContent: r.button});
+      btn.onclick = async () => { btn.disabled = true; try{ show(await call({confirm: true})); } catch(e){ show({}); } btn.remove(); };
+      document.getElementById("b").appendChild(btn);
+    }
+  }catch(e){ show({}); }
+})();
+</script>
+</body>
+</html>

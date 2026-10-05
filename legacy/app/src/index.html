@@ -1,0 +1,1706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Akana</title>
+<meta name="description" content="Guided workbooks from the books you read.">
+<meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1719" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650&family=Lexend:wght@400;600&display=swap">
+<style>
+/* Daylight Blocks. A calm neutral shell; each workbook and stage brings one colour block.
+   Spacing scale: 4 8 12 16 24 32 40. Radius scale: 12 16 20 24 28. Type scale: 13 15 17 20 24 30 40. */
+:root{
+  --canvas:#F7F5F0; --surface:#FFFFFF; --surface-2:#EFECE4; --line:#E2DED3; --line-strong:#7D878D;
+  --ink:#16222B; --ink-soft:#4A5864; --brand:#1F4E5A; --brand-ink:#FFFFFF; --brand-wash:#E3EDEE;
+  --marigold:#F2B84B; --marigold-ink:#3B2A05;
+  --rose:#8A2846; --rose-soft:#F6E3E9; --rose-ink:#FFFFFF; --help-bg:#8A2846; --help-ink:#FFFFFF;
+  --map-t:#DCEBE2; --map-i:#2D6A4F; --build-t:#F8E0D0; --build-i:#9C4A25;
+  --use-t:#F6EAC0; --use-i:#6E520F; --keep-t:#D6E6F3; --keep-i:#1F5A85;
+  --tile-l:.935; --tile-c:.045; --tink-l:.42; --tink-c:.11;
+  --hero-bg:#1F4E5A; --hero-ink:#FFFFFF; --focus:#1F4E5A;
+  --scrim:rgba(22,34,43,.42); --shadow:0 1px 2px rgba(22,34,43,.04),0 6px 20px rgba(22,34,43,.05); --lift:0 2px 6px rgba(22,34,43,.08),0 14px 34px rgba(22,34,43,.10);
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fs:17px; --ease:cubic-bezier(.2,.7,.2,1); --spring:cubic-bezier(.34,1.4,.64,1);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:40px;
+  --r1:12px; --r2:16px; --r3:20px; --r4:24px; --r5:28px;
+  --st:var(--map-t); --si:var(--map-i);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --canvas:#0F1719; --surface:#172226; --surface-2:#1E2B30; --line:#2A3A40; --line-strong:#6A7E84;
+  --ink:#ECEFEA; --ink-soft:#A9B6B9; --brand:#7FC2CF; --brand-ink:#0F1719; --brand-wash:#1B3238;
+  --marigold:#E3AA45; --marigold-ink:#2A1D03; --rose:#E58BA6; --rose-soft:#3A1F29; --rose-ink:#2A0E18; --help-bg:#5A2238; --help-ink:#FBE6EE;
+  --map-t:#1C3328; --map-i:#8FD1AE; --build-t:#3A2419; --build-i:#F2AE86; --use-t:#33290E; --use-i:#E6C46A; --keep-t:#172B3C; --keep-i:#93C2EA;
+  --tile-l:.28; --tile-c:.035; --tink-l:.84; --tink-c:.08; --hero-bg:#173C45; --hero-ink:#F2F5F2; --focus:#9AD3DE;
+  --scrim:rgba(0,0,0,.6); --shadow:none; --lift:0 12px 40px rgba(0,0,0,.45); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --canvas:#0F1719; --surface:#172226; --surface-2:#1E2B30; --line:#2A3A40; --line-strong:#6A7E84;
+  --ink:#ECEFEA; --ink-soft:#A9B6B9; --brand:#7FC2CF; --brand-ink:#0F1719; --brand-wash:#1B3238;
+  --marigold:#E3AA45; --marigold-ink:#2A1D03; --rose:#E58BA6; --rose-soft:#3A1F29; --rose-ink:#2A0E18; --help-bg:#5A2238; --help-ink:#FBE6EE;
+  --map-t:#1C3328; --map-i:#8FD1AE; --build-t:#3A2419; --build-i:#F2AE86; --use-t:#33290E; --use-i:#E6C46A; --keep-t:#172B3C; --keep-i:#93C2EA;
+  --tile-l:.28; --tile-c:.035; --tink-l:.84; --tink-c:.08; --hero-bg:#173C45; --hero-ink:#F2F5F2; --focus:#9AD3DE;
+  --scrim:rgba(0,0,0,.6); --shadow:none; --lift:0 12px 40px rgba(0,0,0,.45); color-scheme:dark}
+:root[data-font="lexend"]{--f-body:"Lexend",system-ui,sans-serif}
+:root.dim{filter:saturate(.8) brightness(.94)}
+[data-stage="map"]{--st:var(--map-t);--si:var(--map-i)}
+[data-stage="build"]{--st:var(--build-t);--si:var(--build-i)}
+[data-stage="use"]{--st:var(--use-t);--si:var(--use-i)}
+[data-stage="keep"]{--st:var(--keep-t);--si:var(--keep-i)}
+
+*{box-sizing:border-box}
+html,body{min-height:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--f-body);font-size:var(--fs);line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;touch-action:manipulation}
+::selection{background:var(--marigold);color:var(--marigold-ink)}
+:focus{outline:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:10px}
+.btn:focus-visible,.chip:focus-visible,.help:focus-visible,.seg button:focus-visible{border-radius:999px}
+.hero :focus-visible,.hero-band :focus-visible{outline-color:var(--marigold)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:24px;height:24px;flex:none;display:block}
+.ico.s16{width:16px;height:16px}.ico.s20{width:20px;height:20px}.ico.s32{width:32px;height:32px}
+h1,h2,h3{font-family:var(--f-display);font-weight:650;letter-spacing:-.018em;margin:0;text-wrap:balance;line-height:1.12;font-optical-sizing:auto}
+h1{font-size:30px} h2{font-size:24px;letter-spacing:-.014em} h3{font-size:20px;letter-spacing:-.01em;line-height:1.2}
+p{margin:0;text-wrap:pretty}
+.muted,.soft{color:var(--ink-soft)} .small{font-size:15px;line-height:1.5}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);line-height:1.4}
+
+/* Shell */
+.shell{max-width:560px;margin:0 auto;min-height:100vh;position:relative;padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+body.focus .shell{padding-bottom:calc(112px + env(safe-area-inset-bottom,0px))}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--canvas) 90%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);display:flex;align-items:center;gap:var(--s3);min-height:64px;padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px}
+.brand{display:flex;align-items:center;gap:var(--s2);min-height:44px;font-family:var(--f-display);font-weight:650;font-size:20px;letter-spacing:-.02em;margin-right:auto;background:none;border:0;padding:0 6px 0 0;color:var(--ink)}
+.help{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px 0 13px;border-radius:999px;border:1.5px solid var(--rose);color:var(--rose);background:transparent;font-weight:700;font-size:15px;flex:none;transition:background .15s var(--ease)}
+.back{display:inline-flex;align-items:center;gap:var(--s1);min-height:44px;min-width:44px;padding:0 12px 0 0;border:0;background:none;color:var(--ink);font-weight:700;margin-right:auto}
+.back .ico{width:22px;height:22px}
+main{padding:var(--s1) 16px var(--s6);display:flex;flex-direction:column;gap:var(--s5)}
+main:focus-visible{outline:none}
+main.enter{animation:enter .28s var(--ease)}
+@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;background:color-mix(in srgb,var(--surface) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs-in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);padding:0 4px}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 0 8px;border:0;background:none;color:var(--ink-soft);font-size:12.5px;font-weight:700;min-height:60px;letter-spacing:.01em}
+.tab .ico{width:58px;height:30px;padding:3px 17px;border-radius:999px;transition:background .2s var(--ease)}
+.tab[aria-current="page"]{color:var(--brand)}
+.tab[aria-current="page"] .ico{background:var(--brand-wash)}
+.tab:focus-visible{outline-offset:-4px;border-radius:14px}
+#actionbar{position:fixed;left:0;right:0;bottom:0;z-index:7;pointer-events:none}
+.actionbar{max-width:560px;margin:0 auto;padding:20px 16px calc(14px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--canvas) 62%,color-mix(in srgb,var(--canvas) 0%,transparent));display:flex;gap:var(--s3);pointer-events:auto}
+.actionbar .btn{flex:1;min-height:54px;font-size:17.5px}
+#tabs[hidden]{display:none}
+
+/* Pieces */
+.card{background:var(--surface);border-radius:var(--r3);box-shadow:var(--shadow);border:1px solid var(--line);padding:var(--s4) 18px;display:flex;flex-direction:column;gap:var(--s3)}
+.card.flat{box-shadow:none;background:var(--surface-2);border-color:transparent}
+.card > h2,.card > h3{font-size:19px;letter-spacing:-.01em;line-height:1.2}
+.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:50px;padding:10px 22px;border-radius:999px;border:0;background:var(--brand);color:var(--brand-ink);font-weight:700;line-height:1.25;text-align:center;letter-spacing:.005em;transition:transform .14s var(--ease),background .15s var(--ease),box-shadow .15s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{background:var(--surface-2);color:var(--ink-soft);border-color:transparent;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-strong)}
+.btn.quiet{background:var(--surface-2);color:var(--ink)}
+main > .btn.quiet{justify-content:flex-start;text-align:left;border-radius:var(--r2);padding:12px 18px;font-weight:600}
+main > .btn.quiet .ico{color:var(--brand)}
+.btn.danger{background:transparent;color:var(--rose);border:1.5px solid var(--rose)}
+.btn.small{min-height:44px;font-size:15px;padding:6px 16px}
+.btn.stage{background:var(--si);color:var(--st)}
+@media (hover:hover){
+  .btn:not([disabled]):not(.ghost):not(.quiet):not(.danger):hover{filter:brightness(1.07) saturate(1.05)}
+  .btn.ghost:hover,.btn.quiet:hover{background:color-mix(in srgb,var(--ink) 6%,var(--surface-2))}
+  .btn.danger:hover,.help:hover{background:var(--rose-soft)}
+  .list>.item:hover,.exlink:not([disabled]):hover{background:color-mix(in srgb,var(--ink) 3.5%,transparent)}
+  .chip:not([aria-pressed="true"]):hover{border-color:var(--line-strong)}
+  .wbcard:hover,.toolbtn:hover,.choice button:hover{transform:translateY(-2px);box-shadow:var(--lift)}
+  .cover:hover img{transform:translateY(-3px);box-shadow:var(--lift)}
+}
+.link{background:none;border:0;padding:0;color:var(--brand);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-align:left;min-height:44px;display:inline-flex;align-items:center;align-self:flex-start}
+p .link,.small .link{min-height:0;display:inline}
+.row{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 11px;font-size:14px;font-weight:700;background:var(--surface-2);color:var(--ink-soft);white-space:nowrap;flex:none}
+.pill.stage{background:var(--st);color:var(--si)}
+.tile{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none;background:var(--st);color:var(--si)}
+.tile .ico{width:26px;height:26px}
+.tile.sm{width:36px;height:36px;border-radius:11px}.tile.sm .ico{width:21px;height:21px}
+.list{display:flex;flex-direction:column}
+.list>.item{display:flex;align-items:center;gap:14px;min-height:60px;padding:13px 16px;border:0;background:none;text-align:left;width:100%;border-top:1px solid var(--line);color:var(--ink);transition:background .15s}
+.list>.item:first-child{border-top:0;border-radius:var(--r3) var(--r3) 0 0}
+.list>.item:last-child{border-radius:0 0 var(--r3) var(--r3)}
+.list>.item:only-child{border-radius:var(--r3)}
+.list>.item:focus-visible{outline-offset:-3px}
+.card.list{padding:0;gap:0;overflow:visible}
+.item .grow{flex:1;min-width:0}
+.item .grow b{display:block;line-height:1.3}
+.item .val{color:var(--ink-soft);font-size:15px;line-height:1.4;margin-top:2px}
+.chev{color:var(--ink-soft)}
+.section-h{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3)}
+.note{font-size:15px;line-height:1.5;color:var(--ink-soft);background:var(--surface-2);border-radius:var(--r2);padding:12px 16px}
+.note>.ico:first-child{display:inline-block;vertical-align:-3px;margin-right:6px}
+.banner{border-radius:var(--r2);padding:var(--s4);background:var(--keep-t);color:var(--ink);display:flex;gap:var(--s3);align-items:flex-start}
+.banner .ico{color:var(--keep-i)}
+.group-label{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);padding:0 4px var(--s2)}
+
+/* Forms */
+.q{display:block;font-weight:700;margin-bottom:var(--s2);line-height:1.35}
+input[type=text],input[type=email],input[type=password],input[type=time],textarea{width:100%;border:1.5px solid var(--line-strong);background:var(--surface);border-radius:14px;padding:12px 14px;min-height:52px;transition:border-color .15s,box-shadow .15s}
+input::placeholder,textarea::placeholder{color:var(--ink-soft);opacity:.85}
+textarea{min-height:128px;resize:vertical;line-height:1.5}
+input:focus-visible,textarea:focus-visible{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 28%,transparent)}
+input:disabled,textarea:disabled{opacity:.7}
+.chips{display:flex;gap:var(--s2);flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px;min-height:44px;min-width:44px;display:inline-flex;gap:6px;align-items:center;justify-content:center;line-height:1.25;transition:background .15s,border-color .15s,color .15s,transform .12s var(--ease)}
+.chip:active{transform:scale(.95)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--canvas);border-color:var(--ink)}
+.chip[disabled]{opacity:.55;cursor:not-allowed}
+.chips.scroll{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:2px 16px 6px;scrollbar-width:none;scroll-snap-type:x proximity;scroll-padding:16px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 28px),transparent)}
+.chips.scroll::-webkit-scrollbar,.tools::-webkit-scrollbar{display:none}
+.chips.scroll .chip{flex:none;scroll-snap-align:start}
+.chip .n{font-weight:400;opacity:.75}
+/* Number scales sit on one even row instead of wrapping into a ragged block */
+.grid-rate{display:grid;grid-template-columns:1fr;gap:6px 12px}
+.grid-rate>span{font-weight:700;margin-top:var(--s3);line-height:1.35}
+.grid-rate>span:first-child{margin-top:0}
+.grid-rate .chips,.chips:has(>[data-tog]){display:grid;grid-template-columns:repeat(var(--n,5),1fr);gap:6px}
+.chips:has(>[data-tog]){--n:7}
+.chips:has(>[data-set]),.chips:has(>[data-daily]),.dailyrow{display:grid;grid-template-columns:repeat(11,1fr);gap:4px}
+.grid-rate .chip,.chips:has(>[data-tog]) .chip,.chips:has(>[data-set]) .chip,.chips:has(>[data-daily]) .chip,.dailyrow .chip{padding:0;min-width:0;border-radius:12px;font-variant-numeric:tabular-nums}
+/* Self-check answers: one calm vertical scale, easy to hit, easy to read */
+.chips:has(>[data-sc]){display:flex;flex-direction:column;gap:0;border:1.5px solid var(--line);border-radius:var(--r2);overflow:hidden;background:var(--surface)}
+.chips:has(>[data-sc]) .chip{border:0;border-top:1px solid var(--line);border-radius:0;justify-content:flex-start;min-height:48px;padding:10px 16px;font-weight:600;gap:12px}
+.chips:has(>[data-sc]) .chip:first-child{border-top:0}
+.chips:has(>[data-sc]) .chip::before{content:"";width:20px;height:20px;border-radius:50%;border:2px solid var(--line-strong);flex:none;box-sizing:border-box;transition:border-width .15s,border-color .15s}
+.chips:has(>[data-sc]) .chip[aria-pressed="true"]{background:var(--brand-wash);color:var(--ink)}
+.chips:has(>[data-sc]) .chip[aria-pressed="true"]::before{border:6px solid var(--brand)}
+.chips:has(>[data-sc]) .chip:focus-visible{outline-offset:-3px;border-radius:0}
+.chips:has(>[data-sc]) .chip:active{transform:none}
+.card:has(> .chips > [data-sc]){background:none;border:0;box-shadow:none;padding:0;gap:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+label.check{display:flex;gap:var(--s3);align-items:flex-start;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r2);background:var(--surface);cursor:pointer;transition:border-color .15s,background .15s;line-height:1.45}
+label.check:has(input:checked){border-color:var(--brand);background:color-mix(in srgb,var(--brand-wash) 60%,var(--surface))}
+label.check input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--brand)}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);padding:14px 16px;min-height:60px;cursor:pointer}
+.toggle + .toggle{border-top:1px solid var(--line)}
+.toggle .small{display:block;margin-top:2px;line-height:1.4}
+.switch{appearance:none;-webkit-appearance:none;width:52px;height:32px;margin:0;border-radius:999px;background:var(--line-strong);position:relative;flex:none;transition:background .18s var(--ease);cursor:pointer}
+.switch::after{content:"";position:absolute;width:26px;height:26px;top:3px;left:3px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .18s var(--ease)}
+.switch:checked{background:var(--brand)}
+.switch:checked::after{transform:translateX(20px);background:var(--brand-ink)}
+.switch:focus-visible{border-radius:999px}
+.saved{font-size:14px;color:var(--ink-soft);display:inline-flex;align-items:center;gap:6px}
+.saved.on{color:var(--map-i)}
+.progressbar{height:6px;border-radius:9px;background:var(--surface-2);overflow:hidden}
+.progressbar span{display:block;height:100%;background:var(--si);border-radius:9px;transition:width .4s var(--ease)}
+details>summary{cursor:pointer;font-weight:700;list-style:none;display:flex;align-items:center;gap:var(--s2);min-height:44px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);margin-left:auto;margin-right:4px;transition:transform .2s var(--ease);flex:none;opacity:.7}
+details[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+details.card{gap:var(--s2);padding-top:8px;padding-bottom:8px}
+details.card[open]{padding-bottom:var(--s4)}
+
+/* Steps */
+.steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:var(--s4);counter-reset:s}
+.steps li{display:flex;gap:var(--s3);align-items:flex-start;counter-increment:s}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:9px;background:var(--st);color:var(--si);display:grid;place-items:center;font-weight:700;font-size:14px;flex:none;margin-top:0;font-variant-numeric:tabular-nums}
+.steps li p{max-width:60ch}
+
+/* Hero and blocks */
+.hero{position:relative;border-radius:var(--r5);overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);padding:28px 24px 0;display:flex;flex-direction:column;gap:var(--s4);isolation:isolate}
+.hero h1{font-size:42px;line-height:1;letter-spacing:-.03em}
+.hero h1 span{color:var(--marigold)}
+.hero p{max-width:32ch;opacity:.92}
+.hero .btn{background:var(--marigold);color:var(--marigold-ink);align-self:flex-start;min-height:52px;padding:0 26px}
+.hero-band{position:relative;border-radius:var(--r4);overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);padding:20px 20px 0;display:flex;flex-direction:column;gap:6px}
+.hero-band p{opacity:.88;font-size:15.5px}
+.hero-band h1{font-size:30px;line-height:1.08;letter-spacing:-.025em;max-width:16ch}
+.marquee{display:flex;flex-direction:column;gap:10px;margin:8px -24px 0;padding-bottom:18px;transform:rotate(-4deg) translateY(6px)}
+.lane{display:flex;gap:10px;width:max-content;animation:drift 70s linear infinite}
+.lane.rev{animation-direction:reverse;animation-duration:84s}
+.lane img{width:78px;height:125px;object-fit:cover;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,.28);flex:none;background:rgba(255,255,255,.08)}
+.hero-band .lane img{width:56px;height:90px}
+.hero-band .marquee{padding-bottom:12px;margin:10px -20px 0}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.rise rect{transform-box:fill-box;transform-origin:bottom;animation:rise .7s var(--ease) both}
+.rise rect:nth-child(2){animation-delay:.12s}.rise rect:nth-child(3){animation-delay:.24s}
+@keyframes rise{from{transform:scaleY(.1);opacity:0}}
+/* How it works: one quiet panel with three coloured rows, not three cramped boxes */
+.steps3{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--shadow)}
+.steps3 div{display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:2px;align-items:center;padding:14px 16px;border-top:1px solid var(--line);font-size:15px;line-height:1.4}
+.steps3 div:first-child{border-top:0}
+.steps3 .ico{grid-row:span 2;width:44px;height:44px;padding:10px;border-radius:13px;background:var(--map-t);color:var(--map-i)}
+.steps3 div:nth-child(2) .ico{background:var(--build-t);color:var(--build-i)}
+.steps3 div:nth-child(3) .ico{background:var(--keep-t);color:var(--keep-i)}
+.steps3 b{font-family:var(--f-display);font-size:17px;color:var(--ink);align-self:end;line-height:1.2}
+.steps3 span{color:var(--ink-soft);align-self:start}
+.genres{display:flex;gap:var(--s2);flex-wrap:wrap}
+.genre{border-radius:999px;padding:6px 12px;font-size:14px;font-weight:700;background:var(--surface);border:1px solid var(--line);display:inline-flex;gap:6px;align-items:center}
+.genre:not(.soon){background:var(--map-t);color:var(--map-i);border-color:transparent}
+.genre.soon{color:var(--ink-soft);background:transparent;border-style:dashed;border-color:var(--line-strong);font-weight:600}
+.stage-block{background:var(--st);color:var(--ink);border-radius:var(--r4);padding:22px 20px 20px;display:flex;flex-direction:column;gap:var(--s4);position:relative;overflow:hidden;isolation:isolate}
+.stage-block h2{font-size:26px;letter-spacing:-.02em}
+.stage-block .tag{color:var(--si);font-weight:700;font-size:14px;display:flex;align-items:center;gap:var(--s2);letter-spacing:.01em}
+.stage-block .art{position:absolute;right:-4px;top:-2px;width:100px;height:84px;pointer-events:none;z-index:-1}
+.stage-block .text{display:flex;flex-direction:column;gap:6px}
+.stage-block .tag{padding-right:92px}
+.stage-block .text h1,.stage-block .text h2{padding-right:68px}
+.stage-block .text p{margin-top:0!important}
+.stage-block > .row{gap:var(--s3)}
+.stage-block .link{color:var(--si)!important;margin-top:-6px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice button{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:14px 16px;border-radius:var(--r2);border:0;background:var(--surface);color:var(--ink);text-align:left;font-weight:700;font-size:17px;line-height:1.25;min-height:72px;transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.choice button span{font-weight:400;font-size:14px;color:var(--ink-soft)}
+.choice button.primary{background:var(--si);color:var(--st)}
+.choice button.primary span{color:var(--st);opacity:.92}
+.choice button:active{transform:scale(.98)}
+.checklist .check-row{display:flex;gap:var(--s3);align-items:center;padding:8px 0;line-height:1.35}
+.checklist .check-row + .check-row{border-top:1px dashed var(--line)}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--line-strong);display:grid;place-items:center;flex:none}
+.dot.done{background:var(--si);border-color:var(--si);color:var(--st)}
+.check-row.done .t{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--ink-soft) 50%,transparent)}
+.tools{display:flex;gap:10px;overflow-x:auto;margin:0 -16px;padding:4px 16px 10px;scrollbar-width:none;scroll-snap-type:x proximity;scroll-padding:16px}
+.toolbtn{flex:none;width:120px;min-height:120px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;padding:14px;border-radius:var(--r3);border:1px solid var(--line);background:var(--surface);text-align:left;font-weight:700;font-size:14.5px;line-height:1.3;color:var(--ink);scroll-snap-align:start;transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.toolbtn .tile{background:var(--map-t);color:var(--map-i)}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface-2);border-radius:999px;padding:4px;gap:2px}
+.seg button{border:0;background:none;border-radius:999px;min-height:44px;padding:6px 4px;font-weight:700;font-size:14.5px;color:var(--ink-soft);line-height:1.2;transition:background .18s var(--ease),color .18s}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.switcher{display:flex;align-items:center;gap:var(--s3)}
+.switcher h1{font-size:24px;line-height:1.1}
+.switcher .tile{width:44px;height:44px;border-radius:13px}
+.dailyrow .chip{min-height:44px;font-size:15px}
+body.night .stage-block{filter:saturate(.75)}
+
+/* Workbook tiles */
+.wb{--tile:oklch(var(--tile-l) var(--tile-c) var(--h));--tink:oklch(var(--tink-l) var(--tink-c) var(--h))}
+.lib{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.wbcard{background:var(--tile);border-radius:var(--r3);padding:16px 14px 14px;display:flex;flex-direction:column;gap:6px;border:0;text-align:left;min-height:176px;color:var(--ink);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.wbcard .tile{background:var(--surface);color:var(--tink);width:44px;height:44px;border-radius:13px;margin-bottom:6px}
+.wbcard h3{font-size:18px}
+.wbcard .from{font-size:13.5px;color:var(--ink-soft);line-height:1.35}
+.wbcard .state{margin-top:auto;padding-top:6px;font-size:14px;font-weight:700;color:var(--tink);display:flex;align-items:center;gap:6px;line-height:1.3}
+.wbcard:not(.soon) .state{color:var(--ink)}
+.wbcard:not(.soon) .state .ico{color:var(--tink)}
+.wbcard:not(.soon){box-shadow:inset 0 0 0 2px var(--tink)}
+.wbcard.soon{filter:saturate(.45)}
+/* So far: one panel split four ways */
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--shadow);overflow:hidden}
+.dash .cell{padding:16px;display:flex;flex-direction:column;gap:6px;border:0}
+.dash .cell:nth-child(odd){border-right:1px solid var(--line)}
+.dash .cell:nth-child(n+3){border-top:1px solid var(--line)}
+.dash .cell .tile{margin-bottom:4px}
+.dash .cell .small{line-height:1.3}
+.dash .cell b{font-family:var(--f-display);font-size:18px;line-height:1.2;font-weight:650}
+
+/* Path: a quiet timeline; only this week is lifted */
+.wk{border-radius:0;background:none;border:0;border-top:1px solid var(--line);padding:2px 4px}
+p.eyebrow + .wk,.wk:first-child{border-top:0}
+.wk.now{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--shadow);padding:4px 14px;margin:6px 0}
+.wk.now + .wk{border-top:0}
+.wk summary{padding:12px 0;gap:var(--s3);line-height:1.3}
+.wk summary .small{display:inline-block;margin-top:2px;font-weight:400}
+.wk .node{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:14px;font-weight:700;background:var(--st);color:var(--si);flex:none}
+.wk .node:has(svg){background:var(--si);color:var(--st)}
+.wk.now .node{background:var(--si);color:var(--st);box-shadow:0 0 0 4px color-mix(in srgb,var(--si) 22%,transparent)}
+.wk .body{display:flex;flex-direction:column;padding:0 0 12px 44px}
+p.eyebrow:has(+ .wk){display:flex;align-items:center;gap:8px;margin-top:14px!important}
+p.eyebrow:has(+ .wk)::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--si)}
+p.eyebrow:has(+ .wk[data-stage="map"]){--si:var(--map-i)} p.eyebrow:has(+ .wk[data-stage="build"]){--si:var(--build-i)}
+p.eyebrow:has(+ .wk[data-stage="use"]){--si:var(--use-i)} p.eyebrow:has(+ .wk[data-stage="keep"]){--si:var(--keep-i)}
+.exlink{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:48px;padding:10px 0;border:0;border-top:1px solid var(--line);background:none;text-align:left;color:var(--ink);font-weight:600;line-height:1.35}
+.exlink[disabled]{color:var(--ink-soft);cursor:default}
+.exlink:focus-visible{outline-offset:-2px}
+
+/* Progress */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--shadow);overflow:hidden}
+.stat{padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.stat:nth-child(odd){border-right:1px solid var(--line)}
+.stat:nth-child(n+3){border-top:1px solid var(--line)}
+.stat b{font-family:var(--f-display);font-size:34px;line-height:1.05;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bar .track{position:relative;height:10px;border-radius:9px;background:var(--surface-2);margin-top:8px}
+.bar .fill,.legend i.lg-start{background:color-mix(in srgb,var(--si) 38%,var(--surface-2))}
+.bar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:9px}
+.bar .now{position:absolute;top:-4px;width:18px;height:18px;border-radius:50%;background:var(--si);transform:translateX(-50%);border:3px solid var(--surface)}
+.legend{display:flex;gap:var(--s4);flex-wrap:wrap;font-size:14px;color:var(--ink-soft)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+
+/* Books */
+.covers{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5) 14px}
+.cover{border:0;padding:0;background:none;text-align:left;display:flex;flex-direction:column;gap:10px;color:var(--ink);border-radius:12px}
+.cover img,.cover .plain{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;box-shadow:0 1px 2px rgba(22,34,43,.08),0 8px 22px rgba(22,34,43,.12);display:block;max-width:100%;background:var(--surface-2);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.cover .plain{display:grid;place-items:center;padding:12px;text-align:center;font-family:var(--f-display);font-weight:650;font-size:18px;background:oklch(var(--tile-l) var(--tile-c) var(--h))}
+.cover .meta{font-size:15px;font-weight:700;line-height:1.3}
+.cover .meta span{display:block;font-weight:400;color:var(--ink-soft);font-size:13.5px;margin-top:2px}
+
+/* Settings */
+.profile{display:flex;align-items:center;gap:14px;padding:4px 0}
+.profile h1{font-size:24px}
+.avatar{width:56px;height:56px;border-radius:18px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:650;font-size:24px;flex:none}
+.steps-size{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.steps-size button{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;min-height:52px;padding:6px 0;font-weight:700;line-height:1}
+.steps-size button[aria-pressed="true"]{border-color:var(--brand);color:var(--brand);background:var(--brand-wash);box-shadow:inset 0 0 0 1px var(--brand)}
+.locked{display:flex;align-items:center;gap:var(--s2);color:var(--ink-soft);font-size:14px}
+section > .group-label + .card{margin-top:0}
+
+/* Pacer: the word sits on a light core, so it reads at every size of the breath */
+.pacer{display:flex;flex-direction:column;align-items:center;gap:var(--s4);padding:24px 16px 20px;border-radius:var(--r4);background:var(--st)}
+.orb{width:180px;height:180px;display:grid;place-items:center;position:relative;margin-bottom:24px}
+.orb .ring{position:absolute;inset:0;border-radius:50%;background:var(--si);opacity:.16;transform:scale(.62);transition:transform 4s cubic-bezier(.45,0,.55,1)}
+.orb .core{position:absolute;inset:26px;border-radius:50%;background:var(--surface);box-shadow:0 0 0 2px color-mix(in srgb,var(--si) 30%,transparent),0 8px 24px rgba(0,0,0,.08);transform:scale(.72);transition:transform 4s cubic-bezier(.45,0,.55,1)}
+.orb .word{position:relative;font-family:var(--f-display);font-weight:650;font-size:23px;color:var(--si);letter-spacing:-.01em}
+.orb .count{position:absolute;bottom:-32px;white-space:nowrap;font-size:14.5px;color:var(--si);font-weight:700}
+.pacer .row{gap:10px}
+.pacer label.row{min-height:44px;cursor:pointer}
+
+/* Offers: radio cards with a real radio mark */
+.card[role=radio]{flex-direction:row;align-items:center;gap:14px;text-align:left;cursor:pointer;min-height:76px;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.card[role=radio] > span:first-child{flex:1}
+.card[role=radio]::before{content:"";width:22px;height:22px;border-radius:50%;border:2px solid var(--line-strong);flex:none;box-sizing:border-box;transition:border-width .15s,border-color .15s}
+.card[role=radio][aria-checked="true"]{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand),var(--shadow)}
+.card[role=radio][aria-checked="true"]::before{border:7px solid var(--brand)}
+.card[role=radio][aria-checked="true"] .pill{background:var(--brand);color:var(--brand-ink)}
+
+/* Sheet, toast, skeleton */
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20;animation:fade .2s;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:21;background:var(--surface);max-width:560px;margin:0 auto;border-radius:var(--r5) var(--r5) 0 0;padding:12px 20px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:var(--s4);max-height:88vh;overflow:auto;animation:up .32s var(--ease);text-align:center;box-shadow:0 -8px 40px rgba(0,0,0,.12)}
+.sheet .grab{width:40px;height:5px;border-radius:9px;background:var(--line);margin:0 auto 4px}
+.sheet h2{font-size:26px}
+.sheet .btn{width:100%}
+.sheet .chips{justify-content:center}
+@keyframes fade{from{opacity:0}}
+@keyframes up{from{transform:translateY(32px);opacity:.4}}
+.bloom{width:88px;height:88px;border-radius:28px;background:var(--marigold);color:var(--marigold-ink);display:grid;place-items:center;margin:8px auto 4px;box-shadow:0 0 0 10px color-mix(in srgb,var(--marigold) 22%,transparent);animation:pop .55s var(--spring) both .05s}
+.bloom .ico{width:40px;height:40px}
+.bloom.calm{background:var(--keep-t);color:var(--keep-i);box-shadow:none;animation:none}
+@keyframes pop{0%{transform:scale(.5) rotate(-8deg);opacity:0}100%{transform:none;opacity:1}}
+#toast{position:fixed;left:0;right:0;bottom:calc(100px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;justify-content:center;pointer-events:none;padding:0 16px}
+.toast{background:var(--ink);color:var(--canvas);border-radius:var(--r2);padding:13px 18px;max-width:440px;box-shadow:0 10px 30px rgba(0,0,0,.22);animation:up .26s var(--ease);font-weight:600;font-size:15.5px;line-height:1.4}
+.sk{border-radius:var(--r2);background:linear-gradient(90deg,var(--surface-2),var(--surface),var(--surface-2));background-size:200% 100%;animation:sh 1.4s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.contact{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:12px 0;border-top:1px solid var(--line)}
+.contact:first-child{border-top:0}
+.contact{flex-wrap:wrap}
+.contact > div{flex:1 1 140px}
+.contact .big{font-family:var(--f-display);font-weight:650;font-size:22px;user-select:all;font-variant-numeric:tabular-nums;white-space:nowrap}
+.call{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:6px 16px 6px 12px;border-radius:999px;background:var(--rose-soft);color:var(--rose);text-decoration:none;flex:none}
+.call .big{color:var(--ink)}
+.helphead{background:var(--help-bg);color:var(--help-ink);border-radius:var(--r4);padding:22px 20px;display:flex;flex-direction:column;gap:var(--s3)}
+.helphead .row{gap:10px}
+.spread{display:flex;flex-direction:column;gap:var(--s5)}
+.spread .answers{display:flex;flex-direction:column;gap:22px;padding-top:var(--s5);border-top:1px solid var(--line)}
+.spread .ref{display:flex;flex-direction:column;gap:var(--s3)}
+
+/* Motion between screens: a short slide forwards and back, a cross-fade between tabs */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.24s;animation-timing-function:var(--ease)}
+html[data-nav="fwd"]::view-transition-new(root){animation-name:vt-in-r}
+html[data-nav="fwd"]::view-transition-old(root){animation-name:vt-out-l}
+html[data-nav="back"]::view-transition-new(root){animation-name:vt-in-l}
+html[data-nav="back"]::view-transition-old(root){animation-name:vt-out-r}
+@keyframes vt-in-r{from{opacity:0;transform:translateX(16px)}}
+@keyframes vt-out-l{to{opacity:0;transform:translateX(-10px)}}
+@keyframes vt-in-l{from{opacity:0;transform:translateX(-16px)}}
+@keyframes vt-out-r{to{opacity:0;transform:translateX(10px)}}
+
+/* Narrow screens and 200% zoom */
+@media (max-width:359px){
+  .choice{grid-template-columns:1fr}
+  .dailyrow,.chips:has(>[data-set]),.chips:has(>[data-daily]){grid-template-columns:repeat(6,1fr)}
+  .hero h1{font-size:36px}
+  .lib{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr}
+  .dash,.stats{grid-template-columns:1fr}
+  .dash .cell,.stat{border-right:0!important}
+  .dash .cell:nth-child(n+2),.stat:nth-child(n+2){border-top:1px solid var(--line)}
+}
+
+/* Tablet: a centred reading column for most screens; Home, Books and the answer spread use the width */
+@media (min-width:760px){
+  .shell{max-width:920px}
+  .top{padding-left:24px;padding-right:24px}
+  main{padding:var(--s2) 24px var(--s7);max-width:680px;margin:0 auto;gap:28px}
+  main:has(.lib),main:has(.covers),main:has(.spread),main:has(.hero){max-width:none}
+  .tabs-in{max-width:600px}
+  .actionbar{max-width:920px;justify-content:center;padding-left:24px;padding-right:24px}
+  .actionbar .btn{flex:0 1 420px}
+  .spread{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;align-items:start}
+  .spread .ref{position:sticky;top:76px}
+  .spread .answers{padding-top:0;border-top:0}
+  .lib{grid-template-columns:repeat(3,1fr);gap:14px}
+  .covers{grid-template-columns:repeat(4,1fr);gap:28px 18px}
+  main:has(.lib){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 20px;align-items:stretch}
+  main:has(.lib) > *{grid-column:1/-1}
+  main:has(.lib) > .stage-block{grid-column:1}
+  main:has(.lib) > .stage-block + section{grid-column:2;justify-content:flex-start}
+  main:has(.lib) > .stage-block + section .dash{flex:1}
+  .hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-content:center;padding:44px 0 0 40px;gap:var(--s4) 20px}
+  .hero > *:not(.marquee){grid-column:1}
+  .hero .marquee{grid-column:2;grid-row:1/span 4;margin:0;padding:24px 0}
+  .hero h1{font-size:52px;max-width:11ch}
+  .hero > .btn{margin-bottom:44px;justify-self:start;white-space:nowrap}
+  .hero p{max-width:36ch}
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr)}
+  .steps3 div{border-top:0;border-left:1px solid var(--line);grid-template-columns:1fr;align-items:start;padding:20px}
+  .steps3 div:first-child{border-left:0}
+  .steps3 .ico{grid-row:auto;margin-bottom:10px}
+  .hero-band{padding:28px 28px 0}
+  .hero-band h1{font-size:38px;max-width:20ch}
+  .sheet{border-radius:var(--r5);bottom:24px;max-width:520px;padding-bottom:24px}
+  #toast{bottom:100px}
+}
+
+@media print{#tabs,#actionbar,.top,.no-print{display:none!important}body{background:#fff;color:#000}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+  .wbcard:hover,.toolbtn:hover,.choice button:hover,.cover:hover img{transform:none}}
+:root[data-motion="reduce"] *,:root[data-motion="reduce"] *::before,:root[data-motion="reduce"] *::after{animation:none!important;transition:none!important}
+:root[data-motion="reduce"]::view-transition-group(*),:root[data-motion="reduce"]::view-transition-old(*),:root[data-motion="reduce"]::view-transition-new(*){animation:none!important}
+:root[data-motion="reduce"] .wbcard:hover,:root[data-motion="reduce"] .toolbtn:hover,:root[data-motion="reduce"] .choice button:hover{transform:none}
+@media (forced-colors:active){.chip[aria-pressed="true"],.seg button[aria-pressed="true"],.steps-size button[aria-pressed="true"]{outline:3px solid CanvasText}.switch{border:2px solid CanvasText}}
+</style>
+<script src="/supabase.js"></script>
+<script src="/locale.js"></script>
+<script src="/webauthn.js" defer></script>
+</head>
+<body>
+__SPRITE__
+<div class="shell">
+  <header class="top" id="top"></header>
+  <main id="app" tabindex="-1"></main>
+</div>
+<div id="actionbar"></div>
+<nav id="tabs" aria-label="Main"></nav>
+<div id="sheet"></div>
+<div id="toast" aria-live="polite"></div>
+<script>
+let D = __DATA__;
+const LIVE = __LIVE__; // workbooks with written content in this build
+const WB_DATA = {[D.id]: D};
+const CAT = __CATALOG__;
+const MARKETS = __MARKETS__;
+const LINE_NAME = "Akana";
+const FIVE_DAY_UNLOCK = false; // test build: weeks open straight away. Turn on for the pilot and launch.
+const pref = (k, d) => { try{ const v = localStorage.getItem("pref:"+k); return v === null ? d : v; }catch(e){ return d; } };
+const setPref = (k, v) => { try{ localStorage.setItem("pref:"+k, String(v)); }catch(e){} };
+const buzz = () => { if(pref("haptics","1") === "1" && navigator.vibrate) try{ navigator.vibrate(12); }catch(e){} };
+
+/* ---------- state ---------- */
+const blank = () => ({view:"welcome", account:{name:"",email:""}, consents:{store:false,emails:false,recs:false,news:false},
+  baseline:{}, retake:{}, retake12:{}, retakeWeek:6, why:"", dailyTime:"08:00", ex:{}, answers:{}, modes:{}, checkin:{}, checkinDone:{},
+  daily:[], tool:{}, week:1, paid:false, ms:[], sc:0, dailyDraft:{score:null,tags:[]}, retaking:false, access:"full", filter:"all",
+  prefs:{}, status:null, format:"kindle", enrolments:[]});
+let S = blank();
+function save(){} // Progress lives on the server. Nothing personal is kept in browser storage.
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let EX = {}, TK = {};
+function setData(d){ D = d; WB_DATA[d.id] = d; EX = Object.fromEntries(D.exercises.map(e => [e.id, e])); TK = Object.fromEntries(D.toolkit.map(t => [t.id, t])); defineScViews(); }
+async function loadData(id){
+  if(WB_DATA[id]) return WB_DATA[id];
+  const r = await fetch(`/workbooks/${id}.json`); if(!r.ok) throw new Error("This workbook couldn't load. Check your connection.");
+  return WB_DATA[id] = await r.json();
+}
+const STAGE_NAME = {map:"Explore", build:"Build", use:"Practice", keep:"Keep"};
+
+/* ---------- icons (Phosphor, MIT) and the stepped mark ---------- */
+const I = (n, cls="") => `<svg class="ico ${cls}" aria-hidden="true"><use href="#${/^[ifd]-/.test(n) ? n : "i-"+n}"/></svg>`;
+const MARK = (c="var(--brand)", s=26, anim=false) => `<svg class="${anim?"rise":""}" width="${s}" height="${s}" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="17" width="8" height="10" rx="2.4" fill="${c}" opacity=".55"/><rect x="10" y="10" width="8" height="17" rx="2.4" fill="${c}" opacity=".78"/><rect x="19" y="2" width="8" height="25" rx="2.4" fill="${c}"/></svg>`;
+const FIG_ICON = {fig_writing:"pencil-simple-line", fig_clock_check:"clock", fig_calendar:"calendar-blank", fig_thinking:"lightbulb", fig_phone_quick:"device-mobile",
+  fig_reading:"book-open-text", fig_two_people:"handshake", fig_desk_ready:"desk", fig_walking:"path", fig_phone_down:"device-mobile-slash", fig_door:"door",
+  fig_hand_raised:"hand-palm", fig_clear_desk:"broom", fig_three_cards:"cards", fig_circling:"target", fig_rating:"chart-bar", fig_moon:"moon-stars",
+  fig_looking_at_map:"map-trifold", fig_board:"kanban", fig_folders:"folders", fig_feet_grounded:"anchor"};
+const TOOL_WORDS = [[/breath|sigh|inhale/i,"wind"],[/walk|move/i,"path"],[/\bno\b|limit|boundar|brake/i,"hand-palm"],[/sleep|night|wind-down/i,"moon-stars"],[/worry time|timer|minute|24-hour/i,"timer"],
+  [/thought|record|write|draft|journal|note/i,"pencil-simple-line"],[/plan|list|check/i,"list-checks"],[/body|muscle|ground|feet/i,"anchor"],[/kind|warm|repair|compassion/i,"hand-heart"],[/restart|drift|reset/i,"arrow-counter-clockwise"],[/good enough|capacity|energy/i,"chart-bar"]];
+const toolIcon = t => (D.id === "focus" && TOOL_ICON[t.id]) || (TOOL_WORDS.find(([re]) => re.test(t.title)) || [])[1] || FIG_ICON[t.figure] || "lightbulb";
+const wbIcon = (id = WB) => WB_ICON[id] || "book-open";
+const TOOL_ICON = {t01:"wind", t02:"hand-palm", t03:"lightbulb", t04:"timer", t05:"hourglass-medium", t06:"envelope-simple", t07:"notepad", t08:"broom", t09:"hand-heart", t10:"arrow-counter-clockwise"};
+const WB_ICON = {worry:"wind", panic:"anchor", social:"handshake", doubt:"question", lowmood:"sun-horizon", movement:"path", food:"plant", steady:"target", stress:"clock",
+  burnout:"arrow-counter-clockwise", overwhelm:"notepad", focus:"timer", aftertrauma:"shield-check", childhood:"door", grief:"hand-heart", drinking:"map-trifold",
+  selfworth:"sparkle", connection:"user", sleep:"moon-stars", mindfulness:"lightbulb"};
+const tileFor = (fig, cls="") => `<span class="tile ${cls}">${I("d-" + (FIG_ICON[fig] || "book-open"))}</span>`;
+function art(stage){
+  const h = {map:[18,30,22], build:[14,26,40], use:[24,40,30], keep:[30,30,30]}[stage] || [20,30,40], x = [20,52,84];
+  return `<svg class="art" viewBox="0 0 132 110" aria-hidden="true">${h.map((v,i)=>`<rect x="${x[i]}" y="${96-v*2}" width="26" height="${v*2}" rx="7" fill="var(--si)" opacity="${.25+i*.18}"/>`).join("")}<rect x="${x[2]}" y="${96-h[2]*2-14}" width="26" height="8" rx="4" fill="var(--marigold)"/></svg>`;
+}
+const coverSrc = id => `/covers/${id}-400.webp`;
+function lanes(n = 2){
+  const ids = CAT.books.map(b => b.id), a = ids.slice(0, 10), b = ids.slice(10);
+  const lane = (l, rev) => `<div class="lane ${rev?"rev":""}">${[...l, ...l].map(id => `<img src="${coverSrc(id)}" alt="" loading="lazy" decoding="async">`).join("")}</div>`;
+  return `<div class="marquee" aria-hidden="true">${lane(a)}${n > 1 ? lane(b, true) : ""}</div>`;
+}
+const hideCovers = () => !!S.prefs.hide_covers;
+const market = () => (window.AkanaLocale && AkanaLocale.current() && AkanaLocale.current().market) || null;
+const marketCode = () => { const c = window.AkanaLocale && AkanaLocale.current(); return c && c.market ? c.market.code : "XX"; };
+
+/* ---------- helpers ---------- */
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.innerHTML = `<div class="toast" role="status">${esc(msg)}</div>`;
+  clearTimeout(toast._t); toast._t = setTimeout(() => t.innerHTML = "", 3800);
+}
+function milestone(trigger, vars={}){
+  const m = D.milestones.find(x => x.trigger === trigger);
+  if(!m || S.ms.includes(m.id)) return;
+  S.ms.push(m.id); Sync.milestone(m.id);
+  const text = m.message.replace(/\{(\w+)\}/g, (_,k) => vars[k] ?? "");
+  const [head, ...rest] = text.split(/(?<=\.)\s+/);
+  sheet(`<span class="bloom">${I("check","s32")}</span><h2>${esc(head)}</h2>${rest.length?`<p class="muted">${esc(rest.join(" "))}</p>`:""}<button class="btn" data-action="close-sheet">Keep going</button>`, "Milestone");
+  buzz();
+}
+function sheet(html, label="Dialog"){
+  const el = document.getElementById("sheet");
+  el.innerHTML = `<div class="scrim" data-action="close-sheet"></div><div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(label)}"><div class="grab"></div>${html}</div>`;
+  setTimeout(() => el.querySelector(".sheet .btn, .sheet input")?.focus(), 50);
+}
+function closeSheet(){ document.getElementById("sheet").innerHTML = ""; }
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeSheet(); });
+const scStore = () => S.retaking ? (S.retakeWeek === 12 ? S.retake12 : S.retake) : S.baseline;
+const scTaken = w => Object.keys(w === 12 ? S.retake12 : w === 6 ? S.retake : S.baseline).length === D.selfcheck.items.length && (w === 0 || S["scSaved" + w]);
+const areaScore = (answers, area) => {
+  const items = D.selfcheck.items.filter(i => i.area === area);
+  const vals = items.map(i => answers[i.id]).filter(v => v !== undefined && v !== null);
+  return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+};
+const exDoneCount = () => Object.keys(S.ex).filter(k => !isRepeat(k)).length;
+const baseId = id => String(id).split("~")[0];
+const isRepeat = id => String(id).includes("~");
+const repeatWeek = id => (EX[baseId(id)]?.repeat_weeks || [])[0];
+const weekOf = id => isRepeat(id) ? repeatWeek(id) : D.weeks.find(w => w.exercise_ids.includes(id))?.number;
+const readOnly = () => S.access === "read_only" || !!(S.status && S.status.deletion);
+const TAB_OF = {home:"home", today:"today", path:"today", progress:"today", plan:"today", toolkit:"toolkit", books:"books", you:"you"};
+function go(view, nav){
+  nav = nav || (TAB_OF[view] ? "tab" : "fwd");
+  const swap = () => { S.view = view; render(); window.scrollTo(0, 0); };
+  if(document.startViewTransition && pref("motion","phone") !== "reduce" && !matchMedia("(prefers-reduced-motion: reduce)").matches && S.view !== view){
+    document.documentElement.dataset.nav = nav; document.startViewTransition(swap);
+  } else swap();
+}
+const longDate = d => new Date(d).toLocaleDateString(undefined, {month:"long", day:"numeric", year:"numeric"});
+
+/* ---------- field rendering ---------- */
+function fieldHTML(exId, f){
+  const key = exId + "." + f.id, v = S.answers[key];
+  const lbl = `<label class="q" for="${esc(key)}">${esc(f.label)}${f.optional?' <span class="muted small">(optional)</span>':''}</label>${f.help?`<p class="muted small" style="margin:-2px 0 8px">${esc(f.help)}</p>`:''}`;
+  switch(f.type){
+    case "short_text": return `<div>${lbl}<input type="text" id="${esc(key)}" data-k="${esc(key)}" value="${esc(v||"")}"></div>`;
+    case "time_of_day": return `<div>${lbl}<input type="time" id="${esc(key)}" data-k="${esc(key)}" value="${esc(v||"")}" style="max-width:200px"></div>`;
+    case "long_text": return `<div>${lbl}<textarea id="${esc(key)}" data-k="${esc(key)}">${esc(v||"")}</textarea></div>`;
+    case "ranked_list": {
+      const arr = v || []; let h = `<div><span class="q">${esc(f.label)}</span>${f.help?`<p class="muted small" style="margin:-2px 0 8px">${esc(f.help)}</p>`:''}<div style="display:flex;flex-direction:column;gap:8px">`;
+      for(let i=0;i<(f.max_items||3);i++) h += `<input type="text" aria-label="${esc(f.label)} ${i+1}" id="${esc(key)}.${i}" data-k="${esc(key)}" data-i="${i}" value="${esc(arr[i]||"")}" placeholder="${i+1}.">`;
+      return h + `</div></div>`; }
+    case "two_column": {
+      const arr = v || [["",""],["",""]]; let h = `<div><span class="q">${esc(f.label)}</span>${f.help?`<p class="muted small" style="margin:-2px 0 8px">${esc(f.help)}</p>`:''}<div class="two small muted"><span>${esc(f.columns[0])}</span><span>${esc(f.columns[1])}</span></div>`;
+      arr.forEach((r,i) => h += `<div class="two" style="margin-top:8px"><input type="text" aria-label="${esc(f.columns[0])} ${i+1}" id="${esc(key)}.${i}.0" data-k="${esc(key)}" data-i="${i}" data-j="0" value="${esc(r[0])}"><input type="text" aria-label="${esc(f.columns[1])} ${i+1}" id="${esc(key)}.${i}.1" data-k="${esc(key)}" data-i="${i}" data-j="1" value="${esc(r[1])}"></div>`);
+      return h + `</div>`; }
+    case "rating_grid": {
+      const m = v || {}; let h = `<div><span class="q">${esc(f.label)}</span><p class="muted small" style="margin-bottom:6px">1 is often hard. 5 is usually fine.</p><div class="grid-rate">`;
+      f.rows.forEach((r,ri) => { h += `<span>${esc(r)}</span><div class="chips" role="group" aria-label="${esc(r)}">`;
+        for(let n=1;n<=5;n++) h += `<button type="button" class="chip" data-grid="${esc(key)}" data-row="${ri}" data-n="${n}" aria-pressed="${m[ri]===n}">${n}</button>`;
+        h += `</div>`; });
+      return h + `</div></div>`; }
+    case "weekly_grid": {
+      if(f.rows){
+        const m = v || {}; const day = S["day_"+key] ?? 0; const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+        let h = `<div><span class="q">${esc(f.label)}</span><div class="chips scroll" role="group" aria-label="Day" style="margin-bottom:12px">`;
+        days.forEach((d,i) => h += `<button type="button" class="chip" data-day="${esc(key)}" data-i="${i}" aria-pressed="${i===day}">${d}</button>`);
+        h += `</div><div class="grid-rate">`;
+        f.rows.forEach((r,ri) => { const cell = (m[day]||{})[ri]; h += `<span class="small">${esc(r)}</span><div class="chips">`;
+          for(let n=1;n<=5;n++) h += `<button type="button" class="chip" data-wg="${esc(key)}" data-day2="${day}" data-row="${ri}" data-n="${n}" aria-pressed="${cell===n}">${n}</button>`;
+          h += `</div>`; });
+        return h + `</div></div>`; }
+      const arr = v || []; const days=["M","T","W","T","F","S","S"];
+      let h = `<div><span class="q">${esc(f.label)}</span><div class="chips" role="group" aria-label="${esc(f.label)}">`;
+      days.forEach((d,i) => h += `<button type="button" class="chip" data-tog="${esc(key)}" data-i="${i}" aria-pressed="${!!arr[i]}" aria-label="Day ${i+1}">${d}</button>`);
+      return h + `</div></div>`; }
+    case "yes_no": {
+      return `<div><span class="q">${esc(f.label)}${f.optional?' <span class="muted small">(optional)</span>':''}</span>${f.help?`<p class="muted small" style="margin:-2px 0 8px">${esc(f.help)}</p>`:''}<div class="chips" role="group" aria-label="${esc(f.label)}">${[["yes","Yes"],["no","Not yet"]].map(([val,l]) => `<button type="button" class="chip" data-yn="${esc(key)}" data-v="${val}" aria-pressed="${v===val}">${l}</button>`).join("")}</div></div>`; }
+    case "scale_0_10": {
+      let h = `<div><span class="q">${esc(f.label)}</span><div class="chips" role="group" aria-label="${esc(f.label)}">`;
+      for(let n=0;n<=10;n++) h += `<button type="button" class="chip" data-set="${esc(key)}" data-n="${n}" aria-pressed="${v===n}">${n}</button>`;
+      return h + `</div></div>`; }
+    case "checklist": {
+      const opts = (f.options && f.options[0] !== "From your Toolkit") ? f.options : D.toolkit.map(t => t.title), arr = v || [];
+      let h = `<div><span class="q">${esc(f.label)}</span><div style="display:flex;flex-direction:column;gap:8px">`;
+      opts.forEach((o,i) => h += `<label class="check"><input type="checkbox" data-cl="${esc(key)}" data-i="${i}" ${arr[i]?"checked":""}><span>${esc(o)}</span></label>`);
+      return h + `</div></div>`; }
+  }
+  return "";
+}
+function filled(exId, f){
+  const v = S.answers[exId+"."+f.id];
+  if(f.optional) return true;
+  if(f.type === "rating_grid") return !!v && Object.keys(v).length === f.rows.length;
+  if(v === undefined || v === null) return false;
+  if(typeof v === "string") return v.trim().length > 0;
+  if(Array.isArray(v)) return v.some(x => Array.isArray(x) ? x.some(y => String(y).trim()) : x && String(x).trim());
+  if(typeof v === "object") return Object.keys(v).length > 0;
+  return true;
+}
+
+/* ---------- views: welcome and sign-up (generic, never names a topic) ---------- */
+const V = {};
+V["welcome"] = () => ({title:"", body:`
+  <section class="hero">
+    ${MARK("var(--marigold)", 44, true)}
+    <h1>Read the book.<br><span>Do the work.</span></h1>
+    <p>Akana turns books into short guided workbooks for your phone. A few minutes a day, one small step at a time.</p>
+    <button class="btn" data-go="onb-account">Start a free week</button>
+    ${lanes(2)}
+  </section>
+  <section class="steps3" aria-label="How it works">
+    <div>${I("d-book-open")}<b>Pick a book</b><span>Start with one you've read, or one you want to.</span></div>
+    <div>${I("d-calendar-blank")}<b>Ten minutes</b><span>One step a day. Short versions for busy days.</span></div>
+    <div>${I("d-sparkle")}<b>Keep it</b><span>Build a plan in your own words.</span></div>
+  </section>
+  <section style="display:flex;flex-direction:column;gap:10px">
+    <h2>On the shelf</h2>
+    <div class="genres">${[["Mental health",0],["Business",1],["Parenting",1],["Health and fitness",1],["Money",1],["Relationships",1]].map(([g,soon])=>`<span class="genre ${soon?"soon":""}">${I(soon?"hourglass":"check","s16")}${g}${soon?" (soon)":""}</span>`).join("")}</div>
+    <p class="soft small">The first 20 workbooks come from the Plain Words books by Maya Vaughn. More genres follow.</p>
+  </section>
+  <button class="btn ghost" data-action="to-signin">I already have an account</button>`});
+V["onb-account"] = () => { const signin = S.authMode === "signin"; return {title:"", back:"welcome", body:`
+  <div><h1>${signin ? "Welcome back" : "Make your account"}</h1><p class="soft">${signin ? "Sign in to pick up where you left off." : "Free to start. No card needed for your first week."}</p></div>
+  <div class="card">
+    ${signin ? "" : `<div><label class="q" for="acc-name">First name</label><input type="text" id="acc-name" data-acc="name" value="${esc(S.account.name)}" autocomplete="given-name"></div>`}
+    <div><label class="q" for="acc-email">Email</label><input type="email" id="acc-email" data-acc="email" value="${esc(S.account.email)}" autocomplete="email"></div>
+    <div><label class="q" for="acc-pw">Password</label><input type="password" id="acc-pw" data-acc="pw" value="${esc(S.account.pw||"")}" autocomplete="${signin?"current-password":"new-password"}" minlength="8">${signin?"":`<span class="small muted">At least 8 characters.</span>`}</div>
+    ${S.authError ? `<div class="note" role="alert">${esc(S.authError)}</div>` : ""}
+    <button class="btn" data-action="${signin?"signin":"signup"}">${signin?"Sign in":"Create account"}</button>
+    <button class="btn quiet" data-action="magic">Email me a sign-in link instead</button>
+  </div>
+  <button class="link" data-action="auth-mode">${signin?"New here? Make an account":"Already have an account? Sign in"}</button>
+  <p class="small muted">Test version. Payments are in test mode and no real card is charged.</p>`}; };
+V["onb-check"] = () => ({title:"", back:"onb-account", body:`
+  <span class="bloom calm">${I("envelope-simple","s32")}</span><h1 style="text-align:center">Check your email</h1>
+  <p style="text-align:center">We sent a link to <b>${esc(S.account.email)}</b>. Open it on this device to carry on.</p>
+  <p class="small muted" style="text-align:center">No email after a few minutes? Check your spam folder, then try again.</p>`});
+V["loading"] = () => ({title:"", body:`<p class="muted small" role="status">${esc(S.loadingText||"Loading")}</p>
+  <div class="sk" style="height:150px;border-radius:24px"></div><div class="sk" style="height:180px;border-radius:24px"></div><div class="sk" style="height:90px"></div>`});
+V["onb-consent"] = () => ({title:"", body:`
+  <h1>Before you start</h1>
+  <p>Your progress, answers and check-ins are stored in your account, so you can pick up on any device. This is personal information, so we need your clear permission to keep it. It is never sold and never shared with advertisers.</p>
+  <label class="check"><input type="checkbox" data-consent="store" ${S.consents.store?"checked":""}><span><b>Yes, store my workbook information.</b><br><span class="small muted">Required to use Akana.</span></span></label>
+  <label class="check"><input type="checkbox" data-consent="emails" ${S.consents.emails?"checked":""}><span>Send me progress emails, and a reminder if I have been away. <span class="small muted">(Optional)</span></span></label>
+  <label class="check"><input type="checkbox" data-consent="news" ${S.consents.news?"checked":""}><span>Send me news about new workbooks. <span class="small muted">(Optional)</span></span></label>
+  <label class="check"><input type="checkbox" data-consent="recs" ${S.consents.recs?"checked":""}><span>Suggest other workbooks based on the ones I use. <span class="small muted">(Optional)</span></span></label>
+  <p class="small muted">You can change any of these in You, then Emails, at any time.</p>`,
+  action:`<button class="btn" data-action="save-consent" ${S.consents.store?"":"disabled"}>Continue</button>`});
+V["start-welcome"] = () => ({title:"", body:`
+  <section class="stage-block" data-stage="map">${art("map")}
+    <span class="tag">${I("d-"+wbIcon(),"s20")}${esc(D.topic_name)}</span>
+    <div class="text"><h1>Welcome${S.account.name?", "+esc(S.account.name):""}</h1></div>
+  </section>
+  <p>${esc(D.start.welcome)}</p>
+  <div class="card"><span class="eyebrow">How it works</span><ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px">${D.start.how_it_works.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`,
+  action:`${S.enrolments.length ? `<button class="btn quiet" data-action="cancel-start">Not now</button>` : ""}<button class="btn" data-go="start-safety">Next</button>`});
+V["start-safety"] = () => ({title:"", back:"start-welcome", body:`
+  <div class="row"><span class="tile" style="background:var(--rose-soft);color:var(--rose)">${I("d-shield-check")}</span><h1 style="font-size:28px;flex:1">Before you begin</h1></div>
+  <p>This is a self-guided workbook for everyday life. It is not a medical service, and it does not diagnose or treat any condition. If you already work with a doctor or therapist, this can sit alongside that.</p>
+  ${D.start.higher_tier_note ? `<div class="banner"><span>${I("d-hand-heart")}</span><p>${esc(D.start.higher_tier_note)}</p></div>` : ""}
+  ${D.start.extra_safety_note ? `<div class="card flat"><p>${esc(D.start.extra_safety_note)}</p></div>` : ""}
+  <div class="note">If you ever feel unsafe or in crisis, tap <b>Help now</b> at the top of any screen. It shows who to contact where you live.</div>`,
+  action:`<button class="btn" data-go="start-sc-0">Continue</button>`});
+function defineScViews(){
+  Object.keys(V).filter(k => k.startsWith("start-sc-")).forEach(k => delete V[k]);
+D.selfcheck.areas.forEach((a,ai) => {
+  V["start-sc-"+ai] = () => {
+    const store = scStore();
+    const items = D.selfcheck.items.filter(i => i.area === a.id);
+    const done = items.every(i => store[i.id] !== undefined);
+    const last = ai === D.selfcheck.areas.length - 1;
+    return {title: "", back: ai ? "start-sc-"+(ai-1) : (S.retaking ? "today" : "start-safety"), body:`
+      <span class="eyebrow">${S.retaking ? `Week ${S.retakeWeek} self-check` : "Your starting self-check"}: part ${ai+1} of ${D.selfcheck.areas.length}</span>
+      <div class="progressbar" aria-hidden="true"><span style="width:${(ai+1)/D.selfcheck.areas.length*100}%"></span></div>
+      <h1 style="font-size:28px">${esc(a.label)}</h1>
+      ${ai===0?`<p>${esc(D.selfcheck.intro)}</p>`:""}
+      ${items.map(i => `<div class="card"><p><b>${esc(i.text)}</b></p><div class="chips" role="group" aria-label="${esc(i.text)}">${D.selfcheck.scale_labels.map((l,n)=>`<button type="button" class="chip" data-sc="${i.id}" data-n="${n}" aria-pressed="${store[i.id]===n}">${esc(l)}</button>`).join("")}</div></div>`).join("")}
+      ${last?`<p class="small muted">${esc(D.selfcheck.result_note)}</p>`:""}`,
+      action:`<button class="btn" data-go="${last ? (S.retaking ? "sc-finish" : "start-why") : "start-sc-"+(ai+1)}" ${done?"":"disabled"}>${last?"Finish":"Next"}</button>`};
+  };
+});
+}
+setData(D);
+V["start-why"] = () => ({title:"", back:"start-sc-"+(D.selfcheck.areas.length-1), body:`
+  <h1>Your why</h1>
+  <div><label class="q" for="why">${esc(D.start.why_prompt)}</label><input type="text" id="why" data-why value="${esc(S.why)}" placeholder="For example: evenings that feel like mine again"></div>
+  <p class="small muted">This goes at the top of your plan.</p>`,
+  action:`<button class="btn" data-go="start-time" ${S.why.trim()?"":"disabled"}>Next</button>`});
+V["start-time"] = () => ({title:"", back:"start-why", body:`
+  <h1>A daily check, about a minute</h1>
+  <p>Once a day, rate how the day went and tap what helped. It's optional, and a missed day leaves no mark. One check covers all your workbooks.</p>
+  <div><label class="q" for="dtime">When would suit you?</label><input type="time" id="dtime" data-dtime value="${esc(S.dailyTime)}" style="max-width:200px"></div>
+  <p class="small muted">You can add it to your phone's calendar from You, then Reminders.</p>`,
+  action:`<button class="btn" data-go="start-tool">Next</button>`});
+V["start-tool"] = () => ({title:"", back:"start-time", body:`<span class="eyebrow">Your first tool, for tonight</span>${toolBody(D.toolkit[0].id, true)}`,
+  action:`<button class="btn" data-action="finish-start">Start week 1</button>`});
+
+/* ---------- tools, with a breathing pacer where the steps breathe ---------- */
+const breathes = t => t.steps.some(s => /\binhale\b/i.test(s));
+function toolBody(id, intro){
+  const t = TK[id]; S._paceTool = id;
+  const pacer = breathes(t) ? `<div class="pacer" aria-live="polite">
+      <div class="orb"><div class="ring" id="ring"></div><div class="core" id="core"></div><span class="word" id="pword">Ready</span><span class="count num" id="pcount">Three slow breaths</span></div>
+      <div class="row" style="justify-content:center"><button class="btn stage" data-action="pacer-start">${I("play","s20")}Start</button><button class="btn ghost" data-action="pacer-stop" style="border-color:var(--si);color:var(--si)">${I("stop","s20")}Stop</button></div>
+      ${paceOf(id).holds ? `<label class="row small" style="gap:10px;justify-content:center"><input type="checkbox" class="switch" data-localpref="hold" ${pref("hold","0")==="1"?"checked":""}>Include the hold</label>` : ""}
+    </div>` : "";
+  return `<div class="row" style="flex-wrap:nowrap"><span class="tile">${I("d-"+toolIcon(TK[id]))}</span><div style="min-width:0"><span class="eyebrow">Tool, about ${t.minutes} minute${t.minutes>1?"s":""}</span><h1 style="font-size:28px">${esc(t.title)}</h1></div></div>
+  <p><b>When to use it:</b> ${esc(t.when_to_use)}</p>
+  ${pacer}
+  <ol class="steps">${t.steps.map(s=>`<li><p>${esc(s)}</p></li>`).join("")}</ol>
+  ${intro?`<p class="small muted">It stays in your Toolkit, ready anytime.</p>`:""}`;
+}
+let pacerT = null;
+const NUMW = {one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8};
+function paceOf(id){
+  const t = TK[id]; const text = t ? t.steps.join(" ").toLowerCase() : "";
+  const n = re => { const m = text.match(re); if(!m) return null; const v = NUMW[m[1]] || +m[1]; return v > 0 && v < 11 ? v : null; };
+  return {inn: n(/inhale[^.]*?(?:count(?:ing)? to|for(?: a count of)?)\s+(\w+)/) || 4,
+          out: n(/exhale[^.]*?(?:count(?:ing)? to|for(?: a count of)?)\s+(\w+)/) || 6,
+          hold: n(/hold[^.]*?(?:count(?:ing)? to|for(?: a count of)?)\s+(\w+)/) || 4,
+          holds: (text.match(/\bhold\b/g) || []).length};
+}
+function stopPacer(){ clearTimeout(pacerT); pacerT = null; }
+function runPacer(){
+  stopPacer(); const p = paceOf(S._paceTool), hold = pref("hold","0") === "1";
+  const seq = [["Inhale",p.inn,1]]; if(hold && p.holds) seq.push(["Hold",p.hold,1]); seq.push(["Exhale",p.out,.55]); if(hold && p.holds > 1) seq.push(["Hold",p.hold,.55]);
+  let round = 1, i = 0;
+  const step = () => {
+    if(i >= seq.length){ i = 0; round++; }
+    const w = document.getElementById("pword"), c = document.getElementById("pcount"), ring = document.getElementById("ring"), core = document.getElementById("core");
+    if(!w) return stopPacer();
+    if(round > 3){ w.textContent = "Well done"; c.textContent = "Now name the feeling"; ring.style.transform = core.style.transform = ""; return stopPacer(); }
+    const [word, sec, sc] = seq[i];
+    ring.style.transitionDuration = core.style.transitionDuration = sec + "s";
+    ring.style.transform = `scale(${sc})`; core.style.transform = `scale(${sc === 1 ? 1 : .6})`;
+    w.textContent = word; c.textContent = `Round ${round} of 3, count to ${sec}`;
+    i++; pacerT = setTimeout(step, sec * 1000);
+  };
+  step();
+}
+
+/* ---------- home: hero band, dashboard and the library ---------- */
+const stageOf = week => D.stages.find(st => st.weeks.includes(week)) || D.stages[0];
+function weekState(){
+  const wk = D.weeks.find(w => w.number === S.week);
+  const items = [...wk.exercise_ids, ...(wk.repeat_ids||[]).map(r => r+"~r")];
+  return {wk, items, nextId: items.find(id => !S.ex[id])};
+}
+function planLines(){
+  const lines = {p1: S.why ? [S.why] : []};
+  D.exercises.forEach(e => (e.feeds_plan||[]).forEach(fp => {
+    const done = S.ex[e.id+"~r"] ? e.id+"~r" : (S.ex[e.id] ? e.id : null); if(!done) return;
+    const txt = showVal(S.answers[done+"."+fp.field_id]) || showVal(S.answers[e.id+"."+fp.field_id]);
+    if(txt) (lines[fp.plan_section] ||= []).push(txt);
+  }));
+  return lines;
+}
+const night = () => { const h = new Date().getHours(); return h >= 21 || h < 5; };
+V["home"] = () => {
+  const st = stageOf(S.week), {nextId} = weekState(), nextTitle = nextId ? (EX[baseId(nextId)]?.title || D.exercise_titles[baseId(nextId)]) : "Weekly check-in";
+  const hello = night() ? "Good evening" : new Date().getHours() < 12 ? "Good morning" : "Good afternoon";
+  const toolTop = Object.entries(S.tool).sort((a,b)=>b[1]-a[1])[0];
+  const lines = planLines(), built = D.plan_sections.filter(p => (lines[p.id]||[]).length).length;
+  const mine = id => S.enrolments.some(e => e.workbook_id === id), isLive = id => LIVE.some(l => l.id === id);
+  const counts = {all: CAT.workbooks.length, mine: S.enrolments.length}; CAT.topic_sets.forEach(s => counts[s.id] = CAT.workbooks.filter(w => w.topic_set === s.id).length);
+  const rank = w => mine(w.id) ? 0 : isLive(w.id) ? 1 : 2;
+  const list = CAT.workbooks.filter(w => S.filter === "all" || (S.filter === "mine" ? mine(w.id) : w.topic_set === S.filter))
+    .sort((a,b) => rank(a) - rank(b) || a.name.localeCompare(b.name));
+  const other = S.enrolments.find(e => e.workbook_id !== WB && e.status !== "finished");
+  const bookTitle = id => CAT.books.find(b => b.id === id)?.title || "";
+  return {title:"", tabs:"home", body:`
+  <section class="hero-band">
+    <p style="opacity:.85">${hello}${S.account.name ? ", " + esc(S.account.name) : ""}.</p>
+    <h1>${night() ? "Nothing is required tonight." : "One small step today."}</h1>
+    ${hideCovers() ? `<div style="height:18px"></div>` : lanes(1)}
+  </section>
+  ${readOnlyBanner()}
+  <section class="stage-block" data-stage="${st.id}" aria-label="Continue ${esc(D.topic_name)}">
+    ${art(st.id)}
+    <span class="tag">${I("d-"+wbIcon(),"s20")}${esc(D.topic_name)}, the ${STAGE_NAME[st.id]} stage</span>
+    <div class="text"><h2>Week ${S.week} of 12</h2><p style="margin-top:4px">Next: ${esc(nextTitle)}.</p></div>
+    <div class="row"><button class="btn stage" data-go="today">Continue</button></div>
+  </section>
+  ${other ? (() => { const w = CAT.workbooks.find(x => x.id === other.workbook_id) || {name: other.workbook_id, hue: 200}; return `<button class="card wb" style="--h:${w.hue};flex-direction:row;align-items:center;text-align:left" data-wb="${other.workbook_id}"><span class="tile sm" style="background:var(--tile);color:var(--tink)">${I("d-"+wbIcon(other.workbook_id))}</span><span style="flex:1"><b>${esc(w.name)}</b><br><span class="small muted">Also in progress, week ${other.current_week || 1}</span></span>${I("caret-right","chev s20")}</button>`; })() : ""}
+  <section aria-label="So far" style="display:flex;flex-direction:column;gap:10px">
+    <h3>So far</h3>
+    <div class="dash">
+      <div class="cell"><span class="tile sm" style="background:var(--map-t);color:var(--map-i)">${I("d-wind")}</span><span class="small muted">Tool you reach for most</span><b>${toolTop ? esc(TK[toolTop[0]]?.title || "") : "Not yet"}</b></div>
+      <div class="cell"><span class="tile sm" style="background:var(--keep-t);color:var(--keep-i)">${I("d-file-text")}</span><span class="small muted">Your plan</span><b>${built} of ${D.plan_sections.length} parts</b></div>
+      <div class="cell"><span class="tile sm" style="background:var(--build-t);color:var(--build-i)">${I("d-list-checks")}</span><span class="small muted">Exercises done</span><b class="num">${exDoneCount()}</b></div>
+      <div class="cell"><span class="tile sm" style="background:var(--use-t);color:var(--use-i)">${I("d-handshake")}</span><span class="small muted">Support partner</span><b>${S.partner && ["accepted","invited","paused"].includes(S.partner.status) ? esc(S.partner.partner_name) + ({invited:", invited",paused:", paused"}[S.partner.status]||"") : "Not added"}</b></div>
+    </div>
+  </section>
+  <section style="display:flex;flex-direction:column;gap:12px" aria-label="Library">
+    <div class="section-h"><h2>Library</h2><span class="soft small num">${list.length} workbooks</span></div>
+    <div class="chips scroll" role="group" aria-label="Filter workbooks">
+      ${[["all","All"],["mine","Mine"],...CAT.topic_sets.map(s=>[s.id,s.name])].map(([id,l])=>`<button class="chip" data-filter="${id}" aria-pressed="${S.filter===id}">${id==="all"?I("funnel-simple","s16"):""}${esc(l)}<span class="n num">${counts[id]}</span></button>`).join("")}
+    </div>
+    <div class="lib">${list.map(w => { const enr = S.enrolments.find(e => e.workbook_id === w.id), live = isLive(w.id);
+      const state = enr ? `Continue week ${w.id === WB ? S.week : enr.current_week || 1}${I("caret-right","s16")}` : live ? `Start your free week${I("caret-right","s16")}` : `${I("hourglass","s16")}Coming soon`;
+      return `<button class="wbcard wb ${live?"":"soon"}" style="--h:${w.hue}" data-wb="${w.id}">
+      <span class="tile">${I("d-"+wbIcon(w.id))}</span><h3>${esc(w.name)}</h3><span class="from">From the book ${esc(bookTitle(w.book_id))}</span>
+      <span class="state">${state}</span></button>`; }).join("")}</div>
+    <p class="note">You can run two workbooks, or two free weeks, at the same time. Coming soon shows during the pilot only.</p>
+  </section>`};
+};
+function readOnlyBanner(){
+  if(S.status && S.status.deletion) return `<div class="banner">${I("warning-circle")}<div><b>Your account will be deleted on ${esc(S.status.deletion.scheduled_for_words || longDate(S.status.deletion.scheduled_for))}.</b><p class="small">Until then you can read everything, but not change it.</p><button class="btn small" data-action="undo-delete" style="margin-top:10px">Undo deletion</button></div></div>`;
+  if(S.access === "read_only") return `<div class="banner">${I("eye")}<div><b>Read-only for now.</b><p class="small">You can read every answer. To keep working, choose how to continue.</p><button class="btn small" data-go="offers" style="margin-top:10px">See the options</button></div></div>`;
+  return "";
+}
+
+/* ---------- today, with path, progress and plan as one switch ---------- */
+function todayHead(active){
+  const st = stageOf(S.week);
+  return `<div class="switcher"><span class="tile sm" data-stage="${st.id}">${I("d-"+wbIcon())}</span><div style="flex:1;min-width:0"><h1>${esc(D.topic_name)}</h1><p class="soft small">Week ${S.week} of 12, the ${STAGE_NAME[st.id]} stage</p></div>${S.enrolments.filter(e => e.status !== "finished").length > 1 ? `<button class="btn quiet small" data-action="switch-wb">Switch</button>` : ""}</div>
+  <div class="seg" role="group" aria-label="${esc(D.topic_name)} views">${[["today","Today"],["path","Path"],["progress","Progress"],["plan","My plan"]].map(([id,l])=>`<button data-go="${id}" aria-pressed="${active===id}">${l}</button>`).join("")}</div>`;
+}
+V["today"] = () => {
+  const {wk, items, nextId} = weekState();
+  const stage = stageOf(S.week);
+  const checkinDue = !S.checkinDone[S.week];
+  let next = "";
+  if(nextId && isRepeat(nextId) && EX[baseId(nextId)]){ const e = EX[baseId(nextId)];
+    next = `<section class="stage-block" data-stage="${stage.id}">${art(stage.id)}<span class="tag">${I("arrow-clockwise","s20")}Comes back this week</span>
+      <div class="text"><h2>${esc(e.title)}</h2><p style="margin-top:6px">A short repeat, side by side with week ${weekOf(e.id)}.</p></div>
+      <div class="choice"><button class="primary" data-open="${nextId}" data-mode="short">Short version<span>About ${e.short_version.minutes} minutes</span></button><button data-open="${nextId}" data-mode="full">Full version<span>About ${e.minutes} minutes</span></button></div></section>`; }
+  else if(nextId && EX[nextId]){ const e = EX[nextId];
+    next = `<section class="stage-block" data-stage="${stage.id}">${art(stage.id)}<span class="tag">${I("calendar-blank","s20")}Today's step</span>
+      <div class="text"><h2>${esc(e.title)}</h2><p style="margin-top:6px">${esc(e.purpose)}</p></div>
+      <div class="choice"><button class="primary" data-open="${e.id}" data-mode="full">Full version<span>About ${e.minutes} minutes</span></button><button data-open="${e.id}" data-mode="short">Short version<span>About ${e.short_version.minutes} minutes</span></button></div>
+      <button class="link" data-action="not-today" style="color:var(--si)">Not today</button></section>`; }
+  else if(wk.selfcheck && !scTaken(S.week)){ next = `<section class="stage-block" data-stage="${stage.id}">${art(stage.id)}<span class="tag">${I("chart-line-up","s20")}Week ${S.week} self-check</span><div class="text"><h2>See how far you've come</h2><p style="margin-top:6px">The same questions you answered at the start. About three minutes.</p></div><button class="btn stage" data-action="retake" data-week="${S.week}">Start the self-check</button></section>`; }
+  else if(checkinDue){ next = `<section class="stage-block" data-stage="${stage.id}">${art(stage.id)}<span class="tag">${I("list-checks","s20")}Your next step</span><div class="text"><h2>Weekly check-in</h2><p style="margin-top:6px">A few quick questions, or two on a hard week.</p></div><button class="btn stage" data-go="checkin">Start check-in</button></section>`; }
+  else if(S.week === 12){ next = `<section class="stage-block" data-stage="keep">${art("keep")}<span class="tag">${I("sparkle","s20")}Twelve weeks done</span><div class="text"><h2>You did it.</h2></div><p>${esc(D.finish.summary)}</p><p class="small">${esc(D.finish.book_bridge)}</p><div class="row"><button class="btn stage" data-go="plan">Open My plan</button><button class="btn ghost" data-go="books">See the book</button></div></section>`; if(!S.ms.includes("m12")) setTimeout(() => milestone("program_complete"), 400); }
+  else {
+    const opensAt = S.weekOpenedAt ? Date.parse(S.weekOpenedAt) + 5 * 864e5 : 0;
+    const wait = FIVE_DAY_UNLOCK && (S.paid || S.week > 1) && Date.now() < opensAt;
+    next = `<section class="stage-block" data-stage="${stage.id}">${art(stage.id)}<span class="tag">${I("check-circle","s20")}Week ${S.week} done</span><div class="text"><h2>Nice steady work.</h2></div>${wait
+      ? `<p>Week ${S.week+1} opens on ${new Date(opensAt).toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"})}. Giving each week a few days is part of how this works. Your Toolkit is open anytime.</p>`
+      : `<p class="small">${FIVE_DAY_UNLOCK ? "" : "In the finished app, the next week opens five days after this one began. This test version lets you move on now."}</p><button class="btn stage" data-action="next-week">${S.week===1 && !S.paid ? "See how to continue" : "Open week "+(S.week+1)}</button>`}</section>`;
+  }
+  const primer = stage.weeks[0] === S.week && stage.primer && !stage.primer.body.startsWith("[") ? `<details class="card flat" ${Object.keys(S.ex).some(k => wk.exercise_ids.includes(k)) ? "" : "open"}><summary>The ${STAGE_NAME[stage.id]} stage: ${esc(stage.primer.title)}</summary><p class="muted">${esc(stage.primer.body)}</p></details>` : "";
+  const todayStr = new Date().toDateString(), dailyDone = S.daily.find(d => d.date === todayStr), dc = D.daily_check;
+  const daily = dailyDone
+    ? `<div class="card flat"><div class="row" style="flex-wrap:nowrap"><span class="tile sm" style="background:var(--keep-t);color:var(--keep-i)">${I("d-sun-horizon")}</span><div><b>Daily check done</b><p class="muted small">${dailyDone.score} out of 10 today. ${S.daily.length} day${S.daily.length===1?"":"s"} so far.</p></div></div></div>`
+    : `<div class="card"><div class="row" style="flex-wrap:nowrap"><span class="tile sm" style="background:var(--keep-t);color:var(--keep-i)">${I("d-sun-horizon")}</span><div style="flex:1"><b>${esc(dc.question)}</b><p class="small muted">About a minute. One check covers all your workbooks.</p></div></div>
+       <div class="dailyrow" role="group" aria-label="${esc(dc.question)}">${Array.from({length:11},(_,n)=>`<button type="button" class="chip" data-quickdaily="${n}" aria-label="${n} out of 10" ${readOnly()?"disabled":""}>${n}</button>`).join("")}</div>
+       <div style="display:flex;justify-content:space-between" class="small muted"><span>${esc(dc.scale_low)}</span><span>${esc(dc.scale_high)}</span></div>
+       <button class="link small" data-go="daily">Add what helped today</button></div>`;
+  const listItems = items.map(id => { const e = EX[baseId(id)]; const title = e ? e.title : D.exercise_titles[baseId(id)]; const done = !!S.ex[id];
+    return `<div class="check-row ${done?"done":""}"><span class="dot ${done?"done":""}">${done?I("check","s16"):""}</span><span class="t">${esc(title)}${isRepeat(id)?" (comes back)":""}</span></div>`; }).join("")
+    + `<div class="check-row ${S.checkinDone[S.week]?"done":""}"><span class="dot ${S.checkinDone[S.week]?"done":""}">${S.checkinDone[S.week]?I("check","s16"):""}</span><span class="t">Weekly check-in</span></div>`;
+  return {title:"", tabs:"today", body:`${todayHead("today")}${readOnlyBanner()}
+    ${night() ? `<p class="note">${I("moon-stars","s16")} Nothing is required tonight. One small thing, if you want.</p>` : ""}
+    ${next}
+    <section class="card" data-stage="${stage.id}"><h3>This week: ${esc(wk.focus)}</h3><div class="checklist">${listItems}</div></section>
+    ${primer}${daily}
+    <section style="display:flex;flex-direction:column;gap:10px"><div class="section-h"><h3>Tools for right now</h3><button class="link small" data-go="toolkit">All tools</button></div>
+    <div class="tools">${D.toolkit.map(t=>`<button class="toolbtn" data-tool="${t.id}"><span class="tile sm">${I("d-"+toolIcon(t))}</span>${esc(t.title)}</button>`).join("")}</div></section>`};
+};
+
+const showVal = v => v == null ? "" : typeof v === "string" ? v : Array.isArray(v) ? v.map(x => Array.isArray(x) ? x.filter(Boolean).join(": ") : (x === true ? "" : x)).filter(Boolean).join("; ") : typeof v === "object" ? "" : String(v);
+function prefillOS(){
+  const v = (ex, f) => showVal(S.answers[ex+"~r."+f]) || showVal(S.answers[ex+"."+f]);
+  const join = parts => parts.filter(([, x]) => x).map(([lead, x]) => lead + x + (/[.!?]$/.test(x) ? "" : ".")).join(" ");
+  const draft = {
+    f_morning: join([["Wake at ", v("e18","f_wake") || v("e15","f_wake")], ["Then: ", v("e15","f_steps")], ["Plan the day: ", v("e07","f_when")]]),
+    f_work: join([["Protected block: ", v("e17","f_block")], ["For: ", v("e17","f_task")], ["Lower hours: ", v("e17","f_low")]]),
+    f_switch: v("e16","f_switches"),
+    f_evening: join([["Wind-down starts at ", v("e18","f_wind")], ["Phone charges: ", v("e18","f_phone")], ["Empty the capture place: ", v("e06","f_review")]]),
+    f_week: v("e09","f_when"),
+  };
+  if(readOnly()) return;
+  Object.entries(draft).forEach(([f, text]) => { const k = "e21."+f; if(text && !showVal(S.answers[k])){ S.answers[k] = text; Sync.dirty(k); } });
+}
+function exView(id, stepName){
+  if(D.id === "focus" && id === "e21" && stepName === "yours") prefillOS();
+  const e = EX[baseId(id)], rep = isRepeat(id), mode = S.modes[id] || "full", sv = e.short_version;
+  const fields = mode === "short" ? e.fields.filter(f => sv.field_ids.includes(f.id)) : e.fields;
+  const steps = mode === "short" ? sv.steps : e.steps;
+  const hdr = `<span class="eyebrow">Week ${weekOf(id)}${rep?", comes back":""}, ${mode==="short"?"short version, about "+sv.minutes+" minutes":"about "+e.minutes+" minutes"}</span>`;
+  const seq = mode === "short" ? ["steps","yours","done"] : ["purpose","steps","example","yours","done"];
+  const i = seq.indexOf(stepName), nextStep = seq[i+1], prev = seq[i-1];
+  const back = prev ? `ex:${id}:${prev}` : "today";
+  const bar = `<div class="progressbar" aria-hidden="true"><span style="width:${(i+1)/seq.length*100}%"></span></div>`;
+  const head = `<div class="row" style="flex-wrap:nowrap">${tileFor(e.steps[0].figure)}<div style="min-width:0">${hdr}<h1 style="font-size:28px">${esc(e.title)}</h1></div></div>`;
+  if(stepName === "purpose") return {title:"", back, body:`${bar}${head}<p><b>You'll have:</b> ${esc(e.purpose)}</p>
+    <details class="card flat"><summary>Why it works</summary><p class="muted">${esc(e.why)}</p></details>
+    <button class="btn quiet" data-open="${id}" data-mode="short">${I("lightning","s20")}Short on energy? Try the short version (about ${sv.minutes} minutes)</button>`, action:`<button class="btn" data-go="ex:${id}:steps">See the steps</button>`};
+  if(stepName === "steps") return {title:"", back, body:`${bar}${head}<h2>${mode==="short"?"The short version":"The steps"}</h2>
+    <ol class="steps">${steps.map(s=>`<li><p>${esc(s.text)}</p></li>`).join("")}</ol>`, action:`<button class="btn" data-go="ex:${id}:${nextStep}">${nextStep==="example"?"See an example":"Your turn"}</button>`};
+  if(stepName === "example") return {title:"", back, body:`${bar}${head}<h2>How ${esc(e.example.character)} did it</h2>
+    <div class="card"><p>${esc(e.example.text)}</p></div>`, action:`<button class="btn" data-go="ex:${id}:yours">Your turn</button>`};
+  if(stepName === "yours"){
+    const ok = fields.every(f => filled(id,f));
+    const left = mode==="short" ? `<ol class="steps">${steps.map(s=>`<li><p>${esc(s.text)}</p></li>`).join("")}</ol>` :
+      `<details class="card flat" open><summary>The steps</summary><ol class="steps">${steps.map(s=>`<li><p>${esc(s.text)}</p></li>`).join("")}</ol></details><details class="card flat"><summary>${esc(e.example.character)}'s example</summary><p class="muted">${esc(e.example.text)}</p></details>`;
+    return {title:"", back, body:`${bar}${head}${readOnlyBanner()}<div class="spread"><div class="ref"><h2>Your turn</h2>${left}</div>
+      <div class="answers">${fields.map(f=>fieldHTML(id,f)).join("")}
+      ${mode==="full" && e.reflect ? `<div><label class="q" for="${id}.reflect">${esc(e.reflect)} <span class="muted small">(optional)</span></label><textarea id="${id}.reflect" data-k="${id}.reflect">${esc(S.answers[id+".reflect"]||"")}</textarea></div>`:""}
+      <span class="saved" id="savestate" aria-live="polite">${readOnly() ? "Read-only" : "Saved as you type"}</span></div></div>`, action: readOnly() ? "" : `<button class="btn" data-action="complete-ex" data-id="${id}" ${ok?"":"disabled"}>Done</button>`};
+  }
+  if(stepName === "done"){
+    const plan = (e.feeds_plan||[]).map(fp => D.plan_sections.find(p=>p.id===fp.plan_section)?.title).filter(Boolean);
+    return {title:"", back:null, action:`<button class="btn" data-go="today" data-nav="back">Back to Today</button>`, body:`<span class="bloom">${I("check","s32")}</span><h1 style="text-align:center">Done</h1><p style="text-align:center"><b>${esc(e.done_when)}</b></p>
+      ${plan.length?`<div class="card"><span class="eyebrow">Added to your plan</span><p>${plan.map(esc).join(", ")}</p></div>`:""}
+      ${rep ? (() => { const rows = e.fields.filter(f => sv.field_ids.includes(f.id)).map(f => { const a = showVal(S.answers[e.id+"."+f.id]), b = showVal(S.answers[id+"."+f.id]); return `<p class="small"><b>${esc(f.label)}</b></p><div class="two small"><div><span class="eyebrow">Week ${weekOf(e.id)}</span><p>${esc(a||"Not filled in")}</p></div><div><span class="eyebrow">Now</span><p>${esc(b||"Not filled in")}</p></div></div>`; }).join(""); return `<div class="card"><h3>Then and now</h3>${rows}</div>`; })()
+        : (e.repeat_weeks?`<p class="muted small" style="text-align:center">This one comes back in week ${e.repeat_weeks.join(", ")}, so you can see what changed.</p>`:"")}
+      ${e.toolkit_link && TK[e.toolkit_link] ? `<button class="btn quiet" data-tool="${e.toolkit_link}">Related tool: ${esc(TK[e.toolkit_link].title)}</button>`:""}`};
+  }
+}
+
+V["path"] = () => {
+  const weeks = D.weeks.map(w => {
+    const st = stageOf(w.number);
+    const done = w.number < S.week || (w.number === S.week && w.exercise_ids.every(id=>S.ex[id]) && S.checkinDone[w.number]);
+    const exs = w.exercise_ids.map(id => {
+      const open = !!EX[id] && w.number <= S.week, d = S.ex[id];
+      return `<button class="exlink" ${open?`data-open="${id}" data-mode="full"`:"disabled"}><span>${esc(D.exercise_titles[id])}</span>${d?`<span class="pill stage">Done</span>`:open?`<span class="pill">Open</span>`:""}</button>`;
+    }).join("");
+    const rep = (w.repeat_ids||[]).map(id=>`<p class="small muted" style="padding-top:8px">Comes back: ${esc(D.exercise_titles[id])}</p>`).join("");
+    const firstOfStage = st.weeks[0] === w.number;
+    return `${firstOfStage?`<p class="eyebrow" style="margin-top:6px">The ${STAGE_NAME[st.id]} stage</p>`:""}<details class="wk ${w.number===S.week?"now":""}" data-stage="${st.id}" ${w.number===S.week?"open":""}><summary><span class="node num">${done?I("check","s16"):w.number}</span><span style="min-width:0;flex:1"><b style="font-weight:700">${esc(w.focus)}</b><br><span class="small muted">Week ${w.number}${w.number>S.week?", later":""}</span></span></summary><div class="body">${exs}${rep}</div></details>`;
+  }).join("");
+  return {title:"", tabs:"today", body:`${todayHead("path")}<p class="muted">Four stages: Explore, Build, Practice and Keep. Each week opens when you reach it.</p><div style="display:flex;flex-direction:column;gap:10px">${weeks}</div>`};
+};
+
+V["toolkit"] = () => ({title:"", tabs:"toolkit", body:`<div><h1>Toolkit</h1><p class="muted">Short tools for hard moments. Each takes a minute or two.</p></div>
+  <div class="card list">${D.toolkit.map(t=>`<button class="item" data-tool="${t.id}"><span class="tile" style="background:var(--map-t);color:var(--map-i)">${I("d-"+toolIcon(t))}</span><span class="grow"><b>${esc(t.title)}</b><div class="val">${esc(t.when_to_use)}</div>${S.tool[t.id]?`<div class="val">Used ${S.tool[t.id]} time${S.tool[t.id]>1?"s":""}</div>`:""}</span>${I("caret-right","chev s20")}</button>`).join("")}</div>`});
+D.toolkit.forEach(t => V["tool:"+t.id] = () => ({title:"", back:S._toolBack || "toolkit", body:`<div data-stage="map" style="display:flex;flex-direction:column;gap:18px">${toolBody(t.id)}</div>`, action:`<button class="btn" data-action="used-tool" data-id="${t.id}">I used it</button>`}));
+
+V["daily"] = () => {
+  const dd = S.dailyDraft, dc = D.daily_check;
+  return {title:"", back:"today", body:`<h1>${esc(dc.question)}</h1>
+    <div class="chips" role="group" aria-label="${esc(dc.question)}">${Array.from({length:11},(_,n)=>`<button type="button" class="chip" data-daily="${n}" aria-pressed="${dd.score===n}">${n}</button>`).join("")}</div>
+    <div style="display:flex;justify-content:space-between" class="small muted"><span>0: ${esc(dc.scale_low)}</span><span>10: ${esc(dc.scale_high)}</span></div>
+    <span class="q">What helped today?</span><div class="chips">${dc.tags.map((t,i)=>`<button type="button" class="chip" data-tag="${i}" aria-pressed="${dd.tags.includes(i)}">${esc(t)}</button>`).join("")}</div>`,
+    action:`<button class="btn" data-action="save-daily" ${dd.score===null || readOnly()?"disabled":""}>Save</button>`};
+};
+V["checkin"] = () => {
+  const short = S.checkinShort;
+  const fields = short ? D.checkin.fields.filter(f => D.checkin.short_field_ids.includes(f.id)) : D.checkin.fields;
+  const k = "checkin" + S.week, ok = fields.filter(f=>f.type!=="checklist" && f.type!=="weekly_grid").every(f => filled(k,f));
+  return {title:"", back:"today", body:`<span class="eyebrow">Week ${S.week}</span><h1>Weekly check-in</h1>
+    <div class="seg" style="grid-template-columns:1fr 1fr"><button data-action="ci-mode" data-short="0" aria-pressed="${!short}">Full</button><button data-action="ci-mode" data-short="1" aria-pressed="${!!short}">Hard week, two questions</button></div>
+    ${fields.map(f=>fieldHTML(k,f)).join("")}`, action:`<button class="btn" data-action="save-checkin" ${ok && !readOnly()?"":"disabled"}>Save check-in</button>`};
+};
+
+const SET_NAME = {"worry-and-fear":"Worry and Fear","mood-and-energy":"Mood and Energy","stress-and-overload":"Stress and Overload","healing-and-loss":"Healing and Loss","self-and-connection":"Self and Connection"};
+const OFFERS_FOR = () => [
+  {id:`single:${({aftertrauma:"after-trauma", lowmood:"low-mood", food:"food-and-mood", selfworth:"self-worth"})[WB] || WB}`, name:"This workbook", note:"Lifetime access to all twelve weeks", price:"$14.99", pass:false},
+  {id:`set:${D.set_id || "stress-and-overload"}`, name:`${SET_NAME[D.set_id] || "Topic"} set`, note:"This workbook plus three related ones, lifetime access", price:"$37", pass:false},
+  {id:"pass:monthly", name:"All-access, monthly", note:"Every workbook while subscribed", price:"$7.99 a month", pass:true, terms:"$7.99 charged today, then $7.99 every month until you cancel. Cancel anytime from your account."},
+  {id:"pass:annual", name:"All-access, annual", note:"Every workbook for a year", price:"$59 a year", pass:true, terms:"$59 charged today, then $59 every year until you cancel. We email you before each renewal. Cancel anytime from your account."},
+];
+const IMMEDIATE = {life:"I want access to start right now. I understand that once access starts, I lose my 14-day right to cancel and get a refund.",
+  pass:"I want access to start right now. I understand that if I cancel within 14 days, I will get a refund minus a proportionate amount for the days I have had access."};
+const RENEWAL = "I agree that my pass renews automatically at the price above until I cancel.";
+V["offers"] = () => { const o = OFFERS_FOR().find(x => x.id === S.offer); const ok = o && S.tickNow && (!o.pass || S.tickRenew);
+  return {title:"", back:"today", body:`
+  <h1>Keep going</h1><p>You've finished week one. To carry on, choose how you'd like to continue. Whatever you choose, everything you've written stays yours.</p>
+  <p class="small muted">Test prices, not final. Test mode: no real card is charged.</p>
+  <div style="display:flex;flex-direction:column;gap:10px" role="radiogroup" aria-label="Offers">
+    ${OFFERS_FOR().map(x=>`<button class="card" role="radio" aria-checked="${S.offer===x.id}" data-offer="${x.id}" ><span style="min-width:0"><b>${esc(x.name)}</b><br><span class="small muted">${esc(x.note)}</span></span><span class="pill">${esc(x.price)}</span></button>`).join("")}
+  </div>
+  ${o ? `${o.pass?`<div class="card flat"><b>How renewal works</b><p class="small">${esc(o.terms)}</p></div>`:""}
+    <label class="check"><input type="checkbox" data-tick="now" ${S.tickNow?"checked":""}><span class="small">${esc(o.pass?IMMEDIATE.pass:IMMEDIATE.life)}</span></label>
+    ${o.pass?`<label class="check"><input type="checkbox" data-tick="renew" ${S.tickRenew?"checked":""}><span class="small">${esc(RENEWAL)}</span></label>`:""}` : ""}
+  <p class="small muted">Checkout is run by Stripe. Your card statement shows Akana and never the topic.</p>`,
+  action:`<button class="btn" data-action="checkout" ${ok?"":"disabled"}>Go to secure checkout</button>`}; };
+V["progress"] = () => {
+  const has6 = scTaken(6), has12 = scTaken(12);
+  const bars = D.selfcheck.areas.map(a => {
+    const b = areaScore(S.baseline, a.id), n = has6 ? areaScore(S.retake, a.id) : null, m = has12 ? areaScore(S.retake12, a.id) : null;
+    const pct = x => (x/4*100).toFixed(1) + "%", f = x => x.toFixed(1);
+    const label = `${a.label}: start ${b!==null?f(b):"not taken"}${n!==null?", week 6 "+f(n):""}${m!==null?", week 12 "+f(m):""} out of 4`;
+    return `<div class="bar"><div style="display:flex;justify-content:space-between;gap:8px"><span>${esc(a.label)}</span><span class="small muted num">${[b!==null?"start "+f(b):null, n!==null?"week 6 "+f(n):null, m!==null?"week 12 "+f(m):null].filter(Boolean).join(", ") || "not taken yet"}</span></div>
+      <div class="track" role="img" aria-label="${esc(label)}">${b!==null?`<div class="fill" style="width:${pct(b)}"></div>`:""}${n!==null?`<div class="now" style="left:${pct(n)}${m!==null?";opacity:.45":""}"></div>`:""}${m!==null?`<div class="now" style="left:${pct(m)};background:var(--marigold)"></div>`:""}</div></div>`;
+  }).join("");
+  const tools = Object.values(S.tool).reduce((a,b)=>a+b,0);
+  const last14 = Array.from({length:14}, (_,i) => { const d = new Date(); d.setDate(d.getDate() - (13 - i)); const hit = S.daily.find(x => x.date === d.toDateString()); return hit ? hit.score : null; });
+  const strip = `<div class="card"><h2>Your daily check</h2><div style="display:grid;grid-template-columns:repeat(14,1fr);gap:4px;align-items:end;height:70px" role="img" aria-label="Your last 14 days of daily checks">${last14.map(v => `<span style="display:block;border-radius:6px;background:${v===null?"var(--surface-2)":"var(--si)"};height:${v===null?8:(D.id==="steady"?28:12+v*5.6)}px"></span>`).join("")}</div><p class="small muted">The last 14 days. Grey means no check that day, which is fine. Only you see this.</p></div>`;
+  return {title:"", tabs:"today", body:`${todayHead("progress")}
+    <div class="stats">${[["Weeks done",Math.max(0,S.week-1)],["Exercises done",exDoneCount()],["Days checked in",S.daily.length],["Tool uses",tools]].map(([l,v])=>`<div class="stat"><b>${v}</b><span class="small muted">${l}</span></div>`).join("")}</div>
+    ${strip}
+    <div class="card"><h2>Self-check, against your own start</h2><div class="legend"><span><i class="lg-start"></i>Start</span>${has6?`<span><i style="background:var(--si);border-radius:50%"></i>Week 6</span>`:""}${has12?`<span><i style="background:var(--marigold);border-radius:50%"></i>Week 12</span>`:""}</div><div style="display:flex;flex-direction:column;gap:12px">${bars}</div>
+    <p class="small muted">${esc(D.selfcheck.result_note)}</p>
+    ${(S.week >= 6 && !has6) || (S.week >= 12 && !has12) ? `<button class="btn ghost" data-action="retake" data-week="${!has6 ? 6 : 12}">Take your week ${!has6 ? 6 : 12} self-check</button>` : ""}</div>
+    <div class="card"><h2>Milestones</h2>${D.milestones.filter(m => S.ms.includes(m.id)).map(m=>`<p class="small" style="display:flex;gap:10px;align-items:flex-start">${I("check-circle","s20")}<span>${esc(m.message.replace(/\{\w+\}/g,"your favorite tool"))}</span></p>`).join("") || `<p class="small muted">Your first one comes after your first exercise.</p>`}</div>`};
+};
+V["plan"] = () => {
+  const lines = planLines();
+  return {title:"", tabs:"today", body:`${todayHead("plan")}<p class="muted">One page that builds itself from your answers.</p>
+    ${D.plan_sections.map(p=>`<div class="card"><span class="eyebrow">${esc(p.title)}</span>${(lines[p.id]||[]).length?lines[p.id].map(l=>`<p>${esc(l)}</p>`).join(""):`<p class="muted small">Fills in as you work through the weeks.</p>`}</div>`).join("")}
+    <button class="btn ghost no-print" data-action="print">${I("printer","s20")}Print or save as PDF</button>`};
+};
+
+/* ---------- books: real covers, links through /go/ ---------- */
+V["books"] = () => ({title:"", tabs:"books", body:`<div><h1>Books</h1><p class="soft">The twenty Plain Words books by Maya Vaughn. Each one goes deeper than its workbook.</p></div>
+  <p class="small soft row" style="gap:6px">${I("globe-hemisphere-west","s16")}Links open ${esc(market()?.amazon || "your Amazon store")} <button class="link" data-go="set:region">Change</button></p>
+  <div class="covers">${CAT.books.map(b=>`<button class="cover" data-book="${b.id}">${hideCovers() ? `<span class="plain" style="--h:${b.hue}">${esc(b.title)}</span>` : `<img src="${coverSrc(b.id)}" alt="Cover of ${esc(b.title)}" loading="lazy" decoding="async">`}<span class="meta">${esc(b.title)}<span>${esc(b.subtitle.replace("A Practical Guide to ",""))}</span></span></button>`).join("")}</div>`});
+function bookSheet(id){
+  const b = CAT.books.find(x => x.id === id); if(!b) return; S.openBook = id;
+  const wb = CAT.workbooks.find(w => w.id === b.workbook_id), f = S.format;
+  const href = window.AkanaLocale ? AkanaLocale.goLink(b.id, f, "books") : `/go/${b.id}/${f}?p=books`;
+  sheet(`<div class="row" style="align-items:flex-start;flex-wrap:nowrap;text-align:left"><span class="cover" style="width:96px;flex:none">${hideCovers() ? `<span class="plain" style="--h:${b.hue};font-size:13px">${esc(b.title)}</span>` : `<img src="${coverSrc(b.id)}" alt="">`}</span>
+    <div style="flex:1;min-width:0"><h2 style="font-size:22px">${esc(b.title)}</h2><p class="soft small">${esc(b.subtitle)}</p><p class="small" style="margin-top:6px">Maya Vaughn</p></div></div>
+    <div class="chips" role="group" aria-label="Format"><button class="chip" data-format="kindle" aria-pressed="${f==="kindle"}">Kindle</button><button class="chip" data-format="paperback" aria-pressed="${f==="paperback"}">Paperback</button></div>
+    <a class="btn" href="${esc(href)}" target="_blank" rel="noopener" data-action="book-out">${I("arrow-square-out","s20")}Order on Amazon</a>
+    <p class="small soft">Opens ${esc(market()?.amazon || "Amazon")}. Akana counts the tap but never knows who tapped.</p>
+    ${wb ? `<div class="row" style="text-align:left;flex-wrap:nowrap"><span class="tile sm wb" style="--h:${wb.hue};background:var(--tile);color:var(--tink)">${I("d-"+(WB_ICON[wb.id]||"book-open"))}</span><span style="flex:1">Companion workbook<br><b>${esc(wb.name)}</b>${wb.id==="focus"?"":` <span class="soft small">coming soon</span>`}</span></div>` : ""}
+    <button class="btn ghost" data-action="close-sheet">Close</button>`, b.title);
+}
+
+/* ---------- you: the settings hub ---------- */
+const SET_GROUPS = [
+  ["Most used", "keep", [["reminders","Reminders","bell"],["emails","Emails","envelope-simple"],["appearance","Appearance and comfort","text-aa"],["data","Your data","download-simple"]]],
+  ["Your workbooks", "build", [["partner","Support partner","handshake"],["workbooks","Workbooks","book-open"]]],
+  ["Account and security", "map", [["account","Account","user"],["privacy","Privacy and security","lock-key"],["purchases","Purchases","credit-card"],["region","Region","globe-hemisphere-west"]]],
+  ["Help and information", "use", [["helpsafety","Help and safety","question"],["legal","Legal","file-text"],["about","About","info"]]],
+];
+function setValue(id){
+  const c = S.consents;
+  return {reminders: `Daily check at ${S.dailyTime}`, emails: `${[c.emails,c.news,c.recs].filter(Boolean).length} of 3 on`,
+    appearance: {system:"Match phone",light:"Light",dark:"Dark"}[S.prefs.theme||"system"], data:"Download, permissions, delete",
+    partner: S.partner && ["accepted","invited","paused"].includes(S.partner.status) ? `${S.partner.partner_name}, ${S.partner.status}` : "Not added",
+    workbooks: `${D.topic_name}, week ${S.week}`, account: S.account.email, privacy: hideCovers() ? "Covers hidden" : "",
+    purchases: S.pass ? (S.pass.cancel_at ? "Pass canceled" : "All-access pass") : S.paid ? "Owned" : "Free week", region: market()?.name || "", about: "Version 1.0 test"}[id] || "";
+}
+V["you"] = () => ({title:"", tabs:"you", body:`<div class="profile"><span class="avatar">${esc((S.account.name||S.account.email||"?").slice(0,1).toUpperCase())}</span><div style="min-width:0"><h1>${esc(S.account.name || "Your account")}</h1><p class="soft small" style="overflow-wrap:anywhere">${esc(S.account.email)}</p></div></div>
+  ${readOnlyBanner()}
+  ${SET_GROUPS.map(([g, tint, rows])=>`<section><p class="group-label">${g}</p><div class="card list">${rows.map(([id,l,ic])=>{ const v = setValue(id); return `<button class="item" data-go="set:${id}"><span class="tile sm" style="background:var(--${tint}-t);color:var(--${tint}-i)">${I("d-"+ic)}</span><span class="grow"><b>${l}</b>${v?`<div class="val">${esc(v)}</div>`:""}</span>${I("caret-right","chev s20")}</button>`; }).join("")}</div></section>`).join("")}
+  <section class="card list"><button class="item" data-action="signout">${I("sign-out")}<span class="grow"><b>Sign out</b></span></button><button class="item" data-action="delete-account" style="color:var(--rose)">${I("trash")}<span class="grow"><b>Delete account</b><div class="val">You have 7 days to change your mind</div></span></button></section>`});
+const LEVELS = [[1,"Only that you finished a stage"],[2,"That, plus the name of your workbook"],[3,"That, plus a short note you write"]];
+function partnerSection(){
+  const p = S.partner;
+  if(p && ["invited","accepted","paused"].includes(p.status)){
+    const statusLine = {invited:`Invitation sent to ${esc(p.partner_name)}. Nothing is sent to them until they say yes.`, accepted:`${esc(p.partner_name)} gets a short note when you finish a stage, never more than once a week.`, paused:`Updates to ${esc(p.partner_name)} are paused.`}[p.status];
+    return `<p>${statusLine}</p>
+      ${p.status !== "invited" ? `<span class="q">What they see</span><div class="chips">${LEVELS.map(([n,l])=>`<button type="button" class="chip" data-plevel="${n}" aria-pressed="${p.share_level===n}">${esc(l)}</button>`).join("")}</div>` : ""}
+      ${p.share_level === 3 && p.status === "accepted" ? `<div><label class="q" for="pnote">Your note for the next update</label><input type="text" id="pnote" maxlength="200" value="${esc(p.note||"")}" placeholder="For example: This week was a good one."><button class="btn quiet small" data-action="partner-note" style="margin-top:8px">Save note</button></div>` : ""}
+      <p class="small muted">They never see your answers, your scores or anything you write in your workbook.</p>
+      <div class="row">${p.status === "accepted" ? `<button class="btn quiet" data-action="partner-op" data-op="pause">${I("pause","s20")}Pause updates</button>` : p.status === "paused" ? `<button class="btn quiet" data-action="partner-op" data-op="resume">${I("play","s20")}Resume updates</button>` : ""}<button class="btn danger" data-action="partner-op" data-op="remove">Remove ${esc(p.partner_name)}</button></div>
+      <p class="small muted">If you remove them, they aren't told why. Updates simply stop.</p>`;
+  }
+  const f = S.pform ||= {name:"", email:"", level:1, agree:false};
+  const past = p ? {declined:`${esc(p.partner_name)} said no thanks. That's fine.`, stopped:`${esc(p.partner_name)} stopped the updates.`}[p.status] || "" : "";
+  return `${past?`<p class="muted">${past}</p>`:""}
+    <p>Choose one person, like a friend, partner or sibling, to get a short note when you finish a stage. Each note ends with a question they could ask you. It's optional, and you can stop it anytime.</p>
+    <div><label class="q" for="pf-name">Their first name</label><input type="text" id="pf-name" data-pf="name" value="${esc(f.name)}" autocomplete="off"></div>
+    <div><label class="q" for="pf-email">Their email</label><input type="email" id="pf-email" data-pf="email" value="${esc(f.email)}" autocomplete="off"></div>
+    <span class="q">What they see</span><div class="chips">${LEVELS.map(([n,l])=>`<button type="button" class="chip" data-pflevel="${n}" aria-pressed="${f.level===n}">${esc(l)}</button>`).join("")}</div>
+    <p class="small muted">They never see your answers, your scores or anything you write. You can pause or remove them anytime, and they won't be told why.</p>
+    <label class="check"><input type="checkbox" data-pfagree ${f.agree?"checked":""}><span class="small">We will email ${esc(f.name||"them")} to ask if they would like updates about your progress. Nothing is sent to them until they say yes. I agree to share this with my support partner.</span></label>
+    <button class="btn" data-action="partner-invite">Send the invitation</button>`;
+}
+const toggleRow = (attr, label, on, help, disabled) => `<label class="toggle"><span><b style="display:block">${label}</b>${help?`<span class="small muted">${help}</span>`:""}</span><input type="checkbox" class="switch" ${attr} ${on?"checked":""} ${disabled?"disabled":""}></label>`;
+function passBlock(){
+  const pass = S.pass;
+  if(!pass) return `<p class="muted">${S.paid ? "You own this workbook for good." : "You're on your free week. It never turns into a paid plan on its own."}</p><p class="small muted">If a pass ends, you can still read every answer.</p>`;
+  if(pass.cancel_at) return `<p>Your pass is canceled. You keep access until ${longDate(pass.cancel_at)}. After that, you can still read every answer.</p>`;
+  return `<p>${pass.product_id === "pass:annual" ? "Annual" : "Monthly"} all-access pass. It renews on ${longDate(pass.current_period_end)}.</p>
+    <button class="btn danger" data-action="cancel-pass">Cancel your pass</button>
+    <p class="small muted">Two taps, no questions. If you cancel within 14 days of starting, unused time is refunded. After that, you keep access until the end of the period you paid for.</p>`;
+}
+V["set"] = () => { const id = S.setId, title = SET_GROUPS.flatMap(g => g[2]).find(r => r[0] === id)?.[1] || "Settings";
+  const c = S.consents, p = S.prefs;
+  const saved = `<p class="saved" id="setsaved" hidden>${I("check","s16")} Saved</p>`;
+  const pages = {
+    reminders: `<div class="card"><div><label class="q" for="set-time">Daily check time</label><input type="time" id="set-time" data-settime value="${esc(S.dailyTime)}" style="max-width:200px"></div>
+      <button class="btn quiet" data-action="calendar">${I("calendar-plus","s20")}Add it to my phone's calendar</button>
+      <p class="small muted">Your phone's own calendar reminds you, so there are no app notifications to manage. One reminder covers all your workbooks.</p></div>
+      <div class="card list">${toggleRow('data-pref="quiet_nights"',"Quiet nights",p.quiet_nights!==false,"No emails between 7 p.m. and 9 a.m. where you are.")}</div>${saved}`,
+    emails: `<p class="soft">Turn any of these off at any time. Every email has a button to stop it too.</p>
+      <div class="card list">${toggleRow('data-consentpref="emails"',"Progress emails",c.emails,"When you finish a stage, and a gentle note if you've been away.")}
+      ${toggleRow('data-consentpref="news"',"News",c.news,"New workbooks and offers. Nothing about which ones you use.")}
+      ${toggleRow('data-consentpref="recs"',"Suggestions for you",!!c.recs,"Workbooks picked from the ones you use. Off unless you turn it on.")}</div>
+      <section><p class="group-label">Always sent</p><div class="card list">${["Sign-in links","Receipts and renewal notices","Account changes"].map(l=>`<div class="item"><span class="grow"><b>${l}</b><div class="locked">${I("lock-key","s16")}Needed to run your account</div></span></div>`).join("")}</div></section>${saved}`,
+    appearance: `<div class="stage-block" data-stage="build"><span class="tag">Preview</span><h2 style="font-size:20px">Plan today in ten minutes</h2><p>Pick the few things that matter. Give each one a time.</p></div>
+      <section><p class="group-label">Theme</p><div class="seg" style="grid-template-columns:repeat(3,1fr)">${[["system","Match phone"],["light","Light"],["dark","Dark"]].map(([v,l])=>`<button data-prefset="theme" data-v="${v}" aria-pressed="${(p.theme||"system")===v}">${l}</button>`).join("")}</div></section>
+      <section><p class="group-label">Text size</p><div class="steps-size">${[0,1,2,3].map(i=>`<button data-prefset="text_size" data-v="${i}" aria-pressed="${(+p.text_size||0)===i}" style="font-size:${15+i*2}px" aria-label="Text size ${i+1}">A</button>`).join("")}</div></section>
+      <section><p class="group-label">Reading font</p><div class="seg" style="grid-template-columns:1fr 1fr"><button data-prefset="font" data-v="atkinson" aria-pressed="${(p.font||"atkinson")==="atkinson"}">Atkinson</button><button data-prefset="font" data-v="lexend" aria-pressed="${p.font==="lexend"}" style="font-family:Lexend,sans-serif">Lexend</button></div></section>
+      <div class="card list">${toggleRow('data-pref="reduce_motion"',"Reduce motion",!!p.reduce_motion,"Screens change without movement.")}${toggleRow('data-pref="dim_at_night"',"Dim after 9 p.m.",!!p.dim_at_night,"Softer colors late in the evening.")}${toggleRow('data-localpref="haptics"',"A short buzz when you finish something",pref("haptics","1")==="1","On phones that support it.")}</div>${saved}`,
+    data: `<div class="card list">
+      <button class="item" data-action="export"><span class="tile sm" style="background:var(--keep-t);color:var(--keep-i)">${I("d-download-simple")}</span><span class="grow"><b>Download your history</b><div class="val">Every answer, check-in and plan. Your phone confirms it's you first.</div></span>${I("fingerprint","chev")}</button>
+      <button class="item" data-go="set:permissions"><span class="tile sm" style="background:var(--keep-t);color:var(--keep-i)">${I("d-shield-check")}</span><span class="grow"><b>Your permissions</b><div class="val">What you agreed to, and when</div></span>${I("caret-right","chev s20")}</button>
+      </div>
+      <p class="note">Your answers are encrypted when stored. Only Akana's secure server can unlock them, and only to show them to you.</p>
+      <button class="btn danger" data-action="delete-account">Delete my account</button><p class="small muted">Deletion happens 7 days after you ask, so you can change your mind. Billing stops straight away.</p>`,
+    partner: `<div class="card">${partnerSection()}</div>`,
+    workbooks: `<div class="card"><div class="row" style="flex-wrap:nowrap"><span class="tile" data-stage="${stageOf(S.week).id}">${I("d-"+wbIcon())}</span><div><b>${esc(D.topic_name)}</b><p class="small muted">Week ${S.week} of 12</p></div></div></div>
+      <p class="note">You can run two workbooks, or two free weeks, at the same time. The others open as the library launches.</p>`,
+    account: `<div class="card list"><div class="item"><span class="grow"><b>Email</b><div class="val" style="overflow-wrap:anywhere">${esc(S.account.email)}</div></span></div>
+      <div class="item"><span class="grow"><label class="q" for="set-name">First name</label><input type="text" id="set-name" data-setname value="${esc(S.account.name)}" autocomplete="given-name"></span></div>
+      <div class="item"><span class="grow"><b>Time zone</b><div class="val">${esc(Intl.DateTimeFormat().resolvedOptions().timeZone)}</div></span></div></div>
+      <button class="btn ghost" data-action="signout">${I("sign-out","s20")}Sign out</button>`,
+    privacy: `<div class="card list">${toggleRow('data-pref="hide_covers"',"Hide book covers",hideCovers(),"Shows plain titles instead, on Home and in Books.")}</div>
+      <p class="note">App lock and discreet mode are coming later.</p>${saved}`,
+    purchases: `<div class="card">${passBlock()}</div>`,
+    region: `<p class="soft">Your region sets your crisis numbers, prices and currency, dates, and which Amazon store opens. It's picked for you, and you can change it.</p>
+      <div class="card"><b>${esc(market()?.name || "Not set yet")}</b><p class="small soft">${(()=>{ const cur = window.AkanaLocale && AkanaLocale.current(); const src = cur ? {manual:"your choice",device:"your phone's location",ip:"your network"}[cur.source] : ""; return src ? "Set from " + src + "." : ""; })()} ${market() ? "Books open " + esc(market().amazon) + "." : ""}</p>
+        <button class="btn ghost" data-action="use-location">${I("globe-hemisphere-west","s20")}Use my location</button>
+        <p class="small soft" id="geo-note">Your phone asks first. Only the country is kept, never where you are.</p></div>
+      <section><p class="group-label">Or choose</p><div class="card list">${Object.entries(MARKETS).filter(([c])=>c!=="XX").map(([c,m])=>`<button class="item" data-region="${c}"><span class="grow"><b>${esc(m.name)}</b></span>${marketCode()===c?I("check","s20"):""}</button>`).join("")}</div></section>`,
+    helpsafety: `<div class="card list"><button class="item" data-action="help">${I("lifebuoy")}<span class="grow"><b>Help now</b><div class="val">Free crisis lines where you are</div></span>${I("caret-right","chev s20")}</button></div>
+      <p class="note">To report a problem, email [support email]. A person reads every message.</p>`,
+    legal: `<div class="card list">${["Terms","Privacy notice","Health data policy","Accessibility statement"].map(l=>`<div class="item"><span class="grow">${l}</span><span class="small muted">Coming before launch</span></div>`).join("")}</div>
+      <p class="small muted">[Company name], [company number], [company address].</p>`,
+    about: `<div class="card"><div class="row" style="flex-wrap:nowrap">${MARK("var(--brand)",36)}<div><b>Akana</b><p class="small muted">Version 1.0, test build</p></div></div><p class="small muted">Icons by Phosphor (MIT licence). Fonts: Bricolage Grotesque, Atkinson Hyperlegible Next and Lexend (Open Font License).</p></div>`,
+    permissions: `<div class="card list">${(S.consentLog||[]).length ? S.consentLog.map(r=>`<div class="item"><span class="grow"><b>${esc({store:"Store my workbook information",progress_emails:"Progress emails",personalised_recs:"Suggestions for you",general_marketing:"News",partner_share:"Share with a support partner"}[r.consent_type]||r.consent_type)}</b><div class="val">${r.granted?"Agreed":"Turned off"} on ${longDate(r.created_at)}</div></span></div>`).join("") : `<div class="item">Nothing recorded yet.</div>`}</div>
+      <p class="small muted">To withdraw permission to store your workbook information, delete your account. Everything else can be turned off in Emails.</p>`,
+  };
+  return {title:"", back: id === "permissions" ? "set:data" : "you", tabs:"you", body:`<h1>${id === "permissions" ? "Your permissions" : esc(title)}</h1>${pages[id] || ""}`};
+};
+const callHref = c => /^website/i.test(c.how) ? "https://" + c.number : (/^text/i.test(c.how) ? "sms:" : "tel:") + c.number.replace(/[^\d+]/g, "");
+V["help"] = () => {
+  const m = market(), others = Object.entries(MARKETS).filter(([c]) => c !== "XX" && (!m || c !== m.code));
+  return {title:"", back:S._prev||"home", body:`
+  <section class="helphead"><span class="row" style="gap:10px;flex-wrap:nowrap">${I("lifebuoy","s32")}<h1 style="font-size:28px">Help now</h1></span><p>If you are in danger or thinking about ending your life, call your local emergency number now. You do not have to be sure it is serious enough.</p></section>
+  ${m ? `<p class="small muted">Your region: ${esc(m.name)}</p><div class="card">${m.crisis.map(c=>`<div class="contact"><div style="min-width:0"><b>${esc(c.label)}</b><br><span class="small muted">${esc(c.how)}</span></div><a class="call" href="${esc(callHref(c))}" aria-label="${esc(c.how + " " + c.label + ", " + c.number)}">${I(/^website/i.test(c.how) ? "arrow-square-out" : "phone","s20")}<span class="big">${esc(c.number)}</span></a></div>`).join("")}</div>` : ""}
+  <details class="card"><summary>${m ? "Other countries" : "Crisis lines by country"}</summary>${others.map(([c,x])=>`<div class="contact"><div><b>${esc(x.name)}</b><br><span class="small muted">${x.crisis.map(k=>esc(k.label+": "+k.number)).join("<br>")}</span></div></div>`).join("")}
+    <div class="contact"><div><b>Emergency</b><br><span class="small muted">US and Canada 911. UK 999. Ireland 112. Australia 000. New Zealand 111.</span></div></div></details>
+  ${USER && D.start.extra_safety_note ? `<details class="card"><summary>About ${esc(D.topic_name)} and your safety</summary><p class="muted">${esc(D.start.extra_safety_note)}</p></details>` : ""}
+  <div class="card" data-stage="map"><div class="row" style="flex-wrap:nowrap"><span class="tile sm">${I("d-wind")}</span><span style="flex:1">Not in danger, but overwhelmed?<br><button class="link" data-tool="t01">Try the Structured Pause</button></span></div></div>
+  <p class="note">Test version. Every number is checked against official sources before launch.</p>`};
+};
+V["sc-finish"] = () => {
+  if(S.retaking){ const w = S.retakeWeek; S.retaking = false; S["scSaved" + w] = true; Sync.selfcheck(w, w === 12 ? S.retake12 : S.retake); if(w === 6) setTimeout(() => milestone("selfcheck:6"), 0); }
+  return V["progress"](); };
+
+/* ---------- server: sign-in, saving and payment ----------
+   The database enforces the rules (week 1 free, consent before storage, only payments grant access, read-only when access ends).
+   This layer only mirrors what the reader does. */
+const SB_URL = "https://mcehwfsvtzeayluabxyj.supabase.co";
+const SB_KEY = "sb_publishable_QTCkAX0I9edLx_owFXf75A_qCO0Zp6f"; // publishable key: safe in the browser, the database rules do the protecting
+let WB = (() => { try{ return localStorage.getItem("akana-wb") || "focus"; }catch(_){ return "focus"; } })();
+const sb = supabase.createClient(SB_URL, SB_KEY);
+let USER = null;
+const isoDay = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const dayFromIso = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d).toDateString(); };
+const must = r => { if(r.error) throw r.error; return r.data; };
+const FRIENDLY = {read_only:"Your workbook is read-only right now.", locked:"This week opens after you choose how to continue.", consent_required:"Please allow storage first, so your work can be saved.",
+  not_enrolled:"Start your free week first.", two_active_limit:"You can run two workbooks at once. Pause one to start another.", export_token_required:"Please confirm it's you again.",
+  too_many_codes:"Too many codes asked for. Try again in an hour.", invalid_code:"That code didn't match. Check it and try again.", wrong_code:"That code didn't match. Check it and try again.",
+  code_expired:"That code has expired. Ask for a new one.", no_passkey:"Set up your phone's lock with Akana first.", already_scheduled:"Your account is already set to be deleted.", nothing_to_undo:"There's nothing to undo."};
+const Sync = {
+  queue: new Set(), timer: null,
+  fail(e){
+    console.error(e);
+    const msg = String(e?.message || e || "");
+    const code = Object.keys(FRIENDLY).find(k => msg.includes(k));
+    if(code) toast(FRIENDLY[code]);
+    else if(msg.includes("needs a purchase")) toast(FRIENDLY.locked);
+    else if(msg && !/fetch|network|Failed/i.test(msg) && msg.length < 140) toast(msg);
+    else toast("Couldn't save. Check your connection and try again.");
+  },
+  async call(body){
+    const {data, error} = await sb.functions.invoke("answers", {body: {workbook_id: WB, ...body}});
+    if(!error) return /^load/.test(body.op) ? data : null;
+    let message = "save_failed"; try{ const j = await error.context.json(); message = j.error || message; }catch(_){}
+    if(/^load/.test(body.op)) throw new Error(message);
+    if(message === "read_only"){ S.access = "read_only"; }
+    return {message};
+  },
+  log(name, props = {}){ if(USER) sb.from("events").insert({user_id: USER.id, name, props}).then(()=>{}); },
+  dirty(key){ if(!USER || readOnly()) return; this.queue.add(key); clearTimeout(this.timer); if(!S.enrolled) return; this.timer = setTimeout(() => this.flush(), 700); }, // before enrolment, answers wait for start()
+  async flush(){
+    const keys = [...this.queue].filter(k => !k.startsWith("checkin")); this.queue.clear();
+    if(!keys.length || !USER) return;
+    const rows = keys.map(k => { const i = k.indexOf("."), ex = k.slice(0, i), field = k.slice(i+1);
+      const value = ex === "start" && field === "why" ? S.why : S.answers[k];
+      return {exercise_id: baseId(ex), field_id: field, week: weekOf(ex) || 1, attempt: isRepeat(ex) ? 2 : 1, value: value ?? null}; });
+    this.savedState("Saving");
+    const err = await this.call({op: "save_answers", rows});
+    if(err){ if(err.message !== "read_only") keys.forEach(k => this.queue.add(k)); this.fail(err); this.savedState("Not saved yet"); }
+    else this.savedState("Saved", true);
+  },
+  async fn(route, body){
+    const {data, error} = await sb.functions.invoke("app/" + route, {body});
+    if(error){ let message = "Something went wrong. Please try again."; try{ const j = await error.context.json(); message = j.error || j.message || message; }catch(_){} throw new Error(message); }
+    return data;
+  },
+  event(kind, extra = {}){ if(USER) this.fn("notify", {op: "event", kind, workbook_id: WB, ...extra}).catch(e => console.error(e)); },
+  async setConsent(key, granted){
+    const map = {emails:["progress_emails","progress_emails_v1"], recs:["personalised_recs","personalised_recs_v1"], news:["general_marketing","general_marketing_v1"], partner:["partner_share","partner_share_v1"]};
+    const [type, ver] = map[key];
+    must(await sb.from("consents").insert({user_id: USER.id, consent_type: type, version_id: ver, granted}));
+    S.consents[key] = granted; S.savedConsents = {...S.consents};
+    (S.consentLog ||= []).unshift({consent_type: type, granted, created_at: new Date().toISOString()});
+  },
+  savedState(text, on){ const el = document.getElementById("savestate"); if(el){ el.textContent = text; el.classList.toggle("on", !!on); } },
+  async consents(){
+    const map = {store:["store","store_v1"], emails:["progress_emails","progress_emails_v1"], recs:["personalised_recs","personalised_recs_v1"], news:["general_marketing","general_marketing_v1"]};
+    const rows = Object.entries(map).filter(([k]) => !!S.consents[k] !== !!S.savedConsents?.[k] || (k === "store" && S.consents.store && !S.savedConsents?.store))
+      .map(([k,[type,ver]]) => ({user_id: USER.id, consent_type: type, version_id: ver, granted: !!S.consents[k]}));
+    if(rows.length) must(await sb.from("consents").insert(rows));
+    S.savedConsents = {...S.consents};
+  },
+  async start(){
+    must(await sb.from("profiles").upsert({id: USER.id, display_name: S.account.name || null,
+      time_zone: Intl.DateTimeFormat().resolvedOptions().timeZone, daily_check_time: S.dailyTime || null}));
+    if(!S.enrolled){
+      const r = await sb.from("enrolments").insert({user_id: USER.id, workbook_id: WB, current_week: 1});
+      if(r.error && !/duplicate|unique/i.test(r.error.message)) throw r.error;
+      S.enrolled = true; S.access = "full";
+      if(!S.enrolments.some(e => e.workbook_id === WB)) S.enrolments.push({workbook_id: WB, current_week: 1, status: "active"});
+    }
+    await this.flush();
+    if(Object.keys(S.baseline).length && !S.baselineSaved){ await this.selfcheck(0, S.baseline); S.baselineSaved = true; }
+    this.log("free_week_started", {workbook: WB});
+    this.event("welcome");
+  },
+  async selfcheck(week, scores){
+    const area_scores = Object.fromEntries(D.selfcheck.areas.map(a => [a.id, areaScore(scores, a.id)]));
+    const err = await this.call({op: "save_selfcheck", taken_week: week, item_scores: scores, area_scores});
+    if(err) this.fail(err.message); else this.log("selfcheck_taken", {week});
+  },
+  async completion(id, mode){
+    await this.flush();
+    const r = await sb.from("exercise_completions").insert({user_id: USER.id, workbook_id: WB, exercise_id: baseId(id), week: weekOf(id) || 1, mode, is_repeat: isRepeat(id)});
+    if(r.error) this.fail(r.error); else this.log("exercise_done", {exercise: id, mode});
+  },
+  async tool(id){ const r = await sb.from("toolkit_uses").insert({user_id: USER.id, workbook_id: WB, card_id: id}); if(r.error) this.fail(r.error); else this.log("toolkit_used", {card: id}); },
+  async daily(dd){
+    const err = await this.call({op: "save_daily", workbook_id: undefined, check_date: isoDay(), score: dd.score, tags: dd.tags.map(i => D.daily_check.tags[i]).filter(Boolean)});
+    if(err) this.fail(err.message); else this.log("daily_check");
+  },
+  async checkin(week, short){
+    const pre = "checkin" + week + ".", answers = {};
+    Object.keys(S.answers).filter(k => k.startsWith(pre)).forEach(k => answers[k.slice(pre.length)] = S.answers[k]);
+    const err = await this.call({op: "save_checkin", week, short_version: short, answers});
+    if(err){ S.checkinDone[week] = false; this.fail(err.message); render(); } else this.log("checkin_done", {week, short});
+  },
+  milestone(id){ if(USER) sb.from("milestones_earned").upsert({user_id: USER.id, workbook_id: WB, milestone_id: id}, {onConflict: "user_id,workbook_id,milestone_id", ignoreDuplicates: true}).then(r => r.error && console.error(r.error)); },
+  async week(n){
+    const r = await sb.from("enrolments").update({current_week: n, week_opened_at: new Date().toISOString(), last_active_at: new Date().toISOString()}).eq("user_id", USER.id).eq("workbook_id", WB);
+    if(r.error){ if(/needs a purchase|locked/.test(String(r.error.message))) go("offers"); else this.fail(r.error); return; }
+    S.week = n; this.log("week_unlocked", {week: n}); go("today");
+  },
+  async checkout(){
+    const o = OFFERS_FOR().find(x => x.id === S.offer); if(!o) return;
+    S.loadingText = "Opening secure checkout"; go("loading");
+    const {data, error} = await sb.functions.invoke("create-checkout", {body: {product_id: o.id, immediate_access: !!S.tickNow, auto_renewal: !!S.tickRenew}});
+    if(error || !data?.url){ let msg = "Checkout couldn't start. Please try again.";
+      try{ msg = (await error.context.json()).error || msg; }catch(_){}
+      go("offers"); toast(msg); return; }
+    location.href = data.url;
+  },
+  async hasAccess(){
+    const ents = must(await sb.from("entitlements").select("workbook_id,starts_at,ends_at"));
+    const now = Date.now();
+    return ents.some(e => (e.workbook_id === null || e.workbook_id === WB) && new Date(e.starts_at) <= now && (!e.ends_at || new Date(e.ends_at) > now));
+  },
+  async savePrefs(){
+    applyPrefs(); try{ localStorage.setItem("akana-prefs", JSON.stringify(S.prefs)); }catch(_){}
+    if(!USER) return;
+    const allowed = ["theme","text_size","font","reduce_motion","dim_at_night","reminder_days","quiet_hours","region_override"];
+    const prefs = Object.fromEntries(Object.entries(S.prefs).filter(([k]) => allowed.includes(k)));
+    const r = await sb.from("user_settings").upsert({user_id: USER.id, prefs}, {onConflict: "user_id"});
+    if(r.error) console.error(r.error);
+  },
+  async hydrate(){
+    const uid = USER.id, own = t => sb.from(t).select("*").eq("user_id", uid);
+    const enrols = must(await own("enrolments").order("started_at", {ascending: true}));
+    const liveIds = LIVE.map(l => l.id);
+    if(!(S.pickWb && liveIds.includes(S.pickWb)) && !enrols.some(e => e.workbook_id === WB)) WB = (enrols.find(e => liveIds.includes(e.workbook_id)) || {}).workbook_id || (liveIds.includes(WB) ? WB : "focus");
+    if(S.pickWb && liveIds.includes(S.pickWb)) WB = S.pickWb;
+    try{ localStorage.setItem("akana-wb", WB); }catch(_){}
+    setData(await loadData(WB));
+    const soft = p => p.then(r => r, e => { console.error(e); return null; });
+    const [prof, cons, enr, vault, comp, tools, dailyR, scR, ms, paid, partner, subs, settings, status] = await Promise.all([
+      sb.from("profiles").select("*").eq("id", uid).maybeSingle().then(must),
+      sb.from("consents").select("consent_type,granted,created_at").eq("user_id", uid).order("created_at").then(must),
+      own("enrolments").eq("workbook_id", WB).maybeSingle().then(must),
+      this.call({op: "load"}),
+      own("exercise_completions").eq("workbook_id", WB).order("completed_at").then(must),
+      own("toolkit_uses").eq("workbook_id", WB).then(must),
+      soft(this.call({op: "load_daily", workbook_id: undefined})),
+      soft(this.call({op: "load_selfcheck"})),
+      own("milestones_earned").eq("workbook_id", WB).then(must),
+      this.hasAccess(),
+      sb.from("partners").select("partner_name,share_level,status,note").eq("user_id", uid).maybeSingle().then(must),
+      sb.from("subscriptions").select("product_id,status,current_period_end,cancel_at").eq("user_id", uid).in("status", ["active","trialing","past_due"]).order("created_at", {ascending:false}).limit(1).then(must),
+      soft(sb.from("user_settings").select("prefs").eq("user_id", uid).maybeSingle().then(must)),
+      soft(this.fn("account", {op: "status"})),
+    ]);
+    const keepPrefs = S.prefs, keepFilter = S.filter;
+    S = blank();
+    S.prefs = {...keepPrefs, ...(settings?.prefs || {})};
+    S.status = status && status.access ? status : null;
+    S.partner = partner; S.pass = subs[0] || null; S.filter = keepFilter || "all";
+    S.enrolments = enrols.filter(e => liveIds.includes(e.workbook_id));
+    S.account = {name: prof?.display_name || USER.user_metadata?.name || "", email: USER.email};
+    const latest = {}; cons.forEach(c => latest[c.consent_type] = c.granted);
+    S.consentLog = cons.slice().reverse();
+    S.consents = {store: !!latest.store, emails: !!latest.progress_emails, recs: !!latest.personalised_recs, news: latest.general_marketing === true, partner: !!latest.partner_share};
+    S.savedConsents = {...S.consents};
+    if(prof?.daily_check_time) S.dailyTime = prof.daily_check_time.slice(0,5);
+    const ans = vault.answers || [], ci = vault.checkins || [];
+    S.access = vault.access || "full";
+    ans.forEach(a => { if(a.exercise_id === "start" && a.field_id === "why") S.why = a.value || ""; else S.answers[a.exercise_id + (a.attempt > 1 ? "~r" : "") + "." + a.field_id] = a.value; });
+    comp.forEach(c => S.ex[c.exercise_id + (c.is_repeat ? "~r" : "")] = {mode: c.mode, at: Date.parse(c.completed_at)});
+    tools.forEach(t => S.tool[t.card_id] = (S.tool[t.card_id] || 0) + 1);
+    const checks = (dailyR?.checks || []).filter(d => d.workbook_id === "all" || d.workbook_id === WB);
+    const byDay = {}; checks.forEach(d => byDay[d.check_date] = d);
+    S.daily = Object.values(byDay).sort((a,b) => a.check_date.localeCompare(b.check_date)).map(d => ({date: dayFromIso(d.check_date), score: d.score, tags: (d.tags||[]).map(t => D.daily_check.tags.indexOf(t)).filter(i => i >= 0)}));
+    ci.forEach(c => { S.checkinDone[c.week] = true; Object.entries(c.answers || {}).forEach(([f,v]) => S.answers["checkin" + c.week + "." + f] = v); });
+    (scR?.results || []).forEach(r => { if(r.taken_week === 0){ S.baseline = r.item_scores; S.baselineSaved = true; }
+      else if(r.taken_week === 6){ S.retake = r.item_scores; S.scSaved6 = true; } else if(r.taken_week === 12){ S.retake12 = r.item_scores; S.scSaved12 = true; } });
+    S.ms = ms.map(m => m.milestone_id);
+    S.enrolled = !!enr; S.started = !!enr; S.week = enr?.current_week || 1; S.paid = paid;
+    S.weekOpenedAt = enr?.week_opened_at || null;
+    S.returnedAfterGap = !!enr && enr.last_active_at && (Date.now() - Date.parse(enr.last_active_at)) > 7 * 864e5;
+    if(enr && !readOnly()) sb.from("enrolments").update({last_active_at: new Date().toISOString()}).eq("user_id", uid).eq("workbook_id", WB).then(()=>{});
+    applyPrefs();
+  },
+};
+
+const Auth = {
+  err(msg){ S.authError = msg; render(); },
+  async signup(){
+    const {name, email, pw} = S.account;
+    if(!email || !pw || pw.length < 8) return this.err("Please add your email and a password of at least 8 characters.");
+    const {data, error} = await sb.auth.signUp({email, password: pw, options: {data: {name}, emailRedirectTo: location.origin}});
+    S.account.pw = "";
+    if(error) return this.err(error.message);
+    if(!data.session) go("onb-check");
+  },
+  async signin(){
+    const {email, pw} = S.account;
+    const {error} = await sb.auth.signInWithPassword({email, password: pw});
+    S.account.pw = "";
+    if(error) this.err(error.status === 400 ? "That email and password didn't match. Try again, or use a sign-in link." : "Couldn't reach the server. Check your connection and try again.");
+  },
+  async magic(){
+    if(!S.account.email) return this.err("Please add your email first.");
+    const {error} = await sb.auth.signInWithOtp({email: S.account.email, options: {emailRedirectTo: location.origin, data: {name: S.account.name}}});
+    if(error) return this.err(error.message);
+    go("onb-check");
+  },
+};
+
+/* ---------- appearance ---------- */
+function applyPrefs(){
+  const r = document.documentElement, p = S.prefs;
+  if(!p.theme || p.theme === "system") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", p.theme);
+  r.style.setProperty("--fs", [17,18,20,22][+p.text_size || 0] + "px");
+  if(p.font === "lexend") r.setAttribute("data-font","lexend"); else r.removeAttribute("data-font");
+  if(p.reduce_motion) r.setAttribute("data-motion","reduce"); else r.removeAttribute("data-motion");
+  setPref("motion", p.reduce_motion ? "reduce" : "phone");
+  r.classList.toggle("dim", !!p.dim_at_night && night());
+  document.body.classList.toggle("night", night());
+}
+try{ S.prefs = JSON.parse(localStorage.getItem("akana-prefs") || "{}") || {}; }catch(_){ S.prefs = {}; }
+
+async function enter(session){
+  if(USER && USER.id === session.user.id) return;
+  USER = session.user; S.loadingText = "Loading your workbook"; go("loading");
+  try{ await Sync.hydrate(); }catch(e){ console.error(e); S.loadingText = "Couldn't load. Please refresh."; render(); return; }
+  if(window.AkanaLocale) AkanaLocale.init(sb).then(() => render()).catch(()=>{});
+  const params = new URLSearchParams(location.search);
+  if(params.get("checkout") === "success"){
+    history.replaceState(null, "", location.pathname);
+    S.loadingText = "Confirming your payment"; go("loading");
+    for(let i = 0; i < 20 && !S.paid; i++){ await new Promise(r => setTimeout(r, 1500)); S.paid = await Sync.hasAccess().catch(() => false); }
+    if(S.paid){ Sync.log("purchase"); if(S.week === 1) await Sync.week(2); else go("today"); toast("You're all set. Week 2 is open."); return; }
+    toast("Payment is still being confirmed. Refresh in a minute.");
+  } else if(params.get("checkout") === "cancelled"){ history.replaceState(null, "", location.pathname); go("offers"); toast("Checkout canceled. Nothing was charged."); return; }
+  const hash = location.hash.replace("#", "");
+  if(location.hash) history.replaceState(null, "", location.pathname);
+  const deep = hash === "help" ? "help" : hash === "settings" ? "you" : /^settings\/(\w+)$/.test(hash) ? "set:" + hash.split("/")[1] : null;
+  go(!S.consents.store ? "onb-consent" : !S.enrolled ? "start-welcome" : deep || "home");
+  if(S.enrolled && S.returnedAfterGap) setTimeout(() => milestone("return_after_gap"), 600);
+}
+async function boot(){
+  applyPrefs();
+  S.view = "loading"; render();
+  sb.auth.onAuthStateChange((ev, session) => {
+    if(session) setTimeout(() => enter(session), 0);
+    else if(ev === "SIGNED_OUT"){ USER = null; const p = S.prefs; S = blank(); S.prefs = p; go("welcome"); }
+  });
+  const {data: {session}} = await sb.auth.getSession();
+  if(session) enter(session); else if(S.view === "loading") go(location.hash === "#help" ? "help" : "welcome");
+  if(window.AkanaLocale && !session) AkanaLocale.init(null).catch(()=>{});
+  if("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(()=>{});
+}
+document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") Sync.flush(); });
+
+/* ---------- render ---------- */
+const TABS = [["home","Home","house"],["today","Today","sun-horizon"],["toolkit","Toolkit","toolbox"],["books","Books","books"],["you","You","user-circle"]];
+function render(){
+  stopPacer();
+  let v = S.view, out;
+  if(v.startsWith("ex:")){ const [,id,st] = v.split(":"); out = exView(id, st); }
+  else if(v.startsWith("set:")){ S.setId = v.slice(4); out = V["set"](); }
+  else out = (V[v] || V["home"])();
+  const bare = v === "welcome" || v.startsWith("onb") || v.startsWith("start") || v === "loading" || (v === "sc-finish" && S.retaking);
+  const focus = bare || v.startsWith("ex:") || v.startsWith("tool:") || ["checkin","daily","offers","help"].includes(v);
+  document.body.dataset.stage = stageOf(S.week).id;
+  document.body.classList.toggle("focus", focus);
+  const left = out.back ? `<button class="back" data-go="${out.back}" data-nav="back">${I("caret-left")}Back</button>`
+    : `<button class="brand" ${USER && !bare ? 'data-go="home"' : ""} aria-label="Akana${USER && !bare ? ", home" : ""}">${MARK()}<span>Akana</span></button>`;
+  document.getElementById("top").innerHTML = left + (v === "help" ? "" : `<button class="help" data-action="help">${I("lifebuoy","s20")}Help now</button>`);
+  const app = document.getElementById("app");
+  app.innerHTML = out.body; app.classList.remove("enter"); void app.offsetWidth; app.classList.add("enter");
+  if(readOnly() && (v.startsWith("ex:") || v === "checkin" || v === "daily")) app.querySelectorAll("input,textarea,.chip[data-grid],.chip[data-wg],.chip[data-tog],.chip[data-set],.chip[data-day],.chip[data-yn]").forEach(el => el.disabled = true);
+  document.getElementById("actionbar").innerHTML = out.action ? `<div class="actionbar">${out.action}</div>` : "";
+  const tabs = document.getElementById("tabs");
+  tabs.hidden = focus || !USER;
+  const cur = out.tabs || TAB_OF[v];
+  tabs.innerHTML = `<div class="tabs-in">${TABS.map(([id,l,ic]) => `<button class="tab" data-go="${id}" ${cur===id?'aria-current="page"':""}>${I((cur===id?"f-":"i-")+ic)}<span>${l}</span></button>`).join("")}</div>`;
+  refreshDone();
+}
+
+/* ---------- actions ---------- */
+function saveDaily(){
+  if(readOnly()) return toast(FRIENDLY.read_only);
+  Sync.daily(S.dailyDraft); buzz();
+  S.daily = S.daily.filter(x => x.date !== new Date().toDateString()); S.daily.push({date:new Date().toDateString(), ...S.dailyDraft});
+  S.dailyDraft = {score:null,tags:[]}; go("today", "back");
+  if(S.daily.length >= 7) milestone("daily_checks:7"); else toast("Saved. " + S.daily.length + " day" + (S.daily.length>1?"s":"") + " checked in.");
+}
+function download(name, type, text){
+  const url = URL.createObjectURL(new Blob([text], {type}));
+  const a = Object.assign(document.createElement("a"), {href: url, download: name}); document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+function downloadCalendar(){
+  const [h, m] = (S.dailyTime || "08:00").split(":"); const d = new Date(); d.setDate(d.getDate() + 1);
+  const ymd = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
+  download("daily-check.ics", "text/calendar", ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Akana//Daily check//EN","BEGIN:VEVENT",
+    `UID:daily-check-${USER?.id || "reader"}@akana`, `DTSTAMP:${stamp}`, `DTSTART:${ymd}T${h}${m}00`, "DURATION:PT5M", "RRULE:FREQ=DAILY",
+    "SUMMARY:Daily check, about a minute", `DESCRIPTION:Open Akana: ${location.origin}`, `URL:${location.origin}`,
+    "BEGIN:VALARM","ACTION:DISPLAY","DESCRIPTION:Daily check","TRIGGER:PT0M","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n"));
+}
+/* History download: the phone's own lock (passkey with user verification), or an emailed code. */
+function exportSheet(){
+  const has = S.status?.passkeys > 0, can = !!(window.PublicKeyCredential && window.SimpleWebAuthnBrowser);
+  sheet(`<span class="bloom calm">${I("fingerprint","s32")}</span><h2>Confirm it's you</h2>
+    <p>Your phone will ask for your face, fingerprint, PIN or pattern. That check stays on your phone. Nothing about it is sent to us.</p>
+    ${can ? `<button class="btn" data-action="${has ? "export-passkey" : "export-setup"}">${has ? "Confirm with my phone" : "Set up my phone's lock, then download"}</button>` : ""}
+    <button class="btn ${can ? "quiet" : ""}" data-action="export-code">Email me a code instead</button>
+    <button class="btn ghost" data-action="close-sheet">Not now</button>`, "Download your history");
+}
+async function exportWithToken(token){
+  sheet(`<div class="sk" style="height:44px;width:44px;border-radius:50%;margin:8px auto"></div><p>Preparing your history...</p>`, "Preparing");
+  const data = await Sync.fn("account", {op: "export", export_token: token});
+  const day = isoDay();
+  download(`akana-history-${day}.json`, "application/json", JSON.stringify(data, null, 2));
+  download(`akana-booklet-${day}.html`, "text/html", booklet());
+  sheet(`<span class="bloom">${I("check","s32")}</span><h2>Your history is ready</h2><p>Two files are in your downloads: a booklet you can open and print, and a data file with everything we hold.</p><button class="btn" data-action="close-sheet">Done</button>`, "Done");
+}
+function booklet(){
+  const lines = planLines(), e2 = s => esc(s).replace(/\n/g,"<br>");
+  const exs = D.exercises.filter(e => S.ex[e.id] || S.ex[e.id+"~r"]).map(e => `<h3>Week ${weekOf(e.id)}: ${esc(e.title)}</h3>${e.fields.map(f => { const v = showVal(S.answers[e.id+"."+f.id]); return v ? `<p><b>${esc(f.label)}</b><br>${e2(v)}</p>` : ""; }).join("")}`).join("");
+  return `<!doctype html><meta charset="utf-8"><title>My ${esc(D.topic_name)} booklet</title><style>body{font:16px/1.6 Georgia,serif;max-width:680px;margin:40px auto;padding:0 20px;color:#16222B}h1,h2,h3{font-family:Helvetica,Arial,sans-serif}h3{margin-top:28px}</style>
+  <h1>My ${esc(D.topic_name)} booklet</h1><p>Made on ${longDate(new Date())}. Everything here is in your own words.</p>
+  <h2>My plan</h2>${D.plan_sections.map(p => (lines[p.id]||[]).length ? `<h3>${esc(p.title)}</h3>${lines[p.id].map(l=>`<p>${e2(l)}</p>`).join("")}` : "").join("")}
+  <h2>My answers</h2>${exs || "<p>Nothing yet.</p>"}`;
+}
+async function exportFlow(kind){
+  try{
+    const W = window.SimpleWebAuthnBrowser;
+    if(kind === "setup"){
+      const {options} = await Sync.fn("account", {op: "passkey_register_options"});
+      const response = await W.startRegistration({optionsJSON: options});
+      await Sync.fn("account", {op: "passkey_register_verify", response, nickname: "This phone"});
+      S.status = {...(S.status||{}), passkeys: (S.status?.passkeys||0) + 1};
+    }
+    if(kind === "setup" || kind === "passkey"){
+      const {options} = await Sync.fn("account", {op: "passkey_auth_options"});
+      const response = await W.startAuthentication({optionsJSON: options});
+      const r = await Sync.fn("account", {op: "passkey_auth_verify", response});
+      return exportWithToken(r.export_token);
+    }
+    if(kind === "code"){
+      await Sync.fn("account", {op: "export_code_request"});
+      sheet(`<span class="bloom calm">${I("envelope-simple","s32")}</span><h2>Check your email</h2><p>We sent a 6-digit code to ${esc(S.account.email)}. It works for 10 minutes.</p>
+        <div style="text-align:left"><label class="q" for="xcode">Code</label><input type="text" id="xcode" inputmode="numeric" autocomplete="one-time-code" maxlength="6"></div>
+        <button class="btn" data-action="export-code-verify">Download</button><button class="btn ghost" data-action="close-sheet">Cancel</button>`, "Enter your code");
+    }
+  }catch(e){
+    if(e && (e.name === "NotAllowedError" || e.name === "AbortError")) { toast("Nothing was downloaded. You can try again anytime."); closeSheet(); return; }
+    closeSheet(); Sync.fail(e);
+  }
+}
+async function exportCodeVerify(){
+  const code = (document.getElementById("xcode")?.value || "").replace(/\D/g, "");
+  if(code.length !== 6) return toast("Please type the 6-digit code.");
+  try{ const r = await Sync.fn("account", {op: "export_code_verify", code}); await exportWithToken(r.export_token); }
+  catch(e){ Sync.fail(e); }
+}
+function deleteFlow(){
+  sheet(`<h2>Delete your account?</h2><p class="muted">Your account and everything you've written will be deleted in 7 days. Until then it's read-only, and you can undo it. Any pass is canceled straight away. Only the records the law requires are kept: purchases and consents, for six years.</p>
+    <div style="text-align:left"><label class="q" for="del-confirm">Type DELETE to confirm</label><input type="text" id="del-confirm" autocomplete="off" autocapitalize="characters"></div>
+    <button class="btn danger" data-action="delete-confirm">Delete my account</button><button class="btn quiet" data-action="close-sheet">Keep my account</button>`, "Delete account");
+}
+async function deleteConfirm(){
+  const typed = document.getElementById("del-confirm")?.value.trim().toUpperCase();
+  if(typed !== "DELETE"){ toast("Please type DELETE to confirm."); return; }
+  try{
+    const r = await Sync.fn("account", {op: "delete", confirm: "DELETE"});
+    closeSheet();
+    if(r && r.scheduled_for){ S.status = {...(S.status||{}), deletion: {scheduled_for: r.scheduled_for, scheduled_for_words: r.scheduled_for_words}}; go("home"); toast(`Your account will be deleted on ${r.scheduled_for_words}. You can undo it until then.`); }
+    else { await sb.auth.signOut(); USER = null; S = blank(); go("welcome"); toast("Your account is deleted."); }
+  }catch(e){ Sync.fail(e); }
+}
+async function undoDelete(){
+  try{ await Sync.fn("account", {op: "undo_delete"}); if(S.status) S.status.deletion = null; render(); toast("Deletion canceled. Your account is back to normal."); }
+  catch(e){ Sync.fail(e); }
+}
+async function cancelPass(){
+  try{
+    const r = await Sync.fn("account", {op: "cancel_pass"});
+    S.pass = {...S.pass, cancel_at: r.access_until}; closeSheet(); render();
+    toast(r.mode === "immediate" ? `Canceled.${r.refund?.amount_words ? " " + r.refund.amount_words + " is on its way back to you." : ""}` : `Canceled. You keep access until ${r.access_until_words}.`);
+  }catch(e){ closeSheet(); Sync.fail(e); }
+}
+async function partnerInvite(){
+  const f = S.pform;
+  if(!f.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim())){ toast("Please add their first name and email."); return; }
+  if(!f.agree){ toast("Please tick the box to agree to share."); return; }
+  try{
+    if(!S.consents.partner) await Sync.setConsent("partner", true);
+    await Sync.fn("partner", {op: "invite", name: f.name.trim(), email: f.email.trim(), share_level: f.level});
+    S.partner = {partner_name: f.name.trim(), share_level: f.level, status: "invited"}; S.pform = null; render(); toast("Invitation sent.");
+    Sync.log("partner_invited");
+  }catch(e){ Sync.fail(e); }
+}
+async function partnerOp(body){
+  try{ const r = await Sync.fn("partner", body); S.partner = r.status === "none" ? null : {...S.partner, ...r}; render(); toast(body.op === "remove" ? "Removed. They won't be told why." : "Saved."); }
+  catch(e){ Sync.fail(e); }
+}
+/* Two workbooks at once: switching reloads that workbook's content and progress. */
+async function openWorkbook(id){
+  if(!LIVE.some(l => l.id === id)){ toast("This workbook opens when the library launches."); return; }
+  const enrolled = S.enrolments.some(e => e.workbook_id === id);
+  if(id === WB && S.enrolled){ go("today"); return; }
+  const active = S.enrolments.filter(e => e.status !== "finished" && e.status !== "paused").length;
+  if(!enrolled && active >= 2){ toast(FRIENDLY.two_active_limit); return; }
+  S.pickWb = id; S.loadingText = "Opening your workbook"; go("loading");
+  try{ await Sync.hydrate(); }catch(e){ S.pickWb = null; Sync.fail(e); go("home"); return; }
+  S.pickWb = null;
+  if(!S.enrolled){ S.access = "full"; go("start-welcome"); } else go("today");
+}
+function flashSaved(){ const s = document.getElementById("setsaved"); if(!s) return; s.hidden = false; clearTimeout(flashSaved.t); flashSaved.t = setTimeout(() => s.hidden = true, 1400); }
+
+/* ---------- events ---------- */
+document.addEventListener("click", ev => {
+  const b = ev.target.closest("button, a[data-action], [data-go]"); if(!b) return;
+  const d = b.dataset;
+  if(d.go){ if(d.go === "today" && !USER) return; go(d.go, d.nav); return; }
+  if(d.filter){ S.filter = d.filter; render(); return; }
+  if(d.wb){ openWorkbook(d.wb); return; }
+  if(d.book){ bookSheet(d.book); return; }
+  if(d.format){ S.format = d.format; bookSheet(S.openBook); return; }
+  if(d.region){ const code = d.region; AkanaLocale.choose(sb, code).then(r => { if(!r.market && MARKETS[code]) { r.market = {code, ...MARKETS[code]}; try{ localStorage.setItem("akana-market", JSON.stringify(r)); }catch(_){} } render(); toast("Region saved."); }).catch(Sync.fail); return; }
+  if(d.prefset){ S.prefs[d.prefset] = d.prefset === "text_size" ? +d.v : d.v; Sync.savePrefs(); render(); flashSaved(); return; }
+  if(d.offer){ S.offer = d.offer; S.tickNow = false; S.tickRenew = false; render(); return; }
+  if(d.open){ if((weekOf(d.open)||1) > S.week){ toast("This one opens in week " + weekOf(d.open) + "."); return; }
+    if(!EX[baseId(d.open)]){ toast("This one isn't written yet."); return; } S.modes[d.open] = d.mode; go(`ex:${d.open}:${d.mode==="short"?"steps":"purpose"}`); return; }
+  if(d.tool){ S._toolBack = S.view.startsWith("tool:") ? S._toolBack : S.view; go("tool:"+d.tool); return; }
+  if(d.sc){ scStore()[d.sc] = +d.n; render(); return; }
+  if(readOnly() && (d.grid || d.wg || d.tog || d.set || d.day || d.yn)) return;
+  if(d.grid){ const m = S.answers[d.grid] ||= {}; m[d.row] = +d.n; Sync.dirty(d.grid); render(); return; }
+  if(d.day){ S["day_"+d.day] = +d.i; render(); return; }
+  if(d.wg){ const m = S.answers[d.wg] ||= {}; (m[d.day2] ||= {})[d.row] = +d.n; Sync.dirty(d.wg); render(); return; }
+  if(d.tog){ const a = S.answers[d.tog] ||= []; a[d.i] = !a[d.i]; Sync.dirty(d.tog); render(); return; }
+  if(d.set){ S.answers[d.set] = +d.n; Sync.dirty(d.set); render(); return; }
+  if(d.yn){ S.answers[d.yn] = d.v; Sync.dirty(d.yn); render(); return; }
+  if(d.quickdaily !== undefined){ S.dailyDraft = {score: +d.quickdaily, tags: []}; saveDaily(); return; }
+  if(d.plevel){ partnerOp({op: "level", share_level: +d.plevel}); return; }
+  if(d.pflevel){ S.pform.level = +d.pflevel; render(); return; }
+  if(d.daily !== undefined){ S.dailyDraft.score = +d.daily; render(); return; }
+  if(d.tag !== undefined){ const t = S.dailyDraft.tags, i = +d.tag; t.includes(i) ? t.splice(t.indexOf(i),1) : t.push(i); render(); return; }
+  const a = d.action; if(!a) return;
+  if(a === "book-out"){ setTimeout(closeSheet, 300); return; }
+  if(a === "help"){ S._prev = S.view === "help" ? S._prev : S.view; go("help"); }
+  if(a === "to-signin"){ S.authMode = "signin"; go("onb-account"); }
+  if(a === "finish-start"){ Sync.start().then(() => { S.started = true; go("home"); }).catch(Sync.fail); }
+  if(a === "signup" || a === "signin" || a === "magic"){ Auth[a](); }
+  if(a === "auth-mode"){ S.authMode = S.authMode === "signin" ? "signup" : "signin"; S.authError = ""; render(); }
+  if(a === "save-consent"){ Sync.consents().then(() => go(S.enrolled ? "home" : "start-welcome")).catch(Sync.fail); }
+  if(a === "checkout"){ Sync.checkout(); }
+  if(a === "signout"){ sb.auth.signOut().then(() => { const p = S.prefs; S = blank(); S.prefs = p; USER = null; go("welcome"); }); }
+  if(a === "complete-ex"){ if(readOnly()) return toast(FRIENDLY.read_only); buzz(); const first = exDoneCount() === 0; S.ex[d.id] = {mode:S.modes[d.id]||"full", at:Date.now()}; Sync.completion(d.id, S.ex[d.id].mode);
+    go(`ex:${d.id}:done`); if(isRepeat(d.id)) milestone("first_repeat"); else if(first) milestone("first_exercise"); if(S.ex.e01 && S.ex.e02) milestone("stage_complete:map"); }
+  if(a === "used-tool"){ const first = !Object.keys(S.tool).length; S.tool[d.id] = (S.tool[d.id]||0)+1; Sync.tool(d.id); go(S._toolBack && TAB_OF[S._toolBack] ? S._toolBack : "today", "back");
+    if(first) milestone("first_toolkit_use"); const total = Object.values(S.tool).reduce((x,y)=>x+y,0);
+    if(total >= 10){ const top = Object.entries(S.tool).sort((x,y)=>y[1]-x[1])[0][0]; milestone("toolkit_uses:10",{top_tool:TK[top].title}); } }
+  if(a === "pacer-start") runPacer();
+  if(a === "pacer-stop"){ stopPacer(); const w = document.getElementById("pword"); if(w) w.textContent = "Stopped"; }
+  if(a === "cancel-start"){ const o = S.enrolments.find(e => e.workbook_id !== WB); if(o) openWorkbook(o.workbook_id); }
+  if(a === "switch-wb"){ const o = S.enrolments.find(e => e.workbook_id !== WB && e.status !== "finished"); if(o) openWorkbook(o.workbook_id); }
+  if(a === "not-today"){ toast("That's fine. It'll be here tomorrow."); }
+  if(a === "save-daily") saveDaily();
+  if(a === "close-sheet") closeSheet();
+  if(a === "print") window.print();
+  if(a === "calendar") downloadCalendar();
+  if(a === "export") exportSheet();
+  if(a === "export-passkey") exportFlow("passkey");
+  if(a === "export-setup") exportFlow("setup");
+  if(a === "export-code") exportFlow("code");
+  if(a === "export-code-verify") exportCodeVerify();
+  if(a === "use-location"){ const n = document.getElementById("geo-note"); if(n) n.textContent = "Asking your phone..."; AkanaLocale.useDevice(sb).then(r => { render(); toast(r.source === "device" ? "Region set from your location." : "Couldn't place you, so your network was used."); }).catch(() => { if(n) n.textContent = "Location wasn't allowed, so nothing changed. You can choose below."; }); }
+  if(a === "delete-account") deleteFlow();
+  if(a === "delete-confirm") deleteConfirm();
+  if(a === "undo-delete") undoDelete();
+  if(a === "cancel-pass") sheet(`<h2>Cancel your pass?</h2><p class="muted">It won't renew. If you started it in the last 14 days, it ends now and unused time is refunded. Otherwise you keep access until ${S.pass ? longDate(S.pass.current_period_end) : "the end of the period you paid for"}. Everything you wrote stays yours to read.</p><button class="btn danger" data-action="cancel-confirm">Yes, cancel my pass</button><button class="btn quiet" data-action="close-sheet">Keep my pass</button>`, "Cancel pass");
+  if(a === "cancel-confirm") cancelPass();
+  if(a === "partner-invite") partnerInvite();
+  if(a === "partner-op") partnerOp({op: d.op});
+  if(a === "partner-note") partnerOp({op: "note", note: document.getElementById("pnote")?.value || ""});
+  if(a === "ci-mode"){ S.checkinShort = d.short === "1"; render(); }
+  if(a === "save-checkin"){ if(readOnly()) return toast(FRIENDLY.read_only); buzz(); S.checkinDone[S.week] = true; Sync.checkin(S.week, !!S.checkinShort).then(() => {
+      const st = stageOf(S.week);
+      if(Math.max(...st.weeks) === S.week) Sync.event("stage_complete", {stage: st.id});
+    }); go("today", "back");
+    const st = stageOf(S.week), last = Math.max(...st.weeks) === S.week;
+    if(S.week === 1) milestone("week_complete:1"); else if(last && st.id !== "keep" && st.id !== "map") milestone("stage_complete:" + st.id); else if(!last) toast("Check-in saved."); }
+  if(a === "next-week" || a === "skip-week"){ if(S.week === 1 && !S.paid) go("offers"); else Sync.week(Math.min(12, S.week+1)); }
+  if(a === "retake"){ S.retaking = true; S.retakeWeek = +d.week === 12 ? 12 : 6; if(S.retakeWeek === 12) S.retake12 = {}; else S.retake = {}; go("start-sc-0"); }
+});
+function refreshDone(){
+  const btn = document.querySelector('[data-action="complete-ex"],[data-action="save-checkin"]');
+  if(btn){ const [id] = S.view.split(":").slice(1); const e = EX[baseId(id)];
+    if(e){ const mode = S.modes[id]||"full"; const fs = mode==="short" ? e.fields.filter(f=>e.short_version.field_ids.includes(f.id)) : e.fields; btn.disabled = readOnly() || !fs.every(f=>filled(id,f)); }
+    else if(S.view==="checkin"){ const k="checkin"+S.week; const fs = (S.checkinShort ? D.checkin.fields.filter(f=>D.checkin.short_field_ids.includes(f.id)) : D.checkin.fields).filter(f=>f.type!=="checklist"&&f.type!=="weekly_grid"); btn.disabled = readOnly() || !fs.every(f=>filled(k,f)); } }
+}
+document.addEventListener("input", ev => {
+  const t = ev.target, d = t.dataset;
+  if(d.pf){ S.pform[d.pf] = t.value; return; }
+  if(d.acc){ S.account[d.acc] = t.value; return; }
+  if(d.why !== undefined){ S.why = t.value; Sync.dirty("start.why"); const b = document.querySelector('[data-go="start-time"]'); if(b) b.disabled = !t.value.trim(); return; }
+  if(d.dtime !== undefined){ S.dailyTime = t.value; return; }
+  if(d.k){
+    if(readOnly()) return;
+    if(d.j !== undefined){ const a = S.answers[d.k] ||= [["",""],["",""]]; a[+d.i][+d.j] = t.value; }
+    else if(d.i !== undefined){ const a = S.answers[d.k] ||= []; a[+d.i] = t.value; }
+    else S.answers[d.k] = t.value;
+    Sync.dirty(d.k);
+    refreshDone();
+  }
+});
+document.addEventListener("change", ev => {
+  const t = ev.target, d = t.dataset;
+  if(d.consentpref){ Sync.setConsent(d.consentpref, t.checked).then(flashSaved).catch(e => { t.checked = !t.checked; Sync.fail(e); }); return; }
+  if(d.localpref){ setPref(d.localpref, t.checked ? "1" : "0"); if(d.localpref === "haptics" && t.checked) buzz(); flashSaved(); return; }
+  if(d.pref){ S.prefs[d.pref] = t.checked; Sync.savePrefs(); flashSaved(); if(d.pref === "hide_covers") render(); return; }
+  if(d.pfagree !== undefined){ S.pform.agree = t.checked; return; }
+  if(d.setname !== undefined){ S.account.name = t.value.trim(); sb.from("profiles").update({display_name: S.account.name || null}).eq("id", USER.id).then(r => r.error ? Sync.fail(r.error) : toast("Saved.")); return; }
+  if(d.settime !== undefined){ S.dailyTime = t.value; sb.from("profiles").update({daily_check_time: t.value || null}).eq("id", USER.id).then(r => r.error ? Sync.fail(r.error) : flashSaved()); return; }
+  if(d.consent){ S.consents[d.consent] = t.checked; render(); }
+  if(d.cl){ if(readOnly()) return; const a = S.answers[d.cl] ||= []; a[+d.i] = t.checked; Sync.dirty(d.cl); refreshDone(); }
+  if(d.tick){ if(d.tick === "now") S.tickNow = t.checked; else S.tickRenew = t.checked; render(); }
+});
+boot();
+</script>
+</body>
+</html>
