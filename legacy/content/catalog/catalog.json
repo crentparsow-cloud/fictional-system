@@ -1,0 +1,489 @@
+{
+ "books": [
+  {
+   "id": "quieting-the-noise",
+   "title": "Quieting the Noise",
+   "subtitle": "A Practical Guide to Generalised Anxiety",
+   "asin": {
+    "kindle": "B0H4NZKQ5D",
+    "paperback": "B0HFCL5KJX"
+   },
+   "workbook_id": "worry",
+   "topic_set": "worry",
+   "hue": 180,
+   "cover": "covers/quieting-the-noise",
+   "sort": 1
+  },
+  {
+   "id": "finding-your-way-back",
+   "title": "Finding Your Way Back",
+   "subtitle": "A Practical Guide to Depression",
+   "asin": {
+    "kindle": "B0GYFFY4ML",
+    "paperback": "B0HDPYNL85"
+   },
+   "workbook_id": "lowmood",
+   "topic_set": "mood",
+   "hue": 198,
+   "cover": "covers/finding-your-way-back",
+   "sort": 2
+  },
+  {
+   "id": "bearing-it-better",
+   "title": "Bearing It Better",
+   "subtitle": "A Practical Guide to Chronic Stress",
+   "asin": {
+    "kindle": "B0H4PDJ8TT",
+    "paperback": "B0HCXX62NJ"
+   },
+   "workbook_id": "stress",
+   "topic_set": "stress",
+   "hue": 36,
+   "cover": "covers/bearing-it-better",
+   "sort": 3
+  },
+  {
+   "id": "rebuilding-from-empty",
+   "title": "Rebuilding from Empty",
+   "subtitle": "A Practical Guide to Burnout Recovery",
+   "asin": {
+    "kindle": "B0H4PJYWLV",
+    "paperback": "B0HF9ZG2LF"
+   },
+   "workbook_id": "burnout",
+   "topic_set": "stress",
+   "hue": 54,
+   "cover": "covers/rebuilding-from-empty",
+   "sort": 4
+  },
+  {
+   "id": "finding-your-people",
+   "title": "Finding Your People",
+   "subtitle": "A Practical Guide to Loneliness",
+   "asin": {
+    "kindle": "B0H4PQJWQ5",
+    "paperback": "B0HDJCSSSW"
+   },
+   "workbook_id": "connection",
+   "topic_set": "self",
+   "hue": 90,
+   "cover": "covers/finding-your-people",
+   "sort": 5
+  },
+  {
+   "id": "after-the-storm",
+   "title": "After the Storm",
+   "subtitle": "A Practical Guide to Trauma and PTSD",
+   "asin": {
+    "kindle": "B0H4PMBKJV",
+    "paperback": "B0HC2ZWYZH"
+   },
+   "workbook_id": "aftertrauma",
+   "topic_set": "heal",
+   "hue": 0,
+   "cover": "covers/after-the-storm",
+   "sort": 6
+  },
+  {
+   "id": "wired-differently",
+   "title": "Wired Differently",
+   "subtitle": "A Practical Guide to ADHD",
+   "asin": {
+    "kindle": "B0H4PNN9GG",
+    "paperback": "B0HG461C6R"
+   },
+   "workbook_id": "focus",
+   "topic_set": "stress",
+   "hue": 252,
+   "cover": "covers/wired-differently",
+   "sort": 7
+  },
+  {
+   "id": "when-everything-changes",
+   "title": "When Everything Changes",
+   "subtitle": "A Practical Guide to Grief and Loss",
+   "asin": {
+    "kindle": "B0H4HDKDFS",
+    "paperback": "B0HFFTG9PC"
+   },
+   "workbook_id": "grief",
+   "topic_set": "heal",
+   "hue": 18,
+   "cover": "covers/when-everything-changes",
+   "sort": 8
+  },
+  {
+   "id": "the-long-way-home",
+   "title": "The Long Way Home",
+   "subtitle": "A Practical Guide to Addiction Recovery",
+   "asin": {
+    "kindle": "B0H4HGH7D6",
+    "paperback": "B0HFDZLQKF"
+   },
+   "workbook_id": "drinking",
+   "topic_set": "heal",
+   "hue": 216,
+   "cover": "covers/the-long-way-home",
+   "sort": 9
+  },
+  {
+   "id": "enough",
+   "title": "Enough",
+   "subtitle": "A Practical Guide to Low Self-Esteem",
+   "asin": {
+    "kindle": "B0GXQ86FJS",
+    "paperback": "B0HB9SNS31"
+   },
+   "workbook_id": "selfworth",
+   "topic_set": "self",
+   "hue": 72,
+   "cover": "covers/enough",
+   "sort": 10
+  },
+  {
+   "id": "steady-ground",
+   "title": "Steady Ground",
+   "subtitle": "A Practical Guide to Bipolar Disorder",
+   "asin": {
+    "kindle": "B0H4YQK5LM",
+    "paperback": "B0HG1VZQ1K"
+   },
+   "workbook_id": "steady",
+   "topic_set": "mood",
+   "hue": 342,
+   "cover": "covers/steady-ground",
+   "sort": 11
+  },
+  {
+   "id": "loosening-the-grip",
+   "title": "Loosening the Grip",
+   "subtitle": "A Practical Guide to OCD",
+   "asin": {
+    "kindle": "B0H59JFFLK",
+    "paperback": "B0HG4XCK5P"
+   },
+   "workbook_id": "doubt",
+   "topic_set": "worry",
+   "hue": 144,
+   "cover": "covers/loosening-the-grip",
+   "sort": 12
+  },
+  {
+   "id": "still-standing",
+   "title": "Still Standing",
+   "subtitle": "A Practical Guide to Panic Attacks",
+   "asin": {
+    "kindle": "B0H59FVM9G",
+    "paperback": "B0HG4YKT9Y"
+   },
+   "workbook_id": "panic",
+   "topic_set": "worry",
+   "hue": 234,
+   "cover": "covers/still-standing",
+   "sort": 13
+  },
+  {
+   "id": "facing-the-room",
+   "title": "Facing the Room",
+   "subtitle": "A Practical Guide to Social Anxiety",
+   "asin": {
+    "kindle": "B0H59NJQXJ",
+    "paperback": "B0HG54D1R3"
+   },
+   "workbook_id": "social",
+   "topic_set": "worry",
+   "hue": 270,
+   "cover": "covers/facing-the-room",
+   "sort": 14
+  },
+  {
+   "id": "safe-ground",
+   "title": "Safe Ground",
+   "subtitle": "A Practical Guide to Childhood Trauma",
+   "asin": {
+    "kindle": "B0H59X3762",
+    "paperback": "B0HG3XVG2W"
+   },
+   "workbook_id": "childhood",
+   "topic_set": "heal",
+   "hue": 162,
+   "cover": "covers/safe-ground",
+   "sort": 15
+  },
+  {
+   "id": "bending-not-breaking",
+   "title": "Bending, Not Breaking",
+   "subtitle": "A Practical Guide to Emotional Resilience",
+   "asin": {
+    "kindle": "B0H59QRKXK",
+    "paperback": "B0HDL95RBX"
+   },
+   "workbook_id": "overwhelm",
+   "topic_set": "stress",
+   "hue": 126,
+   "cover": "covers/bending-not-breaking",
+   "sort": 16
+  },
+  {
+   "id": "being-here",
+   "title": "Being Here",
+   "subtitle": "A Practical Guide to Mindfulness",
+   "asin": {
+    "kindle": "B0H59MKMMC",
+    "paperback": "B0HC39NPFQ"
+   },
+   "workbook_id": "mindfulness",
+   "topic_set": "self",
+   "hue": 288,
+   "cover": "covers/being-here",
+   "sort": 17
+  },
+  {
+   "id": "rest-to-reset",
+   "title": "Rest to Reset",
+   "subtitle": "A Practical Guide to Sleep and Mental Health",
+   "asin": {
+    "kindle": "B0H59PDQNK",
+    "paperback": "B0HFK89H5X"
+   },
+   "workbook_id": "sleep",
+   "topic_set": "self",
+   "hue": 324,
+   "cover": "covers/rest-to-reset",
+   "sort": 18
+  },
+  {
+   "id": "nourished",
+   "title": "Nourished",
+   "subtitle": "A Practical Guide to Nutrition and Mood",
+   "asin": {
+    "kindle": "B0H59K9XMY",
+    "paperback": "B0HG4Z3Q3F"
+   },
+   "workbook_id": "food",
+   "topic_set": "mood",
+   "hue": 108,
+   "cover": "covers/nourished",
+   "sort": 19
+  },
+  {
+   "id": "moving-through-it",
+   "title": "Moving Through It",
+   "subtitle": "A Practical Guide to Exercise and Mental Health",
+   "asin": {
+    "kindle": "B0GX32N9F7",
+    "paperback": "B0HBRW1G6D"
+   },
+   "workbook_id": "movement",
+   "topic_set": "mood",
+   "hue": 306,
+   "cover": "covers/moving-through-it",
+   "sort": 20
+  }
+ ],
+ "workbooks": [
+  {
+   "id": "worry",
+   "name": "Worry",
+   "book_id": "quieting-the-noise",
+   "topic_set": "worry",
+   "hue": 180,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "lowmood",
+   "name": "Low Mood",
+   "book_id": "finding-your-way-back",
+   "topic_set": "mood",
+   "hue": 198,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "stress",
+   "name": "Stress",
+   "book_id": "bearing-it-better",
+   "topic_set": "stress",
+   "hue": 36,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "burnout",
+   "name": "Burnout",
+   "book_id": "rebuilding-from-empty",
+   "topic_set": "stress",
+   "hue": 54,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "connection",
+   "name": "Connection",
+   "book_id": "finding-your-people",
+   "topic_set": "self",
+   "hue": 90,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "aftertrauma",
+   "name": "After Trauma",
+   "book_id": "after-the-storm",
+   "topic_set": "heal",
+   "hue": 0,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "focus",
+   "name": "Focus",
+   "book_id": "wired-differently",
+   "topic_set": "stress",
+   "hue": 252,
+   "status": "live",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "grief",
+   "name": "Grief",
+   "book_id": "when-everything-changes",
+   "topic_set": "heal",
+   "hue": 18,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "drinking",
+   "name": "Drinking",
+   "book_id": "the-long-way-home",
+   "topic_set": "heal",
+   "hue": 216,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "selfworth",
+   "name": "Self-Worth",
+   "book_id": "enough",
+   "topic_set": "self",
+   "hue": 72,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "steady",
+   "name": "Steady",
+   "book_id": "steady-ground",
+   "topic_set": "mood",
+   "hue": 342,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "doubt",
+   "name": "Doubt",
+   "book_id": "loosening-the-grip",
+   "topic_set": "worry",
+   "hue": 144,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "panic",
+   "name": "Panic",
+   "book_id": "still-standing",
+   "topic_set": "worry",
+   "hue": 234,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "social",
+   "name": "Social",
+   "book_id": "facing-the-room",
+   "topic_set": "worry",
+   "hue": 270,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "childhood",
+   "name": "Childhood",
+   "book_id": "safe-ground",
+   "topic_set": "heal",
+   "hue": 162,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "overwhelm",
+   "name": "Overwhelm",
+   "book_id": "bending-not-breaking",
+   "topic_set": "stress",
+   "hue": 126,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "mindfulness",
+   "name": "Mindfulness",
+   "book_id": "being-here",
+   "topic_set": "self",
+   "hue": 288,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "sleep",
+   "name": "Sleep",
+   "book_id": "rest-to-reset",
+   "topic_set": "self",
+   "hue": 324,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "food",
+   "name": "Food and Mood",
+   "book_id": "nourished",
+   "topic_set": "mood",
+   "hue": 108,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  },
+  {
+   "id": "movement",
+   "name": "Movement",
+   "book_id": "moving-through-it",
+   "topic_set": "mood",
+   "hue": 306,
+   "status": "coming_soon",
+   "pairing_confirmed": true
+  }
+ ],
+ "topic_sets": [
+  {
+   "id": "worry",
+   "name": "Worry and Fear"
+  },
+  {
+   "id": "mood",
+   "name": "Mood and Energy"
+  },
+  {
+   "id": "stress",
+   "name": "Stress and Overload"
+  },
+  {
+   "id": "heal",
+   "name": "Healing and Loss"
+  },
+  {
+   "id": "self",
+   "name": "Self and Connection"
+  }
+ ],
+ "asin_checked": "2026-10-01, amazon.com and amazon.co.uk, all 40 resolve"
+}
