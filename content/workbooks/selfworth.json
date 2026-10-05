@@ -1,0 +1,2675 @@
+{
+  "schema_version": "1.0",
+  "id": "selfworth",
+  "status": "draft",
+  "topic_name": "Self-Worth",
+  "tagline": "Twelve weeks of small, kind steps toward seeing yourself more fairly",
+  "set_id": "self-and-connection",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "Enough",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Enough.docx"
+  },
+  "start": {
+    "welcome": "If a harsh inner voice keeps telling you you're not enough, this is built for that. It's twelve weeks of small steps toward seeing yourself more fairly, drawn from the book Enough. Most weeks take 15 to 25 minutes, and every exercise has a short version. You don't have to believe you're enough to begin. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If your inner critic were a little quieter, what would you do more of? One line is enough.",
+    "extra_safety_note": "Low self-worth can sit alongside low mood and anxiety. If these feelings are heavy and constant, or they keep you from working, sleeping, or being with people, please talk to a doctor or health professional. If you have any thoughts of harming yourself, please stop and tap Help now. It is at the top of every screen. This workbook can sit alongside professional support. It does not replace it. Some exercises look back at earlier years. You never need to go into detail, and you can stop at any point. If something brings up more than you can hold, pause and reach out to someone you trust or a professional."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "critic",
+        "label": "Your inner critic"
+      },
+      {
+        "id": "evidence",
+        "label": "Letting the good count"
+      },
+      {
+        "id": "care",
+        "label": "Caring for your needs"
+      },
+      {
+        "id": "known",
+        "label": "Showing up as yourself"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "critic",
+        "text": "You can notice a harsh thought without believing it right away."
+      },
+      {
+        "id": "q02",
+        "area": "critic",
+        "text": "You speak to yourself about as fairly as you would to a friend."
+      },
+      {
+        "id": "q03",
+        "area": "critic",
+        "text": "A mistake feels like one mistake, not proof of who you are."
+      },
+      {
+        "id": "q04",
+        "area": "critic",
+        "text": "When the critic is loud, you can still carry on with your day."
+      },
+      {
+        "id": "q05",
+        "area": "evidence",
+        "text": "You can accept a compliment without explaining it away."
+      },
+      {
+        "id": "q06",
+        "area": "evidence",
+        "text": "You notice things you did well, even small ones."
+      },
+      {
+        "id": "q07",
+        "area": "evidence",
+        "text": "You see your successes as at least partly your own doing."
+      },
+      {
+        "id": "q08",
+        "area": "evidence",
+        "text": "You can look at other people's posts without feeling smaller."
+      },
+      {
+        "id": "q09",
+        "area": "care",
+        "text": "You meet your own basic needs, like rest and regular meals."
+      },
+      {
+        "id": "q10",
+        "area": "care",
+        "text": "You take time for yourself without feeling you have to earn it."
+      },
+      {
+        "id": "q11",
+        "area": "care",
+        "text": "You can say no without guilt taking over."
+      },
+      {
+        "id": "q12",
+        "area": "care",
+        "text": "You ask for help when you need it."
+      },
+      {
+        "id": "q13",
+        "area": "known",
+        "text": "You try things before you feel completely ready."
+      },
+      {
+        "id": "q14",
+        "area": "known",
+        "text": "At least one person knows the real you, struggles included."
+      },
+      {
+        "id": "q15",
+        "area": "known",
+        "text": "You can be yourself around others without performing."
+      },
+      {
+        "id": "q16",
+        "area": "known",
+        "text": "You feel you belong somewhere, just as you are."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else's. Change rarely runs in a straight line, so harder weeks show up here too, and that's useful to know."
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_critic",
+        "type": "checklist",
+        "label": "How loud was your inner critic this week?",
+        "options": [
+          "Mostly quiet",
+          "Loud some days",
+          "Loud most days"
+        ],
+        "help": "A loud week isn't a step back. The critic tends to rise when you're tired or under strain."
+      },
+      {
+        "id": "c_care",
+        "type": "weekly_grid",
+        "label": "Days you did one small thing for yourself"
+      },
+      {
+        "id": "c_evidence",
+        "type": "short_text",
+        "label": "One piece of evidence you let count this week"
+      },
+      {
+        "id": "c_brave",
+        "type": "short_text",
+        "label": "Something you did before you felt ready, if anything",
+        "optional": true
+      },
+      {
+        "id": "c_kind",
+        "type": "short_text",
+        "label": "Something hard this week, and one kind thing to say about it",
+        "optional": true
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_evidence"
+    ]
+  },
+  "daily_check": {
+    "question": "How fair were you to yourself today?",
+    "scale_low": "Very harsh",
+    "scale_high": "Fair and kind",
+    "tags": [
+      "Noticed the critic",
+      "Answered the critic",
+      "Let something good count",
+      "Did one thing for me",
+      "Said no to something",
+      "Acted before I felt ready",
+      "Talked to someone I trust",
+      "Used a tool"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Explore",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "Meet the critic",
+        "body": "The Explore stage is about understanding, not fixing. Over two weeks, you'll get to know your inner critic and the traps that keep it going. Nothing here asks you to feel better yet. Seeing the pattern clearly is the first step, and many people find the self-blame starts to ease here. Go at your own pace.",
+        "figure": "fig_looking_at_map"
+      },
+      "outcome": "A clearer picture of your inner critic, its habits, and the traps that keep it going.",
+      "review_question": "What did you notice about your critic that you hadn't put into words before?"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "Answer back, kindly",
+        "body": "In the Build stage, you set up the skills for seeing yourself more fairly. Over five weeks, you'll name the old belief under your critic, check your feed, catch and weigh harsh thoughts, answer the critic, and build a kinder voice. You'll also start small acts of care and an evidence journal. Some of this may feel awkward at first. That's unfamiliarity, and it fades with practice.",
+        "figure": "fig_writing"
+      },
+      "outcome": "Ready answers for the critic, a kinder voice, small acts of care, and an evidence journal underway.",
+      "review_question": "Which tool has helped most, and which one hasn't clicked yet?"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Practice",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "Live it out",
+        "body": "The Practice stage turns outward. Over four weeks, you'll set a limit, test a fear with a small experiment, ask for help, offer your younger self some kindness, and let someone know you a little better. Confidence tends to come after action, so you don't need to feel ready first. Start small, and go at your own pace.",
+        "figure": "fig_two_people"
+      },
+      "outcome": "A limit set, a fear tested, a fairer story, and a step toward being known.",
+      "review_question": "What did you do while still feeling unready, and what happened?"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "Keep it going",
+        "body": "The Keep stage brings twelve weeks together. You'll choose a few light practices to keep, and write a plan for days when the critic is loud. Believing you're enough tends to come from doing this work, rather than before it. Keep the plan small enough to use.",
+        "figure": "fig_writing"
+      },
+      "outcome": "Your everyday practices and your plan for loud days, both saved in your plan.",
+      "review_question": "What will you keep doing now that the twelve weeks are done?"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Meet your inner critic",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t02"
+      ]
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Spot the traps that keep it going",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Name the old belief, and check your feed",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t08"
+      ]
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Catch harsh thoughts and weigh them fairly",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t05"
+      ]
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Answer the critic and build a kinder voice",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t06",
+        "t03"
+      ]
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Care for yourself and let the good count",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true,
+      "new_toolkit_ids": [
+        "t04"
+      ]
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Ease old regrets and hard circumstances",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Set a limit and act before you feel ready",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t07",
+        "t09"
+      ],
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Ask for help and notice who helps",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Be kind to your younger self",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e04",
+        "e09"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Let yourself be known, and know your values",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01",
+        "e13"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Meet your inner critic",
+      "purpose": "A first look at your inner critic: what it says, how it talks, and a way to name it.",
+      "why": "The harsh voice feels true because it speaks in your own voice, from inside your head. But it's a part of the mind that learned to speak harshly, often long ago, rather than a neutral witness. Getting to know its habits makes it easier to spot. Noticing it opens a little space between you and what it says.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, The Inner Critic; Jordan, Reconsidered; Appendix A, The Noticing Practice"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the critic's common habits below. Most people's critic uses a few of them.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the habits that sound like yours.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one line your critic says often, in its own words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back with three words in front: there's the critic.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Notice whether that changes how the line lands, even slightly.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan had just been promoted to senior engineer. Instead of pride, he felt exposed. A calm, certain voice told him they'd made a mistake and someone would notice soon. He closed the email and looked up a former colleague who was now a director. Of course. Everyone was further along. That night the voice kept talking, and Jordan took it for the plain truth about himself. Later he learned to name it: there's the critic, telling me I'm a fraud. The voice didn't stop. But for the first time, there was a little space around it."
+      },
+      "fields": [
+        {
+          "id": "f_habits",
+          "type": "checklist",
+          "label": "Habits your critic uses",
+          "options": [
+            "Talks in always and never",
+            "Compares you only with people who seem further ahead",
+            "Predicts things will go wrong",
+            "Explains away what goes well",
+            "Brushes off compliments",
+            "Keeps a long list of your mistakes",
+            "Uses words you'd never use on a friend"
+          ]
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "One thing your critic often says",
+          "help": "Its exact words, or close to them."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one habit that sounds most like your critic.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Next time you hear it, say to yourself: there's the critic.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_habits"
+        ]
+      },
+      "done_when": "You've met your critic and given it a name. That's where the rest of this begins.",
+      "repeat_weeks": [
+        12
+      ],
+      "reflect": "What was it like to see the critic's words written down?",
+      "toolkit_link": "t01",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Spot the traps",
+      "purpose": "The thinking and doing traps that keep your critic going, and one link to loosen.",
+      "why": "Some thoughts feel like clear thinking but bend toward the worst. Some habits, like avoiding things, bring relief now and keep the old belief in place. Together they form a loop that can feel like plain realism. The good news is that a loop can be loosened at any link. You don't need to change everything at once.",
+      "source": {
+        "chapter": "Chapter 1, Why the Voice Keeps Itself Alive; Chapter 3, The Thinking Traps; The Behavioral Traps; The Trap of Dwelling; How the Trap Closes"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the thinking traps. Pick the two or three you fall into most.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Read the doing traps. Pick any that sound familiar.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Think of one recent moment when a trap kicked in.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what the trap told you would happen, and what you did next.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one link in that loop you could loosen a little next time.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "Darnell",
+        "text": "Darnell was a sophomore in Chicago, bright and capable, and his grade was sliding in a class he could have passed. He'd stopped going to office hours and stopped starting essays he was sure he'd get wrong. It felt like clear thinking. Asking would only show how little he understood. When the grade dropped, it felt like proof. Looking at the traps, he saw fortune telling, mind reading, and avoidance. The drop came from the loop, not from his ability."
+      },
+      "fields": [
+        {
+          "id": "f_think",
+          "type": "checklist",
+          "label": "Thinking traps you notice",
+          "options": [
+            "All or nothing: short of perfect feels like a total loss",
+            "Overgeneralizing: one setback becomes always or never",
+            "Filtering: only the bad registers",
+            "Discounting the good: it somehow doesn't count",
+            "Mind reading: sure others are judging you",
+            "Fortune telling: sure it will go badly",
+            "Feelings as facts: feeling worthless seems like proof",
+            "Should rules: rigid rules that bring guilt when broken"
+          ]
+        },
+        {
+          "id": "f_do",
+          "type": "checklist",
+          "label": "Doing traps you notice",
+          "options": [
+            "Avoiding: not trying, asking, or speaking up",
+            "Asking for reassurance again and again",
+            "Hiding: staying quiet or performing a version of you",
+            "Going over it: replaying the same thoughts without moving forward"
+          ]
+        },
+        {
+          "id": "f_loop",
+          "type": "two_column",
+          "label": "One recent loop",
+          "columns": [
+            "What the trap told you",
+            "What you did next"
+          ]
+        },
+        {
+          "id": "f_link",
+          "type": "short_text",
+          "label": "One link you could loosen next time",
+          "help": "For example: go to one office hour, even while sure it's pointless."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one trap you notice most.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one small thing you could do differently next time it kicks in.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_think",
+          "f_link"
+        ]
+      },
+      "done_when": "You can see the loop more clearly now, and you have one place to loosen it.",
+      "reflect": "Which trap surprised you most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_think",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Name the old belief",
+      "purpose": "The old belief under your critic, put into words, and a fairer answer to try.",
+      "why": "No one is born believing they aren't enough. Beliefs about worth are learned, often early, from what you were told and how people responded to you. Once learned, they act like a filter on everything after. A belief you can put into words is easier to question than one running quietly in the background.",
+      "source": {
+        "chapter": "Chapter 2, Self-Worth Is Built, Not Born; How Core Beliefs Form; Finding Your Own Core Belief; Appendix C"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the three themes: feeling helpless, feeling unlovable, and feeling not enough.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the beliefs below that sound closest to your critic. One or two is enough.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write the belief in your own words, as plainly as you can.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you like, note whose voice it sounds like. A word or two is enough.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a fairer answer that feels at least possible. The help text has ideas.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You don't need to go back over the past. This is about naming, not reliving.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maria",
+        "text": "Maria had been a nurse for fifteen years, the kind families asked for by name. She covered shifts, hosted every holiday, and remembered every birthday. What no one saw was the belief underneath: she was worth what she gave, and only that. Asked to put it into words, she wrote one sentence: \"I am worth what I give.\" It changed nothing about her past. But for the first time, it was a belief she could look at, rather than a fact about her life."
+      },
+      "fields": [
+        {
+          "id": "f_belief",
+          "type": "checklist",
+          "label": "Beliefs that sound closest",
+          "options": [
+            "\"I'm not good enough.\"",
+            "\"I can't cope.\"",
+            "\"I'm unlovable.\"",
+            "\"I'm a burden.\"",
+            "\"I have to be perfect to be worth anything.\"",
+            "\"Everything is my fault.\"",
+            "\"I don't deserve good things.\"",
+            "\"If people really knew me, they'd leave.\"",
+            "\"My needs are too much.\""
+          ]
+        },
+        {
+          "id": "f_own",
+          "type": "short_text",
+          "label": "The belief in your own words"
+        },
+        {
+          "id": "f_whose",
+          "type": "short_text",
+          "label": "Whose voice it sounds like, if you know",
+          "help": "Optional. A word or two. No need to go into what happened.",
+          "optional": true
+        },
+        {
+          "id": "f_fair",
+          "type": "short_text",
+          "label": "A fairer answer that feels at least possible",
+          "help": "For example: \"I have strengths and limits, like everyone. My worth isn't a score.\" Or: \"Having needs is part of being human.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the belief below that sounds closest to your critic.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one fairer line that feels at least possible.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_belief",
+          "f_fair"
+        ]
+      },
+      "done_when": "Your old belief has words now. A belief you can see is one you can start to question.",
+      "reflect": "How does it feel to see this belief as something you learned?",
+      "feeds_plan": [
+        {
+          "field_id": "f_own",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_fair",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Check your feed",
+      "purpose": "A clearer view of how your scrolling feeds comparison, and a few small changes to try.",
+      "why": "Scrolling, you compare your whole inside, doubts and dull days included, with other people's edited highlights. That contest is rigged, and the sting lands before the reminder does. Likes and followers can start to stand in for worth. How you use a feed matters as much as how long. Idle scrolling stings most, while real contact with people helps.",
+      "source": {
+        "chapter": "Chapter 4, The Comparison Engine; Curated Lives and Filtered Faces; When Metrics Replace Worth; It Is Not Only How Much, But How; Protecting Yourself Without Disappearing"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about the last few times you scrolled. Which accounts or moments left you feeling smaller?",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Mute or unfollow a few of them. No apology needed.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Notice when you scroll most without meaning to. Pick one of those times to cut back.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Swap some scrolling for a message to one person you actually know.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "When the sting hits, say: there's the comparison. My whole inside, their edited outside.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Aaliyah",
+        "text": "Aaliyah was twenty-four and had built a following of thousands from her apartment in Atlanta. For years she felt real when the likes went up and like nothing when they dropped. Then a health flare forced her offline. When the numbers stopped, she couldn't find any steady sense of worth underneath. She knew better than anyone how edited the images were, because she made them. It still didn't protect her. The deeper hook was the numbers."
+      },
+      "fields": [
+        {
+          "id": "f_shrink",
+          "type": "short_text",
+          "label": "Accounts or moments that leave you feeling smaller"
+        },
+        {
+          "id": "f_changes",
+          "type": "checklist",
+          "label": "Changes to try",
+          "options": [
+            "Mute or unfollow a few accounts",
+            "Cut back at one time of day",
+            "Message a friend instead of scrolling",
+            "Name the comparison when it hits",
+            "Notice how you feel after scrolling"
+          ]
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "Your one time to cut back",
+          "help": "For example: the first 20 minutes after waking up."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Mute or unfollow one account that leaves you feeling smaller.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_shrink"
+        ]
+      },
+      "done_when": "Your feed is a little kinder now, and you know what to say when the sting hits.",
+      "repeat_weeks": [
+        10
+      ],
+      "reflect": "What do you notice about how you feel after scrolling, compared with messaging a friend?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_changes",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Catch the thought",
+      "purpose": "The skill of catching the quick thought behind a sudden drop in mood.",
+      "why": "Thoughts that drive mood often move too fast to see. Something happens, a thought flashes by, and you notice only the feeling. A sudden drop in mood is the signal that a thought just fired. Pausing to ask what went through your mind turns an invisible thought into one you can look at.",
+      "source": {
+        "chapter": "Chapter 5, Thoughts Are Not Facts; The Thoughts That Move Too Fast to See; Jordan, Reconsidered"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a recent moment when your mood dropped fast.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what was happening: who, what, and when. Keep it specific.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name the feeling, and rate how strong it was from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Ask: what just went through my mind? Write the exact words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "This week, when your mood dips, pause and ask the same question.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Six months after his promotion, Jordan's work was going well. One afternoon, his mood dropped from steady to near despair in about a minute. He'd opened a message from a senior colleague asking to \"chat tomorrow.\" By evening, he'd built a whole future from those two words. When he slowed down and asked what had gone through his mind, he found it: \"They've found me out.\" The despair hadn't come from the message. It came from that thought. The chat, when it came, was about a new project."
+      },
+      "fields": [
+        {
+          "id": "f_situation",
+          "type": "short_text",
+          "label": "What was happening"
+        },
+        {
+          "id": "f_feeling",
+          "type": "short_text",
+          "label": "The feeling"
+        },
+        {
+          "id": "f_strength",
+          "type": "scale_0_10",
+          "label": "How strong it was"
+        },
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The thought, in its exact words"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Next time your mood dips, ask: what just went through my mind?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write the thought in a few words.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_thought"
+        ]
+      },
+      "done_when": "You've caught a thought that usually slips past. A caught thought is one you can look at.",
+      "repeat_weeks": [
+        8
+      ],
+      "reflect": "Was the thought you found different from what you expected?"
+    },
+    {
+      "id": "e06",
+      "title": "Put a thought on trial",
+      "purpose": "A fairer, more accurate version of one harsh thought, built from the facts.",
+      "why": "The aim here is accuracy, not cheerfulness. When self-worth is low, thoughts tilt toward the negative, and the tilt causes much of the pain. Weighing the real evidence on both sides, like a fair court, usually turns up a picture kinder than the critic's. The new thought may not feel true at first. That comes with practice.",
+      "source": {
+        "chapter": "Chapter 5, Putting a Thought on Trial; The Mistakes That Keep the Tool From Working; Appendix A, The Thought Record; A Worked Thought Record"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Start with a thought you caught. Write the situation and the exact thought.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name the trap it fits, like mind reading or all or nothing.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "List the evidence for the thought. Facts only, not feelings.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List the evidence against it. Again, facts only.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a balanced thought that fits all the facts. It doesn't have to be cheerful.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate the feeling again, from 0 to 10. Some change is enough.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Maria",
+        "text": "One exhausted morning, Maria snapped at her children. Right away the thought came: \"I'm a terrible mother.\" She put it on trial. For: she had snapped. Against: she'd apologized, the children had bounced back at once, she'd been up half the night with the baby, and she'd been patient on countless other mornings. Her balanced thought: \"I'm a tired person who made one mistake and is still learning.\" The regret stayed. The crushing verdict didn't."
+      },
+      "fields": [
+        {
+          "id": "f_thought_t",
+          "type": "short_text",
+          "label": "The situation and the thought"
+        },
+        {
+          "id": "f_trap",
+          "type": "short_text",
+          "label": "The trap it fits"
+        },
+        {
+          "id": "f_evidence",
+          "type": "two_column",
+          "label": "The evidence",
+          "columns": [
+            "For the thought (facts only)",
+            "Against the thought (facts only)"
+          ]
+        },
+        {
+          "id": "f_balanced",
+          "type": "short_text",
+          "label": "A balanced thought"
+        },
+        {
+          "id": "f_after",
+          "type": "scale_0_10",
+          "label": "How strong the feeling is now"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Pick one harsh thought you had today.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one fact that doesn't fit it, then one fairer line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_evidence",
+          "f_balanced"
+        ]
+      },
+      "done_when": "One harsh thought has been weighed fairly, and you have a more accurate line to hold.",
+      "repeat_weeks": [
+        9
+      ],
+      "reflect": "How believable is the balanced thought right now? A little is a fine answer.",
+      "feeds_plan": [
+        {
+          "field_id": "f_balanced",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Answer the critic",
+      "purpose": "A few ready answers for the critic, in your own words, for the next time it speaks up.",
+      "why": "Fighting the critic tends to wear you out. It often began as a part of you trying to protect you, by attacking first so no one else could hurt you more. That doesn't make it right. You can hear it and decline to obey it. Having a few answers ready helps, because the critic attacks in different ways.",
+      "source": {
+        "chapter": "Chapter 6, The Critic Is Not the Enemy; Answering Back; Appendix A, The Compassionate Voice Script; Appendix B, When the Critic Attacks"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Take a line your critic says often.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Read the six ways to answer below.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick two or three that fit this line best.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write each answer in your own words, the way you'd talk to a friend.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Save your favorite answer where you can find it fast.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena taught high school in Denver for twenty years. In her first years, one awkward lesson could keep her up half the night while the critic replayed every stumble. What changed was not that the voice went away. She learned to answer it. Would she speak to a struggling colleague this way? Never. Did one awkward lesson among hundreds prove anything? No. Was the nightly attack making her a better teacher? It was leaving her drained and afraid."
+      },
+      "fields": [
+        {
+          "id": "f_ways",
+          "type": "checklist",
+          "label": "Ways of answering that fit",
+          "options": [
+            "Friend: what would you say to a good friend who said this?",
+            "Evidence: what are the actual facts?",
+            "Proportion: what is this leaving out?",
+            "Origin: whose voice is this, and were they a fair judge?",
+            "Outcome: is this helping, or just hurting?",
+            "Time: will this matter in a year?"
+          ]
+        },
+        {
+          "id": "f_answers",
+          "type": "two_column",
+          "label": "Your answers",
+          "columns": [
+            "The critic says",
+            "You answer"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one line from your critic and ask: what would I say to a friend?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write that answer down.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_answers"
+        ]
+      },
+      "done_when": "You have answers ready for the critic. With use, it starts to sound more like habit than truth.",
+      "reflect": "Which answer felt most natural to you?",
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_answers",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Build a kinder voice",
+      "purpose": "A kinder voice to stand alongside the critic, and a short practice for hard moments.",
+      "why": "Answering the critic helps in the moment. Over time, it also helps to grow a kinder voice that carries more of the commentary. It has three parts: kindness instead of harsh judgment, remembering that everyone struggles, and holding pain without pushing it away or drowning in it. It often feels awkward at first. That's unfamiliarity, and it eases.",
+      "source": {
+        "chapter": "Chapter 1, A Sturdier Foundation Than Self-Esteem; Chapter 6, Building a Kinder Voice; Appendix A, The Self-Compassion Break"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of something small that's hard for you right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Name it plainly: this is hard, or this hurts.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Remind yourself that lots of people struggle with this. You're not alone in it.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Offer yourself one kind phrase, the way you would to a friend. A hand on your chest can help.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Write the phrase you used, so it's ready next time.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Over years, Elena built a kinder voice alongside the critic. When a lesson went badly, she'd notice the old voice and remind herself that every teacher has lessons like this. Then she'd speak to herself the way she'd speak to a new colleague. At first it felt strange, almost fake. With practice, the new voice carried more of the commentary and the old one less. The critic never fully left. She stopped expecting it to."
+      },
+      "fields": [
+        {
+          "id": "f_hard",
+          "type": "short_text",
+          "label": "Something that's hard right now",
+          "help": "Keep it small for a first try."
+        },
+        {
+          "id": "f_phrase",
+          "type": "short_text",
+          "label": "Your kind phrase",
+          "help": "For example: \"This is hard, and I'm doing my best.\""
+        },
+        {
+          "id": "f_felt",
+          "type": "short_text",
+          "label": "How it felt to try",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Say to yourself: this is hard, and lots of people feel this. Then offer one kind phrase.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_phrase"
+        ]
+      },
+      "done_when": "You've tried the kinder voice. Awkward is normal, and the phrase is ready when you need it.",
+      "reflect": "What got in the way of the kind phrase, if anything?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_phrase",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "One small act of care",
+      "purpose": "One small, regular act of care for yourself, and a plan for the guilt that may come with it.",
+      "why": "Waiting to feel worthy before you look after yourself can mean waiting a long time. Action tends to come first, and belief follows. Each small act of care is a little evidence that your needs count. Guilt often shows up when you start. That's the old belief pushing back, and it fades as you keep going.",
+      "source": {
+        "chapter": "Chapter 7, Action Comes Before Belief; What Self-Care Actually Means; Starting Small; The Guilt That Comes With It"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look at the four kinds of needs: body, feelings, people, and mind.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one need you usually put last.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose one small act for it, small enough to manage on a hard day.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Decide when you'll do it this week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "When guilt shows up, say: there's the guilt. Then do it anyway.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Maria",
+        "text": "Maria understood self-care and agreed with it, but at six in the morning she was already moving and already last. Her therapist suggested ten quiet minutes with a cup of tea before the house woke. The first time, guilt flooded in and she stopped. Then she tried again. She noticed the guilt, didn't argue with it, and drank the tea anyway. Over weeks, the guilt shrank to a hum, and her family was fine. The tea was never really about the tea."
+      },
+      "fields": [
+        {
+          "id": "f_need",
+          "type": "checklist",
+          "label": "The need you usually put last",
+          "options": [
+            "Body: sleep, food, movement, rest",
+            "Feelings: noticing them, getting support",
+            "People: connection, asking for help",
+            "Mind: something engaging, or rest from demands"
+          ]
+        },
+        {
+          "id": "f_act",
+          "type": "short_text",
+          "label": "Your one small act",
+          "help": "For example: breakfast sitting down, bed 15 minutes earlier, or five minutes outside."
+        },
+        {
+          "id": "f_when_care",
+          "type": "short_text",
+          "label": "When you'll do it"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one tiny act of care and do it today, guilt or no guilt.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_act"
+        ]
+      },
+      "done_when": "You've chosen one small act of care. Each time you do it, your needs count a little more.",
+      "repeat_weeks": [
+        10
+      ],
+      "reflect": "If guilt showed up, what did it say?",
+      "feeds_plan": [
+        {
+          "field_id": "f_act",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Let the good count",
+      "purpose": "An evidence journal: small, true things each day that the critic usually throws out.",
+      "why": "Low self-worth comes with a filter. Criticism sticks for years, while compliments and small wins slide off. Minds tend to hold on to the bad more than the good anyway. So the good has to be gathered on purpose. The point is real evidence the filter has been hiding, rather than forced positivity.",
+      "source": {
+        "chapter": "Chapter 8, The Evidence Problem; Learning to Receive; The Evidence Journal; Appendix A, The Evidence Journal; A Worked Evidence Journal"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the kinds of evidence below. Small things count.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Think back over today or yesterday.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write three small, true things. If the critic says they don't count, write them anyway.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If someone said something kind, write that down too.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick a time each evening this week to add a few more.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Aaliyah",
+        "text": "Aaliyah kept her evidence journal in a note on her phone, three things each night. At first she could barely find any. Each one seemed too small to count. She wrote them anyway: she got through a hard phone call, she went to the store when she didn't feel like it, a friend said something kind. Over weeks, a pattern showed up that the filter had been hiding. She was doing things. People did value her."
+      },
+      "fields": [
+        {
+          "id": "f_kinds",
+          "type": "checklist",
+          "label": "Kinds of evidence to look for",
+          "options": [
+            "Small things you got done",
+            "Kind things you did",
+            "Kind words you received",
+            "Hard things you faced, even imperfectly",
+            "Moments you were capable",
+            "Times you showed up anyway",
+            "Predictions that turned out wrong"
+          ]
+        },
+        {
+          "id": "f_three",
+          "type": "long_text",
+          "label": "Three small, true things",
+          "help": "For example: kept a plan I wanted to skip. Spoke up in a meeting. A conversation I dreaded went fine."
+        },
+        {
+          "id": "f_kind_words",
+          "type": "short_text",
+          "label": "Something kind someone said",
+          "optional": true
+        },
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "Your evening time to add more"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small, true thing from today that the critic would skip over.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_three"
+        ]
+      },
+      "done_when": "Your evidence journal has its first entries. The record you carry is starting to even out.",
+      "repeat_weeks": [
+        11
+      ],
+      "reflect": "Which entry was hardest to let count?",
+      "toolkit_link": "t04",
+      "feeds_plan": [
+        {
+          "field_id": "f_three",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Let yourself off the hook",
+      "purpose": "A gentler way to hold one past mistake, so the self-punishment can start to ease.",
+      "why": "Many people hold grudges against themselves that they'd have let go in anyone else long ago. Forgiving yourself doesn't mean saying what happened was fine. It means ending the punishment while still taking it seriously. Carrying shame about the past doesn't prevent future mistakes. Mostly, it keeps you stuck.",
+      "source": {
+        "chapter": "Chapter 7, Forgiving Yourself"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick a small regret to start with, not the heaviest one. You don't need to go over the details.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what happened in one plain line, without shrinking it or blowing it up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you knew then, and what you didn't have yet.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself that everyone makes mistakes. This one makes you human, not uniquely terrible.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If there is something you can repair, note it. Only if it feels right and safe to do.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write one kind sentence to yourself. If this feels like too much, stop here.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Darnell",
+        "text": "In high school, Darnell had joined others in mocking a boy. Years later, it still surfaced and stung. He did what he could. He found the boy online and sent a real apology, which was received kindly by someone who barely remembered it. The shame loosened, though it didn't vanish. What was left was a choice: keep punishing someone for what he did at sixteen, or decide the punishment had run long enough. He chose to move forward."
+      },
+      "fields": [
+        {
+          "id": "f_regret",
+          "type": "short_text",
+          "label": "The regret, in one plain line",
+          "help": "A few words is enough."
+        },
+        {
+          "id": "f_context",
+          "type": "short_text",
+          "label": "What you knew, or didn't have, back then"
+        },
+        {
+          "id": "f_repair",
+          "type": "short_text",
+          "label": "Something you could repair, if anything",
+          "optional": true
+        },
+        {
+          "id": "f_release",
+          "type": "short_text",
+          "label": "A kind sentence to yourself about it"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick a small regret. Write one kind sentence to yourself about it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_release"
+        ]
+      },
+      "done_when": "You've looked at one regret with fairer eyes. Letting go can take time, and that's okay.",
+      "reflect": "What would you say to a friend carrying this same regret?"
+    },
+    {
+      "id": "e12",
+      "title": "Separate worth from hard circumstances",
+      "purpose": "A way to take a hard circumstance seriously without letting it judge your worth.",
+      "why": "A body that won't cooperate, a mind that works differently, or money worries can start to feel like proof you're less. The logic runs backward: if this were fixed, you'd be acceptable. Hard circumstances are real and deserve care. They say nothing about your value. You can work on them and hold on to your worth at the same time.",
+      "source": {
+        "chapter": "Chapter 9, The Common Thread; When the Body Feels Like Betrayal; When the Mind Feels Like the Problem; When Money Feels Like Worth; Holding Worth and Hardship Together"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Name one circumstance that feels like evidence against you: body, mind, money, or something else.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the verdict it seems to deliver, like \"I'm broken.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what makes it genuinely hard. It's real, and that counts.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one practical step for it, however small.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Then write a both-and line: it's hard, and my worth isn't on trial.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Aaliyah",
+        "text": "A year into rebuilding her sense of worth, Aaliyah's health condition flared again, harder this time. She couldn't keep her plans, and she watched peers post from lives that looked limitless. The old verdict came back: her body had let her down, so she'd let herself down. This one felt like fact. Slowly she learned to hold both truths. Her illness was real and hard, and managing it day after day was a kind of strength. Her worth had never depended on it."
+      },
+      "fields": [
+        {
+          "id": "f_circ",
+          "type": "short_text",
+          "label": "The circumstance"
+        },
+        {
+          "id": "f_verdict",
+          "type": "short_text",
+          "label": "The verdict it seems to deliver"
+        },
+        {
+          "id": "f_real",
+          "type": "short_text",
+          "label": "What makes it genuinely hard"
+        },
+        {
+          "id": "f_step_circ",
+          "type": "short_text",
+          "label": "One practical step"
+        },
+        {
+          "id": "f_both",
+          "type": "short_text",
+          "label": "Your both-and line",
+          "help": "For example: \"Money is tight right now, and my worth isn't measured in it.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one hard circumstance. Write: it's hard, and my worth isn't on trial.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_both"
+        ]
+      },
+      "done_when": "You've taken one hard thing seriously without handing it a verdict on you.",
+      "reflect": "What changes when you hold both truths at once?",
+      "feeds_plan": [
+        {
+          "field_id": "f_both",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Set one clear limit",
+      "purpose": "One clear, kind limit, the words to say it, and a plan for the guilt that follows.",
+      "why": "When your worth feels low, other people's needs can seem to matter more than yours, so yes comes out when you mean no. A limit is clear words about what you will and won't do. It doesn't need a long reason. Guilt often follows. That's old training firing, and it eases as you hold the limit.",
+      "source": {
+        "chapter": "Chapter 10, Why Boundaries Feel Impossible; What Boundaries Actually Are; The Guilt of Saying No; How to Set a Boundary; Holding the Boundary When It Costs Something; Appendix A, Boundary Scripts"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of one place you often say yes when you mean no.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Start small. Pick one situation where the stakes are low.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write your limit in one short sentence, without long reasons or apologies.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the line you'll repeat, calmly, if someone pushes back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When guilt comes, say: there's the guilt, and I'm keeping the limit anyway.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Afterward, notice what actually happens. Write it down.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Maria",
+        "text": "Maria's mother had announced, as always, that Maria would host Thanksgiving. Maria said nothing, though she had three children, a demanding job, and nothing left to give. Her therapist asked, \"Who decided that your needs don't count?\" Maria practiced small limits first. Then she told her mother she wouldn't host that year. There were tears and a week of cold silence, and the guilt was huge. She kept the limit anyway. Another relative offered to host. The relationship changed, and it didn't end."
+      },
+      "fields": [
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where you say yes when you mean no"
+        },
+        {
+          "id": "f_limit",
+          "type": "short_text",
+          "label": "Your limit, in one sentence",
+          "help": "For example: \"I can't take that on right now.\" Or: \"I need to leave by six.\""
+        },
+        {
+          "id": "f_repeat",
+          "type": "short_text",
+          "label": "Your line if someone pushes back",
+          "help": "For example: \"I understand, and my answer is still no.\""
+        },
+        {
+          "id": "f_after_limit",
+          "type": "short_text",
+          "label": "What actually happened",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one small yes you'd like to turn into a no. Write the sentence you'd use.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_limit"
+        ]
+      },
+      "done_when": "You have one clear limit and the words to keep it.",
+      "repeat_weeks": [
+        12
+      ],
+      "reflect": "If you set it, what happened? If not yet, what's in the way?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_limit",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Run a small experiment",
+      "purpose": "One small thing you've been avoiding, tried as an experiment, and what really happened.",
+      "why": "Waiting to feel ready can mean waiting forever. Confidence tends to come after action, not before. A small experiment helps: write what the critic predicts, take one small step while still unsure, then compare. When the feared outcome doesn't arrive, the old belief meets real evidence, which argument alone often can't supply.",
+      "source": {
+        "chapter": "Chapter 11, The Avoidance Trap; Confidence Comes After, Not Before; When the Fraud Feeling Has a Name; Letting Action Do the Work; Appendix B, When Facing Something You Have Been Avoiding"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick something you've been avoiding because you don't feel ready or good enough.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Shrink it to one small first step.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Write what the critic predicts will happen.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Take the step while still feeling unready. This is an experiment, not a test.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Write what actually happened, and what you learned.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Aaliyah",
+        "text": "Aaliyah applied for a job she felt unqualified for. Her resume felt thin, and the critic said she was wasting everyone's time. She applied anyway. She didn't get that job, but she got an interview, and the interview showed her she could present herself well under pressure. So she applied for more. Each interview added a little confidence, until the feeling caught up with the action. Had she waited to feel qualified, she'd still be waiting."
+      },
+      "fields": [
+        {
+          "id": "f_avoid",
+          "type": "short_text",
+          "label": "Something you've been avoiding"
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your small first step"
+        },
+        {
+          "id": "f_predict",
+          "type": "short_text",
+          "label": "What the critic predicts"
+        },
+        {
+          "id": "f_happened",
+          "type": "short_text",
+          "label": "What actually happened",
+          "optional": true
+        },
+        {
+          "id": "f_learned",
+          "type": "short_text",
+          "label": "What you learned",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Pick one small step you've been putting off. Write what the critic predicts, then try it.",
+            "figure": "fig_door"
+          }
+        ],
+        "field_ids": [
+          "f_predict",
+          "f_happened"
+        ]
+      },
+      "done_when": "You've run an experiment. Whatever happened, you have real evidence now, not just a prediction.",
+      "reflect": "How close was the critic's prediction to what happened?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_learned",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Ask for help",
+      "purpose": "One clear request for help, the words ready, and a person to ask.",
+      "why": "When you doubt your worth, asking for help can feel like admitting you don't belong. So people struggle alone, which often makes things harder. Needing help is an ordinary part of being human. Asking is how problems get solved, and how you find out that people are usually willing.",
+      "source": {
+        "chapter": "Chapter 11, The Particular Courage of Asking for Help; Darnell, Reconsidered; Appendix B, When Facing Something You Have Been Avoiding"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Name one thing you're struggling with alone right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one person who could help, even a little.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write your ask in one or two sentences.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You don't have to feel ready. Send it or say it while still nervous.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write how they responded.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Darnell",
+        "text": "Darnell sat outside Professor Williams's office for ten minutes before he could knock. His heart raced. Asking felt like proof he didn't belong. Then he remembered his tutor's words: \"You don't have to feel ready, you just have to do it.\" He knocked. The professor looked up, unsurprised, and asked how she could help. Forty-five minutes later he left with a study plan, and with a faint sense that maybe he belonged there after all."
+      },
+      "fields": [
+        {
+          "id": "f_struggle",
+          "type": "short_text",
+          "label": "Something you're struggling with alone"
+        },
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who you could ask"
+        },
+        {
+          "id": "f_ask",
+          "type": "short_text",
+          "label": "Your ask",
+          "help": "For example: \"I'm struggling with this and could use some help.\""
+        },
+        {
+          "id": "f_response",
+          "type": "short_text",
+          "label": "How they responded",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small ask for help, and who you'd send it to.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ask"
+        ]
+      },
+      "done_when": "Your ask is ready, and you know who to send it to.",
+      "reflect": "If you asked, how did it go? If not yet, what would make it a little easier?",
+      "feeds_plan": [
+        {
+          "field_id": "f_person",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Notice who helps you",
+      "purpose": "A clearer view of the people who build you up and the ones who wear you down.",
+      "why": "Low self-worth grows in isolation, where the critic goes unchallenged. Some people reflect back a truer picture: they care without conditions and stay when things get hard. Others criticize constantly or need you to stay small. Noticing this doesn't make anyone a villain. It shows you where to put more of your time.",
+      "source": {
+        "chapter": "Chapter 13, Why Connection Matters for Worth; Relationships That Help; Relationships That Harm"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the signs of a relationship that helps.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write the names of one or two people who show some of these signs.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read the signs of a relationship that wears you down.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Note anyone who comes to mind. Initials are fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one way to spend a little more time with someone who helps.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Darnell",
+        "text": "Darnell found this kind of relationship with Marcus, a resident advisor a few years ahead, a first-generation student who understood the weight Darnell carried. When Darnell admitted he felt like a fraud, Marcus didn't wave it away or argue. He said he'd felt it too, and had made it through. That one conversation gave Darnell two things isolation never had: proof he wasn't uniquely broken, and the experience of being seen in his struggle and accepted."
+      },
+      "fields": [
+        {
+          "id": "f_help_signs",
+          "type": "checklist",
+          "label": "Signs of a relationship that helps",
+          "options": [
+            "They see your real strengths",
+            "Their care doesn't depend on you performing",
+            "They push back kindly when you run yourself down",
+            "You can drop the mask with them",
+            "They know your struggles and stay"
+          ]
+        },
+        {
+          "id": "f_helpers",
+          "type": "short_text",
+          "label": "People who help"
+        },
+        {
+          "id": "f_drain_signs",
+          "type": "checklist",
+          "label": "Signs of a relationship that wears you down",
+          "options": [
+            "Constant criticism",
+            "Guilt whenever you have needs or limits",
+            "Needing you to stay small",
+            "Care that's withdrawn when you slip up",
+            "Brushing off your struggles"
+          ]
+        },
+        {
+          "id": "f_drainers",
+          "type": "short_text",
+          "label": "Anyone who comes to mind",
+          "help": "Initials are fine. This is just for you.",
+          "optional": true
+        },
+        {
+          "id": "f_more",
+          "type": "short_text",
+          "label": "One way to spend more time with someone who helps"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person who helps you see yourself fairly. Plan one small contact this week.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_helpers",
+          "f_more"
+        ]
+      },
+      "done_when": "You know who helps you see yourself more clearly, and where to put more of your time.",
+      "reflect": "What do the people who help you have in common?",
+      "feeds_plan": [
+        {
+          "field_id": "f_helpers",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Write to your younger self",
+      "purpose": "A short, kind letter to a younger you, about what you needed to hear back then.",
+      "why": "Beliefs about worth often formed when you were too young to question them. A younger part of you may still run on old rules, like worth has to be earned. Arguing doesn't always reach that part, but kindness often does. This letter is about what that younger you needed, rather than about going back over what happened.",
+      "source": {
+        "chapter": "Chapter 12, The Younger Self Who Learned the Rules; Tending the Younger Self; Grief and Letting Go; Appendix B, When the Younger Self Needs Tending"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Pick an age when you were trying hard and needed more kindness. Choose an age, not an event.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "You don't need to describe what happened. Stay with what that younger you needed.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Write a few lines to them, the way a kind adult would.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you're stuck, start with: \"You were trying so hard.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If sadness comes up, that's okay. You can stop at any point and come back later.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Read it back once, slowly.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "One evening Jordan noticed that his critic didn't sound like a neutral narrator. It sounded like his father: always pushing for more, never satisfied. He'd absorbed that voice as a boy. Without blaming anyone, he wrote to himself at eight. He told that boy how hard he was trying, that his worth didn't depend on how he performed, and that he was enough as he was. He cried while writing it, and something long held let go."
+      },
+      "fields": [
+        {
+          "id": "f_age",
+          "type": "short_text",
+          "label": "The age you chose"
+        },
+        {
+          "id": "f_needed",
+          "type": "short_text",
+          "label": "What that younger you needed to hear"
+        },
+        {
+          "id": "f_letter",
+          "type": "long_text",
+          "label": "Your letter",
+          "help": "A few lines is enough. Keep it about kindness, not about what happened.",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick an age. Write one sentence that younger you needed to hear.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_needed"
+        ]
+      },
+      "done_when": "You've offered your younger self some kindness. That can reach places argument can't.",
+      "reflect": "How did it feel to speak to yourself this way?"
+    },
+    {
+      "id": "e18",
+      "title": "Tell a fairer story",
+      "purpose": "A fairer telling of one part of your story, with the strengths the old version left out.",
+      "why": "Everyone carries a story about who they are. When self-worth is low, it runs negative: the one who never measures up. You can't change what happened, but you can change what it means. A fairer telling looks for what the harsh version left out, like the strengths you showed. It doesn't ask you to pretend.",
+      "source": {
+        "chapter": "Chapter 12, Editing the Story; Jordan, Reconsidered"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write the harsh story you tell about yourself, in one line.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one hard stretch it's built on. A short label is enough. No details needed.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: what strengths did I show, even then?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: what did I learn, or what can I do now because of it?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a fairer version of the line. Keep it honest.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Maria",
+        "text": "Maria's story had been \"I gave up my childhood to hold my family together.\" Looking at it honestly, she found a fuller telling. Very young, she had built a deep capacity for care and responsibility. That capacity was real, and now she could choose to turn some of it toward herself. The facts didn't change. What they meant did, and with it, the weight the past put on her present."
+      },
+      "fields": [
+        {
+          "id": "f_old",
+          "type": "short_text",
+          "label": "The harsh story, in one line"
+        },
+        {
+          "id": "f_strengths",
+          "type": "short_text",
+          "label": "Strengths you showed"
+        },
+        {
+          "id": "f_now",
+          "type": "short_text",
+          "label": "What you learned, or can do now",
+          "optional": true
+        },
+        {
+          "id": "f_new",
+          "type": "short_text",
+          "label": "A fairer version"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the harsh story in one line. Then write one strength it leaves out.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_old",
+          "f_strengths"
+        ]
+      },
+      "done_when": "Your story has a fairer version now, one that includes what you did well.",
+      "reflect": "Which version feels closer to the whole truth?",
+      "feeds_plan": [
+        {
+          "field_id": "f_new",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Let someone know you",
+      "purpose": "One small, chosen step toward letting a trusted person see more of the real you.",
+      "why": "Many people hide the part of them that struggles, sure it would be rejected. While it stays hidden, that fear never gets tested, and any acceptance only reaches the mask. Being known is a real risk, so it starts small and with the right person. Fitting in means changing to be accepted. Belonging means being accepted as you are.",
+      "source": {
+        "chapter": "Chapter 13, What Keeps Us From Being Known; Belonging Versus Fitting In; Elena, Reconsidered"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of one person you feel safe with, who has been kind about real things.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Pick one small, true thing you usually keep hidden. Start small.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write how you might say it, in a sentence or two.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose a time to share it. You decide how much.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Afterward, write how they responded.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena had friends, a marriage, and colleagues who liked her. Yet no one knew the version of her who lay awake listing her mistakes. A counselor asked, \"Who knows the real you?\" The honest answer was no one. Slowly, with one trusted friend and then another, she began to say the fraud feeling and the doubt out loud. Being seen didn't bring the rejection she'd braced for. It brought something closer to belonging."
+      },
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "One trusted person"
+        },
+        {
+          "id": "f_share",
+          "type": "short_text",
+          "label": "One small, true thing to share"
+        },
+        {
+          "id": "f_words",
+          "type": "short_text",
+          "label": "How you might say it"
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How they responded",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person you trust. Write one small, true thing you could share with them.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_who",
+          "f_share"
+        ]
+      },
+      "done_when": "You've chosen a small step toward being known. That's where belonging starts.",
+      "reflect": "What are you afraid might happen? If you shared, what actually happened?",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Know your values",
+      "purpose": "Two or three values to steer by, each turned into a small direction to walk in.",
+      "why": "If your worth has rested on approval, numbers, or performance, values give it steadier ground. They're about what matters to you, whether or not anyone is watching. Values work best as directions rather than finish lines. You live them through small choices, one at a time.",
+      "source": {
+        "chapter": "Chapter 4, Building a Self the Feed Cannot Touch; Aaliyah, Reconsidered; Appendix A, The Values Clarification; A Worked Values Exercise"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of someone you admire. Write what you respect about them.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Picture the person you'd most like to be. What are they like?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the two or three values that matter most to you.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Turn each one into a small direction, like doing one avoided thing each week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose one small action for this week.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Aaliyah",
+        "text": "When the numbers went quiet, Aaliyah's question changed. It was no longer how to grow her following back. It was who she wanted to be when no one was counting. She spent time with the few people who knew her unedited, and went back to making things for the quiet pleasure of making them. When she returned to posting, it was on her own terms: smaller numbers and a truer self."
+      },
+      "fields": [
+        {
+          "id": "f_admire",
+          "type": "short_text",
+          "label": "Someone you admire, and what you respect"
+        },
+        {
+          "id": "f_values",
+          "type": "checklist",
+          "label": "Values that matter most",
+          "options": [
+            "Honesty",
+            "Kindness",
+            "Growth",
+            "Connection",
+            "Courage",
+            "Creativity",
+            "Contribution"
+          ],
+          "max_items": 3
+        },
+        {
+          "id": "f_directions",
+          "type": "two_column",
+          "label": "Your values as directions",
+          "columns": [
+            "Value",
+            "A small direction"
+          ]
+        },
+        {
+          "id": "f_week",
+          "type": "short_text",
+          "label": "One small action this week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one value that matters to you. Write one small way to live it this week.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_values",
+          "f_week"
+        ]
+      },
+      "done_when": "You have a few values to steer by, and they don't depend on anyone watching.",
+      "reflect": "Which value feels most like you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_directions",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Choose your everyday practices",
+      "purpose": "A short set of light practices for tending how you see yourself, week to week.",
+      "why": "The critic may still speak sometimes, and old beliefs can resurface under stress. That's the nature of this work, which is more like tending a relationship than fixing a machine. You don't need intensive effort forever. A few light, steady practices matter more than big ones.",
+      "source": {
+        "chapter": "Chapter 14, The Work Is Never Finished, and That Is Fine; Where the Others Arrived"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look back at the tools and exercises from these twelve weeks.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick two or three daily practices that are light enough to keep.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick one thing to do weekly or monthly.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Link each one to something you already do, like your morning coffee.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep them small. Doing them often matters more than doing them big.",
+          "figure": "fig_desk_ready"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan still feels the impostor's flicker when a new challenge arrives. The difference is that he no longer takes it as the truth. He recognizes his father's voice in the critic and answers it as the adult he's become. He has also let a few people know the self he used to hide, which eased a loneliness that had run under his success for years. He isn't finished. He's facing a different direction."
+      },
+      "fields": [
+        {
+          "id": "f_daily",
+          "type": "checklist",
+          "label": "Daily practices to keep",
+          "options": [
+            "Notice and name the critic",
+            "Write one piece of evidence",
+            "One small act of care",
+            "One kind phrase in a hard moment",
+            "Pause before scrolling"
+          ]
+        },
+        {
+          "id": "f_weekly",
+          "type": "checklist",
+          "label": "Weekly or monthly",
+          "options": [
+            "Reread your evidence journal",
+            "Try one small experiment",
+            "Connect with someone who helps",
+            "Check what's working and adjust"
+          ]
+        },
+        {
+          "id": "f_cue",
+          "type": "short_text",
+          "label": "What you'll link them to"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one daily practice to keep, and link it to something you already do.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_daily"
+        ]
+      },
+      "done_when": "Your everyday practices are chosen. Small and steady is enough.",
+      "reflect": "Which practice has felt most natural so far?",
+      "feeds_plan": [
+        {
+          "field_id": "f_daily",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan for the loud days",
+      "purpose": "A ready plan for days when the critic is loud: basics, reminders, and words you believe.",
+      "why": "Some days the critic will be louder. It tends to rise when you're tired or under strain. A loud day doesn't erase the quiet ones, and progress was never a straight line. On those days, do less, not more. Reminders gathered ahead of time help, because the tired version of you won't find them on the spot.",
+      "source": {
+        "chapter": "Chapter 6, When the Critic Is Loud; Chapter 8, Why Affirmations Often Backfire; Reference Points for Hard Days; Chapter 14, When the Bad Days Come; Appendix B"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Write your basics for a loud day: notice it, name it, settle your body, lower the bar.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Gather three reminders: a kind message, a hard thing you got through, a fear that proved wrong.",
+          "figure": "fig_folders"
+        },
+        {
+          "text": "Write one line you can believe, about effort or growth rather than perfection.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'd say to a friend on a day like this.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Save it all where you can find it quickly.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Twenty years on, Elena still had loud days. The old critic spoke up when she was tired or a lesson went badly. The difference was that she no longer mistook those days for verdicts. She knew the voice would rise when she was tired and settle when she rested. On those days she did less. She noticed it, named it, and let getting through count. Knowing that kept the loud days from running her."
+      },
+      "fields": [
+        {
+          "id": "f_basics",
+          "type": "short_text",
+          "label": "Your loud-day basics"
+        },
+        {
+          "id": "f_reminders",
+          "type": "long_text",
+          "label": "Three reminders",
+          "help": "A kind message, a hard thing you got through, a fear that turned out wrong."
+        },
+        {
+          "id": "f_believe",
+          "type": "short_text",
+          "label": "One line you can believe",
+          "help": "For example: \"I've handled hard things before.\" Or: \"I'm working on this, even when it's hard.\""
+        },
+        {
+          "id": "f_friend",
+          "type": "short_text",
+          "label": "What you'd say to a friend on a day like this"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one line you can believe on a loud day.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Add one reminder you'll keep handy, like a kind message someone sent.",
+            "figure": "fig_folders"
+          }
+        ],
+        "field_ids": [
+          "f_believe",
+          "f_reminders"
+        ]
+      },
+      "done_when": "Your plan for loud days is ready, for whenever you need it.",
+      "reflect": "What's the first thing you'll reach for on a loud day?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_basics",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_believe",
+          "plan_section": "p3"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "There's the critic",
+      "when_to_use": "The harsh voice starts up and you want a little space from it.",
+      "steps": [
+        "Notice the voice without arguing or agreeing.",
+        "Name it: there's the critic.",
+        "Or add a phrase in front: I'm having the thought that I'm a fraud.",
+        "Let it talk from the back of the room. Carry on with your day."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Introduction; Chapter 1; Chapter 6, Creating Distance; Appendix A, The Noticing Practice"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The friend test",
+      "when_to_use": "Your critic is being harsh about you.",
+      "steps": [
+        "Notice what the critic just said.",
+        "Ask: what would I say to a good friend who said this?",
+        "Say that to yourself instead."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 6, Answering Back; Appendix A, The Friend Test"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "A self-compassion break",
+      "when_to_use": "Something hurts, and you want to meet it with kindness instead of judgment.",
+      "steps": [
+        "Name it plainly: this is hard.",
+        "Remember that others feel this too. It's part of being human.",
+        "Offer a kind phrase, like: may I be kind to myself.",
+        "A hand on your chest can help, if that feels okay."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 6, Building a Kinder Voice; Appendix A, The Self-Compassion Break"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Thank you, full stop",
+      "when_to_use": "Someone says something kind, and you feel the urge to brush it off.",
+      "steps": [
+        "Say thank you.",
+        "Stop there. No caveats, no explaining it away.",
+        "If the urge to deflect comes, name it and let it pass.",
+        "Write the compliment down later."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 8, Learning to Receive; Appendix B, When Receiving a Compliment"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Settle your body first",
+      "when_to_use": "Distress is high, and thinking straight feels out of reach.",
+      "steps": [
+        "Feel your feet on the floor.",
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Repeat the whole breath two or three times.",
+        "Then decide whether to answer the critic now, or later."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 6, When the Critic Is Loud; Chapter 14, When the Bad Days Come"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Your answer card",
+      "when_to_use": "The critic is loud, and you want answers ready instead of making them up.",
+      "steps": [
+        "This is the critic, not the truth.",
+        "What would I say to a friend here?",
+        "What are the facts, and what is this leaving out?",
+        "Whose voice is this, really?",
+        "Is this helping me, or just hurting me?"
+      ],
+      "minutes": 2,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 6, Answering Back; Appendix A, The Compassionate Voice Script"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Words for a limit",
+      "when_to_use": "A yes is on its way when you mean no.",
+      "steps": [
+        "To decline: \"I'm not able to take that on right now.\"",
+        "To limit: \"I can stay for an hour.\"",
+        "To protect: \"Please don't speak to me that way.\"",
+        "If pushed: \"I understand, and my answer is still no.\"",
+        "If guilt comes: there's the guilt. Keep the limit anyway."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 10, How to Set a Boundary; Appendix A, Boundary Scripts; Appendix B, When Setting a Boundary"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Name the comparison",
+      "when_to_use": "You're scrolling and suddenly feel behind, or smaller.",
+      "steps": [
+        "Name it: there's the comparison.",
+        "Remember: your whole inside against their edited outside.",
+        "Put the phone down for a minute, or message a friend instead."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_down",
+      "source": {
+        "chapter": "Chapter 4, Curated Lives and Filtered Faces; Protecting Yourself Without Disappearing"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Before you feel ready",
+      "when_to_use": "You're putting something off until you feel ready.",
+      "steps": [
+        "Say: \"I don't have to feel ready, I just have to do it.\"",
+        "Call it an experiment, not a test.",
+        "Take one small step while still nervous.",
+        "Notice what actually happens."
+      ],
+      "minutes": 1,
+      "figure": "fig_door",
+      "source": {
+        "chapter": "Chapter 11, Confidence Comes After, Not Before; Appendix B, When Facing Something You Have Been Avoiding"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Loud-day basics",
+      "when_to_use": "The critic is loud, or it feels like no progress was ever made.",
+      "steps": [
+        "Do less, not more.",
+        "Notice and name it: there's the critic.",
+        "Settle your body: feet on the floor, slow breaths.",
+        "Let getting through today count.",
+        "Say to yourself what you'd say to a friend."
+      ],
+      "minutes": 1,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 6, When the Critic Is Loud; Chapter 14, When the Bad Days Come; Common Questions"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "week_complete:1",
+      "message": "Week 1 done. Next up: the traps that keep the critic going."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. Your critic has a name and a shape now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have answers for the critic and a kinder voice. Next, putting them to work."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up with one small step, whenever you're ready."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "What the critic says"
+    },
+    {
+      "id": "p3",
+      "title": "Your fairer voice"
+    },
+    {
+      "id": "p4",
+      "title": "Evidence that counts"
+    },
+    {
+      "id": "p5",
+      "title": "Your needs and limits"
+    },
+    {
+      "id": "p6",
+      "title": "What keeps you steady"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by noticing your inner critic and giving it a name. Since then, you've caught and weighed harsh thoughts, built a kinder voice, gathered evidence, set limits, tested a fear, and let yourself be known a little more. The critic may still speak. You don't have to believe it. Your worth was never in question, and it never had to be earned.",
+    "book_bridge": "Every tool here comes from Enough by Maya Vaughn. The book tells the full stories of Jordan, Maria, Darnell, Aaliyah, and Elena. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which practice is still part of your week without much effort?",
+      "What's one piece of evidence from this month the critic would have skipped?",
+      "Where did you say no, ask for help, or act before you felt ready?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e04",
+      "e05",
+      "e06",
+      "e09",
+      "e10",
+      "e13"
+    ]
+  },
+  "cut_log": [
+    {
+      "item": "Researcher names, studies, statistics and effect sizes (Rosenberg, Neff and the two-thousand-person study, Fennell, Beck, Burns, Nolen-Hoeksema, Festinger, Verduyn and Kross, Baumeister, Wood, MacBeth and Gumley, Leary, Lewinsohn and Jacobson, Clance and Imes prevalence range, Mullainathan and Shafir, Orth and Robins, McAdams, Surgeon General figures)",
+      "chapter": "Chapters 1 to 14",
+      "reason": "Not needed for instruction, and the brief cuts statistics and effect sizes. The ideas stay in plain words without attribution."
+    },
+    {
+      "item": "Adverse Childhood Experiences study and the bullying birth cohort study",
+      "chapter": "Chapter 12, How Far the Early Reaches",
+      "reason": "Statistics, and a list of childhood harms that could invite readers to tally their own past. The exercise keeps only the gentle point that early beliefs are learned and can change."
+    },
+    {
+      "item": "Visualization of meeting the younger self",
+      "chapter": "Chapter 12, Tending the Younger Self",
+      "reason": "Guided imagery of the past can bring up painful memories with no one there. The letter is kept, framed around what the younger self needed rather than what happened."
+    },
+    {
+      "item": "Tracing when the belief was first heard, and the circumstances",
+      "chapter": "Chapter 2, Finding Your Own Core Belief",
+      "reason": "Kept only as an optional word or two on whose voice it sounds like. No recall of events, per the brief that inner-critic work must not ask readers to dwell on painful memories."
+    },
+    {
+      "item": "Body dysmorphic disorder, body neutrality and body-type shame detail",
+      "chapter": "Chapter 9, When the Body Feels Like Betrayal",
+      "reason": "Clinical content and a prevalence figure. Body is kept as one option in e12, with no appearance exercise."
+    },
+    {
+      "item": "Mental health labels and Darnell's ADHD",
+      "chapter": "Chapter 9, When the Mind Feels Like the Problem",
+      "reason": "Kept as the word mind in e12 only. Avoids inviting readers to label themselves and avoids diagnosis language."
+    },
+    {
+      "item": "Scarcity and debt research",
+      "chapter": "Chapter 9, When Money Feels Like Worth",
+      "reason": "Research detail. Money stays as one option in e12 and one example line, with no financial advice."
+    },
+    {
+      "item": "Stepping away from harmful relationships, including family",
+      "chapter": "Chapters 10 and 13",
+      "reason": "A major life decision. e16 asks only for noticing, with initials. e13 starts with low-stakes limits."
+    },
+    {
+      "item": "Finding a therapist, therapy types, lower-cost options and crisis numbers",
+      "chapter": "Common Questions; Appendix D",
+      "reason": "Referral content varies by market. Help now and the start safety note carry it."
+    },
+    {
+      "item": "Myths that keep the cycle turning",
+      "chapter": "Chapter 3, How the Trap Closes",
+      "reason": "Answered inside e07 (outcome answer), e09 and e21 rather than as a separate list."
+    },
+    {
+      "item": "Self-forgiveness for harm to others, beyond a small regret",
+      "chapter": "Chapter 7, Forgiving Yourself",
+      "reason": "e11 starts with a small regret and makes repair optional and only where safe. It feeds nothing into My Plan."
+    }
+  ]
+}
