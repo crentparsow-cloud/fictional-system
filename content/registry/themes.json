@@ -1,0 +1,275 @@
+{
+ "_note": "Theme registry (F-112). Twelve new Themes from AK_Demo_Catalogue.json themes_new and five existing Mind and Mood Themes from themes_existing_used. Every Theme is clearance_status pending until the UKIPO, USPTO and EUIPO register searches are done (classes 9, 16, 41 and 44). Lines and topics for the existing five are not in the planning pack and are left empty rather than invented. min_books is the board's three-book rule.",
+ "themes": [
+  {
+   "id": "work-worth-choosing",
+   "name": "Work Worth Choosing",
+   "line": "Guided workbooks for changing jobs, growing a career and talking about your work.",
+   "shelf_id": "work-and-career",
+   "area_id": "careers-and-craft",
+   "topics": [
+    "career change",
+    "job search",
+    "interviews",
+    "pay conversations",
+    "mentoring"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match. Nearby: 'Work That's Worth It' (book quotes page). Rejected first: Meaningful Work (existing book), Career Crossings (college careers service), Work Chapters (coaching site 'Your Next Work Chapter'), Next Career Steps (crowded) [check registers]"
+  },
+  {
+   "id": "purposeful-time",
+   "name": "Purposeful Time",
+   "line": "Guided workbooks for planning your days, meetings and focused hours.",
+   "shelf_id": "work-and-career",
+   "area_id": "careers-and-craft",
+   "topics": [
+    "productivity",
+    "time management",
+    "planning",
+    "meetings"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact match. Nearby: two books titled 'Purposeful Productivity' and the app 'Purposeful by Kumanu'. Legal to rule on closeness [check]. Rejected first: Purposeful Hours, because it echoes Bennett's title on the same shelf"
+  },
+  {
+   "id": "shared-direction",
+   "name": "Shared Direction",
+   "line": "Guided workbooks for managing people and leading teams.",
+   "shelf_id": "work-and-career",
+   "area_id": "teams-and-ventures",
+   "topics": [
+    "leadership",
+    "management",
+    "delegation",
+    "feedback",
+    "teams"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match. 'Shared leadership' is a known academic term [check]. Rejected first: Leading Others (Mac Lake book), Generous Leading (close to 'Leading Generously', JHU Press)"
+  },
+  {
+   "id": "ventures-taking-shape",
+   "name": "Ventures Taking Shape",
+   "line": "Guided workbooks for starting and running a small business.",
+   "shelf_id": "work-and-career",
+   "area_id": "teams-and-ventures",
+   "topics": [
+    "small business",
+    "trading",
+    "customers",
+    "bookkeeping",
+    "hiring"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact match found. Rejected first: Growing Ventures (book on school garden businesses)"
+  },
+  {
+   "id": "considered-spending",
+   "name": "Considered Spending",
+   "line": "Guided workbooks for budgets, bills and everyday money choices.",
+   "shelf_id": "money",
+   "area_id": "spending-and-saving",
+   "topics": [
+    "budgeting",
+    "spending",
+    "bills",
+    "household money"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match found. Rejected first: Thoughtful Money (finance podcast and advisory firm)"
+  },
+  {
+   "id": "money-for-later",
+   "name": "Money for Later",
+   "line": "Guided workbooks for saving, irregular income and planning ahead.",
+   "shelf_id": "money",
+   "area_id": "spending-and-saving",
+   "topics": [
+    "saving",
+    "savings groups",
+    "freelance income",
+    "emergency fund"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match found. Rejected first: Planning Ahead (too close to the app word 'My plan')"
+  },
+  {
+   "id": "raising-with-care",
+   "name": "Raising With Care",
+   "line": "Guided workbooks for family routines, children and teenagers.",
+   "shelf_id": "family-and-parenting",
+   "area_id": "home-and-family",
+   "topics": [
+    "parenting",
+    "family routines",
+    "teenagers",
+    "screens",
+    "homework"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact match found [check registers]"
+  },
+  {
+   "id": "partners-in-step",
+   "name": "Partners in Step",
+   "line": "Guided workbooks for couples sharing a life and a home.",
+   "shelf_id": "love-and-relationships",
+   "area_id": "couples-and-friends",
+   "topics": [
+    "couples",
+    "marriage",
+    "household chores",
+    "shared calendar"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match found. Couple apps such as Paired exist with different names"
+  },
+  {
+   "id": "companionable-days",
+   "name": "Companionable Days",
+   "line": "Guided workbooks for friendship, family talk and honest conversations.",
+   "shelf_id": "love-and-relationships",
+   "area_id": "couples-and-friends",
+   "topics": [
+    "friendship",
+    "making friends",
+    "moving city",
+    "difficult conversations"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact match found. Rejected first: Warmer Friendships (echoes the title Friends Worth Calling), Kindred Company (Kindred social apps)"
+  },
+  {
+   "id": "chosen-habits",
+   "name": "Chosen Habits",
+   "line": "Guided workbooks for habits, values and character, old and new.",
+   "shelf_id": "personal-growth",
+   "area_id": "habits-and-character",
+   "topics": [
+    "habits",
+    "routines",
+    "values",
+    "stoicism",
+    "self-improvement"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact book or app match found. Habit apps are crowded, so a register search matters [check]"
+  },
+  {
+   "id": "unrushed-learning",
+   "name": "Unrushed Learning",
+   "line": "Guided workbooks for study, exams and returning to learning.",
+   "shelf_id": "learning-and-skills",
+   "area_id": "study-and-know-how",
+   "topics": [
+    "study skills",
+    "exams",
+    "note-taking",
+    "adult learning"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact match found. Rejected first: Study Craft (app), Patient Study (reads as medical), Study at Ease (book), Thoughtful Study (app), Learning Seasons (echoes two titles)"
+  },
+  {
+   "id": "practical-know-how",
+   "name": "Practical Know-How",
+   "line": "Guided workbooks for running a home and looking after yourself.",
+   "shelf_id": "learning-and-skills",
+   "area_id": "study-and-know-how",
+   "topics": [
+    "life skills",
+    "first home",
+    "cooking",
+    "bills",
+    "repairs"
+   ],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "proposed",
+   "clearance_note": "No exact title match. Generic phrase; 'The Little Know-How Book' exists nearby [check]"
+  },
+  {
+   "id": "noticing-more",
+   "name": "Noticing More",
+   "line": null,
+   "shelf_id": "mind-and-mood",
+   "area_id": "self",
+   "topics": [],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "existing",
+   "clearance_note": "Named by the naming board. Register searches not yet done."
+  },
+  {
+   "id": "softer-nights",
+   "name": "Softer Nights",
+   "line": null,
+   "shelf_id": "mind-and-mood",
+   "area_id": "self",
+   "topics": [],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "existing",
+   "clearance_note": "Named by the naming board. Register searches not yet done."
+  },
+  {
+   "id": "even-pace",
+   "name": "Even Pace",
+   "line": null,
+   "shelf_id": "mind-and-mood",
+   "area_id": "stress",
+   "topics": [],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "existing",
+   "clearance_note": "Named by the naming board. Register searches not yet done."
+  },
+  {
+   "id": "seeing-yourself-fairly",
+   "name": "Seeing Yourself Fairly",
+   "line": null,
+   "shelf_id": "mind-and-mood",
+   "area_id": "self",
+   "topics": [],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "existing",
+   "clearance_note": "Named by the naming board. Register searches not yet done."
+  },
+  {
+   "id": "renewing-energy",
+   "name": "Renewing Energy",
+   "line": null,
+   "shelf_id": "mind-and-mood",
+   "area_id": "stress",
+   "topics": [],
+   "clearance_status": "pending",
+   "min_books": 3,
+   "status": "existing",
+   "clearance_note": "Named by the naming board. Register searches not yet done."
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "_note": "Shelf registry (F-112). Mind and Mood is the existing wellbeing shelf (status active). Work and Career, Money, Family and Parenting and Love and Relationships are the board's fixed shelves that AK_Demo_Catalogue.json refers to by id. Personal Growth and Learning and Skills are proposed in the demo catalogue plan and need Crent's approval (question B3).",
+ "shelves": [
+  {
+   "id": "mind-and-mood",
+   "name": "Mind and Mood",
+   "status": "active",
+   "sort": 1
+  },
+  {
+   "id": "work-and-career",
+   "name": "Work and Career",
+   "status": "active",
+   "sort": 2
+  },
+  {
+   "id": "money",
+   "name": "Money",
+   "status": "active",
+   "sort": 3
+  },
+  {
+   "id": "family-and-parenting",
+   "name": "Family and Parenting",
+   "status": "active",
+   "sort": 4
+  },
+  {
+   "id": "love-and-relationships",
+   "name": "Love and Relationships",
+   "status": "active",
+   "sort": 5
+  },
+  {
+   "id": "personal-growth",
+   "name": "Personal Growth",
+   "status": "proposed",
+   "sort": 6
+  },
+  {
+   "id": "learning-and-skills",
+   "name": "Learning and Skills",
+   "status": "proposed",
+   "sort": 7
+  }
+ ]
+}

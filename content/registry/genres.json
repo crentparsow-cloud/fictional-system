@@ -1,0 +1,131 @@
+{
+ "_note": "Genre registry (F-112). Ids match GENRES in @akana/schema and the genres table in migration 0002. guardrails mirror genreProfile and claimPatterns in @akana/validate: claims_check full for wellbeing and reduced elsewhere; income_promise_rules for finance, business and career; advice_guardrail (a required advice note) for finance and business, with the schema's note id in advice_guardrail_note. Support signposts come from the Clinical Safety Lead notes in AK_Demo_Catalogue_Plan.md section 8.",
+ "genres": [
+  {
+   "id": "wellbeing",
+   "name": "Wellbeing",
+   "default_safety_tier": "standard",
+   "guardrails": {
+    "claims_check": "full",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": true,
+    "scored_selfcheck_allowed": false
+   }
+  },
+  {
+   "id": "personal_development",
+   "name": "Personal development",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  },
+  {
+   "id": "relationships",
+   "name": "Relationships",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false,
+    "support_signpost": "when_home_is_not_safe"
+   }
+  },
+  {
+   "id": "parenting",
+   "name": "Parenting",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false,
+    "support_signpost": "family_support_lines"
+   }
+  },
+  {
+   "id": "career",
+   "name": "Career",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": true,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  },
+  {
+   "id": "leadership",
+   "name": "Leadership",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  },
+  {
+   "id": "business",
+   "name": "Business",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": true,
+    "advice_guardrail": true,
+    "help_now": false,
+    "advice_guardrail_note": "not_legal_or_tax_advice"
+   }
+  },
+  {
+   "id": "productivity",
+   "name": "Productivity",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  },
+  {
+   "id": "finance",
+   "name": "Finance",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": true,
+    "advice_guardrail": true,
+    "help_now": false,
+    "advice_guardrail_note": "not_financial_advice"
+   }
+  },
+  {
+   "id": "education",
+   "name": "Education",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  },
+  {
+   "id": "life_skills",
+   "name": "Life skills",
+   "default_safety_tier": "none",
+   "guardrails": {
+    "claims_check": "reduced",
+    "income_promise_rules": false,
+    "advice_guardrail": false,
+    "help_now": false
+   }
+  }
+ ]
+}

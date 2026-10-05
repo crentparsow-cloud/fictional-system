@@ -1,0 +1,67 @@
+{
+ "_note": "Area registry (F-112). The five Mind and Mood areas are the v1 topic sets from content/catalog/catalog.json. The other seven are areas_proposed in AK_Demo_Catalogue.json. The demo catalogue places its wellbeing titles under 'self-and-connection' and 'pace-and-balance'; those map here to 'self' and 'stress' (the areas that already hold the matching Maya Vaughn workbooks) [check]. The 'heal' area is renamed from the v1 'Healing and Loss' because the claims rules bar 'healing'; the v1 name is kept in v1_name.",
+ "areas": [
+  {
+   "id": "worry",
+   "shelf_id": "mind-and-mood",
+   "name": "Worry and Fear"
+  },
+  {
+   "id": "mood",
+   "shelf_id": "mind-and-mood",
+   "name": "Mood and Energy"
+  },
+  {
+   "id": "stress",
+   "shelf_id": "mind-and-mood",
+   "name": "Stress and Overload"
+  },
+  {
+   "id": "heal",
+   "shelf_id": "mind-and-mood",
+   "name": "Loss and Recovery",
+   "v1_name": "Healing and Loss",
+   "note": "Renamed for the registry because 'healing' is a medical claim word under the claims rules (CLAIM_MEDICAL in @akana/validate). The v1 app still shows 'Healing and Loss'. Crent to confirm the new name [check]."
+  },
+  {
+   "id": "self",
+   "shelf_id": "mind-and-mood",
+   "name": "Self and Connection"
+  },
+  {
+   "id": "careers-and-craft",
+   "shelf_id": "work-and-career",
+   "name": "Careers and Craft"
+  },
+  {
+   "id": "teams-and-ventures",
+   "shelf_id": "work-and-career",
+   "name": "Teams and Ventures"
+  },
+  {
+   "id": "spending-and-saving",
+   "shelf_id": "money",
+   "name": "Spending and Saving"
+  },
+  {
+   "id": "home-and-family",
+   "shelf_id": "family-and-parenting",
+   "name": "Home and Family"
+  },
+  {
+   "id": "couples-and-friends",
+   "shelf_id": "love-and-relationships",
+   "name": "Couples and Friends"
+  },
+  {
+   "id": "habits-and-character",
+   "shelf_id": "personal-growth",
+   "name": "Habits and Character"
+  },
+  {
+   "id": "study-and-know-how",
+   "shelf_id": "learning-and-skills",
+   "name": "Study and Know-How"
+  }
+ ]
+}
