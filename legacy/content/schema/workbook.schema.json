@@ -1,0 +1,859 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tillstep.com/schema/workbook/1.0",
+  "title": "Tillstep workbook",
+  "description": "One Tillstep workbook. Word limits, banned characters, claim words and cross-references are enforced by tools/validate.py, not by this file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "topic_name",
+    "tagline",
+    "set_id",
+    "safety_tier",
+    "source_book",
+    "start",
+    "selfcheck",
+    "checkin",
+    "daily_check",
+    "stages",
+    "weeks",
+    "exercises",
+    "toolkit",
+    "milestones",
+    "plan_sections",
+    "finish",
+    "keep_going"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]+$"
+    },
+    "status": {
+      "enum": [
+        "template",
+        "draft",
+        "in_review",
+        "approved"
+      ]
+    },
+    "topic_name": {
+      "type": "string",
+      "description": "Plain topic word shown after the line name, e.g. Focus. The line name itself is a config value, never written here."
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "set_id": {
+      "enum": [
+        "worry-and-fear",
+        "mood-and-energy",
+        "stress-and-overload",
+        "healing-and-loss",
+        "self-and-connection"
+      ]
+    },
+    "safety_tier": {
+      "enum": [
+        "standard",
+        "higher"
+      ]
+    },
+    "source_book": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "author",
+        "manuscript_file"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "manuscript_file": {
+          "type": "string"
+        }
+      }
+    },
+    "start": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "welcome",
+        "how_it_works",
+        "why_prompt"
+      ],
+      "properties": {
+        "welcome": {
+          "type": "string"
+        },
+        "how_it_works": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "maxItems": 5
+        },
+        "why_prompt": {
+          "type": "string"
+        },
+        "higher_tier_note": {
+          "type": "string"
+        },
+        "extra_safety_note": {
+          "type": "string"
+        }
+      }
+    },
+    "selfcheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intro",
+        "scale_labels",
+        "areas",
+        "items",
+        "result_note"
+      ],
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "scale_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "areas": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "area",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "area": {
+                "$ref": "#/$defs/id"
+              },
+              "text": {
+                "type": "string"
+              },
+              "reverse_scored": {
+                "type": "boolean"
+              },
+              "safety_item": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "result_note": {
+          "type": "string"
+        }
+      }
+    },
+    "checkin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fields",
+        "short_field_ids"
+      ],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/field"
+          }
+        },
+        "short_field_ids": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "daily_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question",
+        "scale_low",
+        "scale_high",
+        "tags"
+      ],
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "scale_low": {
+          "type": "string"
+        },
+        "scale_high": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 8,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "number",
+          "name",
+          "weeks",
+          "primer",
+          "outcome",
+          "review_question"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "name": {
+            "enum": [
+              "Explore",
+              "Build",
+              "Practice",
+              "Keep"
+            ]
+          },
+          "weeks": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            }
+          },
+          "primer": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "body",
+              "figure"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "figure": {
+                "$ref": "#/$defs/figure"
+              }
+            }
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "review_question": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "weeks": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "stage",
+          "focus",
+          "exercise_ids"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "stage": {
+            "$ref": "#/$defs/id"
+          },
+          "focus": {
+            "type": "string"
+          },
+          "exercise_ids": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "new_toolkit_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "selfcheck": {
+            "type": "boolean"
+          },
+          "repeat_ids": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+              "$ref": "#/$defs/id"
+            },
+            "description": "Earlier exercises that come back this week, shown as short versions beside the new ones"
+          }
+        }
+      }
+    },
+    "exercises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "purpose",
+          "why",
+          "source",
+          "minutes",
+          "steps",
+          "example",
+          "fields",
+          "short_version",
+          "done_when"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "title": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "why": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 15
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 7,
+            "items": {
+              "$ref": "#/$defs/step"
+            }
+          },
+          "example": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "character",
+              "text"
+            ],
+            "properties": {
+              "character": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          },
+          "fields": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "items": {
+              "$ref": "#/$defs/field"
+            }
+          },
+          "reflect": {
+            "type": "string"
+          },
+          "feeds_plan": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "field_id",
+                "plan_section"
+              ],
+              "properties": {
+                "field_id": {
+                  "$ref": "#/$defs/id"
+                },
+                "plan_section": {
+                  "$ref": "#/$defs/id"
+                }
+              }
+            }
+          },
+          "short_version": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minutes",
+              "steps",
+              "field_ids"
+            ],
+            "properties": {
+              "minutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              },
+              "steps": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "$ref": "#/$defs/step"
+                }
+              },
+              "field_ids": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 2,
+                "items": {
+                  "$ref": "#/$defs/id"
+                }
+              }
+            }
+          },
+          "done_when": {
+            "type": "string"
+          },
+          "repeat_weeks": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            }
+          },
+          "toolkit_link": {
+            "$ref": "#/$defs/id"
+          },
+          "stuck_alternative": {
+            "$ref": "#/$defs/id"
+          },
+          "safety_link": {
+            "type": "boolean",
+            "description": "Show one line under the steps linking to Safety and support. Use on screens that touch risk, instead of long safety text."
+          },
+          "community": {
+            "type": "boolean",
+            "description": "The main action is done with or for other people (a friend, family, a group, volunteering, peer support)."
+          },
+          "together": {
+            "type": "string",
+            "description": "Optional one-line suggestion for doing this with someone else."
+          }
+        }
+      }
+    },
+    "toolkit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "when_to_use",
+          "steps",
+          "minutes",
+          "figure",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "title": {
+            "type": "string"
+          },
+          "when_to_use": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 5,
+            "items": {
+              "type": "string"
+            }
+          },
+          "minutes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2
+          },
+          "figure": {
+            "$ref": "#/$defs/figure"
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "safety_link": {
+            "type": "boolean",
+            "description": "Show one line under the steps linking to Safety and support. Use on screens that touch risk, instead of long safety text."
+          },
+          "together": {
+            "type": "string",
+            "description": "Optional one-line suggestion for doing this with someone else."
+          }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "trigger",
+          "message"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "trigger": {
+            "type": "string",
+            "description": "Machine trigger, e.g. first_exercise, week_complete:3, stage_complete:build, toolkit_uses:10"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "plan_sections": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "finish": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "book_bridge"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "book_bridge": {
+          "type": "string"
+        },
+        "related_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "keep_going": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "monthly_questions",
+        "refresher_ids"
+      ],
+      "properties": {
+        "monthly_questions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 4,
+          "items": {
+            "type": "string"
+          }
+        },
+        "refresher_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "cut_log": {
+      "type": "array",
+      "description": "Items from the manuscript deliberately left out, with the reason. Not shown to readers.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "item",
+          "chapter",
+          "reason"
+        ],
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "chapter": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "safety_hub": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "points",
+        "see_doctor"
+      ],
+      "description": "This workbook's page inside Safety and support. Holds the longer safety detail so exercise screens can stay short.",
+      "properties": {
+        "intro": {
+          "type": "string"
+        },
+        "points": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "text"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "see_doctor": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string"
+          },
+          "description": "Plain signs that mean talk to a doctor, each one line."
+        },
+        "emergency": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string"
+          },
+          "description": "Signs that mean call your local emergency number now."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "figure": {
+      "type": "string",
+      "pattern": "^fig_[a-z0-9_]+$",
+      "description": "Pose id from the shared stick figure library"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chapter"
+      ],
+      "properties": {
+        "chapter": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "figure": {
+          "$ref": "#/$defs/figure"
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "type": {
+          "enum": [
+            "short_text",
+            "long_text",
+            "scale_0_10",
+            "checklist",
+            "ranked_list",
+            "two_column",
+            "time_of_day",
+            "weekly_grid",
+            "yes_no",
+            "rating_grid"
+          ],
+          "description": "rating_grid rates each row from 1 to 5"
+        },
+        "label": {
+          "type": "string"
+        },
+        "help": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "columns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "min_items": {
+          "type": "integer"
+        },
+        "max_items": {
+          "type": "integer"
+        },
+        "optional": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
