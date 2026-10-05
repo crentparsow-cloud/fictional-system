@@ -1,0 +1,1681 @@
+{
+  "schema_version": "1.0",
+  "id": "focus",
+  "status": "draft",
+  "topic_name": "Focus",
+  "tagline": "A 12-week workbook for adults with ADHD",
+  "set_id": "stress-and-overload",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "Wired Differently",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Wired_Differently_Corrected.docx"
+  },
+  "start": {
+    "welcome": "[Welcome, 80 words max]",
+    "how_it_works": [
+      "[Point]",
+      "[Point]",
+      "[Point]"
+    ],
+    "why_prompt": "[Prompt for the reader's one-line why]"
+  },
+  "selfcheck": {
+    "intro": "[Intro]",
+    "scale_labels": [
+      "Not at all",
+      "A little",
+      "Sometimes",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "a1",
+        "label": "[Area]"
+      },
+      {
+        "id": "a2",
+        "label": "[Area]"
+      },
+      {
+        "id": "a3",
+        "label": "[Area]"
+      }
+    ],
+    "items": [
+      {
+        "id": "i01",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i02",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i03",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i04",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i05",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i06",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i07",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i08",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i09",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i10",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i11",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i12",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      }
+    ],
+    "result_note": "[This is a personal check, not a diagnosis]"
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c1",
+        "type": "short_text",
+        "label": "[Label]"
+      },
+      {
+        "id": "c2",
+        "type": "short_text",
+        "label": "[Label]"
+      },
+      {
+        "id": "c3",
+        "type": "short_text",
+        "label": "[Label]"
+      }
+    ],
+    "short_field_ids": [
+      "c1"
+    ]
+  },
+  "daily_check": {
+    "question": "[Question]",
+    "scale_low": "[Low]",
+    "scale_high": "[High]",
+    "tags": [
+      "[Tag]",
+      "[Tag]",
+      "[Tag]",
+      "[Tag]"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Map",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Use",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e07"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05",
+        "e11"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e10"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e02",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        7
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e05",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        11
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e07",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        8
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e09",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        9
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        12
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        11
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e13",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e14",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e15",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e16",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e17",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e18",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e19",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e20",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e21",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    },
+    {
+      "id": "e22",
+      "title": "[Exercise title]",
+      "purpose": "[What the reader has at the end, 20 words max]",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]"
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m02",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m03",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m04",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m05",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m06",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m07",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m08",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m09",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m10",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m11",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    },
+    {
+      "id": "m12",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "[Section]"
+    },
+    {
+      "id": "p2",
+      "title": "[Section]"
+    },
+    {
+      "id": "p3",
+      "title": "[Section]"
+    },
+    {
+      "id": "p4",
+      "title": "[Section]"
+    },
+    {
+      "id": "p5",
+      "title": "[Section]"
+    },
+    {
+      "id": "p6",
+      "title": "[Section]"
+    }
+  ],
+  "finish": {
+    "summary": "[Summary]",
+    "book_bridge": "[Want the full explanation? ...]"
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "[Question]",
+      "[Question]"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e03",
+      "e05",
+      "e07",
+      "e09",
+      "e10",
+      "e11"
+    ]
+  },
+  "cut_log": []
+}

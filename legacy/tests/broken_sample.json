@@ -1,0 +1,427 @@
+{
+  "schema_version": "1.0",
+  "id": "template",
+  "status": "template",
+  "topic_name": "[Topic]",
+  "tagline": "[A 12-week workbook for ...]",
+  "set_id": "stress-and-overload",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "[Book title]",
+    "author": "Maya Vaughn",
+    "manuscript_file": "[File name]"
+  },
+  "start": {
+    "welcome": "[Welcome, 80 words max]",
+    "how_it_works": [
+      "[Point]",
+      "[Point]",
+      "[Point]"
+    ],
+    "why_prompt": "[Prompt for the reader's one-line why]"
+  },
+  "selfcheck": {
+    "intro": "[Intro]",
+    "scale_labels": [
+      "Not at all",
+      "A little",
+      "Sometimes",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "a1",
+        "label": "[Area]"
+      },
+      {
+        "id": "a2",
+        "label": "[Area]"
+      },
+      {
+        "id": "a3",
+        "label": "[Area]"
+      }
+    ],
+    "items": [
+      {
+        "id": "i01",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i02",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i03",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i04",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i05",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i06",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i07",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i08",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i09",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i10",
+        "area": "a2",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i11",
+        "area": "a3",
+        "text": "[Statement, 20 words max]"
+      },
+      {
+        "id": "i12",
+        "area": "a1",
+        "text": "[Statement, 20 words max]"
+      }
+    ],
+    "result_note": "[This is a personal check, not a diagnosis]"
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c1",
+        "type": "short_text",
+        "label": "[Label]"
+      },
+      {
+        "id": "c2",
+        "type": "short_text",
+        "label": "[Label]"
+      },
+      {
+        "id": "c3",
+        "type": "short_text",
+        "label": "[Label]"
+      }
+    ],
+    "short_field_ids": [
+      "c1"
+    ]
+  },
+  "daily_check": {
+    "question": "[Question]",
+    "scale_low": "[Low]",
+    "scale_high": "[High]",
+    "tags": [
+      "[Tag]",
+      "[Tag]",
+      "[Tag]",
+      "[Tag]"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Map",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Use",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "[Title]",
+        "body": "[Primer, 120 words max]",
+        "figure": "fig_placeholder"
+      },
+      "outcome": "[What the reader walks away with]",
+      "review_question": "[Question]"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_99"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "[Week focus]",
+      "exercise_ids": [
+        "ex_01"
+      ],
+      "selfcheck": true
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex_01",
+      "title": "[Exercise title]",
+      "purpose": "This \u2014 treats your symptoms fast! We guarantee it works for everyone who tries it every single day forever.",
+      "why": "[Why it works, 60 words max]",
+      "source": {
+        "chapter": "[Chapter reference]"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        },
+        {
+          "text": "[Step text, one action, 20 words max]",
+          "figure": "fig_placeholder"
+        }
+      ],
+      "example": {
+        "character": "[Composite character]",
+        "text": "[Worked example, 120 words max]"
+      },
+      "fields": [
+        {
+          "id": "f1",
+          "type": "long_text",
+          "label": "[Field label]"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "[Step text, one action, 20 words max]",
+            "figure": "fig_placeholder"
+          }
+        ],
+        "field_ids": [
+          "f1"
+        ]
+      },
+      "done_when": "[One observable finish line]",
+      "repeat_weeks": [
+        10
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "tk_01",
+      "title": "[Card title]",
+      "when_to_use": "[When]",
+      "steps": [
+        "[Step]",
+        "[Step]"
+      ],
+      "minutes": 2,
+      "figure": "fig_placeholder",
+      "source": {
+        "chapter": "[Chapter]"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m_first",
+      "trigger": "first_exercise",
+      "message": "[Message, 25 words max]"
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "[Section]"
+    },
+    {
+      "id": "p2",
+      "title": "[Section]"
+    },
+    {
+      "id": "p3",
+      "title": "[Section]"
+    }
+  ],
+  "finish": {
+    "summary": "[Summary]",
+    "book_bridge": "[Want the full explanation? ...]"
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "[Question]",
+      "[Question]"
+    ],
+    "refresher_ids": [
+      "ex_01"
+    ]
+  },
+  "cut_log": []
+}
