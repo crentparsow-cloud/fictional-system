@@ -1,0 +1,2524 @@
+{
+  "schema_version": "1.0",
+  "id": "movement",
+  "status": "draft",
+  "topic_name": "Movement",
+  "tagline": "Twelve weeks of small, gentle movement that fits your body and your days",
+  "set_id": "mood-and-energy",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "Moving Through It",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Moving_Through_It.docx"
+  },
+  "start": {
+    "welcome": "If you know moving could help but starting feels out of reach, this is built for that. It's twelve weeks of small, gentle steps that fit your body and your days. Most weeks take 15 to 25 minutes, and every exercise has a shorter version. Five minutes counts. You're allowed to start small and stay small. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If moving a little more helped, how would you like to feel? One line is enough.",
+    "extra_safety_note": "Please check with a doctor before you start moving more if you have a heart condition, chest pain, dizziness or fainting, an injury, or any other health condition. While moving, if you feel chest pain, dizziness, or pain that feels wrong, stop and get medical help. If you take medication, do not change it on your own. Talk to your prescriber. Movement is one support among several. It is not a treatment, and it does not replace care from a professional. If exercise feels tied to food or to guilt about your body, or you cannot rest without distress, please talk to a doctor or therapist. If you have thoughts of harming yourself, stop and tap Help now. It is at the top of every screen."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. There are no right answers. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "moving",
+        "label": "Getting moving"
+      },
+      {
+        "id": "mood",
+        "label": "Mood and energy"
+      },
+      {
+        "id": "rhythm",
+        "label": "Sleep, food and rest"
+      },
+      {
+        "id": "kindness",
+        "label": "Your relationship with movement"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "moving",
+        "text": "You moved on purpose on at least a few days."
+      },
+      {
+        "id": "q02",
+        "area": "moving",
+        "text": "Starting to move felt within reach, even on tired days."
+      },
+      {
+        "id": "q03",
+        "area": "moving",
+        "text": "Short bits of movement felt like they counted."
+      },
+      {
+        "id": "q04",
+        "area": "moving",
+        "text": "You knew when and where you would move next."
+      },
+      {
+        "id": "q05",
+        "area": "mood",
+        "text": "You noticed a small lift in your mood after moving."
+      },
+      {
+        "id": "q06",
+        "area": "mood",
+        "text": "You had enough energy for the things that matter to you."
+      },
+      {
+        "id": "q07",
+        "area": "mood",
+        "text": "Your mind could settle, at least for a while, away from repeating thoughts."
+      },
+      {
+        "id": "q08",
+        "area": "mood",
+        "text": "Your body felt calm at some point in the day."
+      },
+      {
+        "id": "q09",
+        "area": "rhythm",
+        "text": "You slept enough to feel at least a little rested."
+      },
+      {
+        "id": "q10",
+        "area": "rhythm",
+        "text": "You ate regular meals that kept you going."
+      },
+      {
+        "id": "q11",
+        "area": "rhythm",
+        "text": "Rest days felt okay to you."
+      },
+      {
+        "id": "q12",
+        "area": "rhythm",
+        "text": "You could miss a session without guilt taking over."
+      },
+      {
+        "id": "q13",
+        "area": "kindness",
+        "text": "Movement felt like something you chose, not a chore."
+      },
+      {
+        "id": "q14",
+        "area": "kindness",
+        "text": "You were kind to yourself about days you didn't move."
+      },
+      {
+        "id": "q15",
+        "area": "kindness",
+        "text": "You noticed small signs of what your body can do."
+      },
+      {
+        "id": "q16",
+        "area": "kindness",
+        "text": "You moved with someone, or shared your plans with someone."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Change rarely runs in a straight line, so harder weeks show up here too, and that's useful to know."
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your level this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: steady, with energy for the full versions. Yellow: low energy or more stress, so the short versions fit. Red: basics only. If you pick red, please lean on support this week. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_moved",
+        "type": "weekly_grid",
+        "label": "Days you moved on purpose, any amount"
+      },
+      {
+        "id": "c_helped",
+        "type": "short_text",
+        "label": "One kind of movement that helped, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Where your plans slipped, and one small fix to try",
+        "optional": true
+      },
+      {
+        "id": "c_minutes",
+        "type": "short_text",
+        "label": "Roughly how many minutes you moved this week",
+        "optional": true,
+        "help": "A rough guess is fine. Every minute counts."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_helped"
+    ]
+  },
+  "daily_check": {
+    "question": "How was your mood today, from heavy to lighter?",
+    "scale_low": "Very heavy",
+    "scale_high": "Lighter",
+    "tags": [
+      "Walked",
+      "Moved outside",
+      "Stretched and breathed",
+      "Did strength moves",
+      "Moved with someone",
+      "Slept okay",
+      "Ate regular meals",
+      "Rested on purpose"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Explore",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "See where you're starting",
+        "body": "The Explore stage is about understanding, not fixing. Over two weeks, you'll look back at what has helped you move before, what got in the way, and the moment in your day when plans tend to slip. If past tries didn't last, that's useful information about the plan, not about you. Go gently. There's nothing to prove here.",
+        "figure": "fig_looking_at_map"
+      },
+      "outcome": "A clear picture of what has helped you move, what got in the way, and where your plans slip.",
+      "review_question": "What did you notice about your past tries that you hadn't seen before?"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "Make starting easier",
+        "body": "In the Build stage, you set up small ways to move that don't lean on willpower. Over five weeks, you'll try a five-minute start, short walks, a gentle stretch and breathe routine, and simple strength moves. You'll also make starting easier at home, and look at your own numbers. Try each one at a size that fits your body and your day. Small counts.",
+        "figure": "fig_walking"
+      },
+      "outcome": "A five-minute start, a walking habit, a few kinds of movement to choose from, and a home that makes starting easier.",
+      "review_question": "Which kind of movement felt most like yours, and which hasn't stuck yet?"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Practice",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "Make it fit real life",
+        "body": "The Practice stage is about keeping movement going when life gets in the way. Over four weeks, you'll bring in other people if you want to, try something new, grow your week gently, and plan for busy days, hard days and interruptions. You'll also check that rest still feels okay. If your capacity drops, go smaller rather than stopping.",
+        "figure": "fig_two_people"
+      },
+      "outcome": "Plans for busy days, hard days and interruptions, and a clearer sense of the movement you enjoy.",
+      "review_question": "What has helped you keep moving when things got in the way?"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "Keep what works",
+        "body": "The Keep stage brings twelve weeks together. You'll write a weekly pattern and a plan for getting back after a break. Keep both modest. A small pattern you keep is worth more than a big one you drop. Five minutes will always count.",
+        "figure": "fig_writing"
+      },
+      "outcome": "Your weekly pattern and your restart plan, both saved in your plan.",
+      "review_question": "What will you keep doing now that the twelve weeks are done?"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Look back at what has helped you move",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t02",
+        "t04"
+      ]
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Find where your plans slip",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Start with five minutes and short walks",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t03"
+      ]
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Make starting easier",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Find your pace and head outside",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t05",
+        "t09"
+      ]
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Try gentle stretching and simple strength",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true,
+      "new_toolkit_ids": [
+        "t06"
+      ]
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Read your numbers and check the basics",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t07"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Bring someone in and try something new",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "repeat_ids": [
+        "e04"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Grow gently and plan for busy days",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Plan for hard days and move with others at home",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09",
+        "e10"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Check how rest feels and plan for interruptions",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "repeat_ids": [
+        "e05",
+        "e11"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01",
+        "e12"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Look back at you and movement",
+      "purpose": "A clear picture of what has helped you move before, and what got in the way.",
+      "why": "If you've tried to start before and it didn't last, that can sit heavily. Most tries stop because the plan didn't fit the life it landed in. Looking back with fresh eyes shows what helped, what got in the way, and where a gentler start could begin.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, What Exercise Does to the Brain; Chapter 3, David, Reconsidered; Chapter 5"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of a time movement felt good, or helped your mood. Write a line about it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note what made it work then: the time, the place, the people, or the kind of movement.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Think of a time you tried to start and it didn't last. What got in the way?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the words that fit how \"exercise\" feels to you now.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write how you'd like movement to help you feel.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "In his late twenties, David ran three mornings a week, and it was the steadiest his mood had ever been. He got to work clear-headed. Over the past two years he'd tried to start again four times. Each try aimed at his old running schedule, and each one stopped within three weeks, once with a sore knee. Seeing it written down, he noticed the pattern. Every plan had been built for the man he was at twenty-eight, not for the one with a long commute."
+      },
+      "fields": [
+        {
+          "id": "f_helped",
+          "type": "long_text",
+          "label": "When movement helped you before, and what made it work"
+        },
+        {
+          "id": "f_stopped",
+          "type": "short_text",
+          "label": "What got in the way when you tried to start"
+        },
+        {
+          "id": "f_word",
+          "type": "checklist",
+          "label": "How the word \"exercise\" feels to you",
+          "options": [
+            "Hopeful",
+            "Tiring",
+            "Like a chore",
+            "Like being judged",
+            "Guilty",
+            "Neutral",
+            "Something I used to enjoy"
+          ],
+          "optional": true
+        },
+        {
+          "id": "f_want",
+          "type": "short_text",
+          "label": "How you'd like movement to help you feel",
+          "help": "Keep it about how you want to feel. For example: calmer evenings, or steadier mornings."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that helped you move before, and one thing that got in the way.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_helped",
+          "f_stopped"
+        ]
+      },
+      "done_when": "You've looked back at what helped and what got in the way. Your start can fit you now.",
+      "reflect": "Did anything about your past tries look different once it was written down?",
+      "repeat_weeks": [
+        12
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_want",
+          "plan_section": "p1"
+        },
+        {
+          "field_id": "f_helped",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Find the moment it slips",
+      "purpose": "The one moment in your day when planned movement most often slips away.",
+      "why": "Plans to move often slip at the same point each day. It might be the snooze button, or sitting down after work. That one moment matters more than any big resolution. Once you know it, small changes can aim right at it, so the plan leans less on willpower.",
+      "source": {
+        "chapter": "Chapter 6, Environmental Design"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back over the last week or two. When did you mean to move but didn't?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look for the moment it slipped. Was it a time, a place, or a feeling?",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write that moment plainly: when it was, where you were, and what pulled you away.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how strong the pull is at that moment, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "If there's more than one moment, pick the one that happens most.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace understood why movement helped. Knowing it just didn't get her off the couch. Her moment was 6:30 p.m. on a weekday. The workday had drained her, the apartment was dim, and the couch pulled hard. Once she sat down, the walk never happened. Naming it helped. She could stop blaming her willpower and work on one moment that needed a different setup."
+      },
+      "fields": [
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "Your slip moment",
+          "help": "For example: 6:30 p.m., just home, about to sit on the couch."
+        },
+        {
+          "id": "f_pull",
+          "type": "scale_0_10",
+          "label": "How strong the pull is then, from weak (0) to very strong (10)",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the one moment when your plans to move slip most often.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moment"
+        ]
+      },
+      "done_when": "You've named the moment your plans slip. Later exercises aim right at it.",
+      "reflect": "Was the moment where you expected it to be?",
+      "repeat_weeks": [
+        9
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_moment",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Make a five-minute contract",
+      "purpose": "A small promise to yourself: five minutes of any movement, with permission to stop.",
+      "why": "Waiting to feel like moving can mean waiting a long time, especially when energy or mood is low. Often the action comes first and the feeling follows. So the promise is small: five minutes of any movement. After five minutes, you can stop. Many people keep going. Five minutes still counts if you don't.",
+      "source": {
+        "chapter": "Chapter 6, Action Precedes Motivation; Appendix A, The Five-Minute Contract"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one movement you could do for five minutes. A walk around the block is fine.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Choose when, like 6:30 p.m. after dinner.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose what will set it off: something you already do at that time.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write it down and keep it where you'll see it, like your phone's home screen.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When the time comes, move for five minutes. Then you're free to stop.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Afterward, note how you felt. Stopping at five counts as done.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace made her contract small on purpose. As soon as she got home, before she sat down, she'd walk to the end of her block and back. It took about five minutes, and it ended at her own door in case she wanted to stop there. She didn't have to choose a workout or feel ready. Most days, she kept going a little longer. Some days she didn't, and the contract still counted."
+      },
+      "fields": [
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "Your movement",
+          "help": "For example: walk around the block."
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When",
+          "help": "For example: 6:30 p.m., after dinner."
+        },
+        {
+          "id": "f_trigger",
+          "type": "short_text",
+          "label": "What sets it off",
+          "help": "For example: putting your plate in the dishwasher."
+        },
+        {
+          "id": "f_after",
+          "type": "scale_0_10",
+          "label": "How you felt afterward, from heavy (0) to lighter (10)",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one movement and a time for it.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "If you can, move for five minutes today. Stopping then counts.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_move",
+          "f_when"
+        ]
+      },
+      "done_when": "Your five-minute contract is written down and ready.",
+      "reflect": "Before you start, how do you expect to feel at the five-minute mark?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_trigger",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Plan a week of short walks",
+      "purpose": "A simple plan for a short walk each day this week, sized to what you can do now.",
+      "why": "Walking needs no gear, no skill and no gym, which is part of why people keep it up. Short walks count. The book suggests starting with fifteen minutes a day, and five on harder days. If walking isn't possible for you, any steady movement that suits your body can take its place.",
+      "source": {
+        "chapter": "Chapter 7, Walking, the Most Underrated Exercise; Chapter 13, Week One: Daily Walking; Appendix C"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick how long: fifteen minutes, or five or ten if that fits better.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick a route. Starting from your own door is easiest.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Pick a time of day. The same time each day helps it stick.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Walk at a pace that deepens your breathing a little.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Mark each day you walk. Any amount counts, even two minutes.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If walking isn't an option, choose another steady movement, like cycling, swimming, or the stretch reset.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "Nina had no spare time, so she used a slot she already had: her lunch break. She walked for ten or fifteen minutes most days. Not every day, because some afternoons the clinic ran straight through her break. By fitness-article standards it wasn't much, and she didn't expect much from it. Three weeks in, she noticed she was sleeping a little better."
+      },
+      "fields": [
+        {
+          "id": "f_length",
+          "type": "short_text",
+          "label": "How long, and when",
+          "help": "For example: fifteen minutes at lunch, or five after dinner."
+        },
+        {
+          "id": "f_route",
+          "type": "short_text",
+          "label": "Your route"
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you walked this week",
+          "help": "Any amount counts."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one short walk today, even five minutes, and mark the day.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_days"
+        ]
+      },
+      "done_when": "Your week of short walks is planned, sized to what you can do now.",
+      "reflect": "What, if anything, do you think might get in the way this week?",
+      "repeat_weeks": [
+        8
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_length",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Attach movement to a daily habit",
+      "purpose": "One clear link between something you already do each day and a small bit of movement.",
+      "why": "Every choice about when to move uses up energy, and low mood leaves less of it. Linking a new habit to an old one takes the choice away. The old habit becomes the cue. The more specific the link, the better it holds. \"Move more\" is a wish. \"After my coffee, I walk around the block\" is a plan.",
+      "source": {
+        "chapter": "Chapter 6, Habit Stacking and the Trigger Problem; Appendix C, A Worked Habit Stack"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List three things you do every day without thinking, like making coffee or parking the car.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, picture a small movement that could follow it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one pair that feels easiest in your real life.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write it as one sentence: After I do this, I will move like this.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep this one link for a few weeks before adding another.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Robin",
+        "text": "Robin never planned her morning walk. After her husband died, she started walking at six in the morning because the house felt too quiet. Over time, the walk attached itself to things she already did: waking before dawn, making the first coffee, stepping outside to feel the air. The morning light through her kitchen window became the cue. She didn't have to argue with herself about going. The walk was what came next."
+      },
+      "fields": [
+        {
+          "id": "f_pairs",
+          "type": "two_column",
+          "label": "Habits and movements that could follow",
+          "columns": [
+            "What you already do",
+            "A movement that could follow"
+          ]
+        },
+        {
+          "id": "f_stack",
+          "type": "short_text",
+          "label": "Your link, in one sentence",
+          "help": "For example: \"After I park at work, I take the stairs.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence linking something you already do to a small movement.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_stack"
+        ]
+      },
+      "done_when": "You have one link between an old habit and a small movement.",
+      "reflect": "Which daily habit felt like the most natural cue?",
+      "repeat_weeks": [
+        11
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_stack",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Clear the path",
+      "purpose": "A few small changes at home that make moving easier right at your slip moment.",
+      "why": "Small obstacles stop more plans than big ones. Hunting for shoes, changing clothes, or sitting down first can be enough. So change the setting instead of pushing yourself harder. Make moving easier to start, and make the couch a step further away. Aim the changes at your slip moment from week 2.",
+      "source": {
+        "chapter": "Chapter 6, Environmental Design"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look back at your slip moment from week 2.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Find one step that stands between you and moving at that moment.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Remove it. Shoes by the door, clothes laid out, or a band where you'll see it.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "If sitting down is where it slips, move before you sit, like a short loop on the way in.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you like, add a repeating time to your calendar, so the choice is made once.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace's plans slipped at the couch. Once she sat down after work, the walk didn't happen. So she changed the moment instead of fighting it. Each morning before work, she set her walking shoes by the door, so they'd be waiting when she came home. And she walked to the end of her block before she went inside, so she never had to get up off the couch to do it."
+      },
+      "fields": [
+        {
+          "id": "f_obstacle",
+          "type": "short_text",
+          "label": "The step that gets in the way"
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "The change you made",
+          "help": "For example: shoes by the door before work."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Make one change today that makes moving easier, like shoes by the door.",
+            "figure": "fig_door"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You've made one change so moving is easier right at your slip moment.",
+      "reflect": "What do you think will happen the next time your slip moment comes?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Find your pace: the talk test",
+      "purpose": "A simple way to check your pace by how easily you can talk.",
+      "why": "Many people think movement has to be hard to count. It doesn't. A useful pace is one where you can talk in sentences but couldn't sing. You don't need a watch or an app. And on a tired day, an easier pace is still fine. Gentler is always allowed.",
+      "source": {
+        "chapter": "Chapter 3, What Counts as Aerobic Exercise"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Start moving at an easy pace for a minute or two.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Try saying a full sentence out loud. A quiet one is fine.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If it's very easy, go a little faster. If you can't finish it, slow down.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Aim for the middle: a sentence is possible, but it takes a little effort.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Stop if you feel chest pain, dizziness, or pain that feels wrong. Get medical help.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "For years, David thought real exercise meant running the way he did at twenty-eight. The talk test changed that. On a brisk walk, he could talk in sentences, but singing would have been a stretch. That was the pace that counted. He didn't need a heart rate monitor, and he didn't need to run. A brisk walk, outdoors when he could, was enough."
+      },
+      "fields": [
+        {
+          "id": "f_pace",
+          "type": "short_text",
+          "label": "What a useful pace feels like for you",
+          "help": "For example: a brisk walk, talking in short sentences."
+        },
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where you tried it",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "On your next walk, say one sentence out loud and adjust your pace.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_pace"
+        ]
+      },
+      "done_when": "You know what a useful pace feels like for you, with no gear needed.",
+      "reflect": "Was your useful pace faster or slower than you expected?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_pace",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Take your walk outside",
+      "purpose": "An outdoor walk with your attention on what's around you, to give a busy mind a break.",
+      "why": "When the same thoughts keep repeating, a walk can help break the loop. Being outdoors, in daylight and near trees or grass, often helps more. Noticing what is around you pulls your attention outward. Indoors still counts when outside is not possible, safe or comfortable for you.",
+      "source": {
+        "chapter": "Chapter 3, The Outdoor Premium; Chapter 7, The Green Premium; Walking as Rumination Disruption"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose an outdoor route. A park or green space beats a busy road, if you have the choice.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "Walk at an easy or brisk pace, whichever suits today.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Notice one color you can see, like the color of a door.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice the air on your skin, and how the ground feels under your feet.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Count how many different sounds you can hear.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "When your mind drifts back inside, gently bring it back to what's around you.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Robin",
+        "text": "Robin's loop ran through her neighborhood and along a green strip beside a creek. She walked it most mornings. She paid attention to the creek, the light, and the sound of her own steps, partly because there was little inside her head she wanted to dwell on. The walk didn't take her grief away. It let the grief be there without taking over the whole morning."
+      },
+      "fields": [
+        {
+          "id": "f_route2",
+          "type": "short_text",
+          "label": "Your outdoor route"
+        },
+        {
+          "id": "f_noticed",
+          "type": "long_text",
+          "label": "Things you noticed",
+          "help": "One sight, one sound, and one feeling is plenty."
+        },
+        {
+          "id": "f_mind",
+          "type": "scale_0_10",
+          "label": "How your mind felt afterward, from very busy (0) to quieter (10)",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "On your next walk, notice one sight, one sound, and one feeling.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_noticed"
+        ]
+      },
+      "done_when": "You've tried a walk with your attention turned outward, and you have a route for it.",
+      "reflect": "Did your mind feel any different by the end of the walk?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_route2",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Try the stretch and breathe routine",
+      "purpose": "A ten-minute routine of gentle stretches and slow breaths, ready for harder days.",
+      "why": "Some days, effortful movement is too much, or it stirs up more tension. Gentle stretching and slow breathing settle the body in a different way. They need no fitness, no flexibility and no gear. For some people, this routine is the whole practice for a while. That's a real choice too.",
+      "source": {
+        "chapter": "Chapter 5, A Practical Routine; When Gentle Movement Is the Whole Practice"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Stand and reach both arms overhead. Stay there for about ten seconds, breathing normally.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Drop your chin toward your chest for ten seconds. Roll your shoulders back five times, then forward five.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Sit on the floor or the edge of a bed. Reach toward one foot for about fifteen seconds, then switch.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Lie on your back. Hug one knee toward your chest for fifteen seconds, then the other, then both.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Inhale slowly while you count to four. Exhale slowly while you count to six.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Repeat that breath ten times, or fewer if that feels like enough.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Skip or change any stretch that doesn't suit your body. Comfortable is the right range.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace linked exercise with gym class and being picked last. A resistance band sat unopened in a drawer. Stretching and slow breathing felt different. Before a meeting she'd dreaded for days, she used the short version in the space behind her desk: a reach overhead, a chin drop, shoulder rolls, and three slow breaths. She didn't need to feel transformed. It took the edge off enough to walk in calmer."
+      },
+      "fields": [
+        {
+          "id": "f_parts",
+          "type": "checklist",
+          "label": "Parts you did",
+          "options": [
+            "Reach overhead",
+            "Chin drop",
+            "Shoulder rolls",
+            "Seated reach",
+            "Knees to chest",
+            "Slow breaths"
+          ]
+        },
+        {
+          "id": "f_settled",
+          "type": "scale_0_10",
+          "label": "How settled you felt afterward, from tense (0) to settled (10)"
+        },
+        {
+          "id": "f_fit",
+          "type": "short_text",
+          "label": "When this routine could fit your day",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Reach overhead, drop your chin, and roll your shoulders.",
+            "figure": "fig_hand_raised"
+          },
+          {
+            "text": "Inhale while you count to four. Exhale while you count to six. Do this three times.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_settled"
+        ]
+      },
+      "done_when": "You've tried the routine, and you know its short version for tense moments.",
+      "reflect": "Which part felt most useful for your body?",
+      "repeat_weeks": [
+        10
+      ],
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_fit",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Try a small strength routine",
+      "purpose": "A short set of simple strength moves you can do at home, with no equipment.",
+      "why": "Strength work doesn't need a gym or anything heavy. Simple moves using your own body are enough, two or three times a week, at an effort that feels moderate. You don't have to get stronger for it to be worth doing. Each small session also shows you what you can do.",
+      "source": {
+        "chapter": "Chapter 4, A Program That Fits a Real Life; What This Looks Like Inside a Busy Week"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Do five squats. Sitting down on a chair and standing up again works too.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Do five wall push-ups: hands on the wall, lean in, and push back.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Try a plank for up to fifteen seconds, or as long as feels okay.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Aim for moderate effort: you could do a few more, but you stop there.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Stop if anything hurts. Pain is a signal to rest.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write down what you did. If it felt easy, add one or two next time.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "Nina woke at 5:30 a.m., worked a full shift as a medical assistant, and had two children to get to bed. The gym was out of the question. What fit was fifteen minutes in her bedroom after the kids were asleep: squats, wall push-ups, and a short plank. Two sessions a week was enough to make it worth it, and small enough to survive a hard week."
+      },
+      "fields": [
+        {
+          "id": "f_log",
+          "type": "two_column",
+          "label": "What you did",
+          "columns": [
+            "Move",
+            "How many, or how long"
+          ]
+        },
+        {
+          "id": "f_effort",
+          "type": "scale_0_10",
+          "label": "How hard it felt, from very easy (0) to very hard (10)",
+          "optional": true
+        },
+        {
+          "id": "f_slots",
+          "type": "short_text",
+          "label": "Two times in your week this could fit"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Do five squats, or five sit-to-stands from a chair. That's a session.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_log"
+        ]
+      },
+      "done_when": "You've tried a small strength routine and found times it could fit.",
+      "reflect": "How did finishing feel, compared with what you expected?",
+      "repeat_weeks": [
+        10
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_slots",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Read your own numbers",
+      "purpose": "A look at your own mood and movement side by side, to see what helps you.",
+      "why": "Low mood can say that nothing helps, and that good days were luck. Your own numbers are harder to argue with. Your daily checks already hold your mood and what you did. A week or two can show a first pattern. It may be strong, mild, or not there yet. Each tells you something.",
+      "source": {
+        "chapter": "Chapter 12, Why Tracking Works; What to Track; Reading the Data; What Not to Track"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Open Progress and look at your daily checks for the last week or two.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Find the days you moved. Note your mood on those days.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Now look at the days you didn't move. Note your mood there too.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Write what you notice. A rough pattern is enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you tagged the kind of movement, check which kinds went with better days.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Leave step counts and calories aside for now. Mood and minutes are enough.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David worked with data all day, but he didn't trust his own sense that things were getting better. Low mood kept telling him the good weeks wouldn't last. So each night he wrote two numbers in his notes app: minutes he moved, and his mood out of five. After six weeks, the pattern was plain. Walking days helped about as much as running days. Even stretching days helped a little."
+      },
+      "fields": [
+        {
+          "id": "f_pattern",
+          "type": "long_text",
+          "label": "What you notice about moving and mood"
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "The kind of movement that seemed to help most",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Look at your last week of daily checks. Write one thing you notice.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_pattern"
+        ]
+      },
+      "done_when": "You've looked at your own numbers. Whatever they show, they're about you.",
+      "reflect": "If no pattern showed up yet, what might make it clearer next time?",
+      "repeat_weeks": [
+        11
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_kind",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Check sleep, food and movement",
+      "purpose": "A quick look at sleep, meals and movement, and the one to nudge first.",
+      "why": "Sleep, food and movement pull on each other. A rough night makes a walk feel harder. A walk can help the next night's sleep. Because they're linked, you don't need to fix all three. Nudge the easiest one a little, and the others often follow.",
+      "source": {
+        "chapter": "Chapter 8, The Triad as a System; When the Triad Is in Trouble; Appendix A, The Triad Check"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Ask yourself: did I move for at least fifteen minutes today?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: did I eat some protein at most meals?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: did I sleep at least six hours last night?",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "A no is only a pointer. It shows where to look next.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick the easiest one to nudge. Write one small step for tomorrow.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "Three weeks into her lunch walks, Nina noticed two changes she hadn't planned. She was sleeping a little better. And on walking days, she reached for the almonds in her drawer instead of the vending machine. She hadn't set out to change her sleep or her snacks. The walking nudged both. She didn't need three projects. She needed one small, steady one."
+      },
+      "fields": [
+        {
+          "id": "f_yes",
+          "type": "checklist",
+          "label": "Today's yes answers",
+          "options": [
+            "Moved for 15 minutes",
+            "Protein at most meals",
+            "Slept six hours or more"
+          ]
+        },
+        {
+          "id": "f_nudge",
+          "type": "short_text",
+          "label": "One small step for tomorrow",
+          "help": "For example: a ten-minute walk at lunch, or bed twenty minutes earlier."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick sleep, food or movement. Write one small step for tomorrow.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_nudge"
+        ]
+      },
+      "done_when": "You know which of the three to nudge first, and your next small step.",
+      "reflect": "Which of the three tends to slip first for you?",
+      "repeat_weeks": [
+        12
+      ],
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_nudge",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Bring one person in",
+      "purpose": "One person to move with, or to tell about your plans, at a level that suits you.",
+      "why": "Moving alone works just as well, and some people prefer it. Another person can add something extra, though: someone who notices whether you showed up, and a little company. It can be a walking partner, a weekly group, or one text saying you'll walk tomorrow.",
+      "source": {
+        "chapter": "Chapter 9, What Social Exercise Adds; When Social Exercise Is Not the Right Choice; Appendix A, The Accountability Text"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Decide what suits you: a walking partner, a group, or one text.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one person. It might be a friend, a neighbor, or someone you work with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "For a text, say what you'll do and when, and ask them to check in after.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "For a partner or group, agree on a day and time that repeats.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Afterward, send a short note about how it went.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If you'd rather move alone, that counts. Choose it as your plan.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Robin",
+        "text": "Robin walked alone for over a year before a neighbor mentioned a small group that walked the park loop on Saturday mornings. She thought about it for three weeks. Saturdays had become her loneliest day, so she went. Nobody asked about her pace. They walked and talked, and a man at the back told a very funny story about his neighbor's cat. She went back the next Saturday, and the one after that."
+      },
+      "fields": [
+        {
+          "id": "f_way",
+          "type": "checklist",
+          "label": "How you'd like to bring someone in",
+          "options": [
+            "A text before and after",
+            "A walking partner",
+            "A group or community walk",
+            "Moving alone suits me"
+          ]
+        },
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who, and when",
+          "optional": true,
+          "help": "For example: \"Walking at 12:15 tomorrow. I'll text you after.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one person and send one text saying when you'll move next.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_way",
+          "f_who"
+        ]
+      },
+      "done_when": "You've chosen how other people fit into your movement, including the choice to go solo.",
+      "reflect": "How do you feel about someone knowing your plan?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Try one new kind of movement",
+      "purpose": "One new kind of movement tried, to find something you might enjoy.",
+      "why": "Enjoyment is one of the strongest reasons people keep moving. Knowing something is good for you can start a habit. Liking it helps keep one going. This week is a small experiment. Try one new thing: a class, a video at home, a swim, a bike ride, dancing, or a new trail. It doesn't have to stick to be useful.",
+      "source": {
+        "chapter": "Chapter 3, Other Aerobic Options; Chapter 13, Week Three: Extending and Exploring; Appendix D"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List a few kinds of movement you've wondered about, or used to enjoy.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Set aside any that don't suit your body, budget or week right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one to try once this week.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Try it at an easy level. Stopping early is fine.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Afterward, rate how much you enjoyed it, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Note whether you'd try it again.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "For a long time, Grace felt bad about the resistance band still in its packaging. Trying different things helped her see what actually suited her. It turned out to be walking: a few mornings a week to the coffee shop, Saturdays with a walking group she found on a community notice board, and the stretch routine now and then. She stopped trying to be someone who loves intense workouts. Walking was enough."
+      },
+      "fields": [
+        {
+          "id": "f_ideas",
+          "type": "short_text",
+          "label": "Kinds of movement you might try"
+        },
+        {
+          "id": "f_tried",
+          "type": "short_text",
+          "label": "What you tried"
+        },
+        {
+          "id": "f_enjoy",
+          "type": "scale_0_10",
+          "label": "How much you enjoyed it, from not at all (0) to a lot (10)",
+          "optional": true
+        },
+        {
+          "id": "f_again",
+          "type": "yes_no",
+          "label": "Would you try it again?",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one new kind of movement you might try, and when.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ideas"
+        ]
+      },
+      "done_when": "You've explored something new. Whatever you found, you know more about what suits you.",
+      "reflect": "What did you learn about the kind of movement you enjoy?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tried",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Grow your week gently",
+      "purpose": "A gentle way to add a little more, without losing what's already working.",
+      "why": "Once short walks feel steady, you might want a little more. Grow slowly. Frequent short sessions build a habit better than one long one. A good next step is making a few walks longer and keeping the rest as they are. If now isn't the time to grow, keeping what you have is a fine choice.",
+      "source": {
+        "chapter": "Chapter 3, How Much and How Often; Chapter 13, Week Three and Week Four"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look at what you're doing now, and what feels steady.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick up to three days to go a little longer, like 20 to 30 minutes.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Keep the other days at your usual length. That's your baseline.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If longer walks can't fit, add one different session instead, like strength or stretching.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Make any change smaller than you think you need.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's old plans had aimed at the running he did in his twenties. This time, he grew slowly. He started with brisk walks, outdoors when he could, and over the weeks he made a few of them longer. Running came back later, on his body's timeline: twice a week, with walks on most other days. If running hadn't come back, the walking would have been enough."
+      },
+      "fields": [
+        {
+          "id": "f_longer",
+          "type": "weekly_grid",
+          "label": "Days you'll go a little longer"
+        },
+        {
+          "id": "f_base",
+          "type": "short_text",
+          "label": "The baseline you'll protect",
+          "help": "For example: fifteen minutes on weekdays."
+        },
+        {
+          "id": "f_add",
+          "type": "short_text",
+          "label": "Anything different you'll add",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one day this week to go a few minutes longer.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_longer"
+        ]
+      },
+      "done_when": "You've grown your week a little, and your baseline is protected.",
+      "reflect": "How will you know if a change is too much?",
+      "feeds_plan": [
+        {
+          "field_id": "f_base",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Plan for days with no time",
+      "purpose": "A few tiny bits of movement that fit into your busiest days.",
+      "why": "Some days have no gaps at all. On those days, scattered minutes count. Squats while the coffee brews, the stairs instead of the elevator, a few stretches before bed. They're not the full routine, and they don't need to be. Doing what fits your real day beats waiting for a perfect plan.",
+      "source": {
+        "chapter": "Chapter 6, When There Is No Time; Chapter 4, What This Looks Like Inside a Busy Week; Appendix D"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of your busiest kind of day. Walk through it hour by hour.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Find three small waits or gaps, like the coffee brewing or the bath filling.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Give each gap a tiny movement: ten squats, the stairs, or a short stretch.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Write them down, so the busy day needs no decisions.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Count these minutes. They're part of your week.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "Nina's schedule had no slack, so she stopped looking for a perfect time. She took the stairs at work. She did a few minutes of stretching and slow breathing after the kids were in bed, before she collapsed into her own. On long days, she did a ten-minute version of her strength moves, with one fewer set. None of it looked like a workout. All of it counted."
+      },
+      "fields": [
+        {
+          "id": "f_gaps",
+          "type": "two_column",
+          "label": "Gaps in a busy day",
+          "columns": [
+            "The gap",
+            "A tiny movement"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one gap in today, and one tiny movement to fit in it.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_gaps"
+        ]
+      },
+      "done_when": "Your busiest days have a few tiny movements ready, with no decisions needed.",
+      "reflect": "Which gap do you think will be easiest to use?",
+      "feeds_plan": [
+        {
+          "field_id": "f_gaps",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Plan for yellow and red days",
+      "purpose": "Smaller versions of your movement for days when energy, mood or sleep are low.",
+      "why": "Capacity changes from week to week, and sometimes from day to day. On a yellow day, with low energy or more stress, the short version is the right version. On a red day, the basics are enough. After a rough night, a short, gentle walk can protect the next night's sleep.",
+      "source": {
+        "chapter": "How to Use This Book; Chapter 8, Sleep Enables Exercise; Appendix B, The Green-Yellow-Red Card"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write your green-day movement: what you do when you're steady.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a yellow-day version, small enough to manage when you're tired.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a red-day version. Two minutes of walking and a few slow breaths is plenty.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Pick a short, gentle walk for the day after a rough night.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "On a red day, if you are struggling or do not feel safe, tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "On a long Wednesday, when the day had been too much, Nina didn't try for her full routine. She did a ten-minute version, with one fewer set than usual, and it still counted. Having a smaller version ready meant a hard day changed the size of her practice, not whether she had one."
+      },
+      "fields": [
+        {
+          "id": "f_green",
+          "type": "short_text",
+          "label": "Green day"
+        },
+        {
+          "id": "f_yellow",
+          "type": "short_text",
+          "label": "Yellow day"
+        },
+        {
+          "id": "f_red",
+          "type": "short_text",
+          "label": "Red day",
+          "help": "For example: stand up and sit down a few times, and five slow breaths."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the smallest movement you could still do on a red day.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_red"
+        ]
+      },
+      "done_when": "You have a green, yellow and red version ready, so hard days still have a place.",
+      "reflect": "Which version do you think you'll need most often right now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Invite someone you live with",
+      "purpose": "A calm, no-pressure invitation for someone at home to move with you.",
+      "why": "People at home learn more from what they see you do than from what you tell them. Pressure tends to build resistance. An open invitation, where no is a fine answer, builds curiosity. Your movement may also lift the mood at home, even if nobody mentions it. Looking after yourself is part of looking after them.",
+      "source": {
+        "chapter": "Chapter 10, Modeling Works; Inviting Rather Than Requiring; Movement at Each Age; Appendix A, The Calm Invitation"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one person you live with, or someone close if you live alone.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Ask plainly, like: \"Would you like to walk with me after dinner?\"",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Keep it about the walk, not about health or habits.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If they say yes, go at their pace. Stop when they want to stop.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If they say no, accept it warmly and go on your own.",
+          "figure": "fig_door"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "When Nina's seven-year-old asked to come on a walk, Nina's first instinct was to say no. That walk was her time. She said yes anyway. It was slow, with stops for every dog and every red door. It wasn't much of a workout. But it was the first time all week she hadn't felt alone. A few walks later, her daughter asked, \"Can we go the long way?\""
+      },
+      "fields": [
+        {
+          "id": "f_invite",
+          "type": "short_text",
+          "label": "Who you'll invite"
+        },
+        {
+          "id": "f_words",
+          "type": "short_text",
+          "label": "Your invitation, in your words"
+        },
+        {
+          "id": "f_went",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one calm invitation you could offer someone this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_words"
+        ]
+      },
+      "done_when": "You have a calm invitation ready, and any answer is fine.",
+      "reflect": "What do you hope a shared walk might bring?"
+    },
+    {
+      "id": "e19",
+      "title": "Check how rest feels",
+      "purpose": "A check that your movement stays something you choose, with rest days that feel okay.",
+      "why": "For most people, rest days feel fine. For some, movement slowly becomes something they can't skip without distress. From the outside, the two look the same. The difference is how missing a session feels. This check helps you notice, kindly and early, how it is for you.",
+      "source": {
+        "chapter": "Chapter 11, Commitment Looks Like Compulsion From the Outside; The Quiet Cost of Training to Avoid; Appendix A, The Rest Test"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one rest day this week, with no planned exercise.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "At noon, 3 p.m. and 6 p.m., rate any restlessness, guilt or irritability from 1 to 5.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Notice whether those feelings ease or grow as the day goes on.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask yourself what missing a session feels like for you.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If rest brings strong distress that does not ease, please talk to a doctor or therapist.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "The same goes if movement feels tied to food, or to guilt about your body.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus, a high school football coach, hadn't taken a rest day in three weeks. He'd trained through a cold and a sore knee, and he didn't enjoy it much anymore. On his first deliberate rest day, he was restless by noon and irritable by 3 p.m. He didn't like what that told him, but he took it seriously. His second rest day, on Wednesday, was a little easier."
+      },
+      "fields": [
+        {
+          "id": "f_ratings",
+          "type": "rating_grid",
+          "label": "How your rest day felt",
+          "rows": [
+            "Noon",
+            "3 p.m.",
+            "6 p.m."
+          ],
+          "help": "1 means calm. 5 means very restless, guilty or irritable."
+        },
+        {
+          "id": "f_skip",
+          "type": "short_text",
+          "label": "What missing a session feels like for you"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line: how does it feel when you miss a session?",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_skip"
+        ]
+      },
+      "done_when": "You've checked how rest feels for you, and you know what to watch for.",
+      "reflect": "Did anything about your rest day surprise you?"
+    },
+    {
+      "id": "e20",
+      "title": "Adapt when plans change",
+      "purpose": "Swaps ready for when injury, travel or a busy stretch interrupts your usual movement.",
+      "why": "Plans get interrupted. Injury, travel, illness and busy weeks all happen. If your practice depends on one kind of movement, an interruption can end it. Your daily checks show what helps you, and often several kinds do. So when one isn't possible, you can switch to another for a while.",
+      "source": {
+        "chapter": "Chapter 12, When Tracking Enables Adaptation"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List what could interrupt your usual movement: injury, travel, illness, or a busy stretch.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, write a swap you could still do.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Look at your daily checks for clues about what helps you most.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If you are hurt or unwell, ask a doctor what is safe for you right now.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Pick the swap you'd reach for first.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "When David strained his back, his doctor told him to avoid running, squats and planks for several weeks. In the past, an injury like that would have ended everything, and it would have stayed ended. This time, his notes showed that walking, gentle stretching and swimming all helped his mood. So he kept doing those while his back recovered. The practice kept going."
+      },
+      "fields": [
+        {
+          "id": "f_swaps",
+          "type": "two_column",
+          "label": "Interruptions and swaps",
+          "columns": [
+            "What might interrupt",
+            "What you could do instead"
+          ]
+        },
+        {
+          "id": "f_first_swap",
+          "type": "short_text",
+          "label": "The swap you'd reach for first"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one swap for when your usual movement isn't possible.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first_swap"
+        ]
+      },
+      "done_when": "You have swaps ready, so an interruption changes your movement instead of ending it.",
+      "reflect": "Which interruption worries you most, and does your swap feel doable?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_swaps",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your weekly pattern",
+      "purpose": "A default weekly pattern for your movement, so most days need no decision.",
+      "why": "Deciding each day when and how to move takes energy. A default pattern makes the decision once. It's a starting point, not a strict schedule. Build it from what has already stuck, not from what you wish had stuck. Keep it smaller than you think. A small pattern you keep is worth more than a big one you drop.",
+      "source": {
+        "chapter": "Chapter 13, Week Four: Consolidating the Pattern"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Look back over the last few weeks. What happens now without much effort?",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Make those the base of your week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "For anything still hard, write a smaller version instead of dropping it.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Lay out a typical week: which days, what kind of movement, and roughly how long.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Include at least one rest day.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Check it against your busiest week. Trim anything that wouldn't survive it.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's pattern looked different from most, because he'd been doing too much. He cut back from six or seven days to five, with two full rest days that weren't next to each other. He swapped one of his five sessions for the stretch and breathe routine. At first it felt like losing part of who he was. After six weeks, his rest days felt better, and his Sundays weren't so flat."
+      },
+      "fields": [
+        {
+          "id": "f_week",
+          "type": "long_text",
+          "label": "Your weekly pattern",
+          "help": "For example: walks on weekday mornings, strength on two evenings, a longer walk Saturday, rest Sunday."
+        },
+        {
+          "id": "f_rest",
+          "type": "short_text",
+          "label": "Your rest day or days"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write the one or two things you'll do most weeks, and your rest day.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_week"
+        ]
+      },
+      "done_when": "Your weekly pattern is written down, with room for rest.",
+      "reflect": "Which part of your pattern feels most like yours?",
+      "feeds_plan": [
+        {
+          "field_id": "f_week",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_rest",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Write your restart plan",
+      "purpose": "A plan for getting back to movement after any break, written while you're steady.",
+      "why": "Breaks happen to everyone. Travel, illness, a stressful stretch or a hard time can interrupt any practice. A missed day doesn't undo a habit. What matters is coming back. The simplest way back is where you began: short daily walks. That isn't starting over. It's starting from the part that comes back fastest.",
+      "source": {
+        "chapter": "Chapter 13, After the Thirty Days; The Five Characters, Reconsidered"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write what tends to interrupt you, like travel, illness or a hard week at work.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your first step back: a short walk, five minutes or more.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Each week, notice what felt strongest and what felt weakest. Give the weakest a little attention.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write one kind thing to tell yourself when you come back after a gap.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add someone who could help you restart, if you like.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Nina",
+        "text": "Nina has fifteen minutes on most days. On some days she has five. On some days she has none, and she has stopped being hard on herself about those. A missed day is a missed day. Her pattern holds across the gaps, because it never depended on being perfect. Her daughter still sometimes asks to go the long way. Nina says yes more often than no."
+      },
+      "fields": [
+        {
+          "id": "f_interrupt",
+          "type": "short_text",
+          "label": "What tends to interrupt you"
+        },
+        {
+          "id": "f_back",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: a ten-minute walk tomorrow morning."
+        },
+        {
+          "id": "f_kind_words",
+          "type": "short_text",
+          "label": "What you'll tell yourself",
+          "help": "For example: \"Coming back is the habit.\""
+        },
+        {
+          "id": "f_helper",
+          "type": "short_text",
+          "label": "Someone who could help",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step back after a break. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_back"
+        ]
+      },
+      "done_when": "Your restart plan is ready: a first step back and a kind word for yourself.",
+      "reflect": "What would you want to hear from yourself after a long gap?",
+      "feeds_plan": [
+        {
+          "field_id": "f_back",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_kind_words",
+          "plan_section": "p5"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The three-minute stretch reset",
+      "when_to_use": "Tension is building, at a desk, in the car, or before something hard.",
+      "steps": [
+        "Stand or sit tall and reach both arms overhead for about ten seconds.",
+        "Drop your chin toward your chest for about ten seconds.",
+        "Roll your shoulders back five times, then forward five times.",
+        "Inhale slowly while you count to four.",
+        "Exhale slowly while you count to six. Repeat the breath three times."
+      ],
+      "minutes": 2,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 5, A Practical Routine; Appendix A, The Three-Minute Stretch Reset"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Check your level today",
+      "when_to_use": "You're deciding how much movement fits today, or this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: steady mood and enough energy. The full versions are workable.",
+        "Yellow: low energy or more stress. The short versions are the right size.",
+        "Red: basics only. If you are struggling, tap Help now."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Green-Yellow-Red Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "The five-minute contract",
+      "when_to_use": "You know moving would help, but starting feels out of reach.",
+      "steps": [
+        "Pick any movement. A walk around the block is fine.",
+        "Promise yourself five minutes, and no more than that.",
+        "Start, and keep going for five minutes.",
+        "Then you're free to stop. Five minutes counts as done."
+      ],
+      "minutes": 1,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 6, Action Precedes Motivation; Appendix A, The Five-Minute Contract"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Red-day basics",
+      "when_to_use": "Everything feels hard, and you want the smallest step that still counts.",
+      "steps": [
+        "Stand up and sit down ten times, or as many as your body allows.",
+        "Walk for two minutes, indoors or out.",
+        "Inhale while you count to four. Exhale while you count to six.",
+        "Repeat that breath five times. That is enough for today.",
+        "If you are struggling, tap Help now."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Appendix B, The Green-Yellow-Red Card"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "The talk test",
+      "when_to_use": "You're not sure whether your pace is too easy or too hard.",
+      "steps": [
+        "Say a full sentence while you move.",
+        "Very easy? Go a little faster, if you like.",
+        "Can't finish it? Slow down.",
+        "Aim for this: you can talk in sentences, but you couldn't sing."
+      ],
+      "minutes": 1,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 3, What Counts as Aerobic Exercise"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Slow breaths, four and six",
+      "when_to_use": "You want to settle your body anywhere, in about two minutes.",
+      "steps": [
+        "Sit, stand, or lie down, whichever is comfortable.",
+        "Inhale slowly while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Repeat ten times, or fewer if that feels like enough."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, The Vagus Nerve and the Calming System; A Practical Routine"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Sleep, food and movement check",
+      "when_to_use": "Your week feels off, and you're not sure where to start.",
+      "steps": [
+        "Ask: did I move for at least fifteen minutes today?",
+        "Ask: did I eat some protein at most meals?",
+        "Ask: did I sleep at least six hours last night?",
+        "A no shows where to look. Nudge the easiest one, a little."
+      ],
+      "minutes": 1,
+      "figure": "fig_rating",
+      "source": {
+        "chapter": "Chapter 8, When the Triad Is in Trouble; Appendix A, The Triad Check"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Send one text",
+      "when_to_use": "You'd like a little backup to follow through.",
+      "steps": [
+        "Pick one person.",
+        "Text them what movement you'll do, and when.",
+        "Ask them to check in, or tell them you'll report back.",
+        "A short note after is enough. They only need to notice."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "Chapter 9, When Social Exercise Is Not the Right Choice; Appendix A, The Accountability Text"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "A noticing walk",
+      "when_to_use": "Your thoughts keep looping, and you can get outside, even briefly.",
+      "steps": [
+        "Head outside. A park beats a busy road, if you have the choice.",
+        "Notice one color, one sound, and how the air feels.",
+        "Count the different sounds you can hear.",
+        "When thoughts pull you back inside, return to what you can see."
+      ],
+      "minutes": 2,
+      "figure": "fig_looking_at_map",
+      "source": {
+        "chapter": "Chapter 7, The Green Premium; Walking as Rumination Disruption"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Start again with short walks",
+      "when_to_use": "You've had a break, and you're not sure how to begin again.",
+      "steps": [
+        "Go back to the start: a short walk each day.",
+        "Five minutes is enough to begin.",
+        "No catching up needed. Start from today.",
+        "Add the rest back slowly, once walking feels steady."
+      ],
+      "minutes": 1,
+      "figure": "fig_door",
+      "source": {
+        "chapter": "Chapter 13, After the Thirty Days"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "week_complete:1",
+      "message": "Week 1 done. Next up: finding the moment your plans tend to slip."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see your mood and movement on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You know where you're starting, and where plans slip."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have a few kinds of movement to choose from. Next, fitting them into real life."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. A short walk is a fine place to start again."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Where you're starting"
+    },
+    {
+      "id": "p3",
+      "title": "Movement that suits you"
+    },
+    {
+      "id": "p4",
+      "title": "What makes starting easier"
+    },
+    {
+      "id": "p5",
+      "title": "Busy days, hard days and breaks"
+    },
+    {
+      "id": "p6",
+      "title": "Your weekly pattern"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by looking back at what had helped you move and what got in the way. Since then, you've found ways to start that don't lean on willpower, tried a few kinds of movement, and planned for busy days, hard days and breaks. Movement is something you keep, at whatever size fits. Your plan is here when you need it. Five minutes still counts.",
+    "book_bridge": "Every tool here comes from Moving Through It by Maya Vaughn. The book tells the full stories of David, Grace, Nina, Marcus and Robin. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which kind of movement is still part of your week without much effort?",
+      "Did your plans slip anywhere this month? What's one small fix?",
+      "How have your rest days felt lately?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e04",
+      "e05",
+      "e09",
+      "e10",
+      "e11",
+      "e12"
+    ]
+  },
+  "cut_log": [
+    {
+      "item": "Brain mechanisms: endocannabinoids, BDNF, the kynurenine pathway, inflammation, the vagus nerve and lactate",
+      "chapter": "Chapters 1, 3, 4 and 5",
+      "reason": "Explanation, not instruction, and it would frame movement as a medical treatment. Reduced to plain lines such as 'many people notice a small lift' and 'settle the body'."
+    },
+    {
+      "item": "Statistics, effect sizes, study names and researcher names",
+      "chapter": "Introduction; Chapters 1 to 13; Acknowledgements",
+      "reason": "Brief rule: cut statistics and effect sizes. The comparisons with therapy and antidepressants are cut so nothing implies movement works as a treatment."
+    },
+    {
+      "item": "Weekly minute targets (90, 150 and 300 minutes) and the WHO guideline",
+      "chapter": "Chapters 2, 3 and 7",
+      "reason": "Reads as a prescription. Kept only the book's practical amounts: five or fifteen minutes a day, and 20 to 30 minutes on a few days in e15."
+    },
+    {
+      "item": "The Evidence Filter and the meta-analysis walkthrough",
+      "chapter": "Chapter 2",
+      "reason": "Research literacy, not an exercise. Grace's skepticism is not used."
+    },
+    {
+      "item": "Running versus walking injury comparison, and returning runners",
+      "chapter": "Chapter 3",
+      "reason": "Kept as David's story in e01 and e15 (start with walking, let running come later). Injury rates cut."
+    },
+    {
+      "item": "Sets and reps (two to three sets of eight to twelve) and band rows",
+      "chapter": "Chapter 4",
+      "reason": "Kept the book's starting baseline (five squats, five wall push-ups, a short plank) so no equipment is needed. A chair sit-to-stand is offered, taken from the book's own red-day anchor."
+    },
+    {
+      "item": "Cyclic sighing",
+      "chapter": "Chapter 5",
+      "reason": "One breathing pattern only, the book's four-and-six, to match the app pacer and avoid a second set of counts."
+    },
+    {
+      "item": "Omega-3, blood sugar and protein detail",
+      "chapter": "Chapter 8",
+      "reason": "Nutrition advice. Kept only the book's triad question about protein at most meals, with no food rules."
+    },
+    {
+      "item": "Exercise Dependence Scale, overtraining syndrome and the eating disorder section",
+      "chapter": "Chapter 11",
+      "reason": "Screening and clinical content. Kept as the rest check in e19, the book's Rest Test, with a referral to a doctor or therapist. No scores or labels."
+    },
+    {
+      "item": "Loneliness statistics and the parkrun figures",
+      "chapter": "Chapters 3, 7 and 9",
+      "reason": "Statistics. parkrun is not named; e13 offers a group or community walk instead."
+    },
+    {
+      "item": "Movement at each age (young children, school-age children, teenagers, elderly parents)",
+      "chapter": "Chapter 10",
+      "reason": "Folded into e18 as 'go at their pace'. A separate exercise per age would be heavy for one week."
+    },
+    {
+      "item": "Habit formation timeline (a median of about 66 days)",
+      "chapter": "Chapter 13",
+      "reason": "Statistic. The idea that missed days do not undo a habit is kept in e22."
+    },
+    {
+      "item": "The thirty-day program as its own block",
+      "chapter": "Chapter 13",
+      "reason": "Spread across the twelve weeks: walking in week 3, variety in weeks 5 to 6, extending and exploring in weeks 8 to 9, the pattern in week 12."
+    },
+    {
+      "item": "Medication and exercise overview",
+      "chapter": "Appendix E; Disclaimer",
+      "reason": "Medical content. The start safety note says not to change medication and to talk to a prescriber."
+    },
+    {
+      "item": "Pregnancy note",
+      "chapter": "Disclaimer",
+      "reason": "Covered by 'any other health condition' in the start safety note. Flagged for Crent in case a specific line is wanted."
+    }
+  ]
+}

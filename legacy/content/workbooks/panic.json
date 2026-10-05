@@ -1,0 +1,2742 @@
+{
+  "schema_version": "1.0",
+  "id": "panic",
+  "status": "draft",
+  "topic_name": "Panic",
+  "tagline": "Twelve weeks of small, practical steps to make panic smaller",
+  "set_id": "worry-and-fear",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "Still Standing",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Still_Standing_Corrected.docx"
+  },
+  "start": {
+    "welcome": "If panic has started to make your world smaller, this is built for that. It's twelve weeks of small, practical steps, drawn from the book Still Standing. Most weeks take 15 to 30 minutes in total. You'll learn what your body is doing, build tools to settle it, and step back, at your own pace, into what panic has taken. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard weeks.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick calming tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If panic took up less room, what would you do again? One line is enough.",
+    "extra_safety_note": "Panic can feel like a heart problem. If you have chest pain or any new symptom, get it checked by a doctor. If you are ever unsure whether chest pain is panic, act as if it is an emergency and get help right away. If you have not had a checkup since panic started, please book one, since some medical conditions can feel similar. Some exercises here bring on body sensations on purpose. Talk to a doctor first if you have a heart or lung condition, asthma, epilepsy, low blood pressure, a balance problem, neck or back problems, or are pregnant. You can stop any exercise at any time. If panic comes every day, keeps you at home, or comes with thoughts that life is not worth living, or if you are using alcohol or drugs to cope, please talk to a doctor or therapist. Do not change any medication based on this workbook. Talk to your prescriber first."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "reading_body",
+        "label": "Reading your body calmly"
+      },
+      {
+        "id": "settling",
+        "label": "Settling the wave"
+      },
+      {
+        "id": "checking",
+        "label": "Letting go of checking"
+      },
+      {
+        "id": "living",
+        "label": "Doing what you want to do"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "reading_body",
+        "text": "When your heart races, you can remind yourself it's adrenaline."
+      },
+      {
+        "id": "q02",
+        "area": "reading_body",
+        "text": "You can notice a body sensation without deciding something is wrong."
+      },
+      {
+        "id": "q03",
+        "area": "reading_body",
+        "text": "When a frightening thought fires, you can weigh it against the evidence."
+      },
+      {
+        "id": "q04",
+        "area": "reading_body",
+        "text": "You can let a sensation rise and pass without fighting it."
+      },
+      {
+        "id": "q05",
+        "area": "settling",
+        "text": "You can bring yourself back down after a spike of panic."
+      },
+      {
+        "id": "q06",
+        "area": "settling",
+        "text": "You have a calming tool you trust, and you use it."
+      },
+      {
+        "id": "q07",
+        "area": "settling",
+        "text": "After a hard moment, you can move on without replaying it for hours."
+      },
+      {
+        "id": "q08",
+        "area": "settling",
+        "text": "You sleep through the night, or settle again if panic wakes you."
+      },
+      {
+        "id": "q09",
+        "area": "checking",
+        "text": "You get through the day without checking your pulse or body for signs."
+      },
+      {
+        "id": "q10",
+        "area": "checking",
+        "text": "You can leave a sensation alone without searching it online."
+      },
+      {
+        "id": "q11",
+        "area": "checking",
+        "text": "You can go out without your usual protective items, like water or a seat near the door."
+      },
+      {
+        "id": "q12",
+        "area": "checking",
+        "text": "You get through a wave of panic without asking someone to tell you it's okay."
+      },
+      {
+        "id": "q13",
+        "area": "living",
+        "text": "You go to places you'd like to go, even if panic might show up."
+      },
+      {
+        "id": "q14",
+        "area": "living",
+        "text": "When anxiety rises somewhere, you can stay instead of leaving."
+      },
+      {
+        "id": "q15",
+        "area": "living",
+        "text": "You do things that raise your heart rate, like climbing stairs or exercising."
+      },
+      {
+        "id": "q16",
+        "area": "living",
+        "text": "Your plans are your own choice, not panic's."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Harder weeks show up here too, and that's useful to know."
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_practice",
+        "type": "weekly_grid",
+        "label": "Days you practiced the long exhale"
+      },
+      {
+        "id": "c_tools",
+        "type": "checklist",
+        "label": "Tools you used",
+        "options": [
+          "From your Toolkit"
+        ]
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One win, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_faced",
+        "type": "short_text",
+        "label": "Something you faced on purpose this week",
+        "optional": true,
+        "help": "Facing work starts in week 5. Leave this blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How quiet was panic today?",
+    "scale_low": "Loud, like a siren",
+    "scale_high": "Quiet, a background hum",
+    "tags": [
+      "Slept well",
+      "Caffeine before noon",
+      "Moved my body",
+      "Ate regular meals",
+      "Practiced my breathing",
+      "Faced something small",
+      "Used a tool",
+      "Talked to someone"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Explore",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "See how panic works for you",
+        "body": "The Explore stage is about noticing, not changing anything yet. Over two weeks, you'll keep a simple log of any panic. Then you'll map the loop that keeps it going: a sensation, a frightening thought, more fear, more sensation. You'll also name the habits you lean on to feel protected. By the end, you'll know where to aim the rest of the work.",
+        "figure": "fig_looking_at_map"
+      },
+      "outcome": "A clear picture of your panic, and the loop and habits that keep it going.",
+      "review_question": "What surprised you most about your own pattern?"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "Build your tools, one at a time",
+        "body": "In the Build stage, you add one or two tools a week. You start with your breath and your senses, so you have ways to settle your body. Then you learn what each sensation really is, and begin to meet those sensations on purpose, gently and at your own pace. New tools can feel awkward at first. That's normal while a skill is forming.",
+        "figure": "fig_feet_grounded"
+      },
+      "outcome": "A working set of tools: a daily breathing practice, grounding, a plain label for each sensation, and a way to check frightening thoughts.",
+      "review_question": "Which tool helped most, and which one hasn't fit yet?"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Practice",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "Step back into your life",
+        "body": "Now you take your tools into everyday life. The Practice stage covers small steps back into places you've been avoiding, letting go of habits that hold panic in place, steadier nights, and the people around you. Some steps will feel uncomfortable, and that's expected. You choose the pace. Start with the easiest step each time, and go back a step whenever you need to.",
+        "figure": "fig_walking"
+      },
+      "outcome": "Your tools tried in real places, on real nights, and with the people around you.",
+      "review_question": "Where did you surprise yourself, and what still feels hard?"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "Make it yours to keep",
+        "body": "The Keep stage brings twelve weeks together. You'll write your plan for staying well: daily, weekly, and monthly habits, your early warning signs, and what to do if panic gets louder again. Write it while you're steady, so it's ready on a harder week. It doesn't need to be perfect, just clear enough to follow when you're tired.",
+        "figure": "fig_writing"
+      },
+      "outcome": "Your plan for staying well, with your habits, warning signs, and first steps back, saved in your plan.",
+      "review_question": "What will you keep doing now that the twelve weeks are done?"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "See how panic shows up for you",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t02"
+      ]
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Map the loop that keeps panic going",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t03"
+      ]
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Give your body ways to settle",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t04",
+        "t05"
+      ]
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Understand your body, and steady the basics",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t06",
+        "t07"
+      ]
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Meet a sensation on purpose, gently",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Check frightening thoughts",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true,
+      "new_toolkit_ids": [
+        "t08"
+      ]
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Name what you've been avoiding",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Take a first step back in",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Steady your nights and your body",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Quiet the replay, and bring others in",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e01"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Look at the whole picture",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e13"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e11"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Start your panic log",
+      "purpose": "A simple record of any panic this week, so you can see the pattern as it really is.",
+      "why": "Panic can feel constant and impossible to predict. A log shows what is really happening: when, where, how long, and what you did. The book notes that the real picture is often smaller than the one in your head. Writing it down also gives you a little distance. This week, you only observe.",
+      "source": {
+        "chapter": "Chapter 1, One-Week Challenge; Appendix A, Panic Attack Log"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "After any panic or strong wave of anxiety, log it here. None this week? Use the most recent one.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Note the date, the time, and where you were.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how intense it felt, from 0 to 10, and roughly how many minutes it lasted.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Note the sensations you felt, like a racing heart, dizziness, or tingling.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you thought was happening, in the exact words if you can.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note what you did, like leaving, holding on to something, or checking your pulse.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Don't try to change anything yet. Noticing is the whole task this week.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "Leah, a third-grade teacher in Austin, had her first panic attack in front of her class. Her heart raced, her vision narrowed, and her hands tingled. She was sure she would faint in front of the children. After about eight minutes, the worst of it passed. A week later, a second wave came in the teachers' lounge and passed in about twelve minutes. Each one had a start, a peak, and an end."
+      },
+      "fields": [
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When and where",
+          "help": "For example: Saturday, 8 a.m., in the grocery store."
+        },
+        {
+          "id": "f_intensity",
+          "type": "short_text",
+          "label": "How intense, from 0 to 10, and how long",
+          "help": "For example: 7, about 10 minutes."
+        },
+        {
+          "id": "f_sensations",
+          "type": "long_text",
+          "label": "What you felt in your body",
+          "help": "For example: racing heart, tight chest, tingling hands."
+        },
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "What you thought was happening",
+          "help": "For example: \"I'm going to faint.\""
+        },
+        {
+          "id": "f_did",
+          "type": "short_text",
+          "label": "What you did",
+          "help": "For example: left the room, held on to the cart."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Note when and where it happened.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Rate it from 0 to 10, and note roughly how long it lasted.",
+            "figure": "fig_rating"
+          }
+        ],
+        "field_ids": [
+          "f_when",
+          "f_intensity"
+        ]
+      },
+      "done_when": "Your log is started. Each entry adds to the picture, without changing anything yet.",
+      "repeat_weeks": [
+        10
+      ],
+      "reflect": "Did anything in your log surprise you? If there was no panic this week, that's worth noting too.",
+      "feeds_plan": [
+        {
+          "field_id": "f_sensations",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_thought",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t02"
+    },
+    {
+      "id": "e02",
+      "title": "Map your panic loop",
+      "purpose": "Your own panic loop on one page, and the habits that keep it going.",
+      "why": "Panic runs in a loop. A sensation sets off a frightening thought, the thought brings fear, and the fear brings more sensations. The book names four things that keep it running: reading sensations as danger, avoidance, constant body-checking, and safety behaviors, the things you do to feel protected. Loosen one, and the loop loosens.",
+      "source": {
+        "chapter": "Chapter 3, Quick Tool: The Panic Cycle on a Card; Clark's Model; The Four Maintenance Factors; One-Week Challenge"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of a recent panic, or use your log. What sensation came first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what you feared that sensation meant.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what happened in your body as the fear grew.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List what you do to feel protected, like sitting near the door, carrying water, or checking your pulse.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add anything you've stopped doing, including things that raise your heart rate.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick your top three habits. Be specific. Don't drop them yet. Just name them.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi, an HR manager in Birmingham, England, had a board meeting at 2 p.m. By 9 a.m., the thought had started: what if it happens again? She checked her neck in the mirror for a flush. She rehearsed her points four times, checked the room twice, and packed her scarf. The meeting went fine. That evening she opened the wine. On one page, every step told her brain the same thing: the meeting was dangerous, and the precautions saved her."
+      },
+      "fields": [
+        {
+          "id": "f_trigger",
+          "type": "short_text",
+          "label": "The sensation that came first",
+          "help": "For example: my heart skipped, or I felt dizzy."
+        },
+        {
+          "id": "f_fear",
+          "type": "short_text",
+          "label": "What you feared it meant",
+          "help": "For example: \"I'm having a heart attack.\""
+        },
+        {
+          "id": "f_habits",
+          "type": "long_text",
+          "label": "What you do to feel protected",
+          "help": "For example: sit near the exit, carry water, check my heart rate on my watch."
+        },
+        {
+          "id": "f_stopped",
+          "type": "long_text",
+          "label": "What you've stopped doing",
+          "help": "For example: the gym, the bus, coffee.",
+          "optional": true
+        },
+        {
+          "id": "f_top3",
+          "type": "ranked_list",
+          "label": "Your top three habits",
+          "max_items": 3
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you do to feel protected when panic might come.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_habits"
+        ]
+      },
+      "done_when": "Your loop is mapped and your top habits are named, without changing anything yet.",
+      "repeat_weeks": [
+        11
+      ],
+      "reflect": "Which habit feels hardest to imagine doing without?",
+      "feeds_plan": [
+        {
+          "field_id": "f_fear",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_top3",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Practice the long exhale daily",
+      "purpose": "A 2-minute breathing practice, twice a day, so it's familiar when panic rises.",
+      "why": "A tool tried for the first time mid-panic rarely helps, and then it gets dropped. An exhale that's longer than your inhale presses your body's brake. Practiced while you're calm, it becomes familiar, and you build a track record to lean on. Two minutes, morning and evening, is the book's daily practice.",
+      "source": {
+        "chapter": "Chapter 4, Technique 2: Extended Exhale Breathing; When Breathing Techniques Backfire; The Case for Daily Practice; One-Week Challenge"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick two set times, like after waking and before bed. Set a reminder for each.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Sit comfortably. Inhale gently through your nose while you count to four.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Exhale slowly through your mouth while you count to six. Let it feel like a release.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Keep each breath gentle, not deep. Continue for about 2 minutes.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If counting makes you tense, drop the counts. Just let each exhale run a little longer.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If focusing on your breath makes you more uneasy, use 5-4-3-2-1 grounding instead.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Rate how settled you feel before and after, from 0 to 10.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "Leah first tried breathing from an online video: inhale deeply, hold, then exhale. By the third round she felt worse. Watching her breathing made it feel wrong, and that frightened her more. Some people start with grounding, which turns attention outward. Others do better with a gentle exhale, a little longer than the inhale, practiced when calm and never forced. There's no single right path."
+      },
+      "fields": [
+        {
+          "id": "f_times",
+          "type": "short_text",
+          "label": "Your two practice times",
+          "help": "For example: 7 a.m. and 10 p.m."
+        },
+        {
+          "id": "f_ratings",
+          "type": "two_column",
+          "label": "Your ratings",
+          "columns": [
+            "Before",
+            "After"
+          ],
+          "help": "Rough numbers are fine."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Do one round: inhale while you count to four, then exhale while you count to six.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_times"
+        ]
+      },
+      "done_when": "Your two practice times are set. Come back to them each day this week.",
+      "repeat_weeks": [
+        7
+      ],
+      "reflect": "What did you notice in your body after the first practice?",
+      "feeds_plan": [
+        {
+          "field_id": "f_times",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t04"
+    },
+    {
+      "id": "e04",
+      "title": "Find the grounding tools that fit",
+      "purpose": "Two or three grounding tools you've tried and rated, for moments when panic is building.",
+      "why": "When panic rises, your attention narrows onto your body. Grounding turns it outward, to what you can see, hear, and touch. It doesn't stop panic, but it can slow the climb and buy time for your body to settle. This week is about finding the ones that fit you.",
+      "source": {
+        "chapter": "Chapter 5, How Grounding Works; Techniques 1 to 4; Choosing the Right Tool; The Bridge Between Coping and Recovery; One-Week Challenge"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the four tools: 5-4-3-2-1, cool water, feet on the floor, and a muscle release.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If you have a heart condition or take heart medication, check with a doctor before using cold water.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Try one tool each day, during any moment of stress, not only during panic.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "For the muscle release, make fists while you count to five, then let go all at once.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Rate how much each one helped, from 1 to 5.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Use grounding to help you stay in a hard moment, rather than to escape it.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "Leah's third panic attack came in a grocery store aisle. Her chest tightened and the floor seemed to tilt. Every part of her wanted to leave the cart and run. Then she remembered: five things you can see. A box of cereal. A peeling price label. Then four things she could hear. By the time she reached touch, the worst of the wave had passed. She bought her groceries. It was the first time she had stayed."
+      },
+      "fields": [
+        {
+          "id": "f_ratings",
+          "type": "rating_grid",
+          "label": "How much each tool helped",
+          "rows": [
+            "5-4-3-2-1 grounding",
+            "Cool water on your face",
+            "Feet on the floor",
+            "Muscle release"
+          ],
+          "help": "1 is not much, 5 is a lot. Leave out any you didn't try."
+        },
+        {
+          "id": "f_best",
+          "type": "short_text",
+          "label": "Your go-to grounding tool",
+          "help": "For example: feet on the floor in meetings."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Try 5-4-3-2-1 now: five things you see, four you hear, three you can touch.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Write which tool you'll reach for first.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_best"
+        ]
+      },
+      "done_when": "You've tried your grounding tools and picked a go-to for when panic builds.",
+      "reflect": "Which tool felt most natural, and which felt forced?",
+      "feeds_plan": [
+        {
+          "field_id": "f_best",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t05"
+    },
+    {
+      "id": "e05",
+      "title": "Know what each sensation is",
+      "purpose": "A plain explanation for each of your panic sensations, in your own words, ready to name.",
+      "why": "Panic sensations feel like proof that something is wrong. A racing heart is adrenaline. Dizziness and tingling come from overbreathing. A tight chest is tense muscles between your ribs. Knowing the cause won't stop a sensation, but it changes what the sensation means to you, and the meaning is what drives the fear.",
+      "source": {
+        "chapter": "Chapter 1, The Thirteen Symptoms; Chapter 2, The Cascade; Why Your Breathing Matters So Much; Quick Tool: Name It to Tame It; Quick Start, Schedule a Doctor's Appointment"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "From your log, pick the sensations you notice most during panic.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Read the plain cause beside each one.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If you have chest pain or new symptoms, or have not had a checkup since this started, see a doctor.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write a short label for each sensation, like \"That is adrenaline.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "This week, when a sensation shows up, name it with your label. Silently is fine.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Callum",
+        "text": "Callum, a 22-year-old student in Edinburgh, woke at 2 a.m. with his heart pounding and his left arm numb. He was sure it was a heart attack and called an ambulance. Every test came back normal, but he kept wondering what they had missed. Learning the cause of each sensation helped, slowly. Months later, when his heart raced on the treadmill, he named it: \"That is exercise. That is adrenaline. My heart is supposed to do this.\""
+      },
+      "fields": [
+        {
+          "id": "f_sensations",
+          "type": "checklist",
+          "label": "Sensations you notice",
+          "options": [
+            "Racing heart: adrenaline speeding up your heart",
+            "Short of breath: overbreathing, too much air rather than too little",
+            "Tight chest: muscles between your ribs tensing",
+            "Dizziness or tingling: overbreathing, which eases as your breathing slows",
+            "Shaking: adrenaline with nowhere to go",
+            "Sweating, hot flashes, or chills: your body cooling itself",
+            "Nausea: digestion slowing down for a while",
+            "Feeling unreal or far away: your brain turning the volume down"
+          ]
+        },
+        {
+          "id": "f_labels",
+          "type": "two_column",
+          "label": "Your labels",
+          "columns": [
+            "Sensation",
+            "What you'll say to yourself"
+          ],
+          "help": "For example: racing heart, \"That is adrenaline. My heart is built for this.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick your strongest sensation. Write one line saying what it really is.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_labels"
+        ]
+      },
+      "done_when": "Each of your main sensations has a plain label, ready to name when it shows up.",
+      "reflect": "Which sensation still feels most frightening, even now that you know its cause?",
+      "feeds_plan": [
+        {
+          "field_id": "f_labels",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t03"
+    },
+    {
+      "id": "e06",
+      "title": "Steady your sleep and caffeine",
+      "purpose": "A set wake time and an earlier last coffee, two simple changes that can calm your baseline.",
+      "why": "Some everyday habits make your alarm easier to set off. Short sleep makes it more reactive. Caffeine brings the same jittery feelings as panic. The book starts with two changes: a steady wake time, and no caffeine after noon. Cut back gradually, because stopping all at once can bring headaches and jitters.",
+      "source": {
+        "chapter": "Chapter 10, Why Lifestyle Matters; Sleep; Caffeine; Minimum Viable Version; One-Week Challenge"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose a wake time you can keep every day, including weekends.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set an alarm for it, and try not to snooze.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write down how much caffeine you have on a normal day, and when.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Move your last caffeine to noon or earlier.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If you have a lot, cut back by about a quarter each week. Decaf can keep the ritual.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "At the end of the week, look at your log. Did anything shift?",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Callum",
+        "text": "Callum kept a log of his days for a week. He was sleeping under six hours a night and drinking three coffees a day, the last at 6 p.m. He had tried cutting out caffeine all at once, but the headaches sent him back within three days. His therapist suggested fixing the basics first. Later, Callum kept it to one coffee, in the morning."
+      },
+      "fields": [
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time"
+        },
+        {
+          "id": "f_caffeine",
+          "type": "short_text",
+          "label": "Your caffeine on a normal day",
+          "help": "For example: three coffees, the last at 4 p.m."
+        },
+        {
+          "id": "f_plan",
+          "type": "short_text",
+          "label": "Your caffeine plan for this week",
+          "help": "For example: last coffee by noon, and two instead of three."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Set tomorrow's alarm for your wake time.",
+            "figure": "fig_phone_quick"
+          },
+          {
+            "text": "Move today's last coffee to noon or earlier.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_wake"
+        ]
+      },
+      "done_when": "Your wake time and caffeine plan are set. Small changes here make the rest easier.",
+      "reflect": "Which change do you expect to be harder, and why?",
+      "feeds_plan": [
+        {
+          "field_id": "f_wake",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_plan",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Build your sensation ladder",
+      "purpose": "A short list of gentle ways to bring on panic-like sensations, ranked from easiest to hardest.",
+      "why": "Fear of the sensations themselves keeps panic going. The book's most direct tool is to bring them on gently, on purpose, and see what really happens. This week you only build the list. Each exercise copies one sensation, like a fast heart or dizziness. Ranking them lets you start low and move up at your own pace.",
+      "source": {
+        "chapter": "Chapter 6, What Interoceptive Exposure Is; The Ten Exercises; How to Build Your Interoceptive Hierarchy; Safety Considerations; Troubleshooting"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Look at the list below. Each exercise copies one sensation.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Check with a doctor first if you have a heart, lung, or inner ear condition, epilepsy, or are pregnant.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "The same goes for low blood pressure, asthma, or neck or back problems.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Try each one gently, for a few seconds only.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Rate how uneasy each one made you, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Rank them from lowest to highest. That list is your ladder. Skip any that feel like too much.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Callum",
+        "text": "Callum had stopped going to the gym and stopped playing soccer. He avoided stairs and coffee. He wasn't avoiding places. He was avoiding the sensations inside his own body. The ladder turns that list around: the same sensations, brought on gently and on purpose, starting with the easiest. For someone like Callum, a gentle first rung might be a single flight of stairs."
+      },
+      "fields": [
+        {
+          "id": "f_tried",
+          "type": "checklist",
+          "label": "Exercises you tried",
+          "options": [
+            "Walking briskly up a flight of stairs: fast heart, quicker breathing",
+            "Running on the spot for 1 minute: fast heart, breathlessness, sweating",
+            "Shaking your head gently side to side for 30 seconds: mild dizziness",
+            "Turning slowly in place, or in a swivel chair, for 1 minute: dizziness",
+            "Tensing every muscle for 1 minute, then letting go: shakiness",
+            "Sitting in warm layers near a heater for 5 minutes: heat, flushing, fast heart",
+            "Staring at one spot on the wall for 2 minutes: things look strange"
+          ],
+          "help": "Try each for a few seconds only. The full times are for later."
+        },
+        {
+          "id": "f_ladder",
+          "type": "ranked_list",
+          "label": "Your ladder, easiest first",
+          "max_items": 7,
+          "help": "Add your 0 to 10 rating beside each one."
+        },
+        {
+          "id": "f_start",
+          "type": "short_text",
+          "label": "The one you'll start with",
+          "help": "The book suggests starting with one rated about 3 to 5. Lower is fine if you need it."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Walk briskly up a flight of stairs. Rate how uneasy it made you, from 0 to 10.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_start"
+        ]
+      },
+      "done_when": "Your sensation ladder is ranked, and you've picked a gentle place to start.",
+      "reflect": "Which exercise do you expect to be hardest, and what do you fear it would do?",
+      "feeds_plan": [
+        {
+          "field_id": "f_start",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Face one sensation on purpose",
+      "purpose": "One sensation brought on gently, with what you feared checked against what really happened.",
+      "why": "Being told a sensation is nothing to fear only goes so far. Feeling it, and seeing nothing bad happen, teaches your body directly. The book says the learning lives in the gap between what you predicted and what happened. You don't need to feel calm. You're testing a prediction. Short, repeated tries teach more than one long one.",
+      "source": {
+        "chapter": "Chapter 6, How It Works: The Inhibitory Learning Model; The Rules; What to Expect; Safety Considerations; Minimum Viable Version; One-Week Challenge"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose the first exercise on your ladder. Gentle is fine.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write your prediction, something specific like \"I'll faint.\" Rate how much you believe it, 0 to 100.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Do the exercise for as long as you choose, up to the time listed.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "You can stop at any point. If it feels okay, let the sensation rise and pass without gripping or checking.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Stop and get checked by a doctor if you feel chest pain or anything new.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Afterward, rate the peak from 0 to 10. Write what happened, and rate your belief again.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Repeat it on two more days this week, if you can.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Callum",
+        "text": "Callum's prediction was specific: if his heart raced hard enough, it could stop. He believed it at 70 out of 100. With his therapist, he brought on a racing heart and a tight chest on purpose. Afterward his heart settled, and his belief dropped to 40. By the fourth try, the sensations were the same, but the terror had gone. After six sessions over two weeks, his belief sat at 15."
+      },
+      "fields": [
+        {
+          "id": "f_exercise",
+          "type": "short_text",
+          "label": "The exercise",
+          "help": "For example: running on the spot, 1 minute."
+        },
+        {
+          "id": "f_prediction",
+          "type": "short_text",
+          "label": "Your prediction, and how much you believe it",
+          "help": "For example: my heart will stop. Belief: 70 out of 100."
+        },
+        {
+          "id": "f_peak",
+          "type": "short_text",
+          "label": "How uneasy it got at the peak, 0 to 10"
+        },
+        {
+          "id": "f_happened",
+          "type": "short_text",
+          "label": "What actually happened",
+          "help": "Feeling more aware of your body for a day or two afterward is common."
+        },
+        {
+          "id": "f_belief_after",
+          "type": "short_text",
+          "label": "Your belief now, 0 to 100"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write what you fear will happen. Then run on the spot for up to 1 minute.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Stop whenever you need to. Write one line on what actually happened.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_prediction",
+          "f_happened"
+        ]
+      },
+      "done_when": "You've faced one sensation on purpose and checked your prediction against what happened.",
+      "repeat_weeks": [
+        8
+      ],
+      "reflect": "How did what happened compare with what you predicted?",
+      "feeds_plan": [
+        {
+          "field_id": "f_exercise",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Write a panic thought record",
+      "purpose": "One frightening thought checked against the evidence, with a more accurate thought beside it.",
+      "why": "Positive thinking rarely works when your heart is pounding, because it's hard to believe. Accurate thinking is different. You swap a frightening reading for a factual one, like \"This is adrenaline. It has passed every time.\" The thought record does this on paper, after a panic or a hard moment, once the wave has passed.",
+      "source": {
+        "chapter": "Chapter 8, What Cognitive Restructuring Is; The Thought Record; The Danger of Over-Thinking; One-Week Challenge"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Pick a recent panic or anxious moment. Write the situation in one plain line.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the sensations you noticed in your body.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the frightening thought exactly as it came, however extreme.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List evidence for and against it: test results, past attacks, what your doctor said.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a more accurate thought that admits the discomfort and corrects the fear.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Spending over 5 minutes on one thought? Let it be there, unresolved, and get on with your day.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi filled in a thought record after every meeting for two weeks. After ten entries, the same thought kept appearing: everyone can see I'm panicking, they'll think I'm incompetent, and I'll lose my job. Then she looked at the evidence column. In ten meetings, no one had mentioned her flush or her shaking hands. Her chief executive had praised her presentation. She had been shortlisted for a national award. The thought said one thing. The evidence said another."
+      },
+      "fields": [
+        {
+          "id": "f_situation",
+          "type": "short_text",
+          "label": "The situation",
+          "help": "For example: Monday team meeting."
+        },
+        {
+          "id": "f_sensation",
+          "type": "short_text",
+          "label": "What you felt in your body",
+          "help": "For example: hot neck, racing heart."
+        },
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The frightening thought",
+          "help": "Word for word. For example: \"Everyone can see I'm panicking.\""
+        },
+        {
+          "id": "f_evidence",
+          "type": "two_column",
+          "label": "The evidence",
+          "columns": [
+            "For the thought",
+            "Against the thought"
+          ],
+          "help": "Facts only. Feeling that something is dangerous is a feeling, not evidence."
+        },
+        {
+          "id": "f_balanced",
+          "type": "short_text",
+          "label": "Your more accurate thought",
+          "help": "For example: \"My heart is racing because of adrenaline. It has passed every time. Uncomfortable, not dangerous.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Ask: What's the evidence? What's most likely? What would I tell a friend?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one more accurate line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_balanced"
+        ]
+      },
+      "done_when": "One frightening thought is checked against the evidence, with a more accurate one beside it.",
+      "repeat_weeks": [
+        9
+      ],
+      "reflect": "Which piece of evidence against the thought felt most convincing?",
+      "feeds_plan": [
+        {
+          "field_id": "f_balanced",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t08"
+    },
+    {
+      "id": "e10",
+      "title": "Right-size the worst case",
+      "purpose": "A calm answer to \"What if the worst really happened?\" for a fear that still lingers.",
+      "why": "Some fears hold on because the outcome isn't impossible. People do sometimes faint. So the book asks a different question: even if it happened, could you cope? Walking through what would really happen, step by step, tends to shrink a fear to its real size. When the worst case is survivable, it has less power to drive the loop.",
+      "source": {
+        "chapter": "Chapter 8, Decatastrophizing; Chapter 10, Sleep (the worst case at night)"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write a fear that still lingers after you've checked the evidence.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask: if this really happened, what would happen next? Write it out, step by step.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Then ask: and after that? Keep going until the end.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note who or what would help, and how you'd get through it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one line that sums it up. Unpleasant, perhaps, but could you cope?",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi's fear was that people would see her flush. So she asked what would really happen if they did. They might think she was warm, or a little nervous. Most would not think anything at all. Nobody gets fired for blushing in a meeting. The fear didn't vanish, but it shrank to a size she could carry into the room."
+      },
+      "fields": [
+        {
+          "id": "f_fear",
+          "type": "short_text",
+          "label": "The fear"
+        },
+        {
+          "id": "f_chain",
+          "type": "long_text",
+          "label": "What would really happen, step by step",
+          "help": "For example: \"I would feel faint and sit down. Someone might help. I would feel embarrassed, then recover.\""
+        },
+        {
+          "id": "f_cope",
+          "type": "short_text",
+          "label": "Your summing-up line",
+          "help": "For example: unpleasant, but I'd get through it."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Finish this line for one fear: \"If it happened, I would...\"",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_cope"
+        ]
+      },
+      "done_when": "Your fear is walked through to the end, with a line that puts it at its real size.",
+      "reflect": "How did the fear feel once you'd written out what would really happen?",
+      "feeds_plan": [
+        {
+          "field_id": "f_cope",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "List what you've been avoiding",
+      "purpose": "Every place and activity panic has taken from you, rated and ranked, ready for small steps back.",
+      "why": "Panic attacks pass in minutes. Avoidance can last years. Each place you stay away from tells your brain it was dangerous, and the list quietly grows. Writing it all down, then rating each item, turns a shrinking world into a ladder you can climb at your own pace, starting low.",
+      "source": {
+        "chapter": "Chapter 7, Quick Tool: The Next Small Step; Why Avoidance Is the Core Problem; Building Your Exposure Hierarchy; Appendix B"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "List every place or activity you avoid, or dread, because of panic.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Include quieter ones, like sitting near exits, using self-checkout to leave sooner, or driving instead of the bus.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Be specific. Not \"going out\" but \"taking the bus alone for two stops.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate each one: how uneasy would it make you today, from 0 to 10?",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Rank them from lowest to highest.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick an item rated about 3 to 5. That's where you'll start.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "Leah wrote quickly at first: the teachers' lounge, the movie theater, the bus, restaurants. Then the quieter ones: hair appointments, family dinners, church, the car wash. Twenty-three items, each dropped so gradually she'd barely noticed. Then she rated them. The convenience store was a 3. The bus, two stops, a 5. A staff meeting in the windowless conference room, a 9."
+      },
+      "fields": [
+        {
+          "id": "f_list",
+          "type": "ranked_list",
+          "label": "Your list, easiest first",
+          "max_items": 25,
+          "help": "Add a rating from 0 to 10 beside each."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first item, rated about 3 to 5",
+          "help": "For example: walking to the corner store without my phone."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things you avoid, and rate each from 0 to 10.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_list"
+        ]
+      },
+      "done_when": "Your list is written and ranked, and your first step is picked.",
+      "repeat_weeks": [
+        12
+      ],
+      "reflect": "Looking at the whole list, what do you miss most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_list",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Tell one person",
+      "purpose": "One person who knows what's going on, and a simple script for telling them.",
+      "why": "Panic tends to grow in secrecy. Telling one person can lift some of that weight, and the response is often kinder than people fear. Not everyone needs to know. Choose someone you trust, like a partner, a close friend, or your doctor. One sentence is enough to start.",
+      "source": {
+        "chapter": "Chapter 11, Quick Tool: The One-Line Script; Who to Tell; One-Week Challenge; Quick Start, Tell One Person"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one person you trust. Someone who won't make a drama of it, or tell others.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Read the one-line script. Change the words so they sound like you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Say it out loud once, alone. It gets easier the second time.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick a calm moment to tell them. A message is fine if talking feels like too much.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Afterward, note how it went.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi rehearsed telling her sister dozens of times, picturing shock, pity, or worry about her job. One Sunday over tea, she said it: she had been having panic attacks at work for six months. Her sister Adaeze was quiet for a moment. Then she said, \"I had them too.\" She'd had them in her twenties, before every observed lesson, and told no one. Nkechi cried, mostly from relief."
+      },
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you'll tell"
+        },
+        {
+          "id": "f_words",
+          "type": "long_text",
+          "label": "Your words",
+          "help": "For example: \"I get panic attacks sometimes. They look scary but they pass. You don't need to fix it. Just stay calm.\""
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the name of one person you could tell.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_who"
+        ]
+      },
+      "done_when": "You've chosen your person and your words, ready for when the moment is right.",
+      "reflect": "What worries you most about telling someone, and what do you hope for?",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t10"
+    },
+    {
+      "id": "e13",
+      "title": "Take one step back in",
+      "purpose": "One avoided situation, faced in a small, planned way, with your prediction checked.",
+      "why": "Staying away keeps the fear intact, because you never get to see that you'd have been fine. A small, planned step gives your brain new evidence. The book says the anxiety doesn't have to drop for a step to count. What matters is that the thing you predicted didn't happen. Start low, and repeat it on different days.",
+      "source": {
+        "chapter": "Chapter 7, How Situational Exposure Works; The Inhibitory Learning Model Applied to Situations; Building Your Exposure Hierarchy; Plateaus and Setbacks"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Take the first item from your list, rated about 3 to 5.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Define it exactly: where, for how long, and what you'll do there.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your prediction, and how much you believe it, from 0 to 100.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Go. If you can, stay as long as you planned, and let the anxiety rise and fall.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you need to leave, that's okay. Note what happened, and try again another day.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Afterward, write what happened and rate your belief again.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Repeat it on two more days, changing the time or the route.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "Leah's first step was the convenience store, a short walk from home. No phone, no headphones, no planned route. Her heart climbed before the end of her street. She kept walking, bought water and a banana, and walked home. The anxiety peaked near the store and settled on the way back. By the fifth day, she rated it a 1."
+      },
+      "fields": [
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your step, defined exactly",
+          "help": "For example: walk to the store without my phone, buy two things, walk home."
+        },
+        {
+          "id": "f_prediction",
+          "type": "short_text",
+          "label": "Your prediction, and your belief from 0 to 100"
+        },
+        {
+          "id": "f_happened",
+          "type": "long_text",
+          "label": "What actually happened"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Do one small piece of your step, even for a few minutes.",
+            "figure": "fig_walking"
+          },
+          {
+            "text": "Write one line: what you feared, and what happened.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_happened"
+        ]
+      },
+      "done_when": "You've taken one step back in and checked what you feared against what happened.",
+      "repeat_weeks": [
+        11
+      ],
+      "reflect": "What did you learn that you couldn't have learned by staying away?",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Drop one safety behavior",
+      "purpose": "One protective habit left behind during a step, so the credit goes to you.",
+      "why": "Safety behaviors feel essential, but they take the credit. If you get through the store gripping your water bottle, your brain thanks the bottle. The book calls dropping them the most important part of facing avoided places. Without them, your brain is left with the truth: there was nothing to survive.",
+      "source": {
+        "chapter": "Chapter 7, Dropping Safety Behaviors; Chapter 3, Why the Cycle Does Not Break on Its Own; Troubleshooting"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look at your top three habits from week 2.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Test each one: would you feel anxious if you could not do it? If so, it counts.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one that feels easiest to leave behind.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Plan when you'll drop it, like going to a meeting without your water bottle.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Not ready to drop it completely? Go without it for part of the time first.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Afterward, note what happened without it.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi's list was long. She arrived early to get a seat by the door. She carried water and wore a scarf to hide the flush. She rehearsed every point, and drank wine afterward. Each habit told her the meeting was dangerous and the precautions had saved her. Months later, she gave a board presentation with no flush and no scarf. She still wore the scarf sometimes, because it looked good with her navy blazer."
+      },
+      "fields": [
+        {
+          "id": "f_behavior",
+          "type": "short_text",
+          "label": "The habit you'll drop"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll drop it",
+          "help": "For example: Thursday's meeting, no water bottle."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "What happened without it",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one habit, and one time this week you'll go without it.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_behavior",
+          "f_when"
+        ]
+      },
+      "done_when": "One protective habit is chosen, with a time and place to try going without it.",
+      "reflect": "What do you expect to feel without it, and what do you think will actually happen?",
+      "feeds_plan": [
+        {
+          "field_id": "f_behavior",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Steady your nights",
+      "purpose": "A calm last hour before bed, and a plan for when panic wakes you.",
+      "why": "Short sleep makes your alarm easier to set off, and fear of night panic can keep you awake. A calm last hour gives your body a runway to land on. A plan for waking with panic means you know what to do at 3 a.m. Most night attacks pass within about ten minutes.",
+      "source": {
+        "chapter": "Chapter 10, Quick Tool: The 10 p.m. Wind-Down; Sleep; Manage Nocturnal Panic"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose your wind-down hour. Screens off, lights low, something calm.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "As you settle into bed, do 2 minutes of the long exhale.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Keep the bed for sleep. Awake after about 20 minutes? Get up and do something boring.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If panic wakes you, check the time and name it: a panic attack, and it will pass.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Leave your phone off. Stay in bed, use the sigh if it helps, and let the wave pass.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "If night panic is frequent, or poor sleep goes on, talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Priti",
+        "text": "Priti's panic returned at 2 a.m., four months after her mother died. She sat on the edge of the bed and thought, \"I know what this is.\" A year on, she still woke with an attack now and then, perhaps once a month. Her routine was simple. She checked the time, named the sensation, and waited. Four to six minutes. Then back to sleep."
+      },
+      "fields": [
+        {
+          "id": "f_winddown",
+          "type": "short_text",
+          "label": "Your wind-down hour, and what you'll do",
+          "help": "For example: 10 p.m., lights low, a book, then the long exhale."
+        },
+        {
+          "id": "f_night",
+          "type": "long_text",
+          "label": "Your plan if panic wakes you",
+          "help": "For example: check the time, name it, one sigh, stay in bed, phone off."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the three things you'll do if panic wakes you tonight.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_night"
+        ]
+      },
+      "done_when": "Your wind-down and your night plan are ready for tonight.",
+      "reflect": "What has made nights harder lately, and what might help first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_winddown",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_night",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t09"
+    },
+    {
+      "id": "e16",
+      "title": "Move your body again",
+      "purpose": "A gentle return to movement that raises your heart rate, plus regular meals to steady your energy.",
+      "why": "Exercise brings the same sensations as panic: a fast heart, quick breathing, sweat. That's why many people stop. It's also why it helps. Each session gives you a racing heart with an obvious, everyday cause. Long gaps between meals can also bring on shakiness that feels like panic, so regular meals help too.",
+      "source": {
+        "chapter": "Chapter 10, Exercise; Nutrition and Blood Sugar"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write any movement you've stopped because of panic.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick a level that feels a little uncomfortable, not overwhelming. A brisk 15-minute walk is fine.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Plan two sessions this week, and put them in your calendar.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "When your heart speeds up, name it: \"That is exercise. My heart is supposed to do this.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Eat regular meals, and carry a snack if you get shaky between them.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "If you have a heart condition or another health concern, check with a doctor first.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Priti",
+        "text": "After her mother died, Priti stopped the morning walk she loved along the river. Her psychologist suggested starting with that one thing. On the first morning, she walked for eight minutes before her legs felt heavy, and turned back. The next day, twenty minutes. By the end of the second week, she was walking the full route. Within a week of starting again, she was sleeping better."
+      },
+      "fields": [
+        {
+          "id": "f_stopped",
+          "type": "short_text",
+          "label": "Movement you've stopped",
+          "help": "For example: the gym, soccer, stairs.",
+          "optional": true
+        },
+        {
+          "id": "f_plan",
+          "type": "short_text",
+          "label": "Your two sessions this week",
+          "help": "For example: brisk walk, Tuesday and Saturday mornings."
+        },
+        {
+          "id": "f_meals",
+          "type": "short_text",
+          "label": "One change to your meals",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write when you'll take one brisk walk this week.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_plan"
+        ]
+      },
+      "done_when": "Your first sessions are planned, each one a chance to feel a fast heart with a clear cause.",
+      "reflect": "What do you expect to feel the first time your heart speeds up?",
+      "feeds_plan": [
+        {
+          "field_id": "f_plan",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Close the replay",
+      "purpose": "A 5-minute review after a hard moment, so you can close it instead of replaying it.",
+      "why": "After a panic, it's natural to go over it again and again: what went wrong, what people thought. It can feel like reflection, but the book says it mostly keeps the fear fresh. A short, timed review lets you take the lesson and close the page. One pass, then done.",
+      "source": {
+        "chapter": "Chapter 8, Post-Event Processing; The Danger of Over-Thinking"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "After a hard moment, set a timer for 5 minutes.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write what happened, in plain facts. Leave out what you imagine others thought.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your peak anxiety, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Write one thing you learned.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When the timer ends, close the review. If it comes back to mind, remind yourself it's done.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi used to spend every evening after a meeting day replaying it in detail. Whether they had seen the flush. Each replay kept the fear fresh. The book's alternative is a short, factual note, something like: \"Panic during the meeting. Peak about 6. Nobody commented. I stayed until the end.\" Then the timer goes off, and the review is closed."
+      },
+      "fields": [
+        {
+          "id": "f_facts",
+          "type": "long_text",
+          "label": "What happened, in plain facts"
+        },
+        {
+          "id": "f_peak",
+          "type": "short_text",
+          "label": "Peak anxiety, 0 to 10"
+        },
+        {
+          "id": "f_learned",
+          "type": "short_text",
+          "label": "One thing you learned"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one factual line about what happened, and one thing you learned.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_facts",
+          "f_learned"
+        ]
+      },
+      "done_when": "The review is written and closed. One pass is enough.",
+      "reflect": "How did it feel to stop when the timer ended?"
+    },
+    {
+      "id": "e18",
+      "title": "Show your people how to help",
+      "purpose": "Clear words for the people close to you about what helps during panic, and what doesn't.",
+      "why": "People who love you often want to help you avoid things, reassure you, or fix it. It comes from care, but it can keep panic going. Driving you everywhere, or saying \"You're fine\" again and again, says you need protecting. The book gives supporters simple scripts: stay calm, encourage small steps, and point you back to what you know.",
+      "source": {
+        "chapter": "Chapter 11, What Partners and Family Can Do; Scripted Supporter Responses"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of who helps you most, and how they help when panic shows up.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Note anything they do that keeps you avoiding, like driving you or canceling plans.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'd like them to do during an attack. Staying calm and nearby is often enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'd like them to say when you want to skip something.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what they could say instead of reassurance, like \"What does the evidence tell you?\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Share it with them when you're both calm.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priti",
+        "text": "After Priti told her husband, Raj, he asked one question: \"What do you need from me?\" She told him. Don't ask if I'm okay every five minutes. During an attack, stay calm and don't fuss. If I want to skip something, remind me that avoidance makes it worse. Over the next weeks, he stopped offering to cancel plans. Once, he gently said, \"We talked about the avoidance thing,\" and she went. It was fine."
+      },
+      "fields": [
+        {
+          "id": "f_during",
+          "type": "long_text",
+          "label": "During an attack, what helps",
+          "help": "For example: stay calm, stay nearby, no rapid questions."
+        },
+        {
+          "id": "f_skip",
+          "type": "short_text",
+          "label": "When you want to avoid something",
+          "help": "For example: \"I know this is hard. Let's try.\""
+        },
+        {
+          "id": "f_instead",
+          "type": "short_text",
+          "label": "Instead of reassurance",
+          "help": "For example: \"What has happened every other time?\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line for someone close: what helps you during an attack.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_during"
+        ]
+      },
+      "done_when": "Your people have clear words for helping, written down and ready to share.",
+      "reflect": "Which kind of help has felt good, but kept panic going?",
+      "feeds_plan": [
+        {
+          "field_id": "f_during",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "See what else feeds panic",
+      "purpose": "An honest look at what else may be feeding panic, and one step on the piece that matters most.",
+      "why": "Panic often comes with other things, like drinking to cope, low mood, constant worry, or searching symptoms online. Alcohol, for example, can leave your body on edge the next morning. The book's question is simple: which one, if you worked on it first, would make the rest easier?",
+      "source": {
+        "chapter": "Chapter 9, Quick Tool: The Triage Question; Depression and Panic; Health Anxiety and Panic; Alcohol and Substance Use; When to Seek Professional Help"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the list, and pick anything that applies, even a little.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Ask: which one, if I worked on it first, would make the others easier?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write one small step for that one this week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you drink to cope, note it beside your panic log for two weeks and look for a pattern.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you drink heavily, do not stop suddenly. Talk to a doctor first.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If low mood or thoughts that life is not worth living are part of this, tell a doctor.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If you feel unsafe right now, tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nkechi",
+        "text": "Nkechi logged her drinking beside her panic for two weeks. More wine on meeting days, most of a bottle on Friday, and a panic attack at 4 a.m. every Saturday. Her therapist explained how alcohol can leave the body on edge the morning after. She cut back to two glasses on meeting days only. Within three weeks, the Saturday attacks stopped."
+      },
+      "fields": [
+        {
+          "id": "f_mix",
+          "type": "checklist",
+          "label": "Anything that applies",
+          "options": [
+            "Drinking to calm down or to recover",
+            "Low mood, or losing interest in things",
+            "Worrying about many things, most days",
+            "Searching symptoms online, or asking for checkups again and again",
+            "Avoiding so much that leaving home is hard",
+            "Panic that comes with memories of a frightening event"
+          ],
+          "help": "If leaving home feels impossible, or panic brings flashbacks, please talk to a doctor or therapist."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "The one to work on first"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your small step this week",
+          "help": "For example: no wine on weeknights, or health questions go only to my doctor."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one thing adding most to your panic. Write one small step for it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first",
+          "f_step"
+        ]
+      },
+      "done_when": "You've named what else is in the mix, and chosen one small step.",
+      "reflect": "Was anything on the list hard to admit? What made it hard?",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Know your early warning signs",
+      "purpose": "Your three earliest signs that panic is creeping back, so you can act early.",
+      "why": "Panic rarely returns all at once. It creeps back: a new avoidance you call a preference, an old protective habit that slips back in, the first heart-rate check in months. Caught early, a small response is usually enough. Knowing yours is what makes early action possible.",
+      "source": {
+        "chapter": "Chapter 12, The Stages of Relapse; Personal Warning Signs; Quick Tool: The Monthly Check-In"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back. When panic was building, what changed first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look in four places: where you go, what you check, your habits, and who you see.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write your top three signs, as specifically as you can.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each, write what you'll do the day you notice it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Set a reminder for the first of each month to look for them.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Leah, Callum, Nkechi and Priti",
+        "text": "Leah's first sign was checking where the exits were, and wanting an aisle seat. Callum's was opening a symptom website, or glancing at his heart rate for the first time in weeks. Nkechi's was wine on a Tuesday instead of a Friday. Priti's was an excuse to skip book club, and a phone call she canceled. Each one was small. That's what made it worth catching."
+      },
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "ranked_list",
+          "label": "Your top three warning signs",
+          "max_items": 3,
+          "help": "For example: checking where the exits are, or a new excuse to skip something."
+        },
+        {
+          "id": "f_action",
+          "type": "two_column",
+          "label": "What you'll do",
+          "columns": [
+            "Sign",
+            "Your response"
+          ],
+          "help": "For example: checking exits. Take a middle seat on purpose."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one sign that would show up first for you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_signs"
+        ]
+      },
+      "done_when": "Your warning signs are written, each with a first response ready.",
+      "reflect": "Which sign would be easiest to explain away, and how will you catch it?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_action",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your plan for staying well",
+      "purpose": "One page with your daily, weekly, and monthly practices, and what to do when signs appear.",
+      "why": "Skills stay strong with use and fade when dropped. The book's plan keeps them active in layers: a few daily habits, a weekly step into something you used to avoid, a monthly check, and a plan for warning signs. This brings it together, and adds one thing you want to do again.",
+      "source": {
+        "chapter": "Chapter 12, The Maintenance Plan; Building a Life, Not Just Managing a Condition; One-Week Challenge"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Daily: pick up to three, like the long exhale, your wake time, and a walk.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Weekly: one step into something you used to avoid, and a quick check-in with someone you trust.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Monthly: a day to ask the three check-in questions.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "When a sign shows up: face the avoided thing within 48 hours, and drop any habit that crept back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add one thing you'd do if panic weren't a factor. Then plan it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Share the plan with someone you trust, if you'd like to.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Leah",
+        "text": "A year after her first attack, Leah's plan was simple. Breathing practice most mornings. The bus once a week on purpose to keep the new learning fresh. The three questions with Josh once a month. She still had moments, a flicker on a crowded bus. They came and went like weather."
+      },
+      "fields": [
+        {
+          "id": "f_daily",
+          "type": "long_text",
+          "label": "Daily practices",
+          "help": "Up to three."
+        },
+        {
+          "id": "f_weekly",
+          "type": "long_text",
+          "label": "Weekly practices"
+        },
+        {
+          "id": "f_monthly",
+          "type": "short_text",
+          "label": "Your monthly check-in day",
+          "help": "For example: the 1st, at 8 a.m."
+        },
+        {
+          "id": "f_signs_plan",
+          "type": "long_text",
+          "label": "When warning signs show up",
+          "help": "For example: face the avoided thing within 48 hours, go back to the sigh, drop the returning habit."
+        },
+        {
+          "id": "f_life",
+          "type": "short_text",
+          "label": "One thing you'd do if panic weren't a factor",
+          "help": "For example: a pottery class, or a trip to see family.",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Check the draft built from your answers. Add your monthly check-in day.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_monthly"
+        ]
+      },
+      "done_when": "Your plan for staying well is written, with something in every layer.",
+      "reflect": "Which part of your plan will be easiest to keep, and which will need a reminder?",
+      "feeds_plan": [
+        {
+          "field_id": "f_daily",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_weekly",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_signs_plan",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_life",
+          "plan_section": "p1"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan your way back",
+      "purpose": "A note for the day panic returns, and the first steps that bring you back.",
+      "why": "Panic may come back, often in a stressful stretch like a loss, a new job, or an illness. A return doesn't wipe out what you've learned. The old fear has won for a while, and your tools are still there. Coming back to the work is often faster the second time. In stressful stretches, step up your practices early.",
+      "source": {
+        "chapter": "Chapter 12, What Relapse Actually Means; The Stages of Relapse; Life Transitions and High-Risk Periods; Conclusion, Priti"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write a short note to yourself for the day panic comes back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself: this is the old fear winning for a while. Your skills are still yours.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List your first steps back, like the sigh, your ladder, and one thought record.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name stressful times ahead, like a move or a new job. Plan to step up your practices then.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If signs last more than two weeks, or panic is frequent again, reach out to a professional.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Missed a week, or more? Pick up where you are. No catching up needed.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Priti",
+        "text": "Priti had worked through panic in her thirties. Twenty-five years later, after her mother died, it came back. Her first thought was, \"I thought I beat this twenty-five years ago.\" She felt ashamed, and at first told no one. But the tools came back faster than she expected. Her second round of work took less than half the time of the first. If panic returned again, she knew she could handle it a third time."
+      },
+      "fields": [
+        {
+          "id": "f_note",
+          "type": "long_text",
+          "label": "Your note for when panic returns",
+          "help": "For example: \"This is the old fear. I know what to do. Start with the sigh and the next small step.\""
+        },
+        {
+          "id": "f_steps",
+          "type": "short_text",
+          "label": "Your first steps back"
+        },
+        {
+          "id": "f_risk",
+          "type": "short_text",
+          "label": "Stressful times ahead to plan for",
+          "help": "For example: a move in the spring.",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'd want to read if panic came back.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_note"
+        ]
+      },
+      "done_when": "Your note and first steps are ready, so a return has a way back.",
+      "reflect": "What would you want to hear from yourself if panic came back?",
+      "feeds_plan": [
+        {
+          "field_id": "f_note",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_steps",
+          "plan_section": "p6"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The physiological sigh",
+      "when_to_use": "Panic is rising, or you need to settle fast, even in public.",
+      "steps": [
+        "Inhale through your nose.",
+        "Before you exhale, take a second, smaller inhale on top.",
+        "Exhale slowly through your mouth, longer than both inhales.",
+        "One can help. For more, repeat a few times.",
+        "If breath focus makes you uneasy, try 5-4-3-2-1 grounding instead."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Quick Start, Learn the Physiological Sigh; Chapter 4, Technique 1: The Physiological Sigh"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The 10-minute rule",
+      "when_to_use": "Panic has started, and you want to get through it without fighting it.",
+      "steps": [
+        "Check the time.",
+        "Tell yourself: \"This usually peaks within ten minutes. I just need to wait.\"",
+        "Don't fight it, and don't run. Let the wave rise and fall.",
+        "Let the clock do the work.",
+        "If anything feels new or different, like new chest pain, get medical help right away."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 1, Quick Tool: The 10-Minute Rule; What Panic Attacks Are Not"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Name it",
+      "when_to_use": "You notice a panic sensation, big or small.",
+      "steps": [
+        "Notice the sensation.",
+        "Name it, out loud if you're alone, silently if not.",
+        "Try: \"That is adrenaline.\" Or: \"That is a false alarm.\"",
+        "Use the label you wrote for it, if you have one."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 2, Quick Tool: Name It to Tame It; One-Week Challenge"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "The long exhale",
+      "when_to_use": "Your daily practice, morning and evening, or any time you want to settle.",
+      "steps": [
+        "Inhale gently through your nose while you count to four.",
+        "Exhale slowly through your mouth while you count to six.",
+        "Keep it gentle and slow, not deep.",
+        "Continue for about 2 minutes.",
+        "Counting makes you tense? Drop the counts. Just lengthen each exhale."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Technique 2: Extended Exhale Breathing; Appendix C, Breathing Card"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "5-4-3-2-1 grounding",
+      "when_to_use": "Panic is building, and your attention is stuck on your body.",
+      "steps": [
+        "Name five things you can see, in detail.",
+        "Name four things you can hear.",
+        "Name three things you can touch. Touch them as you name them.",
+        "Name two things you can smell, and one you can taste.",
+        "Be specific: not \"a wall\" but \"a crack above the light switch.\""
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Quick Tool: 5-4-3-2-1 Grounding; Technique 1; Appendix C, Grounding Card"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Cool water on your face",
+      "when_to_use": "Panic is peaking and you need a fast shift, with a sink or cold pack nearby.",
+      "steps": [
+        "Press a cold, wet cloth or cold pack below your eyes.",
+        "Or splash cold water on your face at a sink.",
+        "Keep it there for 15 to 30 seconds.",
+        "Too intense? Start with cool water rather than ice cold.",
+        "Heart condition or heart medication? Check with a doctor before using this."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 5, Technique 2: Cold Exposure; Troubleshooting"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Feet on the floor",
+      "when_to_use": "You feel detached, unreal, or far away, during or after panic.",
+      "steps": [
+        "Press your feet firmly into the floor.",
+        "Sitting? Press your palms into the chair or table.",
+        "Standing? Bend your knees slightly and feel your weight drop.",
+        "Name what you feel: \"I can feel the floor under my shoes.\""
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Technique 4: Body-Based Grounding"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "The quick challenge",
+      "when_to_use": "A frightening thought fires, and there's no time to write.",
+      "steps": [
+        "Ask: what is the evidence? The facts, not the fear.",
+        "Ask: what is the most likely explanation?",
+        "Ask: what would I tell a friend with these sensations?",
+        "Let the answers sit beside the fear. Any loosening counts."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 8, Quick Tool: The Quick Challenge; The Quick Challenge for Real-Time Use"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "When panic wakes you",
+      "when_to_use": "You wake in the night with panic.",
+      "steps": [
+        "Check the time. Remind yourself: this is a panic attack, and it will pass.",
+        "Take one physiological sigh, if it helps.",
+        "Leave your phone off. No searching symptoms.",
+        "Stay in bed, lie back, and let the wave pass."
+      ],
+      "minutes": 2,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 10, Manage Nocturnal Panic; Conclusion, Priti"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "The one-line script",
+      "when_to_use": "You want to tell someone, or need them to know what helps.",
+      "steps": [
+        "Say: \"I get panic attacks sometimes. They look scary but they pass.\"",
+        "Add: \"You don't need to fix it. Just stay calm.\"",
+        "Practice it out loud alone first. It gets easier."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 11, Quick Tool: The One-Line Script"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you noticed is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "week_complete:1",
+      "message": "Week 1 done. Next up: mapping the loop that keeps panic going."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can see your panic loop, and the habits that keep it going."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your tools are in place. Next, you take small steps back into your life."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why, and the life you want back"
+    },
+    {
+      "id": "p2",
+      "title": "Your panic pattern"
+    },
+    {
+      "id": "p3",
+      "title": "Your calming tools"
+    },
+    {
+      "id": "p4",
+      "title": "Your ways of facing panic"
+    },
+    {
+      "id": "p5",
+      "title": "Your nights, habits, and support"
+    },
+    {
+      "id": "p6",
+      "title": "Your plan for staying well"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by noticing how panic shows up for you. Since then, you've built tools to settle your body, learned what each sensation is, met those sensations on purpose, and stepped back into places panic had taken. Panic may still visit sometimes. The aim was to help it shrink to a background hum, and your plan is ready if it gets louder.",
+    "book_bridge": "Every tool here comes from Still Standing by Maya Vaughn. The book tells the full stories of Leah, Callum, Nkechi, and Priti. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Are you avoiding anything new, even something small?",
+      "Have any of your daily or weekly practices slipped?",
+      "Are any old checking or protective habits creeping back?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e03",
+      "e08",
+      "e09",
+      "e11",
+      "e13"
+    ]
+  },
+  "cut_log": [
+    {
+      "item": "Research findings and statistics: prevalence, time to diagnosis, emergency department figures, CBT response rates, Clark model reviews, Salkovskis, Craske, Pompoli, Farris, Pittig, Meuret, Klein, Balban, caffeine meta-analysis, exercise trials, relapse rates and maintenance CBT figures, family accommodation and parenting figures",
+      "chapter": "Quick Start; Introduction; Chapters 1 to 12; Appendix D",
+      "reason": "Not needed for instruction, and each would be a claim needing fresh verification. Effect sizes are cut by house rule."
+    },
+    {
+      "item": "Panic Facts Card wording (\"cannot kill you\", \"always end\", \"one of the most treatable conditions\")",
+      "chapter": "Quick Start; Appendix C",
+      "reason": "Absolute and treatment claims. The plain causes of each sensation are kept in e05, paired with a doctor step and the start safety note."
+    },
+    {
+      "item": "Panic attack versus panic disorder, DSM criteria, the thirteen symptoms as a clinical list, expected versus unexpected attacks",
+      "chapter": "Chapter 1",
+      "reason": "Reads as a diagnostic screen. The workbook never assumes or confirms a diagnosis and never says panic disorder."
+    },
+    {
+      "item": "How to tell panic chest pain from a heart attack or stroke; panic versus psychosis",
+      "chapter": "Chapter 1, What Panic Attacks Are Not",
+      "reason": "Would invite readers to self-triage chest pain. Replaced by the book's own rule: if unsure, treat it as an emergency, and get chest pain or new symptoms checked."
+    },
+    {
+      "item": "Why some people are more panic-prone: genetics, anxiety sensitivity, prior experience, biological sensitivity",
+      "chapter": "Chapter 2",
+      "reason": "Insight only, and childhood health reflection risks drifting into recall. The anxiety sensitivity idea is kept in the e07 why, without the term."
+    },
+    {
+      "item": "Detailed biology: amygdala, hypothalamus, cortisol, carbon dioxide chemistry, Bohr effect, suffocation alarm theory, chronic stress and the hippocampus",
+      "chapter": "Chapter 2",
+      "reason": "Kept only as one-line plain causes in e05. The rest is detail without an action, and some lines (hippocampus shrinking) are strong claims."
+    },
+    {
+      "item": "The paper bag myth",
+      "chapter": "Chapter 2",
+      "reason": "Not needed. The long exhale covers what to do instead."
+    },
+    {
+      "item": "Box breathing and 4-7-8 breathing",
+      "chapter": "Chapter 4",
+      "reason": "Box breathing uses equal counts, which the book calls regulating rather than calming. 4-7-8 has a seven-count hold that the book says can raise unease in panic. The physiological sigh and the long exhale cover both uses."
+    },
+    {
+      "item": "Bilateral movement and the butterfly hug",
+      "chapter": "Chapter 5",
+      "reason": "Evidence tied to trauma therapy. Walking is kept through e16. Toolkit kept to ten."
+    },
+    {
+      "item": "Full progressive muscle relaxation",
+      "chapter": "Chapter 5",
+      "reason": "Folded into e04 as a short release. The Worry workbook carries the full version."
+    },
+    {
+      "item": "Interoceptive exercises: breathing through a straw, deliberate hyperventilation, breath holding, a tight scarf around the neck",
+      "chapter": "Chapter 6, The Ten Exercises",
+      "reason": "Stronger breathing and throat sensations. The book shows the straw exercise done with a therapist. For a solo app, the ladder offers the seven gentler exercises, plus the book's own easier start (a flight of stairs). Worth clinician review."
+    },
+    {
+      "item": "Combining exercises, stacking sensations, and bringing on sensations before entering feared places (strong coffee before the bus, stairs before a meeting)",
+      "chapter": "Chapters 6 and 7",
+      "reason": "Too intense for unsupervised app use. The workbook keeps each facing step single and reader-paced."
+    },
+    {
+      "item": "\"Do not stop because the anxiety is high\" and \"if it does not fall, stay anyway\"",
+      "chapter": "Chapters 6 and 7",
+      "reason": "Softened under the Panic content note. Every facing step says the reader can stop at any point, asks them to stay if they can, and treats leaving as information, not a setback."
+    },
+    {
+      "item": "Depression detail, behavioral activation plan, SSRIs and Appendix D medication overview",
+      "chapter": "Chapter 9; Appendix D",
+      "reason": "Medical content. e19 names low mood and points to a doctor. The start note covers medication."
+    },
+    {
+      "item": "Alcohol tapering by 25 percent a week, GABA and glutamate detail, cannabis study",
+      "chapter": "Chapter 9",
+      "reason": "No tapering schedules in the app. e19 says not to stop suddenly if drinking heavily and to talk to a doctor."
+    },
+    {
+      "item": "Scheduled worry period",
+      "chapter": "Chapter 9",
+      "reason": "Belongs to the Worry workbook in the same set. Named only as an item in e19."
+    },
+    {
+      "item": "Agoraphobia and PTSD detail, home-based therapy, telehealth",
+      "chapter": "Chapter 9",
+      "reason": "Kept as one help line in e19 and the start note, pointing to a doctor or therapist."
+    },
+    {
+      "item": "Workplace disclosure, legal protections and reasonable adjustments by country",
+      "chapter": "Chapter 11, Panic at Work",
+      "reason": "Legal content that varies by country and changes over time."
+    },
+    {
+      "item": "Parenting with panic, scripts for children",
+      "chapter": "Chapter 11",
+      "reason": "Out of scope for a twelve-week personal workbook, and carries claims about children's risk."
+    },
+    {
+      "item": "Digital guardrails: notifications, doomscrolling, screen time limits",
+      "chapter": "Chapter 10",
+      "reason": "Folded into e15 (phone off at night) and e19 (symptom searching). The rest cut for length."
+    },
+    {
+      "item": "Green, yellow, and red zones",
+      "chapter": "Quick Start; Introduction",
+      "reason": "The red zone guidance is kept in the start safety note. The zones themselves read as a severity screen."
+    },
+    {
+      "item": "Pregnancy, postpartum, and medication decisions in high-risk periods",
+      "chapter": "Chapter 12",
+      "reason": "Medical. e22 keeps the general idea of stepping up practices in stressful times."
+    },
+    {
+      "item": "Therapist finding, costs, and service details by country",
+      "chapter": "Appendix F",
+      "reason": "The app's safety page and Help now carry contacts by region."
+    },
+    {
+      "item": "Your First 30 Days plan",
+      "chapter": "Conclusion",
+      "reason": "Its order is kept: breathing and log first, then caffeine, sleep and a first sensation exercise, then the avoidance list, a thought record and telling one person, then dropping a safety behavior and the maintenance plan."
+    }
+  ]
+}

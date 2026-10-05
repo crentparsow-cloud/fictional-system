@@ -1,0 +1,2478 @@
+{
+  "schema_version": "1.0",
+  "id": "connection",
+  "status": "draft",
+  "topic_name": "Connection",
+  "tagline": "Twelve weeks of small, gentle steps from loneliness toward connection",
+  "set_id": "self-and-connection",
+  "safety_tier": "standard",
+  "source_book": {
+    "title": "Finding Your People",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Finding_Your_People.docx"
+  },
+  "start": {
+    "welcome": "If you feel apart from people, whether you're alone a lot or surrounded and still unseen, this is built for that. It's twelve weeks of small, gentle steps toward connection. Most weeks take 15 to 25 minutes, and every exercise has a short version. Every step toward people is one you choose, at your own pace. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If you felt more connected, what would be different in your week? One line is enough.",
+    "extra_safety_note": "Loneliness is painful, and at its worst it can shade into something darker. If you have thoughts of suicide or of harming yourself, please stop and tap Help now. It is at the top of every screen. Loneliness and low mood are closely linked. If low mood, hopelessness, or strong anxiety stays with you alongside the loneliness, please talk to a doctor or a mental health professional. Seeking help is a wise step, and it can work alongside this workbook. This workbook does not replace that support."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "connected",
+        "label": "Feeling connected"
+      },
+      {
+        "id": "thoughts",
+        "label": "Thoughts about people"
+      },
+      {
+        "id": "reaching",
+        "label": "Reaching out and showing up"
+      },
+      {
+        "id": "known",
+        "label": "Being known and belonging"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "connected",
+        "text": "You feel close to at least one person."
+      },
+      {
+        "id": "q02",
+        "area": "connected",
+        "text": "You have someone you could call just to talk."
+      },
+      {
+        "id": "q03",
+        "area": "connected",
+        "text": "The connection you have feels like enough for you."
+      },
+      {
+        "id": "q04",
+        "area": "connected",
+        "text": "Time on your own feels restful rather than aching."
+      },
+      {
+        "id": "q05",
+        "area": "thoughts",
+        "text": "When a reply is brief, you can see reasons other than rejection."
+      },
+      {
+        "id": "q06",
+        "area": "thoughts",
+        "text": "You can take someone's friendliness as genuine."
+      },
+      {
+        "id": "q07",
+        "area": "thoughts",
+        "text": "You can question a thought that says people don't want you around."
+      },
+      {
+        "id": "q08",
+        "area": "thoughts",
+        "text": "When a reach doesn't land, you can keep it in proportion."
+      },
+      {
+        "id": "q09",
+        "area": "reaching",
+        "text": "You reach out to someone, even in a small way."
+      },
+      {
+        "id": "q10",
+        "area": "reaching",
+        "text": "You go to things with other people, even when part of you would rather stay home."
+      },
+      {
+        "id": "q11",
+        "area": "reaching",
+        "text": "You keep in touch with people you care about."
+      },
+      {
+        "id": "q12",
+        "area": "reaching",
+        "text": "You can start a short, friendly exchange with someone."
+      },
+      {
+        "id": "q13",
+        "area": "known",
+        "text": "At least one person knows what's really going on with you."
+      },
+      {
+        "id": "q14",
+        "area": "known",
+        "text": "You share what you actually think or feel with someone."
+      },
+      {
+        "id": "q15",
+        "area": "known",
+        "text": "You feel part of a group or community."
+      },
+      {
+        "id": "q16",
+        "area": "known",
+        "text": "You feel your presence matters to someone."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Connection grows unevenly, so harder weeks show up here too, and that's useful to know."
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: some energy for connection. Yellow: scale down to small contacts. Red: loneliness feels overwhelming. If you pick red, please tap Help now and reach out for support today."
+      },
+      {
+        "id": "c_contact",
+        "type": "weekly_grid",
+        "label": "Days you made one small contact"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One connection that helped, however small"
+      },
+      {
+        "id": "c_thought",
+        "type": "short_text",
+        "label": "A lonely thought that showed up, and a fairer view",
+        "optional": true
+      },
+      {
+        "id": "c_showed",
+        "type": "weekly_grid",
+        "label": "Days you showed up somewhere with other people",
+        "help": "Showing up regularly starts in week 8. Leave this blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How connected did you feel today?",
+    "scale_low": "Cut off",
+    "scale_high": "Connected",
+    "tags": [
+      "Sent a message",
+      "Had a real conversation",
+      "Showed up somewhere",
+      "Said hello to someone",
+      "Shared something real",
+      "Questioned a lonely thought",
+      "Enjoyed time alone",
+      "Used a tool"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Explore",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "See it clearly",
+        "body": "The Explore stage is about understanding, not fixing. Loneliness is easier to work with once you can name it without shame. Over two weeks, you'll look at what loneliness feels like for you and how it came about. Many people find it's far more common, and far less personal, than it feels. Go gently. Naming it is already a step toward people.",
+        "figure": "fig_looking_at_map"
+      },
+      "outcome": "A clear, shame-free name for your loneliness, and a sense of how it came about.",
+      "review_question": "What did you notice that you hadn't put into words before?"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "Clear the path",
+        "body": "In the Build stage, you set things up one small piece at a time. Over five weeks, you'll see how a lonely mind can steer you away from people, and learn to answer it. You'll map the connection you have, name what you need, and start making small contacts. Every contact is one you choose. Small and regular is how connection grows.",
+        "figure": "fig_thinking"
+      },
+      "outcome": "Ways to answer lonely thoughts, a map of your connections, a clear sense of what you need, and small daily contacts.",
+      "review_question": "Which tool helped most, and which one hasn't clicked yet?"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Practice",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "Reach out, at your pace",
+        "body": "The Practice stage puts the tools to work with real people. Over four weeks, you'll show up somewhere regularly, ease social nerves, reach back out, and let someone know you a little more. You choose every step and its size. If your energy drops, scale down rather than stop. One small contact still counts.",
+        "figure": "fig_two_people"
+      },
+      "outcome": "A regular place you show up, a faded friendship or two within reach, and small steps toward being known and belonging.",
+      "review_question": "What has changed in how you reach out, even a little?"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "Keep it going",
+        "body": "The Keep stage brings twelve weeks together. Connection needs light, regular tending, and progress comes in waves. You'll write a plan for setbacks and a plan for keeping your connections alive. Keep both modest. A small plan you follow is worth more than a big one you put down.",
+        "figure": "fig_writing"
+      },
+      "outcome": "Your connection plan and your setback plan, both saved in your plan.",
+      "review_question": "What will you keep doing now that the twelve weeks are done?"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Name what you've been feeling",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t02"
+      ]
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "See how your loneliness came about",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Notice how the lonely mind works",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Answer lonely thoughts and map your connections",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t03"
+      ]
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Name what you need and make small contacts",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t04"
+      ]
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Find your places and remember your skills",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Get ready for conversation and for a no",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t05",
+        "t06"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Show up and ease your nerves",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "repeat_ids": [
+        "e08"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Reach back out and take small steps",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t08",
+        "t09"
+      ],
+      "repeat_ids": [
+        "e04"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Move toward friendship and being known",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e13"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Belong to something larger and keep in touch",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e12"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "repeat_ids": [
+        "e16",
+        "e18"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Name the gap",
+      "purpose": "A clear, shame-free name for what you've been feeling, and where the gap is for you.",
+      "why": "Loneliness can feel like proof that something is wrong with you. The book sees it as a signal, like hunger: a gap between the connection you want and the connection you have. It's about how connection feels, not how many people are around. Naming it without shame turns a vague ache into something you can work with.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, What Loneliness Actually Is; Loneliness Is Not the Same as Being Alone; When Loneliness Hides Behind a Functional Surface; The Shame That Keeps It Hidden"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about the connection you'd like to have. Write a line or two.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Now write a line about the connection you have right now.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice the space between the two. That gap is what the book calls loneliness.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "Pick any that fit you: lonely when alone, lonely around people, or saying \"fine\" when you're not.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Read this back: loneliness is common, and it's not your fault.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David moved to a new city for a promotion at twenty-nine. Eighteen months later, his social life was small talk with colleagues and video calls with old friends that came less and less often. He stopped going to work events because showing up alone felt embarrassing, and he told his parents everything was great. That surface hid the loneliness from others, and even from himself. Naming it didn't build his friendships. But it lifted the shame enough for him to begin."
+      },
+      "fields": [
+        {
+          "id": "f_gap",
+          "type": "two_column",
+          "label": "The connection you'd like, and the connection you have",
+          "columns": [
+            "The connection you'd like",
+            "The connection you have"
+          ],
+          "help": "Rough answers are fine. For example: someone to talk to on weekends."
+        },
+        {
+          "id": "f_shape",
+          "type": "checklist",
+          "label": "What fits you right now",
+          "options": [
+            "Lonely when alone",
+            "Lonely even around people",
+            "Saying \"fine\" when it isn't",
+            "Not sure yet"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about the connection you'd like, and one about the connection you have.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_gap"
+        ]
+      },
+      "done_when": "You've named the gap. Naming it is a first step toward people.",
+      "reflect": "How does it feel to see it written down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_gap",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "See how it happened",
+      "purpose": "A sense of how your loneliness came about, so you can see it as circumstance, not a verdict on you.",
+      "why": "It's natural to wonder what's wrong with you. The book points to circumstances instead. Some loneliness arrives with a change, like a move, a loss, or a new job. Some creeps in through slow drift: lunches canceled and calls put off, each one reasonable. Connection used to happen by default. Now it often takes deliberate effort.",
+      "source": {
+        "chapter": "Chapter 3, Why Now: What Has Changed; The Transitions That Trigger Loneliness; The Slow Drift of Neglected Connection; Loneliness Is Not a Personal Failing"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the two common paths into loneliness: a change in your life, or a slow drift.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick any changes that touched your connections. Skip this if none fit.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Then think about drift. Which friendships faded without any falling-out?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a line on how your loneliness came about. A change, a drift, or both.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back. These are ordinary causes that happen to many capable, likable people.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "At forty-two, Priya had two teenagers, a demanding finance job, and a husband as stretched as she was. Each time she canceled a lunch for the third time, she told herself there would be time later. Her college friends had scattered after graduation. Her local friendships lapsed. One day she looked up and found no one she could call just to talk. There was no single cause. It was drift: connection that matters but is never urgent, losing out day after day."
+      },
+      "fields": [
+        {
+          "id": "f_changes",
+          "type": "checklist",
+          "label": "Changes that touched your connections",
+          "options": [
+            "A move",
+            "A loss or bereavement",
+            "A breakup or divorce",
+            "Retirement",
+            "Becoming a parent",
+            "Children leaving home",
+            "A new job or remote work",
+            "None of these"
+          ],
+          "help": "If a loss is part of this, go gently. You can come back to this part later."
+        },
+        {
+          "id": "f_path",
+          "type": "short_text",
+          "label": "How your loneliness came about, in a line",
+          "help": "For example: friendships drifted while work and the kids took every hour."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on how your loneliness came about: a change, a drift, or both.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_path"
+        ]
+      },
+      "done_when": "You've named how your loneliness came about. It's a cause, not a verdict on you.",
+      "reflect": "What would you say to a friend whose life had gone the same way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_path",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "See the lonely loop",
+      "purpose": "A picture of how loneliness can steer your thoughts and actions, and where you could step out of the loop.",
+      "why": "After a while, loneliness braces the mind for rejection. A brief reply reads as cold. An invitation feels risky, so you stay home. Staying home leaves you more alone, and the next invitation feels riskier. This is a known, automatic effect of loneliness, not a flaw in you. Your social skills are usually still there underneath.",
+      "source": {
+        "chapter": "Chapter 4, How Loneliness Reshapes the Mind; The Self-Perpetuating Trap; The Skills Are There; Why Understanding the Mechanism Helps"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a recent moment when you pulled back from people.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what your mind expected would happen.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you did next, like staying home or not replying.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write how that left you feeling afterward.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice the loop: expecting rejection, pulling back, then feeling more alone.",
+          "figure": "fig_looking_at_map"
+        }
+      ],
+      "example": {
+        "character": "Ethan",
+        "text": "After college, Ethan moved back into his parents' house and worked fully remotely from his childhood bedroom. As his friends scattered, he grew sensitive to any sign of rejection. He read coldness into brief replies and assumed people didn't want to hear from him. When a rare invitation came, he often didn't go, certain he'd be unwelcome. Each time, he felt more alone. Seeing the loop helped. It was a known effect of loneliness, not the truth about him."
+      },
+      "fields": [
+        {
+          "id": "f_expect",
+          "type": "short_text",
+          "label": "What your mind expected would happen"
+        },
+        {
+          "id": "f_did",
+          "type": "short_text",
+          "label": "What you did next"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How you felt afterward"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one moment you pulled back, and what your mind expected would happen.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_expect"
+        ]
+      },
+      "done_when": "You've seen the loop in one real moment. Seeing it is where stepping out begins.",
+      "reflect": "Where in the loop could a small change fit?",
+      "feeds_plan": [
+        {
+          "field_id": "f_expect",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Catch the lonely thoughts",
+      "purpose": "The lonely thoughts that show up most for you, named so you can spot them next time.",
+      "why": "Lonely thoughts can feel like plain realism. The book names six common ones: expecting rejection, mind-reading, catastrophizing, discounting friendliness, taking things personally, and harsh self-judgment. They're predictions from a mind braced for threat, not facts about how things will go. Naming them loosens their grip.",
+      "source": {
+        "chapter": "Chapter 5, Recognizing the Lonely Mind's Distortions; Appendix A, From Chapter 5"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Read the six patterns. Each has a short example.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the two or three you notice most. One is enough.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For one of them, write a thought you had this week, in your own words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the pattern's name next to it, like mind-reading.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "When David thought about a work social event, his mind supplied reasons not to go. He'd stand around awkwardly. Everyone would already have their groups. People would wonder why he was there alone. When a colleague was friendly, he assumed it was just politeness. Named, these were catastrophizing, mind-reading, and discounting friendliness. They had felt like realism. Seen as patterns, they became predictions he could question."
+      },
+      "fields": [
+        {
+          "id": "f_patterns",
+          "type": "checklist",
+          "label": "The patterns you notice most",
+          "options": [
+            "Expecting rejection: they won't want me there",
+            "Mind-reading: assuming you know what they think of you",
+            "Catastrophizing: predicting it will go terribly",
+            "Discounting friendliness: they're only being polite",
+            "Taking it personally: a short reply means they're annoyed",
+            "Harsh self-judgment: feeling pathetic for wanting connection"
+          ]
+        },
+        {
+          "id": "f_thought",
+          "type": "two_column",
+          "label": "A thought from this week, and its pattern",
+          "columns": [
+            "The thought",
+            "The pattern"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick the one pattern you notice most.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_patterns"
+        ]
+      },
+      "done_when": "You can name your most common lonely thoughts. Spotting them comes before questioning them.",
+      "reflect": "Did any pattern surprise you?",
+      "repeat_weeks": [
+        9
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_patterns",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Answer one lonely thought",
+      "purpose": "A fairer, more accurate answer to one thought that keeps you from reaching out.",
+      "why": "Questioning a thought doesn't mean forcing yourself to feel positive. The aim is accuracy. The lonely mind leans toward predicting rejection, so the truth is usually more neutral, or kinder, than it claims. A fairer view makes it easier to act.",
+      "source": {
+        "chapter": "Chapter 5, Questioning and Reframing the Thoughts"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one lonely thought from last week, or one that's here now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: what's the actual evidence for this?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: is this one of the six patterns?",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Ask: what would you tell a friend who had this thought?",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write a fairer version. Accurate is the aim, not cheerful.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's thought was that the work event would be a humiliating disaster. When he looked for evidence, he found very little, and he saw the catastrophizing. His fairer version: showing up alone is unremarkable, people are far less focused on him than he fears, and the evening will most likely be ordinary. He did the same with the friendly colleague. Maybe the friendliness was genuine, and brushing it off had screened out a real chance at connection."
+      },
+      "fields": [
+        {
+          "id": "f_old",
+          "type": "short_text",
+          "label": "The lonely thought"
+        },
+        {
+          "id": "f_evidence",
+          "type": "long_text",
+          "label": "What the evidence says",
+          "optional": true
+        },
+        {
+          "id": "f_fair",
+          "type": "short_text",
+          "label": "A fairer version",
+          "help": "For example: a short reply usually means busy, not annoyed."
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one lonely thought.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Then write one fairer, more accurate version of it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_old",
+          "f_fair"
+        ]
+      },
+      "done_when": "You have one fairer answer ready for a thought that's been holding you back.",
+      "reflect": "How does the fairer version feel next to the first one?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_fair",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Map your connections",
+      "purpose": "A map of the connection you have across four kinds, showing where your real gap is.",
+      "why": "Connection comes in different kinds, and each meets a different need. You can have plenty of one and very little of another. That's why loneliness can stay even in a busy life. An honest map shows where the gap is, so your effort can go there. It's a map, not a score.",
+      "source": {
+        "chapter": "Chapter 6, The Different Types of Connection; The Belonging Audit"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the four kinds of connection: close, friends, community, and everyday.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate how each is going right now, from 1 (missing) to 5 (plenty).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Under each kind, note a few names or places if any come to mind. Blank is fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the one kind you'd most like more of.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's life was busy with people. She had everyday contact through work and her children's activities, some companionship, and a few groups. When she looked across the four kinds, the gap was clear. What she was missing was close, confiding friendship, the kind where she could be herself and talk about what really mattered. That was where her effort needed to go, not toward more of what she already had."
+      },
+      "fields": [
+        {
+          "id": "f_kinds",
+          "type": "rating_grid",
+          "label": "How each kind of connection is going",
+          "rows": [
+            "Close: people who truly know you, who you can confide in",
+            "Friends: people you share time, interests, or lighter talk with",
+            "Community: groups where you're part of something larger",
+            "Everyday: neighbors, regulars, and friendly faces"
+          ]
+        },
+        {
+          "id": "f_names",
+          "type": "long_text",
+          "label": "Names or places for each kind",
+          "optional": true,
+          "help": "Blank is fine. This is just for you."
+        },
+        {
+          "id": "f_most",
+          "type": "short_text",
+          "label": "The kind of connection you'd most like more of"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one kind of connection you'd most like more of.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_most"
+        ]
+      },
+      "done_when": "Your connections are mapped, and you know which kind you'd most like more of.",
+      "reflect": "Did anything on your map surprise you?",
+      "repeat_weeks": [
+        11
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_most",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Name what you need",
+      "purpose": "A clear, realistic picture of the connection you're aiming for, in your own words.",
+      "why": "When you feel lonely, the instinct is to seek more: more events, a fuller calendar. But a full calendar can leave you as lonely as an empty one. What tends to meet the need is quality: being known, being yourself, and care that goes both ways. Close friendships grow gradually, and how much is enough varies from person to person.",
+      "source": {
+        "chapter": "Chapter 6, Quality Over Quantity; Realistic Expectations"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look at the kind of connection you'd most like more of, from your map.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "Write what good connection of that kind would feel like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the qualities that matter most to you.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write what enough might look like for you. A few people can be plenty.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself that this grows gradually, and some tries won't work out.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's first move was to seek more. She accepted invitations, joined a couple of groups, and filled her scarce free time. It didn't touch the loneliness. She'd come home from a busy evening feeling as disconnected as before. Slowly she saw why. She didn't need a fuller calendar. She needed a few close friendships, where she could be herself and talk about what really mattered."
+      },
+      "fields": [
+        {
+          "id": "f_feel",
+          "type": "long_text",
+          "label": "What good connection would feel like"
+        },
+        {
+          "id": "f_qualities",
+          "type": "checklist",
+          "label": "The qualities that matter most",
+          "options": [
+            "Being known",
+            "Being able to be yourself",
+            "Sharing what matters",
+            "Care that goes both ways",
+            "Being able to count on each other",
+            "Shared interests and lighter company"
+          ]
+        },
+        {
+          "id": "f_enough",
+          "type": "short_text",
+          "label": "What enough connection looks like for you",
+          "help": "For example: two friends you can really talk to."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on what enough connection would look like for you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_enough"
+        ]
+      },
+      "done_when": "You know what you're aiming for, and what enough looks like for you.",
+      "reflect": "How is this different from what you thought you needed?",
+      "feeds_plan": [
+        {
+          "field_id": "f_enough",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "One small contact a day",
+      "purpose": "A week of small, low-stakes contacts you choose, to start turning isolation toward connection.",
+      "why": "Reaching out can feel like a big ask when you've been on your own a while. The book starts small on purpose: one brief contact a day. A reply, a hello, a friendly word. Each one tends to be more manageable than it seems, and small contacts add up.",
+      "source": {
+        "chapter": "How to Use This Book; Appendix A, The One Thing to Start With; Appendix C, Week one"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Make a short list of small contacts that feel doable. Easy ones count.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Each day, pick one from your list if you can.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Mark the day once you've done it. Skip any day you need to.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "At the end of the week, notice how it went compared with what you expected.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "After her husband died, Margaret's social world unraveled. At sixty-seven, making new friends felt overwhelming and a little absurd, like something for the young. What made it manageable was seeing that connection rarely starts with a bold gesture. It grows from brief, friendly, low-stakes exchanges, repeated over time. She didn't need to make a friend this week. A few small contacts were enough to begin."
+      },
+      "fields": [
+        {
+          "id": "f_list",
+          "type": "long_text",
+          "label": "Small contacts that feel doable",
+          "help": "For example: reply to a message you left unanswered, say hello to someone you've lost touch with, or a friendly word to a neighbor."
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you made one small contact"
+        },
+        {
+          "id": "f_noticed",
+          "type": "short_text",
+          "label": "How it went, compared with what you expected",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one small contact for today. A reply or a hello is enough.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_list",
+          "f_days"
+        ]
+      },
+      "done_when": "Your list is ready. Every small contact this week counts, however brief.",
+      "reflect": "Was any contact easier than you expected?",
+      "repeat_weeks": [
+        8
+      ],
+      "toolkit_link": "t01",
+      "feeds_plan": [
+        {
+          "field_id": "f_list",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Find your fertile ground",
+      "purpose": "One or two places where you'd see the same people regularly, around something you share.",
+      "why": "Connection rarely forms at one-off events among strangers. It grows where two things meet: a shared activity and the same faces, again and again. A class, a club, volunteering, a regular venue, or a group for people in your situation gives connection somewhere to grow.",
+      "source": {
+        "chapter": "Chapter 7, Where to Find People; Appendix E, Finding connection and community"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List a few things you enjoy, care about, or used to do.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, think of a regular group, class, or place around it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Add any groups for your stage of life or situation, like newcomers or new parents.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one or two that feel most doable. Small and nearby is fine.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one first step, like looking up a time or a place.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Margaret didn't know where to begin. Waiting for connection to find her hadn't worked, and one-off events led nowhere. So she looked for places where she'd see the same people regularly around something shared: a class around an interest, regular volunteering, a community or religious organization. Places like these gave new connection somewhere to grow, even starting from scratch."
+      },
+      "fields": [
+        {
+          "id": "f_interests",
+          "type": "long_text",
+          "label": "Things you enjoy or care about"
+        },
+        {
+          "id": "f_places",
+          "type": "two_column",
+          "label": "Places or groups to try",
+          "columns": [
+            "The place or group",
+            "A first step"
+          ],
+          "help": "Libraries, community centers, and recreation departments often list classes and groups."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one regular place or group you could try, and one first step.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_places"
+        ]
+      },
+      "done_when": "You have one or two places to try, and a first step for one of them.",
+      "reflect": "Which place feels most like you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_places",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Remember your skills",
+      "purpose": "Evidence from your own life that your social skills are there, even when nerves hide them.",
+      "why": "It's easy to decide you're just bad with people. Research the book draws on suggests most lonely people do have social skills. Loneliness and nerves tend to hold them back. Many people are at ease with someone they trust and only lose that ease when nerves rise. That ease is your skills showing.",
+      "source": {
+        "chapter": "Chapter 4, The Skills Are There; Chapter 8, Social Skills Are Learnable and Often Already Present"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Think of a time you felt at ease with people. Any age counts.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what you did then, like asking questions, joking, or listening.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Think of someone you're comfortable with now, if anyone comes to mind.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write what you're like with them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back. These skills are yours. Nerves hold them back, but they haven't gone.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Ethan",
+        "text": "Ethan had decided he just lacked social confidence, that he was bad at this in some basic way. But through school and college he'd had friends and an easy social life, belonging to groups without thinking about it. Those skills hadn't gone anywhere. His loneliness and anxiety were holding them back. He wasn't bad at connection. He was anxious and out of practice, and both of those could change."
+      },
+      "fields": [
+        {
+          "id": "f_then",
+          "type": "short_text",
+          "label": "A time you felt at ease, and what you did"
+        },
+        {
+          "id": "f_now",
+          "type": "short_text",
+          "label": "What you're like with someone you're comfortable with",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one time you felt at ease with people, and one thing you did well.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_then"
+        ]
+      },
+      "done_when": "You have evidence from your own life that your social skills are there.",
+      "reflect": "What would change if you trusted that these skills are still yours?",
+      "feeds_plan": [
+        {
+          "field_id": "f_then",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Start a friendly conversation",
+      "purpose": "A few easy openers and questions, ready so conversation can feel like curiosity rather than performance.",
+      "why": "Many people dread not knowing what to say. Good conversation rests less on being clever and more on being curious. A simple comment or question about what you're both doing is enough to start. Asking, listening, and following up carries it. The aim is a pleasant exchange, not an impressive one.",
+      "source": {
+        "chapter": "Chapter 7, Navigating First Conversations; Chapter 8, The Fundamentals of Confident Conversation"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick a place you'll be soon, like a class, work, or a regular shop.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write two openers about the shared moment. Simple is best.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write two follow-up questions about the other person.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add one small thing you could share about yourself, so it goes both ways.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you try one, notice how it went. A brief exchange still counts.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Ethan",
+        "text": "In social situations, Ethan's heart raced and his mind went blank. Part of the pressure was believing he had to be interesting. What eased it was a different aim: be friendly and curious. Ask a question, listen to the answer, and follow up on what the other person said. With his attention on them, there was less room to watch himself. Curiosity did most of the work."
+      },
+      "fields": [
+        {
+          "id": "f_openers",
+          "type": "long_text",
+          "label": "Your openers",
+          "help": "For example: \"Have you been coming to this class long?\""
+        },
+        {
+          "id": "f_questions",
+          "type": "long_text",
+          "label": "Your follow-up questions"
+        },
+        {
+          "id": "f_share",
+          "type": "short_text",
+          "label": "One small thing you could share",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one opener and one follow-up question for a place you'll be soon.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_openers",
+          "f_questions"
+        ]
+      },
+      "done_when": "You have openers and questions ready. Friendly and curious is enough.",
+      "reflect": "Which question would you enjoy being asked yourself?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_openers",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Keep rejection in proportion",
+      "purpose": "A steadier way to respond when a reach doesn't land, so one no doesn't stop you.",
+      "why": "Some reaching out won't be returned. That's a normal part of building connection, for everyone. The risk is letting one no become a verdict on your worth. A no often comes down to timing, circumstance, or fit. Connection is built through many tries, and only some of them work out.",
+      "source": {
+        "chapter": "Chapter 5, Recovering From Rejection; Appendix D, Common Questions"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Think of a time a reach didn't land, recent or long ago.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what your mind said it meant.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write other reasons it might have happened, like timing or how busy they were.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one line you'd say to a friend in the same spot.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Decide whether to try again, with them or someone else. Waiting is fine too.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "As David began to reach out, some of his overtures weren't returned. His mind was ready to take each one as proof that he was unwanted and that trying was pointless. What helped was keeping each no in proportion. It was a normal part of building a social life in a new city. It often came down to circumstance or fit. And it was a reason to keep going, rather than to stop."
+      },
+      "fields": [
+        {
+          "id": "f_meant",
+          "type": "short_text",
+          "label": "What your mind said it meant"
+        },
+        {
+          "id": "f_other",
+          "type": "long_text",
+          "label": "Other reasons it might have happened"
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "What you'd say to a friend in the same spot"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one fairer line to hold onto the next time a reach doesn't land.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_line"
+        ]
+      },
+      "done_when": "You have a steadier line ready for when a reach doesn't land.",
+      "reflect": "How would it feel to let one no be just one no?",
+      "repeat_weeks": [
+        11
+      ],
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Show up again",
+      "purpose": "A regular spot in one place you chose, where familiar faces can start to form.",
+      "why": "Going once can feel like nothing happened. Connection usually grows from small, repeated contact: the same faces and brief exchanges, week after week. Strangers become familiar faces, then acquaintances. Your part is to show up and be friendly. Familiarity builds slowly from there.",
+      "source": {
+        "chapter": "Chapter 7, The Power of Small, Repeated Contact; From Stranger to Friend; Appendix C, Week two"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one place from your list, and a regular time you could go.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Set a small goal for each visit, like one hello or one question.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Go when you can. Leaving early is fine.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Afterward, note any face that's starting to feel familiar.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Plan your next visit.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Margaret didn't need to make a friend overnight. That idea had felt overwhelming. She only needed to show up regularly in the places she'd chosen and have small, friendly exchanges: a brief chat with the same people, week after week. Over time, strangers became familiar faces, and familiar faces became acquaintances. That's how new connection usually forms, at any age."
+      },
+      "fields": [
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where and when you'll go"
+        },
+        {
+          "id": "f_goal",
+          "type": "short_text",
+          "label": "Your small goal for each visit"
+        },
+        {
+          "id": "f_faces",
+          "type": "long_text",
+          "label": "Faces starting to feel familiar",
+          "optional": true,
+          "help": "A first name or a short description is fine."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write where you'll show up next, and one small goal for the visit.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_where",
+          "f_goal"
+        ]
+      },
+      "done_when": "You have a regular place and time. Each visit adds a little familiarity.",
+      "reflect": "What did showing up feel like, compared with what you expected?",
+      "repeat_weeks": [
+        10
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "f_where",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Ease your social nerves",
+      "purpose": "A short, practiced way to steady yourself when nerves rise around people.",
+      "why": "Social nerves can take over: a racing heart, a blank mind, and all your attention on yourself. The book offers a few ways to steady this. Turn your attention outward to the other person. Question predictions of being judged. Let the physical feelings be there without fighting them. They usually ease as you engage.",
+      "source": {
+        "chapter": "Chapter 8, Managing Social Anxiety; Chapter 12, When to Get Professional Help"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a social moment coming up that brings nerves.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the prediction your nerves are making.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a fairer view. Most people are far less focused on you than it feels.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose one thing to be curious about in the other person.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write a short line to say to yourself when your heart races.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If nerves often stop you from going anywhere, it is worth talking to a doctor or therapist.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ethan",
+        "text": "After social situations, Ethan would replay every moment, certain he'd come across as strange. That fed his dread of the next time. So he tried something different. He put his attention on the other person instead of on his own awkwardness. He questioned the prediction that everyone was judging him. He let his racing heart be there instead of fighting it. With practice, the nerves had less of a hold."
+      },
+      "fields": [
+        {
+          "id": "f_prediction",
+          "type": "short_text",
+          "label": "What your nerves predict"
+        },
+        {
+          "id": "f_fairer",
+          "type": "short_text",
+          "label": "A fairer view"
+        },
+        {
+          "id": "f_focus",
+          "type": "short_text",
+          "label": "What you'll be curious about in the other person"
+        },
+        {
+          "id": "f_selftalk",
+          "type": "short_text",
+          "label": "Your line for when nerves rise",
+          "help": "For example: this is just nerves, and they usually ease once the talking starts."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line to say to yourself when nerves rise around people.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_selftalk"
+        ]
+      },
+      "done_when": "You have a way to steady yourself when social nerves rise.",
+      "reflect": "Which part feels most useful to you?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_selftalk",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Reach back out",
+      "purpose": "A warm, simple message ready for one friendship that faded, to send when you choose.",
+      "why": "Friendships that drifted with no falling-out can often be revived. The real connection is already there. The barrier is usually inside: worry that it's been too long, or that you'll be unwelcome. These worries tend to be bigger than what happens. Often the other person has missed the connection too.",
+      "source": {
+        "chapter": "Chapter 11, Reaching Back Out; Appendix C, Week three"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "List a few people you've drifted from, with no falling-out.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one you'd like to hear from. Choose whoever feels easiest.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write a short, warm message. Mention the gap lightly, without a long apology.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add a line saying you'd be glad to catch up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Send it when you're ready. Holding onto it for now is fine too.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's college friendships and local friendships hadn't ended. They had faded through years of canceled plans and calls put off. That meant the real friendships were still there underneath. A simple, warm message that touched on the gap lightly and said she'd be glad to reconnect was often enough. Reviving these was easier than starting from scratch, and the awkwardness she dreaded rarely showed up."
+      },
+      "fields": [
+        {
+          "id": "f_people",
+          "type": "long_text",
+          "label": "People you've drifted from",
+          "optional": true,
+          "help": "Only list people you'd like to hear from. Blank is fine."
+        },
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "The person you picked"
+        },
+        {
+          "id": "f_message",
+          "type": "long_text",
+          "label": "Your message",
+          "help": "For example: \"It's been far too long. You came to mind today, and I'd love to catch up.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a two-line warm message to one person you've drifted from.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_message"
+        ]
+      },
+      "done_when": "Your message is ready. Sending it is up to you, whenever you choose.",
+      "reflect": "How did it feel to write it?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Take a small step anyway",
+      "purpose": "A short ladder of social steps you choose, from easiest to harder, with a first step picked.",
+      "why": "It's natural to wait until you feel confident before reaching out. But confidence tends to come from doing, not before it. Avoiding keeps nerves strong, and small, gradual steps help them ease. Each step gives your mind real experience to weigh against its predictions. You choose every step, and its size.",
+      "source": {
+        "chapter": "Chapter 5, Acting Despite the Thoughts; Chapter 8, Managing Social Anxiety; Confidence Comes From Action, Not Before It"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List a few social steps, from very easy to a bit harder.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Put them in order, easiest first.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick a first step small enough to feel doable.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Take it when you're ready, even with some doubt along for the ride.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Afterward, write what actually happened next to what your mind predicted.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Slow down or stop anytime. Repeating a step before moving on is fine.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David didn't wait for every doubt to go quiet, because that could have taken forever. He went to the work event anyway. He reached out to make plans while part of him still predicted a no. He accepted invitations, and began extending a few. The events were usually fine, and his overtures were often welcome. That real experience did more to quiet the doubts than any amount of thinking had."
+      },
+      "fields": [
+        {
+          "id": "f_ladder",
+          "type": "ranked_list",
+          "label": "Your steps, easiest first",
+          "help": "For example: say hello to a neighbor, ask a question in a class, suggest a coffee."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step"
+        },
+        {
+          "id": "f_result",
+          "type": "long_text",
+          "label": "What actually happened",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one small social step you could take this week.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your ladder is ready, with a first step chosen. Each step you take counts.",
+      "reflect": "What did your mind predict, and what actually happened?",
+      "repeat_weeks": [
+        12
+      ],
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_ladder",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Move toward friendship",
+      "purpose": "One small, low-key invitation in mind for an acquaintance you'd like to know better.",
+      "why": "Familiar faces can stay just familiar faces for a long time. Turning an acquaintance into a friend usually takes one deliberate step: an invitation beyond the place you met. This is where many connections stall, because it feels risky. It doesn't need to be a big ask. A simple, low-key suggestion is enough.",
+      "source": {
+        "chapter": "Chapter 7, From Stranger to Friend"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Think of someone you see regularly and enjoy talking with.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick something easy to suggest, like a coffee, a meal, or an outing.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write how you might ask, in one or two relaxed lines.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose when you might ask, if you decide to.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If they can't make it, that's okay. A no often comes down to timing.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Through small, regular contact, some of the strangers in Margaret's new places became acquaintances. To turn acquaintances into friends, she would need one more step: inviting connection beyond the shared place, like a coffee or an outing. This was where her own hesitation might rise. It helped to know the invitation didn't need to be dramatic. A simple, low-key suggestion was enough."
+      },
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Someone you'd like to know better"
+        },
+        {
+          "id": "f_idea",
+          "type": "short_text",
+          "label": "What you might suggest"
+        },
+        {
+          "id": "f_ask",
+          "type": "long_text",
+          "label": "How you might ask",
+          "help": "For example: \"Would you like to get a coffee after class sometime?\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one low-key invitation you could offer someone you see regularly.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ask"
+        ]
+      },
+      "done_when": "You have one low-key invitation in mind, ready for whenever you choose to ask.",
+      "reflect": "What makes this step feel risky, and what makes it worth it?"
+    },
+    {
+      "id": "e18",
+      "title": "Let someone know you",
+      "purpose": "One small, real thing you could share with someone you trust, so they know you a little better.",
+      "why": "You can be liked by many people and still feel unseen. Being liked attaches to the surface you show. Being known means letting someone see a little of what's underneath. That can feel risky, so it's done gradually, with someone who has earned some trust. Sharing something real often invites the other person to share too.",
+      "source": {
+        "chapter": "Chapter 9, The Vulnerability Requirement; Being Known Versus Being Liked; The Practices of Being Known; The Risk and the Reward"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose someone you feel safe with, who has earned some of your trust.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Pick one real thing to share: a thought, a worry, or a hope. Small is fine.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write how you might bring it up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one deeper question to ask them, and plan to really listen.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Share it when the moment feels right. Waiting is fine.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Tom",
+        "text": "Tom had a wife, two children, and a house full of activity. Yet at thirty-five, he couldn't remember the last time he'd said what he actually thought. He showed everyone a competent, easygoing, joking version of himself and never let anyone past it. He was liked, but not known. So he started small. He shared a little more of what he really thought, especially with his wife, and listened as she shared too."
+      },
+      "fields": [
+        {
+          "id": "f_share",
+          "type": "short_text",
+          "label": "One real thing you could share",
+          "help": "Small is fine. For example: a worry about work, or something you're hoping for."
+        },
+        {
+          "id": "f_bring",
+          "type": "short_text",
+          "label": "How you might bring it up",
+          "optional": true
+        },
+        {
+          "id": "f_question",
+          "type": "short_text",
+          "label": "A deeper question to ask them",
+          "help": "For example: \"What's been on your mind lately?\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small, real thing you could share with someone you trust.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_share"
+        ]
+      },
+      "done_when": "You have one real thing ready to share, at your pace, with someone you trust.",
+      "reflect": "What would it mean to you to be known a little better?",
+      "repeat_weeks": [
+        12
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Find something larger",
+      "purpose": "One way to belong to something larger than yourself, through a group, a cause, or helping out.",
+      "why": "Close relationships matter, and so does belonging to something bigger. A cause, a project, or a community gives you shared purpose, the same faces, and a clear role. A role eases the awkwardness of socializing with no structure. Your attention turns outward. Belonging builds over time, through showing up again and again.",
+      "source": {
+        "chapter": "Chapter 10, The Need for Belonging; The Power of Purpose; Volunteering and Involvement as Strategy; The Long Game"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write a few things you care about beyond the people closest to you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each, think of a way to take part, like volunteering or joining a group.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one that offers a clear role and regular contact.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one first step, like looking up a local group.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Give it time. Belonging tends to grow over months, not in one visit.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Tom",
+        "text": "As Tom began opening up to his wife and a couple of close friends, he noticed another gap. His life had become narrowly private: work, family, a few friends, and nothing larger. Then, almost by accident, he got involved in something beyond himself. He felt a connection and meaning he hadn't felt in years. Shared purpose gave him belonging, and a sense that what he did mattered."
+      },
+      "fields": [
+        {
+          "id": "f_care",
+          "type": "long_text",
+          "label": "Things you care about beyond your closest people"
+        },
+        {
+          "id": "f_way",
+          "type": "short_text",
+          "label": "One way to take part"
+        },
+        {
+          "id": "f_firststep",
+          "type": "short_text",
+          "label": "Your first step"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one cause or group you could take part in, and one first step.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_way",
+          "f_firststep"
+        ]
+      },
+      "done_when": "You have one way to belong to something larger, and a first step toward it.",
+      "reflect": "What would it feel like to be part of this?",
+      "feeds_plan": [
+        {
+          "field_id": "f_way",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Keep connection going",
+      "purpose": "A small, regular habit of contact that fits your real time and energy.",
+      "why": "Connections don't keep themselves. Even good ones fade when contact stops. Keeping them going doesn't take grand gestures or free time you don't have. A brief message, a quick call, or catching up during something you already do keeps a connection current. Small and regular is what counts.",
+      "source": {
+        "chapter": "Chapter 11, Connection Requires Maintenance; Maintaining Connection Within a Demanding Life; Managing the Energy Connection Requires"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List the people you most want to stay close to.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each, pick one small way to keep in touch, like a quick message.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Link it to something you already do, like a commute or a weekly errand.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Choose a lighter version for low-energy days.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick a rhythm that feels realistic. A modest one you keep is enough.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya knew why her friendships had drifted: she believed she had no time. The demanding job, the teenagers, and the house were all still there. If she only resolved to see friends more, she would drift again. What worked was smaller. A brief message or a quick call, folded into her existing week. On depleted days, a short text kept a friendship going instead of dropping it."
+      },
+      "fields": [
+        {
+          "id": "f_people_keep",
+          "type": "two_column",
+          "label": "People, and how you'll keep in touch",
+          "columns": [
+            "Person",
+            "A small way to keep in touch"
+          ]
+        },
+        {
+          "id": "f_link",
+          "type": "short_text",
+          "label": "What you'll link it to"
+        },
+        {
+          "id": "f_low",
+          "type": "short_text",
+          "label": "Your low-energy version",
+          "help": "For example: a two-line text instead of a call."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one person and one small way to keep in touch this week.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_people_keep"
+        ]
+      },
+      "done_when": "You have a small, regular way to keep your connections going.",
+      "reflect": "Which connection do you most want to protect?",
+      "toolkit_link": "t04",
+      "feeds_plan": [
+        {
+          "field_id": "f_people_keep",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_low",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Plan for setbacks",
+      "purpose": "A plan for when connection falls apart, written now while things are steadier.",
+      "why": "Friendships fade, people move, and groups end. Sometimes several happen at once. Setbacks are a normal part of a connected life, and what matters most is how you respond. Old lonely thoughts may come back loudly. What helps is to question them, keep things in proportion, be kind to yourself, and gently start again.",
+      "source": {
+        "chapter": "Chapter 12, Connection Sometimes Falls Apart; Recovering From Collapse; When to Get Professional Help; Chapter 13, Progress Is Not Linear"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name a setback that could shake you, like a friend moving away.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the lonely thought it might bring back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a fairer answer to that thought, ready in advance.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one kind thing you'd say to yourself.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your smallest step back toward people, like one message.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If low mood or hopelessness stays with you, please talk to a doctor or mental health professional.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ethan",
+        "text": "Ethan hit a cluster of setbacks. A budding friendship faded when the other person moved away. A group he'd joined dissolved. A connection he'd hoped for didn't develop. The old thoughts came back in force: he wasn't meant for connection, and he should retreat. He also noticed something heavier, a low mood and hopelessness that had been deepening for a while. He questioned the thoughts, went easy on himself, and gently started again. He also sought professional help alongside the work."
+      },
+      "fields": [
+        {
+          "id": "f_setback",
+          "type": "short_text",
+          "label": "A setback that could shake you"
+        },
+        {
+          "id": "f_answer",
+          "type": "short_text",
+          "label": "Your fairer answer"
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "A kind line for yourself"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your smallest step back toward people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your smallest step back toward people after a setback.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "Your setback plan is ready: a fairer answer, a kind line, and a small step back.",
+      "reflect": "What would you want to hear from yourself after a setback?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_answer",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_step",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Your connected life plan",
+      "purpose": "One modest page of what you'll keep doing to stay connected, in your own words.",
+      "why": "A connected life doesn't mean constant company or never being alone. It means enough real connection for you, kept alive by light, regular tending. Progress comes in waves, and that's normal. This page pulls in what you've already written, so you can keep what works and let the rest go.",
+      "source": {
+        "chapter": "Chapter 13, What a Connected Life Actually Is; A Connected Life Is Sustained, Not Achieved Once; Appendix C, After thirty days"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Your earlier answers are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write what enough connection looks like for you now.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep the two or three ways to connect that helped most.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Keep your habit for staying in touch, trimmed to what you really do.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Add the first step from your setback plan.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it once more. Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "A couple of years into his new city, David looked around a gathering in his own home and saw people he knew, who knew him. A few close friends grown from acquaintances, a partner, a couple of communities, and everyday connection in his neighborhood. His life wasn't perfect, and he still had time alone. But the ache of his first eighteen months was gone. He kept tending what he'd built, lightly but reliably."
+      },
+      "fields": [
+        {
+          "id": "f_enough_now",
+          "type": "short_text",
+          "label": "What enough connection looks like now"
+        },
+        {
+          "id": "f_ways",
+          "type": "long_text",
+          "label": "The ways to connect you'll keep"
+        },
+        {
+          "id": "f_habit",
+          "type": "short_text",
+          "label": "Your habit for staying in touch"
+        },
+        {
+          "id": "f_back",
+          "type": "short_text",
+          "label": "Your first step after a setback"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted plan, and change anything that no longer fits.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_ways",
+          "f_habit"
+        ]
+      },
+      "done_when": "Your connection plan is on one page, modest enough to keep.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_enough_now",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_ways",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_habit",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_back",
+          "plan_section": "p6"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "One small message",
+      "when_to_use": "You feel cut off, and you'd like one small step toward someone.",
+      "steps": [
+        "Pick one person. A neighbor or an old friend counts.",
+        "Send something brief: a reply, a hello, or a friendly word.",
+        "Keep it ordinary. It doesn't need to be clever.",
+        "That's enough for today."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "How to Use This Book; Appendix A, The One Thing to Start With"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Check your capacity",
+      "when_to_use": "You're deciding how much reaching out to take on today or this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: some energy. Reach out, make plans, or go to the group.",
+        "Yellow: scale down. One brief message or check-in is enough.",
+        "Red: tap Help now, reach for support, and involve professional care."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Capacity Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Question the thought",
+      "when_to_use": "A thought tells you people don't want you around.",
+      "steps": [
+        "Name the pattern, like mind-reading or expecting rejection.",
+        "Ask: what's the actual evidence?",
+        "Ask: what would you tell a friend?",
+        "Settle on a fairer, more accurate version."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 5, Questioning and Reframing the Thoughts"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Match it to your energy",
+      "when_to_use": "You'd like to stay in touch, but your energy is low.",
+      "steps": [
+        "Check how much energy you have right now.",
+        "Low: a brief message or a quick reply.",
+        "Some: a short call or a quiet one-to-one.",
+        "More: a group, a plan, or a visit.",
+        "Real connection can give energy back, too."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 11, Managing the Energy Connection Requires"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Easy openers",
+      "when_to_use": "You're with people and don't know what to say.",
+      "steps": [
+        "Comment on something you're both doing or seeing.",
+        "Ask a simple question about it.",
+        "Listen, then follow up on what they said.",
+        "Share a little about yourself too."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 7, Navigating First Conversations; Chapter 8, The Fundamentals of Confident Conversation"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "One no is one no",
+      "when_to_use": "A message goes unanswered, or an invitation is turned down.",
+      "steps": [
+        "Name it: this is one outcome, not a verdict on you.",
+        "Think of other reasons, like timing, busyness, or fit.",
+        "Remind yourself that connection takes many tries.",
+        "Pick your next small reach, when you're ready."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 5, Recovering From Rejection"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Turn your attention outward",
+      "when_to_use": "Nerves rise in a conversation, and you start watching yourself.",
+      "steps": [
+        "Notice the racing heart. Let it be there.",
+        "Move your attention to the other person.",
+        "Get curious about what they're saying and what they enjoy.",
+        "Nerves usually ease as you engage."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 8, Managing Social Anxiety"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Act with the doubt",
+      "when_to_use": "You'd like to reach out, but you're waiting to feel confident first.",
+      "steps": [
+        "Notice the doubt. It can come along.",
+        "Pick the smallest version of the step.",
+        "Take it now, or set a time.",
+        "Let what happens be your evidence."
+      ],
+      "minutes": 1,
+      "figure": "fig_door",
+      "source": {
+        "chapter": "Chapter 5, Acting Despite the Thoughts; Chapter 8, Confidence Comes From Action, Not Before It"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "A warm hello again",
+      "when_to_use": "You'd like to reconnect with someone after a long gap.",
+      "steps": [
+        "Keep it short and warm.",
+        "Mention the gap lightly. No long apology needed.",
+        "Say you'd be glad to catch up.",
+        "Send it when you choose."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "Chapter 11, Reaching Back Out"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Steady after a setback",
+      "when_to_use": "A connection fades or falls through, and old thoughts get loud.",
+      "steps": [
+        "Remind yourself: setbacks are a normal part of this.",
+        "Question the thought that says you're not meant for connection.",
+        "Be as kind to yourself as you'd be to a friend.",
+        "Take one small step back toward people."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 12, Recovering From Collapse"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "week_complete:1",
+      "message": "Week 1 done. Next up: a look at how your loneliness came about."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. Your loneliness has a name now, and it isn't your fault."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have answers for lonely thoughts, a map of what you need, and places to try."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "What loneliness looks like for you"
+    },
+    {
+      "id": "p3",
+      "title": "Answering the lonely mind"
+    },
+    {
+      "id": "p4",
+      "title": "What you need"
+    },
+    {
+      "id": "p5",
+      "title": "Your ways to connect"
+    },
+    {
+      "id": "p6",
+      "title": "Keeping connection going"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by naming the gap between the connection you want and the connection you have. Since then, you've learned to answer lonely thoughts, mapped what you need, made small contacts, and taken steps toward being known and belonging, each one chosen by you. Progress comes in waves. Your plan is here for the quieter stretches. One small contact still counts.",
+    "book_bridge": "Every tool here comes from Finding Your People by Maya Vaughn. The book tells the full stories of David, Margaret, Priya, Ethan, and Tom. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which small way of staying in touch is still part of your week?",
+      "Has a lonely thought been loud this month? What's a fairer view?",
+      "Who would you like to reach toward next, if anyone?"
+    ],
+    "refresher_ids": [
+      "e04",
+      "e06",
+      "e08",
+      "e12",
+      "e13",
+      "e16",
+      "e18",
+      "e20"
+    ]
+  },
+  "cut_log": [
+    {
+      "item": "Health effects of loneliness: blood pressure, inflammation, immunity, mortality risk",
+      "chapter": "Chapter 2, Loneliness Affects the Body",
+      "reason": "Statistics and health-risk claims are cut by the brief. The book itself warns they can feed despair in a lonely reader. The validating point, that loneliness is real and not your fault, is kept in E01 and E02."
+    },
+    {
+      "item": "US Surgeon General advisory, meta-analyses, around half of adults",
+      "chapter": "Introduction; Chapters 2 and 3; Acknowledgements",
+      "reason": "Statistics and named research. Kept only as 'many people' and 'research the book draws on' in E10."
+    },
+    {
+      "item": "Evolutionary model of the lonely mind in detail",
+      "chapter": "Chapter 4",
+      "reason": "Kept as one plain line in E03: a known, automatic effect of loneliness. Researcher names and cortisol detail cut."
+    },
+    {
+      "item": "Loneliness, depression and anxiety connection as an exercise",
+      "chapter": "Chapter 2; Chapter 12; Appendix D",
+      "reason": "Would read as a screen. Carried by the start safety note, the red capacity line, and the doctor steps in E14 and E21."
+    },
+    {
+      "item": "Support partner and any sharing of the workbook or answers",
+      "chapter": "Not in the book",
+      "reason": "Not used. Every reaching-out step is small and reader-chosen, and nothing asks the reader to show the app or their answers to anyone."
+    },
+    {
+      "item": "Gradual exposure as a fixed program",
+      "chapter": "Chapter 8, Managing Social Anxiety",
+      "reason": "Kept only as a reader-built ladder in E16, with a stop line on screen. No set steps, no targets."
+    },
+    {
+      "item": "Professional help detail, therapy types, finding a provider",
+      "chapter": "Appendix F",
+      "reason": "Referral content. Carried by the safety note, Help now, and two gentle doctor steps."
+    },
+    {
+      "item": "Crisis numbers and resource directory",
+      "chapter": "Front matter; Appendix E",
+      "reason": "Handled by the app's Help now, by market. Appendix E's pointer to libraries and community centers is kept in E09."
+    },
+    {
+      "item": "The five people's full endings",
+      "chapter": "Chapter 13, The Five People, Reconsidered",
+      "reason": "David's ending is used in E22. The rest is left to the book, named in the book bridge."
+    }
+  ]
+}

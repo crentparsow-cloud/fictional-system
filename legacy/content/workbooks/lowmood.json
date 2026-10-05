@@ -1,0 +1,2406 @@
+{
+ "schema_version": "1.0",
+ "id": "lowmood",
+ "status": "draft",
+ "topic_name": "Low Mood",
+ "tagline": "Twelve weeks of very small, gentle steps for when everything feels heavy",
+ "set_id": "mood-and-energy",
+ "safety_tier": "standard",
+ "source_book": {
+  "title": "Finding Your Way Back",
+  "author": "Maya Vaughn",
+  "manuscript_file": "MH_Final/Finding_Your_Way_Back.docx"
+ },
+ "start": {
+  "welcome": "If everything has felt heavy for a while, and even small things take a lot, this is built for that. It's twelve weeks of very small steps, drawn from the book Finding Your Way Back. Most weeks take 10 to 20 minutes, and every exercise has a short version of a minute or two. Doing less is allowed. Week 1 is free. No card needed, and nothing renews on its own.",
+  "how_it_works": [
+   "One or two short exercises a week. Each has a short version for hard days.",
+   "A daily check that takes about a minute.",
+   "A weekly check-in: six quick questions, or just two on a hard week.",
+   "A Toolkit of small tools you can open anytime, starting today.",
+   "A plan that builds itself from your answers."
+  ],
+  "why_prompt": "If the heaviness lifted a little, what's one thing you'd like to do again? One line is enough.",
+  "extra_safety_note": "If you have thoughts of not wanting to be here, or of harming yourself, please stop and tap Help now. It is at the top of every screen. Reach out to a doctor or a crisis line today. You do not have to wait until things get worse, and you do not have to face this alone. This workbook does not replace care from a doctor or therapist. It can sit alongside that care. If low mood has lasted a long time, gets in the way of daily life, or even the smallest steps here feel impossible, please talk to a doctor. If you take medication, do not change it because of anything here. Talk to your prescriber first."
+ },
+ "selfcheck": {
+  "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. There are no right answers. You'll see the same questions again in week 6 and week 12.",
+  "scale_labels": [
+   "Rarely",
+   "Sometimes",
+   "About half the time",
+   "Often",
+   "Nearly always"
+  ],
+  "areas": [
+   {
+    "id": "doing",
+    "label": "Getting going"
+   },
+   {
+    "id": "rhythm",
+    "label": "Body and daily rhythm"
+   },
+   {
+    "id": "mind",
+    "label": "Thoughts and self-talk"
+   },
+   {
+    "id": "connection",
+    "label": "People and what matters"
+   }
+  ],
+  "items": [
+   {
+    "id": "q01",
+    "area": "doing",
+    "text": "You manage at least one small thing in a day."
+   },
+   {
+    "id": "q02",
+    "area": "doing",
+    "text": "You start something before you feel like it."
+   },
+   {
+    "id": "q03",
+    "area": "doing",
+    "text": "Small everyday tasks feel possible."
+   },
+   {
+    "id": "q04",
+    "area": "doing",
+    "text": "Something you do turns out less hard than you expected."
+   },
+   {
+    "id": "q05",
+    "area": "rhythm",
+    "text": "You get up at about the same time each day."
+   },
+   {
+    "id": "q06",
+    "area": "rhythm",
+    "text": "Your days have some shape to them."
+   },
+   {
+    "id": "q07",
+    "area": "rhythm",
+    "text": "You move your body, even a little."
+   },
+   {
+    "id": "q08",
+    "area": "rhythm",
+    "text": "You eat at fairly regular times."
+   },
+   {
+    "id": "q09",
+    "area": "mind",
+    "text": "You can notice a harsh thought without fully believing it."
+   },
+   {
+    "id": "q10",
+    "area": "mind",
+    "text": "You can step away when your mind goes over and over things."
+   },
+   {
+    "id": "q11",
+    "area": "mind",
+    "text": "You speak to yourself with some kindness."
+   },
+   {
+    "id": "q12",
+    "area": "mind",
+    "text": "You let a good moment count, even a small one."
+   },
+   {
+    "id": "q13",
+    "area": "connection",
+    "text": "You have some contact with at least one person."
+   },
+   {
+    "id": "q14",
+    "area": "connection",
+    "text": "Someone knows a little of how you've really been."
+   },
+   {
+    "id": "q15",
+    "area": "connection",
+    "text": "You do something that matters to you."
+   },
+   {
+    "id": "q16",
+    "area": "connection",
+    "text": "You feel some hope that things can change."
+   }
+  ],
+  "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Low mood often lifts unevenly, so harder weeks show up here too, and that's useful to know."
+ },
+ "checkin": {
+  "fields": [
+   {
+    "id": "c_week",
+    "type": "scale_0_10",
+    "label": "How did this week feel overall, from heavy (0) to lighter (10)?"
+   },
+   {
+    "id": "c_level",
+    "type": "checklist",
+    "label": "Your capacity this week",
+    "options": [
+     "Green",
+     "Yellow",
+     "Red"
+    ],
+    "help": "Green: some capacity to work on things. Yellow: low mood has a real grip, so scale down. Red: getting through the day is all there is, or you are having thoughts of harming yourself. If you pick red, please tap Help now and reach out to a doctor or someone you trust."
+   },
+   {
+    "id": "c_small",
+    "type": "weekly_grid",
+    "label": "Days you did one small thing"
+   },
+   {
+    "id": "c_win",
+    "type": "short_text",
+    "label": "One thing that helped, however small"
+   },
+   {
+    "id": "c_hard",
+    "type": "short_text",
+    "label": "Something that was hard, and one small step to try",
+    "optional": true
+   },
+   {
+    "id": "c_people",
+    "type": "weekly_grid",
+    "label": "Days you had some contact with someone"
+   }
+  ],
+  "short_field_ids": [
+   "c_week",
+   "c_win"
+  ]
+ },
+ "daily_check": {
+  "question": "How did today feel, from heavy to lighter?",
+  "scale_low": "Very heavy",
+  "scale_high": "Lighter",
+  "tags": [
+   "Did one small thing",
+   "Got up at my time",
+   "Moved a little",
+   "Got some daylight",
+   "Ate regular meals",
+   "Reached someone",
+   "Was kind to myself",
+   "Used a tool"
+  ]
+ },
+ "stages": [
+  {
+   "id": "map",
+   "number": 1,
+   "name": "Explore",
+   "weeks": [
+    1,
+    2
+   ],
+   "primer": {
+    "title": "Name it first",
+    "body": "The Explore stage is about understanding, not fixing. Over two weeks, you'll look at how low mood shows up for you and the loops that can keep it going. The book is clear that this heaviness isn't a weakness or a lack of willpower. It has real causes you didn't choose. Go slowly. Understanding is already a first step.",
+    "figure": "fig_looking_at_map"
+   },
+   "outcome": "A clearer picture of how low mood shows up for you, and the loop you're most caught in.",
+   "review_question": "What did you notice that you hadn't put into words before?"
+  },
+  {
+   "id": "build",
+   "number": 2,
+   "name": "Build",
+   "weeks": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "primer": {
+    "title": "Start small, then steady",
+    "body": "In the Build stage, you set up small, steady supports. Over five weeks, you'll practice acting before you feel like it, set an anchor in your day, move a little, look after the basics, and start working with harsh thoughts and a churning mind. Start smaller than feels worth doing. A tiny step you take counts for more than a big one you only plan.",
+    "figure": "fig_walking"
+   },
+   "outcome": "A few tiny actions, a daily anchor, some gentle movement, and ways to answer harsh thoughts.",
+   "review_question": "Which small step gave you the most back, and which one hasn't stuck yet?"
+  },
+  {
+   "id": "use",
+   "number": 3,
+   "name": "Practice",
+   "weeks": [
+    8,
+    9,
+    10,
+    11
+   ],
+   "primer": {
+    "title": "Reach back out",
+    "body": "The Practice stage turns to building gradually, to people, and to what matters to you. Over four weeks, you'll choose steps by your values, reach toward someone, try a small act of meaning, and plan for hard days. If your capacity drops, scale down rather than stop. Yellow and red weeks are part of this too.",
+    "figure": "fig_two_people"
+   },
+   "outcome": "Steps chosen by what matters, a little more connection, a hard-day plan, and your early signs named.",
+   "review_question": "What has changed for you, even a little?"
+  },
+  {
+   "id": "keep",
+   "number": 4,
+   "name": "Keep",
+   "weeks": [
+    12
+   ],
+   "primer": {
+    "title": "Keep what helps",
+    "body": "The Keep stage brings twelve weeks together. You'll write a plan for staying well and look back at what has shifted. Keep it modest. Low mood can come and go, and a small plan you'll use is worth more than a big one you put down.",
+    "figure": "fig_writing"
+   },
+   "outcome": "Your staying-well plan and your reasons for hope, both saved in your plan.",
+   "review_question": "What will you keep doing now that the twelve weeks are done?"
+  }
+ ],
+ "weeks": [
+  {
+   "number": 1,
+   "stage": "map",
+   "focus": "Name what you're carrying",
+   "exercise_ids": [
+    "e01"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t02"
+   ]
+  },
+  {
+   "number": 2,
+   "stage": "map",
+   "focus": "See the loop you're in",
+   "exercise_ids": [
+    "e02"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t03"
+   ]
+  },
+  {
+   "number": 3,
+   "stage": "build",
+   "focus": "Act before you feel like it",
+   "exercise_ids": [
+    "e03",
+    "e04"
+   ],
+   "selfcheck": false
+  },
+  {
+   "number": 4,
+   "stage": "build",
+   "focus": "An anchor in your day, and a little movement",
+   "exercise_ids": [
+    "e05",
+    "e06"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t05"
+   ]
+  },
+  {
+   "number": 5,
+   "stage": "build",
+   "focus": "Look after the basics and give your day a shape",
+   "exercise_ids": [
+    "e07",
+    "e08"
+   ],
+   "selfcheck": false
+  },
+  {
+   "number": 6,
+   "stage": "build",
+   "focus": "Work with harsh thoughts",
+   "exercise_ids": [
+    "e09",
+    "e10"
+   ],
+   "selfcheck": true,
+   "new_toolkit_ids": [
+    "t06"
+   ]
+  },
+  {
+   "number": 7,
+   "stage": "build",
+   "focus": "Step out of the churning, and speak kindly to yourself",
+   "exercise_ids": [
+    "e11",
+    "e12"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t04",
+    "t07"
+   ]
+  },
+  {
+   "number": 8,
+   "stage": "use",
+   "focus": "Find what matters and build toward it",
+   "exercise_ids": [
+    "e13",
+    "e14"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e04"
+   ]
+  },
+  {
+   "number": 9,
+   "stage": "use",
+   "focus": "Reach toward people",
+   "exercise_ids": [
+    "e15",
+    "e16"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e05"
+   ],
+   "new_toolkit_ids": [
+    "t08"
+   ]
+  },
+  {
+   "number": 10,
+   "stage": "use",
+   "focus": "Small acts of meaning, and a plan for hard days",
+   "exercise_ids": [
+    "e17",
+    "e18"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e06",
+    "e02"
+   ],
+   "new_toolkit_ids": [
+    "t09"
+   ]
+  },
+  {
+   "number": 11,
+   "stage": "use",
+   "focus": "Know your early signs, and when to get more help",
+   "exercise_ids": [
+    "e19",
+    "e20"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e09",
+    "e11"
+   ],
+   "new_toolkit_ids": [
+    "t10"
+   ]
+  },
+  {
+   "number": 12,
+   "stage": "keep",
+   "focus": "Bring it all together",
+   "exercise_ids": [
+    "e21",
+    "e22"
+   ],
+   "selfcheck": true,
+   "repeat_ids": [
+    "e12",
+    "e15"
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e01",
+   "title": "Name what you're carrying",
+   "purpose": "A clearer name for how low mood shows up for you, and a little less self-blame.",
+   "why": "Low mood can be hard to see, even from the inside. It doesn't always look like sadness. It can be flatness, numbness, tiredness, or irritability, and it can show up in the body. The book is clear that it isn't your fault. It has real causes, and you didn't choose them.",
+   "source": {
+    "chapter": "Introduction; Chapter 1, The Invisible Weight; When Depression Hides Behind Competence; The Many Faces of Depression; Chapter 2, The Diathesis-Stress Model and the Lifting of Blame"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Read the list of ways low mood can show up.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick any that feel familiar. One is enough.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Write one recent moment when you noticed it.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Read it back. This is something you're carrying, not something you caused.",
+     "figure": "fig_reading"
+    }
+   ],
+   "example": {
+    "character": "Sarah",
+    "text": "Sarah was thirty-four, a marketing manager who met every deadline and smiled in meetings. When people asked, she said she was fine. No one saw the gray heaviness over everything, or how much effort each day took. She doubted it herself, because she was still managing. Naming it was what changed things. Still functioning didn't mean she wasn't struggling. Her hidden heaviness was real, and it deserved care."
+   },
+   "fields": [
+    {
+     "id": "f_signs",
+     "type": "checklist",
+     "label": "Ways it shows up for you",
+     "options": [
+      "A heaviness over everything",
+      "Flat or numb, rather than sad",
+      "Tired, even after rest",
+      "Less pleasure in things you used to enjoy",
+      "Irritable or short with people",
+      "Changes in sleep or appetite",
+      "Hard to concentrate",
+      "Hard to picture things getting better",
+      "Hidden behind getting things done"
+     ]
+    },
+    {
+     "id": "f_moment",
+     "type": "short_text",
+     "label": "One recent moment you noticed it",
+     "help": "For example: lying awake dreading the morning."
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick the one sign you recognize most right now.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_signs"
+    ]
+   },
+   "done_when": "You've put a name to what you're carrying. That's a real first step.",
+   "reflect": "How does it feel to see it written down?",
+   "feeds_plan": [
+    {
+     "field_id": "f_signs",
+     "plan_section": "p2"
+    }
+   ]
+  },
+  {
+   "id": "e02",
+   "title": "See the loop you're in",
+   "purpose": "A clearer view of the loop that keeps low mood going for you, and where it can turn.",
+   "why": "When everything feels heavy, it makes sense to do less, pull away, and go over things in your head. These can feel like rest or protection. But they can also remove what lifts mood, so the heaviness grows. The book calls these traps, and each one can turn the other way.",
+   "source": {
+    "chapter": "Chapter 3, The Downward Spiral; The Withdrawal Trap; The Thought Trap and Rumination; The Avoidance Trap; The Traps Are Reversible"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Read the four loops: doing less, pulling away, going over things, and avoiding.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick the one you're most caught in right now.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Write a recent moment it happened, in a line or two.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "A loop that turns down can also turn up, one small step at a time.",
+     "figure": "fig_thinking"
+    }
+   ],
+   "example": {
+    "character": "Marcus",
+    "text": "Marcus was seventeen when a rejection crushed him. He pulled back from friends, then family, then almost everything but his screen. He stayed up gaming and slept through the day. The less he did, the less he felt able to do. Seeing this as a loop helped. Pulling away had felt like protection, but it was what kept him stuck. And a loop, once seen, has a way out."
+   },
+   "fields": [
+    {
+     "id": "f_loop",
+     "type": "checklist",
+     "label": "The loop you're most caught in",
+     "options": [
+      "Doing less, so there's less to lift you",
+      "Pulling away from people",
+      "Going over and over things in your head",
+      "Avoiding things, so they grow harder"
+     ]
+    },
+    {
+     "id": "f_loop_moment",
+     "type": "short_text",
+     "label": "A recent moment it happened"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick the one loop you're most caught in.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_loop"
+    ]
+   },
+   "done_when": "You've named the loop you're in. Every loop has a place where it can turn.",
+   "repeat_weeks": [
+    10
+   ],
+   "reflect": "Did anything surprise you about the loop you picked?",
+   "feeds_plan": [
+    {
+     "field_id": "f_loop",
+     "plan_section": "p2"
+    }
+   ]
+  },
+  {
+   "id": "e03",
+   "title": "Do one tiny thing",
+   "purpose": "One action small enough to do today, chosen before you feel ready.",
+   "why": "Waiting to feel like it makes sense, but low mood takes the feeling away, so the waiting can go on and on. The book's most important idea turns this around: act first, in the smallest way, and let the feeling follow. Smaller than seems worth doing is the right size.",
+   "source": {
+    "chapter": "How to Use This Book; Chapter 4, Why Action Comes Before Motivation; Starting Absurdly Small; When Activation Feels Impossible; Appendix A"
+   },
+   "minutes": 4,
+   "steps": [
+    {
+     "text": "Think of something smaller than seems worth doing. Sitting up counts.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Some ideas: open a window, wash one dish, or step outside for one minute.",
+     "figure": "fig_door"
+    },
+    {
+     "text": "Pick one and do it now, or choose a time today.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "If even this feels like too much, make it smaller, or ask someone to help you start.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "If every step has felt impossible for a while, please talk to a doctor. You are not alone in this.",
+     "figure": "fig_phone_quick"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "James was twenty-eight and spent most days in bed, curtains drawn. Every morning he told himself he'd start when he felt a bit better. The better feeling never came first. What changed was acting before it did, in tiny steps. Sitting up. Feet on the floor. Standing. On another day, a shower. Later, a walk to the end of the block. The steps were small enough to actually do."
+   },
+   "fields": [
+    {
+     "id": "f_tiny",
+     "type": "short_text",
+     "label": "Your one tiny thing",
+     "help": "For example: open the curtains."
+    },
+    {
+     "id": "f_after",
+     "type": "short_text",
+     "label": "How it felt afterward",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Do one thing smaller than seems worth doing, like standing up or opening a window.",
+      "figure": "fig_door"
+     }
+    ],
+    "field_ids": [
+     "f_tiny"
+    ]
+   },
+   "done_when": "You've picked one tiny thing. Small actions are how this begins.",
+   "reflect": "How was it, compared with what you expected?",
+   "toolkit_link": "t01",
+   "feeds_plan": [
+    {
+     "field_id": "f_tiny",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e04",
+   "title": "Guess, then notice",
+   "purpose": "A small record of how something actually went, compared with what low mood predicted.",
+   "why": "Low mood tends to predict that things will be pointless or exhausting. Those predictions feel true, but they're often off. When you do something anyway, it's often a little less hard than expected. Noticing that gap, again and again, slowly loosens the predictions' grip.",
+   "source": {
+    "chapter": "Chapter 4, Why Acting Lifts Mood: The Prediction Error; Appendix A"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick one small thing you plan to do today.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Before you start, rate how you expect it to feel, from 0 to 10.",
+     "figure": "fig_rating"
+    },
+    {
+     "text": "Do it, at whatever size you can manage.",
+     "figure": "fig_walking"
+    },
+    {
+     "text": "Afterward, rate how it actually felt.",
+     "figure": "fig_rating"
+    },
+    {
+     "text": "Notice any gap. A small gap still counts.",
+     "figure": "fig_writing"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "James's mind told him every activity would be pointless, and that felt like fact. But when he showered anyway, it felt slightly better than he'd expected. The short walk wasn't as bad as he'd feared. Each time, the gap was small. Over many days, those small gaps added up, and the predictions that had kept him in bed began to lose their grip."
+   },
+   "fields": [
+    {
+     "id": "f_activity",
+     "type": "short_text",
+     "label": "What you did"
+    },
+    {
+     "id": "f_predict",
+     "type": "scale_0_10",
+     "label": "How you expected it to feel"
+    },
+    {
+     "id": "f_actual",
+     "type": "scale_0_10",
+     "label": "How it actually felt"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Before one small task, guess how it will feel, from 0 to 10.",
+      "figure": "fig_rating"
+     },
+     {
+      "text": "Afterward, rate how it felt. Notice any gap.",
+      "figure": "fig_rating"
+     }
+    ],
+    "field_ids": [
+     "f_predict",
+     "f_actual"
+    ]
+   },
+   "done_when": "You've compared a guess with what really happened. Each comparison adds up.",
+   "repeat_weeks": [
+    8
+   ],
+   "reflect": "Was there a gap between your guess and how it went? If not, what did you notice?"
+  },
+  {
+   "id": "e05",
+   "title": "Set one anchor in your day",
+   "purpose": "One fixed point in your day, usually a wake time, to give shapeless days some shape.",
+   "why": "When days blur together, the heaviness can settle in further. A full schedule is too much right now, and one fixed point is enough to start. The book suggests a steady wake time first, because it shapes the rest of the day and helps your sleep find a rhythm.",
+   "source": {
+    "chapter": "Chapter 6, Why Structure Helps; Building From Anchor Points; Sleep and the Circadian Foundation"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Choose a wake time you could keep most days, even after a rough night.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Set an alarm, and put it where you'll see it.",
+     "figure": "fig_phone_quick"
+    },
+    {
+     "text": "After you get up, get some daylight if you can, even at a window.",
+     "figure": "fig_door"
+    },
+    {
+     "text": "Mark the days you got up near your time. Any number counts.",
+     "figure": "fig_calendar"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "With no job to go to while he recovered, James's days had no shape. He woke at no particular time and drifted through hours that blurred together. He noticed that the days with some shape felt a little steadier. So he started with one anchor: getting up at the same time each day, however the night had gone. Around it, the rest of his day slowly found a shape."
+   },
+   "fields": [
+    {
+     "id": "f_wake",
+     "type": "time_of_day",
+     "label": "Your anchor wake time"
+    },
+    {
+     "id": "f_days",
+     "type": "weekly_grid",
+     "label": "Days you got up near your time"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Choose your wake time for tomorrow, and set an alarm.",
+      "figure": "fig_clock_check"
+     }
+    ],
+    "field_ids": [
+     "f_wake"
+    ]
+   },
+   "done_when": "You have one anchor in your day. The rest can grow around it.",
+   "repeat_weeks": [
+    9
+   ],
+   "reflect": "What made your anchor easier or harder to keep?",
+   "feeds_plan": [
+    {
+     "field_id": "f_wake",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e06",
+   "title": "Move a little",
+   "purpose": "A small amount of movement you don't dread, at a size you can actually do.",
+   "why": "Being told to exercise can feel dismissive when getting up is hard. That's fair. Still, the book counts movement among the most helpful things for low mood. It doesn't need to be a workout. A short walk you actually take helps more than a big plan you don't.",
+   "source": {
+    "chapter": "Chapter 5, Movement and Depression; Why Exercise Works; Making Movement Sustainable"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Think of movement you don't hate, like walking, stretching, yoga, or swimming.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Pick the smallest version, like walking to the end of the street.",
+     "figure": "fig_walking"
+    },
+    {
+     "text": "Choose when. Soon after your wake time can work well.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Go before you feel like it. Outdoors or with someone can help.",
+     "figure": "fig_door"
+    },
+    {
+     "text": "Mark the days you moved. A few minutes counts.",
+     "figure": "fig_calendar"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "Grace had lived with low mood since she was fifteen, and she'd long resented being told to exercise. But over the years she noticed something herself. On the days she walked, ran, or swam, the heaviness pressed a little less. She found kinds of movement she didn't hate, started small on the hardest days, and moved before she felt like it. The lift often came after, not before."
+   },
+   "fields": [
+    {
+     "id": "f_move",
+     "type": "short_text",
+     "label": "Your smallest version of movement"
+    },
+    {
+     "id": "f_when",
+     "type": "short_text",
+     "label": "When you'll try it"
+    },
+    {
+     "id": "f_days",
+     "type": "weekly_grid",
+     "label": "Days you moved, even a little"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Walk to the end of the street, or stand and stretch for one minute.",
+      "figure": "fig_walking"
+     }
+    ],
+    "field_ids": [
+     "f_move"
+    ]
+   },
+   "done_when": "You have a small kind of movement ready to try. Any amount counts.",
+   "repeat_weeks": [
+    10
+   ],
+   "reflect": "How did you feel after moving, compared with before?",
+   "toolkit_link": "t05",
+   "feeds_plan": [
+    {
+     "field_id": "f_move",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e07",
+   "title": "Look after the basics",
+   "purpose": "One or two small steps for sleep, eating, and your body, chosen for where you are now.",
+   "why": "Low mood can unsettle sleep and appetite, and that can make the heaviness worse. The aim here is reasonable care, not a perfect routine. Regular meals, some morning daylight, a wind-down before bed, and going easier on alcohol can each help a little.",
+   "source": {
+    "chapter": "Chapter 5, The Body Beyond Movement; Chapter 6, Sleep and the Circadian Foundation"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Read the list of basics.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick one or two that feel possible this week. One is enough.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Write when or how you'll try each one.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If your sleep has been badly disrupted for a while, please talk to a doctor.",
+     "figure": "fig_phone_quick"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "Movement was Grace's strongest tool, but she learned the rest of her body mattered too. She paid attention to her sleep and ate at fairly regular times. She was careful with alcohol, because she'd learned it made the heaviness worse, even when it numbed things for a moment. None of this was perfect. It gave the heaviness a little less to feed on."
+   },
+   "fields": [
+    {
+     "id": "f_basics",
+     "type": "checklist",
+     "label": "Basics to try this week",
+     "options": [
+      "Eat at fairly regular times",
+      "Get some morning daylight",
+      "Keep your steady wake time",
+      "Wind down before bed",
+      "Go easier on alcohol"
+     ]
+    },
+    {
+     "id": "f_how",
+     "type": "short_text",
+     "label": "When or how you'll try them"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one basic to try tomorrow.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_basics"
+    ]
+   },
+   "done_when": "You've chosen a basic or two to look after. Small care adds up.",
+   "reflect": "Which basic feels most within reach right now?",
+   "feeds_plan": [
+    {
+     "field_id": "f_basics",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e08",
+   "title": "Sketch a simple day",
+   "purpose": "A loose shape for an ordinary day, built around your anchor, with room for hard days.",
+   "why": "Shapeless time tends to pull mood down, and deciding what to do next takes energy you may not have. A simple shape carries you through with fewer decisions. It's built from a few fixed points, not a full schedule. You can add more later, as your capacity grows.",
+   "source": {
+    "chapter": "Chapter 6, Why Structure Helps; Building From Anchor Points; The Elements That Support a Day"
+   },
+   "minutes": 8,
+   "steps": [
+    {
+     "text": "Start with your anchor wake time.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Add rough times for meals.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "Add one small thing each: movement, something that matters, and a moment with someone.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Add a wind-down time before bed.",
+     "figure": "fig_moon"
+    },
+    {
+     "text": "Leave the rest open. This is a shape, not a schedule.",
+     "figure": "fig_reading"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "James didn't try for a full schedule, because he knew it would collapse. He kept his wake time, then added regular meals, a daily walk, and a wind-down before bed. Later, as he had a little more in him, he added time with people and something that mattered to him. His days weren't full. But they had a shape, and the shape gave him something to hold onto."
+   },
+   "fields": [
+    {
+     "id": "f_day",
+     "type": "two_column",
+     "label": "Your simple day",
+     "columns": [
+      "Time",
+      "What"
+     ]
+    },
+    {
+     "id": "f_hard",
+     "type": "short_text",
+     "label": "The two or three points you'd keep on a hard day"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write your wake time and one other fixed point for tomorrow.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_day"
+    ]
+   },
+   "done_when": "Your day has a simple shape. It can hold more when you're ready.",
+   "reflect": "Which part of the shape feels most helpful?",
+   "feeds_plan": [
+    {
+     "field_id": "f_day",
+     "plan_section": "p3"
+    },
+    {
+     "field_id": "f_hard",
+     "plan_section": "p6"
+    }
+   ]
+  },
+  {
+   "id": "e09",
+   "title": "Catch a harsh thought",
+   "purpose": "One harsh thought caught and named, so it feels a little less like fact.",
+   "why": "When mood is low, the mind tends to produce bleak thoughts about you, the world, and the future. They feel like plain truth. The book's first step is to see them as thoughts, shaped by low mood, rather than facts. Naming the pattern a thought follows can loosen its hold.",
+   "source": {
+    "chapter": "Chapter 7, Thoughts Are Not Facts; The Common Thinking Traps"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Think of a harsh thought that came up recently. Write it as it came.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Read the list of common thinking traps.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick the trap it fits best. Rough guesses are fine.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Say to yourself: this is a thought, not a fact.",
+     "figure": "fig_thinking"
+    }
+   ],
+   "example": {
+    "character": "Sarah",
+    "text": "As Sarah began to do a little more, her mind kept up a harsh commentary. She was a fraud. Her small gains didn't count. She'd slip back. The thoughts felt like plain fact. Then she started naming them. Her gains not counting was discounting the positive. Slipping back was expecting the worst. Feeling like a fraud, and so being one, was taking feelings as facts. Naming the trap helped."
+   },
+   "fields": [
+    {
+     "id": "f_thought",
+     "type": "short_text",
+     "label": "The harsh thought",
+     "help": "Write it as close to word for word as feels okay. If it is about harming yourself or not wanting to be here, stop and tap Help now."
+    },
+    {
+     "id": "f_trap",
+     "type": "checklist",
+     "label": "The trap it fits",
+     "options": [
+      "All or nothing: perfect or worthless",
+      "One setback taken as a pattern forever",
+      "Only seeing the negative",
+      "Good things don't count",
+      "Expecting the worst",
+      "Mind-reading: assuming others think badly of you",
+      "Feelings as facts: feeling worthless means being worthless",
+      "Harsh labels and shoulds"
+     ]
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one harsh thought, then pick the trap it fits.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_thought",
+     "f_trap"
+    ]
+   },
+   "done_when": "You've caught a harsh thought and named its pattern. That's the start of loosening it.",
+   "repeat_weeks": [
+    11
+   ],
+   "reflect": "Did naming the trap change how the thought felt, even a little?",
+   "feeds_plan": [
+    {
+     "field_id": "f_trap",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e10",
+   "title": "Question one thought",
+   "purpose": "A fairer, more accurate way of seeing one harsh thought, in your own words.",
+   "why": "Once you've caught a thought, you can weigh it instead of just believing it. The aim isn't forced positive thinking. That rarely works, and it can feel false. The aim is accuracy: seeing the situation as it is, without low mood's slant. That view is usually less bleak than the thought claimed.",
+   "source": {
+    "chapter": "Chapter 7, Questioning Your Thoughts; Beyond the Surface: Core Beliefs; When the Cognitive Work Is Not Enough"
+   },
+   "minutes": 10,
+   "steps": [
+    {
+     "text": "Write the situation and the harsh thought.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "List the evidence for it, and the evidence against it.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Ask what you'd say to a friend who had this thought.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Write a more balanced version. It can still admit what's hard.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If this feels like too much today, stop. The short version is enough.",
+     "figure": "fig_reading"
+    }
+   ],
+   "example": {
+    "character": "Sarah",
+    "text": "Sarah took the thought that her gains didn't count. When she looked at the evidence, it showed real gains. Another way of seeing it was that the gains were genuine, and dismissing them was low mood talking. She saw the trap: discounting the positive. So she wrote a more balanced line. Her gains were real, and they counted, even when her mind insisted they didn't."
+   },
+   "fields": [
+    {
+     "id": "f_situation",
+     "type": "short_text",
+     "label": "The situation"
+    },
+    {
+     "id": "f_hthought",
+     "type": "short_text",
+     "label": "The harsh thought"
+    },
+    {
+     "id": "f_evidence",
+     "type": "two_column",
+     "label": "The evidence",
+     "columns": [
+      "For it",
+      "Against it"
+     ]
+    },
+    {
+     "id": "f_balanced",
+     "type": "short_text",
+     "label": "A more balanced version"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one harsh thought.",
+      "figure": "fig_writing"
+     },
+     {
+      "text": "Write one fact that doesn't fit it, then one fairer line.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_hthought",
+     "f_balanced"
+    ]
+   },
+   "done_when": "You have a fairer version of one harsh thought, ready for when it comes back.",
+   "reflect": "How much do you believe the original thought now, compared with before?",
+   "toolkit_link": "t06",
+   "feeds_plan": [
+    {
+     "field_id": "f_balanced",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "Notice the churning",
+   "purpose": "A way to step out of going over and over things, by noticing and gently turning away.",
+   "why": "Going over the past can feel like working something out. Usually it just churns and leaves you lower. Telling yourself to stop tends to backfire, because checking for the thought keeps it close. What helps is noticing the churning, naming it, and gently moving your attention elsewhere, again and again.",
+   "source": {
+    "chapter": "Chapter 8, What Rumination Is; Why Trying to Stop It Fails; Disengagement and Redirection; The Backward Pull of Depression"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Think of when the churning tends to come, like late at night.",
+     "figure": "fig_moon"
+    },
+    {
+     "text": "Pick a short phrase to name it, like \"There's the churning.\"",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Choose two places to turn your attention: something to do, your senses, or something absorbing.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Next time, notice it, name it, and turn.",
+     "figure": "fig_feet_grounded"
+    },
+    {
+     "text": "If it comes back, turn again. That's the skill.",
+     "figure": "fig_feet_grounded"
+    },
+    {
+     "text": "If it helps, set a short time each day for these thoughts, so they have a place.",
+     "figure": "fig_clock_check"
+    }
+   ],
+   "example": {
+    "character": "Marcus",
+    "text": "As Marcus began to come out of his room, the churning followed him. His mind ground over the rejection, the lost months, and what he saw as proof he'd let himself down. It felt like working something out, but it never got anywhere. Trying to stop it made it louder. What helped was noticing the churning and gently turning his attention to something he was doing. It came back often. He turned again."
+   },
+   "fields": [
+    {
+     "id": "f_when",
+     "type": "short_text",
+     "label": "When the churning tends to come"
+    },
+    {
+     "id": "f_name",
+     "type": "short_text",
+     "label": "Your phrase for naming it"
+    },
+    {
+     "id": "f_turn",
+     "type": "ranked_list",
+     "label": "Where you'll turn your attention",
+     "max_items": 2
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Next time your mind churns, name it, then turn to something you can see or hear.",
+      "figure": "fig_feet_grounded"
+     }
+    ],
+    "field_ids": [
+     "f_turn"
+    ]
+   },
+   "done_when": "You have a way to step out of the churning. It gets easier with practice.",
+   "repeat_weeks": [
+    11
+   ],
+   "reflect": "What helps you turn your attention, even for a moment?",
+   "toolkit_link": "t04",
+   "feeds_plan": [
+    {
+     "field_id": "f_turn",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "Speak to yourself like a friend",
+   "purpose": "Kinder words for one thing your inner critic says, the words you'd offer a friend.",
+   "why": "Many people with low mood carry a harsh inner voice that feels like honesty, or even motivation. The book sees that voice as part of low mood, and it tends to keep the heaviness going. Kindness toward yourself is a strength. It supports effort better than harshness does.",
+   "source": {
+    "chapter": "Chapter 9, The Merciless Inner Critic; Self-Compassion Is Not Weakness; How to Begin Meeting Yourself With Compassion"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Write one thing your inner critic says to you.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Picture a good friend struggling the same way.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Write what you'd say to them.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Read it back, this time to yourself.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Struggling is part of being human. You're not alone in it.",
+     "figure": "fig_thinking"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "Grace's inner voice was merciless. It said she was weak for struggling, a burden, and that she didn't deserve a good day. She'd assumed it was just honesty. Then she asked what she'd say to a friend struggling the way she was. The answer was much kinder. She began answering the critic in that voice. It didn't vanish. But over time it grew quieter, and the kind voice grew stronger."
+   },
+   "fields": [
+    {
+     "id": "f_critic",
+     "type": "short_text",
+     "label": "What your critic says"
+    },
+    {
+     "id": "f_friend",
+     "type": "short_text",
+     "label": "What you'd say to a friend"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Ask what you'd say to a friend in your place. Say it to yourself.",
+      "figure": "fig_two_people"
+     }
+    ],
+    "field_ids": [
+     "f_friend"
+    ]
+   },
+   "done_when": "You have kinder words ready for when the critic speaks up.",
+   "repeat_weeks": [
+    12
+   ],
+   "reflect": "How did it feel to read those words to yourself?",
+   "toolkit_link": "t07",
+   "feeds_plan": [
+    {
+     "field_id": "f_friend",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e13",
+   "title": "Find what matters to you",
+   "purpose": "A few things that matter to you, beneath roles or circumstances that may have changed.",
+   "why": "Low mood can drain the sense that anything matters, especially after losing a role or a relationship. Values are what you care about, like caring for others or learning. They're directions rather than goals, and they don't disappear when roles change. Finding them gives you a compass for what to rebuild.",
+   "source": {
+    "chapter": "Chapter 11, Why Meaning Matters; Discovering What Matters Through Values"
+   },
+   "minutes": 8,
+   "steps": [
+    {
+     "text": "Think about what you care about, or used to.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Ask what you admire in others, and what you'd want your life to stand for.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write three things that matter to you. Rough words are fine.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "For one of them, write a small way you could live it this week.",
+     "figure": "fig_writing"
+    }
+   ],
+   "example": {
+    "character": "Elena",
+    "text": "Elena was fifty-two. In one year, her younger child left for college and her marriage of twenty-six years ended. The roles she'd built her life around, mother and wife, were gone, and she couldn't see the point anymore. When she looked beneath those roles, she found what had mattered all along: caring for others, contributing, and connection. The roles had changed. The values hadn't."
+   },
+   "fields": [
+    {
+     "id": "f_values",
+     "type": "ranked_list",
+     "label": "Three things that matter to you",
+     "max_items": 3
+    },
+    {
+     "id": "f_way",
+     "type": "short_text",
+     "label": "One small way to live one of them this week"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write one thing that matters to you.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_values"
+    ]
+   },
+   "done_when": "You've named some of what matters to you. It can guide what you rebuild.",
+   "reflect": "Did you find anything you'd almost forgotten?",
+   "feeds_plan": [
+    {
+     "field_id": "f_values",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e14",
+   "title": "Build up, step by step",
+   "purpose": "A small ladder of steps toward something that matters, so you build gradually.",
+   "why": "After a few better days, it's tempting to do everything at once. That often leads to exhaustion and a dip that feels discouraging. The book suggests building slowly instead, adding a little at a time and letting each step settle. Choosing steps by what matters makes them worth keeping.",
+   "source": {
+    "chapter": "Chapter 4, Building Gradually and Choosing by Values"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Pick one thing that matters to you, from your list.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Write three or four small steps toward it, smallest first.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Take only the first step this week.",
+     "figure": "fig_walking"
+    },
+    {
+     "text": "Move up when a step feels settled. Staying on one step is fine.",
+     "figure": "fig_three_cards"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "Once James could leave his bed, he felt the pull to do everything at once. He didn't. He built slowly, adding a little at a time and letting each step settle before adding more. And he chose steps that mattered to him: the people he'd pulled away from, the interests he'd dropped, and work he found meaningful. The small steps became a path he could keep walking."
+   },
+   "fields": [
+    {
+     "id": "f_ladder",
+     "type": "ranked_list",
+     "label": "Your steps, smallest first",
+     "max_items": 4
+    },
+    {
+     "id": "f_first",
+     "type": "short_text",
+     "label": "Your step for this week"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write the smallest step toward one thing that matters.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_first"
+    ]
+   },
+   "done_when": "You have a gentle ladder toward something that matters, starting with one small step.",
+   "reflect": "How does it feel to take only the first step?",
+   "feeds_plan": [
+    {
+     "field_id": "f_ladder",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e15",
+   "title": "Reach toward one person",
+   "purpose": "One small step toward connection, with someone you trust.",
+   "why": "Low mood often pulls you away from people just when they'd help most. It can tell you you're a burden, or that no one wants to hear from you. Those thoughts feel true, but they're part of the low mood. Connection doesn't need a full social life. One short message is a real start.",
+   "source": {
+    "chapter": "Chapter 10, Why Connection Matters So Much; Why Depression Pulls Toward Isolation; Reaching for Connection When It Is Hardest"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Think of one person you trust, or someone you've lost touch with.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Choose a small step: a message, a short call, or a brief meeting.",
+     "figure": "fig_phone_quick"
+    },
+    {
+     "text": "Write what you'll say. Short is fine.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Send it before you feel ready, if you can. The feeling can come later.",
+     "figure": "fig_phone_quick"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "Grace knew connection had helped her through more than once. Her hardest stretches were the times she was most alone. Yet low mood pulled her toward hiding, and told her she was a burden. She learned to start small anyway: one message, or one brief contact, sent before she felt like it. The thought that she was a burden didn't always go away. She reached out anyway."
+   },
+   "fields": [
+    {
+     "id": "f_who",
+     "type": "short_text",
+     "label": "Who you'll reach toward"
+    },
+    {
+     "id": "f_msg",
+     "type": "short_text",
+     "label": "What you'll say",
+     "help": "For example: Thinking of you. Could we talk this week?"
+    },
+    {
+     "id": "f_how",
+     "type": "short_text",
+     "label": "How it went",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Send one short message to someone you trust.",
+      "figure": "fig_phone_quick"
+     }
+    ],
+    "field_ids": [
+     "f_who"
+    ]
+   },
+   "done_when": "You've taken one step toward someone. You don't have to find your way back alone.",
+   "repeat_weeks": [
+    12
+   ],
+   "reflect": "What made reaching out hard, or easier than you expected?",
+   "toolkit_link": "t08",
+   "feeds_plan": [
+    {
+     "field_id": "f_who",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e16",
+   "title": "Let one person in",
+   "purpose": "A plan to let one trusted person know a little of how you've really been.",
+   "why": "Hiding low mood takes energy, and it keeps people from helping. Telling someone you trust can ease the weight and the sense of being alone. The book notes that people who care about you would usually rather know. You decide how much to share. A little is enough.",
+   "source": {
+    "chapter": "Chapter 10, Reaching for Connection When It Is Hardest; Chapter 1, When Depression Hides Behind Competence; Appendix D"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Choose one person you feel safe with.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Decide how much to share. One sentence is enough.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write the words, for example: \"I've been having a hard time lately.\"",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Pick a time and a way: in person, by phone, or by message.",
+     "figure": "fig_phone_quick"
+    },
+    {
+     "text": "If they offer help, try saying yes.",
+     "figure": "fig_two_people"
+    }
+   ],
+   "example": {
+    "character": "Sarah",
+    "text": "For a long time, Sarah hid her low mood behind getting everything done. She half-doubted it was real, because she was still managing. Part of her way back was letting it be seen. She stayed capable, and she still tended to keep things to herself. But she no longer hid her struggle entirely, and she no longer carried it completely alone."
+   },
+   "fields": [
+    {
+     "id": "f_person",
+     "type": "short_text",
+     "label": "Who you'll tell"
+    },
+    {
+     "id": "f_words",
+     "type": "short_text",
+     "label": "What you'll say"
+    },
+    {
+     "id": "f_when",
+     "type": "short_text",
+     "label": "When and how",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one sentence you could say to someone you trust about how you've been.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_words"
+    ]
+   },
+   "done_when": "You've planned what to share, and with whom. Say it when the time feels right.",
+   "reflect": "What do you hope they'll understand?"
+  },
+  {
+   "id": "e17",
+   "title": "Try a small act of meaning",
+   "purpose": "One small experiment in doing something that matters, often for someone else.",
+   "why": "Waiting for a big new purpose can keep you stuck. The book suggests small experiments instead: try something that fits your values, notice how it feels, and build on what helps. Doing something for someone else is often a good start. It can be small, and it works best alongside caring for yourself.",
+   "source": {
+    "chapter": "Chapter 11, The Power of Serving Others; Rebuilding Purpose Through Small Experiments"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Look back at what matters to you.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick one small act that fits it, like helping a neighbor or checking on a friend.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Do it this week, at a size that suits your energy.",
+     "figure": "fig_walking"
+    },
+    {
+     "text": "Afterward, note how it felt, and whether it gave you anything.",
+     "figure": "fig_rating"
+    }
+   ],
+   "example": {
+    "character": "Elena",
+    "text": "Elena couldn't summon a grand new purpose to replace her lost roles. So she stopped waiting for one. She tried small things that fit what she cared about: caring for others and contributing. She noticed which ones gave her a sense of meaning, and she built on those. Bit by bit, giving to others gave back some of what her old roles had carried."
+   },
+   "fields": [
+    {
+     "id": "f_act",
+     "type": "short_text",
+     "label": "Your small act"
+    },
+    {
+     "id": "f_felt",
+     "type": "short_text",
+     "label": "How it felt",
+     "optional": true
+    },
+    {
+     "id": "f_next",
+     "type": "short_text",
+     "label": "What you might try next",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Do one small kind thing for someone, like a message or a hand with something.",
+      "figure": "fig_two_people"
+     }
+    ],
+    "field_ids": [
+     "f_act"
+    ]
+   },
+   "done_when": "You've tried one small act of meaning. Each one is an experiment, not a test.",
+   "reflect": "What, if anything, did this give you?",
+   "feeds_plan": [
+    {
+     "field_id": "f_act",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e18",
+   "title": "Plan for a hard day",
+   "purpose": "A short plan for days when the heaviness comes back, written while you're steadier.",
+   "why": "Hard days are part of finding your way back. They don't mean you're back at the start. The aim on a hard day is to get through it, not to make it good. A plan written now means you won't have to work it out when you're low.",
+   "source": {
+    "chapter": "Chapter 12, Getting Through Difficult Days; Appendix B, The Capacity Card"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Write the smallest version of your day: two or three anchors.",
+     "figure": "fig_three_cards"
+    },
+    {
+     "text": "Pick one tool to use, like one tiny step or coming back to the room.",
+     "figure": "fig_feet_grounded"
+    },
+    {
+     "text": "Name one person you could reach out to.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Write one line to read on that day, in your own words.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If a hard day brings thoughts of not wanting to be here, tap Help now first.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "Well into his recovery, James still had mornings when the old hopelessness pressed in. At first these days frightened him. They seemed to mean he was back at the start. He learned they were a normal part of the path. On those days he aimed only to get through. He did one tiny thing, steadied himself when it got overwhelming, and reached out instead of hiding."
+   },
+   "fields": [
+    {
+     "id": "f_anchors",
+     "type": "short_text",
+     "label": "Your two or three hard-day anchors"
+    },
+    {
+     "id": "f_tool",
+     "type": "short_text",
+     "label": "The tool you'll use"
+    },
+    {
+     "id": "f_person",
+     "type": "short_text",
+     "label": "Who you could reach out to",
+     "optional": true,
+     "help": "If no one comes to mind, a note to yourself counts."
+    },
+    {
+     "id": "f_line",
+     "type": "short_text",
+     "label": "A line to read on a hard day",
+     "help": "For example: This day will pass. Getting through is enough."
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write one line to read on a hard day.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_line"
+    ]
+   },
+   "done_when": "Your hard-day plan is ready. It's there whenever you need it.",
+   "reflect": "What would you want to hear from yourself on a hard day?",
+   "toolkit_link": "t09",
+   "feeds_plan": [
+    {
+     "field_id": "f_anchors",
+     "plan_section": "p6"
+    },
+    {
+     "field_id": "f_line",
+     "plan_section": "p6"
+    }
+   ]
+  },
+  {
+   "id": "e19",
+   "title": "Know your early signs",
+   "purpose": "A short list of your own early signs that low mood may be returning, with a step for each.",
+   "why": "Low mood often returns gradually, through signs that are personal to you. They might be changes in sleep or energy, pulling away from people, or the churning coming back. Caught early, they usually need only small steps. Your own signs are the best warning you'll get.",
+   "source": {
+    "chapter": "Chapter 13, Early Warning Signs and the Relapse-Prevention Plan"
+   },
+   "minutes": 7,
+   "steps": [
+    {
+     "text": "Look back at how low mood began last time. What did you notice first?",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Think about sleep, energy, thoughts, and pulling away.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write three to five early signs that are yours.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Next to each, write one small step you'd take.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Choose when you'll check them, like during your weekly check-in.",
+     "figure": "fig_calendar"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "After many years, Grace knew her own early signs. Her sleep would shift. She'd start to pull back from people. The churning would creep back. Catching these early meant she could act before the heaviness deepened, using the tools she knew. She didn't have to wait for a full return before taking it seriously."
+   },
+   "fields": [
+    {
+     "id": "f_signs",
+     "type": "two_column",
+     "label": "Your early signs, and a step for each",
+     "columns": [
+      "Early sign",
+      "Small step"
+     ]
+    },
+    {
+     "id": "f_check",
+     "type": "short_text",
+     "label": "When you'll check",
+     "help": "For example: every Sunday, with the weekly check-in."
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one early sign, and one small step you'd take.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_signs"
+    ]
+   },
+   "done_when": "Your early signs are written down, each with a small step ready.",
+   "reflect": "Which sign would you be most likely to miss?",
+   "toolkit_link": "t10",
+   "feeds_plan": [
+    {
+     "field_id": "f_signs",
+     "plan_section": "p6"
+    }
+   ]
+  },
+  {
+   "id": "e20",
+   "title": "Know when to get more help",
+   "purpose": "A clear sense of when to reach for more support, and a first step toward it.",
+   "why": "Getting help from a doctor or therapist is a sensible step. It is not a sign of weakness, and it is not a last resort. The book suggests more support when low mood is severe, lasts a long time, or gets in the way of daily life, or when these tools are not helping enough.",
+   "source": {
+    "chapter": "Chapter 12, When to Seek Professional Help; A Note on the Lowest Points; Appendix F, Working With a Professional"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Read the reasons the book gives for reaching out for more support.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick any that fit you right now. None is fine too.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "If any fit, write one first step, like booking time with a doctor.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If you take medication, do not change it without talking to your prescriber.",
+     "figure": "fig_phone_quick"
+    },
+    {
+     "text": "Thoughts of not wanting to be here mean reaching out today. Tap Help now.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "James",
+    "text": "At his lowest, James was unsure what help looked like, and the idea of asking frightened him. Getting professional help turned out to be a crucial part of his recovery. It lifted things enough for the small steps to work. Looking back, he saw that asking had been a wise step, and in no way a defeat."
+   },
+   "fields": [
+    {
+     "id": "f_reasons",
+     "type": "checklist",
+     "label": "Reasons that fit you right now",
+     "options": [
+      "It has lasted a long time",
+      "It gets in the way of daily life",
+      "Even the smallest steps feel impossible",
+      "These tools are not helping enough",
+      "Other struggles on top, like alcohol or other substances",
+      "Thoughts of harming yourself or not wanting to be here"
+     ],
+     "help": "If you pick the last one, please stop and tap Help now. You do not have to wait."
+    },
+    {
+     "id": "f_step",
+     "type": "short_text",
+     "label": "Your first step toward more support",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick any reasons that fit. If one does, write one first step.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_reasons",
+     "f_step"
+    ]
+   },
+   "done_when": "You know when to reach for more support, and what your first step would be.",
+   "reflect": "What, if anything, makes asking for help feel hard?",
+   "feeds_plan": [
+    {
+     "field_id": "f_step",
+     "plan_section": "p6"
+    }
+   ]
+  },
+  {
+   "id": "e21",
+   "title": "Write your staying-well plan",
+   "purpose": "One page for staying well: your signs, your steps, your people, and your reasons for hope.",
+   "why": "The book suggests writing this plan while you're steadier, so you're not working it out from a low place. It brings together your early signs, the tools that help, the people to contact, and reasons for hope. Much of it is already filled in from earlier weeks.",
+   "source": {
+    "chapter": "Chapter 13, Early Warning Signs and the Relapse-Prevention Plan; Living Fully Alongside Vulnerability; Appendix C"
+   },
+   "minutes": 12,
+   "steps": [
+    {
+     "text": "Your answers from earlier weeks are filled in here. Read them through.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Keep the small steps and anchors that help. Trim what you don't use.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Add the people you would contact, and a doctor or service, if you have one.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Add a line for the lowest points: tap Help now and reach out to someone.",
+     "figure": "fig_hand_raised"
+    },
+    {
+     "text": "Add two or three reasons for hope, in your own words.",
+     "figure": "fig_writing"
+    }
+   ],
+   "example": {
+    "character": "Grace",
+    "text": "Grace wrote her plan in a steadier stretch. It listed her early signs: sleep shifting, pulling back, the churning creeping in. It named the tools that helped her most and the people and professionals she would contact. And it held a few reasons for hope she could read when the hopelessness said otherwise. When the signs came, she wasn't working it out from scratch."
+   },
+   "fields": [
+    {
+     "id": "f_steps",
+     "type": "long_text",
+     "label": "Small steps and anchors that help"
+    },
+    {
+     "id": "f_people",
+     "type": "short_text",
+     "label": "People and services to contact"
+    },
+    {
+     "id": "f_low",
+     "type": "short_text",
+     "label": "At the lowest points",
+     "help": "For example: tap Help now, and call someone you trust."
+    },
+    {
+     "id": "f_hope",
+     "type": "ranked_list",
+     "label": "Your reasons for hope",
+     "max_items": 3
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Read your filled-in plan. Add one reason for hope.",
+      "figure": "fig_reading"
+     }
+    ],
+    "field_ids": [
+     "f_hope"
+    ]
+   },
+   "done_when": "Your staying-well plan is on one page, ready for when you need it.",
+   "reflect": "Which part of this plan matters most to you?",
+   "feeds_plan": [
+    {
+     "field_id": "f_steps",
+     "plan_section": "p3"
+    },
+    {
+     "field_id": "f_people",
+     "plan_section": "p6"
+    },
+    {
+     "field_id": "f_low",
+     "plan_section": "p6"
+    },
+    {
+     "field_id": "f_hope",
+     "plan_section": "p6"
+    }
+   ]
+  },
+  {
+   "id": "e22",
+   "title": "Look back at what's shifted",
+   "purpose": "A look at what has changed over twelve weeks, however small, and what you'll keep.",
+   "why": "Change during low mood is often slow and uneven, so it's easy to miss. Looking back can show small shifts the heaviness hides. The book describes recovery as a way of living well, with your tools close by, rather than never feeling low again. That's a real and good place to be.",
+   "source": {
+    "chapter": "Chapter 13, The Phases of Recovery and the Reality of Setbacks; Living Fully Alongside Vulnerability; The Five People, Reconsidered"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Look at your first self-check and your latest one, side by side.",
+     "figure": "fig_looking_at_map"
+    },
+    {
+     "text": "Write one thing that has shifted, however small.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If nothing seems to have shifted yet, write what got in the way. That's useful too.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write the two or three things you'll keep doing.",
+     "figure": "fig_writing"
+    }
+   ],
+   "example": {
+    "character": "Marcus",
+    "text": "At seventeen, Marcus had disappeared into his room, and his world had shrunk to four walls and a screen. His way back was gradual. Someone noticed and asked. He slowly turned his pulling away around, and he learned to step out of the churning. He wasn't changed overnight. But he had come back out, and his world was getting bigger again."
+   },
+   "fields": [
+    {
+     "id": "f_shift",
+     "type": "short_text",
+     "label": "One thing that has shifted"
+    },
+    {
+     "id": "f_keep",
+     "type": "ranked_list",
+     "label": "What you'll keep doing",
+     "max_items": 3
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write one thing that has shifted, however small.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_shift"
+    ]
+   },
+   "done_when": "You've looked back at twelve weeks, and you know what you'll keep.",
+   "reflect": "What would you say to yourself back in week 1?",
+   "feeds_plan": [
+    {
+     "field_id": "f_keep",
+     "plan_section": "p6"
+    }
+   ]
+  }
+ ],
+ "toolkit": [
+  {
+   "id": "t01",
+   "title": "One tiny step",
+   "when_to_use": "Everything feels like too much. One small action is enough to begin.",
+   "steps": [
+    "Pick something smaller than seems worth doing.",
+    "Stand up, open a window, or step outside for one minute.",
+    "Do just that one thing.",
+    "That counts. You can stop there."
+   ],
+   "minutes": 1,
+   "figure": "fig_door",
+   "source": {
+    "chapter": "How to Use This Book; Appendix A, The One Thing to Start With"
+   }
+  },
+  {
+   "id": "t02",
+   "title": "Check your capacity",
+   "when_to_use": "You're deciding how much to take on today or this week.",
+   "steps": [
+    "Ask yourself: green, yellow, or red right now?",
+    "Green: some capacity. The fuller versions are workable.",
+    "Yellow: a real grip. Use short versions and your anchors.",
+    "Red: basics only. Tap Help now and reach out for support today."
+   ],
+   "minutes": 1,
+   "figure": "fig_three_cards",
+   "source": {
+    "chapter": "How to Use This Book; Appendix B, The Capacity Card"
+   }
+  },
+  {
+   "id": "t03",
+   "title": "Come back to the room",
+   "when_to_use": "The day feels overwhelming, and you want to steady yourself.",
+   "steps": [
+    "Feel your feet on the floor.",
+    "Notice a few things you can see and hear around you.",
+    "Inhale slowly through your nose while you count to four.",
+    "Exhale slowly while you count to six. Repeat a few times."
+   ],
+   "minutes": 1,
+   "figure": "fig_feet_grounded",
+   "source": {
+    "chapter": "Chapter 12, Getting Through Difficult Days; Chapter 8, Disengagement and Redirection"
+   }
+  },
+  {
+   "id": "t04",
+   "title": "Notice, name, turn",
+   "when_to_use": "Your mind is going over and over the same ground.",
+   "steps": [
+    "Notice the churning.",
+    "Name it: \"There's the churning again.\"",
+    "Turn your attention to something you can do, see, or hear.",
+    "If it comes back, turn again. No need to fight it."
+   ],
+   "minutes": 1,
+   "figure": "fig_thinking",
+   "source": {
+    "chapter": "Chapter 8, Breaking the Grip: Disengagement and Redirection"
+   }
+  },
+  {
+   "id": "t05",
+   "title": "A short walk",
+   "when_to_use": "You've been still a long time, and the heaviness is settling in.",
+   "steps": [
+    "Head outdoors if you can.",
+    "Walk at an easy pace. The end of the street is enough.",
+    "Go before you feel like it. The lift often comes after."
+   ],
+   "minutes": 2,
+   "figure": "fig_walking",
+   "source": {
+    "chapter": "Chapter 5, Making Movement Sustainable"
+   }
+  },
+  {
+   "id": "t06",
+   "title": "Question one thought",
+   "when_to_use": "A harsh thought feels like plain fact.",
+   "steps": [
+    "Ask: is this a thought or a fact?",
+    "What's the evidence for it, and against it?",
+    "Is it one of the thinking traps?",
+    "What's a more balanced way to see it?"
+   ],
+   "minutes": 2,
+   "figure": "fig_thinking",
+   "source": {
+    "chapter": "Chapter 7, Questioning Your Thoughts"
+   }
+  },
+  {
+   "id": "t07",
+   "title": "What you'd tell a friend",
+   "when_to_use": "Your inner critic is loud and harsh.",
+   "steps": [
+    "Notice what the critic is saying.",
+    "Ask what you'd say to a friend in your place.",
+    "Say those words to yourself, even silently.",
+    "Struggling is part of being human. You're not alone in it."
+   ],
+   "minutes": 1,
+   "figure": "fig_two_people",
+   "source": {
+    "chapter": "Chapter 9, How to Begin Meeting Yourself With Compassion"
+   }
+  },
+  {
+   "id": "t08",
+   "title": "Send one message",
+   "when_to_use": "You feel pulled to hide, or like a burden to people.",
+   "steps": [
+    "Pick one person you trust.",
+    "Send a short message. \"Thinking of you\" is enough.",
+    "Feeling like a burden is part of low mood, not a fact."
+   ],
+   "minutes": 1,
+   "figure": "fig_phone_quick",
+   "source": {
+    "chapter": "Chapter 10, Reaching for Connection When It Is Hardest; Appendix D"
+   }
+  },
+  {
+   "id": "t09",
+   "title": "Get through a hard day",
+   "when_to_use": "Today is very hard. If you are in crisis, tap Help now first.",
+   "steps": [
+    "Aim only to get through today.",
+    "Do one tiny thing from your hard-day plan.",
+    "Steady yourself: feet on the floor, a few slow breaths.",
+    "Reach out to someone, even briefly.",
+    "This day will pass."
+   ],
+   "minutes": 2,
+   "figure": "fig_three_cards",
+   "source": {
+    "chapter": "Chapter 12, Getting Through Difficult Days"
+   }
+  },
+  {
+   "id": "t10",
+   "title": "Check your early signs",
+   "when_to_use": "Something feels familiar, like the heaviness creeping back.",
+   "steps": [
+    "Check your early signs. Are any showing?",
+    "Pick the small step you wrote for one of them.",
+    "Do it today, if you can.",
+    "If the signs keep building, reach out for support."
+   ],
+   "minutes": 1,
+   "figure": "fig_looking_at_map",
+   "source": {
+    "chapter": "Chapter 13, Early Warning Signs and the Relapse-Prevention Plan"
+   }
+  }
+ ],
+ "milestones": [
+  {
+   "id": "m01",
+   "trigger": "first_exercise",
+   "message": "First exercise done. What you found is saved in your plan."
+  },
+  {
+   "id": "m02",
+   "trigger": "first_toolkit_use",
+   "message": "First tool used. It stays in your Toolkit, ready anytime."
+  },
+  {
+   "id": "m03",
+   "trigger": "week_complete:1",
+   "message": "Week 1 done. Next up: a look at the loop you're most caught in."
+  },
+  {
+   "id": "m04",
+   "trigger": "daily_checks:7",
+   "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+  },
+  {
+   "id": "m05",
+   "trigger": "stage_complete:map",
+   "message": "Explore stage done. You've named what you're carrying, and the loop that keeps it going."
+  },
+  {
+   "id": "m06",
+   "trigger": "selfcheck:6",
+   "message": "Halfway. Your week 6 self-check now sits next to where you started."
+  },
+  {
+   "id": "m07",
+   "trigger": "toolkit_uses:10",
+   "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+  },
+  {
+   "id": "m08",
+   "trigger": "stage_complete:build",
+   "message": "Build stage done. You have small steps, an anchor, and ways to answer harsh thoughts."
+  },
+  {
+   "id": "m09",
+   "trigger": "first_repeat",
+   "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+  },
+  {
+   "id": "m10",
+   "trigger": "stage_complete:use",
+   "message": "Practice stage done. One week left to bring it all together."
+  },
+  {
+   "id": "m11",
+   "trigger": "return_after_gap",
+   "message": "Welcome back. No catching up needed. Gaps are part of this. Pick up with one small step."
+  },
+  {
+   "id": "m12",
+   "trigger": "program_complete",
+   "message": "Twelve weeks done. Here's where you started, and where you are now."
+  }
+ ],
+ "plan_sections": [
+  {
+   "id": "p1",
+   "title": "Your why"
+  },
+  {
+   "id": "p2",
+   "title": "What you're carrying"
+  },
+  {
+   "id": "p3",
+   "title": "Your small steps and anchors"
+  },
+  {
+   "id": "p4",
+   "title": "Working with your mind"
+  },
+  {
+   "id": "p5",
+   "title": "People and what matters"
+  },
+  {
+   "id": "p6",
+   "title": "Staying well"
+  }
+ ],
+ "finish": {
+  "summary": "Twelve weeks ago, you started by naming what you were carrying. Since then, you've taken tiny steps before you felt like it, set an anchor in your days, moved a little, answered harsh thoughts, reached toward people, and found some of what matters to you. Low mood can come and go. Your plan and your Toolkit are here for the harder stretches. Small steps still count.",
+  "book_bridge": "Every tool here comes from Finding Your Way Back by Maya Vaughn. The book tells the full stories of Sarah, Marcus, Grace, Elena, and James. You can find it in Books."
+ },
+ "keep_going": {
+  "monthly_questions": [
+   "Which small step is still part of your days without much effort?",
+   "Have any of your early signs shown up this month? What's one small step?",
+   "Who have you been in touch with this month?"
+  ],
+  "refresher_ids": [
+   "e03",
+   "e04",
+   "e05",
+   "e06",
+   "e09",
+   "e11",
+   "e12",
+   "e15"
+  ]
+ },
+ "cut_log": [
+  {
+   "item": "Statistics, trial results, effect sizes and researcher names",
+   "chapter": "Introduction; Chapters 1, 4, 5, 9, 10, 13; Acknowledgements",
+   "reason": "Not needed for instruction, and several compare self-help with medication. No figures or study claims kept."
+  },
+  {
+   "item": "Clinical types of depression, including the bipolar form",
+   "chapter": "Chapter 1, The Many Faces of Depression",
+   "reason": "Would invite self-diagnosis. E01 keeps only everyday ways low mood can show up, with no totals or cut-offs."
+  },
+  {
+   "item": "Biology, the stress-response system and the chemical imbalance account",
+   "chapter": "Chapter 2",
+   "reason": "Technical. Its point, that low mood has real causes and is not a failing, is kept in the E01 why and the Explore primer."
+  },
+  {
+   "item": "Childhood adversity as a cause",
+   "chapter": "Chapter 2, How the Mind Gets Stuck",
+   "reason": "Could surface painful history with no support on screen. Left out of reader copy."
+  },
+  {
+   "item": "Therapy types, antidepressants and the early-treatment caution",
+   "chapter": "Chapter 12, Understanding Treatment; Appendices D and F",
+   "reason": "Medical content. Kept only as: talk to a doctor, and do not change medication without the prescriber (start note and E20)."
+  },
+  {
+   "item": "Reducing access to means of harm",
+   "chapter": "Chapter 12, A Note on the Lowest Points; Chapter 13",
+   "reason": "Crisis planning belongs with professionals and Help now. E21 carries only a lowest-points line pointing to Help now and a person."
+  },
+  {
+   "item": "Mindfulness-based cognitive therapy",
+   "chapter": "Chapter 13, Mindfulness and the Prevention of Relapse",
+   "reason": "A professionally delivered program with outcome figures. Not turned into an exercise."
+  },
+  {
+   "item": "Core beliefs work",
+   "chapter": "Chapter 7, Beyond the Surface; Chapter 9, Compassion, Core Beliefs, and Shame",
+   "reason": "Slow, deep work the book says often needs a therapist. Folded into E10 and E12 only at surface level."
+  },
+  {
+   "item": "Supporting someone with depression",
+   "chapter": "Chapter 12; Appendix D",
+   "reason": "Written for a supporter, not the reader of this workbook."
+  },
+  {
+   "item": "Crisis numbers and resource directory",
+   "chapter": "Front matter; Appendix E",
+   "reason": "US-specific and changes over time. Help now carries contacts by market."
+  },
+  {
+   "item": "Movement framed as medicine or treatment",
+   "chapter": "Chapter 5",
+   "reason": "Treatment framing. E06 says only that the book counts movement among the most helpful things for low mood."
+  }
+ ]
+}

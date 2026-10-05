@@ -1,0 +1,2449 @@
+{
+ "schema_version": "1.0",
+ "id": "food",
+ "status": "draft",
+ "topic_name": "Food and Mood",
+ "tagline": "Twelve weeks of small food additions for steadier energy and mood",
+ "set_id": "mood-and-energy",
+ "safety_tier": "standard",
+ "source_book": {
+  "title": "Nourished: A Practical Guide to Nutrition and Mood",
+  "author": "Maya Vaughn",
+  "manuscript_file": "MH_Final/Nourished.docx"
+ },
+ "start": {
+  "welcome": "If your energy dips, your mood feels flat, or food advice has never stuck, this is built for that. It's twelve weeks of small additions, drawn from the book Nourished. There's nothing to count, nothing to cut, and no good or bad foods. Most weeks take 15 to 20 minutes, and every exercise has a short version. Week 1 is free. No card needed, and nothing renews on its own.",
+  "how_it_works": [
+   "One or two short exercises a week. Each has a short version for hard days.",
+   "A daily check that takes about a minute.",
+   "A weekly check-in: six quick questions, or just two on a hard week.",
+   "A Toolkit of quick tools you can open anytime, starting today.",
+   "A plan that builds itself from your answers."
+  ],
+  "why_prompt": "If your energy and mood felt a little steadier, what would you use it for? One line is enough.",
+  "extra_safety_note": "If food, eating or weight feels hard to control, or causes you distress, please talk to a doctor before you start. Help now is always at the top of every screen. This workbook never asks you to count calories, weigh yourself or cut out foods. If any part of it makes eating feel more anxious, stop and talk to a doctor. If you have a medical condition that affects what you eat, such as diabetes, a gut condition or a food allergy, or if you are pregnant, check with a doctor before making changes. Do not start, stop or change any medication or supplement because of anything here. Talk to a doctor first. If low mood or anxiety feels heavy and constant, or you have any thoughts of harming yourself, please tap Help now."
+ },
+ "selfcheck": {
+  "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+  "scale_labels": [
+   "Rarely",
+   "Sometimes",
+   "About half the time",
+   "Often",
+   "Nearly always"
+  ],
+  "areas": [
+   {
+    "id": "energy",
+    "label": "Energy and mood through the day"
+   },
+   {
+    "id": "body",
+    "label": "Gut and sleep"
+   },
+   {
+    "id": "feeding",
+    "label": "Feeding yourself"
+   },
+   {
+    "id": "calm",
+    "label": "Calm around food"
+   }
+  ],
+  "items": [
+   {
+    "id": "q01",
+    "area": "energy",
+    "text": "Your energy holds fairly steady into the afternoon."
+   },
+   {
+    "id": "q02",
+    "area": "energy",
+    "text": "Your mood feels about the same in the afternoon as in the morning."
+   },
+   {
+    "id": "q03",
+    "area": "energy",
+    "text": "You have some energy left for the evening."
+   },
+   {
+    "id": "q04",
+    "area": "energy",
+    "text": "Your mind feels clear enough for what you need to do."
+   },
+   {
+    "id": "q05",
+    "area": "body",
+    "text": "Your stomach feels settled most days."
+   },
+   {
+    "id": "q06",
+    "area": "body",
+    "text": "A stressful stretch leaves your gut fairly calm."
+   },
+   {
+    "id": "q07",
+    "area": "body",
+    "text": "You wake up feeling at least a little rested."
+   },
+   {
+    "id": "q08",
+    "area": "body",
+    "text": "You have water through the day, before you feel thirsty."
+   },
+   {
+    "id": "q09",
+    "area": "feeding",
+    "text": "Your meals include some protein and a plant."
+   },
+   {
+    "id": "q10",
+    "area": "feeding",
+    "text": "On a tired day, you can put together a simple meal."
+   },
+   {
+    "id": "q11",
+    "area": "feeding",
+    "text": "You have a few easy, filling foods at home."
+   },
+   {
+    "id": "q12",
+    "area": "feeding",
+    "text": "You share a meal with someone."
+   },
+   {
+    "id": "q13",
+    "area": "calm",
+    "text": "Food feels like a way to look after yourself."
+   },
+   {
+    "id": "q14",
+    "area": "calm",
+    "text": "After an off day, you go back to your usual eating without guilt."
+   },
+   {
+    "id": "q15",
+    "area": "calm",
+    "text": "You can enjoy food without it feeling like a test."
+   },
+   {
+    "id": "q16",
+    "area": "calm",
+    "text": "Thoughts about food take up only a small part of your day."
+   }
+  ],
+  "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Change with food tends to be slow and uneven, so harder weeks show up here too, and that is useful to know. If food starts to feel more stressful than it did, please talk to a doctor. Help now is at the top of every screen."
+ },
+ "checkin": {
+  "fields": [
+   {
+    "id": "c_week",
+    "type": "scale_0_10",
+    "label": "How did this week feel overall, from hard (0) to good (10)?"
+   },
+   {
+    "id": "c_level",
+    "type": "checklist",
+    "label": "Your capacity this week",
+    "options": [
+     "Green",
+     "Yellow",
+     "Red"
+    ],
+    "help": "Green: steady enough for the full exercises. Yellow: low energy or a stressful week, so use the short versions. Red: getting through the day is all there is. If you pick red, please lean on support, and tap Help now if you need it."
+   },
+   {
+    "id": "c_added",
+    "type": "weekly_grid",
+    "label": "Days you added one small thing to a meal"
+   },
+   {
+    "id": "c_win",
+    "type": "short_text",
+    "label": "One thing that helped, however small"
+   },
+   {
+    "id": "c_calm",
+    "type": "scale_0_10",
+    "label": "How calm food felt this week, from tense (0) to calm (10)",
+    "help": "If food, eating or weight has felt hard to control, please talk to a doctor. Help now is at the top of every screen."
+   },
+   {
+    "id": "c_hard",
+    "type": "short_text",
+    "label": "Something that got in the way, and one small change",
+    "optional": true
+   }
+  ],
+  "short_field_ids": [
+   "c_week",
+   "c_win"
+  ]
+ },
+ "daily_check": {
+  "question": "How did your energy and mood feel today?",
+  "scale_low": "Low and flat",
+  "scale_high": "Steady",
+  "tags": [
+   "Added something new",
+   "Water through the day",
+   "Protein with a meal",
+   "Had a fermented food",
+   "Ate with someone",
+   "Slept okay",
+   "Food felt calm",
+   "Used a tool"
+  ]
+ },
+ "stages": [
+  {
+   "id": "map",
+   "number": 1,
+   "name": "Explore",
+   "weeks": [
+    1,
+    2
+   ],
+   "primer": {
+    "title": "Notice first",
+    "body": "The Explore stage is about noticing, not changing. Over two weeks, you'll look at when your energy dips during the day, and at the helpful foods already in your week. There's nothing to cut and nothing to count. Many people find they're further along than they thought. Go at your own pace.",
+    "figure": "fig_looking_at_map"
+   },
+   "outcome": "A picture of when your energy dips, and the helpful foods you already eat.",
+   "review_question": "What did you notice about your days that you hadn't seen before?"
+  },
+  {
+   "id": "build",
+   "number": 2,
+   "name": "Build",
+   "weeks": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "primer": {
+    "title": "Add, don't subtract",
+    "body": "In the Build stage, you add one or two small things a week, in the order the book suggests. First your gut, then steadier meals, then a few key nutrients. Nothing is banned and nothing is removed. Over time, what you add tends to make room for itself. If a week is hard, the short versions count, and doing less is allowed.",
+    "figure": "fig_walking"
+   },
+   "outcome": "Small additions for your gut and your meals, and questions ready for your next checkup.",
+   "review_question": "Which addition has been easiest to keep, and which hasn't stuck yet?"
+  },
+  {
+   "id": "use",
+   "number": 3,
+   "name": "Practice",
+   "weeks": [
+    8,
+    9,
+    10,
+    11
+   ],
+   "primer": {
+    "title": "Make it easy",
+    "body": "The Practice stage is about making good-enough eating easier on real days. Over four weeks, you'll set a minimum meal, stock your kitchen, plan for your hardest moments, share a meal, and give comfort eating more options. Then you'll check what's sticking. If your capacity drops, scale down rather than stop.",
+    "figure": "fig_desk_ready"
+   },
+   "outcome": "A kitchen and a week set up so easy meals take less effort than skipping them.",
+   "review_question": "What has made eating feel easier, even a little?"
+  },
+  {
+   "id": "keep",
+   "number": 4,
+   "name": "Keep",
+   "weeks": [
+    12
+   ],
+   "primer": {
+    "title": "Keep what helps",
+    "body": "The Keep stage brings twelve weeks together. You'll write your food and mood plan, and a plan for hard weeks and restarts. Keep both modest. A few changes you keep are worth more than a big plan you put down.",
+    "figure": "fig_writing"
+   },
+   "outcome": "Your food and mood plan and your hard-week plan, both saved in your plan.",
+   "review_question": "What will you keep doing now that the twelve weeks are done?"
+  }
+ ],
+ "weeks": [
+  {
+   "number": 1,
+   "stage": "map",
+   "focus": "Notice when your energy dips",
+   "exercise_ids": [
+    "e01"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t02"
+   ]
+  },
+  {
+   "number": 2,
+   "stage": "map",
+   "focus": "See what's already on your plate",
+   "exercise_ids": [
+    "e02"
+   ],
+   "selfcheck": false
+  },
+  {
+   "number": 3,
+   "stage": "build",
+   "focus": "Feed your gut",
+   "exercise_ids": [
+    "e03",
+    "e04"
+   ],
+   "selfcheck": false
+  },
+  {
+   "number": 4,
+   "stage": "build",
+   "focus": "Add plants and fiber",
+   "exercise_ids": [
+    "e05",
+    "e06"
+   ],
+   "selfcheck": false
+  },
+  {
+   "number": 5,
+   "stage": "build",
+   "focus": "Steady your mornings and afternoons",
+   "exercise_ids": [
+    "e07",
+    "e08"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t04"
+   ]
+  },
+  {
+   "number": 6,
+   "stage": "build",
+   "focus": "Ease food rules, and set water and coffee times",
+   "exercise_ids": [
+    "e09",
+    "e10"
+   ],
+   "selfcheck": true,
+   "new_toolkit_ids": [
+    "t05",
+    "t07"
+   ]
+  },
+  {
+   "number": 7,
+   "stage": "build",
+   "focus": "Add omega-3, and prepare for your next checkup",
+   "exercise_ids": [
+    "e11",
+    "e12"
+   ],
+   "selfcheck": false,
+   "new_toolkit_ids": [
+    "t06"
+   ]
+  },
+  {
+   "number": 8,
+   "stage": "use",
+   "focus": "Pair foods well, and set your minimum meal",
+   "exercise_ids": [
+    "e13",
+    "e14"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e07"
+   ],
+   "new_toolkit_ids": [
+    "t03"
+   ]
+  },
+  {
+   "number": 9,
+   "stage": "use",
+   "focus": "Make easy meals easier",
+   "exercise_ids": [
+    "e15",
+    "e16"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e05"
+   ]
+  },
+  {
+   "number": 10,
+   "stage": "use",
+   "focus": "Share a meal, and give comfort more options",
+   "exercise_ids": [
+    "e17",
+    "e18"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e01"
+   ],
+   "new_toolkit_ids": [
+    "t09"
+   ]
+  },
+  {
+   "number": 11,
+   "stage": "use",
+   "focus": "Check what's sticking, and set a default week",
+   "exercise_ids": [
+    "e19",
+    "e20"
+   ],
+   "selfcheck": false,
+   "repeat_ids": [
+    "e03",
+    "e09"
+   ],
+   "new_toolkit_ids": [
+    "t08"
+   ]
+  },
+  {
+   "number": 12,
+   "stage": "keep",
+   "focus": "Bring it all together",
+   "exercise_ids": [
+    "e21",
+    "e22"
+   ],
+   "selfcheck": true,
+   "repeat_ids": [
+    "e02",
+    "e14"
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "e01",
+   "title": "Notice your energy through the day",
+   "purpose": "A clear picture of when your energy and mood dip, and what tends to come before.",
+   "why": "An afternoon slump can feel like just who you are. The book suggests another look. The brain needs a steady supply of fuel, and dips often follow what you ate, or didn't eat, a couple of hours earlier. Three days of quick notes can show your own pattern.",
+   "source": {
+    "chapter": "Chapter 1, A Metabolically Hungry Organ; Chapter 8, How Blood Glucose Reaches the Brain; Appendix A, The Crash Tracker; Appendix B, The Mood-Food Observation Log"
+   },
+   "minutes": 8,
+   "steps": [
+    {
+     "text": "For three days, rate your energy and mood at about 11 a.m., 2 p.m. and 5 p.m.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Use a simple 1 to 5 scale. Rough answers are fine.",
+     "figure": "fig_rating"
+    },
+    {
+     "text": "Beside each rating, pick anything that came in the two hours before.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Don't change anything yet. For now, you're only noticing.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "On day three, look for a time that was low on more than one day.",
+     "figure": "fig_reading"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya, a hospital administrator in Atlanta, was sharpest at 9 a.m. and foggy by 3 p.m. She'd assumed that was just how her energy worked. When she kept notes for three days, a pattern showed up. Her hardest afternoons followed the same lunch, a sandwich on white bread with chips, plus a second coffee at 1:30. Her better afternoons followed lunches with some protein, eaten before noon. The information had been there every workday. She hadn't had a reason to look."
+   },
+   "fields": [
+    {
+     "id": "f_ratings",
+     "type": "rating_grid",
+     "label": "Your energy and mood at each time on a typical day",
+     "rows": [
+      "Late morning, about 11 a.m.",
+      "Mid-afternoon, about 2 p.m.",
+      "Early evening, about 5 p.m."
+     ],
+     "help": "1 is very low and 5 is very good. Pick the day that felt most typical."
+    },
+    {
+     "id": "f_before",
+     "type": "checklist",
+     "label": "What often came before a low point",
+     "options": [
+      "A meal with little protein",
+      "A missed or late meal",
+      "Coffee after lunch",
+      "Not much water",
+      "A short night's sleep",
+      "Nothing clear yet"
+     ]
+    },
+    {
+     "id": "f_dip",
+     "type": "short_text",
+     "label": "Your lowest time of day, and what came before it",
+     "help": "For example: about 3 p.m., after a quick lunch at my desk."
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Think back over the past few days. Pick the time your energy usually drops.",
+      "figure": "fig_thinking"
+     },
+     {
+      "text": "Write it down, with what you'd usually had before it.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_dip"
+    ]
+   },
+   "done_when": "You know when your energy tends to dip. That's your first clue.",
+   "reflect": "Did your low point surprise you, or was it what you expected?",
+   "repeat_weeks": [
+    10
+   ],
+   "feeds_plan": [
+    {
+     "field_id": "f_dip",
+     "plan_section": "p2"
+    }
+   ]
+  },
+  {
+   "id": "e02",
+   "title": "See what's already there",
+   "purpose": "A list of the helpful foods you already eat, so you know where you're starting.",
+   "why": "Food advice can make it sound like you're starting from nothing. Usually you're not. The book's quick inventory lists the foods at the center of the eating pattern most linked to steadier mood. Anything you already eat means you're further along than you thought. The question becomes what to add.",
+   "source": {
+    "chapter": "Chapter 11, What the Evidence-Based Pattern Actually Is; Appendix A, The Already-There Inventory"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Read the list of foods below.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick any you eat at least now and then. Any amount counts.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Notice what's already part of your week.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write one you'd be happy to have a little more often.",
+     "figure": "fig_writing"
+    }
+   ],
+   "example": {
+    "character": "Doug",
+    "text": "Doug, retired and living in San Diego, had been thinking about his grandmother's kitchen. She cooked with olive oil from a tin by the stove, a bowl of garlic, beans soaking on Sundays, whatever vegetables were on sale, eggs from a neighbor, and fish on Fridays. Looking at the list, he saw that the eating pattern most linked to steadier mood was close to the way she had cooked. It felt less like a new diet and more like something he remembered."
+   },
+   "fields": [
+    {
+     "id": "f_have",
+     "type": "checklist",
+     "label": "Foods already part of your week",
+     "options": [
+      "Olive oil or avocado oil",
+      "Vegetables of any kind",
+      "Beans or lentils",
+      "Whole grains, like oats or brown rice",
+      "Fish",
+      "Nuts or seeds",
+      "Fresh or dried herbs",
+      "Plain yogurt"
+     ]
+    },
+    {
+     "id": "f_more",
+     "type": "short_text",
+     "label": "One you'd like to have a little more often"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick the foods on the list you already eat sometimes.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_have"
+    ]
+   },
+   "done_when": "You've seen what's already on your plate. You're not starting from zero.",
+   "reflect": "Were you further along than you expected?",
+   "repeat_weeks": [
+    12
+   ],
+   "feeds_plan": [
+    {
+     "field_id": "f_more",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e03",
+   "title": "Notice your gut and mood",
+   "purpose": "A few days of notes that show how your gut and your mood move together.",
+   "why": "If your stomach acts up on stressful weeks, it can seem like a side effect of stress and nothing more. The book explains that the gut and brain talk in both directions. An unsettled gut can feed a flatter, shorter-fused mood. Seeing your own version of that loop makes the next steps make sense.",
+   "source": {
+    "chapter": "Chapter 3, The Vagus Nerve, Which Talks More Than It Listens; The Stress-Gut-Brain Feedback Loop; Appendix A, The Gut-Mood Log"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "For three days, check in each morning and evening.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Pick how your gut feels: settled, uncomfortable, bloated or crampy.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Pick how your mood feels: calm, anxious, flat or irritable.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Don't try to connect them yet. Collect the notes first.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "On day three, read them together. Notice any pairs that keep showing up.",
+     "figure": "fig_reading"
+    }
+   ],
+   "example": {
+    "character": "Priya",
+    "text": "Priya had been an ICU nurse in Phoenix for fourteen years, and her stomach had a pattern she'd stopped noticing. Night shifts brought bloating. Schedule changes brought cramps. She'd put all of it down to stress. What she hadn't connected was her mood. The weeks her gut was worst were also the weeks she felt flattest and least patient with her colleagues. Seeing both together, she understood her gut was part of the story, not a bystander."
+   },
+   "fields": [
+    {
+     "id": "f_gut_mood",
+     "type": "two_column",
+     "label": "Morning and evening notes",
+     "columns": [
+      "Gut",
+      "Mood"
+     ]
+    },
+    {
+     "id": "f_pair",
+     "type": "short_text",
+     "label": "A pairing you noticed",
+     "help": "For example: bloated evenings and irritable evenings often came together."
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Right now, write one word for your gut and one for your mood.",
+      "figure": "fig_writing"
+     },
+     {
+      "text": "Do the same once more this evening.",
+      "figure": "fig_clock_check"
+     }
+    ],
+    "field_ids": [
+     "f_gut_mood"
+    ]
+   },
+   "done_when": "You've started to see how your gut and mood move together.",
+   "reflect": "What did you notice when you put the two side by side?",
+   "repeat_weeks": [
+    11
+   ],
+   "stuck_alternative": "e01",
+   "feeds_plan": [
+    {
+     "field_id": "f_pair",
+     "plan_section": "p2"
+    }
+   ]
+  },
+  {
+   "id": "e04",
+   "title": "Add one fermented food",
+   "purpose": "One fermented food you like, added to your day in a small, easy way.",
+   "why": "Changing how you eat can feel like a big project. This one is small. The book starts with fermented foods, like yogurt with live cultures, kefir, sauerkraut or kimchi, because they're one of the quicker ways to support a varied gut. A small portion a day is enough to begin. Nothing needs to be cut.",
+   "source": {
+    "chapter": "Chapter 4, The Stanford Trial and What It Showed About Fermented Foods; Chapter 13, Week One: Feed the Gut; Appendix C, Days 1 and 2"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick one fermented food you'd enjoy.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Plain yogurt with live cultures is often the easiest to find.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Plant-based options work too: sauerkraut, kimchi, miso, tempeh or plant yogurt with live cultures.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Add a small portion to one meal you already eat.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Some people feel a little bloated at first. Go slowly if you need to.",
+     "figure": "fig_feet_grounded"
+    },
+    {
+     "text": "If you have a gut condition, talk to a doctor before adding fermented foods.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Renee",
+    "text": "Renee, a freelance designer in Minneapolis, had been vegan for nine years. Because yogurt and kefir were dairy, she'd always skipped fermented foods altogether. Then she learned there were plant-based options with live cultures: sauerkraut, kimchi, tempeh, miso, kombucha and plant yogurts. Adding one or two of these to her day brought fermented foods into her eating without changing anything else on her plate."
+   },
+   "fields": [
+    {
+     "id": "f_ferment",
+     "type": "short_text",
+     "label": "Your fermented food"
+    },
+    {
+     "id": "f_when",
+     "type": "short_text",
+     "label": "The meal you'll add it to"
+    },
+    {
+     "id": "f_days",
+     "type": "weekly_grid",
+     "label": "Days you had it",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one fermented food and the meal you'll add it to.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_ferment",
+     "f_when"
+    ]
+   },
+   "done_when": "You've added a fermented food. Small and daily is plenty.",
+   "reflect": "How did it fit into your day?",
+   "feeds_plan": [
+    {
+     "field_id": "f_ferment",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e05",
+   "title": "Add a few new plants",
+   "purpose": "Three new plant foods added across your week, for a more varied gut.",
+   "why": "Eating the same few vegetables every week is common, and easy. The book's main gut tip is variety. Different vegetables, fruits, grains, beans, nuts, seeds, herbs and spices each feed different gut bacteria. Adding a few you haven't had lately counts. There's no target to hit, and nothing to remove.",
+   "source": {
+    "chapter": "Chapter 4, The Thirty-Plant Target; Polyphenols and the Color Logic; Chapter 13, Week One: Feed the Gut; Appendix C, Days 3 to 5"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Think of plant foods you haven't had in the past two weeks.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Pick three to add this week. Herbs, spices, seeds and frozen mixes all count.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Add one to a meal you already eat today.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Add the other two across the rest of the week.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "At the end of the week, note which one was easiest.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If you have a gut condition, talk to a doctor before adding more fiber.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Renee",
+    "text": "Renee ate plants at every meal and assumed that gave her plenty of variety. When she listed what she'd eaten over one week, the same eight or nine plants came up again and again. The answer turned out to be her shopping list. A bag of mixed seeds, a can of chickpeas, a few fresh herbs and a bag of frozen mixed berries brought in new plants without much cost or effort."
+   },
+   "fields": [
+    {
+     "id": "f_new",
+     "type": "ranked_list",
+     "label": "Your new plants this week",
+     "min_items": 1,
+     "max_items": 3
+    },
+    {
+     "id": "f_easiest",
+     "type": "short_text",
+     "label": "The easiest one to add"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Pick one plant you haven't had lately and add it to a meal today.",
+      "figure": "fig_desk_ready"
+     }
+    ],
+    "field_ids": [
+     "f_new"
+    ]
+   },
+   "done_when": "New plants are on your plate. Each one counts.",
+   "reflect": "Which new plant did you enjoy most?",
+   "repeat_weeks": [
+    9
+   ],
+   "feeds_plan": [
+    {
+     "field_id": "f_easiest",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e06",
+   "title": "Add beans to a meal",
+   "purpose": "An easy way to get more fiber, by adding beans to a meal you already have.",
+   "why": "Most people know fiber matters and still find it hard to get more. The book's simplest answer is adding, not overhauling. Fiber feeds the gut bacteria that make helpful compounds for the gut wall and the brain. A can of beans, rinsed and added to a meal you already eat, goes a long way.",
+   "source": {
+    "chapter": "Chapter 4, Fiber and the Short-Chain Fatty Acid Connection; Chapter 13, Week One: Feed the Gut; Chapter 11, What the Pattern Looks Like in an American Kitchen"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick a meal you already eat most weeks.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Choose a bean or lentil: black beans, chickpeas, kidney beans or lentils.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Canned is fine. Open, rinse and add.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Try it in that meal once or twice this week.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "Start with a small amount. Your gut may need a few days to adjust.",
+     "figure": "fig_feet_grounded"
+    }
+   ],
+   "example": {
+    "character": "Doug",
+    "text": "Doug's kitchen had held mostly delivery menus and microwave meals. When he restocked it, he added canned beans in three varieties, alongside canned fish, frozen vegetables and oats. He didn't stop eating his usual things. He added the new ones, and over a few weeks they started to take up more room on their own."
+   },
+   "fields": [
+    {
+     "id": "f_meal",
+     "type": "short_text",
+     "label": "The meal you'll add beans to"
+    },
+    {
+     "id": "f_bean",
+     "type": "short_text",
+     "label": "Your bean or lentil"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one meal this week and add a spoonful of beans to it.",
+      "figure": "fig_desk_ready"
+     }
+    ],
+    "field_ids": [
+     "f_meal"
+    ]
+   },
+   "done_when": "Beans are part of a meal you already eat. That's an easy win for your gut.",
+   "reflect": "Did adding them feel easier or harder than you expected?",
+   "feeds_plan": [
+    {
+     "field_id": "f_meal",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e07",
+   "title": "Add protein to breakfast",
+   "purpose": "A breakfast with some protein in it, to help your energy hold through the morning.",
+   "why": "Mornings are rushed, and breakfast is often something quick or nothing at all. The book explains that protein slows how fast sugar reaches the blood, and supplies the building blocks for mood chemicals. Adding some at breakfast can help your energy last longer. The goal is protein being there, not a number.",
+   "source": {
+    "chapter": "Chapter 8, Protein Distribution Across the Day; Chapter 13, Week Two: Anchor Blood Sugar; Appendix C, Day 8"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Look at what you usually have for breakfast.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Pick one protein to add: eggs, plain yogurt, nuts, or leftover beans or chicken.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Choose something that takes no extra time.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "If you don't usually eat breakfast, start with something small, like yogurt.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Around 11 a.m., notice how your energy feels.",
+     "figure": "fig_clock_check"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya started having two eggs at breakfast on weekdays. She ate them while reading email, so it took no extra time in the morning. It wasn't a big change, and it didn't involve a new diet or a new set of rules. It meant her brain had something steady to work with through the morning, during the hours she needed it most."
+   },
+   "fields": [
+    {
+     "id": "f_protein",
+     "type": "short_text",
+     "label": "Your breakfast protein"
+    },
+    {
+     "id": "f_feel",
+     "type": "short_text",
+     "label": "How late morning felt",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one protein you could add to breakfast tomorrow.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_protein"
+    ]
+   },
+   "done_when": "Your breakfast has some protein in it now.",
+   "reflect": "What did you notice about your mornings?",
+   "repeat_weeks": [
+    8
+   ],
+   "stuck_alternative": "e08",
+   "feeds_plan": [
+    {
+     "field_id": "f_protein",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e08",
+   "title": "Build a steadier lunch",
+   "purpose": "A lunch that pairs carbs with protein, fat or fiber, and a plan for your dip.",
+   "why": "An afternoon crash can feel like tiredness or even anxiety: shaky, foggy, on edge. The book explains that carbs eaten on their own can bring a quick rise, then a drop. Carbs aren't the problem. Adding a protein, a fat or some fiber alongside them makes the rise slower and the drop gentler.",
+   "source": {
+    "chapter": "Chapter 8, The Adrenaline Response and the Anxiety Overlap; Protein Distribution Across the Day; Maya, Reconsidered"
+   },
+   "minutes": 7,
+   "steps": [
+    {
+     "text": "Think of your usual lunch.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Add one thing: a protein, a fat like olive oil or nuts, or a vegetable.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Ordering out is fine. Add something to the same order.",
+     "figure": "fig_phone_quick"
+    },
+    {
+     "text": "Look back at your lowest time of day from week 1.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Keep an easy protein nearby for a little before that time.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Try this on three days this week.",
+     "figure": "fig_calendar"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya kept ordering lunch from the same convenience places she always had. What changed was the order. Three days a week, she added a protein and a vegetable. She kept mixed nuts in her desk drawer for the late-morning window when her energy started to slip. Her afternoon crash didn't vanish. It softened from a wall to a slope, and a slope was something she could work with."
+   },
+   "fields": [
+    {
+     "id": "f_add",
+     "type": "short_text",
+     "label": "What you'll add to your lunch"
+    },
+    {
+     "id": "f_backup",
+     "type": "short_text",
+     "label": "Your backup protein, and where you'll keep it",
+     "help": "For example: nuts in my desk drawer."
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Pick one thing to add to lunch tomorrow.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_add"
+    ]
+   },
+   "done_when": "Your lunch is steadier, and you have a plan for the dip.",
+   "reflect": "How did your afternoons feel on the days you tried it?",
+   "toolkit_link": "t04",
+   "feeds_plan": [
+    {
+     "field_id": "f_add",
+     "plan_section": "p3"
+    },
+    {
+     "field_id": "f_backup",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e09",
+   "title": "Check where food rules came from",
+   "purpose": "A kinder look at one food rule you carry, and where it came from.",
+   "why": "Many people carry food rules from old diets, ads or comments they heard years ago. Breaking one can bring guilt that has little to do with health. The book suggests checking where a rule came from. Some rest on evidence. Others turn useful information into pressure, and those are worth letting go.",
+   "source": {
+    "chapter": "Chapter 12, The Diet Culture Pattern; Priya, Reconsidered; Appendix A, The Rules Audit"
+   },
+   "minutes": 7,
+   "steps": [
+    {
+     "text": "Think of a food rule you follow, or one that brings guilt when you break it.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Pick where you think it came from.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Ask yourself whether it's helping you, or adding pressure.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write a kinder version, or decide to let it go.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If any number in this workbook starts to feel tense, switch to a simple list.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "If this stirs up a lot about food or weight, pause and talk to a doctor.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Priya",
+    "text": "By her third week of listing plants, Priya noticed a small, unpleasant edge creeping in. It felt like her Weight Watchers years and her Whole30 attempts, the same vigilance. The information was helping. Her relationship with the number wasn't. So she made one change. Her Sunday plant count became a Sunday plant list, with no number and no comparison to past weeks. By the next week, the edge had eased."
+   },
+   "fields": [
+    {
+     "id": "f_rule",
+     "type": "short_text",
+     "label": "A food rule you carry"
+    },
+    {
+     "id": "f_source",
+     "type": "checklist",
+     "label": "Where it came from",
+     "options": [
+      "Evidence you trust",
+      "An old diet or program",
+      "Something someone said",
+      "An ad or social media",
+      "Not sure"
+     ]
+    },
+    {
+     "id": "f_kinder",
+     "type": "short_text",
+     "label": "A kinder version, or what you'll let go"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one food rule you carry, and where you think it came from.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_rule",
+     "f_source"
+    ]
+   },
+   "done_when": "You've looked at one food rule with fresh eyes. You decide what stays.",
+   "reflect": "How does it feel to look at that rule from the outside?",
+   "repeat_weeks": [
+    11
+   ],
+   "toolkit_link": "t07",
+   "feeds_plan": [
+    {
+     "field_id": "f_kinder",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e10",
+   "title": "Set water and coffee times",
+   "purpose": "Water at a few set points in your day, and coffee timing that suits your sleep.",
+   "why": "Feeling foggy or tense in the afternoon isn't always about food. The book points to two easy things. Being a little short on water can lower mood and focus, and thirst tends to show up late. Caffeine stays in the body for hours, so an afternoon coffee can quietly cut into sleep.",
+   "source": {
+    "chapter": "Chapter 8, Hydration and Mood; The Caffeine Mechanism and the Timing Problem; The Sleep-Blood Sugar Loop; Chapter 13, Week Two: Anchor Blood Sugar"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick three set times for water, like before your first coffee, with lunch and after breaks.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Keep a water bottle where you'll see it.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "If sleep has been hard, try having your last coffee before noon for a week.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "You don't need to give coffee up. Only the timing moves.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "After a week, notice your sleep. If nothing changed, go back to your usual time.",
+     "figure": "fig_moon"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya noticed that on days she had a second coffee after 1 p.m., she lay awake at 11 feeling wired but not tired, and the next day started harder. So she moved that coffee to 10:30 in the morning. She didn't give coffee up. She also put a water bottle on her desk and refilled it three times a day, at the same points each day."
+   },
+   "fields": [
+    {
+     "id": "f_water_times",
+     "type": "short_text",
+     "label": "Your three water times"
+    },
+    {
+     "id": "f_coffee",
+     "type": "yes_no",
+     "label": "Trying an earlier last coffee this week?",
+     "optional": true
+    },
+    {
+     "id": "f_sleep",
+     "type": "short_text",
+     "label": "What you noticed about sleep",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one set time for a glass of water, and have it today.",
+      "figure": "fig_clock_check"
+     }
+    ],
+    "field_ids": [
+     "f_water_times"
+    ]
+   },
+   "done_when": "You have set times for water, and a coffee timing to try.",
+   "reflect": "Did moving anything change how your days or nights felt?",
+   "toolkit_link": "t05",
+   "feeds_plan": [
+    {
+     "field_id": "f_water_times",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e11",
+   "title": "Add an omega-3 food",
+   "purpose": "One meal a week with fatty fish or another omega-3 food, added in an easy way.",
+   "why": "Omega-3 fats are part of what the brain is built from, and they help calm inflammation. Many people get very little. The book's food-first suggestion is fatty fish once a week to start. Canned sardines, salmon or mackerel are cheap, need no cooking, and count just as well as fresh.",
+   "source": {
+    "chapter": "Chapter 5, Why Omega-3 Matters for Brain Structure; The Omega-6 to Omega-3 Ratio; Food Sources and Practical Recommendations; Chapter 13, Week Three; Appendix C, Day 15"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick one fatty fish: canned sardines, salmon or mackerel, or fresh if you prefer.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Plan one meal this week to have it.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "An easy version: sardines on whole-grain crackers with a squeeze of lemon.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "When you cook, reach for olive oil if you have it.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Don't eat fish? Walnuts, chia seeds and flaxseed add some omega-3 too.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Thinking about a supplement, or pregnant? Talk to a doctor first.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Theo",
+    "text": "Theo coached high school football in Columbus, Ohio, and believed in protocols he could explain. His own diet was chicken, rice, eggs, bread and protein bars. Once he understood why omega-3 mattered, he added canned salmon twice a week and swapped the vegetable oil in his cabinet for olive oil. It was a small, specific change, the kind of plan he'd give his own players."
+   },
+   "fields": [
+    {
+     "id": "f_fish",
+     "type": "short_text",
+     "label": "Your omega-3 food"
+    },
+    {
+     "id": "f_day",
+     "type": "short_text",
+     "label": "The day and meal you'll have it"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one omega-3 food and a day this week to have it.",
+      "figure": "fig_calendar"
+     }
+    ],
+    "field_ids": [
+     "f_fish"
+    ]
+   },
+   "done_when": "An omega-3 meal is part of your week. Once is a good start.",
+   "reflect": "Was it easier or harder to add than you thought?",
+   "stuck_alternative": "e13",
+   "feeds_plan": [
+    {
+     "field_id": "f_fish",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e12",
+   "title": "Prepare questions for your doctor",
+   "purpose": "A short list of questions to bring to your doctor about nutrients and tiredness.",
+   "why": "If you have felt tired or flat for a long time and been told your results are normal, it can be confusing. The book explains that a few common nutrient gaps are not always checked in routine tests. Bringing specific questions makes them easier to ask. Your doctor can decide what makes sense for you.",
+   "source": {
+    "chapter": "Chapter 6, B12: The Frequently Missed Deficiency; Vitamin D: The Most Common Insufficiency; Chapter 7, Iron, and the Diagnosis That Standard Tests Miss; Appendix A, The Deficiency Risk Check; The Fatigue Pattern Check"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Read the questions below. Pick any that apply to you.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Vegan, vegetarian, over 65, or on long-term reflux or diabetes medicine? Ask about B12.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Live in a northern state, or indoors most daylight hours? Ask about vitamin D.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Tired every afternoon even after sleep, or eat little meat or fish? Ask about iron stores.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Write your questions down and bring them to your next appointment.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Please do not start supplements on your own. Ask your doctor first.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya had seen her doctor three times in two years for the same thing. She felt tired and flat, and each time she was told her results were normal. Nobody had checked her vitamin D. Nobody had looked past the standard B12 test. On her fourth visit, she brought specific questions. Her doctor agreed to more tests, and one showed a B12 gap worth acting on. It was not dramatic, but it was something she had not known about."
+   },
+   "fields": [
+    {
+     "id": "f_qs",
+     "type": "checklist",
+     "label": "Questions that apply to you",
+     "options": [
+      "Should my vitamin D be checked?",
+      "Should my B12 be checked beyond the standard test?",
+      "Should my iron stores be checked?",
+      "Could anything I take affect my nutrients?"
+     ]
+    },
+    {
+     "id": "f_appt",
+     "type": "short_text",
+     "label": "When you could bring these up",
+     "optional": true,
+     "help": "For example: at my next checkup."
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Pick one question to bring to your next appointment.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_qs"
+    ]
+   },
+   "done_when": "Your questions are ready for your next appointment.",
+   "reflect": "How do you feel about raising these with your doctor?"
+  },
+  {
+   "id": "e13",
+   "title": "Pair foods for iron and folate",
+   "purpose": "A few easy food pairings that help your body get more from iron and folate.",
+   "why": "Eating iron-rich foods doesn't always mean taking in much iron, especially from plants. The book shows that pairing helps. Vitamin C in the same meal helps your body use the iron in beans, lentils and greens. Dark leafy greens add folate and magnesium too. Small pairings like these add up.",
+   "source": {
+    "chapter": "Chapter 6, Folate and the Depression Connection; Chapter 7, Iron; Magnesium, and the Cycle That Depletes It; How These Three Minerals Operate Together; Chapter 13, Week Three; Appendix C, Day 17"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Add a dark leafy green, like spinach or kale, to lunch on three days.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "With beans, lentils or tofu, add vitamin C: lemon, bell pepper or strawberries.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Raw bell pepper or a squeeze of lemon keeps more of the vitamin C.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Try pumpkin seeds on yogurt or oats. They add magnesium and zinc.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Have coffee or tea an hour away from these meals, if that's easy.",
+     "figure": "fig_clock_check"
+    }
+   ],
+   "example": {
+    "character": "Renee",
+    "text": "Renee had assumed her vegan diet covered iron. Lentils, spinach and tofu were all there. But iron from plants is harder for the body to take in. So she made a few pairings. Lentils with a squeeze of lemon at lunch, three days a week. Pumpkin seeds in her morning oats. Bell pepper sliced raw beside her tofu stir-fry, instead of cooked into it."
+   },
+   "fields": [
+    {
+     "id": "f_green",
+     "type": "short_text",
+     "label": "Your leafy green, and which lunches"
+    },
+    {
+     "id": "f_pair",
+     "type": "short_text",
+     "label": "One pairing you'll try"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Pick one pairing to try this week, like lemon on lentils.",
+      "figure": "fig_circling"
+     }
+    ],
+    "field_ids": [
+     "f_pair"
+    ]
+   },
+   "done_when": "You have a few pairings that help your body use what you eat.",
+   "reflect": "Which pairing felt easiest to fit in?",
+   "feeds_plan": [
+    {
+     "field_id": "f_pair",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e14",
+   "title": "Set your minimum meal",
+   "purpose": "A three-part meal you can put together in five minutes on your hardest days.",
+   "why": "On the hardest days, cooking can feel impossible. That's common, and it says nothing about you. The book's minimum meal is a floor, not a goal: one protein, one plant and one whole grain, in any mix, in under five minutes. Eating this way on a tough day is real care.",
+   "source": {
+    "chapter": "Chapter 12, The Minimum Viable Meal; Chapter 11, The Minimum Viable Whole-Food Meal"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Pick a protein you can grab: an egg, canned fish, yogurt, beans or nuts.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Pick a plant: any vegetable or fruit. Frozen or canned counts.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Pick a whole grain: oats, whole-grain bread, a microwave rice pouch or a tortilla.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Write two or three combinations you'd happily eat.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Keep these foods at home, ready for hard days.",
+     "figure": "fig_desk_ready"
+    }
+   ],
+   "example": {
+    "character": "Doug",
+    "text": "Doug found that a can of salmon on whole-grain crackers with olive oil and lemon was faster than waiting for a delivery driver. It needed no cooking and no recipe. The delivery apps stayed on his phone. He opened them less often, because the easy option at home had become the easier one."
+   },
+   "fields": [
+    {
+     "id": "f_combos",
+     "type": "long_text",
+     "label": "Two or three minimum meals you'd eat",
+     "help": "For example: yogurt, frozen berries and oats."
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write one minimum meal you could make tonight.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_combos"
+    ]
+   },
+   "done_when": "Your minimum meal is ready for the days you need it.",
+   "reflect": "What would make this easiest to reach for on a hard day?",
+   "repeat_weeks": [
+    12
+   ],
+   "toolkit_link": "t03",
+   "feeds_plan": [
+    {
+     "field_id": "f_combos",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e15",
+   "title": "Stock your kitchen for easy meals",
+   "purpose": "A short list of cheap, easy foods that make every other step easier.",
+   "why": "If the kitchen is mostly empty, delivery wins, and that's no surprise. The book suggests keeping a few cheap, long-lasting basics: canned fish, canned beans, frozen vegetables, whole-grain bread, oats, yogurt, nuts and olive oil. With these at home, an easy meal can take less effort than ordering one.",
+   "source": {
+    "chapter": "Chapter 11, What the Pattern Looks Like in an American Kitchen; Doug, Reconsidered; Chapter 12, Eating on a Budget in the United States"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Read the list of basics below.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick the ones you don't already have.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Add two or three to your next grocery list. Store brands are fine.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Put olive oil on the counter, where you'll see it.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Keep canned fish and beans where you'll reach for them on a tired day.",
+     "figure": "fig_desk_ready"
+    }
+   ],
+   "example": {
+    "character": "Doug",
+    "text": "Doug's kitchen had drifted to delivery menus, a freezer of microwave meals and a jar of jalapenos from last summer. Three weeks later, it held olive oil on the counter, where his grandmother had kept hers. There were canned sardines, salmon and beans, frozen broccoli and mixed vegetables, whole-grain bread, Greek yogurt, oats and a jar of mixed nuts. He hadn't stopped eating his usual things. He'd added."
+   },
+   "fields": [
+    {
+     "id": "f_list",
+     "type": "checklist",
+     "label": "Basics to pick up",
+     "options": [
+      "Canned fish",
+      "Canned beans or dried lentils",
+      "Frozen vegetables",
+      "Whole-grain bread",
+      "Oats",
+      "Plain yogurt",
+      "Nuts or seeds",
+      "Olive oil",
+      "Eggs"
+     ]
+    },
+    {
+     "id": "f_where",
+     "type": "short_text",
+     "label": "Where you'll keep them so you see them",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Add one or two basics to your next grocery list.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_list"
+    ]
+   },
+   "done_when": "Your kitchen has a few easy basics, ready for low-effort meals.",
+   "reflect": "Which basic do you think you'll reach for most?",
+   "feeds_plan": [
+    {
+     "field_id": "f_list",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e16",
+   "title": "Make hard moments easier",
+   "purpose": "A plan for the times eating is hardest, built around your energy rather than willpower.",
+   "why": "If eating well keeps slipping at the same times, it's easy to blame yourself. The book sees it differently. Many convenience foods are made to be hard to stop eating, and tiredness makes that harder. Planning ahead for your hardest moments works better than willpower, and it takes the shame out.",
+   "source": {
+    "chapter": "Chapter 9, Why It Is Hard to Moderate; Displacement as the Primary Harm; Priya, Reconsidered; Chapter 12, The Food Environment and the Limits of Willpower; The Minimum Viable Meal"
+   },
+   "minutes": 7,
+   "steps": [
+    {
+     "text": "Name the time eating is hardest for you, like after a late shift.",
+     "figure": "fig_clock_check"
+    },
+    {
+     "text": "Look at what you usually eat then as information, not a verdict.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Ask what would make an easier option ready at that moment.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "On a day with more energy, cook one batch of something, like soup, eggs or rice.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "Keep it where your tired self will find it first.",
+     "figure": "fig_desk_ready"
+    }
+   ],
+   "example": {
+    "character": "Priya",
+    "text": "Priya's freezer held frozen burritos, pizzas and microwave meals, a record of two years of thirteen-hour shifts. She'd blamed it on willpower. But a nurse who could handle the toughest moments of an ICU shift wasn't short on discipline. She was exhausted, at the very moment those foods are built to win. Seeing the freezer as information, not a verdict, took the shame out of it. She stopped trying to empty it in a week."
+   },
+   "fields": [
+    {
+     "id": "f_hard",
+     "type": "short_text",
+     "label": "When eating is hardest for you"
+    },
+    {
+     "id": "f_ready",
+     "type": "short_text",
+     "label": "What you'll have ready for that time"
+    },
+    {
+     "id": "f_batch",
+     "type": "short_text",
+     "label": "One thing you could cook in a batch",
+     "optional": true
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write your hardest time for eating, and one easy thing to have ready.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_hard",
+     "f_ready"
+    ]
+   },
+   "done_when": "You have a plan for your hardest moments that doesn't rely on willpower.",
+   "reflect": "How does it feel to see those moments as information rather than a verdict?",
+   "stuck_alternative": "e14",
+   "feeds_plan": [
+    {
+     "field_id": "f_ready",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e17",
+   "title": "Share one meal a week",
+   "purpose": "One meal a week with another person, at a table, without screens.",
+   "why": "Eating alone, at a desk or in front of a screen, has become normal for many people. The book points out that how you eat matters as well as what. Shared meals tend to be slower and more varied, and the company itself supports mood. One meal a week is enough. No dinner party needed.",
+   "source": {
+    "chapter": "Chapter 11, The Social Dimension That Most Nutrition Books Do Not Address"
+   },
+   "minutes": 5,
+   "steps": [
+    {
+     "text": "Think of someone you could share a meal with: family, a friend, a neighbor or a coworker.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "Pick one meal this week. Breakfast, lunch or a simple dinner all count.",
+     "figure": "fig_calendar"
+    },
+    {
+     "text": "Sit at a table and put screens away.",
+     "figure": "fig_phone_down"
+    },
+    {
+     "text": "Let the meal and the company be the focus.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "If this feels hard, that's useful to know. Start with one short meal.",
+     "figure": "fig_thinking"
+    }
+   ],
+   "example": {
+    "character": "Doug",
+    "text": "When Doug was seven, his grandmother fed him, his three siblings and any neighborhood child who happened to be around at mealtime. The food was simple: beans, vegetables, eggs, and fish on Fridays. Looking back, he could see the meals were never only about the food. They were shared, slow and eaten at a table. That part of her kitchen mattered too."
+   },
+   "fields": [
+    {
+     "id": "f_who",
+     "type": "short_text",
+     "label": "Who you'll share a meal with"
+    },
+    {
+     "id": "f_when",
+     "type": "short_text",
+     "label": "Which meal, and when"
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write one person you could share a meal with soon.",
+      "figure": "fig_two_people"
+     }
+    ],
+    "field_ids": [
+     "f_who"
+    ]
+   },
+   "done_when": "You've planned a shared meal. One a week is plenty.",
+   "reflect": "What did you notice about eating with someone?",
+   "feeds_plan": [
+    {
+     "field_id": "f_who",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e18",
+   "title": "Give comfort eating more options",
+   "purpose": "A few other ways to feel better, ready alongside food when you're stressed or tired.",
+   "why": "Reaching for food when you're stressed, tired or bored is a normal human thing, not a flaw. The book doesn't ask you to stop. It suggests noticing what's behind the urge, then adding other options. With more than one way to feel better, the choice can shift on its own, without banning anything.",
+   "source": {
+    "chapter": "Chapter 12, Emotional Eating in Honest Perspective"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Think of a time you often reach for food to feel better.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Pick what's usually behind it: hunger, stress, tiredness, boredom or habit.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "If it's hunger, eat something with protein. That's looking after yourself.",
+     "figure": "fig_desk_ready"
+    },
+    {
+     "text": "For the others, write two options you could try alongside food.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Eating anyway is fine. Go easy on yourself either way.",
+     "figure": "fig_feet_grounded"
+    },
+    {
+     "text": "If eating often feels out of control or distressing, please talk to a doctor.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "For Maya, it was the chip bag at her desk at 3 p.m. For years she'd filed it under willpower. Once she saw that her energy dipped hard at that hour, the chips made sense. They were a way to cope, with a cost. She didn't ban them. A lunch with protein and nuts in her drawer gave her something else to reach for at that hour."
+   },
+   "fields": [
+    {
+     "id": "f_moment",
+     "type": "short_text",
+     "label": "When you often reach for food to feel better"
+    },
+    {
+     "id": "f_behind",
+     "type": "checklist",
+     "label": "What's usually behind it",
+     "options": [
+      "Hunger",
+      "Stress",
+      "Tiredness",
+      "Boredom",
+      "Habit"
+     ]
+    },
+    {
+     "id": "f_options",
+     "type": "short_text",
+     "label": "Two other options you could try"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Next time you reach for food to feel better, ask: hungry, tired, stressed, bored or habit?",
+      "figure": "fig_thinking"
+     }
+    ],
+    "field_ids": [
+     "f_behind"
+    ]
+   },
+   "done_when": "You have more than one way to feel better now. Food can still be one of them.",
+   "reflect": "What did you notice about what's behind the urge?",
+   "toolkit_link": "t09",
+   "feeds_plan": [
+    {
+     "field_id": "f_options",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e19",
+   "title": "Check what's sticking",
+   "purpose": "A clear view of which changes feel easy now, and an easier version of the rest.",
+   "why": "After a few weeks of small changes, some will feel natural and others will still take effort. That's expected. The book's check is simple. The easy ones are your anchors, so protect them and hold off on adding more. For the harder ones, look for a lower-effort version instead of dropping the idea.",
+   "source": {
+    "chapter": "Chapter 13, Week One: Feed the Gut (check-in); Week Four: Build the Pattern; Appendix C, Days 7, 14, 21, 22 and 23"
+   },
+   "minutes": 6,
+   "steps": [
+    {
+     "text": "Look back at what you've added since week 3.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Pick the changes that now happen without much thought.",
+     "figure": "fig_circling"
+    },
+    {
+     "text": "Pick one that still takes effort.",
+     "figure": "fig_thinking"
+    },
+    {
+     "text": "Find an easier version: a different meal, frozen instead of fresh, canned instead of dried.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Keep the easy ones as they are. There's no need to add more right now.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Renee",
+    "text": "Renee knew her pattern. After finishing a book like this, she'd write a long list of changes, start them all the next Monday, and drop most of them by week two. This time she went one or two at a time. When something didn't stick, the book's advice was to make it easier rather than drop it, like moving a fermented food from a rushed breakfast to lunch."
+   },
+   "fields": [
+    {
+     "id": "f_easy",
+     "type": "short_text",
+     "label": "Changes that feel easy now"
+    },
+    {
+     "id": "f_effort",
+     "type": "short_text",
+     "label": "One that still takes effort"
+    },
+    {
+     "id": "f_easier",
+     "type": "short_text",
+     "label": "An easier version to try"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write one change that feels easy now, and one that doesn't yet.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_easy",
+     "f_effort"
+    ]
+   },
+   "done_when": "You know your anchors, and you've made one change easier.",
+   "reflect": "What has surprised you about what stuck?",
+   "feeds_plan": [
+    {
+     "field_id": "f_easy",
+     "plan_section": "p3"
+    }
+   ]
+  },
+  {
+   "id": "e20",
+   "title": "Set a default week",
+   "purpose": "A loose weekly pattern for meals, so tired days need fewer decisions.",
+   "why": "Deciding what to eat every day takes energy, and on hard days that energy isn't there. The book suggests a default, not a strict plan. Weekday breakfasts look roughly the same, lunches follow a simple template, and dinners stay flexible. You can change it anytime. It's there for days when thinking about food is too much.",
+   "source": {
+    "chapter": "Chapter 13, Week Four: Build the Pattern; Appendix C, Days 24 to 29"
+   },
+   "minutes": 7,
+   "steps": [
+    {
+     "text": "Write a usual weekday breakfast that has some protein.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Write a lunch template: a protein, a plant, and a fermented food if you like.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Leave dinners flexible, with your minimum meal as a backup.",
+     "figure": "fig_three_cards"
+    },
+    {
+     "text": "Turn it into next week's grocery list.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Try it for a week, then adjust anything that felt hard.",
+     "figure": "fig_calendar"
+    }
+   ],
+   "example": {
+    "character": "Theo",
+    "text": "Theo had spent twenty-five years building athletes on routines they could follow without thinking. His own eating had never had one. Once he understood the reasons, a few pieces settled into a simple pattern: canned salmon twice a week, olive oil in place of vegetable oil, and more variety in his plants. It was a default his week could run on, not a rulebook."
+   },
+   "fields": [
+    {
+     "id": "f_breakfast",
+     "type": "short_text",
+     "label": "Your usual weekday breakfast"
+    },
+    {
+     "id": "f_lunch",
+     "type": "short_text",
+     "label": "Your lunch template"
+    },
+    {
+     "id": "f_dinner",
+     "type": "short_text",
+     "label": "Your dinner backup"
+    }
+   ],
+   "short_version": {
+    "minutes": 2,
+    "steps": [
+     {
+      "text": "Write your usual breakfast and one lunch template.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_breakfast",
+     "f_lunch"
+    ]
+   },
+   "done_when": "Your default week is drafted. Change it whenever life asks you to.",
+   "reflect": "Which part of the week do you think this will help most?",
+   "stuck_alternative": "e14",
+   "feeds_plan": [
+    {
+     "field_id": "f_breakfast",
+     "plan_section": "p4"
+    },
+    {
+     "field_id": "f_lunch",
+     "plan_section": "p4"
+    }
+   ]
+  },
+  {
+   "id": "e21",
+   "title": "Write your food and mood plan",
+   "purpose": "One page of the additions you'll keep, your easy meals and a calm reminder about food.",
+   "why": "You've tried a lot over these weeks, and not all of it needs to stay. The book's five people kept a few modest changes, not a whole new diet, and that was enough to shift how their days felt. Your answers from earlier weeks are filled in here. Keep what works, and trim the rest.",
+   "source": {
+    "chapter": "Chapter 13, The Five Characters, Reconsidered; After the Thirty Days"
+   },
+   "minutes": 12,
+   "steps": [
+    {
+     "text": "Read your answers from earlier weeks. They're filled in here.",
+     "figure": "fig_reading"
+    },
+    {
+     "text": "Keep the two or three additions you really do.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Keep your minimum meal and your kitchen basics.",
+     "figure": "fig_three_cards"
+    },
+    {
+     "text": "Add one kind reminder about food for days that feel tense.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Cut anything you wouldn't do in an ordinary week.",
+     "figure": "fig_hand_raised"
+    }
+   ],
+   "example": {
+    "character": "Maya",
+    "text": "Maya did not transform her diet. Her weekday lunches still came mostly from convenience places, but more often than not they had a protein and a side of vegetables. She followed up with her doctor on the tests she had asked about. Her 3 p.m. crashes softened from a wall to a slope, and she began making plans on weekday evenings again."
+   },
+   "fields": [
+    {
+     "id": "f_adds",
+     "type": "long_text",
+     "label": "The additions you'll keep"
+    },
+    {
+     "id": "f_easy",
+     "type": "long_text",
+     "label": "Your easy meals and kitchen basics"
+    },
+    {
+     "id": "f_calm",
+     "type": "short_text",
+     "label": "Your reminder for tense food days",
+     "help": "For example: this is information, not a verdict."
+    }
+   ],
+   "short_version": {
+    "minutes": 3,
+    "steps": [
+     {
+      "text": "Read your drafted plan. Keep what's true and change anything that isn't.",
+      "figure": "fig_reading"
+     }
+    ],
+    "field_ids": [
+     "f_adds",
+     "f_easy"
+    ]
+   },
+   "done_when": "Your food and mood plan is on one page, modest enough to keep.",
+   "reflect": "Which part of this plan matters most to you?",
+   "feeds_plan": [
+    {
+     "field_id": "f_adds",
+     "plan_section": "p3"
+    },
+    {
+     "field_id": "f_easy",
+     "plan_section": "p4"
+    },
+    {
+     "field_id": "f_calm",
+     "plan_section": "p5"
+    }
+   ]
+  },
+  {
+   "id": "e22",
+   "title": "Plan for hard weeks and restarts",
+   "purpose": "A plan for low-capacity weeks, and for getting going again after a break.",
+   "why": "Travel, illness and hard stretches interrupt any routine. That's expected. The book's advice is to hold one thing on hard weeks and let the rest go for now. After a break, restart with the gut basics. That's a recalibration, not starting over. Your gut responds to what arrives now.",
+   "source": {
+    "chapter": "Chapter 9, The Minimum Viable Version on a Hard Week; Chapter 13, After the Thirty Days; Appendix B, The Green, Yellow, Red Card; Appendix D, What if I miss a day?"
+   },
+   "minutes": 8,
+   "steps": [
+    {
+     "text": "Pick the one thing you'll keep on a yellow week, like lunch protein.",
+     "figure": "fig_hand_raised"
+    },
+    {
+     "text": "Write your minimum meal as your red-week backup.",
+     "figure": "fig_three_cards"
+    },
+    {
+     "text": "Write your restart: a fermented food, a new plant, and some beans.",
+     "figure": "fig_writing"
+    },
+    {
+     "text": "Name someone you could lean on, if you like.",
+     "figure": "fig_two_people"
+    },
+    {
+     "text": "On a red week, use Help now if you need it, and rest. The practices will wait.",
+     "figure": "fig_feet_grounded"
+    }
+   ],
+   "example": {
+    "character": "Priya",
+    "text": "Priya's first hard week came during a budget review that squeezed her schedule past anything reasonable. She didn't try the full plan. She kept one thing, the lunch protein, on three days out of five. The chips and frozen meals came back. She called it a partial success. By the end of the next week, the lunch protein was still there, and the chips had eased off on their own."
+   },
+   "fields": [
+    {
+     "id": "f_hold",
+     "type": "short_text",
+     "label": "The one thing you'll keep on a yellow week"
+    },
+    {
+     "id": "f_restart",
+     "type": "short_text",
+     "label": "Your restart steps"
+    },
+    {
+     "id": "f_lean",
+     "type": "short_text",
+     "label": "Someone you could lean on",
+     "optional": true,
+     "help": "If no one comes to mind, a note to yourself counts."
+    }
+   ],
+   "short_version": {
+    "minutes": 1,
+    "steps": [
+     {
+      "text": "Write the one thing you'll keep on a hard week. That's enough for today.",
+      "figure": "fig_writing"
+     }
+    ],
+    "field_ids": [
+     "f_hold"
+    ]
+   },
+   "done_when": "Your hard-week plan is ready: one thing to keep, and a way back.",
+   "reflect": "What would you want to hear from yourself on a hard week?",
+   "toolkit_link": "t02",
+   "feeds_plan": [
+    {
+     "field_id": "f_hold",
+     "plan_section": "p6"
+    },
+    {
+     "field_id": "f_restart",
+     "plan_section": "p6"
+    }
+   ]
+  }
+ ],
+ "toolkit": [
+  {
+   "id": "t01",
+   "title": "The delivery check",
+   "when_to_use": "Before a meal or snack, for a quick way to make it steadier.",
+   "steps": [
+    "Ask: is there a protein, a fat and a plant here?",
+    "If one is missing, add it. Any amount counts.",
+    "Nothing needs to come off the plate.",
+    "If adding feels like too much today, eat as you are."
+   ],
+   "minutes": 1,
+   "figure": "fig_thinking",
+   "source": {
+    "chapter": "Chapter 1; Appendix A, The Delivery Check"
+   }
+  },
+  {
+   "id": "t02",
+   "title": "Check your capacity",
+   "when_to_use": "You're deciding how much to take on today or this week.",
+   "steps": [
+    "Ask yourself: green, yellow or red right now?",
+    "Green: steady enough for the full exercises.",
+    "Yellow: low or stressed. Use the short versions and your minimum meal.",
+    "Red: basics only. Lean on support. Help now is always there."
+   ],
+   "minutes": 1,
+   "figure": "fig_three_cards",
+   "source": {
+    "chapter": "How to Use This Book; Appendix B, The Green, Yellow, Red Card"
+   }
+  },
+  {
+   "id": "t03",
+   "title": "The minimum meal",
+   "when_to_use": "Cooking feels impossible, and you still want something that looks after you.",
+   "steps": [
+    "Pick one protein: an egg, canned fish, yogurt, beans or nuts.",
+    "Pick one plant. Frozen or canned counts.",
+    "Pick one whole grain: oats, bread, a rice pouch or a tortilla.",
+    "Put them together any way you like. That's enough for today."
+   ],
+   "minutes": 2,
+   "figure": "fig_desk_ready",
+   "source": {
+    "chapter": "Chapter 12, The Minimum Viable Meal; Chapter 11"
+   }
+  },
+  {
+   "id": "t04",
+   "title": "Get ahead of the dip",
+   "when_to_use": "Your energy usually drops around the same time each day.",
+   "steps": [
+    "Notice the time your energy usually dips.",
+    "Keep an easy protein nearby, like nuts or yogurt.",
+    "Have a little shortly before the dip usually arrives."
+   ],
+   "minutes": 1,
+   "figure": "fig_clock_check",
+   "source": {
+    "chapter": "Chapter 8, Maya, Reconsidered; Learning Points"
+   }
+  },
+  {
+   "id": "t05",
+   "title": "Water at set points",
+   "when_to_use": "You feel foggy or tense and can't remember your last drink of water.",
+   "steps": [
+    "Have a glass of water now.",
+    "Tie water to set points: before coffee, with lunch, after breaks.",
+    "Drink before you feel thirsty. Thirst shows up late."
+   ],
+   "minutes": 1,
+   "figure": "fig_desk_ready",
+   "source": {
+    "chapter": "Chapter 8, Hydration and Mood"
+   }
+  },
+  {
+   "id": "t06",
+   "title": "The evidence filter",
+   "when_to_use": "You see a food or supplement claim about mood and wonder if it holds up.",
+   "steps": [
+    "Was it a trial, or only an association?",
+    "How many people were in the study?",
+    "Who paid for the work?",
+    "Before buying any supplement, please ask a doctor first."
+   ],
+   "minutes": 1,
+   "figure": "fig_reading",
+   "source": {
+    "chapter": "Chapter 2, The Evidence Filter; Appendix A, The Evidence Filter"
+   }
+  },
+  {
+   "id": "t07",
+   "title": "Tool or verdict",
+   "when_to_use": "A food number, list or rule starts to feel tense, guilty or watchful.",
+   "steps": [
+    "Notice the edge: worry, guilt or checking.",
+    "Drop the number. Keep a simple list, or nothing at all.",
+    "Remind yourself: this is information, not a verdict.",
+    "If food worry keeps growing, please talk to a doctor."
+   ],
+   "minutes": 1,
+   "figure": "fig_hand_raised",
+   "source": {
+    "chapter": "Chapter 12, The Diet Culture Pattern; When Nutrition Knowledge Becomes the Problem; Priya, Reconsidered"
+   }
+  },
+  {
+   "id": "t08",
+   "title": "Restart with the basics",
+   "when_to_use": "After travel, illness or a hard stretch, when you want to get going again.",
+   "steps": [
+    "Add one fermented food tomorrow.",
+    "Add one plant you haven't had lately.",
+    "Add some beans to one meal.",
+    "This is a restart, not starting over."
+   ],
+   "minutes": 1,
+   "figure": "fig_walking",
+   "source": {
+    "chapter": "Chapter 13, After the Thirty Days; Learning Points"
+   }
+  },
+  {
+   "id": "t09",
+   "title": "Comfort, with more options",
+   "when_to_use": "You're reaching for food to feel better and want to pause first.",
+   "steps": [
+    "Ask: hungry, tired, stressed, bored or habit?",
+    "If hungry, eat something with protein.",
+    "If not, try one option from your list.",
+    "Eating anyway is okay. No guilt needed."
+   ],
+   "minutes": 1,
+   "figure": "fig_feet_grounded",
+   "source": {
+    "chapter": "Chapter 12, Emotional Eating in Honest Perspective"
+   }
+  }
+ ],
+ "milestones": [
+  {
+   "id": "m01",
+   "trigger": "first_exercise",
+   "message": "First exercise done. What you noticed is saved in your plan."
+  },
+  {
+   "id": "m02",
+   "trigger": "first_toolkit_use",
+   "message": "First tool used. It stays in your Toolkit, ready anytime."
+  },
+  {
+   "id": "m03",
+   "trigger": "week_complete:1",
+   "message": "Week 1 done. Next up: a look at what's already on your plate."
+  },
+  {
+   "id": "m04",
+   "trigger": "daily_checks:7",
+   "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+  },
+  {
+   "id": "m05",
+   "trigger": "stage_complete:map",
+   "message": "Explore stage done. You know when your energy dips, and what you already have to build on."
+  },
+  {
+   "id": "m06",
+   "trigger": "selfcheck:6",
+   "message": "Halfway. Your week 6 self-check now sits next to where you started."
+  },
+  {
+   "id": "m07",
+   "trigger": "toolkit_uses:10",
+   "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+  },
+  {
+   "id": "m08",
+   "trigger": "stage_complete:build",
+   "message": "Build stage done. You've added small things for your gut, your meals and your energy."
+  },
+  {
+   "id": "m09",
+   "trigger": "first_repeat",
+   "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+  },
+  {
+   "id": "m10",
+   "trigger": "stage_complete:use",
+   "message": "Practice stage done. One week left to bring it all together."
+  },
+  {
+   "id": "m11",
+   "trigger": "return_after_gap",
+   "message": "Welcome back. No catching up needed. Your gut responds to what arrives now. Pick up with one small step."
+  },
+  {
+   "id": "m12",
+   "trigger": "program_complete",
+   "message": "Twelve weeks done. Here's where you started, and where you are now."
+  }
+ ],
+ "plan_sections": [
+  {
+   "id": "p1",
+   "title": "Your why"
+  },
+  {
+   "id": "p2",
+   "title": "Your patterns"
+  },
+  {
+   "id": "p3",
+   "title": "What you're adding"
+  },
+  {
+   "id": "p4",
+   "title": "Easy meals and your kitchen"
+  },
+  {
+   "id": "p5",
+   "title": "Calm around food"
+  },
+  {
+   "id": "p6",
+   "title": "Hard weeks and restarts"
+  }
+ ],
+ "finish": {
+  "summary": "Twelve weeks ago, you started by noticing when your energy dipped and what was already on your plate. Since then, you've added small things for your gut, steadier meals and a few key nutrients. You've set up easy meals for hard days and looked at food rules with fresh eyes. None of it needed counting or cutting. Your plan is here for the harder stretches. Small and steady is enough.",
+  "book_bridge": "Every tool here comes from Nourished by Maya Vaughn. The book tells the full stories of Maya, Theo, Priya, Doug, and Renee, and explains the science behind each step. You can find it in Books."
+ },
+ "keep_going": {
+  "monthly_questions": [
+   "Which addition is still part of your week without much effort?",
+   "Has food felt calm this month? If anything felt tense, what's one kinder change?",
+   "After any break this month, what helped you restart?"
+  ],
+  "refresher_ids": [
+   "e01",
+   "e02",
+   "e03",
+   "e05",
+   "e07",
+   "e09",
+   "e14"
+  ]
+ },
+ "cut_log": [
+  {
+   "item": "Supplement doses and products (omega-3 and EPA dosing, fish oil labels, vitamin D units, magnesium forms and doses, B12 forms, L-methylfolate, 5-HTP and others)",
+   "chapter": "Chapters 1, 2, 5, 6, 7 and 13; Appendix D",
+   "reason": "Supplements appear only as 'talk to a doctor first' (start note, e11, e12, t06). No doses, forms or products, so nothing reads as prescribing."
+  },
+  {
+   "item": "Thirty-plant target and the weekly plant count",
+   "chapter": "Chapter 4, The Thirty-Plant Target; Chapter 12; Appendix A, The Plant Diversity Count",
+   "reason": "Counting can turn into vigilance, which the book itself warns about in Chapter 12. Kept as adding a few new plants (e05) and Priya's list with no number (e09, t07)."
+  },
+  {
+   "item": "Gram targets for protein and fiber, and the fiber estimate",
+   "chapter": "Chapters 4, 8 and 13; Appendix C",
+   "reason": "No numbers about amounts of food. Kept as protein being present (e07, e08) and adding beans (e06)."
+  },
+  {
+   "item": "Full food diaries and the one-week food log",
+   "chapter": "Chapter 1 Learning Points; Appendix B; Appendix F",
+   "reason": "Detailed records of everything eaten can feed preoccupation. e01 uses timed energy ratings and a short checklist of what came before."
+  },
+  {
+   "item": "Ingredient test, NOVA classification and ultra-processed food evidence",
+   "chapter": "Chapter 9; Appendix A, The Ingredient Test",
+   "reason": "Sorting foods by category risks good and bad food labels. Kept the displacement idea (add, and the rest shifts) and Priya's no-shame reading of her freezer (e16)."
+  },
+  {
+   "item": "Alcohol chapter: Monday Mood Audit, drink counts, harm reduction and a thirty-day break",
+   "chapter": "Chapter 10; Appendix A; Appendix E",
+   "reason": "Drinking has its own higher-tier workbook with a medical warning. Counting and cutting drinks sits outside a standard-tier food workbook. Help now and the start note carry the route to support."
+  },
+  {
+   "item": "Medication interactions (MAOIs, lithium, SSRIs, blood thinners, metformin, PPIs)",
+   "chapter": "Disclaimer; Chapters 5 and 6",
+   "reason": "Replaced by the start note: do not change medication or supplements, talk to a doctor. Long-term reflux or diabetes medicine stays only as a reason to ask about B12 in e12."
+  },
+  {
+   "item": "Vitamin D latitude line, skin-tone dosing and test names (MMA, holotranscobalamin)",
+   "chapter": "Chapter 6; Chapter 13; Appendix A",
+   "reason": "Kept as plain questions to ask a doctor in e12. No units, cut-offs or lab values."
+  },
+  {
+   "item": "Orthorexia and eating disorder detail",
+   "chapter": "Chapter 12, When Nutrition Knowledge Becomes the Problem; Disclaimer; Appendix E",
+   "reason": "Not an exercise. Carried as the start safety note, the stop step in e09 and e18, t07, and the calm-around-food check-in field."
+  },
+  {
+   "item": "Statistics, trial names, researcher names and effect sizes",
+   "chapter": "Introduction; Chapters 1 to 13",
+   "reason": "Not needed for instruction. The evidence filter (t06) keeps the book's way of reading claims."
+  },
+  {
+   "item": "Weight, calories and body-composition references",
+   "chapter": "Chapters 1, 8 and 9",
+   "reason": "Left out entirely for eating-disorder safety."
+  },
+  {
+   "item": "Day-by-day thirty-day calendar",
+   "chapter": "Chapter 13; Appendix C",
+   "reason": "Its order (gut, blood sugar, nutrients, pattern) sets weeks 3 to 11. Day-level tasks are not repeated."
+  },
+  {
+   "item": "Working with a registered dietitian",
+   "chapter": "Appendix F",
+   "reason": "The brief asks for 'talk to a doctor'. A dietitian line could be added to the safety note if Crent wants it."
+  }
+ ]
+}

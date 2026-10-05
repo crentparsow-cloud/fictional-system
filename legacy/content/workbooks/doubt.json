@@ -1,0 +1,2729 @@
+{
+  "schema_version": "1.0",
+  "id": "doubt",
+  "status": "draft",
+  "topic_name": "Doubt",
+  "tagline": "Twelve weeks of small steps, at your pace, to loosen the grip of doubt",
+  "set_id": "worry-and-fear",
+  "safety_tier": "higher",
+  "source_book": {
+    "title": "Loosening the Grip",
+    "author": "Maya Vaughn",
+    "manuscript_file": "MH_Final/Loosening_the_Grip_Corrected.docx"
+  },
+  "start": {
+    "welcome": "If doubt keeps pulling you back to check, review, or ask one more time, this is built for that. It's twelve weeks of small steps, drawn from the book Loosening the Grip. Most weeks take 15 to 30 minutes. The aim is to loosen doubt's grip, not to stop every thought. You set the pace throughout. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard weeks.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If doubt took up less of your day, what would you do with the time? One line is enough.",
+    "higher_tier_note": "This workbook is designed to be used alongside professional support. Where you can, work through it with a therapist trained in exposure and response prevention, a specialist approach to doubt and rituals. If you already see someone, show them this workbook. The facing steps here are small, and you choose every one. You can pause or stop at any time, and nothing is required.",
+    "extra_safety_note": "If rituals take hours of your day, or you are avoiding large parts of your life, the book recommends getting professional support before you start the facing steps. If you ever have thoughts of harming yourself, or of acting on a thought, with real intent or a plan, that is different from a doubt. Stop and tap Help now, or contact a doctor or crisis line today. If you take medication, do not change it based on anything in this workbook. Talk to your prescriber first."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "seeing",
+        "label": "Seeing the loop"
+      },
+      {
+        "id": "thoughts",
+        "label": "Letting thoughts be thoughts"
+      },
+      {
+        "id": "urges",
+        "label": "Urges and small steps"
+      },
+      {
+        "id": "room",
+        "label": "Room for your life"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "seeing",
+        "text": "You notice when you're in a loop."
+      },
+      {
+        "id": "q02",
+        "area": "seeing",
+        "text": "You can name a ritual while it's happening, or soon after."
+      },
+      {
+        "id": "q03",
+        "area": "seeing",
+        "text": "You notice rituals that happen in your head, not only ones others can see."
+      },
+      {
+        "id": "q04",
+        "area": "seeing",
+        "text": "You can tell when your thinking has started going in circles."
+      },
+      {
+        "id": "q05",
+        "area": "thoughts",
+        "text": "When an unwanted thought arrives, you can let it pass without debating it."
+      },
+      {
+        "id": "q06",
+        "area": "thoughts",
+        "text": "A thought feels like a thought, rather than a fact about who you are."
+      },
+      {
+        "id": "q07",
+        "area": "thoughts",
+        "text": "You can leave a doubt unanswered and get on with your day."
+      },
+      {
+        "id": "q08",
+        "area": "thoughts",
+        "text": "You can stop after one pass at a worrying thought."
+      },
+      {
+        "id": "q09",
+        "area": "urges",
+        "text": "When an urge comes, you can wait a while before acting on it."
+      },
+      {
+        "id": "q10",
+        "area": "urges",
+        "text": "You can stay with unease until it starts to soften."
+      },
+      {
+        "id": "q11",
+        "area": "urges",
+        "text": "You do some things you used to avoid, at a pace that suits you."
+      },
+      {
+        "id": "q12",
+        "area": "urges",
+        "text": "You can check something once, then let it be."
+      },
+      {
+        "id": "q13",
+        "area": "room",
+        "text": "Rituals leave you time for the things you want to do."
+      },
+      {
+        "id": "q14",
+        "area": "room",
+        "text": "You spend time on what matters to you, even with doubt around."
+      },
+      {
+        "id": "q15",
+        "area": "room",
+        "text": "You can finish a task at good enough and move on."
+      },
+      {
+        "id": "q16",
+        "area": "room",
+        "text": "The people close to you know what helps you."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Harder weeks show up here too, and that's useful to know."
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_zone",
+        "type": "checklist",
+        "label": "Your zone on most days this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "If it was Red, please pause the facing steps and talk to your therapist or doctor."
+      },
+      {
+        "id": "c_tools",
+        "type": "checklist",
+        "label": "Tools you used",
+        "options": [
+          "From your Toolkit"
+        ]
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One win, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_steps",
+        "type": "weekly_grid",
+        "label": "Days you took a small step",
+        "help": "Facing steps start in week 7. Leave this blank until then. Any number is fine, including zero."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How loose was doubt's grip today?",
+    "scale_low": "Tight all day",
+    "scale_high": "Loose, in the background",
+    "tags": [
+      "Did my color check",
+      "Used the delay",
+      "Said maybe, maybe not",
+      "Took a small step",
+      "Had phone-free time",
+      "Slept well",
+      "Moved my body",
+      "Talked to someone"
+    ]
+  },
+  "stages": [
+    {
+      "id": "map",
+      "number": 1,
+      "name": "Explore",
+      "weeks": [
+        1,
+        2
+      ],
+      "primer": {
+        "title": "See the loop clearly first",
+        "figure": "fig_looking_at_map",
+        "body": "The Explore stage is about seeing, not changing. Over two weeks, you'll take a snapshot of your main doubts and rituals, and trace one loop from start to finish. Nothing asks you to stop a ritual yet. Many people find that naming the loop makes it feel less mysterious. By the end, you'll know where to aim the rest of the work."
+      },
+      "outcome": "A snapshot of your doubts and rituals, and one loop traced from start to finish.",
+      "review_question": "What did you notice about your own loop?"
+    },
+    {
+      "id": "build",
+      "number": 2,
+      "name": "Build",
+      "weeks": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "primer": {
+        "title": "Build your tools, one at a time",
+        "figure": "fig_three_cards",
+        "body": "In the Build stage, you set up tools before you lean on them. You'll find the rituals that happen in your head, name the beliefs behind the pull, relabel a thought, and delay an urge. Then you'll list what you avoid and build a ladder of small steps, easiest first. You choose every step, and you can pause any of them. Week 7 brings your first two-minute step."
+      },
+      "outcome": "Tools for thoughts and urges, your reasons, and a ladder of small steps you chose.",
+      "review_question": "Which tool helped most, and which one hasn't fit yet?"
+    },
+    {
+      "id": "use",
+      "number": 3,
+      "name": "Practice",
+      "weeks": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "primer": {
+        "title": "Small steps, at your pace",
+        "figure": "fig_walking",
+        "body": "Now you try your tools on real days. The Practice stage covers keeping your steps going, letting go of just-in-case habits, doing a little less of a ritual, and answering doubt without settling it. It also looks at your phone, your support, and your standards. Every step has a stop rule. In Yellow, go lower. In Red, pause and reach out for support."
+      },
+      "outcome": "Your tools tried on real days, with your phone, your support, and your standards.",
+      "review_question": "Where did your tools hold up best, and where did they need changing?"
+    },
+    {
+      "id": "keep",
+      "number": 4,
+      "name": "Keep",
+      "weeks": [
+        12
+      ],
+      "primer": {
+        "title": "Make it yours to keep",
+        "figure": "fig_writing",
+        "body": "The Keep stage brings twelve weeks together. You'll write your warning signs, your plans for Yellow and Red, and a simple routine for the long run. Write it while things are calm, so it's ready on a harder week. It doesn't need to be perfect, just clear enough to follow when you're tired."
+      },
+      "outcome": "Your warning signs, your Yellow and Red plans, and a routine for the long run, saved in your plan.",
+      "review_question": "What will you keep doing now that the twelve weeks are done?"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Take a snapshot of your doubts",
+      "exercise_ids": [
+        "e01"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t02",
+        "t10"
+      ]
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Trace one loop from start to finish",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Find the rituals that are hard to see",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Relabel thoughts, and delay urges",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ]
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "See what you avoid, and ride an urge",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "selfcheck": false,
+      "new_toolkit_ids": [
+        "t05"
+      ]
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Your reasons, and your ladder",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Plan and take one small step",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Keep steps going, gently",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Do a little less, and say maybe",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Think once, and set guardrails",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e07"
+      ],
+      "new_toolkit_ids": [
+        "t07",
+        "t08"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Your support, and good enough",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Take your snapshot",
+      "purpose": "A one-page snapshot of your top doubts, the rituals they pull you toward, and your zone today.",
+      "why": "Doubt can feel huge and shapeless, so the book starts small. Name your three most frequent doubts and the three rituals you reach for most. A ritual is anything you do to ease the doubt, like checking, reviewing, searching, or asking, out loud or in your head. You don't need the whole list. A starting point is enough.",
+      "source": {
+        "chapter": "Quick Start, Complete the OCD Snapshot and Learn the Green-Yellow-Red System; Introduction, The Green-Yellow-Red System; Chapter 1, Tools, OCD Snapshot (expanded); Chapter 1, Troubleshooting"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write the three doubts that show up most. Shorthand or a code word is fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You never need to write a thought out in full. A label like \"the door\" works.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the three rituals you reach for most, visible or in your head.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Not sure? Ask what you do right after the doubt arrives. That's usually the ritual.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick your zone today: Green, Yellow, or Red. It's a compass, not a test.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If you picked Red, the book suggests getting professional support before the facing steps in week 7.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam runs a small plumbing business in Houston and has lived with checking for over twenty years. His doubts center on locks, appliances, and his own health. His rituals: testing the front door handle again and again, rereading emails until they feel right, and searching symptoms online. He understood the loop in theory. Seeing his doubts and rituals side by side made it plain that different doubts led to the same move: checking for a certainty that never lasted."
+      },
+      "fields": [
+        {
+          "id": "f_doubts",
+          "type": "long_text",
+          "label": "Your top three doubts",
+          "help": "Shorthand or a code word is fine. For example: the door, the email, the comment."
+        },
+        {
+          "id": "f_rituals",
+          "type": "long_text",
+          "label": "Your top three rituals",
+          "help": "For example: checking the lock again, rereading, searching online, asking someone."
+        },
+        {
+          "id": "f_zone",
+          "type": "checklist",
+          "label": "Your zone today",
+          "options": [
+            "Green: doubt is there, but you're managing and life is working",
+            "Yellow: rituals or avoiding are growing, and things are harder",
+            "Red: rituals take hours, or doubt is running most of your day"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one doubt and one ritual, in shorthand if you like.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_doubts",
+          "f_rituals"
+        ]
+      },
+      "done_when": "Your snapshot is written. It's your starting point, and it can change.",
+      "repeat_weeks": [
+        12
+      ],
+      "reflect": "Which ritual do you think takes the most of your time?",
+      "feeds_plan": [
+        {
+          "field_id": "f_doubts",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_rituals",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Trace one loop",
+      "purpose": "One real loop traced through its six steps, so you can see where you have room to act.",
+      "why": "Every loop follows the same six steps: trigger, doubt, distress, ritual, relief, and return. The relief is real but short, and it teaches your brain the ritual was needed. You can't choose the thoughts or the first wave of feeling. What you do next is where you have room. This week, just watch.",
+      "source": {
+        "chapter": "Chapter 2, The Cycle, Step by Step; Where You Have Leverage; Tools, Personal Cycle Map and Where to Intervene Log; Troubleshooting"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one loop from the past day or two. The one that takes most time is a good start.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Trigger: what started it? A place, an object, a message, or a feeling.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Doubt: give it a shorthand label. You don't need to write it out.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Distress: name the feeling, and rate it from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Ritual and relief: what did you do, and how long did the relief last?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Return: when did the doubt come back? Note where in the loop you first noticed.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena, recently retired in Melbourne, never thought of herself as anxious. Her adult daughter had struggled with doubt for years, and Elena was the one who answered the late-night calls. One Tuesday afternoon, she caught herself checking her daughter's social media for the third time that day. Nothing worrying had been posted. She traced it: a shapeless dread, the check, a little relief, then the dread again. She was in the same loop she had watched her daughter live in."
+      },
+      "fields": [
+        {
+          "id": "f_trigger",
+          "type": "short_text",
+          "label": "The trigger",
+          "help": "For example: walking past the front door."
+        },
+        {
+          "id": "f_doubt",
+          "type": "short_text",
+          "label": "The doubt, as a shorthand label"
+        },
+        {
+          "id": "f_distress",
+          "type": "scale_0_10",
+          "label": "How strong the distress was"
+        },
+        {
+          "id": "f_ritual",
+          "type": "short_text",
+          "label": "The ritual, and how long the relief lasted",
+          "help": "For example: checked the lock twice. Relief for a few minutes."
+        },
+        {
+          "id": "f_noticed",
+          "type": "checklist",
+          "label": "Where you first noticed the loop",
+          "options": [
+            "At the trigger",
+            "At the doubt",
+            "At the feeling",
+            "During the ritual",
+            "Only afterward"
+          ]
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one loop from today. Write what started it and what you did.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_trigger",
+          "f_ritual"
+        ]
+      },
+      "done_when": "You've traced one loop from start to finish. It has a shape now.",
+      "repeat_weeks": [
+        9
+      ],
+      "reflect": "Where did you first notice the loop? Early or late are both useful to know.",
+      "feeds_plan": [
+        {
+          "field_id": "f_trigger",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Find the hidden rituals",
+      "purpose": "A list of the rituals that happen in your head, which are the easiest to miss.",
+      "why": "Many rituals are silent. Replaying a conversation, scanning for a feeling, swapping a bad thought for a good one, arguing with the doubt, or asking yourself \"am I sure?\" all follow the same loop. One test helps. If you feel driven to do it, stopping raises distress, and the relief fades, it's likely a ritual.",
+      "source": {
+        "chapter": "Chapter 1, Visible and Invisible Compulsions; A Note on Pure O; Chapter 6, Mental Compulsions: The Invisible Half; Rumination as Compulsion"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the list of rituals that happen in your head.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick any that sound familiar, even a little.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "For each one, ask: do I feel driven to do this, rather than choosing it?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: does stopping make the distress rise? Does the relief fade, then the doubt return?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice thinking that circles the same question for over two minutes. That often counts too.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write down the one that takes the most time.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Alex",
+        "text": "Alex works in digital marketing in Los Angeles. At work he seems confident, and at home he seems attentive. Inside, he checks his own feelings for his partner again and again, and compares them with how he felt in their early months. He called it reflection. His therapist gave him a simple test: did it move toward a conclusion, or loop? Alex admitted it looped. It ran until he was too tired to go on."
+      },
+      "fields": [
+        {
+          "id": "f_mental",
+          "type": "checklist",
+          "label": "Rituals in your head that sound familiar",
+          "options": [
+            "Replaying a conversation or event",
+            "Scanning your body or feelings for a sign",
+            "Swapping a bad thought for a good one",
+            "Repeating a word or phrase silently",
+            "Arguing with the doubt to prove it wrong",
+            "Asking yourself \"am I sure?\"",
+            "Comparing your feelings with the past, or with other people"
+          ]
+        },
+        {
+          "id": "f_main",
+          "type": "short_text",
+          "label": "The hidden ritual that takes the most time"
+        },
+        {
+          "id": "f_test",
+          "type": "short_text",
+          "label": "How you can tell it's a ritual",
+          "optional": true,
+          "help": "For example: it loops, and the relief fades fast."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you do in your head when doubt arrives.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_main"
+        ]
+      },
+      "done_when": "Your hidden rituals are named. Rituals no one can see still count.",
+      "reflect": "Did any thinking habit surprise you by turning up on the list?",
+      "feeds_plan": [
+        {
+          "field_id": "f_main",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Name the beliefs behind the pull",
+      "purpose": "The two or three beliefs that make your rituals feel necessary, named so you can spot them.",
+      "why": "Rituals can feel not just reasonable but right. The book names six beliefs behind that pull. One of the strongest is inflated responsibility: the sense that if harm is possible, preventing it is all on you. These beliefs often grow from good qualities, like care and conscientiousness. Most people have two or three that lead.",
+      "source": {
+        "chapter": "Chapter 2, Inflated Responsibility; The Six Belief Patterns That Fuel OCD; Chapter 3, Thought-Action Fusion; Tools, Thought-Action Fusion Detector"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the six beliefs. Each has a short description.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the two or three that sound most like you.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "For each, write a recent moment when it showed up. Shorthand is fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice if a thought feels as bad as a deed, or seems to make something more likely.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Next time you feel the pull, ask: is this my real share of responsibility, or more?",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan is a student in Dublin who works part-time. She cares deeply about being a good person, and doubt turned that care against her. One evening, a comment she posted in a group chat at 8 p.m. kept her up reviewing it until morning. Reading the six beliefs, she saw two of hers right away. Thinking she might have hurt someone felt as bad as doing it. And any chance of hurting someone felt like hers alone to fix."
+      },
+      "fields": [
+        {
+          "id": "f_beliefs",
+          "type": "checklist",
+          "label": "Beliefs that sound like you",
+          "options": [
+            "Inflated responsibility: preventing any possible harm feels like your job alone",
+            "Overimportance of thoughts: having a thought feels as bad as doing it",
+            "Need to control thoughts: it feels wrong or risky that you can't stop a thought",
+            "Overestimating threat: something unlikely feels close to certain",
+            "Needing certainty: you need to be completely sure before you can relax",
+            "Perfectionism: it has to feel just right, or it isn't finished"
+          ]
+        },
+        {
+          "id": "f_moments",
+          "type": "two_column",
+          "label": "When they showed up",
+          "columns": [
+            "Belief",
+            "A recent moment"
+          ]
+        },
+        {
+          "id": "f_top",
+          "type": "short_text",
+          "label": "Your top two or three beliefs"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one belief that sounds most like you, and write it down.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_top"
+        ]
+      },
+      "done_when": "Your main beliefs are named. They're patterns, not truths about you.",
+      "reflect": "Which belief feels most like a good quality turned against you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_top",
+          "plan_section": "p2"
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Relabel an unwanted thought",
+      "purpose": "Practice moving an unwanted thought from signal to noise, without debating it.",
+      "why": "Nearly everyone has unwanted thoughts, including odd or upsetting ones. What makes a thought stick is taking it as meaningful and trying to solve it. The book's key shift relabels it instead: \"This is a thought my brain produced. It does not require action.\" You don't need to believe it at first. Practice comes before belief.",
+      "source": {
+        "chapter": "Chapter 3, Quick Tool: The Key Shift; Everyone Has Intrusive Thoughts; Why Engagement Makes It Worse; Tools, Meaning Audit and Key Shift Script; Chapter 1, Troubleshooting"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "When an unwanted thought arrives, notice it. Give it a shorthand label.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the label only. You never need to write the thought in full.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what doubt says the thought means about you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Then write your key shift line beside it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Go back to what you were doing. No debate needed.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you catch yourself debating, that's okay. Notice it, and come back.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Alex",
+        "text": "One evening, Alex was on the couch with his partner, watching a movie. She laughed, and he felt a rush of warmth. Then the doubt: was the warmth real? The feeling faded, and he reached for his phone to search, as he had hundreds of times before. The book compares a thought to a notification on your phone. You can see it without opening it, replying, or acting on it. It sits there until it fades."
+      },
+      "fields": [
+        {
+          "id": "f_label",
+          "type": "short_text",
+          "label": "The thought, as a shorthand label"
+        },
+        {
+          "id": "f_means",
+          "type": "short_text",
+          "label": "What doubt says it means",
+          "help": "For example: that I'm a bad person, or that something will go wrong."
+        },
+        {
+          "id": "f_shift",
+          "type": "short_text",
+          "label": "Your key shift line",
+          "help": "For example: \"This is a thought my brain produced. It does not require action.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "At the next unwanted thought, say your key shift line once. Then carry on.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_shift"
+        ]
+      },
+      "done_when": "You've relabeled a thought without debating it. That's the whole skill.",
+      "repeat_weeks": [
+        8
+      ],
+      "reflect": "What was it like to leave the thought unanswered?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_shift",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Try the delay",
+      "purpose": "A first try at putting a gap between an urge and a ritual, and what the urge did.",
+      "why": "Rituals can feel urgent, as if they can't wait. The delay tests that. When the urge comes, set a timer and wait before acting. You aren't fighting the urge or trying to get rid of it. You're learning how long it lasts. Many urges peak and ease within ten minutes. Any gap counts, even two minutes.",
+      "source": {
+        "chapter": "Quick Start, Try the 10-Minute Delay; Chapter 6, Quick Tool: The 10-Minute Delay; Visible Compulsions: Delay, Reduce, Eliminate"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose a ritual from your snapshot to practice with. A smaller one is a good start.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "When the urge comes, rate it from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Set a timer for 10 minutes. If that's too long, try 5, or 2.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Don't argue with the urge. Let it be there, and carry on with something.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "When the timer ends, rate the urge again. Then you decide what to do.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "In a coffee shop in Dublin, Jordan's thumb hovered over an apology. Her brain said a comment she'd made that morning could sound judgmental. She set a 10-minute timer and put her phone face down. The first three minutes were the worst. At five, the urge softened a notch. At ten, it had dropped from about 8 to about 5. She didn't send the apology. Two hours later, the chat had moved on. Nobody had replied to her comment at all."
+      },
+      "fields": [
+        {
+          "id": "f_ritual",
+          "type": "short_text",
+          "label": "The ritual you practiced with"
+        },
+        {
+          "id": "f_before",
+          "type": "scale_0_10",
+          "label": "The urge at the start"
+        },
+        {
+          "id": "f_after",
+          "type": "scale_0_10",
+          "label": "The urge when the timer ended"
+        },
+        {
+          "id": "f_length",
+          "type": "short_text",
+          "label": "How long you waited",
+          "help": "Any gap counts. Two minutes is a real start."
+        },
+        {
+          "id": "f_notice",
+          "type": "short_text",
+          "label": "What you noticed while you waited",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "When an urge comes, wait 2 minutes before acting. Notice what it does.",
+            "figure": "fig_clock_check"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_length"
+        ]
+      },
+      "done_when": "You've put a gap between an urge and a ritual. That gap is where change starts.",
+      "repeat_weeks": [
+        10
+      ],
+      "reflect": "What did the urge do while you waited? If it held steady, that's useful to know too.",
+      "toolkit_link": "t04"
+    },
+    {
+      "id": "e07",
+      "title": "List what you avoid",
+      "purpose": "A list of what you avoid or put up with because of doubt, the raw material for your ladder.",
+      "why": "Avoiding a trigger brings quick relief, but it tells your brain the trigger was a real threat. Over time the list grows, and life gets smaller. Some things you avoid completely. Others you get through with distress, or only with a just-in-case habit. Seeing them all is the first step. You're not changing anything this week.",
+      "source": {
+        "chapter": "Quick Start, Your Quick Start Hierarchy; Chapter 4, Quick Tool: The Avoidance Inventory; Why Avoidance Makes OCD Worse; Tools, Avoidance Inventory"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List things you avoid because of what doubt says might happen. Leave out things that are truly risky.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Be specific. Not \"going out\", but \"door handles in public without my sleeve.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add things you still do, but only with a lot of distress.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add things you do only with a just-in-case habit, like checking twice first.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each one, write: avoid, distress, or habit.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam's list had grown over twenty years without his quite noticing. He had stopped cooking on the stovetop, because checking the gas took too long. He turned down invitations that kept him away from home for more than a few hours, because the doubt about the front door got too loud at a distance. Written down, the list showed him how much of his life doubt had been deciding."
+      },
+      "fields": [
+        {
+          "id": "f_list",
+          "type": "two_column",
+          "label": "What you avoid or put up with",
+          "columns": [
+            "The situation",
+            "Avoid, distress, or habit"
+          ],
+          "help": "For example: cooking on the stove. Avoid."
+        },
+        {
+          "id": "f_cost",
+          "type": "short_text",
+          "label": "What this has cost you",
+          "optional": true,
+          "help": "For example: evenings out, time, cooking at home."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things you avoid because of doubt.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_list"
+        ]
+      },
+      "done_when": "Your list is written. It's raw material for later, nothing more yet.",
+      "repeat_weeks": [
+        10
+      ],
+      "reflect": "Which item on your list would you most like to get back?",
+      "feeds_plan": [
+        {
+          "field_id": "f_list",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Ride an urge",
+      "purpose": "A way to watch an urge rise, peak, and ease, without obeying it or fighting it.",
+      "why": "Fighting an urge says it's a threat. Riding it is more like watching a wave build, crest, and ease on its own. Naming it, and noticing where it sits in your body, puts you in the observer's seat. Naming the feeling helps too. The urge may not reach zero. Seeing it change, even a little, is the point.",
+      "source": {
+        "chapter": "Chapter 6, Urge Surfing; Chapter 4, Key Principles of Inhibitory Learning (affect labeling); Chapter 5, During the Exposure"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "When an urge comes, name it: \"The urge to check is here.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice where you feel it in your body.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Rate it from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Name the feeling too: \"I'm feeling anxious right now, and that's expected.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Watch it for a few minutes. Is it rising, holding steady, or easing?",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam practiced in the car. When the urge to turn back and check the front door hit, he named it: \"The checking urge is here.\" He rated it a 7 out of 10 and kept driving, watching the urge rather than obeying it. Within about five minutes, it peaked and began to ease. It didn't always reach zero. It always reached something he could manage."
+      },
+      "fields": [
+        {
+          "id": "f_urge",
+          "type": "short_text",
+          "label": "The urge you rode"
+        },
+        {
+          "id": "f_body",
+          "type": "short_text",
+          "label": "Where you felt it",
+          "help": "For example: tight chest, restless hands."
+        },
+        {
+          "id": "f_ratings",
+          "type": "two_column",
+          "label": "Your ratings, 0 to 10",
+          "columns": [
+            "At the start",
+            "A few minutes later"
+          ],
+          "help": "Rough numbers are fine."
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Name the urge, rate it, and watch it for one minute.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_urge"
+        ]
+      },
+      "done_when": "You've watched an urge change without obeying it or fighting it.",
+      "repeat_weeks": [
+        11
+      ],
+      "reflect": "What surprised you about how the urge behaved?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_urge",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Write your reasons",
+      "purpose": "Your top three reasons for this work, written while you're calm, to come back to when it's hard.",
+      "why": "Doubt can shrink a life down to a few rituals. Small steps are easier when they serve something you care about. The book asks for reasons in terms of what you'd get back, like a calmer morning or an evening fully present. Leave out \"because I should.\" Your reasons give the discomfort a purpose.",
+      "source": {
+        "chapter": "Chapter 4, Building Your Exposure Hierarchy, Step 6; Tools, Values Anchor Page; Introduction, What OCD Steals; Chapter 12, Values-Based Living"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about what doubt has taken: time, energy, confidence, connection, or peace.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what you'd do with some of that back. Be concrete.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Shape each into one sentence, in your own words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick your top three. Leave out any that start with \"I should.\"",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Save them where you'll see them before a facing step.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Sam and Alex",
+        "text": "Sam's reason was simple: \"I want to leave the house in the morning and arrive at work without losing twenty minutes to the door.\" Alex wrote: \"I want to enjoy an evening with my partner without spending the next two hours searching for reassurance online.\" Neither reason asked doubt to disappear. Each named something worth a little discomfort."
+      },
+      "fields": [
+        {
+          "id": "f_taken",
+          "type": "short_text",
+          "label": "What doubt has taken from you",
+          "optional": true
+        },
+        {
+          "id": "f_reasons",
+          "type": "ranked_list",
+          "label": "Your top three reasons",
+          "max_items": 3,
+          "help": "For example: \"I want to cook dinner without checking the stove again and again.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence: what would you do with the time doubt takes?",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_reasons"
+        ]
+      },
+      "done_when": "Your reasons are written, ready for the moments a step feels hard.",
+      "reflect": "Which reason feels most like you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_reasons",
+          "plan_section": "p1"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Build your step ladder",
+      "purpose": "A ladder of small facing steps, easiest first, built from your list and set at your pace.",
+      "why": "Facing what doubt warns you about, a little at a time, is how the book loosens its grip. It's gradual, and you choose every step. Being thrown in at the deep end is not the method, and the book does not recommend it. You start at the bottom with something uncomfortable but manageable. Each step makes the next one easier.",
+      "source": {
+        "chapter": "Chapter 4, Building Your Exposure Hierarchy; ERP Is Not Flooding; Troubleshooting; Tools, 7-Step Hierarchy Builder; Chapter 5, Troubleshooting"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Take items from your avoid list. Five is plenty to start.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate each from 0 to 10: how hard would it feel without the ritual?",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Put them in order, easiest first.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "For each, write the step exactly, and the ritual you'd hold off.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If even the easiest feels too hard, break it into a smaller step. There's always one.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Your ladder is yours. You can change it, or leave a step for later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam's ladder started small. Leave a cabinet door slightly open, and don't go back to close it. Next, turn off the kitchen light and leave the room without looking back. Further up: lock the front door, walk to the car, and drive away without returning. His hardest steps, like a whole workday with no checking, sat at the top. He could see them there without starting there."
+      },
+      "fields": [
+        {
+          "id": "f_ladder",
+          "type": "ranked_list",
+          "label": "Your ladder, easiest first",
+          "max_items": 10,
+          "help": "Plain words or shorthand. For example: send an email after one read."
+        },
+        {
+          "id": "f_ratings",
+          "type": "two_column",
+          "label": "How hard each step feels",
+          "columns": [
+            "Step",
+            "0 to 10"
+          ]
+        },
+        {
+          "id": "f_holdoff",
+          "type": "short_text",
+          "label": "The ritual you'd hold off on the first step"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two small steps from your avoid list, easiest first.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ladder"
+        ]
+      },
+      "done_when": "Your ladder is written. You choose when, and whether, to take each step.",
+      "repeat_weeks": [
+        11
+      ],
+      "reflect": "How does it feel to see the steps laid out in order?",
+      "feeds_plan": [
+        {
+          "field_id": "f_ladder",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Plan your first small step",
+      "purpose": "One small step planned in detail: what you'll do, what you predict, and your stop rule.",
+      "why": "A plan takes out the guesswork, and guesswork is where doubt likes to bargain. Pick one low step, decide exactly what you'll do, and write what you think will happen. That prediction matters. Comparing it with what really happens is where much of the learning comes from. If you see a therapist, plan this together.",
+      "source": {
+        "chapter": "Chapter 5, Preparing for an Exposure Session; Tools, Exposure Guidelines Checklist and Pre-Exposure Preparation Template; Chapter 4, Expectancy Violation"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a low step from your ladder, one that feels uncomfortable but manageable.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write exactly what you'll do, and for how long. Two minutes is enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name the ritual you'll hold off, including any in your head.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your prediction: what do you think will happen?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick a time, and add one of your reasons.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam planned the lowest step on his ladder: leave a cabinet door slightly open, walk out of the room, and sit in the living room. He named the ritual he would hold off: going back to close it. His prediction was that the unease would keep climbing until he couldn't stand it."
+      },
+      "fields": [
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your step",
+          "help": "For example: leave the kitchen light off and walk away, for two minutes."
+        },
+        {
+          "id": "f_holdoff",
+          "type": "short_text",
+          "label": "The ritual you'll hold off"
+        },
+        {
+          "id": "f_predict",
+          "type": "short_text",
+          "label": "Your prediction"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll try it"
+        },
+        {
+          "id": "f_ifstop",
+          "type": "short_text",
+          "label": "What you'll do if you stop",
+          "help": "For example: ride the urge, and try a smaller step another day."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one tiny step, and write what you predict will happen.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_step",
+          "f_predict"
+        ]
+      },
+      "done_when": "Your first step is planned. You choose whether to take it, and when.",
+      "reflect": "How sure do you feel about your prediction?"
+    },
+    {
+      "id": "e12",
+      "title": "Take a two-minute step",
+      "purpose": "Your first small facing step, two minutes long, and what you noticed afterward.",
+      "why": "The earlier weeks lead to this. Two minutes, one step, and no ritual if you can manage it. The unease will probably rise. That's expected, and it tends to peak and then change. You don't need to feel calm afterward. What matters is staying with it a little, and seeing what really happens.",
+      "source": {
+        "chapter": "Chapter 5, Quick Tool: The 2-Minute Exposure; The Green-Yellow-Red Applied to Exposure; During the Exposure; Sam's Hierarchy in Action"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Do your color check first. In Yellow, choose a lower step. In Red, pause this one.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Rate your unease from 0 to 10. Then take your step for two minutes.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Stay with what you feel. Notice where it sits in your body.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If it helps, say to yourself: \"I'm choosing to stay.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Afterward, rate again. Compare what happened with your prediction.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam left the cabinet door slightly open and sat in the living room for twenty minutes. His brain told him to go back and close it. He didn't. His unease rose to about 4 out of 10, held for ten minutes, then dropped to around 2. He had expected it to keep climbing until it was unbearable. It didn't."
+      },
+      "fields": [
+        {
+          "id": "f_before",
+          "type": "scale_0_10",
+          "label": "Unease before"
+        },
+        {
+          "id": "f_after",
+          "type": "scale_0_10",
+          "label": "Unease after"
+        },
+        {
+          "id": "f_happened",
+          "type": "long_text",
+          "label": "What actually happened"
+        },
+        {
+          "id": "f_learned",
+          "type": "short_text",
+          "label": "What this tells you",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take your step for one minute. Then write one line about what happened.",
+            "figure": "fig_walking"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_happened"
+        ]
+      },
+      "done_when": "You've taken a facing step and seen what really happened.",
+      "reflect": "How did what happened compare with what you expected?"
+    },
+    {
+      "id": "e13",
+      "title": "Keep a step log",
+      "purpose": "A running log of your steps, so you can see the trend over weeks, not one session.",
+      "why": "One step teaches a little. Repeating steps, at different times and places, teaches more. A log holds on to the learning, because it records the gap between what you feared and what happened. Some sessions will go less well, and a ritual may slip in. That's information, not a verdict. The trend matters more than any one day.",
+      "source": {
+        "chapter": "Chapter 5, After the Exposure; When Exposure Does Not Go Well; Tools, Exposure Log; Chapter 4, Key Principles of Inhibitory Learning (variability)"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "After each step, log the date, the step, and your unease before and after.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your prediction and what really happened, side by side.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If a ritual slipped in, note when, and what set it off.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Try the same step at a different time or place, if you can.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Move up a rung only when you're ready. Staying put is fine.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam slipped often in the early weeks. He would leave without checking, drive for five minutes, then call his wife to ask her to check the door. He knew the call was a ritual. But it was smaller than driving back himself. The next week, he waited ten minutes before calling. The week after, he didn't call at all. The trend mattered more than any single day."
+      },
+      "fields": [
+        {
+          "id": "f_log",
+          "type": "two_column",
+          "label": "Your steps",
+          "columns": [
+            "Step and date",
+            "Unease before and after, 0 to 10"
+          ]
+        },
+        {
+          "id": "f_compare",
+          "type": "two_column",
+          "label": "Prediction and reality",
+          "columns": [
+            "What you predicted",
+            "What happened"
+          ]
+        },
+        {
+          "id": "f_slip",
+          "type": "short_text",
+          "label": "If a ritual slipped in, what set it off",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Log one step: what you predicted, and what happened.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_compare"
+        ]
+      },
+      "done_when": "Your log has its first entries. Over the weeks, it will show your trend.",
+      "reflect": "Looking at your log so far, what has surprised you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_compare",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Spot a just-in-case habit",
+      "purpose": "One small just-in-case habit noticed, and a plan to try a step without it, when you're ready.",
+      "why": "Just-in-case habits are small things that take the edge off: carrying something reassuring, taking a set route, repeating a phrase in your head. They feel minor. But they give your brain another reason you got through, so it credits the habit instead of you. Letting them go one at a time is gradual, and you choose the order.",
+      "source": {
+        "chapter": "Chapter 5, Dropping Safety Behaviors; Tools, Safety Behavior Drop Tracker; Chapter 4, Key Principles of Inhibitory Learning"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one step from your ladder.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "List anything you do to take the edge off, during or after it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Include habits in your head, like a phrase you repeat or a quick review afterward.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose the easiest one to let go.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Try the step with the habit. Another day, try it without. Compare.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam had a habit he didn't notice for months. Driving away without checking the door, he would grip the wheel and silently repeat a phrase telling himself the door was locked. It took the edge off, just enough. His therapist pointed it out as a ritual in his head. When Sam drove in silence instead, the steps felt harder at first, and taught him far more."
+      },
+      "fields": [
+        {
+          "id": "f_habits",
+          "type": "long_text",
+          "label": "Just-in-case habits for one step",
+          "help": "For example: a repeated phrase, a set route, a quick review afterward."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "The one you'll try letting go first"
+        },
+        {
+          "id": "f_compare",
+          "type": "two_column",
+          "label": "How it went",
+          "columns": [
+            "With the habit",
+            "Without it"
+          ],
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you do to take the edge off. Just notice it for now.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "You've spotted a just-in-case habit, and you have a plan for letting it go.",
+      "reflect": "Which habit do you expect will be hardest to drop, and why?"
+    },
+    {
+      "id": "e15",
+      "title": "Delay, reduce, then let go",
+      "purpose": "A gradual plan for one ritual: wait first, then do less, at a pace you set.",
+      "why": "Going from a full ritual to none in one jump tends to backfire. The book suggests three stages. Delay the ritual first. Once that feels steady, do less of it, like checking once instead of five times. Letting it go comes last, and only when you're ready. The same stages work for rituals in your head.",
+      "source": {
+        "chapter": "Chapter 6, Visible Compulsions: Delay, Reduce, Eliminate; How to Prevent Mental Compulsions"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose one ritual. A visible one can be easier to start with.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write how much you do now. For example, five checks, or twenty minutes of reviewing.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Stage one: delay it, using the timer from week 4.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Stage two, once the delay feels steady: do a little less. Five checks become three.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "For a ritual in your head, allow one brief 30-second review, then stop.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam worked on his front door in stages over four weeks. Five checks became three. Three became one. Then, in time, none. Each step felt impossible until he did it. Then it felt merely uncomfortable. Later still, it felt normal."
+      },
+      "fields": [
+        {
+          "id": "f_ritual",
+          "type": "short_text",
+          "label": "The ritual"
+        },
+        {
+          "id": "f_now",
+          "type": "short_text",
+          "label": "How much you do now"
+        },
+        {
+          "id": "f_stages",
+          "type": "two_column",
+          "label": "Your stages",
+          "columns": [
+            "Stage",
+            "Your version"
+          ],
+          "help": "For example: delay. Wait 10 minutes. Then reduce. Check once."
+        },
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where you are this week",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one ritual, and do slightly less of it once today.",
+            "figure": "fig_hand_raised"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_ritual"
+        ]
+      },
+      "done_when": "Your ritual has a gradual plan. You set the pace for each stage.",
+      "reflect": "Which stage feels within reach right now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_stages",
+          "plan_section": "p4"
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Say maybe, maybe not",
+      "purpose": "A short answer to doubt that doesn't try to settle it, and a quick check for circling.",
+      "why": "Doubt asks questions that can't be answered for sure. Trying to settle them tends to bring the next question. The maybe response doesn't argue or prove anything. It notices the uncertainty and moves on. The first few times, it will feel unsatisfying. That feeling is the not-knowing you're getting used to.",
+      "source": {
+        "chapter": "Chapter 6, The Maybe Response; Troubleshooting; Chapter 8, Quick Tool: The Rumination Hijack Detector; The Rumination Hijack Detector: Full Checklist"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "When a doubt asks for certainty, answer: \"Maybe. Maybe not.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Then turn your attention to something outside you, like the task in front of you.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you're thinking it through, check: have I been going back and forth for over two minutes?",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Ask: am I trying to feel completely sure? Am I covering the same ground?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If yes to either, say \"maybe, maybe not\" and turn your attention outward.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Note how it felt. Unsatisfying is normal at first.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Alex",
+        "text": "A small argument that morning set off Alex's doubt at work. For three hours, he debated it in his head, comparing his irritation with how he had felt on their first vacation. Each answer brought a counterargument. At 4 p.m., a colleague asked if he was all right. He had been staring at the same spreadsheet cell for ninety minutes. That evening, he saw it clearly. The analysis itself was the ritual."
+      },
+      "fields": [
+        {
+          "id": "f_doubt",
+          "type": "short_text",
+          "label": "A doubt you answered",
+          "help": "Shorthand is fine."
+        },
+        {
+          "id": "f_felt",
+          "type": "short_text",
+          "label": "How it felt"
+        },
+        {
+          "id": "f_circle",
+          "type": "yes_no",
+          "label": "Did you catch yourself circling for over two minutes?",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Next time doubt asks for certainty, say \"maybe, maybe not\" once and move on.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_doubt"
+        ]
+      },
+      "done_when": "You have a short answer for doubt that doesn't need to win.",
+      "reflect": "What did \"maybe, maybe not\" leave you feeling, and how long did that last?",
+      "toolkit_link": "t06"
+    },
+    {
+      "id": "e17",
+      "title": "One pass, then stop",
+      "purpose": "One of four quick thinking tools, used once, with a hard stop so it doesn't become a ritual.",
+      "why": "Checking a thought can help, but with doubt it can slide into circling. So the book sets a strict rule: one pass, one balanced line, then stop. No going back to see whether it feels true. These tools suit thoughts with a clear twist, like overestimating risk. For questions about who you are, use the maybe response instead.",
+      "source": {
+        "chapter": "Chapter 8, When Thinking Helps; The One-and-Done Rule; Four Cognitive Tools That Work With OCD; Troubleshooting; Appendix A, Responsibility Pie Template"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one doubt with a clear twist, like overestimating risk or your share of responsibility.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one tool from the list. Set a two-minute timer.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write one balanced line.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When the timer ends, stop. Don't go back to check it.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Can't stop? That's useful information. Switch to \"maybe, maybe not\", or ride the urge.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan feared a comment she had made had upset someone. Her doubt gave her 100 percent of the responsibility. She drew a responsibility pie and listed everything else that shared it: how the listener read it, the context, the norms of the group, the listener's mood. Her own slice shrank to about 15 percent. She drew the pie once, and stopped there."
+      },
+      "fields": [
+        {
+          "id": "f_tool",
+          "type": "checklist",
+          "label": "The tool you used",
+          "options": [
+            "Realistic odds: write the fear, then how likely it really is",
+            "Responsibility pie: list who and what shares it. Your slice goes in last",
+            "Friend test: what would you tell a friend with this thought?",
+            "Maybe, maybe not: for thoughts that won't take a challenge"
+          ]
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "Your one balanced line"
+        },
+        {
+          "id": "f_stopped",
+          "type": "yes_no",
+          "label": "Did you stop after one pass?",
+          "optional": true
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Ask what you'd tell a friend with this doubt. Write one line, then stop.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_line"
+        ]
+      },
+      "done_when": "You've used one tool, once, and stopped. One pass is enough.",
+      "reflect": "Was stopping after one pass easy or hard? Either answer is useful.",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_tool",
+          "plan_section": "p3"
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Set digital guardrails",
+      "purpose": "A few changes to your phone and searching, so urges have less to grab onto.",
+      "why": "Searching online for an answer can feel like research, but the internet never runs out of pages. Each result brings a little relief, then a new question. Guardrails are temporary supports while you build tolerance, rather than a way of avoiding life online. The search delay is the main one. You wait, write down why, then decide.",
+      "source": {
+        "chapter": "Chapter 9, Quick Tool: The Search Delay; How the Internet Fuels OCD; Digital Guardrails; Building a Healthy Relationship with Technology"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name the apps or searches doubt uses most.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Before a reassurance search, set a 10-minute timer. Write what you'd search, and why.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If you still want to search afterward, you can. Keep it to one page and 5 minutes.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Turn off notifications for one app that often sets off a loop.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Choose a phone-free window, like one hour in the evening.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Alex",
+        "text": "One Thursday at 8 p.m., Alex put his phone in a kitchen drawer while he and his partner watched TV. A story about her coworker had set off the doubt, and his brain listed reasons to go get the phone. He stayed on the couch. The unease peaked at about twenty minutes and softened by thirty. He started with one phone-free hour each evening. Within three weeks, it ran from dinner to bed."
+      },
+      "fields": [
+        {
+          "id": "f_apps",
+          "type": "short_text",
+          "label": "Apps or searches doubt uses most"
+        },
+        {
+          "id": "f_changes",
+          "type": "checklist",
+          "label": "Guardrails you'll try",
+          "options": [
+            "The search delay",
+            "Notifications off for one app",
+            "A daily time limit for one app",
+            "A phone-free window"
+          ]
+        },
+        {
+          "id": "f_window",
+          "type": "short_text",
+          "label": "Your phone-free window",
+          "help": "For example: 8 p.m. to 9 p.m."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Next time you want to search for an answer, wait 10 minutes first. Then decide.",
+            "figure": "fig_clock_check"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_changes"
+        ]
+      },
+      "done_when": "Your guardrails are set. You can loosen them later, when you're ready.",
+      "reflect": "Which guardrail do you expect will make the biggest difference?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_changes",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Talk about what helps",
+      "purpose": "Words for a calm talk with someone close about what helps, and a reply you agree on together.",
+      "why": "When people who care about you answer the same question again and again, it comes from love. It can also keep the loop going, because the relief doesn't last. The book suggests a calm talk, as a team, with no blame. You agree together on what helps instead. Any change goes gradually, at a pace you both choose.",
+      "source": {
+        "chapter": "Chapter 10, Quick Tool: The No-Reassurance Script; How OCD Affects Relationships; Helpful Versus Unhelpful Support; The Conversation About Accommodation; The Partner and Family Support Agreement"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "If you want to, choose one person. Pick a calm time, not the middle of a loop.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Explain the loop in your own words. Frame it as teamwork.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Agree on a reply they can give when you ask. It only works if you both agree.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For example: \"I know this is the doubt. I'm not going to answer that one. I love you.\"",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Agree on what does help, like staying with you while the feeling peaks.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Change slowly. A few fewer answers each week works better than stopping all at once.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Stop rule: you can pause this plan anytime. Asking sometimes is okay. This is about less over time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena had answered her daughter's late-night questions hundreds of times. Yes, you washed your hands properly. Yes, everything's okay. Each answer held for about fifteen minutes. So Elena and her husband practiced a script at the kitchen table. When the call came, she said: \"I know this is your OCD. I am not going to answer that question. I love you.\" She stayed on the line. They both cried. Twelve minutes later, her daughter said goodnight, calmer than usual."
+      },
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who you might talk to",
+          "optional": true
+        },
+        {
+          "id": "f_script",
+          "type": "short_text",
+          "label": "Your agreed reply",
+          "help": "In your own words. Keep it short and kind."
+        },
+        {
+          "id": "f_helps",
+          "type": "long_text",
+          "label": "What does help instead",
+          "help": "For example: sit with me, remind me of my reasons, take a walk with me."
+        },
+        {
+          "id": "f_pace",
+          "type": "short_text",
+          "label": "Your pace for changing it",
+          "help": "For example: three answers a day this week, then two."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the reply you'd like someone to give, in your own words.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_script"
+        ]
+      },
+      "done_when": "You have words for a support talk, ready for whenever you choose to have it.",
+      "reflect": "What would you most want the people close to you to understand?",
+      "feeds_plan": [
+        {
+          "field_id": "f_helps",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_script",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Good enough, on purpose",
+      "purpose": "One everyday task done to good enough, and a look at what really happened.",
+      "why": "Some rituals hide inside high standards: rereading, redoing, or waiting for a task to feel just right. That feeling may never arrive, and the time adds up. Doing one task to good enough is a small facing step. The not-quite-right feeling usually peaks and softens. Then notice whether anything you feared actually happened.",
+      "source": {
+        "chapter": "Chapter 11, Quick Tool: The Good Enough Decision; Perfectionism and OCD; Time Management with OCD; OCD and Procrastination"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one task you tend to redo or recheck.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Decide what good enough looks like. For example, send an email after one read.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Do it once, to that standard.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Rate the not-quite-right feeling from 0 to 10, then again a little later.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Notice: did anyone complain? Did anything you feared happen?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If you like, note roughly how much time this ritual usually takes.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Stop rule: you can stop at any point. If it feels like too much, step down to something easier.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam's morning emails took about ninety minutes: read each one twice, draft, reread three times, send, then check the sent folder. His therapist suggested sending after one read, for a week. The first day was hard, and the unease sat around 6 out of 10 all morning. Nobody complained or noticed a typo. By the end of the week, the routine took twenty-five minutes. The not-quite-right feeling still came, and it softened within minutes."
+      },
+      "fields": [
+        {
+          "id": "f_task",
+          "type": "short_text",
+          "label": "The task"
+        },
+        {
+          "id": "f_standard",
+          "type": "short_text",
+          "label": "What good enough looks like"
+        },
+        {
+          "id": "f_feeling",
+          "type": "two_column",
+          "label": "The not-quite-right feeling",
+          "columns": [
+            "Right after, 0 to 10",
+            "A little later, 0 to 10"
+          ]
+        },
+        {
+          "id": "f_happened",
+          "type": "short_text",
+          "label": "What actually happened"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Do one small task to good enough today. Note what happened.",
+            "figure": "fig_desk_ready"
+          },
+          {
+            "text": "Stop rule: you can stop at any point. Stopping is part of the plan.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_happened"
+        ]
+      },
+      "done_when": "You've done one task to good enough and seen the result.",
+      "reflect": "What did you notice about the not-quite-right feeling?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_standard",
+          "plan_section": "p5"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Know your signs and zones",
+      "purpose": "Your three early warning signs, and what you'll do in Yellow and in Red.",
+      "why": "Doubt can flare again, often with stress, change, illness, or poor sleep. That's expected, and it doesn't undo what you've built. A flare caught early, in Yellow, is easier to turn around. Your warning signs are small, early behaviors. Writing your Yellow and Red plans now, while things are calm, means the next steps are already decided.",
+      "source": {
+        "chapter": "Chapter 12, Quick Tool: The 30-Second Daily Color Check; Why Flare-Ups Happen; Identifying Your Personal Warning Signs; Building Your Maintenance Plan"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Write your top three warning signs. Small, early behaviors work best.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For example, checking twice instead of once, or opening a search tab.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your Yellow plan: two or three things you'll step up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your Red plan: who you'll contact, and what you'll pause.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Save your signs where you'll see them, like your lock screen.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan had been in Green for nearly three months when a viral story brought the doubt back. By 11 p.m., she had dozens of tabs open, reviewing everything she had ever posted. She hadn't done her color check that morning. She ran it then: Yellow. Her Yellow plan was already written. One small step a day, social media capped at thirty minutes, the search delay back on, and a call to her therapist if Yellow lasted over a week. Within five days, the flare had settled."
+      },
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "ranked_list",
+          "label": "Your three warning signs",
+          "max_items": 3,
+          "help": "For example: checking the stove twice, or reviewing a post for more than ten minutes."
+        },
+        {
+          "id": "f_yellow",
+          "type": "long_text",
+          "label": "Your Yellow plan",
+          "help": "For example: color check every morning, the delay for every urge, one small step a day."
+        },
+        {
+          "id": "f_red",
+          "type": "long_text",
+          "label": "Your Red plan",
+          "help": "For example: contact your therapist or doctor, pause the harder steps, and use the basics in your Toolkit."
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one warning sign that usually comes first.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_signs"
+        ]
+      },
+      "done_when": "Your signs and zone plans are written, ready before you need them.",
+      "reflect": "Which warning sign do you think you'd notice first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p6"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan for the long run",
+      "purpose": "Your routine for the long run, with daily, weekly, and monthly habits, and a note for a hard week.",
+      "why": "A lapse is a short return of rituals. It's common, and you can come back from it. What decides whether it grows is the response, so a plan written now helps later. The book's routine is simple: a daily color check, a weekly look back, a monthly look at the trend, and fuller reviews at set times.",
+      "source": {
+        "chapter": "Chapter 12, The Difference Between a Lapse and a Relapse; Building Your Maintenance Plan; The Lifestyle Foundations; The Booster Session; Appendix C, Monthly Check-In"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Daily: your color check, plus any tool that helps.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Weekly: look for any rise in rituals, avoiding, or searching. Refresh a ladder step if needed.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Monthly: look at your log and your daily checks for the trend.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick dates for fuller reviews at one, three, and six months.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Protect the basics where you can: steady sleep, regular movement, and some time to recover.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Write a short note to yourself for a hard week.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sam",
+        "text": "Sam's progress came gradually. In the first month, the urge was still strong, and he sometimes drove back to check. By the end of the second month, his morning departure had dropped from twenty minutes to eight. By the end of the third, it was five. Most days, he could feel the urge to turn back and let it pass within a few minutes. His work rituals took longer, one at a time, with the same ladder."
+      },
+      "fields": [
+        {
+          "id": "f_daily",
+          "type": "short_text",
+          "label": "Daily"
+        },
+        {
+          "id": "f_weekly",
+          "type": "short_text",
+          "label": "Weekly"
+        },
+        {
+          "id": "f_monthly",
+          "type": "short_text",
+          "label": "Monthly"
+        },
+        {
+          "id": "f_reviews",
+          "type": "short_text",
+          "label": "Your fuller review dates",
+          "help": "For example: early next month, then in three and six months."
+        },
+        {
+          "id": "f_note",
+          "type": "long_text",
+          "label": "Your note for a hard week",
+          "help": "For example: \"This is a lapse, and I know the way back. Color check, then the delay.\""
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'd want to read on a hard week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_note"
+        ]
+      },
+      "done_when": "Your routine for the long run is written. A hard week now has a way back.",
+      "reflect": "What would you want to hear from yourself on a hard week?",
+      "feeds_plan": [
+        {
+          "field_id": "f_daily",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_note",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_reviews",
+          "plan_section": "p6"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Name the loop",
+      "when_to_use": "You notice a doubt, an urge, or yourself partway through a ritual.",
+      "steps": [
+        "Pause, and ask: what's the doubt? What's the pull?",
+        "Say to yourself: \"I'm in the loop.\"",
+        "You don't need to stop or change anything.",
+        "Naming it is the whole exercise."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 1, Quick Tool: The Cycle Spotter; Chapter 2, Quick Tool: The Loop Label"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The color check",
+      "when_to_use": "Each morning, or whenever you're unsure how things are going.",
+      "steps": [
+        "Ask: am I in Green, Yellow, or Red today?",
+        "Green: keep doing what you're doing.",
+        "Yellow: step up your tools, and ease other demands where you can.",
+        "Red: pause the harder steps, and open When it's Red."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Quick Start, Learn the Green-Yellow-Red System; Chapter 12, Quick Tool: The 30-Second Daily Color Check"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "The key shift",
+      "when_to_use": "An unwanted thought arrives and feels like it means something about you.",
+      "steps": [
+        "Notice the thought. Don't debate it.",
+        "Say: \"This is a thought my brain produced.\"",
+        "Add: \"It does not require action.\"",
+        "Go back to what you were doing."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 3, Quick Tool: The Key Shift; Tools, Key Shift Script"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "The delay",
+      "when_to_use": "You feel the pull to do a ritual right now.",
+      "steps": [
+        "Set a timer for 10 minutes. Or 5, or 2.",
+        "Don't fight the urge. Just wait.",
+        "When it ends, rate the urge again.",
+        "Then you decide. You can stop the delay at any point."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Quick Start, Try the 10-Minute Delay; Chapter 6, Quick Tool: The 10-Minute Delay"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Ride the urge",
+      "when_to_use": "An urge is strong, and you want to watch it pass.",
+      "steps": [
+        "Name it: \"The urge to check is here.\"",
+        "Notice where it sits in your body. Rate it 0 to 10.",
+        "Say: \"I'm feeling anxious, and that's expected.\"",
+        "Watch it rise, peak, and ease, like a wave.",
+        "Too much? You can stop, and come back another time."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 6, Urge Surfing; Chapter 5, During the Exposure"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Maybe, maybe not",
+      "when_to_use": "Doubt wants certainty, or you've been circling a question for over two minutes.",
+      "steps": [
+        "Notice the question asking to be settled.",
+        "Answer: \"Maybe. Maybe not.\"",
+        "Don't add a reason or an argument.",
+        "Turn your attention to something outside you."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 6, The Maybe Response; Chapter 8, Quick Tool: The Rumination Hijack Detector; Appendix C, The Maybe Response"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "One pass, then stop",
+      "when_to_use": "A thought has a clear twist, and you want one quick check.",
+      "steps": [
+        "Set a two-minute timer.",
+        "Use one tool: realistic odds, the responsibility pie, or the friend test.",
+        "Write one balanced line.",
+        "Stop. Can't stop? Switch to maybe, maybe not."
+      ],
+      "minutes": 2,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 8, The One-and-Done Rule; Four Cognitive Tools That Work With OCD"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "The search delay",
+      "when_to_use": "You want to search online for an answer or reassurance.",
+      "steps": [
+        "Set a 10-minute timer.",
+        "Write down what you'd search, and why.",
+        "When it ends, you decide.",
+        "If you search, keep it to one page and 5 minutes.",
+        "Any wait counts. You can stop the delay at any point."
+      ],
+      "minutes": 2,
+      "figure": "fig_phone_down",
+      "source": {
+        "chapter": "Chapter 9, Quick Tool: The Search Delay; Digital Guardrails"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Good enough",
+      "when_to_use": "A task doesn't feel finished, and you feel the pull to redo it.",
+      "steps": [
+        "Ask: is this good enough for its purpose?",
+        "If yes, send it, save it, or leave it.",
+        "Let the not-quite-right feeling be there.",
+        "Too much today? That's fine. Try again another time."
+      ],
+      "minutes": 1,
+      "figure": "fig_desk_ready",
+      "source": {
+        "chapter": "Chapter 11, Quick Tool: The Good Enough Decision; Perfectionism and OCD"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "When it's Red",
+      "when_to_use": "Doubt is running most of your day. If you are in crisis, tap Help now first.",
+      "steps": [
+        "Pause the harder facing steps for now.",
+        "Contact your therapist, doctor, or a helpline today.",
+        "Do your color check, and use the delay.",
+        "Use only the tools that feel manageable.",
+        "Pausing is part of the plan."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, The Green-Yellow-Red Applied to Exposure; Chapter 12, Quick Tool: The 30-Second Daily Color Check; Introduction, The Green-Yellow-Red System"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. Your snapshot is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "week_complete:1",
+      "message": "Week 1 done. Next up: tracing one loop from start to finish."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can see your loop, and where you have room to act."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your tools and ladder are ready. Next, small steps, at your pace."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your reasons"
+    },
+    {
+      "id": "p2",
+      "title": "Your loop"
+    },
+    {
+      "id": "p3",
+      "title": "Your tools for thoughts and urges"
+    },
+    {
+      "id": "p4",
+      "title": "Your ladder and what you've learned"
+    },
+    {
+      "id": "p5",
+      "title": "Your support and everyday life"
+    },
+    {
+      "id": "p6",
+      "title": "Your plan for Yellow and Red weeks"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by naming your doubts and the rituals they pull you toward. Since then, you've built tools for thoughts and urges, taken small steps at your own pace, and written a plan for the long run. Doubt will still visit. The aim was to loosen its grip so it takes less of your day, and your plan is ready for when it tightens again.",
+    "book_bridge": "Every tool here comes from Loosening the Grip by Maya Vaughn. The book tells the full stories of Alex, Jordan, Sam, and Elena, and explains the thinking behind each step. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which tool are you reaching for most?",
+      "Did any warning signs show up this month? What helped?",
+      "Is there a step on your ladder you'd like to try next, at your own pace?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e05",
+      "e06",
+      "e07",
+      "e08",
+      "e10"
+    ]
+  },
+  "cut_log": [
+    {
+      "item": "Research findings and statistics (prevalence, delay to help, impairment figures, response and relapse rates, intrusive-thought survey percentages, accommodation rates, app and platform outcome figures, the Norwegian follow-up study)",
+      "chapter": "Introduction; Chapters 1, 3, 4, 9, 10, 12",
+      "reason": "Not needed for instruction, and each would be a claim needing fresh verification. The idea that nearly everyone has unwanted thoughts is kept in e05 with no figures."
+    },
+    {
+      "item": "What OCD is, the common themes (contamination, checking, harm, relationship, scrupulosity, symmetry, just right) and Pure O as a label",
+      "chapter": "Chapter 1",
+      "reason": "Reads as a diagnostic screen and lists distressing thought content. The workbook never names or assumes a condition. Rituals in the head are kept in e03 without the label."
+    },
+    {
+      "item": "Suicide risk section",
+      "chapter": "Chapter 1, OCD and Suicide Risk",
+      "reason": "Statistics cut. The protective message is kept in the Start safety note and Help now."
+    },
+    {
+      "item": "Harm OCD safety note, in detail",
+      "chapter": "Chapter 3, The Harm OCD Safety Note; Disclaimer",
+      "reason": "Kept only as the intent-or-plan line in the Start safety note, with no thought content."
+    },
+    {
+      "item": "Identity fear and self-concept threat",
+      "chapter": "Chapter 3",
+      "reason": "Insight only, and the examples name distressing content. The gentle part is folded into e04 (beliefs grow from good qualities)."
+    },
+    {
+      "item": "Imaginal exposure: the worst-case statement, imaginal hierarchy, full scripts with sensory detail, recordings",
+      "chapter": "Chapter 7; Appendix A, Imaginal Exposure Script Template",
+      "reason": "Higher safety tier. Deliberate engagement with worst-case scenarios is specialist work. The book itself recommends a therapist for it in Yellow and Red. Not offered for solo use."
+    },
+    {
+      "item": "Deliberately triggering an intrusive thought by writing, saying or recording it",
+      "chapter": "Chapter 4, Troubleshooting",
+      "reason": "Higher safety tier. Same reason as imaginal exposure."
+    },
+    {
+      "item": "Deepened extinction (combining feared triggers in one exposure)",
+      "chapter": "Chapter 4, Key Principles of Inhibitory Learning",
+      "reason": "Increases intensity. Not suitable for reader-paced solo steps."
+    },
+    {
+      "item": "Starting band of 25 to 40 on the 0 to 100 scale, and the full 15-item, 20-row hierarchy",
+      "chapter": "Chapter 4, Building Your Exposure Hierarchy; Chapter 5",
+      "reason": "Simplified to a 0 to 10 scale and a ladder of about five steps, starting with whatever feels uncomfortable but manageable. Lower is always allowed."
+    },
+    {
+      "item": "One exposure every day for a week, and daily practice as the strongest predictor",
+      "chapter": "Chapter 5, After the Exposure; Key Lessons; Troubleshooting",
+      "reason": "Reads as pressure. The workbook leaves frequency to the reader."
+    },
+    {
+      "item": "Do not use distraction during exposure",
+      "chapter": "Chapter 5, During the Exposure",
+      "reason": "Left out so a reader is never told to hold off a coping move. The stop rule and the urge ride cover what to do if it feels like too much."
+    },
+    {
+      "item": "Exercise as exposure support, and the 150 minutes a week figure",
+      "chapter": "Chapter 5",
+      "reason": "Figure cut. Regular movement is kept as a daily-check tag and in e22."
+    },
+    {
+      "item": "The written contract",
+      "chapter": "Chapter 6, The Written Contract",
+      "reason": "A signed commitment to exposures and prevented compulsions adds pressure in a higher-tier workbook. Reasons (e09) and the plan cover the clear-headed reference point."
+    },
+    {
+      "item": "Complementary approaches (ACT and I-CBT), NOCD, OCD.app, SPACE",
+      "chapter": "Chapters 8, 9, 10; Appendix B",
+      "reason": "Named therapies, products and outcome claims. Not instructions."
+    },
+    {
+      "item": "The no-reassurance online day",
+      "chapter": "Chapter 9",
+      "reason": "Higher tier: no reassurance pressure. Replaced by the reader-chosen search delay and phone-free window in e18."
+    },
+    {
+      "item": "Forums and social media comparison",
+      "chapter": "Chapter 9, Social Media and OCD",
+      "reason": "Folded into e18 as notification and time-limit guardrails."
+    },
+    {
+      "item": "Parenting a child, children under 18",
+      "chapter": "Chapter 10; Chapter 1, What This Book Does Not Cover",
+      "reason": "Out of scope for an adult self-guided workbook."
+    },
+    {
+      "item": "Decision-making and the 48-hour rule",
+      "chapter": "Chapter 11, Decision-Making with OCD",
+      "reason": "Covered in spirit by e20. The 48-hour rule is attributed to another field and is not needed."
+    },
+    {
+      "item": "Workplace disclosure and employment law",
+      "chapter": "Chapter 11, Workplace Disclosure",
+      "reason": "Country-specific legal content that changes over time."
+    },
+    {
+      "item": "Alcohol and cannabis",
+      "chapter": "Chapter 12, The Lifestyle Foundations",
+      "reason": "Medical-adjacent claims. The basics kept in e22 are sleep, movement and recovery time."
+    },
+    {
+      "item": "Booster step: complete one exposure from the upper end of the hierarchy",
+      "chapter": "Chapter 12, The Booster Session",
+      "reason": "Higher tier. The fuller reviews in e22 keep the timing but not the harder step."
+    },
+    {
+      "item": "Medication overview, comorbidities guide, resource directory",
+      "chapter": "Appendices D, E, F; Chapter 1, OCD Rarely Travels Alone",
+      "reason": "Medical and country-specific. Only the Start note on medication and professional support is kept. Help now carries the contacts."
+    }
+  ]
+}
