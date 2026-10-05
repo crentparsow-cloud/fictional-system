@@ -1,0 +1,117 @@
+{
+ "US": {
+  "name": "United States",
+  "currency": "usd",
+  "amazon": "amazon.com",
+  "date_locale": "en-US",
+  "copy_locale": "en-US",
+  "legal": "us",
+  "crisis": [
+   {
+    "label": "988 Suicide and Crisis Lifeline",
+    "number": "988",
+    "how": "Call or text"
+   }
+  ]
+ },
+ "GB": {
+  "name": "United Kingdom",
+  "currency": "gbp",
+  "amazon": "amazon.co.uk",
+  "date_locale": "en-GB",
+  "copy_locale": "en-GB",
+  "legal": "uk",
+  "crisis": [
+   {
+    "label": "Samaritans",
+    "number": "116 123",
+    "how": "Call"
+   },
+   {
+    "label": "Shout",
+    "number": "85258",
+    "how": "Text SHOUT"
+   }
+  ]
+ },
+ "CA": {
+  "name": "Canada",
+  "currency": "cad",
+  "amazon": "amazon.ca",
+  "date_locale": "en-CA",
+  "copy_locale": "en-US",
+  "legal": "ca",
+  "crisis": [
+   {
+    "label": "9-8-8 Suicide Crisis Helpline",
+    "number": "988",
+    "how": "Call or text"
+   }
+  ]
+ },
+ "AU": {
+  "name": "Australia",
+  "currency": "aud",
+  "amazon": "amazon.com.au",
+  "date_locale": "en-AU",
+  "copy_locale": "en-GB",
+  "legal": "au",
+  "crisis": [
+   {
+    "label": "Lifeline",
+    "number": "13 11 14",
+    "how": "Call"
+   }
+  ]
+ },
+ "IE": {
+  "name": "Ireland",
+  "currency": "eur",
+  "amazon": "amazon.co.uk",
+  "date_locale": "en-IE",
+  "copy_locale": "en-GB",
+  "legal": "eu",
+  "crisis": [
+   {
+    "label": "Samaritans",
+    "number": "116 123",
+    "how": "Call"
+   },
+   {
+    "label": "Text About It",
+    "number": "50808",
+    "how": "Text HELLO"
+   }
+  ]
+ },
+ "NZ": {
+  "name": "New Zealand",
+  "currency": "nzd",
+  "amazon": "amazon.com.au",
+  "date_locale": "en-NZ",
+  "copy_locale": "en-GB",
+  "legal": "nz",
+  "crisis": [
+   {
+    "label": "Need to talk?",
+    "number": "1737",
+    "how": "Call or text"
+   }
+  ]
+ },
+ "XX": {
+  "name": "Everywhere else",
+  "currency": "usd",
+  "amazon": "amazon.com",
+  "date_locale": "en-US",
+  "copy_locale": "en-US",
+  "legal": "intl",
+  "crisis": [
+   {
+    "label": "Find a helpline near you",
+    "number": "findahelpline.com",
+    "how": "Website"
+   }
+  ]
+ }
+}
