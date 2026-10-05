@@ -1,0 +1,15 @@
+node_modules
+.pnpm-store
+dist
+.next
+out
+coverage
+.env
+.env.*
+!.env.example
+.vercel
+.supabase
+*.log
+.DS_Store
+/legacy/app/build
+*.tsbuildinfo

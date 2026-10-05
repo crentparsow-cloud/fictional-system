@@ -1,0 +1,28 @@
+{
+  "name": "akana",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Akana: the place where books become practical. Marketplace, reader, author portal and white-label tenants.",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @akana/web dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "validate": "tsx scripts/validate-content.ts",
+    "migrate:v1": "tsx scripts/migrate-v1.ts",
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm validate --parked"
+  },
+  "devDependencies": {
+    "@akana/schema": "workspace:*",
+    "@akana/seal": "workspace:*",
+    "@akana/validate": "workspace:*",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
