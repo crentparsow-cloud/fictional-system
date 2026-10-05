@@ -1,0 +1,138 @@
+/*
+  Akana design tokens (F-014). Carried from legacy/app/src/index.html and moved
+  to CSS variables with logical properties. A tenant overrides the brand set
+  (--brand, --brand-ink, --brand-wash, --hero-bg, --hero-ink, --focus) from its
+  own record; everything else is locked.
+*/
+
+:root {
+  --canvas: #f7f5f0;
+  --surface: #ffffff;
+  --surface-2: #efece4;
+  --line: #e2ded3;
+  --line-strong: #7d878d;
+  --ink: #16222b;
+  --ink-soft: #4a5864;
+
+  --brand: #1f4e5a;
+  --brand-ink: #ffffff;
+  --brand-wash: #e3edee;
+  --marigold: #f2b84b;
+  --marigold-ink: #3b2a05;
+  --rose: #8a2846;
+  --rose-soft: #f6e3e9;
+  --rose-ink: #ffffff;
+  --help-bg: #8a2846;
+  --help-ink: #ffffff;
+
+  /* Stage tints: t is tile, i is ink. Stage names are free in v3; these are the four defaults. */
+  --stage-1-t: #dcebe2; --stage-1-i: #2d6a4f;
+  --stage-2-t: #f8e0d0; --stage-2-i: #9c4a25;
+  --stage-3-t: #f6eac0; --stage-3-i: #6e520f;
+  --stage-4-t: #d6e6f3; --stage-4-i: #1f5a85;
+
+  --tile-l: 0.935; --tile-c: 0.045; --tink-l: 0.42; --tink-c: 0.11;
+  --hero-bg: #1f4e5a; --hero-ink: #ffffff; --focus: #1f4e5a;
+  --scrim: rgba(22, 34, 43, 0.42);
+  --shadow: 0 1px 2px rgba(22, 34, 43, 0.04), 0 6px 20px rgba(22, 34, 43, 0.05);
+  --lift: 0 2px 6px rgba(22, 34, 43, 0.08), 0 14px 34px rgba(22, 34, 43, 0.1);
+
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs: 17px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --gutter: 16px;
+  --measure: 62ch;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #0f1719; --surface: #172226; --surface-2: #1e2b30; --line: #2a3a40; --line-strong: #6a7e84;
+    --ink: #ecefea; --ink-soft: #a9b6b9; --brand: #7fc2cf; --brand-ink: #0f1719; --brand-wash: #1b3238;
+    --marigold: #e3aa45; --marigold-ink: #2a1d03; --rose: #e58ba6; --rose-soft: #3a1f29; --rose-ink: #2a0e18;
+    --help-bg: #5a2238; --help-ink: #fbe6ee;
+    --stage-1-t: #1c3328; --stage-1-i: #8fd1ae; --stage-2-t: #3a2419; --stage-2-i: #f2ae86;
+    --stage-3-t: #33290e; --stage-3-i: #e6c46a; --stage-4-t: #172b3c; --stage-4-i: #93c2ea;
+    --tile-l: 0.28; --tile-c: 0.035; --tink-l: 0.84; --tink-c: 0.08;
+    --hero-bg: #173c45; --hero-ink: #f2f5f2; --focus: #9ad3de;
+    --scrim: rgba(0, 0, 0, 0.6); --shadow: none; --lift: 0 12px 40px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --canvas: #0f1719; --surface: #172226; --surface-2: #1e2b30; --line: #2a3a40; --line-strong: #6a7e84;
+  --ink: #ecefea; --ink-soft: #a9b6b9; --brand: #7fc2cf; --brand-ink: #0f1719; --brand-wash: #1b3238;
+  --marigold: #e3aa45; --marigold-ink: #2a1d03; --rose: #e58ba6; --rose-soft: #3a1f29; --rose-ink: #2a0e18;
+  --help-bg: #5a2238; --help-ink: #fbe6ee;
+  --stage-1-t: #1c3328; --stage-1-i: #8fd1ae; --stage-2-t: #3a2419; --stage-2-i: #f2ae86;
+  --stage-3-t: #33290e; --stage-3-i: #e6c46a; --stage-4-t: #172b3c; --stage-4-i: #93c2ea;
+  --tile-l: 0.28; --tile-c: 0.035; --tink-l: 0.84; --tink-c: 0.08;
+  --hero-bg: #173c45; --hero-ink: #f2f5f2; --focus: #9ad3de;
+  --scrim: rgba(0, 0, 0, 0.6); --shadow: none; --lift: 0 12px 40px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+:root[data-font="lexend"] { --f-body: "Lexend", system-ui, sans-serif; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: var(--fs); -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--f-body);
+  line-height: 1.5;
+  min-block-size: 100dvh;
+}
+
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; letter-spacing: -0.01em; margin-block: 0 0.5em; }
+h1 { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3rem); }
+h2 { font-size: clamp(1.35rem, 1.1rem + 1.2vw, 1.9rem); }
+p { margin-block: 0 1em; max-inline-size: var(--measure); }
+a { color: var(--brand); text-underline-offset: 0.15em; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+
+.wrap { inline-size: min(100% - 2 * var(--gutter), 72rem); margin-inline: auto; }
+.hero { background: var(--hero-bg); color: var(--hero-ink); padding-block: clamp(2.5rem, 8vw, 6rem); }
+.hero h1, .hero p { color: inherit; }
+.hero .eyebrow { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; margin-block-end: 1rem; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.muted { color: var(--ink-soft); }
+.badge {
+  display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+  padding: 0.15em 0.6em; border-radius: 999px; background: var(--brand-wash); color: var(--brand);
+}
+.badge.demo { background: var(--marigold); color: var(--marigold-ink); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5em; min-block-size: 44px;
+  padding: 0.6em 1.1em; border-radius: var(--radius-sm); border: 1px solid transparent;
+  background: var(--brand); color: var(--brand-ink); font: inherit; font-weight: 600;
+  text-decoration: none; cursor: pointer; transition: transform 0.15s var(--ease);
+}
+.btn.secondary { background: transparent; color: var(--brand); border-color: var(--brand); }
+.btn.help { background: var(--help-bg); color: var(--help-ink); }
+
+.footer { padding-block: 2rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: 0.9rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
