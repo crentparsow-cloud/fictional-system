@@ -1,0 +1,2551 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-ZMPGK",
+  "slug": "bearing-it-better-zmpgk",
+  "title": "Bearing It Better",
+  "short_title": "Stress",
+  "card_line": "Twelve weeks of small, practical steps to calm your body and lighten the load",
+  "tagline": "Twelve weeks of small, practical steps to calm your body and lighten the load",
+  "book": {
+    "book_id": "bearing-it-better",
+    "title": "Bearing It Better",
+    "subtitle": "A Practical Guide to Chronic Stress",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4PDJ8TT",
+      "US": "https://www.amazon.com/dp/B0H4PDJ8TT"
+    },
+    "asin": "B0H4PDJ8TT"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Understand it first",
+          "body": "The Explore stage is about understanding, not fixing. Stress makes more sense once you see it as a signal from a body working hard, rather than a flaw in you. Over two weeks, you'll look at what your stress is pointing to and what sets it off. Go slowly. A clear picture makes every later tool easier to aim.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clearer read of your stress as a signal, and a map of what sets it off.",
+        "review_question": "What did you notice about your stress that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Calm the body, then lighten the load",
+          "body": "In the Build stage, you set up tools and limits one at a time. Over five weeks, you'll learn your warning signs, start a short daily calming practice, build a small kit for hard moments, and begin cutting load where you can. Start smaller than feels useful. A few minutes most days does more than a long session now and then.",
+          "figure": "fig_feet_grounded"
+        },
+        "outcome": "Your warning signs named, a daily calming practice, a calming kit, a plan for tense moments, and a first limit.",
+        "review_question": "Which tool helped most, and which one hasn't found its place yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Reduce and rebuild",
+          "body": "The Practice stage takes on the rest of the load: your attention, your sleep, money, and the people around you. Then it turns to what matters to you. Over four weeks, you'll try one change at a time. If stress has a real grip some weeks, scale down rather than stop. Yellow weeks are part of this too.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "A lighter mental load, steadier sleep and recovery, a clearer view of money, and support you can lean on.",
+        "review_question": "What feels a little lighter now, even if the load is the same?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "A plan that bends",
+          "body": "The Keep stage brings twelve weeks together. You'll write your stress plan and decide how it bends when pressure returns. Keep it modest and forgiving. A short plan you come back to is worth more than a perfect one you put down.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your stress plan and your plan for when pressure returns, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If stress has become the background of your days, and the usual advice hasn't helped, this is built for that. It's twelve weeks of small, practical steps to calm your body, lighten the load, and rebuild what stress wears down. Most weeks take 15 to 25 minutes, and every exercise has a shorter version. You can go at your own pace. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If stress took up a little less room in your life, what would you want that room for? One line is enough.",
+    "extra_safety_note": "Stress can show up in the body, and some physical symptoms need a doctor first. Chest pain or tightness should always be checked by a doctor. Please do not assume it is stress. The same goes for any physical symptom that is new, lasting, or getting worse. If stress has made it hard to get through the day, or if you have any thoughts of harming yourself, please tap Help now and talk to a doctor or health professional. This workbook can sit alongside that support. It does not replace it. If you take medication, do not change it based on anything here. If any practice makes you feel worse rather than better, stop, and ask a professional for advice."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "calm",
+        "label": "Calm in your body"
+      },
+      {
+        "id": "load",
+        "label": "Your load"
+      },
+      {
+        "id": "recovery",
+        "label": "Sleep and recovery"
+      },
+      {
+        "id": "support",
+        "label": "Support and meaning"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "calm",
+        "text": "When stress spikes, you can bring it down a little."
+      },
+      {
+        "id": "q02",
+        "area": "calm",
+        "text": "You notice stress building before it spills over."
+      },
+      {
+        "id": "q03",
+        "area": "calm",
+        "text": "You can wind down at the end of the day."
+      },
+      {
+        "id": "q04",
+        "area": "calm",
+        "text": "Your body feels settled for at least part of the day."
+      },
+      {
+        "id": "q05",
+        "area": "load",
+        "text": "What you're carrying feels within what you can hold."
+      },
+      {
+        "id": "q06",
+        "area": "load",
+        "text": "You can say no when your plate is full."
+      },
+      {
+        "id": "q07",
+        "area": "load",
+        "text": "You get stretches of focus without constant interruption."
+      },
+      {
+        "id": "q08",
+        "area": "load",
+        "text": "You feel some control over at least part of what stresses you."
+      },
+      {
+        "id": "q09",
+        "area": "recovery",
+        "text": "You wake up feeling at least a little rested."
+      },
+      {
+        "id": "q10",
+        "area": "recovery",
+        "text": "Your mind settles enough at night for you to sleep."
+      },
+      {
+        "id": "q11",
+        "area": "recovery",
+        "text": "You get some real downtime, not just scrolling."
+      },
+      {
+        "id": "q12",
+        "area": "recovery",
+        "text": "You can rest without feeling you have to earn it."
+      },
+      {
+        "id": "q13",
+        "area": "support",
+        "text": "You have someone you can share the load with."
+      },
+      {
+        "id": "q14",
+        "area": "support",
+        "text": "When stress is high, you reach toward people rather than pull away."
+      },
+      {
+        "id": "q15",
+        "area": "support",
+        "text": "Your days connect to something that matters to you."
+      },
+      {
+        "id": "q16",
+        "area": "support",
+        "text": "You see your stress as something you can work with."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Stress rises and falls with what life brings, so harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: stress is there, but manageable. Yellow: stress has a real grip, so scale down. Red: even the basics are hard. If you pick red, please lean on support and talk to a professional. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_calm",
+        "type": "weekly_grid",
+        "label": "Days you did your daily calming practice"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_load",
+        "type": "short_text",
+        "label": "Something that added to the load, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_down",
+        "type": "weekly_grid",
+        "label": "Days you had some real downtime"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How heavy did stress feel today?",
+    "scale_low": "Very heavy",
+    "scale_high": "Light, manageable",
+    "tags": [
+      "Slept okay",
+      "Used a calming tool",
+      "Moved my body",
+      "Took a real break",
+      "Said no to something",
+      "Talked to someone",
+      "Had a focus block",
+      "Phone away in the evening"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Read your stress as a signal",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Map what sets your stress off",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Learn your warning signs and your default pattern",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Set down some blame, and start calming daily",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Build your calming kit and read the surge",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t05",
+        "t06",
+        "t08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Plan for tense moments and count the cost of yes",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t07",
+        "t09"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Set a limit and map your energy",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Lighten your mental load",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Sleep and real recovery",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Money and the people around you",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Warm moments and what matters",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e07",
+        "e11"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e12",
+        "e15"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Read your stress as a signal",
+      "purpose": "A clearer read of one current stress: what sets it off, how it shows up, and what it points to.",
+      "why": "Long-running stress can start to feel like part of you. The book separates three things the one word blurs: what sets stress off, your body's response, and how it feels. Read this way, stress is information. It's telling you the demands are more than you have room for right now, and it points to what needs attention.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, Stress Is Not What You Think; The Signal in the Noise; Chapter 2, What Your Body Is Trying to Tell You"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one stress that's on your mind this week.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what sets it off. That's the stressor.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write how it shows up in your body and your mood.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick what it might be pointing to: too much demand, a body stuck on alert, or something that matters.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If you have chest pain or tightness, or a new or lasting physical symptom, see a doctor first.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus was twenty-four, a junior accountant, when chest tightness came on at his desk. He did the sensible thing and went to the emergency room to get checked. His heart was healthy. What he had missed was months of stress he had come to see as normal: long hours, money worries, and constant comparison with colleagues. Once he read the tightness as a signal rather than a verdict, the problem had a shape he could work on."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one stress, and write one line on how it shows up for you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_shows"
+        ]
+      },
+      "done_when": "You've read one stress as a signal. That gives it a shape you can work with.",
+      "reflect": "What does this stress seem to be asking for?",
+      "feeds_plan": [
+        {
+          "field_id": "f_stressor",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_stressor",
+          "type": "short_text",
+          "label": "What sets it off"
+        },
+        {
+          "id": "f_shows",
+          "type": "short_text",
+          "label": "How it shows up in your body and mood",
+          "help": "For example: tight shoulders, a short temper, trouble falling asleep."
+        },
+        {
+          "id": "f_points",
+          "type": "checklist",
+          "label": "What it might be pointing to",
+          "options": [
+            "Too much demand, so the load needs lightening",
+            "A body stuck on alert, so it needs calming",
+            "Something that matters to you, so it's worth engaging with"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Map what sets your stress off",
+      "purpose": "A short list of the moments, people, and times that reliably set your stress off.",
+      "why": "A general sense of being stressed is hard to act on. Noting when stress rises, over a week or so, turns it into a specific map. The patterns often surprise people, and they're rarely the big, obvious stressors. Some triggers come from outside you, like a demand, and some from inside, like a worried thought. Both belong on the map.",
+      "source": {
+        "chapter": "Chapter 4, Why Generic Advice Fails; Mapping Your Stress Triggers; Appendix A, The stress trigger map"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Over the next few days, note each time your stress rises.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write what was happening, who was there, and the time of day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Mark each one as outside you, like a demand, or inside you, like a thought.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "At the end of the week, read your notes back.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the two or three triggers that come up most.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya, a marketing manager with two young children, had tried plenty of stress advice, and none of it stuck. When she noted her stress for a week, the pattern surprised her. Her worst moments weren't the big deadlines. They were the daily transitions: the rushed handoff from work to home, and the bedtime routine, when she was already drained. That pointed to two specific moments she could plan for."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one trigger you already know about, and when it tends to happen.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_top"
+        ]
+      },
+      "done_when": "Your main triggers are on the map. They show where to aim your tools.",
+      "reflect": "Did any trigger surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_top",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_log",
+          "type": "two_column",
+          "label": "Moments your stress rose",
+          "columns": [
+            "What was happening, and when",
+            "Outside you or inside you"
+          ]
+        },
+        {
+          "id": "f_top",
+          "type": "ranked_list",
+          "label": "Your top triggers",
+          "max_items": 3
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Learn your warning signs",
+      "purpose": "Your own early signals that stress is building, so you can step in while it's still easier.",
+      "why": "Stress is far easier to bring down early than at its peak. Many people only notice it once it spills over. Everyone has early signals, in the body, in mood, in thinking, and in what they do. Knowing yours gives you a window you didn't have before.",
+      "source": {
+        "chapter": "Chapter 4, Recognizing Your Warning Signs; Appendix A, The warning signs inventory"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back to the last time stress built up to a peak.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the body signs you noticed, like tight shoulders or shallow breathing.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick any signs in your mood, your thinking, and what you did.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose the sign that usually comes first. That's your cue to step in.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's irritability climbed in a recognizable way through the late afternoon. Before, she only noticed her stress at the moment she snapped at her kids, and by then all she could do was feel bad about it. Once she learned to spot the climb early, she had a window to step in, before the stress spilled over onto the people she loved most."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one sign that usually comes first for you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_earliest"
+        ]
+      },
+      "done_when": "Your earliest warning sign is named. It's your cue to reach for a tool.",
+      "reflect": "How early do you think you could catch this sign?",
+      "feeds_plan": [
+        {
+          "field_id": "f_earliest",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "checklist",
+          "label": "Signs you notice",
+          "options": [
+            "Body: tight jaw, shoulders, or stomach",
+            "Body: changed breathing, headaches, or tiredness",
+            "Mood: irritable, on edge, or flat",
+            "Thinking: racing thoughts or trouble concentrating",
+            "Thinking: forgetting things, or expecting the worst",
+            "Actions: snapping, pulling away, or reaching for a screen",
+            "Actions: dropping healthy routines"
+          ]
+        },
+        {
+          "id": "f_earliest",
+          "type": "short_text",
+          "label": "The sign that usually comes first",
+          "help": "For example: irritability climbing in the late afternoon."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Name your default pattern",
+      "purpose": "The pattern you tend to fall into under pressure, named without blame.",
+      "why": "Under stress, most people lean toward one of four automatic patterns: fight, flight, freeze, or fawn. Nobody chooses them. They're shaped by temperament and experience. Seeing yours as a stress response, rather than a character flaw, can ease the self-criticism that adds to stress. It also points to the tools that may help most.",
+      "source": {
+        "chapter": "Chapter 2, Fight, Flight, Freeze, and Fawn; Chapter 4, Identifying Your Default Response; Appendix A, The default response check"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the four patterns.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the one you lean toward most. If two fit, pick both.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write a recent moment when it showed up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one way you might catch it a little earlier next time.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David, an operations director in his fifties, had always been the one who coped. Under pressure he took charge and pushed through. That was a quiet version of fight. Because it looked like competence, nobody saw it as strain, David included. Naming the pattern helped him see why his stress had gone unnoticed for so long, and where he could start to catch it."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick the pattern you lean toward most.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_pattern"
+        ]
+      },
+      "done_when": "Your default pattern has a name. Naming it is the start of catching it.",
+      "reflect": "What would you say to a friend who had this pattern?",
+      "feeds_plan": [
+        {
+          "field_id": "f_pattern",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_pattern",
+          "type": "checklist",
+          "label": "Your default pattern",
+          "options": [
+            "Fight: irritable, controlling, pushing back",
+            "Flight: anxious, restless, wanting to get away",
+            "Freeze: stuck, numb, unable to act",
+            "Fawn: placating, pleasing, putting your own needs last"
+          ],
+          "help": "From the book: fight often eases with tools that release energy, used early. Freeze, with gentle movement and small steps you control. Fawn, with the limits work in week 7."
+        },
+        {
+          "id": "f_pattern_moment",
+          "type": "short_text",
+          "label": "A recent moment it showed up"
+        },
+        {
+          "id": "f_catch",
+          "type": "short_text",
+          "label": "One way to catch it earlier",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "See what isn't your fault",
+      "purpose": "A fairer view of which parts of your stress come from your surroundings, and one you can push back on.",
+      "why": "Stress can feel like proof you're not coping as well as everyone else. The book sees much of it differently. The body's stress system was built for short threats followed by rest. Modern life brings long, unresolved pressures and takes away the natural pauses. Seeing this can lift some self-blame, and it shows where change is possible.",
+      "source": {
+        "chapter": "Chapter 3, The Evolutionary Mismatch; Digital Overload and the Always-On World; Social Comparison at Scale; Financial Pressure; Performance Culture; The Disappearance of Recovery; What This Means for You"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the five pressures, and pick any that fit your life.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "For each one you picked, write a line on how it shows up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose one you could push back on, even a little.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one small step, like a set time when your phone goes away.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Read your list back. Much of this comes from your surroundings, not from a flaw in you.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Tara",
+        "text": "Tara, forty-one, ran her own small business and blamed herself for being stressed. She had chosen this, after all. But the business was always in her pocket. She answered messages instantly, compared herself with other owners' posted wins, and hadn't taken a full day off in months. Almost none of it was a personal flaw. It was a demanding environment, concentrated in one life."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one pressure that fits, and write one small step to push back on it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_pressures",
+          "f_push"
+        ]
+      },
+      "done_when": "You've separated some of the pressure from yourself, and found one place to push back.",
+      "reflect": "How does it feel to see some of this as coming from outside you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_push",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_pressures",
+          "type": "checklist",
+          "label": "Pressures that fit your life",
+          "options": [
+            "Always on: work and messages follow you home",
+            "Comparison: measuring your life against other people's highlights",
+            "Money: pressure that never fully lets up",
+            "Always improving: rest feels like something you have to earn",
+            "No real pauses: busy from waking to sleep"
+          ]
+        },
+        {
+          "id": "f_how",
+          "type": "two_column",
+          "label": "How they show up",
+          "columns": [
+            "The pressure",
+            "How it shows up for you"
+          ]
+        },
+        {
+          "id": "f_push",
+          "type": "short_text",
+          "label": "One small step to push back on one of them"
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Start a daily calming practice",
+      "purpose": "A few minutes of slow breathing at a set time each day, to lower your everyday level of stress.",
+      "why": "Long-running stress keeps the body on alert. Slow breathing, especially with a longer exhale, engages the body's own calming system. Done daily, even for a few minutes, it can gradually lower your everyday level of tension. It also makes the tools easier to reach for when stress hits. Doing it often matters more than doing it for long.",
+      "source": {
+        "chapter": "Chapter 5, Why the Body Comes First; Slower Breathing Practices; Building Your Regulation Toolkit; Appendix A, Box breathing and Extended exhale breathing; Appendix C, Week one"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose box breathing or longer-exhale breathing. Both are in your Toolkit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Try it now for two or three minutes.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Pick a set time for it, tied to something you already do.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write your time and your cue.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Some days, a few breaths is all there's time for. That counts.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Joel",
+        "text": "Joel, a nurse on rotating shifts, found that most stress advice assumed regular hours he didn't have. So he tied his practice to something his schedule couldn't move: the drive home. Before he started the car, he spent a few minutes making each exhale longer than the inhale. It became the start of his wind-down, whatever time the shift ended."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take three slow breaths now, each exhale longer than the inhale.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Write when you could do this tomorrow.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_cue"
+        ]
+      },
+      "done_when": "Your daily calming practice has a time and a cue.",
+      "reflect": "How did your body feel after a few minutes?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_cue",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_type",
+          "type": "checklist",
+          "label": "Your practice",
+          "options": [
+            "Box breathing",
+            "Longer-exhale breathing"
+          ]
+        },
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "When you'll do it"
+        },
+        {
+          "id": "f_cue",
+          "type": "short_text",
+          "label": "What you'll tie it to",
+          "help": "For example: after brushing your teeth, or in the car before driving home."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Build your calming kit",
+      "purpose": "A small set of calming tools matched to your warning signs and your days.",
+      "why": "Different moments call for different tools. The book suggests the sigh for a sudden spike, slow breathing for daily practice, grounding when overwhelm builds, and movement to burn off stress that has built up. You don't need all of them. The right kit is the one you'll actually use, in the life you actually have.",
+      "source": {
+        "chapter": "Chapter 5, Beyond Breathing; Building Your Regulation Toolkit; Appendix A, Grounding, Progressive muscle relaxation, Movement as regulation"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Try two tools from your Toolkit you haven't used yet.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick a tool for a sudden spike.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick a tool for when overwhelm is building.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick a way to move when stress has built up over the day.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Write which tool you'll reach for when your earliest warning sign shows up.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Joel",
+        "text": "Joel built his kit around the gaps in his shifts. A physiological sigh or two in the corridor between patients, when he felt the tension climbing. Grounding for moments of real overwhelm on a hard shift. Slow breathing in the car before driving home. The kit didn't change his schedule. It did stop the stress from staying locked in long after each shift ended."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the one tool you'll reach for when your warning sign shows up.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_cue_tool"
+        ]
+      },
+      "done_when": "Your calming kit is ready, matched to your own moments.",
+      "reflect": "Which tool felt most natural to you?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_kit",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_cue_tool",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_kit",
+          "type": "two_column",
+          "label": "Your calming kit",
+          "columns": [
+            "The moment",
+            "Your tool"
+          ]
+        },
+        {
+          "id": "f_cue_tool",
+          "type": "short_text",
+          "label": "When your warning sign shows up, you'll reach for"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Read the surge as readiness",
+      "purpose": "A new way to read your racing heart and quick breath: as your body getting ready.",
+      "why": "In a tense moment, the instinct is to fight your racing heart. That adds a second layer: stress about being stressed. Research the book draws on suggests that reading the same signs as your body getting ready for a challenge changes how they feel, and how the body responds. The surge still comes, but it becomes workable.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, The Stress Mindset; Eustress: The Good Stress; Chapter 6, In the Moment; The Reappraisal of Stress"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a recent moment when stress surged. Write what your body did.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each sign, write how it might be helping you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one short line you could say to yourself next time.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When the surge comes, say your line, then take one physiological sigh.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Before presentations to the senior partners, Marcus's heart pounded and his mind raced toward disaster. He had always tried to force himself calm, and that made it worse. He learned to read the surge differently. The pounding heart was blood fueling him. The fast breath was oxygen. The energy was focus arriving. With that and a quiet sigh before he began, the spike stayed in a range where he could still think."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'll say to yourself when the surge comes.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_line"
+        ]
+      },
+      "done_when": "You have a line ready for the next surge.",
+      "reflect": "How might the next tense moment feel if you read it this way?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_reframe",
+          "type": "two_column",
+          "label": "Your body's signs, read differently",
+          "columns": [
+            "What your body did",
+            "How it might be helping"
+          ],
+          "help": "For example: racing heart, pumping blood to fuel you."
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "Your line for next time",
+          "help": "For example: This is my body getting ready."
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Prepare for a tense moment",
+      "purpose": "A before, during, and after plan for one moment you're dreading.",
+      "why": "Much of a tense moment's intensity is set in the days before it, while dread builds. Preparing lowers the threat, and arriving calmer leaves you room for the spike. Afterward, the body needs to come down, and the mind needs a fair account of what happened. That way, each moment you get through can make the next one easier.",
+      "source": {
+        "chapter": "Chapter 6, Preparation Reduces Intensity; In the Moment; Difficult Conversations and High-Pressure Performances; Recovery After; Appendix A, The acute stress arc"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Name one moment coming up: a talk, a meeting, or a hard conversation.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Before: write one practical way to prepare, like rehearsing your opening.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Before: plan when you'll use your calming practice in the days leading up.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "During: pick one tool, and keep your focus on the next sentence, not the whole thing.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "After: plan a short walk, then a fair review of what went well.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus used to white-knuckle his presentations and spend the days before in mounting dread. Then he tried a method. Before, he rehearsed and kept up his breathing practice. During, he took a quiet sigh, read the surge as readiness, and kept his focus on the next point. After, he took a short walk and reviewed what actually happened, not just what he had feared. Each one he handled made the next a little easier."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the moment, and write one thing you'll do during it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moment",
+          "f_during"
+        ]
+      },
+      "done_when": "You have a plan for before, during, and after.",
+      "reflect": "Which part of the plan feels most useful to you?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_after",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "The moment coming up"
+        },
+        {
+          "id": "f_before",
+          "type": "short_text",
+          "label": "Before: how you'll prepare"
+        },
+        {
+          "id": "f_during",
+          "type": "short_text",
+          "label": "During: your tool and your focus"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "After: how you'll come down and review it"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Count the cost of yes",
+      "purpose": "A clear look at what your yeses cost, and the beliefs that keep them coming.",
+      "why": "Calming tools help, but they can't make up for carrying more than you can hold. Saying no often feels selfish or risky. But every yes is also a no to something else, often rest, sleep, or time with people you love. Seeing that hidden no, and the beliefs behind the yes, makes the trade easier to judge.",
+      "source": {
+        "chapter": "Chapter 7, Why Boundaries Matter; The Beliefs That Block Boundaries; Counting the Cost of Yes; Appendix A, The cost-of-yes check"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think of two or three things you said yes to recently.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For each one, write what that yes meant saying no to.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick any beliefs that make saying no feel hard.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For one belief, write a fairer way to see it.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Tara",
+        "text": "Tara said yes to every client request and every favor. Saying no felt like losing, or like leaving money on the table. When she counted the cost, she saw that a yes to an evening project was also a no to sleep, to her family, and to the rest she needed. Beneath it ran a belief she had never questioned: that her worth was her output."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one recent yes, and write what it meant saying no to.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_yes"
+        ]
+      },
+      "done_when": "You've seen the hidden cost of a yes. That makes the next choice clearer.",
+      "reflect": "Which yes would you choose differently now?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_fairer",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_yes",
+          "type": "two_column",
+          "label": "Your recent yeses",
+          "columns": [
+            "What you said yes to",
+            "What it meant saying no to"
+          ]
+        },
+        {
+          "id": "f_beliefs",
+          "type": "checklist",
+          "label": "Beliefs that make no feel hard",
+          "options": [
+            "Saying no is selfish",
+            "My worth depends on what I get done",
+            "People will be upset with me or pull away",
+            "Other people's needs come before mine"
+          ]
+        },
+        {
+          "id": "f_fairer",
+          "type": "short_text",
+          "label": "A fairer way to see one belief",
+          "help": "For example: Saying no is an honest answer about limited time."
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Set one standing limit",
+      "purpose": "One limit decided in advance, plus a short, kind way to say no.",
+      "why": "Deciding every request in the moment is draining. A standing limit, decided once, replaces a hundred hard choices with one rule. When a no is needed, kind, clear, and brief tends to work best, since long reasons invite debate. The first weeks often feel uncomfortable. That's the friction of changing a pattern, and it usually fades.",
+      "source": {
+        "chapter": "Chapter 7, Setting Boundaries in Practice; Appendix A, Standing boundaries"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one area where demands keep spilling over, like evening messages.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Write one standing limit, like a time after which you won't reply.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one short phrase you can use to say no.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Decide who needs to know about your limit, if anyone.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Expect some discomfort at first. Try holding the limit for a couple of weeks, then see.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Tara",
+        "text": "Tara decided she wouldn't answer client messages after a set hour. At first, the idea terrified her. She was sure clients would leave. They adjusted, and the catastrophe she feared didn't come. For requests she couldn't take on, she kept her answer short and warm: \"That doesn't work for me.\" She stopped explaining at length, because it only invited negotiation."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one limit you'd like to keep this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_limit"
+        ]
+      },
+      "done_when": "Your standing limit is set, with a phrase ready.",
+      "reflect": "What do you expect to feel the first time you hold this limit?",
+      "feeds_plan": [
+        {
+          "field_id": "f_limit",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_phrase",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_limit",
+          "type": "short_text",
+          "label": "Your standing limit"
+        },
+        {
+          "id": "f_phrase",
+          "type": "short_text",
+          "label": "Your phrase for saying no",
+          "help": "For example: I'm not able to take that on."
+        },
+        {
+          "id": "f_tell",
+          "type": "short_text",
+          "label": "Who needs to know, if anyone",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Map your energy",
+      "purpose": "A map of what drains and restores your energy, and when you're at your sharpest.",
+      "why": "Time is only part of the picture. An hour when you're fresh does far more than an hour when you're drained. Some tasks and people drain you, and others give energy back. Managing energy, not just time, means doing demanding work when you're sharpest, and protecting what refills you.",
+      "source": {
+        "chapter": "Chapter 7, Energy Management; Appendix A, The energy map"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write the times of day you usually feel sharpest.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "List a few things that drain your energy: tasks, people, or times.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List a few things that restore it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Move one demanding task into a sharper time this week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Protect one thing that restores you by putting it in your calendar.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Tara",
+        "text": "Tara had been trying to cram more into her calendar. Her real problem was energy: she was doing everything while depleted. When she looked closely, she started scheduling her most demanding work for when she had the energy to do it well. She noticed which parts of her work drained her and which gave something back. And she began protecting rest as the source of her capacity, not a luxury."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that drains you and one that restores you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_energy"
+        ]
+      },
+      "done_when": "Your energy map is drawn, with one change to try.",
+      "reflect": "What surprised you about your energy?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_sharp",
+          "type": "short_text",
+          "label": "When you're sharpest"
+        },
+        {
+          "id": "f_energy",
+          "type": "two_column",
+          "label": "What drains you, and what restores you",
+          "columns": [
+            "Drains",
+            "Restores"
+          ]
+        },
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "One change to try this week"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Unload the list in your head",
+      "purpose": "One trusted place for everything you're trying to remember, so your mind can carry less.",
+      "why": "A mind holding every unfinished task carries a constant background load, and that load is tiring before any work gets done. The book's principle is that your mind is for having ideas, not holding them. Writing open loops down in one place you trust can ease some of the hum of stress.",
+      "source": {
+        "chapter": "Chapter 8, The Attention Problem; Focus and the Reduction of Cognitive Load; Appendix A, Offloading open loops"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one place for your list: a notes app, a notebook, or a calendar.",
+          "figure": "fig_folders"
+        },
+        {
+          "text": "Spend five minutes writing down what's on your mind.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Include small things too: calls, errands, promises, worries.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick a time each day to add to it and look it over.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "When something pops into your head later, add it to the list.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya carried an endless mental list: work tasks, school forms, the next thing and the thing after that. She held it all in her head, all day. When she started capturing it in one written place instead, some of the constant background hum eased. Her mind no longer had to carry the full weight of everything at once."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose your one place, and write three things in it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_place"
+        ]
+      },
+      "done_when": "Your open loops have one place to live, outside your head.",
+      "reflect": "How did your mind feel after writing it down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_place",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_place",
+          "type": "short_text",
+          "label": "Your one place"
+        },
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "When you'll look it over each day"
+        },
+        {
+          "id": "f_felt",
+          "type": "short_text",
+          "label": "How it felt to get it out of your head",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Protect one focus block",
+      "purpose": "One protected stretch of single-task focus, with interruptions set aside.",
+      "why": "Multitasking feels productive, but the brain switches between tasks rather than doing them at once. Each switch costs time and energy. That's part of why a scattered day can leave you drained with little to show for it. One protected block of focus often gets more done, with less stress.",
+      "source": {
+        "chapter": "Chapter 8, The Multitasking Myth; Focus and the Reduction of Cognitive Load; Appendix A, Focus blocks"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one task that needs your full attention.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Choose a time, and a length that feels doable.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Before you start, put your phone away and close your email.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Work on that one task. If something else comes to mind, add it to your list.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Take a real break when the block ends.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya prided herself on keeping all the plates spinning. She worked with email open and her phone buzzing, and ended each day exhausted, unsure what she had finished. When she began protecting single blocks of focus, phone away and notifications off, she got more and better work done, with less stress. The load stayed heavy. The way she carried it changed."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one task, and work on it for a few minutes with your phone out of reach.",
+            "figure": "fig_phone_down"
+          }
+        ],
+        "field_ids": [
+          "f_task"
+        ]
+      },
+      "done_when": "You've protected one block of focus.",
+      "reflect": "What was different about working this way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_when",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_task",
+          "type": "short_text",
+          "label": "The task"
+        },
+        {
+          "id": "f_when",
+          "type": "time_of_day",
+          "label": "When your focus block starts"
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Break the sleep and stress loop",
+      "purpose": "One or two sleep basics to strengthen, adapted to fit your life.",
+      "why": "Stress disrupts sleep, and poor sleep makes stress harder to handle. Each feeds the other. The hopeful part is that the loop can be broken at either end, and progress on one side helps the other. If your schedule makes some basics hard, adapt them rather than drop them. Partial changes still help.",
+      "source": {
+        "chapter": "Chapter 9, Sleep Is Not Negotiable; The Sleep-Stress Cycle; The Foundations of Good Sleep; Appendix A, The sleep foundations"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the sleep basics below.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one or two you could strengthen, given your life right now.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write how you'll do each one, adapted to your schedule.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Try them for a week. Small changes count.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If poor sleep goes on despite these changes, please talk to a doctor.",
+          "figure": "fig_moon"
+        }
+      ],
+      "example": {
+        "character": "Joel",
+        "text": "Joel's rotating shifts made a consistent schedule nearly impossible. Instead of giving up on the basics, he adapted them. He kept his bedroom dark and quiet, whatever the hour. He managed light to suit sleep at odd times. He was strict about caffeine relative to when he'd actually sleep, and he protected a wind-down even when the timing was strange. His schedule stayed hard. He still got back sleep he had been losing."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one sleep basic to try tonight.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_basics"
+        ]
+      },
+      "done_when": "You've chosen sleep basics that fit your life.",
+      "reflect": "Which one feels most within reach?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_fit",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_basics",
+          "type": "checklist",
+          "label": "Sleep basics",
+          "options": [
+            "Going to bed and waking at about the same times",
+            "Bright light early in the day, dimmer light and fewer screens at night",
+            "A cool, dark, quiet bedroom",
+            "A wind-down before bed",
+            "No caffeine in the afternoon or evening",
+            "No alcohol close to sleep",
+            "No large meals or hard exercise close to bedtime"
+          ]
+        },
+        {
+          "id": "f_fit",
+          "type": "short_text",
+          "label": "How you'll fit them into your life"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Build in real recovery",
+      "purpose": "A few small pauses in your week that truly restore you, rather than just filling time.",
+      "why": "Modern life has stripped out many natural pauses, so recovery often has to be built on purpose. Not all downtime restores. Scrolling can stir you up more than it settles you. Real recovery looks more like rest with no demands, time outdoors, movement, connection, or getting absorbed in something you care about. Short breaks help too.",
+      "source": {
+        "chapter": "Chapter 3, The Disappearance of Recovery; Chapter 8, Sustainable Pace; Chapter 9, Recovery Beyond Sleep"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about your downtime last week. Write what you did.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, note whether it restored you or just filled time.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one restoring activity to protect this week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Add one short break to your most demanding day.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If scrolling fills your downtime, swap one stretch for something restoring.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "Joel",
+        "text": "Sleep alone couldn't make up for Joel's shifts. So he began protecting small periods of real recovery: genuine downtime instead of scrolling, some time in daylight, a walk. It wasn't much, and his circumstances made it harder than most. But it supported his sleep, and his worn-down system began, slowly, to recover."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that truly restores you, and when you'll do it this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_protect"
+        ]
+      },
+      "done_when": "You have one real recovery activity protected this week.",
+      "reflect": "What restores you that you'd stopped making time for?",
+      "feeds_plan": [
+        {
+          "field_id": "f_protect",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_down",
+          "type": "two_column",
+          "label": "Your downtime last week",
+          "columns": [
+            "What you did",
+            "Restored you, or filled time"
+          ]
+        },
+        {
+          "id": "f_protect",
+          "type": "short_text",
+          "label": "One restoring activity to protect"
+        },
+        {
+          "id": "f_break",
+          "type": "short_text",
+          "label": "One short break in a demanding day"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Look at money clearly",
+      "purpose": "A clearer picture of your money, and one step you can take, even while the numbers stay hard.",
+      "why": "Money stress tends to be constant and to feel out of your control. Avoiding the numbers is common, and it makes sense. But it leaves the worry vague, and the mind fills the gap with the worst. Looking clearly, then finding even one thing you can influence, often eases stress before the numbers move.",
+      "source": {
+        "chapter": "Chapter 10, Why Money Stress Is So Corrosive; The First Step Is Clarity; From Helplessness to Agency; Practical Steps That Reduce the Stress; Appendix A, The clarity step and The agency move"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "If money isn't a big stress for you right now, the short version is enough.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Set aside a calm time, with your numbers nearby.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Write roughly what comes in, what goes out, and what you owe.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice how it feels to see it. Take a slow breath if you need one.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Write one part of the situation you can influence, even a little.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one small step, like starting a small buffer or automating a payment.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If debt feels heavy, look for a nonprofit credit or debt counseling service.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus carried the size of his debt in his head at all times. He avoided looking at the actual figures, because looking made it real. When he finally did, the clarity itself helped. He made a modest plan, found the steps within his control, and started a small buffer. The debt would take years to clear. But now it was a known number he was working on, not a shapeless weight."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one part of your money situation you can influence, even a little.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_influence"
+        ]
+      },
+      "done_when": "Your money has a clearer shape, and you have one step to take.",
+      "reflect": "How does the clearer picture compare with the worry you carried before?",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_picture",
+          "type": "long_text",
+          "label": "Your picture: what comes in, what goes out, what you owe",
+          "help": "Rough numbers are fine. Keep it as brief as you like."
+        },
+        {
+          "id": "f_influence",
+          "type": "short_text",
+          "label": "One part you can influence"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small step"
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Check your support",
+      "purpose": "A clear view of who helps you carry stress, who adds to it, and one person to reach toward.",
+      "why": "Under stress, many people pull away from others, just when connection helps most. Support from people who care can soften how hard stress lands. Stress also spreads between people, often without anyone noticing. Close relationships can ease stress or add to it, so it helps to look at both honestly.",
+      "source": {
+        "chapter": "Chapter 11, Stress Is Contagious; Relationships as a Stress Buffer; When Relationships Are the Source; When Distance Is Necessary; Appendix A, The support audit"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List a few people you could share some of the load with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Notice anyone you've pulled away from lately.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one person, and one small way to reach toward them this week.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Notice any relationship that adds to your stress. Write it down if you like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If a relationship feels harmful or unsafe, please talk to a professional, or tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David thought of his stress as a private matter he was keeping to himself. His wife of twenty-five years gently suggested otherwise. It was leaking into his shortness with her and the mood at home. Caring for his aging mother was adding strain he had never counted as stress. When he began sharing the load with his wife instead of carrying it alone, it eased for both of them."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person, and send them a short message this week.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_reach"
+        ]
+      },
+      "done_when": "You've named your support and chosen one person to reach toward.",
+      "reflect": "What tends to get in the way of reaching out when you're stressed?",
+      "feeds_plan": [
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_reach",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_people",
+          "type": "short_text",
+          "label": "People you could share the load with"
+        },
+        {
+          "id": "f_reach",
+          "type": "short_text",
+          "label": "One person, and one small way to reach toward them"
+        },
+        {
+          "id": "f_strain",
+          "type": "short_text",
+          "label": "A relationship that adds to your stress",
+          "optional": true,
+          "help": "You can leave this blank."
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Add small warm moments",
+      "purpose": "A few small, warm moments added back into one close relationship.",
+      "why": "Stress tends to crowd out the small warm moments between people. Research the book draws on found that steady relationships have about five positive moments for every negative one. They don't need to be grand: thanks, affection, interest, humor. Adding a few back makes the relationship a stronger source of support, and costs little.",
+      "source": {
+        "chapter": "Chapter 11, The Ratio That Predicts Stability; Appendix A, The positive ratio"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one close relationship that stress has been wearing on.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write a few small warm things you could offer, like thanks or real interest.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Offer one today.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Over the week, aim for one or two a day. Small ones count.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David saw that his stress had been crowding out the warm moments in his marriage. His shortness and tension had tipped the balance. So he began rebuilding the small daily gestures: appreciation, a moment of real interest, a bit of warmth. It cost little, which made it something he could keep up, even under the load he was carrying."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Offer one small warm moment to someone close today.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_who"
+        ]
+      },
+      "done_when": "You've started adding warm moments back in.",
+      "reflect": "How did it feel to offer one?",
+      "feeds_plan": [
+        {
+          "field_id": "f_ideas",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "The relationship"
+        },
+        {
+          "id": "f_ideas",
+          "type": "ranked_list",
+          "label": "Small warm things you could offer",
+          "max_items": 5
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you offered one"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Reconnect with what matters",
+      "purpose": "A few values that are truly yours, and one way to bring your days closer to them.",
+      "why": "A load carried for something that matters weighs differently from one carried for no clear reason. Many people carry stress for goals they absorbed rather than chose. Naming what truly matters to you, and the gap with where your energy goes, points to small changes. Giving to others or to something larger can be a strong source of meaning too.",
+      "source": {
+        "chapter": "Chapter 12, The Protective Power of Meaning; Discovering What Matters; Purpose Beyond the Self; Appendix A, Values clarification and The purpose connection"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Write a few things that truly matter to you, not what you're expected to want.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Look at how you spent your energy last week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Write one gap between what matters and where your energy goes.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one daily demand, and write the value it serves.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name one small way to give to someone or something beyond yourself.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Choose one small change to try this week.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "At fifty-two, with his children grown and his career on a plateau, David wondered what all the coping had been for. When he looked at his values, he saw that some of his load served expectations rather than what he cared about. He began to realign, a little at a time. He found purpose in mentoring younger colleagues, and in caring for his mother, which he came to see as meaningful, not only a burden."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that truly matters to you.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Write one small way to make room for it this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values",
+          "f_change"
+        ]
+      },
+      "done_when": "You've named what matters, and one small way to move toward it.",
+      "reflect": "What would more room for this give you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_change",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "ranked_list",
+          "label": "What truly matters to you",
+          "max_items": 5
+        },
+        {
+          "id": "f_gap",
+          "type": "short_text",
+          "label": "One gap between your values and your days"
+        },
+        {
+          "id": "f_serve",
+          "type": "short_text",
+          "label": "A daily demand, and the value it serves",
+          "optional": true
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "One small change to try"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your stress plan",
+      "purpose": "One modest page with the few tools and limits that matter most to you, in your own words.",
+      "why": "You've tried a lot over these weeks, and not all of it needs to stay. The book's frame has three parts: calm the body, lighten the load, and rebuild what stress wears down. Its advice is to keep a plan realistic, modest, specific, and forgiving. A few steps you'll keep are worth more than a big system you put down.",
+      "source": {
+        "chapter": "Chapter 13, The Framework, Drawn Together; Building Your Personal Plan; Appendix A, The personal plan; Appendix C"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Keep your earliest warning sign and the tool you'll reach for.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Keep your daily calming practice, or trim it to what you really do.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep the one or two limits or load changes that helped most.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Add the people you'll lean on, and one thing that matters to you.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Read it once more. Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Joel",
+        "text": "Joel's plan was short, and built for the life he actually had. A few physiological sighs in the gaps of a shift, when he felt the tension climbing. Slow breathing in the car before the drive home. A dark, quiet room and careful caffeine timing, whatever his schedule. Real downtime instead of scrolling. Each piece was small enough to keep, even on a hard week."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted plan. Fix anything that doesn't fit.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_calm",
+          "f_load"
+        ]
+      },
+      "done_when": "Your stress plan is on one page, modest enough to keep.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_sign_tool",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_calm",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_load",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_support",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_sign_tool",
+          "type": "short_text",
+          "label": "Your warning sign, and the tool you'll reach for"
+        },
+        {
+          "id": "f_calm",
+          "type": "long_text",
+          "label": "Your calming practice and recovery"
+        },
+        {
+          "id": "f_load",
+          "type": "long_text",
+          "label": "Your limits and load changes"
+        },
+        {
+          "id": "f_support",
+          "type": "short_text",
+          "label": "Your support, and what matters"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan for when pressure returns",
+      "purpose": "A plan for yellow and red weeks, and a first step back, written while you're steady.",
+      "why": "Stress isn't something you solve once. Pressure will come back, through busy seasons and surprises. A plan that bends with your capacity lasts longer than one that only works in full. Lapses are a normal part of a real life. What matters is coming back, without blaming yourself.",
+      "source": {
+        "chapter": "Chapter 13, When the Pressure Returns; When Self-Help Is Not Enough; The Five People, Reconsidered; Appendix B, The Capacity Card"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name when pressure is likely to return, like a busy season or a big deadline.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Yellow weeks: write the short version of your plan you'll keep.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Red weeks: write the bare basics, and who you'll lean on.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write your first step back after a lapse.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If tools do not help after several weeks, or the day feels unmanageable, please talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus didn't become someone without stress. His career stayed demanding, and the debt was still there. What changed was that stress no longer ambushed him. It had a shape and a set of tools. When pressure rose before a big presentation, he knew what to reach for: preparation, a quiet sigh, and a walk afterward. He wasn't free of stress. He was no longer at its mercy."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step back after a lapse. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_back"
+        ]
+      },
+      "done_when": "Your plan can bend now: a yellow version, red basics, and a first step back.",
+      "reflect": "What would you want to hear from yourself on a hard week?",
+      "toolkit_link": "t02",
+      "feeds_plan": [
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_back",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When pressure is likely to return"
+        },
+        {
+          "id": "f_yellow",
+          "type": "short_text",
+          "label": "Your yellow-week version"
+        },
+        {
+          "id": "f_red",
+          "type": "short_text",
+          "label": "Your red-week basics, and who you'll lean on"
+        },
+        {
+          "id": "f_back",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: one physiological sigh and a short walk tomorrow."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The physiological sigh",
+      "when_to_use": "Stress spikes and you want to settle fast. It takes under a minute, and nobody can tell.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "Take one more short sip of air on top, to fill your lungs.",
+        "Exhale slowly through your mouth while you count to six or longer.",
+        "One or two of these are often enough."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Introduction; Chapter 5, The Physiological Sigh; Appendix A, The physiological sigh"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Check your capacity",
+      "when_to_use": "You're deciding how much to take on today or this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: stress is there, but manageable. The full versions are workable.",
+        "Yellow: stress has a real grip. Use short versions and slow the pace.",
+        "Red: basics only. Lean on support and a professional. Help now is always there."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Chapter 13, When the Pressure Returns; Appendix B, The Capacity Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Longer exhale breathing",
+      "when_to_use": "You want to settle, or ease toward sleep, and you have a minute or two.",
+      "steps": [
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly while you count to six, or to eight if that's comfortable.",
+        "Repeat for a minute or two. A few breaths count."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Slower Breathing Practices; Appendix A, Extended exhale breathing"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Box breathing",
+      "when_to_use": "You want a steady rhythm to slow things down, in a tense moment or as practice.",
+      "steps": [
+        "Inhale slowly while you count to four.",
+        "If it feels okay, hold for a count of four. You can skip this.",
+        "Exhale slowly while you count to four.",
+        "If it feels okay, hold again for a count of four, or skip it.",
+        "Repeat the square a few times."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Slower Breathing Practices; Appendix A, Box breathing"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Ground in your senses",
+      "when_to_use": "Overwhelm is building and your mind is racing ahead.",
+      "steps": [
+        "Notice a few things you can see. Name them to yourself.",
+        "Then notice a few things you can hear.",
+        "Then a few things you can touch, like your feet on the floor.",
+        "Let your attention rest in the room for a moment."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Beyond Breathing; Appendix A, Grounding"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Tense and release",
+      "when_to_use": "Tension has settled in your body, in your jaw, shoulders, or stomach.",
+      "steps": [
+        "Gently tense your hands for a few seconds.",
+        "Let go, and notice how the release feels.",
+        "Move on to your shoulders, then your face, then your legs.",
+        "If anything hurts, ease off. Gentle is enough."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Beyond Breathing; Appendix A, Progressive muscle relaxation"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Walk it off",
+      "when_to_use": "A stressful moment is over, but your body is still wound up.",
+      "steps": [
+        "Get up and move, outdoors if you can.",
+        "A brief walk is enough. Any pace works.",
+        "Let your body finish what the stress started."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 5, Beyond Breathing; Chapter 6, Recovery After; Appendix A, Movement as regulation"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Read the surge",
+      "when_to_use": "Your heart is racing before something that matters.",
+      "steps": [
+        "Notice the racing heart, the quick breath, the burst of energy.",
+        "Tell yourself: \"This is my body getting ready.\"",
+        "Quick breath is oxygen coming in. Energy is fuel for the moment.",
+        "Then take one physiological sigh, and begin."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 1, The Stress Mindset; Chapter 6, The Reappraisal of Stress"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Count the cost of yes",
+      "when_to_use": "Someone asks for something, and a yes is on its way before you've thought.",
+      "steps": [
+        "Pause before you answer.",
+        "Ask yourself: \"If I say yes, what am I saying no to?\"",
+        "Weigh the two. Is the trade worth it?",
+        "If not, try: \"That doesn't work for me.\" Brief and kind is enough."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 7, Counting the Cost of Yes; Setting Boundaries in Practice; Appendix A, The cost-of-yes check"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "When your mind won't settle",
+      "when_to_use": "You're lying awake, your mind is racing, and sleep won't come.",
+      "steps": [
+        "Try a few slow breaths, each exhale longer than the inhale.",
+        "Write down what's on your mind and tomorrow's tasks. Set them aside.",
+        "Still awake after a while? Get up and do something calm, in dim light.",
+        "One short night is something you can get through."
+      ],
+      "minutes": 1,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 9, When the Mind Will Not Settle; Appendix A, For the racing mind"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: mapping what sets your stress off."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. Your stress has a clearer shape now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have a calming practice, a kit, and a first limit. Next, the wider load."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up with one small step, whenever you're ready."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Your stress profile"
+    },
+    {
+      "id": "p3",
+      "title": "Calming and recovery"
+    },
+    {
+      "id": "p4",
+      "title": "Lightening the load"
+    },
+    {
+      "id": "p5",
+      "title": "Support and what matters"
+    },
+    {
+      "id": "p6",
+      "title": "When pressure returns"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by reading your stress as a signal. Since then, you've mapped what sets it off, built ways to calm your body, and started lightening the load: limits, focus, sleep, money, and support. You've also looked at what matters to you. Stress will still come. Your plan is here so it lands a little lighter.",
+    "book_bridge": "Every tool here comes from Bearing It Better by Maya Vaughn. The book tells the full stories of Marcus, David, Tara, Priya, and Joel. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which tool are you still reaching for without much effort?",
+      "Has your earliest warning sign shown up this month? What helped?",
+      "What's one limit or change you're glad you kept?"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e03",
+      "e06",
+      "e07",
+      "e11",
+      "e12",
+      "e15"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Bearing_It_Better.docx",
+    "v1_id": "stress",
+    "cut_log": [
+      {
+        "item": "Statistics and study details",
+        "chapter": "Introduction; Chapters 1, 2, 4, 5, 8",
+        "reason": "The 43 percent mortality figure, the 2023 breathing trial, the sandwich-generation odds, the 700 hours of lost sleep and the 40 percent switching cost are cut. Not needed for instruction. The stress-mindset finding and the five-to-one ratio stay as research the book draws on."
+      },
+      {
+        "item": "Researcher names",
+        "chapter": "Introduction; Chapters 1, 2, 5, 11; Acknowledgements",
+        "reason": "Keller, McGonigal, McEwen and Stellar, Spiegel and Huberman, and Gottman are not named in reader copy."
+      },
+      {
+        "item": "Biology detail: amygdala, HPA axis, cortisol curve, allostatic load, inflammation, vagus nerve",
+        "chapter": "Chapters 2 and 5",
+        "reason": "Folded into one plain line where needed (the body on alert, the longer exhale engages the calming system). Detail is in the book."
+      },
+      {
+        "item": "Stress versus anxiety",
+        "chapter": "Chapter 1, Stress Versus Anxiety",
+        "reason": "Would invite self-diagnosis. The Worry workbook and the Help now route cover anxiety."
+      },
+      {
+        "item": "Growing through adversity",
+        "chapter": "Chapter 12, Growing Through Adversity",
+        "reason": "Left out. It risks implying the reader should find a silver lining while still under strain."
+      },
+      {
+        "item": "Resilience as a separate exercise",
+        "chapter": "Chapter 12, Building Resilience",
+        "reason": "The book says resilience is the sum of the earlier work. Carried by the finish summary and e21."
+      },
+      {
+        "item": "Life stage and circumstance",
+        "chapter": "Chapter 4, Life Stage and Circumstance",
+        "reason": "Folded into e05, which lifts self-blame for a heavy situation. A separate exercise would repeat it."
+      },
+      {
+        "item": "Money and deeper meaning",
+        "chapter": "Chapter 10, When Money Stress Connects to Deeper Things",
+        "reason": "Left out of e17 to keep money work short and practical. No financial advice is given."
+      },
+      {
+        "item": "Supporting someone else",
+        "chapter": "Chapter 13; Appendix D",
+        "reason": "The workbook is for the reader's own stress."
+      },
+      {
+        "item": "Therapy types, medication and resources",
+        "chapter": "Chapter 13; Appendices E and F",
+        "reason": "Medical and referral content. The safety note, the doctor steps and Help now carry it."
+      },
+      {
+        "item": "Brief cold exposure",
+        "chapter": "Chapter 5, Beyond Breathing",
+        "reason": "The book calls it an add-on, not a foundation. Left out to avoid medical caveats for heart conditions."
+      },
+      {
+        "item": "Thirty-day beginning",
+        "chapter": "Appendix C",
+        "reason": "Informs the order of weeks 1 to 7 rather than appearing as its own item."
+      }
+    ],
+    "notes": "v1 topic_name: Stress\nv1 set_id: stress-and-overload (Stress and Overload); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 36"
+  }
+}

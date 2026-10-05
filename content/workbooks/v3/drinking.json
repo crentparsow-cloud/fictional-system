@@ -1,0 +1,2722 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-SMZ6R",
+  "slug": "the-long-way-home-smz6r",
+  "title": "The Long Way Home",
+  "short_title": "Drinking",
+  "card_line": "Twelve weeks of practical, shame-free steps for changing your relationship with drinking",
+  "tagline": "Twelve weeks of practical, shame-free steps for changing your relationship with drinking",
+  "book": {
+    "book_id": "the-long-way-home",
+    "title": "The Long Way Home",
+    "subtitle": "A Practical Guide to Addiction Recovery",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4HGH7D6",
+      "US": "https://www.amazon.com/dp/B0H4HGH7D6"
+    },
+    "asin": "B0H4HGH7D6"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "higher",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See the pattern",
+          "body": "The Explore stage is about understanding, not fixing. Drinking usually started as a solution: it calmed something, eased something, or marked the end of a hard day. Over two weeks, you'll look at what drinking does for you and what sets it off. None of this is about blame. A pattern you can see is a pattern you can change. Go at your own pace.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clear picture of your drinking loop and your triggers, so you know where to start.",
+        "review_question": "What did you notice about your pattern that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Structure over willpower",
+          "body": "Willpower tends to run lowest in the evening, right when urges often peak. So the Build stage sets up structure that carries you instead. Over five weeks, you'll learn to read your state, look after sleep and food, anchor your mornings and evenings, change your surroundings, and work with urges. Build one piece at a time. Small and steady is enough.",
+          "figure": "fig_walking"
+        },
+        "outcome": "Tools matched to your state, steadier basics, an evening plan, a minimum day, and ways to ride out urges.",
+        "review_question": "Which tool or habit helped most, even a little?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Put it to work",
+          "body": "In the Practice stage, you'll use your tools in daily life and get ready for harder moments. Over four weeks, you'll name your warning lights, plan your responses, learn from urges, answer shame, build your support, and plan for a slip so that it stays small if it happens. Some weeks will feel harder than others. That's part of it, and it doesn't undo what you've built.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "Your warning lights, if-then plans, support layers, ready words, and a plan for after a slip.",
+        "review_question": "What has felt steadier, and what still needs some work?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Protect what you've built",
+          "body": "The Keep stage brings twelve weeks together. You will look at what you now have to protect, and make an emergency card for moments when thinking is hard. Things tend to get steadier over time, but the habits that got you here still matter, especially when life gets rough. These pages are for the long run.",
+          "figure": "fig_writing"
+        },
+        "outcome": "A clear view of what you are protecting, and an emergency card saved in your plan.",
+        "review_question": "What do you want to keep doing after these twelve weeks?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If drinking has started to cost you more than it gives, this workbook is built for that. It is twelve weeks of practical steps: seeing your pattern, steadying your days, riding out urges, and building support. Please read the safety note before you change anything about your drinking. Most weeks take 15 to 20 minutes, and every exercise has a short version. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools for urges and hard moments, open anytime, starting today.",
+      "You set the pace. A hard day or a slip never sends you back to the start."
+    ],
+    "why_prompt": "What do you want to take back, or build, in the space drinking has taken up? One line is enough.",
+    "higher_tier_note": "This workbook is designed to be used alongside other support, such as a doctor, a counselor, a recovery group, or people you trust. That is true for everyone who uses it, whatever brought them here. It does not mean anything is wrong with you. The tools here work best when you are not doing this alone, and reaching out for more support at any point is a sensible step.",
+    "extra_safety_note": "Please read this before you change how much you drink. If you drink heavily or every day, stopping suddenly can be medically dangerous. Alcohol withdrawal can be life-threatening. Do not stop or cut down on your own. Talk to a doctor first, so they can help you do it safely. This workbook does not give amounts or a plan for cutting down. That is for you and your doctor to decide together. This workbook is about drinking. If you also use other drugs, or take a medicine you find hard to stop, talk to a doctor about that too, and do not stop it suddenly on your own. If you have thoughts of harming yourself, or you feel unwell or unsafe, stop and tap Help now. It is at the top of every screen."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? There are no right answers. Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "days",
+        "label": "Steady days"
+      },
+      {
+        "id": "urges",
+        "label": "Handling urges"
+      },
+      {
+        "id": "signs",
+        "label": "Seeing trouble early"
+      },
+      {
+        "id": "support",
+        "label": "Support and kindness"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "days",
+        "text": "You eat something every few hours through the day."
+      },
+      {
+        "id": "q02",
+        "area": "days",
+        "text": "You go to bed and wake up at roughly the same times."
+      },
+      {
+        "id": "q03",
+        "area": "days",
+        "text": "Your evenings have some kind of plan to them."
+      },
+      {
+        "id": "q04",
+        "area": "days",
+        "text": "On a hard day, you still manage a few small basics."
+      },
+      {
+        "id": "q05",
+        "area": "urges",
+        "text": "When an urge comes, you can pause before you act."
+      },
+      {
+        "id": "q06",
+        "area": "urges",
+        "text": "You can tell what an urge is really asking for."
+      },
+      {
+        "id": "q07",
+        "area": "urges",
+        "text": "You have a few things you can do when an urge is strong."
+      },
+      {
+        "id": "q08",
+        "area": "urges",
+        "text": "You trust that an urge will rise and then pass."
+      },
+      {
+        "id": "q09",
+        "area": "signs",
+        "text": "You know the people, places, and feelings that make drinking more likely."
+      },
+      {
+        "id": "q10",
+        "area": "signs",
+        "text": "You notice early warning signs, like slipping sleep or pulling away from people."
+      },
+      {
+        "id": "q11",
+        "area": "signs",
+        "text": "You have a plan for your riskiest times of day or week."
+      },
+      {
+        "id": "q12",
+        "area": "signs",
+        "text": "You notice when you're hungry, angry, lonely, or tired."
+      },
+      {
+        "id": "q13",
+        "area": "support",
+        "text": "You have at least one person you can be honest with about drinking."
+      },
+      {
+        "id": "q14",
+        "area": "support",
+        "text": "You reach out to someone when things get hard."
+      },
+      {
+        "id": "q15",
+        "area": "support",
+        "text": "You speak to yourself kindly after a hard day."
+      },
+      {
+        "id": "q16",
+        "area": "support",
+        "text": "You have a sense of what matters to you beyond drinking."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own earlier answers, never with anyone else's. Change rarely runs in a straight line, so harder weeks show up here too. That's useful to know, and it's never a verdict on you.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to steady (10)?"
+      },
+      {
+        "id": "c_light",
+        "type": "checklist",
+        "label": "Your traffic light this week",
+        "options": [
+          "Mostly green: routines and support in place",
+          "Some amber: warning signs showed up",
+          "Some red: strong urges or a close call"
+        ],
+        "help": "Amber is a good time to add support. If you had red days, please reach out to someone this week. If you do not feel safe, tap Help now."
+      },
+      {
+        "id": "c_helped",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_sign",
+        "type": "short_text",
+        "label": "A warning sign you noticed, if any",
+        "optional": true
+      },
+      {
+        "id": "c_people",
+        "type": "short_text",
+        "label": "Someone you were in touch with this week",
+        "optional": true
+      },
+      {
+        "id": "c_adjust",
+        "type": "short_text",
+        "label": "One small change for next week"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_helped"
+    ]
+  },
+  "daily_check": {
+    "question": "How steady did today feel?",
+    "scale_low": "Very hard",
+    "scale_high": "Steady",
+    "tags": [
+      "Ate regularly",
+      "Slept okay",
+      "Moved my body",
+      "Talked to someone",
+      "Rode out an urge",
+      "Kept my evening plan",
+      "Went to a group",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "See your drinking loop",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Map your triggers",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Read your state and match your tools",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t04",
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Look after your body and track the trend",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Anchor your mornings and evenings",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Set your minimum day and your surroundings",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Work with urges",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t05",
+        "t06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Name your warning lights and plan ahead",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Learn from urges and answer shame",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03",
+        "e05"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Build support and get your words ready",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e12"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Plan for a slip and rebuild trust",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08",
+        "e14"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Protect what you've built",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e06",
+        "e13"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Your drinking loop",
+      "purpose": "A simple picture of what sets off your drinking, what you do, and what it gives you.",
+      "why": "It can feel like you just can't stop, and like something must be wrong with you. The book sees it differently. Drinking usually began as a solution to something real. It runs on a loop: a cue, the drinking, and a reward. Once you can see your own loop, you know where to start changing it.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, Why Willpower Is the Wrong Tool; Chapter 2, The Solution That Became the Problem; The Loop Beneath the Behavior"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a typical time you drink. A rough picture is fine.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the cue: what usually comes just before. A time, a place, a feeling, or a person.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you usually do next.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick what drinking gives you then. More than one is fine.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Read it back. The reward points to a need you can learn to meet another way.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus ran a team of twelve at a marketing firm in Chicago, and he kept promising himself he'd stop. The promise kept breaking at about 6 p.m. His cue was the end of the workday, when a restless, edgy feeling set in. The routine was the first drink. The reward was relief: the evening finally smoothed over. Seeing the loop changed his question from \"What's wrong with me?\" to \"What would actually help here?\""
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your most common cue in a few words.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Pick what drinking gives you then.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_cue",
+          "f_reward"
+        ]
+      },
+      "done_when": "Your loop is on the page: the cue, what you do, and what it gives you.",
+      "reflect": "Did anything about your loop surprise you?",
+      "toolkit_link": "t01",
+      "fields": [
+        {
+          "id": "f_cue",
+          "type": "short_text",
+          "label": "The cue: what usually comes just before",
+          "help": "For example: getting home from work, or a hard phone call."
+        },
+        {
+          "id": "f_routine",
+          "type": "short_text",
+          "label": "What you usually do next"
+        },
+        {
+          "id": "f_reward",
+          "type": "checklist",
+          "label": "What drinking gives you then",
+          "options": [
+            "Calm, or relief from stress",
+            "Something to ease pain or hard feelings",
+            "Company, or an easier time with people",
+            "Excitement, or a break from boredom",
+            "A way to mark the end of the day",
+            "Something to fill an empty feeling"
+          ]
+        },
+        {
+          "id": "f_other",
+          "type": "short_text",
+          "label": "Anything else it gives you",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Map your triggers",
+      "purpose": "A list of your own triggers, rated, so the strongest ones get a plan first.",
+      "why": "An urge can seem to come from nowhere, which is unsettling. Usually something set it off. Some triggers are outside you: people, places, times. Others are inside: feelings, tiredness, pain, hunger. The book calls mapping them one of the most useful things you can do, because a trigger you can name is one you can plan for.",
+      "source": {
+        "chapter": "Chapter 3, What a Trigger Actually Is; Mapping Your Own Triggers; Appendix A, The Trigger Map"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write your outside triggers: people, places, times, situations, and things you see or hear.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your inside triggers: feelings, body states like tiredness or pain, and thoughts.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your phone: apps, accounts, or ads that pull you toward drinking.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Next to each one, note how strong it feels and how often you meet it.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick the two that are both strong and frequent. They get plans first.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Keep it rough. You can add to it as you notice more.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's outside triggers were easy to name: 6 p.m. on a weekday, walking past bars he knew well, and old friends from his drinking days. The inside ones took longer. A brutal week at work, the restless feeling that set in each evening, and being worn out all made the pull stronger. The 6 p.m. slot was both strong and daily, so it went to the top of his list."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one or two triggers that pull hardest right now.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_top"
+        ]
+      },
+      "done_when": "Your trigger map is started. You can add to it anytime.",
+      "reflect": "Which trigger was hardest to put into words?",
+      "feeds_plan": [
+        {
+          "field_id": "f_top",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_out",
+          "type": "two_column",
+          "label": "Outside triggers",
+          "columns": [
+            "Trigger",
+            "How strong, how often"
+          ],
+          "help": "For example: 6 p.m. on weekdays. Strong, daily."
+        },
+        {
+          "id": "f_in",
+          "type": "two_column",
+          "label": "Inside triggers",
+          "columns": [
+            "Trigger",
+            "How strong, how often"
+          ],
+          "help": "For example: lonely on Sunday afternoons. Medium, weekly."
+        },
+        {
+          "id": "f_top",
+          "type": "ranked_list",
+          "label": "The two to plan for first",
+          "max_items": 2
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Find your window",
+      "purpose": "A quick way to tell whether you're steady, revved up, or shut down.",
+      "why": "Many urges are really your body looking for relief. When you're revved up and anxious, it wants calming. When you're flat and numb, it wants a lift. Drinking used to do both jobs. The book uses the idea of a window: steady in the middle, too high above it, too low below it. Each one needs a different tool.",
+      "source": {
+        "chapter": "Chapter 4, Why Regulation Matters More Than Willpower; The Window of Tolerance"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the three states: in your window, above it, and below it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the signs you notice when you're above it: racing, tense, irritable, on edge.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick the signs you notice when you're below it: flat, numb, foggy, far away.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write the times of day you tend to go above or below.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "For the next few days, check your window two or three times a day.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "In his early weeks without alcohol, Marcus felt as if he were vibrating from the inside every evening. He couldn't sit still, and he wondered if this was just what not drinking felt like. Then he noticed his mornings were different: gray, flat, and foggy. The evenings were above his window. The mornings were below it. They needed opposite tools, and telling them apart was the start of managing both."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pause and ask: am I in my window, above it, or below it?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one word for where you are.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_now"
+        ]
+      },
+      "done_when": "You know your signs for above and below, and when they tend to show up.",
+      "reflect": "Which state shows up more for you, above or below?",
+      "fields": [
+        {
+          "id": "f_above",
+          "type": "checklist",
+          "label": "Signs you're above your window",
+          "options": [
+            "Racing heart or thoughts",
+            "Tense or on edge",
+            "Irritable or angry",
+            "Anxious or panicky",
+            "Can't sit still"
+          ]
+        },
+        {
+          "id": "f_below",
+          "type": "checklist",
+          "label": "Signs you're below your window",
+          "options": [
+            "Flat or empty",
+            "Numb",
+            "Foggy or slow",
+            "Far away or disconnected",
+            "Low energy"
+          ]
+        },
+        {
+          "id": "f_times",
+          "type": "short_text",
+          "label": "When you tend to go above or below",
+          "help": "For example: above in the early evening, below in the morning."
+        },
+        {
+          "id": "f_now",
+          "type": "short_text",
+          "label": "Where you are right now",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Match the tool to your state",
+      "purpose": "Two short lists: what calms you when you're revved up, and what lifts you when you're flat.",
+      "why": "Calming a shut-down system can leave you flatter. Revving up an anxious one can make it worse. That's why the book says to match the tool to the state. Above your window, work through the body: a long exhale, movement, or your senses. Below it, lift gently: a walk, daylight, music, or a call to someone.",
+      "source": {
+        "chapter": "Chapter 4, Tools for an Activated System; Tools for a Shut-Down System; How Other People Regulate You"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Try the double-inhale sigh now. It's in your Toolkit.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Pick two or three tools for when you're above your window.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick two or three tools for when you're below your window.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Add one person you could call or sit with, in either state.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Next time you notice a state, try one tool and note what happened.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus started using the double-inhale sigh when the evening agitation rose. A few minutes of long exhales took the edge off the vibration he used to quiet with alcohol. On the gray mornings, he did the opposite: a brisk walk in daylight instead of trying to relax. He also noticed that he often arrived at his meeting tense and left it settled. Being around calmer people helped his body settle too."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one tool for above your window and one for below.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_up_tools",
+          "f_down_tools"
+        ]
+      },
+      "done_when": "You have tools matched to each state, ready to try.",
+      "reflect": "Which tool do you think you'll reach for first?",
+      "toolkit_link": "t04",
+      "feeds_plan": [
+        {
+          "field_id": "f_up_tools",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_down_tools",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_up_tools",
+          "type": "checklist",
+          "label": "When you're above your window",
+          "options": [
+            "Double-inhale sigh",
+            "Longer exhales",
+            "A brisk walk or some push-ups",
+            "Name what you can see, hear, touch, smell, and taste",
+            "Time with a calm person"
+          ]
+        },
+        {
+          "id": "f_down_tools",
+          "type": "checklist",
+          "label": "When you're below your window",
+          "options": [
+            "A gentle walk, outside if you can",
+            "Some stretching",
+            "Bright daylight",
+            "Upbeat music",
+            "A strong, pleasant smell like citrus or peppermint",
+            "Reach out to someone",
+            "One small, doable task"
+          ]
+        },
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "One person you could call or sit with",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Look after sleep and food",
+      "purpose": "One or two small changes to sleep and eating that make urges easier to handle.",
+      "why": "Short sleep makes urges stronger and patience thinner, and a dip in blood sugar can feel a lot like a craving. The book calls sleep the foundation. You do not need a perfect routine. Steady sleep times and regular meals both help. If sleep stays very hard after months of good habits, it is worth talking to a doctor.",
+      "source": {
+        "chapter": "Chapter 5, Sleep as the Foundation; Nutrition and Movement; Chapter 3, Reading Your State Before It Slips"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one sleep step, like the same bedtime and wake time, or no screens in the last hour.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Pick one food step, like eating every few hours or keeping a simple snack handy.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Keep water nearby. Even mild thirst can leave you tired and foggy.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Vivid dreams, even about drinking, are common early on. They tend to settle with time.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Try your steps for a week. Small and steady is enough.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "In his first weeks without alcohol, Marcus's sleep broke into pieces, and his late afternoons felt edgy. He picked one step for each: the same wake time every day, even on weekends, and a snack with some protein around 4 p.m. Some of what he'd taken for cravings in the late afternoon turned out to be hunger. His sleep took longer to settle, but slowly it did."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one sleep step or one food step for this week.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_sleep",
+          "f_food"
+        ]
+      },
+      "done_when": "You've chosen your sleep and food steps for the week.",
+      "reflect": "Which step do you expect to be easiest, and what might get in the way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_sleep",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_food",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_sleep",
+          "type": "checklist",
+          "label": "Your sleep step",
+          "options": [
+            "Same bedtime and wake time",
+            "No screens in the last hour",
+            "A cool, dark bedroom",
+            "A short wind-down routine",
+            "No caffeine after early afternoon"
+          ]
+        },
+        {
+          "id": "f_food",
+          "type": "checklist",
+          "label": "Your food step",
+          "options": [
+            "Eat every few hours",
+            "Add some protein to meals",
+            "Keep a simple snack handy",
+            "Keep water nearby"
+          ]
+        },
+        {
+          "id": "f_notes",
+          "type": "short_text",
+          "label": "Anything you noticed this week",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Track the trend",
+      "purpose": "A once-a-week rating of how you're doing, so your overall direction shows over time.",
+      "why": "Some weeks can feel worse than the ones before, which is discouraging. The book explains that after stopping, mood, sleep, focus, and urges often come and go in waves for months. A hard week is a wave, not a forecast. Rating a few things once a week shows the direction that single days hide.",
+      "source": {
+        "chapter": "Chapter 5, What PAWS Is; Why Knowing About PAWS Changes Everything; Chapter 9, Recognizing a Co-Occurring Condition; Appendix A, The Weekly Review"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Rate this week from 1 to 5 for mood, energy, sleep, focus, and how manageable urges felt.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Write what went well this week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write where things felt thinner.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose one small adjustment for next week. Big decisions can wait for a steadier week.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If low mood or anxiety stays heavy for months, or was there before drinking, please talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Around his third month, Marcus had a week where everything felt worse: broken sleep, a short temper, and fog at work. It felt like proof that nothing was working. When he looked back over his weekly ratings, the line was jagged, but it sat clearly higher than in his first month. He wrote one adjustment, an earlier bedtime, and let the week be a wave."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Rate the five areas from 1 to 5. That's enough for this week.",
+            "figure": "fig_rating"
+          }
+        ],
+        "field_ids": [
+          "f_ratings"
+        ]
+      },
+      "done_when": "This week's ratings are saved. Over time, they'll show your direction.",
+      "reflect": "How does this week look on paper, compared with how it felt while you were in it?",
+      "fields": [
+        {
+          "id": "f_ratings",
+          "type": "rating_grid",
+          "label": "This week, from 1 (low) to 5 (good)",
+          "rows": [
+            "Mood",
+            "Energy",
+            "Sleep",
+            "Focus",
+            "Urges felt manageable"
+          ]
+        },
+        {
+          "id": "f_well",
+          "type": "short_text",
+          "label": "What went well"
+        },
+        {
+          "id": "f_thin",
+          "type": "short_text",
+          "label": "Where things felt thinner",
+          "optional": true
+        },
+        {
+          "id": "f_adjust",
+          "type": "short_text",
+          "label": "One adjustment for next week"
+        }
+      ],
+      "repeat_units": [
+        8,
+        12
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Your morning anchor",
+      "purpose": "One small morning habit that starts each day with something for you, even on hard mornings.",
+      "why": "A rough start can make the whole day feel shaky. The book suggests a morning anchor: one small action done the same way each day. Keep it small enough to survive a hard morning. A five-minute habit you do every day helps more than a long routine you only manage when you feel good.",
+      "source": {
+        "chapter": "Chapter 6, Why Structure Beats Willpower; The Anchors That Hold a Day; Building the System Without Being Crushed by It"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one small morning action: a glass of water, a short walk, or one intention for the day.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Attach it to something you already do, like right after your first coffee.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write it as a plan: \"After [this], I'll [my anchor].\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Mark each day you do it.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Missed a day? Pick it up the next morning. One gap doesn't undo a habit.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "On the flat, gray mornings of early recovery, Marcus found that trying to relax made him feel worse. A brisk walk in daylight helped instead. So that became his anchor: a glass of water, then out the door for a short walk at the same time every morning. Some mornings it was only ten minutes. Two years on, he still starts every day moving."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one small thing you'll do tomorrow morning.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_anchor"
+        ]
+      },
+      "done_when": "Your morning anchor is chosen. Small and steady is enough.",
+      "reflect": "What might get in the way on a hard morning, and how could you make it smaller?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchor",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_anchor",
+          "type": "short_text",
+          "label": "Your morning anchor"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "What you'll attach it to"
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Mornings you kept your anchor",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Plan your evenings",
+      "purpose": "A loose plan for your riskiest hours, so you aren't deciding hour by hour.",
+      "why": "For many people, evenings are the hardest part of the day. Willpower is low, time opens up, and old habits try to take over. The book suggests planning the evening, even loosely, so the open space is filled. Aim for four parts: a marker that ends the workday, something to do, a wind-down, and a quick check.",
+      "source": {
+        "chapter": "Chapter 6, The Anchors That Hold a Day; Chapter 1, Why Willpower Is the Wrong Tool; Appendix A, The Daily Operating System Template"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write the time your evenings usually get hardest.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose a marker that ends your workday, like a change of clothes or a short walk.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Choose what will fill the hard hours: a call, a meeting, a meal, a hobby, or a person.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Choose a wind-down for the last hour before bed.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "End with a traffic light check. It's in your Toolkit.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's hardest hour started at 6 p.m., so he gave it a plan. Leaving work, he changed into running clothes and went for a short run. Two evenings a week, he went to his meeting. On the others, he cooked and called someone from his group. Before bed, he read and ran a quick traffic light check. The hour that used to belong to drinking had something in it now."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that will fill your hardest hour tonight.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_fill"
+        ]
+      },
+      "done_when": "Your evening has a plan, so the hardest hours aren't left open.",
+      "reflect": "Which part of the plan feels most doable this week?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_fill",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_marker",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_hard",
+          "type": "time_of_day",
+          "label": "When evenings get hardest"
+        },
+        {
+          "id": "f_marker",
+          "type": "short_text",
+          "label": "Your end-of-day marker"
+        },
+        {
+          "id": "f_fill",
+          "type": "long_text",
+          "label": "What fills the hard hours",
+          "help": "For example: Monday and Thursday, my meeting. Other nights, cook and call a friend."
+        },
+        {
+          "id": "f_wind",
+          "type": "short_text",
+          "label": "Your wind-down"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Your minimum day",
+      "purpose": "Three small things you'll do on the hardest days, decided now while you're steady.",
+      "why": "Some days fall apart: you're ill, worn out, or hit by something big. Forcing the full routine then can tip into all-or-nothing thinking. The book's answer is a minimum day: three small things done no matter what. On those days, doing the three means your progress held, even when nothing else went to plan.",
+      "source": {
+        "chapter": "Chapter 6, The Minimum Viable Day; Appendix A, The Daily Operating System Template"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one small morning action. It can be smaller than your anchor.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one point of contact: a text, a call, or a meeting.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write one act of basic care: eating something, resting, or a short walk.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Check each one: could you do it while sick or exhausted? If not, make it smaller.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "On a hard day, these three are enough.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus wrote his minimum day while things were calm: a glass of water and five minutes outside, one text to his sponsor, and one proper meal. During a week of flu, that was all he managed. Each evening, he could see the three were done. Instead of deciding the week was a write-off, he could see that it had held."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three small things you could do on any day, however hard.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_min"
+        ]
+      },
+      "done_when": "Your minimum day is set. On the hardest days, these three are enough.",
+      "reflect": "What would help you remember these three on a hard day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_min",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_min",
+          "type": "ranked_list",
+          "label": "Your minimum day",
+          "max_items": 3,
+          "help": "For example: water and five minutes outside, text my sponsor, eat one proper meal."
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Make the easier choice easier",
+      "purpose": "A few changes at home and on your phone that make drinking harder and support easier.",
+      "why": "It's much easier to avoid a trigger than to resist one. The book suggests shaping your surroundings so the choice you want is easy and the old one is hard. That means fewer cues around you, more friction in the way of drinking, and more reminders of the life you're building.",
+      "source": {
+        "chapter": "Chapter 6, Designing the Environment; Chapter 3, Mapping Your Own Triggers"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "If you drink heavily or every day, talk to a doctor before you change how much you drink.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Pick cues to remove: alcohol at home, or apps, accounts, and contacts tied to drinking.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Pick ways to add friction, like a route home that doesn't pass the bar.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Pick reminders to add, like walking shoes by the door or a support number at the top of your contacts.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Make one change today. Add the others when you're ready.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's walk home passed several bars he knew well, so he found another route. He deleted the numbers of two old friends who only ever called to go drinking, and moved his sponsor's number to the top of his contacts. His running shoes went by the front door. None of it took long, and each change meant one less decision to make at 6 p.m."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Make one change today: remove one cue, or add one reminder.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_remove",
+          "f_add"
+        ]
+      },
+      "done_when": "You've picked the changes that make the easier choice easier.",
+      "reflect": "Which change feels most worth making first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_add",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_remove",
+          "type": "long_text",
+          "label": "Cues to remove"
+        },
+        {
+          "id": "f_friction",
+          "type": "short_text",
+          "label": "Friction to add",
+          "optional": true
+        },
+        {
+          "id": "f_add",
+          "type": "short_text",
+          "label": "Reminders to add"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "What the urge is asking for",
+      "purpose": "A habit of asking what an urge points to, so you can meet the real need.",
+      "why": "Fighting an urge with gritted teeth is exhausting, and the urge tends to come back. The book suggests a better question: what am I actually needing right now? An urge is often hunger, tiredness, loneliness, or stress in disguise. Meet the need directly, and the urge often loses its force.",
+      "source": {
+        "chapter": "Chapter 7, What a Craving Is Asking For; Chapter 3, Reading Your State Before It Slips; Appendix A, The HALT Check"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a recent urge. A rough memory is fine.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Run the HALT check: were you hungry, angry, lonely, or tired?",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Check your window: were you above it, below it, or in it?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the need underneath: relief, connection, something to do, comfort, or meaning.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one way to meet that need without drinking.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "One Friday, Marcus felt a strong pull toward the bar on his way home. He stopped and asked what he actually needed. He'd skipped lunch, and he'd spent the whole week working alone on a project. Hungry and lonely. He ate something, then called a friend from his group and met him for dinner. The pull faded long before the evening was over."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of your last urge. Pick the need underneath it.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one way to meet that need.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_need",
+          "f_meet"
+        ]
+      },
+      "done_when": "You've found a need behind an urge, and a way to meet it.",
+      "reflect": "Was the need underneath what you expected?",
+      "toolkit_link": "t02",
+      "feeds_plan": [
+        {
+          "field_id": "f_meet",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_halt",
+          "type": "checklist",
+          "label": "Any of these going on?",
+          "options": [
+            "Hungry",
+            "Angry",
+            "Lonely",
+            "Tired",
+            "None of these"
+          ]
+        },
+        {
+          "id": "f_need",
+          "type": "checklist",
+          "label": "The need underneath",
+          "options": [
+            "Relief from stress",
+            "Connection",
+            "Something to do",
+            "Comfort for pain",
+            "Meaning or purpose",
+            "Not sure yet"
+          ]
+        },
+        {
+          "id": "f_meet",
+          "type": "short_text",
+          "label": "One way to meet it without drinking"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Surf the urge",
+      "purpose": "Practice watching an urge rise and fall, so you learn in your body that it passes.",
+      "why": "In the moment, an urge can feel like it will last forever, but it does pass. The book describes urges as waves that rise, peak, and fall, often within ten to twenty minutes when you watch them instead of fighting them. You're the surfer, not the wave. Each time you ride one out, the next tends to feel less overwhelming.",
+      "source": {
+        "chapter": "Chapter 7, Urge Surfing; Chapter 4, Mindfulness and the Capacity to Observe; Appendix A, Urge Surfing"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Use this when an urge comes on its own. Until then, read it through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "When it comes, notice it without judging. Say: \"This is an urge.\"",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Find it in your body. Chest, stomach, throat, hands? Pressure, heat, or a pull?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Rate it from 0 to 10. Then rate it again every minute or two as it moves.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "If it grows too strong, stop. Call someone, leave where you are, or tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Afterward, write where you felt it and how long it took to ease.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus started a ten-minute daily practice of noticing his breath and gently coming back when his mind wandered. It taught him to watch an urge rise and fall instead of obeying it. One evening, he felt the pull as a tight pressure in his chest. He rated it a 7 and watched. It peaked, then eased to a 3 over about fifteen minutes. He hadn't had to win an argument with it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "When an urge comes, find it in your body and rate it from 0 to 10.",
+            "figure": "fig_rating"
+          },
+          {
+            "text": "Rate it again a few minutes later.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_start",
+          "f_end"
+        ]
+      },
+      "done_when": "You've watched an urge as it moved. Each time builds trust that urges pass.",
+      "reflect": "What did you notice about the urge that you didn't expect?",
+      "toolkit_link": "t06",
+      "fields": [
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where you felt it, and what it felt like"
+        },
+        {
+          "id": "f_start",
+          "type": "scale_0_10",
+          "label": "How strong it was at first"
+        },
+        {
+          "id": "f_end",
+          "type": "scale_0_10",
+          "label": "How strong it was when you stopped watching"
+        },
+        {
+          "id": "f_time",
+          "type": "short_text",
+          "label": "About how long it took to ease",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Your warning lights",
+      "purpose": "Your own green, amber, and red signs, so you can spot drift early.",
+      "why": "A slip rarely comes out of nowhere. The book describes a quiet drift that starts weeks before: sleep slips, a meeting gets skipped, you pull away and bottle things up. Amber is where most slips are quietly decided, and it's also where acting is still easy. Knowing your own amber signs buys you time.",
+      "source": {
+        "chapter": "Chapter 3, Relapse Is a Process, Not an Event; Reading Your State Before It Slips; Appendix A, The Traffic Light Check"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write what green looks like for you: routines in place, support active, mood steady.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick your amber signs, the early warnings.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For amber, choose two actions: an extra meeting, a call, an early night, or a tighter routine.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write your red signs: strong urges, thoughts of drinking, or being close to a risky situation.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For red, write who you will contact right away. If you feel unsafe, tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Looking back on the night he drank again after fourteen months, Marcus could see the amber he'd missed. A brutal week at work. A fight that ended his last close friendship from his drinking days. Warning signs he'd brushed aside as just a hard stretch. He hadn't noticed the drift while it was happening. Now \"a really hard week\" is on his amber list, and it means calling his sponsor that day."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick your top amber sign and one thing you'll do when you see it.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_amber",
+          "f_amber_do"
+        ]
+      },
+      "done_when": "Your warning lights are named, with a plan for amber and red.",
+      "reflect": "Which amber sign is easiest for you to miss?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_amber",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_amber_do",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_green",
+          "type": "short_text",
+          "label": "What green looks like for you"
+        },
+        {
+          "id": "f_amber",
+          "type": "checklist",
+          "label": "Your amber signs",
+          "options": [
+            "Sleep slipping",
+            "Skipping meetings or calls",
+            "Pulling away from people",
+            "Bottling things up",
+            "More irritable than usual",
+            "Skipping meals or self-care",
+            "Thinking about drinking more often"
+          ]
+        },
+        {
+          "id": "f_amber_do",
+          "type": "short_text",
+          "label": "What you'll do on amber"
+        },
+        {
+          "id": "f_red",
+          "type": "short_text",
+          "label": "Your red signs, and who you'll contact"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "If-then plans",
+      "purpose": "Ready-made responses for your top triggers, so you aren't inventing one under pressure.",
+      "why": "The moment a trigger hits is the hardest time to work out what to do. The book suggests deciding ahead with if-then plans: if this happens, then I'll do that. Good plans come in layers. Avoid the trigger when you can, have a way out, use a tool in the moment, and bring in support.",
+      "source": {
+        "chapter": "Chapter 3, Building a Response Before You Need One; Appendix A, The If-Then Response Plan"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Take the top triggers from your map.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "For each one, write a plan: \"If [this happens], then I'll [do this].\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a way to avoid it, if you can. There's no prize for pushing through.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Add a way out: your own ride, a reason to leave, and knowing where the exit is.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Add one tool and one person to reach for.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's top trigger was an old friend inviting him out after work. His plan: \"If someone suggests the bar, then I'll suggest dinner instead.\" If that didn't land, he'd say he had an early start and head home. If the pull got strong anyway, he'd step outside, do the sigh, and text his sponsor. Having it written down meant he didn't have to think on the spot."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one if-then plan for your strongest trigger.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_plans"
+        ]
+      },
+      "done_when": "Your if-then plans are written, ready before you need them.",
+      "reflect": "Which plan feels hardest to follow, and what would help?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_plans",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_plans",
+          "type": "two_column",
+          "label": "Your if-then plans",
+          "columns": [
+            "If this happens",
+            "Then you'll do this"
+          ],
+          "help": "For example: If a friend suggests the bar, then suggest dinner instead."
+        },
+        {
+          "id": "f_exit",
+          "type": "short_text",
+          "label": "Your way out, if you need to leave"
+        },
+        {
+          "id": "f_reach",
+          "type": "short_text",
+          "label": "The tool and person you'll reach for"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Learn from an urge",
+      "purpose": "A few quick questions after an urge passes, to turn it into useful information.",
+      "why": "After a strong urge, it's natural to feel shaken or ashamed. The book suggests seeing each urge as a teacher instead. A few questions, asked soon afterward, show what set it off, what it was pointing to, and what helped. Each answer makes your plan more accurate.",
+      "source": {
+        "chapter": "Chapter 7, Cravings as Information; Chapter 3, Mapping Your Own Triggers"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick a recent urge. Wait until you feel steady again before you start.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what happened just before.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what it pointed to, and how you were beforehand: hungry, tired, revved up, or flat?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what helped, and what didn't.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add anything new to your trigger map or your plans.",
+          "figure": "fig_looking_at_map"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "After a strong pull one Sunday afternoon, Marcus sat down with the questions. The trigger was a game on TV, the kind he used to watch with a drink in hand. He'd also been on his own all day. The urge pointed to company more than to alcohol. What helped was getting out of the apartment for a walk. He added game days to his trigger map, with a plan to watch with friends from his group."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that set off a recent urge, and one thing that helped.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_before",
+          "f_helped"
+        ]
+      },
+      "done_when": "One urge has become useful information for your plan.",
+      "reflect": "What does this urge tell you that you didn't know before?",
+      "feeds_plan": [
+        {
+          "field_id": "f_helped",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_before",
+          "type": "short_text",
+          "label": "What happened just before"
+        },
+        {
+          "id": "f_pointed",
+          "type": "short_text",
+          "label": "What it pointed to, and how you were"
+        },
+        {
+          "id": "f_helped",
+          "type": "short_text",
+          "label": "What helped, and what didn't"
+        },
+        {
+          "id": "f_new",
+          "type": "short_text",
+          "label": "Anything to add to your map or plans",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Guilt, not shame",
+      "purpose": "A way to spot shame when it speaks, and answer it with something truer and kinder.",
+      "why": "Many people carry a harsh inner voice about drinking. The book separates guilt from shame. Guilt says you did something you regret, and it points toward making things right. Shame says you are bad, and it pulls toward hiding and numbing. Answering shame doesn't excuse what happened. It makes repair easier.",
+      "source": {
+        "chapter": "Chapter 8, Shame and Guilt Are Not the Same; The Traps of Perfectionism and Comparison; Grace for the Journey"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write one harsh thing you often say to yourself about drinking.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Check it: is it about something you did, or about who you are?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Rewrite it about the action, like: \"I did something I regret, and I can work on it.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Now answer it the way you'd answer a friend who said it about themselves.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If shame feels heavy, say it out loud to someone you trust. Shame tends to shrink when spoken.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If this stirs up a lot, stop and use a tool from your Toolkit. You can come back later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "At eighteen months, Marcus still heard a voice that said he was broken and that anything he built would rest on a damaged foundation. He learned to tell two voices apart. Guilt said he had hurt people and owed them repair, and he acted on it. Shame said he was beyond change. He learned to name it, say it to his sponsor, and refuse its verdict. When he stumbled, he spoke to himself as he would to a struggling friend."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one kind sentence to yourself, the way you'd talk to a friend.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_friend"
+        ]
+      },
+      "done_when": "You have a truer, kinder answer ready for the next time shame speaks up.",
+      "reflect": "How did it feel to answer yourself the way you'd answer a friend?",
+      "fields": [
+        {
+          "id": "f_harsh",
+          "type": "short_text",
+          "label": "The harsh line"
+        },
+        {
+          "id": "f_action",
+          "type": "short_text",
+          "label": "Rewritten about the action"
+        },
+        {
+          "id": "f_friend",
+          "type": "short_text",
+          "label": "What you'd say to a friend"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Build your support layers",
+      "purpose": "A picture of your support in layers, so no single gap leaves you alone.",
+      "why": "Going it alone is common, and it makes everything harder. The book calls connection one of the strongest protections there is. One source of support is fragile, so build layers: a group, people within it, someone you're fully honest with, professional help if needed, and people outside recovery. There's no single right group.",
+      "source": {
+        "chapter": "Chapter 13, Why Connection Is Not Optional; The Major Paths; Building a Layered Support System"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write a group you go to, or one to try. Twelve-step groups, SMART Recovery, and others all count.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write one or two people from that group, or someone you hope to get to know.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write the one person you can be fully honest with, like a sponsor or mentor.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write any professional support you have or want, like a doctor or counselor.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write people outside recovery who back the life you're building.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Empty layers are fine. Pick one to work on this month.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's first layer was the meeting at the community center, where he went whether or not he felt like it. Inside it, he got to know two men he could call on a hard evening. His sponsor knew everything, including the parts he'd rather have hidden. His outer layer, people outside recovery, was thinner. That was the one he chose to work on. When his sponsor was away, the rest still held."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person you can be honest with, and one layer to build.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_honest",
+          "f_layer"
+        ]
+      },
+      "done_when": "Your support is mapped in layers, with one to strengthen next.",
+      "reflect": "Which layer feels strongest, and which feels thinnest?",
+      "feeds_plan": [
+        {
+          "field_id": "f_group",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_honest",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_layer",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_group",
+          "type": "short_text",
+          "label": "Your group, or one to try"
+        },
+        {
+          "id": "f_within",
+          "type": "short_text",
+          "label": "People within it",
+          "optional": true
+        },
+        {
+          "id": "f_honest",
+          "type": "short_text",
+          "label": "Someone you're fully honest with"
+        },
+        {
+          "id": "f_pro",
+          "type": "short_text",
+          "label": "Professional support",
+          "optional": true
+        },
+        {
+          "id": "f_outside",
+          "type": "short_text",
+          "label": "People outside recovery",
+          "optional": true
+        },
+        {
+          "id": "f_layer",
+          "type": "short_text",
+          "label": "The layer to work on this month"
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Get your words ready",
+      "purpose": "A few short lines ready for saying no, leaving early, and asking for help.",
+      "why": "When you're put on the spot, the right words are hard to find. The book suggests having phrases ready and practicing them while you're calm. The best ones are short. You don't owe anyone a full explanation, and a brief, easy no is usually accepted without fuss.",
+      "source": {
+        "chapter": "Appendix B, For Declining a Drink or Substance; For Leaving a Situation Early; For Asking for Help; For Setting a Boundary"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick a line for saying no, like \"No thanks, I'm good\" or \"I'm not drinking these days.\"",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Pick a line for leaving early, like \"I can only stay an hour tonight.\"",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Pick a line for asking for help, like \"I'm having a hard time and I need to talk.\"",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Pick a line for a boundary, like \"Please don't offer me a drink. It makes things harder.\"",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Say each one out loud a couple of times, so it comes easily.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus used to be the man who could outlast anyone at the table, so work dinners felt hard. He settled on \"No thanks, I'm good,\" said lightly, with a soft drink already in hand. For the colleague who kept pushing, he calmly said the same words again. He also told his sponsor, \"If I text you 'amber', please call me.\" Having the words ready meant he wasn't scrambling."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one line for saying no, and say it out loud once.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_no"
+        ]
+      },
+      "done_when": "Your words are ready for the moments when thinking on the spot is hard.",
+      "reflect": "Which situation do you most want to have words ready for?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_no",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_help",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_no",
+          "type": "short_text",
+          "label": "Your line for saying no"
+        },
+        {
+          "id": "f_leave",
+          "type": "short_text",
+          "label": "Your line for leaving early"
+        },
+        {
+          "id": "f_help",
+          "type": "short_text",
+          "label": "Your line for asking for help"
+        },
+        {
+          "id": "f_boundary",
+          "type": "short_text",
+          "label": "Your line for a boundary",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Plan for a slip",
+      "purpose": "Clear first steps for after a slip, written now so that a slip stays small.",
+      "why": "Talking about slips can feel like giving permission. The book says a plan makes a bigger return less likely. After a slip, a thought often shows up: \"I've already blown it, so why stop now?\" That thought does more damage than the slip itself. A slip is information. It doesn't erase what you've built.",
+      "source": {
+        "chapter": "Chapter 11, Why This Chapter Has to Exist; The Effect That Turns a Slip Into a Fall; What to Do in the First Hours; Returning, and the Question of Help; Appendix B, For After a Slip"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write your first steps: stop when you notice, and get away from the drink and the place.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "If a slip has become days of heavy drinking, talk to a doctor before stopping.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write who you'll tell first, and the words you'll use.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write a line to answer the \"I've blown it\" thought.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write how you'll get back to your routines and group, without waiting to earn it.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Later, when you're steady, trace what led up to it. That makes your plan stronger.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "If slips keep happening, it is a sign to add support, like a doctor or a program.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Fourteen months in, after a brutal week and a fight that ended an old friendship, Marcus drank at a bar before he fully registered it. At home in the dark, he thought: fourteen months, gone, so why stop now? After a long hour, he stopped that night and called his sponsor. Saying it out loud broke the secrecy. He reminded himself the months weren't erased. He went back to his meetings, and together they closed the gap the slip had shown."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write who you'd tell first, and one line to answer \"I've blown it.\"",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_tell",
+          "f_answer"
+        ]
+      },
+      "done_when": "Your plan for after a slip is ready. If you ever need it, it's here.",
+      "reflect": "What would you most want to hear from someone you trust after a slip?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_tell",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_answer",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_back",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first steps"
+        },
+        {
+          "id": "f_tell",
+          "type": "short_text",
+          "label": "Who you'll tell first, and what you'll say",
+          "help": "For example: \"I slipped, and I'm telling you because I don't want it to become more than that.\""
+        },
+        {
+          "id": "f_answer",
+          "type": "short_text",
+          "label": "Your answer to \"I've blown it\"",
+          "help": "For example: \"This is a slip, not the end. The months behind me still count.\""
+        },
+        {
+          "id": "f_back",
+          "type": "short_text",
+          "label": "How you'll get back to your routines"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Small promises, kept",
+      "purpose": "One small promise to keep this week, and calm words for when someone doubts you.",
+      "why": "When drinking has hurt people you love, it's natural to want their trust back right away. The book separates an apology from trust. An apology can happen in one conversation. Trust comes back slowly, through small promises kept over months. Accepting the other person's pace is part of making things right.",
+      "source": {
+        "chapter": "Chapter 12, Trust Rebuilds at Its Own Pace; The Discipline of Making Amends; Appendix B, For Responding to Someone Who Doubts You"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one person whose trust you'd like to rebuild.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Pick one small promise you can keep this week, like being home when you said you'd be.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep it. Then keep the next one. Each kept promise counts.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Write a calm reply for when they check or doubt you, like \"I understand why you need that.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Thinking about making amends? Wait until you're steady, and talk the timing over with a sponsor or counselor.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Dex",
+        "text": "Dex had kept his addiction hidden from his wife, Sarah, for years. When he finally showed her the full picture of what it had cost, he hoped her trust would come back with it. It didn't. For a long time, Sarah needed to check the accounts, and at first that felt like being doubted. He came to see it as the natural result of broken trust. He kept small promises, accepted her checking without resentment, and let trust return at its own pace."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one small promise you'll keep this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_promise"
+        ]
+      },
+      "done_when": "You've chosen one small promise. Trust builds from promises like this one.",
+      "reflect": "What do you expect to be hardest about letting trust come back slowly?",
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "The person",
+          "optional": true
+        },
+        {
+          "id": "f_promise",
+          "type": "short_text",
+          "label": "One small promise for this week"
+        },
+        {
+          "id": "f_doubt",
+          "type": "short_text",
+          "label": "Your calm reply to doubt"
+        },
+        {
+          "id": "f_kept",
+          "type": "weekly_grid",
+          "label": "Days you kept your promise",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "What you have to protect",
+      "purpose": "A look at what you've built so far, and where to keep investing.",
+      "why": "As things get steadier, it's tempting to let your habits slide, as if the problem were solved. The book calls this the complacency trap. What protects the long run is building a life worth protecting: health, people, skills, and meaning. Taking stock shows where you're strong and where things have thinned.",
+      "source": {
+        "chapter": "Chapter 14, The Complacency Trap; Recovery Capital and What Protects the Long Years; Chapter 8, Building an Identity Worth Having; Appendix A, The Recovery Capital Review"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Rate four areas from 1 to 5: health and home, people, skills, and meaning.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Write anything in these areas that feels stronger than twelve weeks ago, if anything does.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write two or three values that matter to you, like honesty, family, kindness, or courage.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the area that feels thinnest. Write one small step to build it.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If you ever feel you don't need your habits anymore, take that as a cue to check in.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Simone",
+        "text": "Simone had been sober for more than twenty years when a younger man at her Denver meeting said he was thinking of cutting back on meetings. He felt good, and cravings were rare. Simone had felt the same at his stage. She told him the feeling was a reason to look closely, not to pull back. Then she pointed to what he'd built: his relationships, his health, his work. That was what he was protecting."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one value that matters to you, and one small step that fits it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values",
+          "f_invest"
+        ]
+      },
+      "done_when": "You can see what you're protecting, and where to invest next.",
+      "reflect": "What are you most glad to have more of now, even a little?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p1"
+        },
+        {
+          "field_id": "f_invest",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_capital",
+          "type": "rating_grid",
+          "label": "Where you are now, from 1 to 5",
+          "rows": [
+            "Health and home",
+            "People and community",
+            "Skills and coping",
+            "Values and meaning"
+          ]
+        },
+        {
+          "id": "f_stronger",
+          "type": "long_text",
+          "label": "What feels stronger now",
+          "optional": true
+        },
+        {
+          "id": "f_values",
+          "type": "ranked_list",
+          "label": "Values that matter to you",
+          "max_items": 3
+        },
+        {
+          "id": "f_invest",
+          "type": "short_text",
+          "label": "One step to build the thinnest area"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Your emergency card",
+      "purpose": "A short card with your people, reminders, and tools, for when thinking is hard.",
+      "why": "In a strong urge or a crisis, it is hard to think clearly. The book suggests a card made while you are calm, so in the moment you only have to follow it. Big life changes, like a loss, a breakup, or losing a job, are times to lean on it and add support, instead of riding them out alone.",
+      "source": {
+        "chapter": "Appendix A, The Emergency Card; Chapter 14, When Life Tests a Long Recovery; Chapter 7, Tools for the Moment"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write three people to call, with their numbers.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add the crisis line for where you live. Help now always has it too.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write two or three reminders in your own words, like \"This will pass. You've ridden out urges before.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your top three tools from the Toolkit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write any big changes coming up, and one extra support you'll add then.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Save a copy on your phone or in your wallet.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "Simone",
+        "text": "Over two decades, Simone had watched long recoveries shaken by a death, a divorce, or a lost job, often when habits had already thinned. Her advice to newer members was to take a big change as a signal: more meetings for a while, more calls, and old practices back in place. Having that written down before the change came meant no one had to work it out in the middle of it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person to call and one reminder in your own words.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_calls",
+          "f_reminders"
+        ]
+      },
+      "done_when": "Your emergency card is ready. Keep it where you can reach it.",
+      "reflect": "What would you most want to read on your hardest day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_calls",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_reminders",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_tools",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_calls",
+          "type": "two_column",
+          "label": "Three people to call",
+          "columns": [
+            "Name",
+            "Number"
+          ]
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "The crisis line for where you live",
+          "optional": true
+        },
+        {
+          "id": "f_reminders",
+          "type": "long_text",
+          "label": "Reminders in your own words"
+        },
+        {
+          "id": "f_tools",
+          "type": "short_text",
+          "label": "Your top three tools"
+        },
+        {
+          "id": "f_ahead",
+          "type": "short_text",
+          "label": "Big changes coming up, and extra support then",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "STOP",
+      "when_to_use": "An urge or the pull to drink shows up, and you want a moment before you act.",
+      "steps": [
+        "Stop. Freeze whatever you're doing.",
+        "One slow breath: inhale for a count of four, exhale for six.",
+        "Observe: name the feeling, where it sits in your body, and what set it off.",
+        "Proceed by choice: call someone, leave, or reach for another tool."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Introduction; Appendix A, The STOP Tool"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "HALT check",
+      "when_to_use": "An urge shows up and you're not sure why.",
+      "steps": [
+        "Hungry? Eat something.",
+        "Angry? Move, talk it through, or name what set it off.",
+        "Lonely? Reach out to one person.",
+        "Tired? Rest, and put off big decisions."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 3, Reading Your State Before It Slips; Appendix A, The HALT Check"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Traffic light check",
+      "when_to_use": "Once a day, or whenever you feel things starting to slip.",
+      "steps": [
+        "Green: routines in place, support active, mood steady. Keep going as you are.",
+        "Amber: warning signs. Add support today: a call, a meeting, an early night.",
+        "Red: strong urges or a risky situation. Use your emergency card and reach out.",
+        "If you feel unsafe, tap Help now."
+      ],
+      "minutes": 1,
+      "figure": "fig_rating",
+      "source": {
+        "chapter": "Chapter 3, Reading Your State Before It Slips; Appendix A, The Traffic Light Check"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Double-inhale sigh",
+      "when_to_use": "You feel revved up, anxious, or on edge.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "Take one more short sip of air on top.",
+        "Exhale slowly through your mouth while you count to six.",
+        "Repeat two or three times. The long exhale does the work."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Tools for an Activated System; Appendix A, The Physiological Sigh"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Wait fifteen minutes",
+      "when_to_use": "An urge feels strong and you can't think past it.",
+      "steps": [
+        "Tell yourself: not never, just not for the next fifteen minutes.",
+        "Set a timer.",
+        "Do something else: walk, call someone, or leave the room.",
+        "When it rings, check the urge again. The peak has often passed."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 7, Tools for the Moment"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Surf the urge",
+      "when_to_use": "An urge is here, and you want to ride it out.",
+      "steps": [
+        "Say: \"This is an urge. It will rise and fall.\"",
+        "Find it in your body and name the feeling.",
+        "Rate it from 0 to 10. Rate it again every minute or two.",
+        "You're the surfer, not the wave. Keep your balance until it eases.",
+        "If it gets too strong, call someone or tap Help now."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 7, Urge Surfing; Appendix A, Urge Surfing"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Lift a flat mood",
+      "when_to_use": "You feel flat, numb, or foggy, and want a gentle lift.",
+      "steps": [
+        "Go for a short walk, outside if you can.",
+        "Get some bright daylight, or put on upbeat music.",
+        "Smell something strong and pleasant, like citrus or peppermint.",
+        "Text or call one person.",
+        "Keep it gentle. The aim is a lift, not a sprint."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 4, Tools for a Shut-Down System"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Your urge script",
+      "when_to_use": "An urge hits and your thinking feels foggy.",
+      "steps": [
+        "Say: \"This is an urge. It's normal, and it will pass.\"",
+        "Inhale while you count to four. Exhale while you count to six.",
+        "Ask: \"What am I really needing right now?\"",
+        "Do one thing: wait, leave, call, or move.",
+        "Remind yourself that you've ridden out urges before."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Appendix B, For a Craving; Chapter 7, Tools for the Moment"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Say no thanks",
+      "when_to_use": "Someone offers you a drink.",
+      "steps": [
+        "Keep it short: \"No thanks, I'm good.\"",
+        "Or: \"I'm not drinking these days.\"",
+        "If they push, repeat it calmly. No new excuse needed.",
+        "You don't owe anyone a full explanation."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Appendix B, For Declining a Drink or Substance"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "After a slip",
+      "when_to_use": "You drank when you didn't mean to. Start here.",
+      "steps": [
+        "Stop now, and get away from the drink and the place.",
+        "If you have been drinking heavily for days, talk to a doctor before stopping.",
+        "Tell someone today: \"I slipped, and I don't want it to become more.\"",
+        "This is a slip, not the end. What you've built still counts.",
+        "When you're steady again, look back at what led here."
+      ],
+      "minutes": 2,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "Chapter 11, What to Do in the First Hours; Appendix B, For After a Slip"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you wrote is saved, just for you."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready for the next urge."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: mapping your triggers, about 10 minutes."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern on Progress. Ups and downs are part of this."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can see your loop and your triggers now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to your first. Any result is useful to know."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. Each one is practice."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have tools for your state, steadier days, and ways to ride out urges."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed, and nothing you built is lost. Pick up with one small step."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now. Your plan and Toolkit stay with you."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Steady days"
+    },
+    {
+      "id": "p3",
+      "title": "When an urge comes"
+    },
+    {
+      "id": "p4",
+      "title": "Warning signs and plans"
+    },
+    {
+      "id": "p5",
+      "title": "Your people"
+    },
+    {
+      "id": "p6",
+      "title": "If things get hard"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by looking at your drinking loop and what sets it off. Since then, you've learned to read your state, steadied your days, practiced riding out urges, named your warning lights, built your support, and planned for a slip. Change like this rarely runs in a straight line, and harder weeks may still come. Your plan, your people, and your Toolkit are here for them.",
+    "book_bridge": "Every tool here comes from The Long Way Home by Maya Vaughn. The book tells the full stories of Marcus, Dex, and Simone, and goes deeper into recovery than these twelve weeks can. You can find it in Books.",
+    "related_codes": [
+      "selfworth",
+      "connection"
+    ]
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What has helped this month, even a little?",
+      "Have any amber signs shown up lately? What's one thing you could add?",
+      "Is a big change or a hard date coming up? What extra support will you line up?"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e03",
+      "e05",
+      "e06",
+      "e08",
+      "e12",
+      "e13",
+      "e14"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/The_Long_Way_Home.docx",
+    "v1_id": "drinking",
+    "cut_log": [
+      {
+        "item": "Other substances and behaviors: opioids, benzodiazepines, stimulants, cannabis, gambling, gaming",
+        "chapter": "Chapters 1, 2, 3, 5, 7, 10, 13; Appendix C",
+        "reason": "This workbook is about drinking. Other substances appear only in the start note, which points to a doctor."
+      },
+      {
+        "item": "Jade's and Tyler's stories",
+        "chapter": "Chapters 3, 5, 7, 9, 10, 13",
+        "reason": "Their stories are about prescription opioids, cannabis and gaming. Their tools are kept with Marcus as the example; details assembled from his chapters are flagged in the blueprint."
+      },
+      {
+        "item": "Medication-assisted treatment, drug names and the overdose study",
+        "chapter": "Appendix C; Chapters 5, 9, 13",
+        "reason": "Medical decisions belong with a prescriber. The start note and e06, e17 and e19 point to a doctor."
+      },
+      {
+        "item": "Statistics, study details and researcher names",
+        "chapter": "Introduction; Chapters 1 to 14",
+        "reason": "Genetics, comorbidity, trauma, relapse-rate, habit-formation and PAWS figures are not needed for instruction, and some disagree between chapters."
+      },
+      {
+        "item": "Brain science detail: dopamine, tolerance, basal ganglia, prefrontal cortex",
+        "chapter": "Chapters 1 and 2",
+        "reason": "Kept only as plain ideas in e01, e08 and the Build primer: willpower runs low in the evening, and the pattern is a loop."
+      },
+      {
+        "item": "Co-occurring conditions and their names",
+        "chapter": "Chapter 9",
+        "reason": "Would read as a screen and invite labels. Kept as one doctor step in e06."
+      },
+      {
+        "item": "Trauma and adverse childhood experiences",
+        "chapter": "Chapter 10",
+        "reason": "Higher-tier rule: no recall of trauma. The book's own advice is to stabilize first and do trauma work with a professional."
+      },
+      {
+        "item": "Making amends in detail, financial repair, family systems and codependency",
+        "chapter": "Chapter 12",
+        "reason": "Amends is folded into e20 as a timing step only. Debt and money repair and the family material sit outside a drinking workbook's twelve weeks."
+      },
+      {
+        "item": "Romance in early recovery, a friend's relapse, changing a sponsor, giving back",
+        "chapter": "Chapter 13",
+        "reason": "Relationship situations that apply to some readers only. Contribution is left to the book."
+      },
+      {
+        "item": "Cold water on the face and wrists, body scan",
+        "chapter": "Chapter 4",
+        "reason": "Cold water carries cautions the book does not give. The body scan overlaps with urge surfing."
+      },
+      {
+        "item": "Sleep hours, exercise minutes and the sixty-six-day habit figure",
+        "chapter": "Chapters 5 and 6",
+        "reason": "Kept as plain steps without targets, so nothing reads as a score to hit."
+      },
+      {
+        "item": "Emergency card's recovery start date",
+        "chapter": "Appendix A, The Emergency Card",
+        "reason": "Left off so that nothing on the card counts days or resets after a slip."
+      }
+    ],
+    "notes": "v1 topic_name: Drinking\nv1 set_id: healing-and-loss (Healing and Loss); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 216"
+  }
+}

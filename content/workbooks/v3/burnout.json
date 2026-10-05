@@ -1,0 +1,2480 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-VSQQV",
+  "slug": "rebuilding-from-empty-vsqqv",
+  "title": "Rebuilding from Empty",
+  "short_title": "Burnout",
+  "card_line": "Twelve weeks of small, gentle steps for recovering from burnout",
+  "tagline": "Twelve weeks of small, gentle steps for recovering from burnout",
+  "book": {
+    "book_id": "rebuilding-from-empty",
+    "title": "Rebuilding from Empty",
+    "subtitle": "A Practical Guide to Burnout Recovery",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4PJYWLV",
+      "US": "https://www.amazon.com/dp/B0H4PJYWLV"
+    },
+    "asin": "B0H4PJYWLV"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Name it first",
+          "body": "The Explore stage is about understanding, not fixing. Burnout is easier to work with once it has an accurate name. Over two weeks, you'll look at how burnout shows up for you and what in your situation is draining you. Many people find the self-blame starts to lift here. Go slowly. Understanding is already part of recovery.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clear picture of how burnout shows up for you, and the mismatches draining you most.",
+        "review_question": "What did you notice that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Refill, gently",
+          "body": "In the Build stage, you set up small, steady ways to recover. Over five weeks, you'll look at rest that isn't working, the body basics, an end to your workday, a small recovery rhythm, what you're still carrying, and your limits. Start smaller than feels useful. Small and steady is what rebuilds capacity.",
+          "figure": "fig_walking"
+        },
+        "outcome": "A small recovery rhythm, an end to your workday, a first standing limit, and words ready for saying no.",
+        "review_question": "Which practice gave you the most back, and which one hasn't stuck yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Rebuild what drained you",
+          "body": "The Practice stage turns to your work, your people, and what matters to you. Over four weeks, you'll reshape one part of your work, reach toward someone, rebuild some warmth, and learn your warning signs. If your capacity drops, scale down rather than stop. Yellow weeks are part of this too.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "Your work, your relationships, and your values looked at with fresh eyes, and your warning signs named.",
+        "review_question": "What has changed in how you work or connect, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what's working",
+          "body": "The Keep stage brings twelve weeks together. You'll write your recovery plan and a plan for setbacks and strong pulls. Keep both modest. A small plan you follow is worth more than a big one you put down.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your recovery plan and your setback plan, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If you feel like you're running on empty, and rest hasn't been helping, this is built for that. It's twelve weeks of small, gentle steps for recovering from burnout. Most weeks take 15 to 25 minutes, and every exercise has a shorter version. You're allowed to go slowly, and you're allowed to rest. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If you had a little more in the tank, what would you want it for? One line is enough.",
+    "extra_safety_note": "Burnout and depression can look alike, and they can happen together. If low mood follows you into every part of life, not just work, or if you have any thoughts of harming yourself, please tap Help now and talk to a doctor or health professional. This workbook can sit alongside that support. It does not replace it. If any practice here makes you feel worse rather than better, stop, and ask a professional for advice."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "energy",
+        "label": "Energy"
+      },
+      {
+        "id": "connection",
+        "label": "Connection to your work"
+      },
+      {
+        "id": "difference",
+        "label": "Making a difference"
+      },
+      {
+        "id": "rest_limits",
+        "label": "Rest and limits"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "energy",
+        "text": "You wake up feeling at least a little rested."
+      },
+      {
+        "id": "q02",
+        "area": "energy",
+        "text": "You have some energy left at the end of the day."
+      },
+      {
+        "id": "q03",
+        "area": "energy",
+        "text": "You start the day without a sense of dread."
+      },
+      {
+        "id": "q04",
+        "area": "energy",
+        "text": "Small everyday tasks feel manageable."
+      },
+      {
+        "id": "q05",
+        "area": "connection",
+        "text": "You feel the work you do matters."
+      },
+      {
+        "id": "q06",
+        "area": "connection",
+        "text": "You feel connected to the people you work with."
+      },
+      {
+        "id": "q07",
+        "area": "connection",
+        "text": "You care about how your work turns out."
+      },
+      {
+        "id": "q08",
+        "area": "connection",
+        "text": "You feel interested in at least part of your work."
+      },
+      {
+        "id": "q09",
+        "area": "difference",
+        "text": "You feel you're making a difference."
+      },
+      {
+        "id": "q10",
+        "area": "difference",
+        "text": "You can concentrate on tasks that used to feel easy."
+      },
+      {
+        "id": "q11",
+        "area": "difference",
+        "text": "You feel capable at what you do."
+      },
+      {
+        "id": "q12",
+        "area": "difference",
+        "text": "You get a sense of accomplishment from your work."
+      },
+      {
+        "id": "q13",
+        "area": "rest_limits",
+        "text": "You get some rest that leaves you feeling restored."
+      },
+      {
+        "id": "q14",
+        "area": "rest_limits",
+        "text": "You stop work at a point you chose."
+      },
+      {
+        "id": "q15",
+        "area": "rest_limits",
+        "text": "You can say no without guilt taking over your day."
+      },
+      {
+        "id": "q16",
+        "area": "rest_limits",
+        "text": "You let someone help you when you need it."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Recovery rarely runs in a straight line, so harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: capacity is coming back. Yellow: still depleted. Red: even the basics are hard. If you pick red, please lean on support this week. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_rest",
+        "type": "weekly_grid",
+        "label": "Days you did one small recovery practice"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_drain",
+        "type": "short_text",
+        "label": "Something that drained you, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_stop",
+        "type": "weekly_grid",
+        "label": "Days you stopped work at your chosen time"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How much was in your tank today?",
+    "scale_low": "Empty",
+    "scale_high": "Some to spare",
+    "tags": [
+      "Slept okay",
+      "Moved gently",
+      "Ate regular meals",
+      "Stopped work on time",
+      "Rested for real",
+      "Said no to something",
+      "Talked to someone",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Give burnout an accurate name",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Find what's draining you",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "See what kept you going, and rest that isn't working",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Look after the basics and end your workday",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Start tiny, then build a rhythm",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t04",
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Name what you're carrying",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Set your limits",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t06",
+        "t08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Rethink your energy and your work",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e04"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Reach toward the people around you",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Rebuild warmth and meaning",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Know your warning signs and keep your practices",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e11"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e13",
+        "e17"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Name what's happening",
+      "purpose": "An accurate name for how burnout shows up for you, across its three parts.",
+      "why": "When rest doesn't help, it's easy to decide something is wrong with you. Burnout has a known shape with three parts: exhaustion, cynicism, and a shrinking sense that you're making a difference. Seeing which parts you recognize turns a vague sense of being unwell into something you can work with.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, The Three Dimensions; Understanding Is Already Recovery; Appendix A, The burnout self-test"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the three parts. Each one has a few everyday signs.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate how often each part showed up in the past month, from 1 (rarely) to 5 (most days).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "For the part you rated highest, write one recent moment that shows it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back. These are signs of depletion, not signs of weakness.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Maya was twenty-seven and good at her job. On Sunday evenings her heart raced with a dread she couldn't name. She told herself she was just tired and needed to try harder. When she looked at the three parts, she saw all of them: the Sunday dread and running on fumes, a creeping distance from work she'd loved, and a growing doubt that she was cut out for it. The name didn't refill her tank. But the shame started to lift."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the part of burnout you recognize most right now.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one line about when you noticed it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moment"
+        ]
+      },
+      "done_when": "You've named how burnout shows up for you. That's the first step of recovery.",
+      "reflect": "How does it feel to see it written down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_moment",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_parts",
+          "type": "rating_grid",
+          "label": "How often each part showed up",
+          "rows": [
+            "Exhaustion: drained by work, tired even after sleep, dreading the day",
+            "Cynicism: distant from people at work, doubting the work matters, doing the minimum",
+            "Less sense of making a difference: doubting you help, finding once-easy tasks hard"
+          ]
+        },
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "A recent moment for the part you rated highest",
+          "help": "For example: dreading Monday by Sunday afternoon."
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Find what's draining you",
+      "purpose": "The one to three parts of your situation that drain you most, so recovery can aim there.",
+      "why": "Burnout can feel like proof you're not strong enough. The book sees it differently: it grows from a long mismatch between you and the conditions you work under. That mismatch tends to show up in six areas. Finding your main one to three gives you a clear picture of what needs to change.",
+      "source": {
+        "chapter": "Chapter 2, The Six Areas of Mismatch; Mapping Your Own Mismatch Profile; Appendix A, The mismatch assessment"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the six areas: workload, control, reward, community, fairness, and values.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate how far out of line each one feels, from 1 (fine) to 5 (badly out of line).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Remember that workload can mean emotional weight, not just hours.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one to three areas that drain you most.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For each one, write a line on what it looks like day to day.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace was a pediatric nurse who cried in her car before shifts. She believed her burnout meant she wasn't strong enough. When she mapped the six areas, three stood out. Control, because she had no say over staffing she could see was too thin. Values, because she was caring for sick children with resources she knew weren't enough. And workload, of the emotional kind. Reward and community were strained, but they weren't the main drivers."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one area that drains you most.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one line on what it looks like for you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_main"
+        ]
+      },
+      "done_when": "Your main mismatches are named. They show where recovery and rebuilding can aim.",
+      "reflect": "Did any area surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_main",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_areas",
+          "type": "rating_grid",
+          "label": "How far out of line each area feels",
+          "rows": [
+            "Workload: demands beyond what you can sustain, in hours or emotional weight",
+            "Control: real say over how you do your work",
+            "Reward: effort that's recognized, through pay, thanks, or satisfaction",
+            "Community: supportive relationships at work",
+            "Fairness: being dealt with justly",
+            "Values: work that fits what you believe is right"
+          ]
+        },
+        {
+          "id": "f_main",
+          "type": "two_column",
+          "label": "Your main mismatches",
+          "columns": [
+            "The area",
+            "What it looks like for you"
+          ]
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "See what kept you going",
+      "purpose": "A kinder, clearer view of the patterns that kept you giving past your limits.",
+      "why": "If you kept going long after you ran low, there's usually a pattern behind it. The book names four: work becoming who you are, standards that never feel met, finding it hard to disappoint anyone, and busyness that keeps hard feelings at bay. These patterns often helped you succeed. Naming them without shame makes them easier to change.",
+      "source": {
+        "chapter": "Chapter 3, The Patterns Are Not Flaws; Identity Fusion; Perfectionism; People-Pleasing; The Fear Beneath the Busyness; Appendix A, The pattern check"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the four patterns. Each one is a common adaptation, not a flaw.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick any that sound like you. One is enough.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For one you picked, write a recent moment when it kept you going.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what that pattern has given you, and what it has cost you.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Robert",
+        "text": "Robert was fifty-two, a senior operations manager, and his blood pressure had finally made him stop and look. What struck him wasn't the workload. It was that he couldn't imagine stopping. His sense of who he was had fused with his job, so stepping back felt less like rest and more like disappearing. Naming that pattern didn't fix it. But it showed him what his recovery would need to include."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick the one pattern that sounds most like you.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_patterns"
+        ]
+      },
+      "done_when": "You've named a pattern that kept you going. Seeing it clearly is the start of changing it.",
+      "reflect": "What would you say to a friend who had this pattern?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_patterns",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_patterns",
+          "type": "checklist",
+          "label": "Patterns that sound like you",
+          "options": [
+            "Work has become who I am",
+            "My standards never feel met",
+            "Disappointing people feels unbearable",
+            "Being busy keeps hard feelings away"
+          ]
+        },
+        {
+          "id": "f_pattern_moment",
+          "type": "short_text",
+          "label": "A moment one pattern kept you going"
+        },
+        {
+          "id": "f_give_cost",
+          "type": "two_column",
+          "label": "What it gives you, and what it costs",
+          "columns": [
+            "What it gives you",
+            "What it costs you"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Spot rest that doesn't restore",
+      "purpose": "A short list of what feels like rest but leaves you just as drained, and one swap to try.",
+      "why": "Time off and recovery can be two different things. When you're depleted, it makes sense to reach for the easiest rest: the screen, the scroll, a drink to quiet your mind. These can numb without refilling anything. This comes from depletion, not a lack of discipline. Noticing the difference is the first step to changing it.",
+      "source": {
+        "chapter": "Chapter 4, Time Off Is Not the Same as Recovery; The Behaviors That Block Recovery; Appendix A, The recovery blockers audit"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back over your last few free evenings or days off.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "List what you did to rest. Rough answers are fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each, note how you felt after: emptier, the same, or a little refilled.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick one that left you emptier. Choose a small swap: a walk outside, a friend, or something absorbing.",
+          "figure": "fig_circling"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David was a project manager with two young children, and he was also coordinating his mother's dementia care. He had tried to rest. He took the odd day off and once managed a long weekend away, but the exhaustion was back within hours. In his few free moments, he reached for the easiest kinds of rest, and they never refilled him. His rest hadn't worked because it was the wrong kind, not because he was broken."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one kind of rest that leaves you emptier.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one small swap to try.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_swap"
+        ]
+      },
+      "done_when": "You know a bit more about which rest refills you, and you have one swap to try.",
+      "reflect": "Did anything on your list surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_swap",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rest",
+          "type": "two_column",
+          "label": "How you rest, and how you feel after",
+          "columns": [
+            "What you did",
+            "How you felt after"
+          ]
+        },
+        {
+          "id": "f_swap",
+          "type": "short_text",
+          "label": "One small swap to try this week",
+          "help": "For example: a short walk before the evening scroll."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Look after the body basics",
+      "purpose": "One or two small, gentle changes to sleep and eating, so your body isn't running on empty.",
+      "why": "When you're depleted, advice about sleep and food can land as one more list to get wrong. The aim here is lower: give your body the basics it needs to recover. Burnout and poor sleep feed each other, so even a small change to sleep can give back some capacity.",
+      "source": {
+        "chapter": "Chapter 5, Foundations, Not Demands; Sleep, the First Foundation; Nourishment Without Overwhelm; Appendix A, The sleep foundations"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the sleep basics: steady times, morning light, a dim evening, and a cool, dark, quiet room.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one to try this week. One is enough.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If it helps, choose a cut-off time for caffeine, and keep alcohol away from bedtime.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "For eating, pick one small step, like not skipping lunch.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your steps down. Partial counts. This is a support, not a project to perfect.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya was a freelance graphic designer whose business had taken over her life. She lived on coffee and irregular meals at her desk, and she slept badly because there was always one more thing to finish. She didn't need to become a model of wellness. She started by keeping her sleep a little more regular, managing the coffee and wine that broke it up, and eating regularly enough to stop running on empty."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one small sleep step for this week.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_sleep"
+        ]
+      },
+      "done_when": "You've chosen one or two small steps for your body. Partial is plenty.",
+      "reflect": "What does your body seem to need most right now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_sleep",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_food",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_sleep",
+          "type": "short_text",
+          "label": "Your one sleep step",
+          "help": "For example: lights dim and screens down by 10 p.m."
+        },
+        {
+          "id": "f_caffeine",
+          "type": "time_of_day",
+          "label": "Your caffeine cut-off time",
+          "optional": true
+        },
+        {
+          "id": "f_food",
+          "type": "short_text",
+          "label": "Your one eating step",
+          "help": "For example: eat lunch every day, even a small one."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "End your workday on purpose",
+      "purpose": "A small ritual that tells your body and mind the workday is over.",
+      "why": "When work has no clear end, your system never gets the signal to stand down. Rest then gets crowded out by work that never really stopped. A small end-of-work ritual rebuilds that boundary. It can be as plain as closing the laptop and putting it away, changing clothes, or taking a short walk.",
+      "source": {
+        "chapter": "Chapter 5, Building Transitions and Rituals; Appendix A"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a time your workday ends. Make it realistic for now.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick one or two acts to mark the end, like closing the laptop and putting it away.",
+          "figure": "fig_clear_desk"
+        },
+        {
+          "text": "Other options: change your clothes, take a short walk, or take a few slow breaths.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Try it for the next few workdays. Notice how your evenings feel.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's self-employment had erased the end of the working day. The business was always there, so her system never fully switched off, and her rest never restored her. She built a simple end-of-work ritual. It gave her body the signal to stand down that it hadn't had in years. It asked very little of her, and it made real rest possible."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one act that will mark the end of today's work.",
+            "figure": "fig_clear_desk"
+          }
+        ],
+        "field_ids": [
+          "f_ritual"
+        ]
+      },
+      "done_when": "Your workday has an end now, and a small ritual to mark it.",
+      "reflect": "What's the hardest part of stopping at the end of the day?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_ritual",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_end",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_end",
+          "type": "time_of_day",
+          "label": "When your workday ends"
+        },
+        {
+          "id": "f_ritual",
+          "type": "short_text",
+          "label": "Your end-of-work ritual",
+          "help": "For example: close the laptop, put it in a drawer, change clothes."
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Start with one tiny practice",
+      "purpose": "One recovery practice small enough to do even on your emptiest day.",
+      "why": "Most recovery advice assumes energy you don't have. So start smaller than feels useful: three slow breaths instead of a long meditation, a short walk instead of a workout. A walk also gives your body the movement the stress response got it ready for, which helps it settle. Small and steady is what rebuilds capacity.",
+      "source": {
+        "chapter": "Chapter 6, Starting From Empty; Physical Recovery Practices; Chapter 4, The Stress Cycle Must Complete; Chapter 5, Movement as Recovery, Not Exertion"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one tiny practice: a short walk, a few slow breaths, or a few minutes of real rest.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Make it small enough to do on your emptiest day.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose when you'll do it each day.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Try it today, if you can. Then note how you felt.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya hadn't moved her body on purpose in longer than she could remember. Exercise felt like one more demand on a system with nothing left to give. She didn't need a fitness plan. A short walk, especially outdoors, asked little and gave a lot. It eased some of the wired tension and began to ease the physical toll on her body."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Take three slow breaths now. That counts as today's practice.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_practice"
+        ]
+      },
+      "done_when": "You have one tiny practice and a time for it. Starting small is still starting.",
+      "reflect": "What made it easier or harder to begin?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_practice",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_practice",
+          "type": "short_text",
+          "label": "Your tiny practice"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll do it",
+          "help": "For example: a short walk after lunch."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How you felt after",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Build your recovery rhythm",
+      "purpose": "A small, steady set of practices for your body, your feelings, and connection, sized to your capacity.",
+      "why": "One practice helps. A few, done regularly, add up. The book suggests a small set across three areas: something for your body, something for your feelings, and some connection. Keep it modest. A rhythm you can keep rebuilds capacity, and it can grow as you do, or shrink on a yellow week.",
+      "source": {
+        "chapter": "Chapter 6, Building a Recovery Rhythm; Appendix A, The recovery rhythm; Appendix B, The Capacity Card"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Start with the tiny practice you just chose. Keep it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Add one for your body, if you don't have one yet: a walk or slow breathing.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Add one for your feelings: a little writing, or letting yourself feel something you've pushed down.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add one for connection: a message or a conversation with someone you trust.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Choose how often. A few days a week is a fine start.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Write a yellow-week version: the one practice you'll keep when capacity drops.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Maya's rhythm was small on purpose: a short walk each day, a few minutes of slow breathing, some writing now and then, and staying in touch with one trusted friend. None of it needed energy she didn't have. Because she could keep it up, it added up. As her capacity came back, she let the rhythm grow, but only after the recovery, never ahead of it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one practice you'll keep even on a yellow week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_yellow"
+        ]
+      },
+      "done_when": "Your recovery rhythm is written down, with a smaller version for harder weeks.",
+      "reflect": "Which part of your rhythm feels most like yours?",
+      "feeds_plan": [
+        {
+          "field_id": "f_rhythm",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rhythm",
+          "type": "two_column",
+          "label": "Your recovery rhythm",
+          "columns": [
+            "Practice",
+            "How often"
+          ]
+        },
+        {
+          "id": "f_yellow",
+          "type": "short_text",
+          "label": "Your yellow-week practice",
+          "help": "The one thing you'll keep when capacity is low."
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Name what you're carrying",
+      "purpose": "A gentle naming of the anger, grief, or losses burnout left behind, so they can start to move.",
+      "why": "Rest can refill some energy, but it doesn't reach everything. Burnout often leaves residue: anger at real wrongs, grief for real losses, and sometimes the deep hurt of being made to act against your values. These feelings make sense. Pushing them down, churning over them, or numbing them tends to keep them stuck.",
+      "source": {
+        "chapter": "Chapter 7, Why Processing Matters; Moral Injury; The Anger and the Grief; How to Process"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Find a quiet moment. You can stop at any point.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Ask yourself if there's anger here. Name what it's about, in a few words.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask if there's grief here. Name one loss, like the work you believed in.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice if any of it feels like a betrayal of what you believe is right.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write one kind sentence to yourself about what you've named.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If it feels like too much, stop there. A therapist can help with heavier things.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace had started sleeping a little better and drinking less, but something wasn't settling, and it came out as anger. Anger at the administrators who cut staffing. Anger that frightened her, because it didn't fit her picture of herself as a caring nurse. Under it was grief: for the children she couldn't help as she wanted to, and for the nursing she had believed in. Seeing it as a real wound, rather than a flaw in her, let her begin to work through it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you've been carrying, in a word or two.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_carry"
+        ]
+      },
+      "done_when": "You've named some of what you're carrying. That's how working through it begins.",
+      "reflect": "How do you feel after naming it?",
+      "fields": [
+        {
+          "id": "f_carry",
+          "type": "short_text",
+          "label": "What you've been carrying",
+          "help": "Anger at something, a loss, or both. A few words is enough."
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "One kind sentence to yourself"
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Write it out",
+      "purpose": "A private place to write through a hard experience, a little at a time.",
+      "why": "Writing about your deepest thoughts and feelings on a hard experience is one of the better-studied ways to work through it. It can turn a tangled weight into something you understand. The book suggests a few sessions of 15 to 20 minutes. If that's too much right now, a few minutes still counts.",
+      "source": {
+        "chapter": "Chapter 6, Emotional Recovery Practices; Chapter 7, How to Process; Appendix A, Expressive writing for processing"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Pick one experience to write about. It doesn't have to be the hardest one.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Set a timer for 15 to 20 minutes, or less if your energy is low.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write your deepest thoughts and feelings about it. Spelling and grammar don't matter.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you start going in circles, write what it meant to you instead.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Stop if it feels like too much. You can come back another day.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If you can, come back for a few more sessions over the next week or two.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace had been quieting her mind each evening with wine. It numbed the anger and grief but never moved them. She began writing about what the pandemic years had been like, and talking with someone she trusted. Over a few sessions, what had felt like a confusing knot started to make sense. The writing reached what her physical recovery hadn't."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write for three minutes about one hard moment. Stop whenever you like.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_writing"
+        ]
+      },
+      "done_when": "You've started writing it out. Each session can help you make a little more sense of it.",
+      "reflect": "What did you notice while you wrote?",
+      "fields": [
+        {
+          "id": "f_topic",
+          "type": "short_text",
+          "label": "What you're writing about",
+          "help": "A few words is enough."
+        },
+        {
+          "id": "f_writing",
+          "type": "long_text",
+          "label": "Your writing",
+          "help": "Write freely. Nobody else sees this."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How you feel after writing",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Set one standing limit",
+      "purpose": "One limit, decided ahead of time, that protects the capacity you're rebuilding.",
+      "why": "A boundary can feel like a wall against people. It's closer to the opposite: a limit that protects the capacity your work and relationships depend on. A standing limit is decided once, ahead of time, like an hour after which you don't answer work messages. That way you don't have to win the same battle every evening.",
+      "source": {
+        "chapter": "Chapter 8, What Boundaries Actually Are; Boundaries in Practice"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about where your capacity leaks most: messages, extra requests, or lost recovery time.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one limit for that leak. Make it specific.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write it as a rule, like: no work messages after 7 p.m.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Decide who needs to know, if anyone, and how you'll tell them.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Try it this week. Some discomfort at first is normal.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya had built her business on endless availability. She answered client messages at midnight, and any limit she set would crumble at the first sign of someone's disappointment. So she set a standing rule: no client messages after a set hour. Once it was set, she didn't have to win the internal battle each time a message arrived. The rule did that work for her."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one limit you'll keep this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_limit"
+        ]
+      },
+      "done_when": "You have one standing limit, decided ahead of time.",
+      "reflect": "What do you expect to feel the first time you keep it?",
+      "feeds_plan": [
+        {
+          "field_id": "f_limit",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_limit",
+          "type": "short_text",
+          "label": "Your standing limit",
+          "help": "For example: no work messages after 7 p.m."
+        },
+        {
+          "id": "f_tell",
+          "type": "short_text",
+          "label": "Who needs to know, and how",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Get your no ready",
+      "purpose": "A few short, kind ways to say no, ready before you need them.",
+      "why": "Saying no is hardest in the moment, when the urge to agree is strongest. For many people, saying yes became a way to keep the peace. Having phrases ready takes some of that pressure off. Guilt afterward is common. It's a feeling, not a verdict, and it usually fades as the limit becomes normal.",
+      "source": {
+        "chapter": "Chapter 8, Why Boundaries Feel Dangerous; The Fawn Response; Boundaries in Practice; Dealing With the Guilt and the Backlash; Appendix A, The boundary phrases card"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the four phrases in your Toolkit. Pick the two that sound most like you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Put them in your own words, if you like. Keep them short.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Leave out long reasons. A clear, warm no is usually enough.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Think of one request you're likely to get this week. Decide your answer now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If guilt or pushback comes, note later what actually happened.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "When a client asked for a quick turnaround, Priya used to say yes before she'd even thought about it. She prepared a few short declines ahead of time, so she wasn't inventing them under pressure. The first few times, guilt came, and a client or two pushed back. She kept her limits anyway. The guilt faded, the clients adjusted, and the fallout she'd feared never came."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one phrase to keep ready, like \"Let me check before I commit.\"",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_phrases"
+        ]
+      },
+      "done_when": "Your no is ready, in words that sound like you.",
+      "reflect": "Which phrase feels hardest to say, and why?",
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_phrases",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_phrases",
+          "type": "ranked_list",
+          "label": "Your ready phrases",
+          "max_items": 4,
+          "help": "For example: That doesn't work for me. Let me check before I commit."
+        },
+        {
+          "id": "f_request",
+          "type": "two_column",
+          "label": "A likely request, and your answer",
+          "columns": [
+            "The request",
+            "Your answer"
+          ]
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "What happened after",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Map your energy, not hours",
+      "purpose": "A picture of what drains you and what restores you, so demanding work goes where you're strongest.",
+      "why": "Hours aren't all the same. An hour of hard work when you're depleted costs a lot and gets little done. The same hour when you're rested goes much further. Managing energy, rather than only time, means noticing what drains and what restores you, and placing demanding work in your stronger stretches.",
+      "source": {
+        "chapter": "Chapter 9, Energy as the Unit of Sustainable Work; Appendix A, Energy mapping and job crafting"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Over the next few days, notice which tasks and times drain you.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice which ones restore you, even a little.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write both lists. Rough answers are fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Find your stronger time of day, when demanding work feels lighter.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Move one demanding task into that time this week.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Robert",
+        "text": "Thirty years in operations had trained Robert to think in time and output: fit more into the hours. He saw his own capacity as something to max out rather than protect, until his body forced the issue. Thinking in energy meant noticing what drained him, protecting what he had, and building a working pattern that matched his real capacity. The point was working in a way his energy could sustain, not just working less."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing that drained you today and one that restored you.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_drain"
+        ]
+      },
+      "done_when": "Your energy map is started. You know a little more about what drains and restores you.",
+      "reflect": "Did anything restore you that you didn't expect?",
+      "feeds_plan": [
+        {
+          "field_id": "f_best",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_drain",
+          "type": "two_column",
+          "label": "What drains you, and what restores you",
+          "columns": [
+            "Drains",
+            "Restores"
+          ]
+        },
+        {
+          "id": "f_best",
+          "type": "short_text",
+          "label": "Your stronger time of day",
+          "help": "For example: early morning, before messages start."
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Reshape one part of work",
+      "purpose": "One small change to your tasks, your contacts, or how you see your work, aimed at your main mismatch.",
+      "why": "It can feel like the only choices are to put up with work as it is or to leave. There's often room in between. The book calls it job crafting: shifting which tasks you do, how and with whom you work, or how you see the point of it. Protecting focus and speaking up about workload count too.",
+      "source": {
+        "chapter": "Chapter 9, Reshaping the Work: Job Crafting; Protecting Focus and Managing the Load; When Leaving Is the Answer"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look back at your main mismatches from week 2.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one kind of change: your tasks, the people you work with, or how you see the work.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one small, realistic change, like protecting one block of focus time.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If your workload is too much, write what you could say to make it visible.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Try the change for a week. Notice what shifts.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If nothing seems changeable, that's useful to know too. Weigh your next step clearly, without rushing.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Robert",
+        "text": "Robert thought he had two options: endure the job or quit. Job crafting showed him the room in between. He reshaped his role toward more real say over how he worked, and toward the tasks that felt meaningful rather than only demanding. He protected blocks of focus. And for the first time in thirty years, he started negotiating his workload instead of silently absorbing it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small change to your work you could try this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You've chosen one change that aims at what drains you at work.",
+      "reflect": "What made this change feel possible, or not possible yet?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "Your one change",
+          "help": "For example: one protected hour of focus a day, with messages off."
+        },
+        {
+          "id": "f_type",
+          "type": "checklist",
+          "label": "The kind of change",
+          "options": [
+            "Tasks",
+            "People",
+            "How you see the work",
+            "Focus",
+            "Workload"
+          ]
+        },
+        {
+          "id": "f_say",
+          "type": "short_text",
+          "label": "What you could say about your workload",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Reach toward one person",
+      "purpose": "One small step toward connection, with someone you trust or someone you've lost touch with.",
+      "why": "Burnout pulls you inward. You stop reaching out, friendships lapse, and you end up carrying everything alone just when support would help most. Connection can be one of the most restoring things there is, and it doesn't take a full social life. One message or one honest conversation is enough to start.",
+      "source": {
+        "chapter": "Chapter 6, Social Recovery Practices; Chapter 10, Reconnecting With the Neglected; Appendix A"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of someone you trust, or a friend you've lost touch with.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one small step: a message, a call, or a conversation.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write what you'll say. It can be short and honest.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If they offer help, try saying yes. Receiving is part of recovery too.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David had carried everything alone for years, because asking for help felt like weakness. His friendships had lapsed, and his support outside the family had all but disappeared. Reaching back felt awkward after such a long silence. But it was mostly welcomed, and slowly he rebuilt a wider web of support beyond the responsibilities that had taken everything he had."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Send one short message to someone you trust.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_who"
+        ]
+      },
+      "done_when": "You've taken one step toward someone. Recovery doesn't have to happen alone.",
+      "reflect": "What made reaching out hard, or easier than you expected?",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you'll reach toward"
+        },
+        {
+          "id": "f_say",
+          "type": "short_text",
+          "label": "What you'll say",
+          "help": "For example: It's been too long. Could we talk this week?"
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Plan an honest conversation",
+      "purpose": "A plan for one honest conversation with someone your burnout has affected.",
+      "why": "Burnout rarely stays inside one person. Withdrawal and irritability can spill over onto the people closest to you, and that strain doesn't always ease when you recover. An honest conversation names what happened, recognizes the other person's side, and shows what will change. Have it when you're ready.",
+      "source": {
+        "chapter": "Chapter 10, How Burnout Damages Relationships; Honest Conversations; Appendix A, The relationship repair guide"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose one person your burnout has affected. Only choose someone you feel safe with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write what happened, plainly. For example: \"I pulled away and was short with you.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what it may have been like for them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add the burnout as context, not as an excuse.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one concrete thing that will change.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose a calm time to talk. Then listen.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David had told himself he was protecting his family by carrying everything. In fact, his wife had spent years watching him disappear, frustrated and lonely. When they talked, he named what had happened without hiding behind his exhaustion. He recognized what those years had been like for her. He explained the burnout as context, not an excuse. And because she had heard promises before, he showed her what would change in concrete terms."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one concrete thing that will change, for one person.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "Your honest conversation is planned. Have it when the time feels right.",
+      "reflect": "What do you hope the other person hears?",
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who this is with"
+        },
+        {
+          "id": "f_what",
+          "type": "long_text",
+          "label": "What happened, and what it was like for them"
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "One thing that will change"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Add small warm moments",
+      "purpose": "More small, warm moments with the people close to you, to rebuild what burnout wore down.",
+      "why": "Burnout tends to crowd out warmth and leave more snapping and withdrawal. Research the book draws on found that steady relationships have about five positive moments for every negative one. The positive moments don't need to be big. Small, frequent gestures are what rebuild the balance.",
+      "source": {
+        "chapter": "Chapter 10, Rebuilding Connection and the Positive Ratio; Appendix A, The relationship repair guide"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one person close to you.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "List three small warm moments you could offer: thanks, a kind word, or real interest.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Offer one today, if you can.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Mark the days you managed one this week. Any number counts.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David rebuilt things with his wife and children through small moments, day by day: saying thank you, showing real interest in their lives, being present where he used to be absent. As his own capacity came back, he had more to give. Slowly, the warmth that years of burnout had worn away began to return."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Offer one small warm moment today, like a thank you or a question.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_moments"
+        ]
+      },
+      "done_when": "You have a few small warm moments ready to offer. They add up.",
+      "reflect": "How did the other person respond, if you noticed?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_moments",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who"
+        },
+        {
+          "id": "f_moments",
+          "type": "ranked_list",
+          "label": "Three small warm moments you could offer",
+          "max_items": 3
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you offered one"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Reconnect with what matters",
+      "purpose": "A clearer sense of what you value, and of who you are beyond work.",
+      "why": "Burnout can dull the meaning that once drew you to your work. That dullness is often a sign of burnout, rather than proof the work no longer matters. Reaching back to what you valued before can show you what you're rebuilding toward. It also helps to have more of you than your job.",
+      "source": {
+        "chapter": "Chapter 11, What Burnout Does to Meaning; Reconnecting With Values; Purpose Beyond Achievement; Chapter 3, Identity Fusion; Appendix A, Values clarification"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think back to what drew you to your work, or your life, before burnout.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write three things that still matter to you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice where your energy goes now. Write one gap between that and what matters.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Name one source of meaning beyond achievement, like contributing, connection, or care.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name one part of you outside work, like a friend, a parent, or something you love doing.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If a big decision is on your mind, come back to this before you make it.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace's sense that nursing no longer meant anything had her thinking about leaving. But that numbness came from burnout. When she reached back to why she'd chosen nursing, she found her care for vulnerable children was still there, buried but not gone. That changed her question. It was no longer whether she'd lost her passion, but how she could live the values she'd found again, maybe in a different setting."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that still matters to you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values"
+        ]
+      },
+      "done_when": "You've reconnected with some of what matters to you. It gives your recovery a direction.",
+      "reflect": "Did you find anything you'd almost forgotten?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_beyond",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "ranked_list",
+          "label": "Three things that matter to you",
+          "max_items": 3
+        },
+        {
+          "id": "f_gap",
+          "type": "short_text",
+          "label": "One gap between what matters and where your energy goes"
+        },
+        {
+          "id": "f_beyond",
+          "type": "short_text",
+          "label": "One part of you outside work"
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Know your warning signs",
+      "purpose": "A short list of your own early signs of drifting back toward burnout, caught while the drift is small.",
+      "why": "Recovery tends to slip gradually rather than all at once. The early signs often echo how your burnout began: a limit slipping, practices skipped, an old pattern back, a hint of the old dread. Caught early, a drift needs only a small correction. Your own signs are the best warning you'll get.",
+      "source": {
+        "chapter": "Chapter 12, Recovery Is Maintained, Not Achieved; The Warning Signs of Relapse; Appendix A, The maintenance practices"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look back at how your burnout began. What did you notice first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Think about limits slipping, practices dropping, and old patterns or feelings coming back.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write three to five early signs that are yours.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each sign, write one small correction.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose when you'll check them, for example during your weekly check-in.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Months into her recovery, Maya felt like herself again. Then she noticed her boundaries starting to feel optional, the always-on replies creeping back, her practices sliding, and a faint return of the Sunday-evening unease. She had learned these were her warning signs, not a return to normal. Spotting them early gave her time to correct course with small changes."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one early sign that you're slipping, and one small correction.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_signs"
+        ]
+      },
+      "done_when": "Your warning signs are written down, each with a small correction ready.",
+      "reflect": "Which sign would you be most likely to miss?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "two_column",
+          "label": "Your warning signs, and a small correction for each",
+          "columns": [
+            "Warning sign",
+            "Small correction"
+          ]
+        },
+        {
+          "id": "f_check",
+          "type": "short_text",
+          "label": "When you'll check",
+          "help": "For example: every Sunday, with the weekly check-in."
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Make your practices stick",
+      "purpose": "Simple if-then plans that keep your key practices going once motivation fades.",
+      "why": "Feeling better is when practices tend to slip, because they stop feeling urgent. Motivation fades, and habits last longer. An if-then plan links a practice to a moment in your day, like finishing lunch. Research the book draws on found these plans help people follow through. Linking a practice to an existing routine works the same way.",
+      "source": {
+        "chapter": "Chapter 12, Maintaining the Practices; Building Habits That Hold; Appendix A, The maintenance practices"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick two practices you most want to keep, from your rhythm or your limits.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "For each, choose a moment that already happens daily, like finishing lunch.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write it as \"When this happens, then this is what I'll do.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep each plan small enough for a yellow week.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Once Maya felt better, she knew her motivation would fade. So she stopped relying on remembering. She tied her breathing practice to a daily cue, built her boundary into a standing rule, and wove her recovery rhythm into the shape of her week. The practices became part of her days, rather than choices she had to keep making."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one plan: when this happens, then you'll do this.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_plans"
+        ]
+      },
+      "done_when": "Your key practices are tied to moments in your day, so they take less effort to keep.",
+      "reflect": "Which moment in your day is the most reliable?",
+      "feeds_plan": [
+        {
+          "field_id": "f_plans",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_plans",
+          "type": "two_column",
+          "label": "Your if-then plans",
+          "columns": [
+            "When this happens",
+            "Then you'll do this"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your recovery plan",
+      "purpose": "One modest page of the steps that matter most to your recovery, in your own words.",
+      "why": "You've tried a lot over these weeks, and not all of it needs to stay. The book's advice for a plan is to keep it realistic, modest, specific, and forgiving. A few steps you'll keep are worth more than a full program you'll put down. This page pulls in what you've already written.",
+      "source": {
+        "chapter": "Chapter 13, The Recovery Framework, Drawn Together; Building Your Personal Recovery Plan; Appendix A, The personal plan; Appendix C"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Keep your recovery rhythm, or trim it to what you really do.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep your end-of-work time and your standing limit.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Add the one or two rebuilding steps that matter most: work, people, or meaning.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a red-week line: the bare basics, and who you'll lean on.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Read it once more. Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's plan was short. Steadier sleep and less late-day coffee. A short walk most days. Her end-of-work ritual at a set hour, with no client messages after it. A few ready phrases for saying no. Each piece was small enough to keep, and together they protected the capacity she had rebuilt."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted rhythm and limits. Fix anything that's wrong.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_rhythm",
+          "f_limits"
+        ]
+      },
+      "done_when": "Your recovery plan is on one page, modest enough to keep.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_rhythm",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_limits",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_rebuild",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rhythm",
+          "type": "long_text",
+          "label": "Your recovery rhythm"
+        },
+        {
+          "id": "f_limits",
+          "type": "long_text",
+          "label": "Your limits"
+        },
+        {
+          "id": "f_rebuild",
+          "type": "short_text",
+          "label": "Your rebuilding steps"
+        },
+        {
+          "id": "f_red",
+          "type": "short_text",
+          "label": "Your red-week basics, and who you'll lean on"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan for setbacks and pulls",
+      "purpose": "A plan for harder stretches and strong pulls back toward old patterns, written while you're steady.",
+      "why": "Recovery rarely runs in a straight line. There will be harder weeks, and times when a busy stretch or a big opportunity pulls you back toward old patterns. Setbacks are a normal part of recovery. What helps is deciding now how you'll respond: scale down rather than stop, lean on support, and come back.",
+      "source": {
+        "chapter": "Chapter 12, When the Pull Is Strong; Chapter 13, Planning for Setbacks; Appendix B, The Capacity Card"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name when the pull is likely to be strongest, like a big project or a busy season.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the smallest version of your practices you'll keep then.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write the one limit that matters most to keep.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Name someone you could lean on, if you like.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write your first step back after a setback.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a line reminding yourself where the old pattern led last time.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "The strong pull came for Maya when a major project surged. The old always-on habit looked reasonable again, and her boundaries suddenly felt like obstacles. Because she'd planned for this, she recognized it. She scaled her practices down instead of dropping them, kept her boundaries, leaned on her support, and remembered where the always-on pattern had led: the Sunday panic and the empty tank. She came through it without sliding back."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step back after a setback. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your setback plan is ready: a smaller version, a first step back, and a reminder.",
+      "reflect": "What would you want to hear from yourself on a hard day?",
+      "toolkit_link": "t02",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_smallest",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_pull",
+          "type": "short_text",
+          "label": "When the pull is strongest"
+        },
+        {
+          "id": "f_smallest",
+          "type": "short_text",
+          "label": "The smallest version you'll keep"
+        },
+        {
+          "id": "f_lean",
+          "type": "short_text",
+          "label": "Who you could lean on",
+          "optional": true,
+          "help": "If no one comes to mind, a note to yourself counts."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: a few slow breaths and a short walk tomorrow."
+        },
+        {
+          "id": "f_remind",
+          "type": "short_text",
+          "label": "Where the old pattern led last time"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The physiological sigh",
+      "when_to_use": "Stress spikes and you want to settle fast. This takes under a minute.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "Take one more short sip of air on top, to fill your lungs.",
+        "Exhale slowly through your mouth while you count to six or longer.",
+        "One or two of these are often enough."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Introduction; Appendix A, The physiological sigh"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Check your capacity",
+      "when_to_use": "You're deciding how much to take on today or this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: capacity is coming back. The fuller versions are workable.",
+        "Yellow: still depleted. Use the smallest versions and protect only key limits.",
+        "Red: basics only. Seek support and professional help. Help now is always there."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Capacity Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "End-of-work ritual",
+      "when_to_use": "Your workday is done, but your mind is still at work.",
+      "steps": [
+        "Close the laptop and put it away.",
+        "Change your clothes, or take a short walk.",
+        "Tell yourself the workday is over.",
+        "Let the rest of the evening be for rest."
+      ],
+      "minutes": 2,
+      "figure": "fig_clear_desk",
+      "source": {
+        "chapter": "Chapter 5, Building Transitions and Rituals"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Slow breaths, longer exhale",
+      "when_to_use": "You want to settle, and a minute is all you have.",
+      "steps": [
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Repeat a few times. Three slow breaths count."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 6, Physical Recovery Practices; Starting From Empty"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "A short, gentle walk",
+      "when_to_use": "You feel wired and drained at once, and the tension has nowhere to go.",
+      "steps": [
+        "Head outdoors if you can.",
+        "Walk at an easy pace, not a workout pace.",
+        "A few minutes is enough."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 5, Movement as Recovery, Not Exertion; Chapter 6, Physical Recovery Practices"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Four ways to say no",
+      "when_to_use": "Someone asks for something, and a yes is on its way before you've thought.",
+      "steps": [
+        "\"That doesn't work for me.\"",
+        "\"I'm not able to take that on.\"",
+        "\"Let me check before I commit.\"",
+        "\"I need to say no to this.\"",
+        "Keep it short. Long reasons aren't needed."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 8, Boundaries in Practice; Appendix A, The boundary phrases card"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Good enough check",
+      "when_to_use": "You can't stop polishing something, and it's costing you rest.",
+      "steps": [
+        "Ask what this task actually needs.",
+        "If it's already there, it's good enough.",
+        "Stop at sufficient. Let excellent be enough.",
+        "Your work and your worth are separate things."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 3, Perfectionism"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Keep a limit through guilt",
+      "when_to_use": "You kept a limit, and now guilt or pushback is pulling at you.",
+      "steps": [
+        "Name it: this is guilt, a feeling, not a verdict.",
+        "Remind yourself this is the friction of changing an old pattern.",
+        "Keep the limit for now. Guilt usually fades.",
+        "Later, notice what actually happened. It's often less than you feared."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 8, Dealing With the Guilt and the Backlash"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "One small warm moment",
+      "when_to_use": "You want to reconnect with someone close, and you don't have much to give.",
+      "steps": [
+        "Pick one person nearby.",
+        "Offer one small thing: thanks, a kind word, or real interest.",
+        "Give them your full attention for a minute."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 10, Rebuilding Connection and the Positive Ratio"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Catch the drift",
+      "when_to_use": "Something feels familiar, like an old pattern creeping back.",
+      "steps": [
+        "Check your warning signs. Are any showing?",
+        "Pick the smallest correction for one of them.",
+        "Do it today, if you can.",
+        "No full restart needed. Small corrections count."
+      ],
+      "minutes": 1,
+      "figure": "fig_looking_at_map",
+      "source": {
+        "chapter": "Chapter 12, The Warning Signs of Relapse"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a look at what's been draining you."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. Your burnout has a name and a shape now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have a recovery rhythm and your first limits. Next, rebuilding."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Rest is part of this too. Pick up with one small step."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "What's been draining you"
+    },
+    {
+      "id": "p3",
+      "title": "Your recovery rhythm"
+    },
+    {
+      "id": "p4",
+      "title": "Your limits"
+    },
+    {
+      "id": "p5",
+      "title": "What you're rebuilding"
+    },
+    {
+      "id": "p6",
+      "title": "Staying well"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by giving your burnout an accurate name. Since then, you've built a small recovery rhythm, set some limits, looked at what you were carrying, and started rebuilding your work, your connections, and what matters to you. Recovery is something you keep, rather than something you finish. Your plan is here for the harder stretches. You're allowed to recover.",
+    "book_bridge": "Every tool here comes from Rebuilding from Empty by Maya Vaughn. The book tells the full stories of Maya, Grace, Robert, David, and Priya. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which practice is still part of your week without much effort?",
+      "Have any of your warning signs shown up this month? What's one small correction?",
+      "What's one limit you're glad you kept?"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e04",
+      "e05",
+      "e08",
+      "e11",
+      "e13",
+      "e17"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Rebuilding_from_Empty.docx",
+    "v1_id": "burnout",
+    "cut_log": [
+      {
+        "item": "Stay-or-leave decision as its own exercise",
+        "chapter": "Chapter 9, When Leaving Is the Answer",
+        "reason": "A major life and money decision. Kept as one step in e14 and a line in e18. The book points to a decision framework in the appendices that the appendices do not contain."
+      },
+      {
+        "item": "Burnout self-test totals",
+        "chapter": "Appendix A; Chapter 1",
+        "reason": "Used in e01 and the self-check as frequency ratings only. No totals or cut-offs, so nothing reads as a screen."
+      },
+      {
+        "item": "Burnout versus depression comparison",
+        "chapter": "Chapter 1; Appendix D",
+        "reason": "Not an exercise, because it would invite self-diagnosis. Kept as the start safety note, pointing to Help now and a professional."
+      },
+      {
+        "item": "Moral injury detail",
+        "chapter": "Chapter 7, Moral Injury",
+        "reason": "Named gently in e09 only. No detailed recall of events. Professional support offered for heavier residue."
+      },
+      {
+        "item": "Fear beneath the busyness",
+        "chapter": "Chapter 3",
+        "reason": "Folded into e03 as one of four patterns. Not explored further, because it can surface feelings best handled with support."
+      },
+      {
+        "item": "Growth through burnout",
+        "chapter": "Chapter 11, Growing Through Burnout",
+        "reason": "Left out. It risks implying the reader should find a silver lining while still depleted."
+      },
+      {
+        "item": "Statistics, researcher names and the Whitehall and allostatic load material",
+        "chapter": "Chapters 2, 4, 6, 7, 9, 10, 12",
+        "reason": "Not needed for instruction. Only the five-to-one ratio stays, attributed to research the book draws on."
+      },
+      {
+        "item": "Medication, therapy types and supporting someone else",
+        "chapter": "Appendices D, E and F",
+        "reason": "Medical and referral content. The safety note and Help now carry the professional-help message."
+      },
+      {
+        "item": "Alcohol",
+        "chapter": "Chapters 2, 4, 5 and 7",
+        "reason": "Kept only where the book uses it in Grace's and Priya's stories and in sleep basics. No drinking guidance."
+      }
+    ],
+    "notes": "v1 topic_name: Burnout\nv1 set_id: stress-and-overload (Stress and Overload); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 54"
+  }
+}

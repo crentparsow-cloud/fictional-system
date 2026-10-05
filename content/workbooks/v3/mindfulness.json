@@ -1,0 +1,2613 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-EM7F9",
+  "slug": "being-here-em7f9",
+  "title": "Being Here",
+  "short_title": "Mindfulness",
+  "card_line": "Twelve weeks of small, practical steps toward being here for your own life",
+  "tagline": "Twelve weeks of small, practical steps toward being here for your own life",
+  "book": {
+    "book_id": "being-here",
+    "title": "Being Here",
+    "subtitle": "A Practical Guide to Mindfulness",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H59MKMMC",
+      "US": "https://www.amazon.com/dp/B0H59MKMMC"
+    },
+    "asin": "B0H59MKMMC"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Notice where your mind goes",
+          "figure": "fig_looking_at_map",
+          "body": "The Explore stage is about noticing, not fixing. Over two weeks, you'll watch where your mind goes when you rest it on your breath, and where in your days you tend to be somewhere else. Your mind will wander. That's what minds do, and it's the material this whole workbook works with. Nothing here asks you to empty your mind or feel calm."
+        },
+        "outcome": "A clear picture of where your mind tends to go, and the moments you most want to be present for.",
+        "review_question": "What surprised you most about where your mind goes?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build your anchors, one at a time",
+          "figure": "fig_feet_grounded",
+          "body": "In the Build stage, you set up a few anchors: things to come back to when your mind wanders. You start with the breath, then the body, then movement, then ordinary tasks, then your thoughts. Each practice starts small, often a minute or less. Small and regular builds more than long and rare. If one anchor doesn't suit you, the next week offers another way in."
+        },
+        "outcome": "A daily practice and a set of anchors you can use anywhere: breath, body, movement, single tasks, and labels for thoughts.",
+        "review_question": "Which anchor came most easily, and which one hasn't fit yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Bring it into real life",
+          "figure": "fig_two_people",
+          "body": "Now you take your anchors into harder places: difficult feelings, the people you care about, and the honest question of when mindfulness is the wrong tool. Go at your own pace. Start with something mild each time, and keep practices short. You can open your eyes, shorten a practice, or stop whenever you want."
+        },
+        "outcome": "Your anchors tried on hard feelings, real conversations, and real days, plus a practice sized for your hardest day.",
+        "review_question": "Where did presence help most, and where did you need something else?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Make it yours to keep",
+          "figure": "fig_writing",
+          "body": "The Keep stage brings twelve weeks together. You'll write a short plan: your anchors, your daily practice, your smallest version, and what to do when practice slips. Your mind will keep wandering after week 12. Coming back is the practice, now and later. Write the plan while you're steady, so it's ready for a harder week."
+        },
+        "outcome": "Your plan, with your anchors, your daily practice, and your way back after a gap.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If your mind is often somewhere other than where you are, this is built for that. It's twelve weeks of small, practical steps, drawn from the book Being Here. Nothing here asks you to empty your mind or feel calm. Most practices start with a few breaths, and most weeks take 15 to 25 minutes in total. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard weeks.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick practices you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "What would you like to be more present for? One line is enough.",
+    "extra_safety_note": "Some people find that long, silent practice brings up difficult memories or feelings. You are in charge of every practice here. You can open your eyes, shorten it, or stop at any time, and come back to it later or not at all. If practice keeps bringing up difficult material, especially after trauma, pause it and talk to a doctor or other health professional. If you have any thoughts of harming yourself, stop and tap Help now. This workbook can sit alongside professional care. It does not replace it."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "returning",
+        "label": "Noticing and coming back"
+      },
+      {
+        "id": "anchors",
+        "label": "Using your anchors"
+      },
+      {
+        "id": "inner",
+        "label": "Being with thoughts and feelings"
+      },
+      {
+        "id": "daily",
+        "label": "Present in your days and with people"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "returning",
+        "text": "You notice fairly soon when your mind has wandered off."
+      },
+      {
+        "id": "q02",
+        "area": "returning",
+        "text": "When you notice your mind has wandered, you bring it back without criticizing yourself."
+      },
+      {
+        "id": "q03",
+        "area": "returning",
+        "text": "You can rest your attention on one thing for a minute, coming back as often as needed."
+      },
+      {
+        "id": "q04",
+        "area": "returning",
+        "text": "When thoughts keep coming as you practice, you take that as part of the practice."
+      },
+      {
+        "id": "q05",
+        "area": "anchors",
+        "text": "In a busy or stressful moment, you can use a few breaths to steady yourself."
+      },
+      {
+        "id": "q06",
+        "area": "anchors",
+        "text": "You notice what your body is feeling, like tight shoulders or your feet on the floor."
+      },
+      {
+        "id": "q07",
+        "area": "anchors",
+        "text": "You can feel present while you walk or move, not only when sitting still."
+      },
+      {
+        "id": "q08",
+        "area": "anchors",
+        "text": "You fit a few moments of practice into ordinary days, even busy ones."
+      },
+      {
+        "id": "q09",
+        "area": "inner",
+        "text": "You can sit through a quiet moment without reaching for noise or your phone."
+      },
+      {
+        "id": "q10",
+        "area": "inner",
+        "text": "When a difficult feeling comes up, you can stay with it for a few moments instead of pushing it away."
+      },
+      {
+        "id": "q11",
+        "area": "inner",
+        "text": "You can name what you're feeling in a word or two."
+      },
+      {
+        "id": "q12",
+        "area": "inner",
+        "text": "You can watch a worried or repeating thought without getting swept along by it."
+      },
+      {
+        "id": "q13",
+        "area": "daily",
+        "text": "You do one thing at a time, giving it your full attention."
+      },
+      {
+        "id": "q14",
+        "area": "daily",
+        "text": "You notice when you're going through the motions on automatic."
+      },
+      {
+        "id": "q15",
+        "area": "daily",
+        "text": "When someone talks to you, you listen without planning your reply."
+      },
+      {
+        "id": "q16",
+        "area": "daily",
+        "text": "You're really there for the moments that matter to you."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. A wandering mind is normal, so some of these may move slowly, and that's fine.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_practice",
+        "type": "weekly_grid",
+        "label": "Days you practiced, even for three breaths"
+      },
+      {
+        "id": "c_tools",
+        "type": "checklist",
+        "label": "Tools you used",
+        "options": [
+          "From your Toolkit"
+        ]
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One moment you were really there"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_everyday",
+        "type": "weekly_grid",
+        "label": "Days you brought attention to an everyday task or walk",
+        "help": "This starts in week 4. Leave it blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How present were you today?",
+    "scale_low": "Mostly somewhere else",
+    "scale_high": "Mostly here",
+    "tags": [
+      "Did my practice",
+      "Three-breath reset",
+      "Walked with attention",
+      "One thing at a time",
+      "Phone put away",
+      "Listened fully",
+      "Stayed with a feeling"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Notice where your mind goes",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "See what wandering costs you",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Use your breath as an anchor",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Come back to your body",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Take it into motion",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Bring presence into ordinary days",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Step back from your thoughts",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Turn toward a hard feeling",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Bring presence to the people you care about",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e10"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Use mindfulness wisely",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e07",
+        "e12"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Make it last",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e14"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Notice where your mind goes",
+      "purpose": "A first look at where your mind goes when you rest it on your breath for two minutes.",
+      "why": "Many people try mindfulness, watch their mind wander, and decide they're bad at it. The book says the wandering is normal. It's what minds do. The practice is noticing that your mind has wandered and coming back. Every return is one repetition, so a busy mind just gets more practice.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, Mindfulness Is Not Emptying the Mind; Chapter 2, The Wandering Mind Is Universal; Appendix A, From Chapter 2; Appendix C, Week One"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Sit somewhere you won't be interrupted for a few minutes. Eyes open or closed, whichever feels better.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Set a timer for 2 minutes. One minute is fine too.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Feel your breath where it's clearest: your nose, your chest, or your belly.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "When you notice your mind has gone somewhere, note where: the past, the future, or something imagined.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Then bring your attention back to the breath. That return is the practice.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "When the timer ends, write down where your mind went and how you spoke to yourself.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya, a hospital doctor, sat on her bedroom floor at 11 p.m. with her fourth meditation app in two years. A gentle voice told her to let go of her thoughts. Her mind went to a patient, an unsent email, and whether she had locked her car. It wandered fourteen times in two minutes, and she decided she was bad at this. Nobody had told her that each of those fourteen returns was the practice working."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Feel three slow breaths, one at a time.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "If your mind wandered, write one word for where it went.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_where"
+        ]
+      },
+      "done_when": "You've watched your mind wander and come back. That's the whole practice, done for the first time.",
+      "reflect": "How did you speak to yourself when you noticed your mind had wandered?",
+      "feeds_plan": [
+        {
+          "field_id": "f_where",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_where",
+          "type": "checklist",
+          "label": "Where your mind went",
+          "options": [
+            "The past",
+            "The future",
+            "Something imagined",
+            "Plans and to-dos",
+            "Worries",
+            "Not sure"
+          ]
+        },
+        {
+          "id": "f_count",
+          "type": "short_text",
+          "label": "Roughly how many times you came back",
+          "help": "A guess is fine. More returns means more practice."
+        },
+        {
+          "id": "f_selftalk",
+          "type": "short_text",
+          "label": "What you said to yourself when you noticed",
+          "optional": true,
+          "help": "For example: \"Here I go again\" or \"Back to the breath.\""
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "See what wandering costs you",
+      "purpose": "The moments you're there in body but not in mind, and the one you most want back.",
+      "why": "A wandering mind has a cost. You can be in the room and still miss what's happening. Meals go untasted and conversations go half heard. Seeing where this happens in your own days gives the practice a reason, and shows you where to bring it first.",
+      "source": {
+        "chapter": "Chapter 1, opening (Daniel); Chapter 2, The Cost of the Wandering Mind; Chapter 9, Noticing the Autopilot"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think through a normal day, from waking up to going to bed.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Note three moments when you're there in body but your mind is somewhere else.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, note where your mind usually goes: work, worry, your phone, or plans.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note who or what you miss in those moments, if anyone.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one moment you'd most like to be present for.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Daniel, an IT manager, sat in the school auditorium for his daughter's third-grade play. She was the second tree from the left, with one line. In his head, he was writing a work email, replaying a tense exchange with his ex-wife, and planning the drive home. He laughed half a second after everyone else. He missed her line. Later she asked if he saw it, and he said yes. That was the moment he most wanted back."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one moment in your week you'd like to be more present for.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_most"
+        ]
+      },
+      "done_when": "You know where your mind tends to leave, and the moment you'd most like to be there for.",
+      "reflect": "Was there a moment on your list you hadn't noticed before?",
+      "feeds_plan": [
+        {
+          "field_id": "f_most",
+          "plan_section": "p1"
+        },
+        {
+          "field_id": "f_moments",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_moments",
+          "type": "two_column",
+          "label": "Moments you're there but not there",
+          "columns": [
+            "The moment",
+            "Where your mind goes"
+          ],
+          "help": "For example: dinner with the kids, and your mind is on tomorrow's meeting."
+        },
+        {
+          "id": "f_miss",
+          "type": "short_text",
+          "label": "Who or what you miss in those moments",
+          "optional": true
+        },
+        {
+          "id": "f_most",
+          "type": "short_text",
+          "label": "The moment you most want to be present for"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Rest your attention on your breath",
+      "purpose": "A short daily practice, tied to something you already do, that trains your attention like a muscle.",
+      "why": "Attention works a bit like a muscle. Each time you notice your mind has wandered and bring it back, it gets a little stronger. That's why short and regular beats long and rare. The book suggests starting with a minute or two, tied to a habit you already have, so it happens without needing to remember.",
+      "source": {
+        "chapter": "Chapter 3, Attention Is Like a Muscle; Starting Small and Gently; Chapter 4, Gathering Attention With the Breath; Chapter 12, Anchoring the Practice to Existing Habits; Appendix C, Weeks One and Two"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick something you do every day to attach this to, like brushing your teeth or making coffee.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Right after it, sit or stand, and let your breath move on its own.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Rest your attention where you feel the breath most: nose, chest, or belly.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "When your mind wanders, notice it, and come back. Do this as often as you need to.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Keep going for 1 or 2 minutes. Shorter is fine while you're starting.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If attention on the breath feels uncomfortable, feel your feet on the floor instead.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Kofi",
+        "text": "Kofi, who works in a warehouse, hadn't sat in silence for years. The earbuds went in when he woke and stayed in until he fell asleep. When the noise stopped, worried thoughts rushed in, so long silent sessions were out of the question. He started with a few breaths after brushing his teeth, then a minute. Each time his mind pulled away, coming back counted as one repetition."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "After something you do every day, feel three breaths. Come back if your mind wanders.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_habit"
+        ]
+      },
+      "done_when": "Your daily practice has a home. Come back to it each day this week, even for three breaths.",
+      "reflect": "What made it easier or harder to come back to the breath?",
+      "feeds_plan": [
+        {
+          "field_id": "f_habit",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_habit",
+          "type": "short_text",
+          "label": "The habit you'll attach it to",
+          "help": "For example: right after brushing my teeth in the morning."
+        },
+        {
+          "id": "f_spot",
+          "type": "checklist",
+          "label": "Where you feel the breath most",
+          "options": [
+            "Nose",
+            "Chest",
+            "Belly",
+            "Hard to tell yet"
+          ]
+        },
+        {
+          "id": "f_notes",
+          "type": "long_text",
+          "label": "What you noticed",
+          "optional": true,
+          "help": "Rough notes are fine: how long, how often your mind wandered, how it felt."
+        }
+      ],
+      "repeat_units": [
+        7
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Try the anchor breath",
+      "purpose": "A breath that steadies your body in under a minute, and three moments in your day to use it.",
+      "why": "Your breath happens on its own, but you can also change it. That makes it a lever. Breathing slowly, with the exhale longer than the inhale, helps switch on the body's calming system and can slow your heart rate. It works in a hallway, a meeting, or a line at the store, and nobody needs to know.",
+      "source": {
+        "chapter": "Chapter 4, Why the Breath Makes an Ideal Anchor; Calming the Body With the Breath; The Anchor Is Always Available; Appendix A, From Chapter 4"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Inhale slowly through your nose while you count to four.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Exhale slowly through your mouth while you count to six.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Repeat the whole breath three or four times.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Notice how your body feels now. Any change counts, and no change is fine too.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Think of three moments in your day when you could use it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For example: before a hard conversation, while you wait, or between tasks.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya had ninety seconds in a hospital hallway between one unit and the pharmacy. Her mind was going in six directions: a patient getting worse, results she was waiting on, a colleague she'd snapped at, the kids at home. She couldn't sit on a cushion or open an app. She could breathe. A slow inhale through her nose, a longer exhale through her mouth, a few times over. Then she walked on, a little steadier."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Do the anchor breath once now: a slow inhale, then a longer, slower exhale.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Write one moment in your day you could use it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moments"
+        ]
+      },
+      "done_when": "You have a breath that steadies your body, and three places in your day to use it.",
+      "reflect": "Where in your day do you think it would help most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_moments",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t02",
+      "fields": [
+        {
+          "id": "f_moments",
+          "type": "ranked_list",
+          "label": "Three moments you could use it",
+          "max_items": 3,
+          "help": "For example: in the car before going in, or while the coffee brews."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How your body felt afterward",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Move through your body",
+      "purpose": "A slow pass through your body that brings you into the present and shows how you're really feeling.",
+      "why": "Your body is only ever in the present. Feeling it pulls your attention out of your head and into now. It can also tell you what your mind hasn't noticed. A tight chest, a clenched jaw, or a heaviness can show up in the body before you know what you're feeling.",
+      "source": {
+        "chapter": "Chapter 5, The Body Is Always in the Present; Returning Attention to Physical Sensation; The Body Reveals What the Mind Hides"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Sit or lie down. Eyes open or closed is fine.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Feel your feet. Notice contact, weight, or temperature for a few seconds.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Move your attention slowly up: legs, hips, belly, chest, back, hands, arms, shoulders.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Then your neck, jaw, face, and head. Notice what's there without trying to change it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "When your mind wanders, come back to the last place you were feeling.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note any spot that felt tight, heavy, or restless, and what it might be telling you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If this brings up something hard, open your eyes and feel your feet. You can stop anytime.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling, a former accountant at home with three kids, called her days beige. One morning after school drop-off, she moved her attention slowly through her body. Her shoulders were up near her ears. There was a heaviness in her chest she hadn't noticed all week. She'd put her low mood down to boredom. Her body suggested there might be more to it, and that was worth knowing."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Feel your feet, then your shoulders, then your jaw. Notice what's there.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_spots"
+        ]
+      },
+      "done_when": "You've moved through your body once. You can come back to it anytime.",
+      "reflect": "Did your body tell you anything your mind hadn't?",
+      "feeds_plan": [
+        {
+          "field_id": "f_spots",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_spots",
+          "type": "checklist",
+          "label": "Where you noticed something",
+          "options": [
+            "Feet and legs",
+            "Belly",
+            "Chest",
+            "Back",
+            "Shoulders",
+            "Hands and arms",
+            "Jaw and face",
+            "Throat",
+            "Nowhere in particular"
+          ]
+        },
+        {
+          "id": "f_telling",
+          "type": "short_text",
+          "label": "What it might be telling you",
+          "optional": true,
+          "help": "For example: tight shoulders, maybe from the week I've had."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Feel one ordinary task",
+      "purpose": "One task you already do each day, turned into a moment of presence with no extra time.",
+      "why": "Mindfulness can sound like something for people with spare time, quiet rooms, and scented candles. Feeling your body during a task you're already doing needs none of that. Washing dishes, packing lunches, and walking to the car all happen in the present. Bringing your attention to them brings you there too.",
+      "source": {
+        "chapter": "Chapter 5, Presence Without Special Conditions; Returning Attention to Physical Sensation; Appendix A, From Chapter 5; Appendix C, Week Two"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a task you do every day, like washing dishes, showering, or packing lunches.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Next time you do it, notice what your hands feel: water, weight, texture.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Notice your feet on the floor and how your body is standing.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "When your mind drifts off, come back to your hands.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Afterward, write one thing you noticed that you'd usually miss.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling was packing three lunches at the counter and couldn't remember the last ten minutes. Her hands had buttered bread, cut crusts, and filled bottles on their own. The next morning she tried something small. She felt the knife in her hand, the texture of the bread, her weight on her feet. It took no extra time. For a few minutes, she was actually in her own kitchen."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "During your next ordinary task, feel your hands for three breaths.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_task"
+        ]
+      },
+      "done_when": "One everyday task now doubles as practice, with no extra time needed.",
+      "reflect": "What was it like to be there for something you usually rush through?",
+      "feeds_plan": [
+        {
+          "field_id": "f_task",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t03",
+      "fields": [
+        {
+          "id": "f_task",
+          "type": "short_text",
+          "label": "Your everyday task",
+          "help": "For example: doing the dishes after dinner."
+        },
+        {
+          "id": "f_noticed",
+          "type": "long_text",
+          "label": "What you noticed that you'd usually miss"
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Walk to be somewhere",
+      "purpose": "A walk you already take, turned into a few minutes of practice.",
+      "why": "Presence doesn't need stillness. Your feet meeting the ground, your weight shifting, and the air on your face are all happening now, so they work as anchors just like the breath. Most people walk several times a day. Any of those walks can become practice, with no extra time.",
+      "source": {
+        "chapter": "Chapter 7, Presence Does Not Require Stillness; Walking as a Practice; Appendix A, From Chapter 7; Appendix C, Week Three"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick a walk you already take, like to the car, the mailbox, or around the block.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Walk a little slower than usual, if you can.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Feel each foot as it meets the ground: heel, ball, toes.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Notice your legs moving, your weight shifting, the air, and the sounds around you.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "When your mind wanders, come back to your feet.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Afterward, write down what you noticed.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling walked all day: school drop-off, the store, back and forth across the house. She'd been doing it in a fog. So she picked the walk home from the school gate. She felt her heels, then the balls of her feet, the air on her face, the sounds of the street. The point wasn't to get home. It was to be on the walk while she was on it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take ten steps, feeling only your feet.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_walk"
+        ]
+      },
+      "done_when": "You have a walk that doubles as practice, ready any day.",
+      "reflect": "How did walking with attention compare with sitting?",
+      "feeds_plan": [
+        {
+          "field_id": "f_walk",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_walk",
+          "type": "short_text",
+          "label": "Your walk",
+          "help": "For example: from the parking lot to the office door."
+        },
+        {
+          "id": "f_noticed",
+          "type": "long_text",
+          "label": "What you noticed",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Let movement be your practice",
+      "purpose": "A movement you can use as your main practice, if sitting still doesn't suit you.",
+      "why": "Some people can't settle into seated practice. Restlessness or a low mood can make stillness feel like a cage. The book is clear that this is a mismatch of form, not a lack of ability. Any movement done with attention counts: stretching, exercise, folding laundry, gardening, cooking. For some people, movement is the better fit.",
+      "source": {
+        "chapter": "Chapter 7, Any Movement Can Carry Presence; Movement Suits the Restless and the Low; Appendix D, For readers who cannot sit still"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look at the list and choose the movements that are already part of your days.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick one to practice with this week.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "While you do it, rest your attention on the feeling of your body moving.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "When your mind wanders, come back to the movement.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If seated practice hasn't worked for you, this can be your main practice instead.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling tried the anchor breath at the kitchen table after drop-off. Within thirty seconds she was on her feet. Stillness felt like a cage, and she decided, again, that mindfulness wasn't for her. Then she tried it in motion: folding laundry, feeling the warm cotton and the movement of her arms. That she could do. She hadn't been bad at mindfulness. She'd been using a form that didn't suit her."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Next time you move, feel your body moving for one minute.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_pick"
+        ]
+      },
+      "done_when": "You have a movement practice that fits how you are.",
+      "reflect": "Did moving make it easier or harder to stay present?",
+      "feeds_plan": [
+        {
+          "field_id": "f_pick",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_moves",
+          "type": "checklist",
+          "label": "Movements already in your days",
+          "options": [
+            "Walking",
+            "Stretching",
+            "Exercise",
+            "Housework",
+            "Folding laundry",
+            "Cooking",
+            "Gardening",
+            "Carrying groceries"
+          ]
+        },
+        {
+          "id": "f_pick",
+          "type": "short_text",
+          "label": "The one you'll practice with this week"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Catch yourself on automatic",
+      "purpose": "A few days of noticing when you're going through the motions, and a quick way back.",
+      "why": "Much of a day runs on automatic: the drive you don't remember, the meal you don't taste, the conversation you half hear. You can't come back to a moment until you notice you've left it. So the first step is catching it. Each catch is a chance to return.",
+      "source": {
+        "chapter": "Chapter 9, Noticing the Autopilot; Presence Is Built in the Small Moments"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Over the next few days, watch for moments when you're going through the motions.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Common ones are driving, eating, scrolling, getting ready, and half-listening.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "When you catch one, take one breath and feel where you are.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Later, jot down what you were doing and where your mind was.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "No need to catch them all. A few is plenty.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Daniel was at the park on his weekend with the kids, scrolling email. His daughter called to him to watch her on the jungle gym. He looked up, said good job, and looked back down without really seeing her. That evening he noticed what had happened. The next time his thumb reached for the phone at the park, he caught it, put the phone in his pocket, and watched her climb."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one moment today when you were going through the motions.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_catches"
+        ]
+      },
+      "done_when": "You've started catching yourself on automatic. Each catch is a way back in.",
+      "reflect": "Which moment surprised you most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_common",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_catches",
+          "type": "two_column",
+          "label": "Moments you caught",
+          "columns": [
+            "What you were doing",
+            "Where your mind was"
+          ]
+        },
+        {
+          "id": "f_common",
+          "type": "short_text",
+          "label": "Where it happens most for you",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Do one thing at a time",
+      "purpose": "One daily activity done with your full attention, and a clearer view of how split your attention gets.",
+      "why": "Doing several things at once can feel efficient, but attention split three ways is fully present to none of them. Single-tasking means eating while only eating, walking while only walking, listening while only listening. It can feel oddly hard at first. That pull toward your phone shows how split your attention has become.",
+      "source": {
+        "chapter": "Chapter 9, Single-Tasking Against a Fragmented Attention; Appendix A, From Chapter 9; Appendix C, Week Three"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one daily activity: a meal, a coffee, a walk, a shower, or the dishes.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Before you start, put your phone in another room or out of reach.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Do only that one thing. No radio, no reading, no scrolling.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "When you feel the pull to add something, notice it, and come back.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Afterward, note what you noticed and how strong the pull was.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Daniel did a few minutes of breathing each morning, and it helped. The rest of his day stayed split: email while his kids talked, news while they ate. So he picked one thing to do as a single task. When his children talked, he would only talk with them, phone away. It felt strange. His mind kept reaching for the missing screen. That reaching showed him how split his attention had become."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Do the next small thing, like a sip of coffee, with your full attention.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_activity"
+        ]
+      },
+      "done_when": "You have one daily single task, and a clearer sense of how split your attention gets.",
+      "reflect": "What was the hardest part of doing only one thing?",
+      "feeds_plan": [
+        {
+          "field_id": "f_activity",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t05",
+      "fields": [
+        {
+          "id": "f_activity",
+          "type": "short_text",
+          "label": "Your single task",
+          "help": "For example: morning coffee, with the phone in the other room."
+        },
+        {
+          "id": "f_pull",
+          "type": "scale_0_10",
+          "label": "How strong was the pull to do something else?"
+        },
+        {
+          "id": "f_noticed",
+          "type": "short_text",
+          "label": "What you noticed",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Notice your thinking loops",
+      "purpose": "The thoughts that loop for you, and what thinking harder does to them.",
+      "why": "When a worry loops, the natural move is to think it through. With repeating thoughts, that usually feeds the loop. Each answer raises another question. That's why you can churn for hours and end up no calmer. The way out is a different relationship with the thoughts, and that starts with noticing the loop.",
+      "source": {
+        "chapter": "Chapter 8, Why You Cannot Think Your Way Out of Rumination; Chapter 3, Training Attention Changes the Relationship to Thought"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a thought that keeps coming back, about work, health, money, people, or plans.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write it down in a few words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note when it tends to show up: at night, in quiet moments, or on the way to work.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Think about the last time it looped. Did thinking harder end it, or add more?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note what kind of thinking it was: worrying, planning, replaying, predicting, or comparing.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Kofi",
+        "text": "When the noise stopped, Kofi's thoughts started. Worst-case scenarios, played and replayed. Plans to head off the worst, then second-guessing the plans. He'd try to reason his way out, and every worry he answered raised another. He could go for hours and end no calmer. Writing the loop down, he saw that the thinking he hoped would end it was what kept it going."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thought that loops for you, and the kind of thinking it is.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_loop",
+          "f_kind"
+        ]
+      },
+      "done_when": "You can see one of your loops for what it is. That's the first step out.",
+      "reflect": "What usually happens when you try to think a loop through?",
+      "feeds_plan": [
+        {
+          "field_id": "f_kind",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_loop",
+          "type": "short_text",
+          "label": "A thought that loops for you"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When it tends to show up",
+          "optional": true
+        },
+        {
+          "id": "f_kind",
+          "type": "checklist",
+          "label": "What kind of thinking it is",
+          "options": [
+            "Worrying",
+            "Planning",
+            "Replaying",
+            "Predicting",
+            "Comparing",
+            "Catastrophizing"
+          ]
+        },
+        {
+          "id": "f_more",
+          "type": "yes_no",
+          "label": "Did thinking harder add more thoughts?",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Label your thoughts",
+      "purpose": "A one-word way to step back from a thought, so it can pass without pulling you in.",
+      "why": "Labeling means naming the kind of thought, not arguing with what it says. \"Worrying.\" \"Planning.\" \"Replaying.\" To name a thought, you have to step back and look at it, and that small step changes your place. You're watching the thought instead of standing inside it. It may still come. It just has less grip.",
+      "source": {
+        "chapter": "Chapter 8, Stepping Back From Thought; Labelling Thoughts to Create Distance; Appendix A, From Chapter 8"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Sit for 2 minutes with your breath, as in your daily practice.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "When a thought pulls you away, silently name its kind in one word.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Use words like worrying, planning, predicting, replaying, or comparing.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Don't answer the thought or follow it. Name it, then come back to the breath.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Try it once during the day too, when a loop starts.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Afterward, note which labels came up most.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Kofi",
+        "text": "Kofi tried it while sitting quietly for two minutes. A worry about the week ahead came up, and he silently said \"predicting.\" The worst-case scenario started to play again: \"catastrophizing.\" He didn't argue with either thought. He named it and came back to his breath. The thoughts still came, but they felt more like things passing through and less like things swallowing him."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Next time a thought pulls you in, name its kind in one word.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_labels"
+        ]
+      },
+      "done_when": "You have a one-word way to step back from a thought, wherever you are.",
+      "reflect": "Which label do you find yourself using most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_labels",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t06",
+      "fields": [
+        {
+          "id": "f_labels",
+          "type": "checklist",
+          "label": "Labels that came up most",
+          "options": [
+            "Worrying",
+            "Planning",
+            "Predicting",
+            "Replaying",
+            "Comparing",
+            "Catastrophizing",
+            "Something else"
+          ]
+        },
+        {
+          "id": "f_effect",
+          "type": "short_text",
+          "label": "What changed when you named a thought",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Notice how you avoid a feeling",
+      "purpose": "A clearer view of the ways you push hard feelings away, and what that costs you.",
+      "why": "Pushing a feeling away feels protective. The book says it tends to work the other way. A feeling held down stays around and often comes back stronger. Acting as if it's a threat makes it seem bigger. And the effort of avoiding it is tiring, and it narrows your life.",
+      "source": {
+        "chapter": "Chapter 6, Avoidance Strengthens What It Flees; Chapter 3, opening (Kofi)"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Think of a feeling you'd rather not feel, like worry, sadness, anger, or boredom.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "List what you tend to do when it starts: noise, your phone, games, staying busy.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Next to each, write what it gives you right away.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Then write what it might cost you over time.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Change nothing yet. This week is only for seeing it.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Kofi",
+        "text": "Kofi's day had no gaps. The earbuds went in when he woke: podcasts on the bus, music in the warehouse, games in the evening, scrolling until he fell asleep. Silence felt like a threat, because in silence the worried thoughts came. When he wrote it all down, he saw what the noise gave him, which was quick relief. He also saw what it cost. The worry never went anywhere. It waited."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you do to avoid a feeling, and what it gives you.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_avoid"
+        ]
+      },
+      "done_when": "You can see how you tend to avoid a feeling, without changing anything yet.",
+      "reflect": "Was anything on your list a surprise?",
+      "feeds_plan": [
+        {
+          "field_id": "f_avoid",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_feeling",
+          "type": "short_text",
+          "label": "A feeling you'd rather not feel"
+        },
+        {
+          "id": "f_avoid",
+          "type": "two_column",
+          "label": "What you do when it starts",
+          "columns": [
+            "What you do",
+            "What it gives you"
+          ]
+        },
+        {
+          "id": "f_cost",
+          "type": "long_text",
+          "label": "What it might cost you over time",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Name it, then notice it",
+      "purpose": "A short, gentle way to stay with a hard feeling for a few moments, instead of running from it.",
+      "why": "Turning toward a feeling, rather than away, tends to shrink it. Naming it in a word can take some of the heat out. Feeling where it sits in your body gives you a little distance. And it helps to remember that a feeling isn't a fact or a verdict, and it won't last forever.",
+      "source": {
+        "chapter": "Chapter 6, Turning Toward Reduces an Emotion's Power; Naming and Observing the Emotion; The Emotion Is Not a Fact or a Permanent State; Appendix A, From Chapter 6; Appendix C, Week Four"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Start with a mild feeling, like irritation or unease. Leave bigger feelings for later.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "When it comes, pause. You don't need to react yet.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Take one steadying breath: a slow inhale and a longer exhale.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Name it in a word: \"This is anxiety,\" or \"This is anger.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Remind yourself: this is a feeling, not a fact, and it will pass.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "With curiosity, notice where it sits in your body. A tight chest? Heat? Heaviness?",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If it gets to be too much, open your eyes, feel your feet, and stop. That's allowed.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Kofi",
+        "text": "The first time Kofi sat quietly for two minutes, the anxiety rose, and every instinct told him to put the earbuds back in. This time he paused. One slow breath. He named it: \"This is anxiety.\" He reminded himself it was a feeling, not proof that something was wrong. Then he looked for it in his body: a tight chest, a fast heart. Watched with curiosity, it felt more like something he could be with."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Next time a mild feeling comes, name it in one word and notice where it sits.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_feeling"
+        ]
+      },
+      "done_when": "You've stayed with a feeling for a few moments, on your own terms.",
+      "reflect": "What was it like to name the feeling instead of pushing it away?",
+      "toolkit_link": "t07",
+      "fields": [
+        {
+          "id": "f_feeling",
+          "type": "short_text",
+          "label": "The feeling, in a word"
+        },
+        {
+          "id": "f_body",
+          "type": "short_text",
+          "label": "Where you felt it in your body"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "What happened after a few moments",
+          "optional": true,
+          "help": "Any change counts. No change is fine too."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Listen without planning your reply",
+      "purpose": "One conversation where you give the other person your full attention, and a clearer sense of your listening habits.",
+      "why": "Most listening is split. Part of you hears the other person, and part of you is drafting what to say next. Full attention is rare, which is why it means so much. It works like any other practice: the speaker is your anchor, and you come back when your mind wanders.",
+      "source": {
+        "chapter": "Chapter 10, Presence Is a Gift to Others; Attentive Listening as a Practice; Appendix A, From Chapter 10; Appendix C, Week Four"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one conversation today, with someone you live with, work with, or care about.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Put your phone away before it starts.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Rest your attention on their words, their tone, and their face.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "When you catch yourself planning your reply, notice it, and come back to them.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "It's fine to pause for a moment before you answer.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Afterward, note what you heard that you might have missed.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "When Daniel's children talked, he nodded while drafting his reply or working on a problem in his head. His teenage son had stopped telling him things, and Daniel suspected why. So he tried one conversation at a time: phone away, eyes on his son. Each time he caught himself composing an answer, he came back to his son's words. It was harder than he expected, and it was a start."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "In your next conversation, notice one time you start planning your reply, and come back.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_pulls"
+        ]
+      },
+      "done_when": "You've given one person your full attention, and you know what tends to pull you away.",
+      "reflect": "How did the conversation feel different, for you or for them?",
+      "feeds_plan": [
+        {
+          "field_id": "f_pulls",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t08",
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you talked with"
+        },
+        {
+          "id": "f_heard",
+          "type": "long_text",
+          "label": "What you heard that you might have missed",
+          "optional": true
+        },
+        {
+          "id": "f_pulls",
+          "type": "short_text",
+          "label": "What pulled your attention away most",
+          "optional": true,
+          "help": "For example: planning my answer, my phone, thinking about work."
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Small moments with one person",
+      "purpose": "A few small moments, planned this week, to be fully there with one person who matters to you.",
+      "why": "Distraction usually wears down a relationship slowly, through many small moments of half attention. Without meaning to, each one tells the other person they don't have all of you. Repair works the same way in reverse. It doesn't take one big gesture. It takes many small moments of being really there.",
+      "source": {
+        "chapter": "Chapter 10, How Distraction Erodes Relationships; Presence Repairs and Deepens Connection"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one person whose relationship with you matters most right now.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Think of the small moments you share: meals, drives, bedtime, calls.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick two or three to be fully there for this week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "In each one, put your phone away and give them your attention.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "If you miss one, there'll be another. Small moments add up.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Daniel's ex-wife used to say he was never really there, even when he was there. His son had learned the same thing over years of half-heard conversations. Daniel saw that the damage hadn't come from one big moment. It had come from thousands of small absences. So the way back would be small too: one attended moment at a time, phone away, listening to his kids."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one moment with one person this week to be fully there for.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_moments"
+        ]
+      },
+      "done_when": "You've chosen one person and a few small moments to be fully there for.",
+      "reflect": "What do you hope that person might notice, if anything?",
+      "feeds_plan": [
+        {
+          "field_id": "f_person",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_moments",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "The person"
+        },
+        {
+          "id": "f_moments",
+          "type": "ranked_list",
+          "label": "Moments to be fully there for this week",
+          "max_items": 3,
+          "help": "For example: dinner, the drive to school, a call on Sunday."
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Meet it or escape it?",
+      "purpose": "An honest check on whether your practice is helping you meet life or helping you avoid it.",
+      "why": "Any tool can be used to hide. A slow breath can help you stay with a hard feeling, or help you breathe past one that needs feeling. Stepping back from a thought can bring clarity, or keep a feeling at arm's length. The same technique serves either purpose. Asking the question honestly keeps your practice true.",
+      "source": {
+        "chapter": "Chapter 11, Mindfulness Can Become Avoidance; Appendix A, From Chapter 11"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think back over the last few weeks of practice.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Was there a time you used it to get away from a feeling, rather than be with it?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Was there a feeling you breathed past that might have needed feeling?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write down what you notice. There's no wrong answer here.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If a feeling needs some space, give it a few minutes with name it, then notice it.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya was practicing regularly, and it was helping. But on her hardest days, when a patient died, she noticed she was using the breath to reach a numb calm. It let her skip feelings that needed feeling, like grief. Seeing that didn't mean the practice was wrong. It meant she could use it differently: to stay with the grief for a few minutes, rather than breathe it away."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Ask yourself: am I using my practice to meet life, or to avoid it?",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_honest"
+        ]
+      },
+      "done_when": "You've checked honestly how you're using your practice. Whatever you found is useful.",
+      "reflect": "What did you notice when you asked the question honestly?",
+      "toolkit_link": "t09",
+      "fields": [
+        {
+          "id": "f_honest",
+          "type": "checklist",
+          "label": "Right now, your practice is mostly helping you",
+          "options": [
+            "Meet what's there",
+            "Get away from things",
+            "A bit of both",
+            "Not sure"
+          ]
+        },
+        {
+          "id": "f_escape",
+          "type": "long_text",
+          "label": "A time you may have used practice to escape",
+          "optional": true
+        },
+        {
+          "id": "f_space",
+          "type": "short_text",
+          "label": "A feeling that might need some space",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Accept it, or act on it?",
+      "purpose": "A way to tell when a feeling or situation calls for acceptance, and when it calls for action or help.",
+      "why": "Acceptance is a useful part of practice, but it can be misused. Anger can be a sign that something is unfair. Distress can mean a situation needs to change. Some problems, like an impossible workload or a harmful relationship, need action, and some need professional help. Mindfulness can help you see clearly. It cannot fix everything.",
+      "source": {
+        "chapter": "Chapter 11, Spiritual Bypassing and the Misuse of Acceptance; The Problems Mindfulness Cannot Solve; When Professional Help Is Needed; Appendix F, When to seek professional help"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of something you've been trying to accept, or a feeling you've been talking yourself out of.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: is this feeling telling me something important?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: does this situation need action, a conversation, or a decision?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If it needs action, write one small next step.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If low mood, anxiety, or distress has lasted for weeks, talk to a doctor or other health professional.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya caught herself using acceptance to talk herself out of anger about her working conditions: the understaffing, the demands no one could meet. When she asked what the anger was telling her, the answer was plain. Something about the job needed to change. Acceptance had been the wrong tool for that. Her practice could help her think clearly about it, but it couldn't fix the staffing."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you've been trying to accept, and ask if it needs action instead.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_situation"
+        ]
+      },
+      "done_when": "You've checked whether something calls for acceptance, action, or support, and named a next step if needed.",
+      "reflect": "Is there anything here you'd like to talk over with someone?",
+      "fields": [
+        {
+          "id": "f_situation",
+          "type": "short_text",
+          "label": "Something you've been trying to accept"
+        },
+        {
+          "id": "f_call",
+          "type": "checklist",
+          "label": "What it might call for",
+          "options": [
+            "Acceptance, for now",
+            "Action",
+            "A conversation",
+            "Professional support",
+            "Not sure yet"
+          ]
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small next step",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Make it small enough to last",
+      "purpose": "A daily practice sized for your hardest day, tied to a habit, with a plan for missed days.",
+      "why": "Most practices fade because they're sized for good days. Then a busy or worn-out day comes, the practice feels impossible, and skipping turns into stopping. A practice small enough for your hardest day keeps going through it. On better days, you can do more. Three minutes every day builds more than thirty once in a while.",
+      "source": {
+        "chapter": "Chapter 12, Consistency Matters More Than Duration; Anchoring the Practice to Existing Habits; Making the Practice Small Enough to Survive; Progress Is Not Linear, and That Is Normal"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look at your daily practice from week 3. Is it still tied to a habit?",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If not, choose a habit that happens even on your hardest days.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write your full version, for days when you have room.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your smallest version, for your hardest day. A few breaths counts.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Decide what you'll do after a missed day: start again the next day, no catching up.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling had started practices before: apps, seated attempts, a meditation class. Each one faded within weeks. This time she built it small. A walk with attention home from school drop-off on good days. On her hardest days, three breaths while the kettle boiled. Some days she missed it. She started again the next day, without making it mean anything."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the smallest practice you could do on your hardest day.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_small"
+        ]
+      },
+      "done_when": "Your practice now has a smallest version, and a plan for missed days.",
+      "reflect": "What has helped your practice keep going so far, if anything?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchor",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_full",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_small",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_missed",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_anchor",
+          "type": "short_text",
+          "label": "The habit your practice is tied to"
+        },
+        {
+          "id": "f_full",
+          "type": "short_text",
+          "label": "Your full version",
+          "help": "For example: a 10-minute walk with attention."
+        },
+        {
+          "id": "f_small",
+          "type": "short_text",
+          "label": "Your smallest version, for your hardest day",
+          "help": "For example: three breaths while the kettle boils."
+        },
+        {
+          "id": "f_missed",
+          "type": "short_text",
+          "label": "What you'll do after a missed day"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Match your practice to the day",
+      "purpose": "A green, yellow, and red version of your practice, so it fits how much you have each day.",
+      "why": "Stress, tiredness, and a busy mind all use up attention, and how much you have changes from day to day. The book uses three levels. Green means you have room, so practice fully. Yellow means scale down to the smallest tools. Red means set practice aside and reach for support first.",
+      "source": {
+        "chapter": "Appendix B, The Capacity Card; How to Use This Book"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Green: write what your practice looks like when you have room.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Yellow: write your smallest tools, like three breaths or three points of contact.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Red: if distress feels overwhelming, or you have thoughts of harming yourself, tap Help now first.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Add one person you could contact on a red day.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Each morning, ask: am I green, yellow, or red today?",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Aisling made her own version of the card. Green was her walk home from drop-off and attention while she folded laundry. Yellow, on the chaotic days with three kids, was three breaths at the kettle and her feet on the kitchen floor. Red was when she'd set practice aside and reach out for support. Matching the practice to the day meant she never had to drop it altogether."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your yellow practice: the smallest thing that still counts.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_yellow"
+        ]
+      },
+      "done_when": "Your practice has three sizes, so it fits whatever kind of day you're having.",
+      "reflect": "Which level do you expect to be in most often right now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_green",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_red_person",
+          "plan_section": "p6"
+        }
+      ],
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_green",
+          "type": "short_text",
+          "label": "Green: when you have room"
+        },
+        {
+          "id": "f_yellow",
+          "type": "short_text",
+          "label": "Yellow: your smallest tools"
+        },
+        {
+          "id": "f_red_person",
+          "type": "short_text",
+          "label": "Red: someone you could contact",
+          "help": "Help now is always at the top of the screen too."
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your practice plan",
+      "purpose": "One page with your anchors, your daily practice, your ways with thoughts and feelings, and your people.",
+      "why": "Twelve weeks of practice is a lot to remember on a tired day. A short plan, written while you're steady, puts it all in one place. Your answers from earlier weeks are filled in here. Your part is to check them and fill any gaps.",
+      "source": {
+        "chapter": "Chapter 12, Building a Sustainable Practice; Chapter 13, A Present Life; Appendix A; Appendix F, When to seek professional help"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Read your answers from earlier weeks. They're filled in here.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Keep the anchors that helped. Leave out any that didn't fit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Check your daily practice, its habit, and its smallest version.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Add what you'll do with thinking loops and hard feelings.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add the people you want to be present for.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write when you would reach out to a doctor or other health professional.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Two years after the night she nearly deleted her fourth app, Priya sat on the same bedroom floor at 11 p.m. Same busy mind, same long day behind her. Her mind went to tomorrow's rounds, and she noticed and came back. It went to her car, and she came back again. She wasn't fighting it or judging herself for it. Nothing about the scene had changed except how she met it."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read the drafted plan. Fix anything that's wrong, and add one person you want to be present for.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_anchors",
+          "f_people"
+        ]
+      },
+      "done_when": "Your plan is on one page, ready for the days you need it.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchors",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_daily",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_inner",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_pro",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_anchors",
+          "type": "ranked_list",
+          "label": "Anchors that work for you",
+          "max_items": 5
+        },
+        {
+          "id": "f_daily",
+          "type": "short_text",
+          "label": "Your daily practice and its habit"
+        },
+        {
+          "id": "f_inner",
+          "type": "long_text",
+          "label": "What you'll do with loops and hard feelings",
+          "help": "For example: label the thought, or name the feeling and notice it."
+        },
+        {
+          "id": "f_people",
+          "type": "short_text",
+          "label": "Who you want to be present for"
+        },
+        {
+          "id": "f_pro",
+          "type": "short_text",
+          "label": "When you'll reach out for professional support",
+          "help": "For example: if low mood or anxiety lasts for weeks, or practice keeps bringing up difficult material."
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan your way back",
+      "purpose": "A note for the day you've drifted from practice, and a simple way to start again.",
+      "why": "Your mind will keep wandering after week 12, and some weeks your practice will slip. Both are normal. The book's point is that wandering and coming back is the whole practice, at any stage. A lapse only becomes a stop if it starts to feel like proof. Starting again is the same move as coming back to the breath.",
+      "source": {
+        "chapter": "Chapter 12, Progress Is Not Linear, and That Is Normal; Chapter 13, A Present Life Is a Practice, Not a Destination; The Wandering and Returning Is the Whole of It"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write a short note to yourself for when your practice has slipped.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself that drifting off and coming back is the practice itself.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your first step back. Your smallest version is a good choice.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one day a week to ask: is my practice still tied to its habit?",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Missed a day, or a month? Start again where you are. No catching up needed.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Aisling",
+        "text": "Every practice Aisling had started before faded within weeks, and each time she read the lapse as proof she couldn't keep anything going. This time, when a chaotic week knocked her practice over, she didn't make it mean anything. She went back to three breaths at the kettle the next morning. The lapse was part of the practice, not the end of it."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'd want to read when your practice has slipped.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_note"
+        ]
+      },
+      "done_when": "Your note and first step are ready, so a slip has a way back.",
+      "reflect": "What would you want to hear from yourself when practice slips?",
+      "feeds_plan": [
+        {
+          "field_id": "f_note",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_note",
+          "type": "long_text",
+          "label": "Your note for when practice slips",
+          "help": "For example: \"Drifting is normal. Three breaths at the kettle, starting tomorrow.\""
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back"
+        },
+        {
+          "id": "f_review",
+          "type": "short_text",
+          "label": "The day you'll look over your practice each week",
+          "optional": true,
+          "help": "For example: Sunday evening."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Three-breath reset",
+      "when_to_use": "You notice you're somewhere else, or you want a 15-second start to practice.",
+      "steps": [
+        "Stop where you are. Your eyes can stay open.",
+        "Take three slow breaths.",
+        "On each exhale, notice one thing you can physically feel.",
+        "Your feet on the floor, your hands, or the air on your skin."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "How to Use This Book; Appendix A, From the Introduction: The One Tool to Start With; Appendix C, Week One"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The anchor breath",
+      "when_to_use": "You're stressed or scattered and want to steady your body, even in public.",
+      "steps": [
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly through your mouth while you count to six.",
+        "Let the exhale be longer than the inhale.",
+        "Repeat the whole breath three or four times."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Calming the Body With the Breath; Appendix A, From Chapter 4",
+        "note": "The book gives no counts. House default used: inhale 4, exhale 6, no hold."
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Three points of contact",
+      "when_to_use": "Your mind is racing and you want to get out of your head fast.",
+      "steps": [
+        "Feel your feet on the floor.",
+        "Feel your back against the chair, or your weight where you stand.",
+        "Feel your hands resting on something.",
+        "Stay with those three for a few breaths."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Returning Attention to Physical Sensation; Appendix A, From Chapter 5"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "A few mindful steps",
+      "when_to_use": "Sitting still isn't working, or you're walking somewhere anyway.",
+      "steps": [
+        "Slow down a little, if you can.",
+        "Feel each foot meet the ground: heel, ball, toes.",
+        "Notice your legs moving and your weight shifting.",
+        "When your mind wanders, come back to your feet."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 7, Walking as a Practice; Appendix A, From Chapter 7"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "One thing only",
+      "when_to_use": "You notice you're doing three things at once and present for none of them.",
+      "steps": [
+        "Choose the one thing in front of you.",
+        "Put your phone down or out of reach.",
+        "Give that one thing your full attention.",
+        "When the pull to add something comes, notice it and come back."
+      ],
+      "minutes": 2,
+      "figure": "fig_phone_down",
+      "source": {
+        "chapter": "Chapter 9, Single-Tasking Against a Fragmented Attention; Appendix A, From Chapter 9"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Label the thought",
+      "when_to_use": "A thought is pulling you in, or the same loop keeps starting.",
+      "steps": [
+        "Notice the thought without answering it.",
+        "Name its kind in one word: worrying, planning, predicting, replaying.",
+        "Come back to your breath or your feet.",
+        "If it returns, label it again. That's fine."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 8, Labelling Thoughts to Create Distance; Appendix A, From Chapter 8"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Name it, notice it",
+      "when_to_use": "A hard feeling is rising, and you want to stay steady with it.",
+      "steps": [
+        "Pause. You don't have to react yet.",
+        "Take one slow breath, with a longer exhale.",
+        "Name it in a word: \"This is anger.\"",
+        "Remember it's a feeling, not a fact, and it will pass.",
+        "Notice where it sits in your body. Stop if it's too much."
+      ],
+      "minutes": 2,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 6, Naming and Observing the Emotion; Appendix A, From Chapter 6"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Listen fully",
+      "when_to_use": "Someone is talking to you, and you want to really hear them.",
+      "steps": [
+        "Put your phone away or face down.",
+        "Rest your attention on their words and their face.",
+        "Notice when you start planning your reply.",
+        "Let the reply go, and come back to them."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 10, Attentive Listening as a Practice; Appendix A, From Chapter 10"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Meet it or escape it?",
+      "when_to_use": "You're reaching for practice on a hard day and want to check why.",
+      "steps": [
+        "Ask: am I using this to be with what's here, or to get away?",
+        "If a feeling needs feeling, give it a few minutes.",
+        "If a situation needs action, note one small step.",
+        "If you need more support, reach out to someone."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 11, Mindfulness Can Become Avoidance; Spiritual Bypassing and the Misuse of Acceptance; Appendix A, From Chapter 11"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "When you're running low",
+      "when_to_use": "Today you are tired, stressed, or scattered. If you are in crisis, tap Help now first.",
+      "steps": [
+        "Take three slow breaths.",
+        "Feel three points of contact: feet, back, hands.",
+        "Give one minute of attention to one thing in front of you.",
+        "Let the longer practice wait. A tiny practice done is enough today."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Appendix B, The Capacity Card (yellow and red)"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. Every time you came back counted as practice."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: the moments you most want to be present for."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You know where your mind tends to go, and what you want to be there for."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. Each one was a return to the present."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your anchors are in place. Next, you take them into real life."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Coming back is the practice, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why, and what you want to be there for"
+    },
+    {
+      "id": "p2",
+      "title": "Where your mind tends to go"
+    },
+    {
+      "id": "p3",
+      "title": "Your anchors and daily practice"
+    },
+    {
+      "id": "p4",
+      "title": "Your ways with thoughts and feelings"
+    },
+    {
+      "id": "p5",
+      "title": "Presence in your days and with people"
+    },
+    {
+      "id": "p6",
+      "title": "Your plan for harder days"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by watching where your mind goes. Since then, you've found anchors in your breath, your body, and movement. You've brought them into ordinary days, hard feelings, and time with the people you care about, and written your own plan. Your mind will still wander. It always will. Coming back, again and again, is what being present looks like.",
+    "book_bridge": "Every practice here comes from Being Here by Maya Vaughn. The book tells the full stories of Priya, Daniel, Aisling, and Kofi. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which anchor are you coming back to most?",
+      "Is your daily practice still tied to its habit, and does it need to be smaller?",
+      "What's one moment this month you were really there for?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e03",
+      "e05",
+      "e07",
+      "e10",
+      "e12",
+      "e14"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Being_Here.docx",
+    "v1_id": "mindfulness",
+    "cut_log": [
+      {
+        "item": "Research findings and figures (forty-seven percent mind-wandering and the unhappiness finding, Killingsworth and Gilbert; amygdala reactivity; gray-matter studies and the later null result; slow-breathing review; affect labeling research)",
+        "chapter": "Introduction; Chapters 2, 3, 4 and 6; Acknowledgements",
+        "reason": "Statistics and study claims are cut by rule. The ideas survive in plain words: the mind wanders, wandering has a cost, a longer exhale calms the body, naming a feeling helps."
+      },
+      {
+        "item": "What practice does to the brain",
+        "chapter": "Chapter 3",
+        "reason": "Insight only, and the book itself says the structural evidence is contested. The trainable-muscle idea is kept in e03."
+      },
+      {
+        "item": "Why the mind defaults to wandering (evolved capacity, default mode)",
+        "chapter": "Chapter 2",
+        "reason": "Insight only. Reduced to \"that's what minds do\" in e01 and the Explore primer."
+      },
+      {
+        "item": "The four myths as a separate exercise",
+        "chapter": "Chapter 1",
+        "reason": "No action of their own. Folded into the welcome, the Explore primer, the e01 why, the e08 example and self-check item q04."
+      },
+      {
+        "item": "Kofi's diagnosis and the section on mindfulness alongside care for anxiety",
+        "chapter": "Chapters 3 and 8",
+        "reason": "The workbook never names a diagnosis, for a character or the reader. The point is kept in the Start safety note, e18 and e21."
+      },
+      {
+        "item": "The term spiritual bypassing",
+        "chapter": "Chapter 11",
+        "reason": "The idea is used in e18 and t09. The term is jargon and could read as loaded, so reader copy says \"acceptance can be misused\"."
+      },
+      {
+        "item": "A present life is lived, not watched; the five people reconsidered",
+        "chapter": "Chapter 13",
+        "reason": "Summary chapter. Folded into the finish summary, the Keep primer, and the e21 and e22 examples."
+      },
+      {
+        "item": "Thirty-day beginning",
+        "chapter": "Appendix C",
+        "reason": "Its order sets weeks 1 to 8 (wandering and breath, then body, then movement and daily life, then feelings and listening). The day plan is replaced by the twelve-week path."
+      },
+      {
+        "item": "Common questions",
+        "chapter": "Appendix D",
+        "reason": "Each answer is folded into the matching primer, why or example."
+      },
+      {
+        "item": "Crisis lines, resources, therapist finding and further reading",
+        "chapter": "Front matter; Appendices E and F; Continue Reading",
+        "reason": "US-specific and changes over time. Help now and the app's safety page carry contacts. The Appendix F markers for seeking help are used in e18 and e21."
+      },
+      {
+        "item": "Eating disorder helpline mention",
+        "chapter": "Appendix E",
+        "reason": "Out of scope for this workbook, and covered by Help now."
+      }
+    ],
+    "notes": "v1 topic_name: Mindfulness\nv1 set_id: self-and-connection (Self and Connection); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 288"
+  }
+}

@@ -1,0 +1,2856 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-XGZC2",
+  "slug": "after-the-storm-xgzc2",
+  "title": "After the Storm",
+  "short_title": "After Trauma",
+  "card_line": "Twelve weeks of small, steady steps for feeling more at home in the present",
+  "tagline": "Twelve weeks of small, steady steps for feeling more at home in the present",
+  "book": {
+    "book_id": "after-the-storm",
+    "title": "After the Storm",
+    "subtitle": "A Practical Guide to Trauma and PTSD",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4PMBKJV",
+      "US": "https://www.amazon.com/dp/B0H4PMBKJV"
+    },
+    "asin": "B0H4PMBKJV"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "higher",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Notice, gently",
+          "body": "The Explore stage is about noticing what is happening in your body right now. Over two weeks, you'll check in with your body and find your window: the zone where you can feel things and still think. Your reactions make sense. Your nervous system worked hard to protect you, and it may still be on alert. Nothing here asks you to look back at what happened. Go slowly.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A first sense of your body's signals, and which side of your window you tend to land on.",
+        "review_question": "What did you notice about your body that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build a steady base",
+          "body": "In the Build stage, you set up the tools that help you settle. Over five weeks, you'll choose your pace, make a grounding card and a coping card, find a breath that works, and set up steadier days and nights. Practice these when you're calm, so they're ready when you're not. Small and steady is enough.",
+          "figure": "fig_feet_grounded"
+        },
+        "outcome": "A grounding card, a coping card, a breath you know, a reset menu, daily anchors, and a plan for the night.",
+        "review_question": "Which tool helps you most so far, and which one hasn't clicked yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Kindness and support",
+          "body": "The Practice stage turns to your thoughts, your people, and the harder days. Over four weeks, you'll meet hard thoughts and your inner critic with kindness, choose what you share, find support that fits, and plan for hard days. If a week feels heavy, do the short version, or take it slower.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "Kinder ways to meet hard thoughts, a clearer sense of support, and a plan for hard days.",
+        "review_question": "What has changed in how you speak to yourself, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what steadies you",
+          "body": "The Keep stage brings twelve weeks together. You'll name what matters to you now and write a steadying plan you can keep. Keep both modest. A small plan you follow is worth more than a big one you put down.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your values and your steadying plan, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If your body still reacts as though danger is close, even when you know it has passed, this workbook is built for that. It is twelve weeks of small, steady steps: grounding, calmer breathing, better nights, support, and kindness toward yourself. You go at your own pace. Most weeks take 15 to 25 minutes, and every exercise has a short version. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "Every exercise stays with the present. You can stop any of them at any time.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today."
+    ],
+    "why_prompt": "If things felt a little steadier, what would you want more room for? One line is enough.",
+    "higher_tier_note": "This workbook works best alongside a trauma-informed professional, such as a therapist or doctor who understands trauma. That is true for anyone using it, whatever brought them here. You do not need to describe or revisit what happened. Every exercise stays with the present: grounding, routines, sleep, support, and kindness toward yourself. You choose the pace, and you can stop any exercise at any time.",
+    "extra_safety_note": "If you are not safe where you are right now, or the danger has not ended, your safety comes first. Please tap Help now, or contact someone you trust. If you have thoughts of harming yourself, if you often lose time or feel outside your body, or if you are using alcohol or drugs to cope, please talk to a doctor or a trauma-informed professional. If any practice here makes you feel worse, stop, use a grounding tool, and come back another day if you choose."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "steady",
+        "label": "Feeling steady and present"
+      },
+      {
+        "id": "rest",
+        "label": "Rest and routine"
+      },
+      {
+        "id": "kindness",
+        "label": "Kindness toward yourself"
+      },
+      {
+        "id": "support",
+        "label": "Support and choice"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "steady",
+        "text": "You feel present in the here and now for much of the day."
+      },
+      {
+        "id": "q02",
+        "area": "steady",
+        "text": "When your alarm goes up, you have ways to settle it."
+      },
+      {
+        "id": "q03",
+        "area": "steady",
+        "text": "You can feel strong emotions without being swept away by them."
+      },
+      {
+        "id": "q04",
+        "area": "steady",
+        "text": "You notice early signs of stress in your body."
+      },
+      {
+        "id": "q05",
+        "area": "rest",
+        "text": "You get some sleep that leaves you at least a little rested."
+      },
+      {
+        "id": "q06",
+        "area": "rest",
+        "text": "Bedtime feels calm enough for you to rest."
+      },
+      {
+        "id": "q07",
+        "area": "rest",
+        "text": "Your days have some steady, predictable rhythm."
+      },
+      {
+        "id": "q08",
+        "area": "rest",
+        "text": "You move your body in a way you choose."
+      },
+      {
+        "id": "q09",
+        "area": "kindness",
+        "text": "You speak to yourself with some kindness."
+      },
+      {
+        "id": "q10",
+        "area": "kindness",
+        "text": "You can notice a harsh thought without believing all of it."
+      },
+      {
+        "id": "q11",
+        "area": "kindness",
+        "text": "You see your reactions as understandable, not as flaws."
+      },
+      {
+        "id": "q12",
+        "area": "kindness",
+        "text": "You let yourself go at your own pace."
+      },
+      {
+        "id": "q13",
+        "area": "support",
+        "text": "You have at least one person you could reach out to."
+      },
+      {
+        "id": "q14",
+        "area": "support",
+        "text": "You spend some time with people who feel easy to be around."
+      },
+      {
+        "id": "q15",
+        "area": "support",
+        "text": "You know what you would do on a very hard day."
+      },
+      {
+        "id": "q16",
+        "area": "support",
+        "text": "You feel able to stop, or say no, when you need to."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Recovery rarely runs in a straight line, so harder weeks show up here too. If your answers drop a lot, or you do not feel safe, please tap Help now and talk to someone you trust.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_better",
+        "type": "short_text",
+        "label": "Something that felt a little better this week"
+      },
+      {
+        "id": "c_hard",
+        "type": "short_text",
+        "label": "Something that was hard this week",
+        "optional": true,
+        "help": "A few words is enough. If this week included thoughts of harming yourself, please tap Help now."
+      },
+      {
+        "id": "c_tools",
+        "type": "short_text",
+        "label": "Tools you reached for"
+      },
+      {
+        "id": "c_adjust",
+        "type": "short_text",
+        "label": "One small change for next week"
+      },
+      {
+        "id": "c_days",
+        "type": "weekly_grid",
+        "label": "Days you did one steadying practice"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_better"
+    ]
+  },
+  "daily_check": {
+    "question": "How steady did you feel today?",
+    "scale_low": "Very unsettled",
+    "scale_high": "Steady",
+    "tags": [
+      "Slept okay",
+      "Used grounding",
+      "Slow breathing",
+      "Gentle movement",
+      "Kept a routine",
+      "Time with someone",
+      "Some self-kindness",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Notice your body, gently",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Find your window",
+      "exercise_ids": [
+        "e02"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Set your pace and find your grounding",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Settle your breath and make your coping card",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t05",
+        "t10"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Build your reset menu and notice your alarm",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Steady your days and move a little",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Make your nights feel safer",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Step back from hard thoughts",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Be kind to yourself, and choose what you share",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e04",
+        "e07"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Find support and look after each part of life",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e12"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Plan for hard days",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e09"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Check in with your body",
+      "purpose": "A first, gentle read of what your body is holding right now, without judging any of it.",
+      "why": "After something overwhelming, your body can stay on alert long after the danger has passed. That is a nervous system working hard to protect you, not a flaw in you. Noticing what your body is doing, without trying to change it, is the first skill the book teaches. Everything else builds on it.",
+      "source": {
+        "chapter": "Introduction; Chapter 1, Chapter Tool: The Body Check-In; Defining Trauma; What This Means for You"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Sit somewhere comfortable. You can keep your eyes open.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Start at the top of your head. Notice any tension there.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Move your attention slowly down: jaw, shoulders, chest, stomach, legs, and feet.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If your jaw or shoulders feel tight, let them soften if you can.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Name what you find in plain words, like \"tight stomach\" or \"feet feel steady.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Skip any area that feels hard to focus on. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Maya's broken collarbone and ribs mended within weeks. Her body was repaired, but her nervous system was not. She still jolted awake at 2 a.m. with her heart pounding. Because she looked fine, she blamed herself for the rest. Learning that this was her nervous system, not weakness, did not fix it. But it made it make sense."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Notice your jaw and shoulders. Let them soften if you can.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Write a word or two for what you found. You can stop anytime.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_body"
+        ]
+      },
+      "done_when": "You've listened to your body for a moment. That noticing is the first skill.",
+      "reflect": "What was it like to notice without trying to fix anything?",
+      "toolkit_link": "t01",
+      "fields": [
+        {
+          "id": "f_tension",
+          "type": "checklist",
+          "label": "Where you noticed tension",
+          "options": [
+            "Head or forehead",
+            "Jaw",
+            "Shoulders",
+            "Chest",
+            "Stomach",
+            "Hands",
+            "Legs or feet",
+            "Nowhere in particular"
+          ]
+        },
+        {
+          "id": "f_body",
+          "type": "short_text",
+          "label": "What you noticed, in a few plain words",
+          "help": "A few words is plenty. For example: tight jaw, shoulders up, feet steady."
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Find your window",
+      "purpose": "A simple way to tell whether you are above, inside, or below your window, so you know what helps.",
+      "why": "Trauma can narrow the zone where you can feel things and still think. The book calls it your window of tolerance. Above it, everything feels too loud and too fast. Below it, you go numb, foggy, or far away. Knowing which way you've been pushed tells you whether to calm down or gently wake up.",
+      "source": {
+        "chapter": "Chapter 3, Three States of the Nervous System; The Window of Tolerance; Chapter Close; Appendix B, Window of Tolerance Check"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the three places: above your window, inside it, and below it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Three times today, pause and ask yourself where you are right now.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick the place that fits best. There are no wrong answers.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write what in your body told you, like a racing heart or heavy arms.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "At the end of the day, look for any pattern in the times.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "If checking in feels like too much, you can stop. One check is enough.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "At the plant, David felt on edge everywhere, as if the whole building were one big threat. He snapped at his children over nothing. At other times he seemed far away, even at home. His wife later told him the hardest part was feeling she had lost him while he was still in the room. He was being pushed out of his window in both directions."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pause once and ask: above, inside, or below my window?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Pick one, and note one body sign. You can stop anytime.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_where",
+          "f_signs"
+        ]
+      },
+      "done_when": "You've checked where you are. Next time, you'll know which way to turn.",
+      "reflect": "Which place do you tend to land in most, and at what times?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p2"
+        }
+      ],
+      "stuck_alternative": "e01",
+      "fields": [
+        {
+          "id": "f_where",
+          "type": "checklist",
+          "label": "Where you were, each time you checked",
+          "options": [
+            "Above: anxious, racing, tense, or irritable",
+            "Inside: present, able to think, feeling things without being swept away",
+            "Below: numb, foggy, exhausted, or far away"
+          ]
+        },
+        {
+          "id": "f_signs",
+          "type": "short_text",
+          "label": "The body signs that told you",
+          "help": "For example: racing heart, tight chest, heavy limbs, a far-away feeling."
+        },
+        {
+          "id": "f_pattern",
+          "type": "short_text",
+          "label": "Any pattern you noticed",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Your pace, your choices",
+      "purpose": "A short list of your rights in this work, in your own words, so you can set the pace.",
+      "why": "In overwhelming moments, choice gets taken away. Recovery gives it back. The book is clear that you decide your pace, what you share, which tools to try, and when to stop. Pacing is not avoidance. It is part of feeling safe. Writing your rights down makes them easier to use when anyone, including you, pushes too hard.",
+      "source": {
+        "chapter": "Chapter 2, Chapter Tool: The Choice Check; The Six Principles (Choice); Avoiding Re-Traumatization; Your Rights in Recovery"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the rights the book lists, like the right to stop and to take breaks.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the three that matter most to you right now.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one of them in your own words, as something you'd say to yourself.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Before your next exercise, try the choice check: do I want to do this right now?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Respect your answer. You can stop this exercise at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan's first try at therapy moved too fast. When they said they were not ready, the therapist called it avoidance. Two years later, a different therapist began with coping skills only. She explained what she was doing before she did it, checked in about pacing, and asked rather than assumed. When Jordan needed to stop, they stopped. Slowly, Jordan began to believe the work could be safe."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick the one right that matters most to you today.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Say it to yourself once. You can stop anytime.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_rights"
+        ]
+      },
+      "done_when": "Your rights are written down. You set the pace from here.",
+      "reflect": "Which right feels easiest to claim, and which feels hardest?",
+      "toolkit_link": "t02",
+      "fields": [
+        {
+          "id": "f_rights",
+          "type": "checklist",
+          "label": "Rights that matter most to you",
+          "max_items": 3,
+          "options": [
+            "To go at my own pace",
+            "To say no",
+            "To stop",
+            "To take breaks",
+            "To ask questions and get clear answers",
+            "To keep the details private",
+            "To disagree with a professional",
+            "To change therapists if the fit is wrong",
+            "To adapt any tool to suit me"
+          ]
+        },
+        {
+          "id": "f_own",
+          "type": "short_text",
+          "label": "One right, in your own words",
+          "help": "For example: I can stop whenever I need to, and that is okay."
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Build your grounding card",
+      "purpose": "Your top three grounding techniques, tried and chosen, with a few lines about right now.",
+      "why": "When the past feels close, grounding brings your attention back to what is here. It's hard to be pulled into a memory while you're naming what you can see and touch right now. Different techniques suit different people, so the book suggests trying several and keeping what works. Practice when you're calm, so they're ready when you're not.",
+      "source": {
+        "chapter": "Chapter 4, Chapter Tool: The 5-4-3-2-1; Why Grounding Works; Physical, Sensory and Mental Grounding Techniques; The Then Versus Now Technique; Appendix B, Grounding Card Template"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Read the three kinds of grounding: body, senses, and mind.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Over the next few days, try a few when you feel calm.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Rate how much each one helped, from 1 (not much) to 5 (a lot).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick your top three. They go on the front of your card.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "On the back, write two or three lines about now, like \"Now, I am in my kitchen.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Skip any technique that feels uncomfortable. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Maya keeps what she calls a grounding kit in her bag: a small ice pack, a stress ball with a strong texture, and a peppermint oil roller. When she feels a reaction starting while she's out, she reaches for one before it builds. At first she felt self-conscious about it. Now she doesn't leave home without it. She thinks of it as a bridge, not a crutch."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Do one round of 5-4-3-2-1 right now, at your own pace.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Write the one technique you'd put first. You can stop anytime.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_top"
+        ]
+      },
+      "done_when": "Your grounding card has your top three on it, ready when you need them.",
+      "reflect": "Which technique surprised you, either way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_top",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_now",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_tried",
+          "type": "rating_grid",
+          "label": "How much each one helped",
+          "rows": [
+            "Feet pressed into the floor",
+            "Cold water on your wrists",
+            "Pressing your back against a wall",
+            "Butterfly hug: arms crossed, slow taps left and right",
+            "5-4-3-2-1 with your senses",
+            "Studying one object in close detail",
+            "Holding an object with a strong texture",
+            "Counting back from 100 by sevens",
+            "Naming things in a category, like dog breeds"
+          ]
+        },
+        {
+          "id": "f_top",
+          "type": "ranked_list",
+          "label": "Your top three",
+          "max_items": 3
+        },
+        {
+          "id": "f_now",
+          "type": "long_text",
+          "label": "Your lines about now",
+          "help": "Keep them about the present. For example: Now, I am in my living room. Now, I can leave this room. Now, I have people I can call."
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Find a breath that settles you",
+      "purpose": "One calming breath you have practiced enough to reach for in a hard moment.",
+      "why": "Breathing is the one automatic body process you can steer on purpose. Making the exhale longer than the inhale is one of the most direct ways to help your body settle. The book's advice is to practice when you're calm, not only in distress. A breath you've used many times is much easier to find when you need it.",
+      "source": {
+        "chapter": "Chapter 5, Chapter Tool: Extended Exhale; Why Breath Matters; Breathing for Calming"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Sit comfortably. Inhale through your nose while you count to four.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Exhale through your mouth while you count to six, or to eight if that feels okay.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Repeat five times. Notice what shifts in your body.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Another option: one hand on your chest, one on your belly. Let the belly hand rise.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Pick the breath that felt best. Practice it once a day this week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If breath focus feels uncomfortable, you can stop and use grounding instead.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "On David's third day back at work, a routine alarm drill sounded. In a moment he felt pulled back to the day of the accident, heart racing, hands shaking. He stepped outside and used extended exhale breathing. Then he told himself, \"Now, this is a drill. Nobody is hurt.\" The wave passed, and he went back inside."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Inhale while you count to four. Exhale while you count to six.",
+            "figure": "fig_feet_grounded"
+          },
+          {
+            "text": "Do this three times. You can stop whenever you like.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_noticed"
+        ]
+      },
+      "done_when": "You have a breath you know. It's in your Toolkit too.",
+      "reflect": "How did your body feel after five slow breaths?",
+      "feeds_plan": [
+        {
+          "field_id": "f_breath",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t05",
+      "fields": [
+        {
+          "id": "f_breath",
+          "type": "checklist",
+          "label": "The breath you'll practice",
+          "max_items": 1,
+          "options": [
+            "Extended exhale: a longer breath out than in",
+            "Belly breathing: the hand on your belly rises",
+            "A double inhale through the nose, then a long, slow exhale"
+          ]
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When in your day you'll practice it"
+        },
+        {
+          "id": "f_noticed",
+          "type": "short_text",
+          "label": "What shifted when you tried it",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Make your coping card",
+      "purpose": "A small card with three grounding tools, two people, and one reason to keep going.",
+      "why": "In a really hard moment, it can be difficult to remember what helps. The book's coping card remembers for you. It holds three grounding tools that work for you, two people you can contact, and one reason to keep going. It fits in a wallet or a note on your phone, and it's there before you need it.",
+      "source": {
+        "chapter": "Chapter 8, Chapter Tool: The Coping Card; Chapter 11, The 30-Day Stabilization Plan, Week 1"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write your three grounding tools. Your grounding card is a good place to start.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write two people you could contact when things are hard, and how to reach them.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If no one comes to mind yet, a helpline counts.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write one reason to keep going. Small reasons count.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep the card somewhere private you'll see it, like your wallet or a phone note.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If this feels heavy, you can stop after the first step and finish later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan's list of things to do alone came from skills they had already learned: cold water, a walk around the block, and texting a friend. For people, they named their sister and one friend who knew what had happened. Six months later, Jordan reached for their plan less often, because other ways of coping had grown stronger. It was still in their wallet. Knowing it was there was itself a form of safety."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one grounding tool and one person you could contact.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "That's a start. You can stop here and finish another day.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_tools",
+          "f_people"
+        ]
+      },
+      "done_when": "Your coping card is made. Keep it close.",
+      "reflect": "How does it feel to have this written down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tools",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_reason",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_tools",
+          "type": "ranked_list",
+          "label": "Three grounding tools",
+          "max_items": 3
+        },
+        {
+          "id": "f_people",
+          "type": "two_column",
+          "label": "Two people you could contact",
+          "columns": [
+            "Name",
+            "How to reach them"
+          ],
+          "max_items": 2
+        },
+        {
+          "id": "f_reason",
+          "type": "short_text",
+          "label": "One reason to keep going",
+          "help": "It can be small. The book gives this example: my dog needs me."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Your body reset menu",
+      "purpose": "Two short lists: what helps when you're wound up, and what helps when you're shut down.",
+      "why": "Calming tools help when you're above your window. But when you're already numb and far away, more calming can make things worse. Then gentle activation helps instead. The book suggests a menu with two lists, so on a hard day you only have to pick the side you're on and choose one thing.",
+      "source": {
+        "chapter": "Chapter 4, Grounding for Dissociation; Chapter 5, Breathing for Energizing; Body-Based Regulation; Micro-Movement; Appendix B, Body Reset Menu"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look back at your window checks. Which side do you land on more often?",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "For your wound-up list, pick two or three calming options.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For your shut-down list, pick two or three waking options.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Try the \"Am I here?\" check: move each finger, say your name, and name where you are.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Today, try one option from each list, if you feel able.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Not sure which side you're on? Try a few quick exhales, then a few slow ones.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Stop anything that feels wrong for your body. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "When Maya started working with a therapist, she learned grounding she had first met in the book: 5-4-3-2-1, cold water on her wrists, and naming where she was. She also learned extended exhale breathing. She practiced these daily, whether or not she felt she needed them. Her therapist explained that this built a floor of coping she could stand on later. When harder sessions came, the tools held."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one option for wound-up moments and one for shut-down moments.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "That's your menu for now. You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_up",
+          "f_down"
+        ]
+      },
+      "done_when": "Your reset menu is ready, with something for each side of your window.",
+      "reflect": "Which side of your window is harder for you to notice?",
+      "feeds_plan": [
+        {
+          "field_id": "f_up",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_down",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t06",
+      "stuck_alternative": "e05",
+      "fields": [
+        {
+          "id": "f_up",
+          "type": "checklist",
+          "label": "When you're wound up",
+          "options": [
+            "Extended exhale breathing",
+            "Cold water on your wrists",
+            "Tensing and releasing muscles, one group at a time",
+            "5-4-3-2-1 with your senses",
+            "Gentle shaking for a minute",
+            "Massaging your jaw and shoulders"
+          ]
+        },
+        {
+          "id": "f_down",
+          "type": "checklist",
+          "label": "When you're shut down",
+          "options": [
+            "Quick, sharp exhales through your nose, briefly",
+            "Walking, and touching solid things as you pass",
+            "Cold water on your face",
+            "Stomping your feet firmly",
+            "Something sour, minty, or textured",
+            "Looking slowly around the room"
+          ]
+        },
+        {
+          "id": "f_tried",
+          "type": "short_text",
+          "label": "What you tried, and how it went",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Notice what raises your alarm",
+      "purpose": "A gentle week of noticing what sets your alarm off now, so fewer moments catch you by surprise.",
+      "why": "Your alarm can go off before your thinking brain catches up. That's why some reactions seem to come from nowhere. Noticing what was around you, and inside you, when your alarm rose can make your days more predictable. This stays in the present. You don't need to work out what anything reminds you of.",
+      "source": {
+        "chapter": "Chapter 3, Chapter Tool: The Trigger Pause; What Triggers Are; How Triggers Bypass Thinking; David Maps His Triggers; Appendix B, Trigger Log; Chapter 11, Week 2"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the four kinds: senses, situations, people, and feelings inside your body.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "This week, when your alarm rises, pause first. The trigger pause can help.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Later, when you're calmer, note the time and what was around you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note how strong it felt, from 0 to 10, and what your body did.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Keep it to what was here. If your mind pulls toward the past, ground first.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "After a few notes, look for one pattern, like a time of day.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "If noticing raises your distress, stop. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David felt on edge everywhere at the plant and assumed that was just how it would be. For one week, he noted the time, the place, and what was happening whenever his heart rate rose. The patterns surprised him. A phone notification with a certain pitch set him off. So did his own racing heart, even from climbing stairs. Knowing this made his days more predictable. He could ground himself before the hardest moments."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one moment today when your alarm rose.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Note what was around you and how strong it felt. You can stop anytime.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_log"
+        ]
+      },
+      "done_when": "You've started noticing what raises your alarm, in the present, at your own pace.",
+      "reflect": "Did anything surprise you about what you noticed?",
+      "feeds_plan": [
+        {
+          "field_id": "f_pattern",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t03",
+      "stuck_alternative": "e02",
+      "fields": [
+        {
+          "id": "f_log",
+          "type": "two_column",
+          "label": "What you noticed",
+          "columns": [
+            "Time, and what was around you",
+            "How strong (0 to 10), and what your body did"
+          ]
+        },
+        {
+          "id": "f_kinds",
+          "type": "checklist",
+          "label": "Kinds you noticed",
+          "options": [
+            "A sound, smell, or sight",
+            "A place or time of day",
+            "A tone of voice or kind of interaction",
+            "A feeling inside your body, like a racing heart"
+          ]
+        },
+        {
+          "id": "f_pattern",
+          "type": "short_text",
+          "label": "One pattern you noticed",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Build a steadying daily rhythm",
+      "purpose": "Three small daily anchors: one in the morning, one at midday, and one in the evening.",
+      "why": "When your nervous system has been on alert for a long time, predictable patterns help it settle. The book suggests three short practices a day: a morning anchor, a midday reset, and an evening wind-down. They don't need to be long. Doing them often matters more than doing them well, and over weeks the small moments add up.",
+      "source": {
+        "chapter": "Chapter 5, Daily Stabilization Routine; Chapter 10, Building a Life Worth Living (structure); Chapter 11, Week 3"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick a morning anchor you can do in two minutes when you wake.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick a midday reset. Even a minute of slow breathing counts.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Pick an evening wind-down, like a body scan or tensing and releasing your muscles.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Link each one to something you already do, like your first cup of coffee.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Try all three for a few days. Keep the ones that fit.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Missing one is fine. You can scale down or stop anytime.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan built an evening wind-down and kept it the same each night. Screens off at 10 p.m. Herbal tea. Three slow breaths and the phrase \"I am safe. Sleep is safe.\" Then ten minutes of reading something deliberately boring. The routine was not enjoyable. It was consistent, and consistency was what their nervous system needed."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one anchor for tomorrow morning. Two minutes is enough.",
+            "figure": "fig_clock_check"
+          },
+          {
+            "text": "You can stop there for today.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_morning"
+        ]
+      },
+      "done_when": "Your daily anchors are chosen. Small and steady counts.",
+      "reflect": "Which anchor felt most natural to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_morning",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_midday",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_evening",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_morning",
+          "type": "short_text",
+          "label": "Your morning anchor",
+          "help": "For example: extended exhale breathing, a body check-in, or looking slowly around your room."
+        },
+        {
+          "id": "f_midday",
+          "type": "short_text",
+          "label": "Your midday reset"
+        },
+        {
+          "id": "f_evening",
+          "type": "short_text",
+          "label": "Your evening wind-down"
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you did at least one anchor"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Move at your own pace",
+      "purpose": "One small, regular way of moving your body that feels okay to you.",
+      "why": "After a frightening time, your body can feel like unfamiliar ground. Gentle, regular movement is one way to come back to it. The book says the kind of movement matters less than doing it often, and one minute of walking counts. Brisker movement can help when you're wound up. Slower movement can help when you feel numb.",
+      "source": {
+        "chapter": "Chapter 5, Movement for Trauma Recovery; Micro-Movement"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one kind of movement you'd actually do: walking, stretching, swimming, or dancing.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Start smaller than feels useful. One to three minutes is enough.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Attach it to something you already do, like getting the mail.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If you go out, choose a route that feels open and comfortable to you.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "For tense moments in public, try small moves like ankle circles or shoulder rolls.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If movement stirs up distress, you can slow down or stop, and try again later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan had stopped exercising entirely. Their body felt like enemy territory. Their therapist suggested just three minutes of walking a day, with no pressure to enjoy it. Over time, three minutes became five, then ten. Jordan started walking along the river near their apartment. The path was open, and they could see who was coming. A year later, Jordan runs three times a week."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Walk, stretch, or roll your shoulders for one minute.",
+            "figure": "fig_walking"
+          },
+          {
+            "text": "That counts. You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_move"
+        ]
+      },
+      "done_when": "You've chosen a small way to move. One minute still counts.",
+      "reflect": "How did your body feel afterward, if anything shifted?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "Your movement, and how long"
+        },
+        {
+          "id": "f_link",
+          "type": "short_text",
+          "label": "What you'll attach it to"
+        },
+        {
+          "id": "f_days",
+          "type": "weekly_grid",
+          "label": "Days you moved a little"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Make your sleep space feel safe",
+      "purpose": "Small changes to your bedroom that help your body believe rest is safe.",
+      "why": "Night can be hard, because rest means letting your guard down. Your nervous system may resist sleep because it is trying to keep you safe. The book's advice is to put feeling safe ahead of perfect sleep conditions. If a nightlight, an open door, or a view of the door helps you settle, that is the right choice for you.",
+      "source": {
+        "chapter": "Chapter 6, Sleep Hygiene for Trauma Survivors; Creating a Safe Sleep Environment; Hypervigilance at Night; Jordan and the Nightmare Protocol"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Notice what in your bedroom helps you feel at ease, and what does not.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "Choose your light. A dim nightlight is fine if darkness feels uneasy.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Think about the bed. Some people like a wall behind them, others a view of the door.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Try sound. White noise can cover sudden noises. Skip any sound that unsettles you.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Put a grounding object within reach of your bed.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Check the locks once, on purpose. Then say to yourself: \"I have checked. I can rest now.\"",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Change only what feels right. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan changed their bedroom bit by bit. They moved the bed so they could see the door. They started using a white noise machine to cover the sudden sounds that kept them on alert. A nightlight stayed on. Beside the bed, they kept a textured blanket to hold when they woke."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one change for tonight, like a nightlight or a grounding object.",
+            "figure": "fig_moon"
+          },
+          {
+            "text": "That's enough for now. You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_changes"
+        ]
+      },
+      "done_when": "Your sleep space has at least one change that helps you feel more at ease.",
+      "reflect": "What helps your body feel most at ease at night?",
+      "feeds_plan": [
+        {
+          "field_id": "f_changes",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_changes",
+          "type": "checklist",
+          "label": "Changes you'll try",
+          "options": [
+            "A dim nightlight",
+            "Moving the bed so you can see the door",
+            "A wall behind the bed",
+            "White noise or calm sounds",
+            "A grounding object within reach",
+            "Checking the locks once, then a set phrase",
+            "Clocks turned away from view"
+          ]
+        },
+        {
+          "id": "f_object",
+          "type": "short_text",
+          "label": "Your grounding object by the bed",
+          "optional": true,
+          "help": "For example: a textured blanket or a stress ball."
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Your plan for the night",
+      "purpose": "A written plan for bedtime, for waking from a nightmare, and for nights when sleep won't come.",
+      "why": "Deciding what to do at 3 a.m. takes energy you may not have. Deciding now, and writing it down, takes that choice out of the hardest moment. The book's plan has three parts: a sleep anchor each night, five steps for after a nightmare, and a plan for when you can't sleep.",
+      "source": {
+        "chapter": "Chapter 6, Chapter Tool: The Sleep Anchor; The Nightmare Response Protocol; When You Cannot Sleep; Appendix B, Sleep Plan Worksheet and Nightmare Coping Card"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a sleep anchor: one calming action, at the same time and place each night.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Read the five steps for after a nightmare: orient, ground, settle, soothe, decide.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write your own words for the orient and soothe steps.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'll do if you're awake for about 20 minutes: get up for a while, or stay and breathe.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep the steps by your bed. They're in your Toolkit too.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If sleep stays very hard for several weeks, please talk to a doctor or your clinician.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If reading about nights stirs things up, you can stop, ground, and come back later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "When Jordan woke from a nightmare, they no longer had to work out what to do while panicking. The steps were on a card beside the bed, lit by their nightlight. Orient: \"I am in my apartment in Portland. It is March. I am awake.\" Ground: feet on the floor, hands on a textured blanket. Settle: a slow inhale while counting to four, and a longer exhale while counting to six. The nightmares didn't stop right away. But the aftermath became manageable."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose your sleep anchor for tonight.",
+            "figure": "fig_moon"
+          },
+          {
+            "text": "Keep the nightmare steps by your bed. You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_anchor"
+        ]
+      },
+      "done_when": "Your night plan is written and within reach of your bed.",
+      "reflect": "What would make tonight feel a little easier?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchor",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_cantsleep",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t07",
+      "fields": [
+        {
+          "id": "f_anchor",
+          "type": "short_text",
+          "label": "Your sleep anchor",
+          "help": "For example: three slow breaths, a short body scan, or one thing you're grateful for."
+        },
+        {
+          "id": "f_orient",
+          "type": "short_text",
+          "label": "Your orient line",
+          "help": "For example: \"I am in my bedroom. It is Tuesday. I am awake.\""
+        },
+        {
+          "id": "f_soothe",
+          "type": "short_text",
+          "label": "What soothes you after waking",
+          "help": "For example: a comforting object, gentle music, or a glass of warm water."
+        },
+        {
+          "id": "f_cantsleep",
+          "type": "short_text",
+          "label": "Your plan if sleep won't come"
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Step back from hard thoughts",
+      "purpose": "A little distance from one hard thought, so it feels less like the truth about you.",
+      "why": "After trauma, some thoughts arrive uninvited and feel completely true. Fighting them often makes them louder. Defusion, from the book, changes your relationship to a thought instead of arguing with it. You start to see the thought as something your mind is doing, rather than a fact about who you are.",
+      "source": {
+        "chapter": "Chapter 7, Chapter Tool: Thought Defusion; Understanding Intrusive Thoughts; Cognitive Defusion Techniques; Common Trauma Thought Patterns"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one hard thought that shows up often these days. A short version is fine.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write it after the words \"I notice I am having the thought that.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back. Notice any small step back that gives you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Try naming the pattern, like \"There is the danger thought again.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Or picture the thought as a cloud passing across the sky.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "If a thought is about harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any time and come back later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's inner critic was loud, especially at night. Then he began to notice when it was speaking. \"There is the critic,\" he would say to himself. He did not argue with it or try to prove it wrong. He just named it. Naming it put a little space between him and the thought. The critic became a pattern he recognized, rather than the voice of truth."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one hard thought. Say: \"I notice I am having the thought that...\"",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Notice any small step back. You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_thought"
+        ]
+      },
+      "done_when": "You've practiced stepping back from a thought. It's in your Toolkit for next time.",
+      "reflect": "Did the thought feel any different once you named it?",
+      "toolkit_link": "t08",
+      "fields": [
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The thought, after \"I notice I am having the thought that\"",
+          "help": "Keep it to how it shows up now. If writing it exactly feels too heavy, a softer version works too."
+        },
+        {
+          "id": "f_name",
+          "type": "short_text",
+          "label": "A name for the pattern",
+          "optional": true,
+          "help": "For example: the danger thought, or the self-blame story."
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Meet your inner critic",
+      "purpose": "A way to recognize your inner critic and answer it the way you would answer a friend.",
+      "why": "Many people carry a harsh inner voice, and it often gets louder after trauma. It says things you'd never say to anyone else. A helpful inner guide sounds different: kind, and focused on trying again. You don't have to win an argument with the critic. Recognizing it, and offering yourself what you'd offer a friend, can loosen its grip.",
+      "source": {
+        "chapter": "Chapter 7, The Inner Critic; Challenging Unhelpful Thoughts (the friend test); David's Inner Critic"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of one thing your critic says about you lately. Write it in a few words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If writing it exactly feels too heavy, a softer version works too.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Ask: what would I say to a friend who said this about themselves?",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write that kinder reply.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a short line for next time, like \"Thank you for trying to protect me.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If the critic's words turn to harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's critic had a favorite line: \"You just stood there.\" With his therapist, he came to see the critic as a part of him trying to keep him safe by finding every possible fault. He stopped arguing with it. He named it instead. Over time, he added a reply: \"Thank you for trying to protect me. That is not helpful right now.\" The critic did not disappear. But it lost some of its power."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing your critic says. Then write what you'd tell a friend.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_critic",
+          "f_friend"
+        ]
+      },
+      "done_when": "You have a kinder reply ready for the next time your critic speaks.",
+      "reflect": "How does your critic's voice compare with how you speak to people you care about?",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p2"
+        }
+      ],
+      "stuck_alternative": "e15",
+      "fields": [
+        {
+          "id": "f_critic",
+          "type": "short_text",
+          "label": "What your critic says",
+          "help": "A few words is enough. Keep it to now."
+        },
+        {
+          "id": "f_friend",
+          "type": "long_text",
+          "label": "What you'd say to a friend"
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "Your line for next time"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "A self-compassion break",
+      "purpose": "Your own words for a self-compassion break, ready for moments of shame or self-blame.",
+      "why": "Shame tells you that you are bad, and it grows in silence. The book offers self-compassion as a direct answer to it. There are three parts: naming that this is hard, remembering that others have felt this too, and offering yourself some kindness. It's basic decency toward yourself, not self-pity.",
+      "source": {
+        "chapter": "Chapter 7, Self-Compassion; Understanding Shame; David's Inner Critic"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the three parts: this is hard, others have felt this, and kindness.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write a line for each part in words that sound like you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Try it now. Read your three lines slowly to yourself.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Next time shame shows up, try the break instead of arguing with it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If kind words feel strange or empty, that's common. Saying them still counts.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "For a long time, David held only one view of himself: that he should have done something. Over time, he learned to hold a second, kinder view alongside it. \"I wish I could have helped, and there was nothing I could have done in those circumstances.\" Both things were true, the wish and the reality. Holding both was uncomfortable. But it was honest, and easier to live with than the critic's certainty."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Say to yourself: \"This is hard. Others have felt this. May I be kind to myself.\"",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_kind"
+        ]
+      },
+      "done_when": "Your self-compassion break is in your own words, ready for hard moments.",
+      "reflect": "Which of the three parts felt hardest to say, and which felt easiest?",
+      "feeds_plan": [
+        {
+          "field_id": "f_kind",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t09",
+      "fields": [
+        {
+          "id": "f_hard",
+          "type": "short_text",
+          "label": "Naming that it's hard",
+          "help": "For example: \"This is a moment of suffering.\""
+        },
+        {
+          "id": "f_common",
+          "type": "short_text",
+          "label": "Remembering you're not alone",
+          "help": "For example: \"Others have felt this way.\""
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "Offering yourself kindness",
+          "help": "For example: \"May I be kind to myself.\""
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Choose what you share",
+      "purpose": "A clear sense of who you might tell, how much, and what helps when you do.",
+      "why": "You don't owe your story to anyone. Sharing is a choice, and you can share a little, a lot, or nothing at all. The book suggests a few questions to ask before telling someone, and a simple way to say what helps. A short line about dealing with something difficult can be enough.",
+      "source": {
+        "chapter": "Chapter 2, The Social Context of Recovery; Disclosure Decisions; Managing Others' Responses; Chapter 10, Workplace Recovery; David Returns to Work"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of one person you might tell something to. You don't have to tell anyone.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask yourself: is this person safe? Can they hold this? What do I hope for?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose how much. A partial line works, like \"I am dealing with something difficult.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what helps you most when someone listens.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If someone responds badly, you can step back from that topic or that person.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "The details always stay yours. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "When David prepared to go back to work, he told his manager only what was needed. He said he had PTSD from the accident, that he was getting help and it was going well, and that he needed some flexibility while he settled back in. His manager had been wondering for months what was wrong. He was relieved to have an explanation and a plan."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line you could say, if you ever choose to share.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_line"
+        ]
+      },
+      "done_when": "You have words ready, if and when you choose to share.",
+      "reflect": "What do you most want people to understand, without needing any details?",
+      "feeds_plan": [
+        {
+          "field_id": "f_helps",
+          "plan_section": "p4"
+        }
+      ],
+      "stuck_alternative": "e17",
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Someone you might tell",
+          "optional": true,
+          "help": "Leave this blank if no one feels right yet. That's okay."
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "What you might say",
+          "help": "For example: \"I am dealing with something difficult.\""
+        },
+        {
+          "id": "f_helps",
+          "type": "long_text",
+          "label": "What helps you most when you share",
+          "help": "The book's example: \"What helps me most is when people listen without trying to fix things.\""
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Find support that fits",
+      "purpose": "A short list of what good support looks like for you, and what you'd say at a first appointment.",
+      "why": "This workbook works best alongside a trauma-informed professional, and the fit matters as much as the method. Good support explains what it's doing, asks about your pace, and respects your no. If one person isn't right, it doesn't mean you can't be helped. It means that pairing isn't working.",
+      "source": {
+        "chapter": "Chapter 2, Finding the Right Clinician; Jordan's Previous Experience; Chapter 9, The Treatment Relationship; Working with the Healthcare System; Appendix B, Good-Fit Clinician Checklist"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the book's signs of a good fit.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the ones that matter most to you.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If you already work with someone, notice which signs are there.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write two or three things you'd want a professional to know first.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a line you can use anytime: \"I am not ready to discuss that yet.\"",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If this feels like too much today, you can stop here and come back.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan's first therapist moved too fast, and Jordan stopped going after six sessions. For two years, they believed therapy would not work for them. When they tried again, the difference was clear from the start. The new therapist spent the first sessions on coping skills only. She arrived on time, explained what she was doing, and asked about pacing. Same person, different fit. The relationship made the difference."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one sign of a good fit that matters most to you.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_signs"
+        ]
+      },
+      "done_when": "You know what good support looks like for you, and what you'd say first.",
+      "reflect": "What would help you feel comfortable with a new professional?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_tell",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "checklist",
+          "label": "Signs of a good fit that matter to you",
+          "options": [
+            "They explain their approach and welcome questions",
+            "They ask about your preferences and give you options",
+            "They check in about pacing",
+            "They respect it when you're not ready",
+            "They see you as the expert on your own experience",
+            "You feel like a partner in the work"
+          ]
+        },
+        {
+          "id": "f_tell",
+          "type": "long_text",
+          "label": "What you'd want them to know first",
+          "help": "You choose what goes here. It can be about what helps you, not what happened."
+        },
+        {
+          "id": "f_questions",
+          "type": "long_text",
+          "label": "Questions you might ask",
+          "optional": true,
+          "help": "From the book: \"How do you approach pacing? What happens if I need to slow down or stop?\""
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Look after each part of life",
+      "purpose": "One small change in the part of your life that unsettles you most right now.",
+      "why": "Home, work, people, screens, and medical visits each bring their own pressures. Looking at each one shows where you feel supported and where things keep pushing you out of your window. Small changes count, like muting accounts that post upsetting content, or knowing where you can step out at work.",
+      "source": {
+        "chapter": "Chapter 8, Safety Across Contexts; Appendix B, Context Safety Audit; Chapter 5, Body Regulation in Medical Settings; Chapter 10, Workplace Recovery; David Returns to Work"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look at five areas: home, work, people, screens, and medical visits.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "For each, note what's working and what needs attention. Skip any you like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the area that unsettles you most right now.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose one small change, like turning off news alerts or finding a quiet spot.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "For medical visits, a script can help: \"I may need things explained first. I may need breaks.\"",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If home itself is not safe, please tap Help now. Your safety comes first.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "Going back to the plant took careful planning. David arranged half-days for the first two weeks, then a slow increase. He was honest with his manager about what he needed. He kept grounding techniques he could use quietly, and he knew where he could step outside. Later, he moved to a role in a different building. It used his skills, without daily reminders of that day."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one area of life and one small change for this week.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You've chosen one change to make a part of your life easier to be in.",
+      "reflect": "Which part of your life feels most supportive right now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_areas",
+          "type": "two_column",
+          "label": "Each part of life",
+          "columns": [
+            "Area",
+            "What's working, and what needs attention"
+          ],
+          "max_items": 5
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "Your one small change"
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Your hard-day plan",
+      "purpose": "A plan for the days when things build up, written on a calmer day, in the book's order of steps.",
+      "why": "On a very hard day, it is difficult to think clearly. A plan written now lets you follow the judgment of a calmer you. The book's plan starts with your own warning signs, then things you can do alone, then people, then professionals. Hard moments can feel permanent while you are in them. They pass.",
+      "source": {
+        "chapter": "Chapter 8, Understanding Crisis; The Safety Plan Structure; PTSD-Specific Safety Enhancements; Crisis Scripts; Jordan Creates a Safety Plan; Appendix B, Safety Plan Template"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Write two or three warning signs that a hard stretch is building.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add things you can do on your own, like grounding, slow breathing, or a walk.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Add people and places: some for company, some you could tell you are struggling.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Add professionals and helplines. Help now is always at the top of your screen.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add your reasons to keep going, and the words you would use to reach out.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you have thoughts of harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any time and finish this on another day.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Jordan",
+        "text": "Jordan's warning signs were specific: pulling away from people, skipping meals, the thought \"what is the point?\", and staying in bed past noon. For things to do alone, they chose cold water, a walk around the block, and texting a friend. For company, they named their sister, a friend, and a coffee shop where the baristas knew them. \"They say my name when I walk in,\" Jordan said. \"It is the only place where someone expects me.\""
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one warning sign, and one thing that helps you on your own.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "You can stop here and finish another day.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_signs",
+          "f_alone"
+        ]
+      },
+      "done_when": "Your hard-day plan is written. It's there when you need it.",
+      "reflect": "How does it feel to have a plan written by a calmer you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_alone",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_pros",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_reason",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_script",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "short_text",
+          "label": "Your warning signs",
+          "help": "Be specific. For example: staying in bed past noon, or skipping meals."
+        },
+        {
+          "id": "f_alone",
+          "type": "ranked_list",
+          "label": "Things you can do on your own",
+          "max_items": 3
+        },
+        {
+          "id": "f_people",
+          "type": "two_column",
+          "label": "People and places for company or help",
+          "columns": [
+            "Who or where",
+            "How to reach them"
+          ]
+        },
+        {
+          "id": "f_pros",
+          "type": "short_text",
+          "label": "Professionals and helplines",
+          "help": "If you ever have thoughts of harming yourself, the book's plan also includes making your space safer. Please work this out with a professional or a crisis line. Help now is always there."
+        },
+        {
+          "id": "f_reason",
+          "type": "short_text",
+          "label": "Your reasons to keep going"
+        },
+        {
+          "id": "f_script",
+          "type": "short_text",
+          "label": "Your words for reaching out",
+          "help": "From the book: \"I am having a really hard time. I need to talk to someone.\""
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Prepare for harder times",
+      "purpose": "A short plan for your most likely hard times, like an anniversary or a big change.",
+      "why": "Progress rarely runs in a straight line. A harder week doesn't erase what you've learned. Some hard times can be seen coming: an anniversary, a season, a big change, or a run of poor sleep. Knowing yours means you can prepare, instead of being caught off guard.",
+      "source": {
+        "chapter": "Chapter 10, The Non-Linear Nature of Recovery; Distinguishing Setbacks from Relapse; Common Triggers for Setbacks; The Stability Plateau; Chapter Close"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the common times: anniversaries, life changes, new stress, and poor sleep or illness.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick up to three that may apply to you.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For each, write one or two ways to prepare, like more support or a lighter week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If there is a date, add it to your calendar with a gentle reminder.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If a hard stretch lasts weeks and your tools stop helping, talk to a professional.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "You don't need to think about the event itself. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "Every year, the date of the accident brought a week of extra vigilance and broken sleep. Once David saw the pattern, it stopped blindsiding him. Now, in the week before, he books a session with his therapist. He tells his wife what to expect. He lightens his workload a little. The anniversary still affects him. But it no longer catches him by surprise."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one hard time that may be coming, and one way to prepare.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_times"
+        ]
+      },
+      "done_when": "Your likely hard times are named, each with a way to prepare.",
+      "reflect": "What has helped you get through a hard stretch before?",
+      "feeds_plan": [
+        {
+          "field_id": "f_times",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_times",
+          "type": "two_column",
+          "label": "Your likely hard times, and how you'll prepare",
+          "columns": [
+            "The hard time",
+            "How you'll prepare"
+          ],
+          "max_items": 3
+        },
+        {
+          "id": "f_date",
+          "type": "short_text",
+          "label": "Any date to mark in your calendar",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "What matters to you now",
+      "purpose": "Two or three values to steer by, and one small step toward one of them this week.",
+      "why": "Living on high alert can bury what you care about. Values are directions, not finish lines. A goal is done once you reach it, but you can always take another step toward a value. Naming yours gives your days a direction.",
+      "source": {
+        "chapter": "Chapter 10, Values Clarification; Building a Life Worth Living; Chapter 11, Chapter Tool: The One-Sentence Intention; Three Lives, Moving Forward"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the value areas: connection, growth, contribution, integrity, vitality, creativity, and adventure.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick two or three that matter most to you right now.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For one, write what moving toward it might look like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose one small step for this week. A walk or a phone call counts.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Try the intention: \"Today, I will do one thing that moves me toward the life I want.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If this brings up a sense of loss, go gently. You can stop at any time.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Two years after the accident, Maya is living her life again. Some routes still bring mild anxiety, and she uses her breathing when they do. She has thought about what matters to her, and she is kinder to herself than she used to be. She now volunteers with people in the early weeks after a road accident, sharing what she learned about grounding."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one value that matters to you now.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one small step toward it. You can stop anytime.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values",
+          "f_step"
+        ]
+      },
+      "done_when": "You've named what matters to you, and one small step toward it.",
+      "reflect": "What would a day lived a little closer to this value look like?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_step",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "checklist",
+          "label": "Values that matter to you now",
+          "max_items": 3,
+          "options": [
+            "Connection: relationships, family, community",
+            "Growth: learning and developing",
+            "Contribution: work, service, making a difference",
+            "Integrity: honesty, living by your principles",
+            "Vitality: health and energy",
+            "Creativity: expression and making things",
+            "Adventure: new things and exploring"
+          ]
+        },
+        {
+          "id": "f_looks",
+          "type": "short_text",
+          "label": "What moving toward one looks like"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small step this week"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Your steadying plan",
+      "purpose": "One page of what keeps you steady: a daily practice, a weekly check, and your hard-day steps.",
+      "why": "Feeling better can make it easy to drop the things that helped. The book names this as one of the most common reasons for setbacks. A short plan helps you keep going: a few minutes of practice a day, a weekly check-in, and a plan for harder days. Keep it modest enough to follow.",
+      "source": {
+        "chapter": "Chapter 10, Chapter Tool: The Weekly Check-In; Common Triggers for Setbacks; Chapter 11, What Comes After Thirty Days; Measuring Progress; Final Words"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in below. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Choose your daily practice. Five to ten minutes is plenty.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep a weekly check-in: what improved, what was hard, what helped, what to adjust.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Check that your hard-day plan and coping card still feel right.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Add who you'll keep in touch with, including any professional you work with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Cut anything you wouldn't do in an ordinary week. You can stop anytime.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Maya",
+        "text": "Maya's toolkit stayed simple. When a route made her anxious, she used her breathing. On the occasional night a nightmare came, she had the nightmare steps to follow. Some drives were still uncomfortable, and she did them anyway. The tools did not make every moment easy. They made the hard ones manageable."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted plan. Fix anything that's not right for you.",
+            "figure": "fig_reading"
+          },
+          {
+            "text": "You can stop anytime.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_daily"
+        ]
+      },
+      "done_when": "Your steadying plan is on one page, modest enough to keep.",
+      "reflect": "What do you most want to keep from these twelve weeks?",
+      "feeds_plan": [
+        {
+          "field_id": "f_daily",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_support",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_daily",
+          "type": "long_text",
+          "label": "Your daily practice"
+        },
+        {
+          "id": "f_weekly",
+          "type": "short_text",
+          "label": "When you'll do your weekly check-in"
+        },
+        {
+          "id": "f_support",
+          "type": "short_text",
+          "label": "Who you'll keep in touch with"
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step after a hard stretch",
+          "help": "For example: one grounding practice, and a message to someone on your list."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Feet on the floor",
+      "when_to_use": "Your body feels on alert, and you want to come back to the room you're in.",
+      "steps": [
+        "Put your feet flat on the floor and press down.",
+        "Notice three things you can see.",
+        "Inhale through your nose while you count to four.",
+        "Exhale slowly while you count to six. Repeat twice more."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Introduction, Your First Tool; Quick Reference"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The choice check",
+      "when_to_use": "Before any exercise or tool, or when something is being asked of you.",
+      "steps": [
+        "Ask yourself: do I want to do this right now?",
+        "If yes, go ahead.",
+        "If no, choose something else, or pause. You can come back later.",
+        "Either answer is a good answer."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 2, Chapter Tool: The Choice Check"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "The trigger pause",
+      "when_to_use": "A strong reaction comes on fast, and you want a moment before you act.",
+      "steps": [
+        "Pause. You don't need to do anything yet.",
+        "Ask: what just happened?",
+        "Ask: what does my body feel right now?",
+        "That's enough. Then reach for a grounding tool if you need one."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 3, Chapter Tool: The Trigger Pause",
+        "note": "The book's optional third question, what does this remind me of, is left out to keep the tool in the present."
+      }
+    },
+    {
+      "id": "t04",
+      "title": "5-4-3-2-1",
+      "when_to_use": "The past feels close, or you feel far away from the present.",
+      "steps": [
+        "Name five things you can see, in detail.",
+        "Name four things you can hear.",
+        "Name three things you can touch.",
+        "Name two things you can smell, and one you can taste.",
+        "If you can't find a smell or taste, that's fine."
+      ],
+      "minutes": 2,
+      "figure": "fig_looking_at_map",
+      "source": {
+        "chapter": "Chapter 4, Chapter Tool: The 5-4-3-2-1; Quick Reference"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Extended exhale",
+      "when_to_use": "You feel wound up, anxious, or your heart is racing.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "Exhale through your mouth while you count to six, or eight.",
+        "Let each exhale be longer than the inhale.",
+        "Repeat five times, and notice what shifts."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Chapter Tool: Extended Exhale; Breathing for Calming"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Look around the room",
+      "when_to_use": "You feel on guard and your attention has narrowed to possible threats.",
+      "steps": [
+        "Slowly turn your head and look around the room.",
+        "Let your eyes rest wherever they want: corners, ceiling, floor.",
+        "Take your time. There is no rush.",
+        "Say to yourself: \"I am here, in this room, right now.\""
+      ],
+      "minutes": 1,
+      "figure": "fig_looking_at_map",
+      "source": {
+        "chapter": "Chapter 5, Orienting"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "After a nightmare",
+      "when_to_use": "You wake from a nightmare with your heart pounding, unsure where you are.",
+      "steps": [
+        "Orient: name where you are, the day, and that you are awake.",
+        "Ground: feet on the floor, hands on the bed. Touch something real.",
+        "Settle: inhale while you count to four, exhale while you count to six.",
+        "Soothe, if it helps: a comforting object, gentle music, warm water.",
+        "Decide: try to sleep again, or get up for a while. Both are okay."
+      ],
+      "minutes": 2,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 6, The Nightmare Response Protocol; Appendix B, Nightmare Coping Card"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Notice the thought",
+      "when_to_use": "A hard thought shows up and feels completely true.",
+      "steps": [
+        "Say: \"I notice I am having the thought that...\"",
+        "Finish the sentence with the thought itself.",
+        "Notice the small step back that gives you.",
+        "You don't have to argue with it. Let it pass like a cloud."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 7, Chapter Tool: Thought Defusion; Cognitive Defusion Techniques"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "A self-compassion break",
+      "when_to_use": "Shame or self-blame shows up, and you want to answer it with kindness.",
+      "steps": [
+        "Say to yourself: \"This is a moment of suffering.\"",
+        "Remind yourself: \"Others have felt this way.\"",
+        "Say: \"May I be kind to myself.\"",
+        "Add: \"May I give myself what I need.\""
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 7, Self-Compassion"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Your coping card",
+      "when_to_use": "Things feel like too much, and you want your plan in one place.",
+      "steps": [
+        "Use one of your three grounding tools.",
+        "Contact one of your two people.",
+        "Read your reason to keep going.",
+        "If you are not safe right now, tap Help now."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 8, Chapter Tool: The Coping Card"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. Noticing is the first skill, and you've started."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready whenever you need it."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: finding your window, at your own pace."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You know your body's signals a little better now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have grounding, a breath you know, a coping card, and a plan for nights."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Going at your own pace is part of this. Pick up with one small step."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "What steadies you"
+    },
+    {
+      "id": "p3",
+      "title": "Your days and nights"
+    },
+    {
+      "id": "p4",
+      "title": "Your people and support"
+    },
+    {
+      "id": "p5",
+      "title": "Your hard-day plan"
+    },
+    {
+      "id": "p6",
+      "title": "What matters to you"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by noticing your body. Since then, you've found your window, made a grounding card and a coping card, found a breath that settles you, and steadied your days and nights. You've practiced kindness toward yourself, chosen what to share, and written a plan for hard days. Your plan is here for the harder stretches. Keep going at your own pace.",
+    "book_bridge": "Every tool here comes from After the Storm: A Practical Guide to Trauma and PTSD by Maya Vaughn. The book tells the fuller stories of Maya, David, and Jordan. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which steadying practice is still part of your week?",
+      "Have any of your warning signs shown up this month? What's one small step?",
+      "Is your coping card still right, and still close by?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e04",
+      "e05",
+      "e06",
+      "e07",
+      "e09",
+      "e12"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/After_The_Storm_Corrected.docx",
+    "v1_id": "aftertrauma",
+    "cut_log": [
+      {
+        "item": "Approach ladder and trigger preparation for exposure",
+        "chapter": "Chapter 4, Approaching What You Have Been Avoiding; When Approach Does Not Go Well; Maya's Approach Ladder; Trigger Preparation Protocol; Chapter 11, Week 4",
+        "reason": "Exposure work. Higher-tier brief for this workbook rules out exposure exercises entirely. Avoidance is named only as something to raise with a professional."
+      },
+      {
+        "item": "Imagery Rehearsal Therapy",
+        "chapter": "Chapter 6",
+        "reason": "Asks the reader to write out a recurring nightmare, which is trauma recall. The book itself says it works best with a therapist for severe nightmares."
+      },
+      {
+        "item": "Expressive writing",
+        "chapter": "Chapter 7",
+        "reason": "Writing about the upsetting experience is trauma recall."
+      },
+      {
+        "item": "Then versus now, the then half",
+        "chapter": "Chapter 4; Chapter 6",
+        "reason": "The then statements describe the trauma. Kept as present-only now lines in e04 and in David's example in e05."
+      },
+      {
+        "item": "Trigger pause third question and trigger log reminder column",
+        "chapter": "Chapter 3; Appendix B",
+        "reason": "What does this remind me of invites recall. Both left out."
+      },
+      {
+        "item": "PTSD Cycle Worksheet and thought record",
+        "chapter": "Chapter 1; Chapter 7; Appendix B",
+        "reason": "Both start from a recent difficult moment and can pull toward the event. Defusion and the friend test cover the same ground in the present."
+      },
+      {
+        "item": "PC-PTSD-5 screening questions and symptom clusters",
+        "chapter": "Introduction; Chapter 1",
+        "reason": "A clinical screen. The self-check uses the book's own framing instead, with no totals or cut-offs."
+      },
+      {
+        "item": "Treatment options, effect sizes, medication and prazosin",
+        "chapter": "Chapter 6; Chapter 9; Appendix C",
+        "reason": "Clinical and medication content. The workbook points to a trauma-informed professional instead."
+      },
+      {
+        "item": "Treatment readiness check",
+        "chapter": "Chapter 9",
+        "reason": "Reads as a gate into trauma-focused therapy. Pacing is left to the reader and their clinician."
+      },
+      {
+        "item": "Means safety as an exercise step",
+        "chapter": "Chapter 8, Step 6; Jordan Creates a Safety Plan",
+        "reason": "Kept as one help line in e19 that points to a professional or crisis line. For clinician review."
+      },
+      {
+        "item": "Substance use section",
+        "chapter": "Chapter 8",
+        "reason": "Kept as one line in the start safety note pointing to a doctor or professional."
+      },
+      {
+        "item": "Box breathing, 4-7-8 breathing and coherent breathing",
+        "chapter": "Chapter 5",
+        "reason": "Each has a fixed hold or a long timed pattern. The extended exhale, belly breathing and the double inhale cover calming without a hold."
+      },
+      {
+        "item": "Post-traumatic growth",
+        "chapter": "Chapter 10",
+        "reason": "Left out. It risks implying the reader should find meaning in what happened."
+      },
+      {
+        "item": "Statistics, study names and brain science detail",
+        "chapter": "Chapters 1, 3, 5, 6, 8, 9; Appendix C",
+        "reason": "Not needed for instruction. Cut under the no-statistics rule."
+      }
+    ],
+    "notes": "v1 topic_name: After Trauma\nv1 set_id: healing-and-loss (Healing and Loss); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 0"
+  }
+}

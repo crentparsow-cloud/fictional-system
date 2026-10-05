@@ -1,0 +1,2634 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-M1AAC",
+  "slug": "facing-the-room-m1aac",
+  "title": "Facing the Room",
+  "short_title": "Social",
+  "card_line": "Twelve weeks of small, chosen steps toward the rooms you've been avoiding",
+  "tagline": "Twelve weeks of small, chosen steps toward the rooms you've been avoiding",
+  "book": {
+    "book_id": "facing-the-room",
+    "title": "Facing the Room",
+    "subtitle": "A Practical Guide to Social Anxiety",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H59NJQXJ",
+      "US": "https://www.amazon.com/dp/B0H59NJQXJ"
+    },
+    "asin": "B0H59NJQXJ"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See the pattern first",
+          "figure": "fig_looking_at_map",
+          "body": "The Explore stage is about noticing, not changing. Over two weeks, you'll list what you avoid and watch three traps at work: the dread before, watching yourself during, and the replay after. Many people find this pattern has run for years and come to feel like personality. Seeing it as a pattern is the first loosening."
+        },
+        "outcome": "A clear list of what you avoid, and a view of the three traps that keep the fear going.",
+        "review_question": "What surprised you most about your own pattern?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build your tools, one at a time",
+          "figure": "fig_feet_grounded",
+          "body": "In the Build stage, you work on the inside first. You'll check anxious predictions, find the belief underneath them, and spot the quiet habits you use to feel more protected. You'll learn to quiet the replay. Then you'll build your ladder and name what it's all for. New tools can feel awkward at first. That's the skill forming."
+        },
+        "outcome": "Ways to check predictions and beliefs, your safety behaviors ranked, a way out of the replay, and your ladder.",
+        "review_question": "Which tool helped most, and which one hasn't fit yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Face it, one small step at a time",
+          "figure": "fig_walking",
+          "body": "Now you take small steps toward what you've been avoiding. You choose every step, and you start low. The aim is to find out what actually happens, not to feel calm. You can feel nervous and still learn a lot. You can stop at any time, and a smaller step always counts."
+        },
+        "outcome": "Real evidence from your own steps: with people, at work or school, online, and in your beliefs.",
+        "review_question": "Where did your predictions turn out most wrong?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Make it yours to keep",
+          "figure": "fig_writing",
+          "body": "The Keep stage brings twelve weeks together. You'll write your personal plan: the tools that work for you, your early signs, what to do as fear rises, and who to call. Write it while you're steady, so it's ready on a harder week. Keep facing things, even a little. That's what keeps the gains."
+        },
+        "outcome": "Your personal plan, with your tools, your signs, your support, and a way back after a hard week.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If you've been avoiding rooms, conversations, or moments where people might notice you, this is built for that. It's twelve weeks of small, practical steps, drawn from the book Facing the Room. Most weeks take 15 to 30 minutes. You choose every step, and you set the pace. The aim is to stop fear making your choices, not to become someone else. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard weeks.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "Facing steps you choose yourself. They start small, and you can stop anytime.",
+      "A Toolkit of quick tools you can open anytime, and a plan that builds itself from your answers."
+    ],
+    "why_prompt": "If fear made fewer of your choices, what would you do more of? One line is enough.",
+    "extra_safety_note": "Social fear often comes with low mood. If you notice persistent low mood, hopelessness, or any thoughts of harming yourself, please tap Help now and talk to a doctor or health professional. That comes first. If fear keeps you from leaving home, working, or handling daily tasks, please get professional support alongside this workbook. If a practice here keeps making you more distressed, stop and talk to a professional. If you take medication, do not change it based on anything in this workbook."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "predictions",
+        "label": "Checking the fear's predictions"
+      },
+      {
+        "id": "present",
+        "label": "Being present with people"
+      },
+      {
+        "id": "facing",
+        "label": "Facing instead of avoiding"
+      },
+      {
+        "id": "before_after",
+        "label": "Before and after"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "predictions",
+        "text": "When you predict how a social situation will go, you notice it's a guess."
+      },
+      {
+        "id": "q02",
+        "area": "predictions",
+        "text": "You can ask yourself how you actually know what someone thinks of you."
+      },
+      {
+        "id": "q03",
+        "area": "predictions",
+        "text": "You can see a harsh belief about yourself as a belief, and question it."
+      },
+      {
+        "id": "q04",
+        "area": "predictions",
+        "text": "After an awkward moment, you speak to yourself the way you would to a friend."
+      },
+      {
+        "id": "q05",
+        "area": "present",
+        "text": "In conversation, your attention is mostly on the other person, not on how you look."
+      },
+      {
+        "id": "q06",
+        "area": "present",
+        "text": "You can speak without scripting or checking every sentence first."
+      },
+      {
+        "id": "q07",
+        "area": "present",
+        "text": "You can be around people without a phone, drink, or other prop to hide behind."
+      },
+      {
+        "id": "q08",
+        "area": "present",
+        "text": "You let people see a little of the real you."
+      },
+      {
+        "id": "q09",
+        "area": "facing",
+        "text": "You go to things that matter to you, even when you feel nervous."
+      },
+      {
+        "id": "q10",
+        "area": "facing",
+        "text": "You speak up when you want to, like asking a question or giving an opinion."
+      },
+      {
+        "id": "q11",
+        "area": "facing",
+        "text": "You reach out first to people you'd like to see."
+      },
+      {
+        "id": "q12",
+        "area": "facing",
+        "text": "Your choices about work, school, and people feel like yours, not fear's."
+      },
+      {
+        "id": "q13",
+        "area": "before_after",
+        "text": "Before a social event, the dread stays in proportion to the event."
+      },
+      {
+        "id": "q14",
+        "area": "before_after",
+        "text": "After a conversation, you can move on without replaying it for long."
+      },
+      {
+        "id": "q15",
+        "area": "before_after",
+        "text": "When you look back on a social moment, you remember what went well too."
+      },
+      {
+        "id": "q16",
+        "area": "before_after",
+        "text": "A slow reply or an unanswered message feels like ordinary busy life."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: nervous but managing. Yellow: fear has a real grip. Red: basic things feel impossible. If you pick red, please lean on support, and tap Help now if you need it."
+      },
+      {
+        "id": "c_practice",
+        "type": "weekly_grid",
+        "label": "Days you practiced a tool"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One win, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_steps",
+        "type": "weekly_grid",
+        "label": "Days you took a facing step",
+        "help": "Facing steps start in week 8. Leave this blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How much of a say did fear get today?",
+    "scale_low": "Fear decided a lot",
+    "scale_high": "Fear had little say",
+    "tags": [
+      "Took a small step",
+      "Spoke up",
+      "Went without a safety behavior",
+      "Reached out to someone",
+      "Phone away around people",
+      "Caught a prediction",
+      "Let a replay go",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "See what you avoid",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Notice the three traps",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Check your predictions",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Find the belief underneath",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Spot what you do to feel safer",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Quiet the replay",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t07",
+        "t08"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Build your ladder, and your reasons",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Take your first small steps",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Test a belief, and rethink your screen",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e04"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Speak up, and let someone in",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e14"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Reach out, and know your signs",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e07"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01",
+        "e11"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "List what you avoid",
+      "purpose": "A list of the situations you avoid or dread, and the kind of fear that runs through them.",
+      "why": "Avoiding brings quick relief, so it can feel like a choice rather than fear. The book calls avoidance the engine that keeps social fear going. A clear list shows you where fear has been deciding for you. It also becomes the raw material for the ladder you'll build later.",
+      "source": {
+        "chapter": "Chapter 1, More Than Shyness; The Three Forms It Takes; The Engine of the Problem; Appendix A, The Avoidance Inventory and The Dominant-Pattern Check; Appendix D"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List the situations you avoid outright. Be specific, like the lunchroom at work.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add the ones you go to but dread, or get through with gritted teeth.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, ask: if nobody would notice or judge you, would you go?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If the answer is yes, fear is making that choice, not preference.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look for the thread. Is it being watched, talking with people, or being noticed at all?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one that fits most. Most people have a blend, with one standing out.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Carmen",
+        "text": "Carmen, a college senior studying communications, looked busy and social online. Her list told another story. She ate alone to avoid the dining hall. She dropped classes with group projects. She was thinking of skipping her own graduation. She had always called herself an introvert. Then she asked the question: if no one would notice her, would she eat in the dining hall? Yes. That made it fear, and fear was something she could work with."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one situation you avoid, and one you get through with dread.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_avoid",
+          "f_dread"
+        ]
+      },
+      "done_when": "Your list is written. It shows where fear has been making choices for you.",
+      "reflect": "Which item on your list surprised you most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_avoid",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_thread",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_avoid",
+          "type": "long_text",
+          "label": "Situations you avoid",
+          "help": "For example: eating in the cafeteria, group projects, phone calls at work."
+        },
+        {
+          "id": "f_dread",
+          "type": "long_text",
+          "label": "Situations you get through with dread",
+          "help": "For example: team meetings, school pickup, parties where you know only one person."
+        },
+        {
+          "id": "f_thread",
+          "type": "checklist",
+          "label": "The thread that fits you most",
+          "options": [
+            "Being watched while doing something",
+            "Conversations and back-and-forth",
+            "Being noticed or looked at",
+            "Not sure yet"
+          ]
+        },
+        {
+          "id": "f_wouldgo",
+          "type": "short_text",
+          "label": "One thing you'd go to if no one would judge you",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Watch the three traps",
+      "purpose": "A week of noticing the dread before, the watching yourself during, and the replay after.",
+      "why": "Most fears fade with practice. Social fear often doesn't, even after years around people. The book explains why: three traps spoil the experience at every stage. Dread beforehand, watching yourself during, and replaying it afterward. This week, you only notice them. There's nothing to fix yet.",
+      "source": {
+        "chapter": "Chapter 3, Trap One: The Dread Before; Trap Two: The Inward Camera; Trap Three: The Replay After; How the Three Traps Form a Closed Loop; Chapter 13, Week One"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one or two social moments this week. Ordinary ones are fine.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Before: notice any dread. When did it start, and what did it predict?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "During: notice when your attention turns to how you look or sound.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "After: notice any replay. How long did it run, and what did it focus on?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a line for each trap. Just notice for now.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Ayesha",
+        "text": "Ayesha, a marketing coordinator in Atlanta, had a team presentation on Thursday. The dread started the weekend before. In every meeting, she watched her own voice, face, and hands, sure the nerves showed. Afterward, she replayed even pleasant chats for an hour, hunting for the mistake. Once she saw the three traps laid out, the tiring routine she'd taken for being careful had a name, and she could watch it run."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one moment from this week. Pick the trap that showed up most.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_loudest"
+        ]
+      },
+      "done_when": "You've watched the three traps at work. Each tool from here aims at one of them.",
+      "reflect": "Which trap took the most out of you this week?",
+      "feeds_plan": [
+        {
+          "field_id": "f_loudest",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_before",
+          "type": "long_text",
+          "label": "Before: the dread",
+          "help": "For example: started dreading Thursday's meeting over the weekend."
+        },
+        {
+          "id": "f_during",
+          "type": "long_text",
+          "label": "During: watching yourself",
+          "help": "For example: kept checking whether my voice was shaking."
+        },
+        {
+          "id": "f_after",
+          "type": "long_text",
+          "label": "After: the replay",
+          "help": "For example: replayed a two-minute chat for an hour."
+        },
+        {
+          "id": "f_loudest",
+          "type": "checklist",
+          "label": "The trap that's loudest for you",
+          "options": [
+            "The dread before",
+            "Watching yourself during",
+            "The replay after"
+          ]
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Name your thinking errors",
+      "purpose": "The thinking errors that show up most in your social predictions, named so you can spot them.",
+      "why": "Anxious predictions arrive feeling like facts. They tend to run on a few familiar errors. Once a thought has a label, like mind reading, it's easier to question. A named error invites a question. A fact doesn't.",
+      "source": {
+        "chapter": "Chapter 4, The Mind's Bad Predictions; The Errors the Anxious Mind Makes; Appendix A, The Thinking-Errors List"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write down two or three predictions you've had about social situations lately.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read the six errors in the list below. Each has a short description.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the errors you see in your predictions. Most thoughts have more than one.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose the one or two that show up most often. These are your signatures.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Next time one appears, try naming it silently: that's mind reading.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Devon",
+        "text": "Devon, 24, was three weeks into his first job as a junior analyst in Chicago. In the morning standup, he was sure everyone heard his tight voice and decided he didn't belong. When he read the list, he found his two signatures: mind reading and the spotlight effect. Naming them didn't make the thought go away. But \"they can all tell\" now looked like a guess, and a guess can be checked."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one prediction from this week. Pick the error that fits it best.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_errors"
+        ]
+      },
+      "done_when": "Your most common thinking errors are named, ready to spot in the moment.",
+      "reflect": "Which error felt most familiar?",
+      "feeds_plan": [
+        {
+          "field_id": "f_errors",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_predictions",
+          "type": "long_text",
+          "label": "Your recent predictions",
+          "help": "For example: \"They'll think I'm boring.\" \"My voice will shake and everyone will notice.\""
+        },
+        {
+          "id": "f_errors",
+          "type": "checklist",
+          "label": "The errors you spot most",
+          "options": [
+            "Mind reading: assuming you know what they think",
+            "Fortune telling: predicting a bad outcome as if it's settled",
+            "Catastrophizing: blowing an awkward moment up to the maximum",
+            "The spotlight effect: feeling far more noticed than you are",
+            "Personalizing: reading neutral things as being about you",
+            "All-or-nothing: anything short of perfect counts as a disaster"
+          ]
+        },
+        {
+          "id": "f_label",
+          "type": "short_text",
+          "label": "One prediction, with its label",
+          "help": "For example: \"She could tell I was nervous.\" Mind reading.",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Check one prediction",
+      "purpose": "A written check of one anxious prediction, set beside what actually happened.",
+      "why": "A prediction that feels certain usually gets obeyed without a check. The book's thought record slows it down and puts it on trial. The last step, writing what really happened, does the most work. Over time, your own record of predictions and outcomes becomes evidence that's hard to argue with.",
+      "source": {
+        "chapter": "Chapter 4, How to Catch and Check a Prediction; When the Logic Does Not Land; Appendix A, The Social Anxiety Thought Record"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Pick a social situation coming up. Write the prediction in the exact words your mind uses.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how strongly you believe it, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Name the thinking errors at work.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look at the evidence. What supports it? What doesn't? What happened in similar situations before?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask what you'd tell a friend with this thought. Then write a realistic prediction, not a cheerful one.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "After the situation, come back and write what actually happened.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Still anxious after all that? That's normal. Feelings often catch up later.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Devon",
+        "text": "Devon kept a thought record for a few weeks. Before each standup, he wrote his prediction: \"My voice will be tight, and they'll all notice.\" Afterward, he wrote what happened. Standup after standup, no one commented on his voice, and no one acted any differently toward him. His voice was still tight some mornings. But his own record showed that his predictions were poor guides, and he stopped taking them as verdicts."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one prediction. Ask how you actually know, and what you'd tell a friend.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_prediction",
+          "f_balanced"
+        ]
+      },
+      "done_when": "Your prediction is written and checked. Come back later to add what really happened.",
+      "reflect": "How did the outcome compare with your prediction? If it hasn't happened yet, what do you expect?",
+      "toolkit_link": "t03",
+      "fields": [
+        {
+          "id": "f_prediction",
+          "type": "short_text",
+          "label": "Your prediction, in its own words"
+        },
+        {
+          "id": "f_belief",
+          "type": "scale_0_10",
+          "label": "How strongly you believe it"
+        },
+        {
+          "id": "f_evidence",
+          "type": "two_column",
+          "label": "The evidence",
+          "columns": [
+            "What supports it",
+            "What doesn't"
+          ]
+        },
+        {
+          "id": "f_balanced",
+          "type": "short_text",
+          "label": "A more realistic prediction",
+          "help": "For example: \"My voice may be a bit tight. Most people won't notice, and it won't change much.\""
+        },
+        {
+          "id": "f_actual",
+          "type": "long_text",
+          "label": "What actually happened",
+          "help": "Come back after the situation. This is the step that teaches the most.",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Find the belief underneath",
+      "purpose": "The core belief under your social predictions, written in plain words.",
+      "why": "Sometimes you check a prediction, and a new one grows right back. That's often because a deeper belief is feeding it, like \"I'm boring.\" Beliefs like this feel like plain facts, so they rarely get questioned. Finding the belief in words is the first step to loosening it.",
+      "source": {
+        "chapter": "Chapter 5, Below the Surface; Tracing the Belief to Its Source; Appendix A, The Downward Arrow"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Start with one prediction from your thought record, like \"They think I'm quiet.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask yourself: if that were true, what would it mean?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the answer. Then ask the same question of that answer.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep going three or four times, until you reach something stark and simple.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write that belief down. Seeing it in plain words can be a small shock. That's okay.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you know where you first learned it, note it in a few words. Skip this if it's painful.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata, a mom of two in Phoenix, stood at the edge of the school playground at pickup, phone in hand. Thought records helped, but new predictions kept coming. So she followed one down. \"They think I'm quiet\" led to \"They find me boring.\" That led to \"No one really wants me around,\" and then to \"I'm not worth knowing.\" She had carried it since childhood, when a sharp-tongued parent often brushed off what she said. Seeing that made it look less like a fact and more like a conclusion a child had drawn."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one prediction. Ask \"what would that mean?\" twice, and write where you land.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_corebelief"
+        ]
+      },
+      "done_when": "The belief underneath is in words. Naming it is the first loosening.",
+      "reflect": "How true does the belief feel now that it's written down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_corebelief",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_arrow",
+          "type": "ranked_list",
+          "label": "Each step down",
+          "help": "For example: they think I'm quiet, they find me boring, no one wants me around.",
+          "max_items": 5
+        },
+        {
+          "id": "f_corebelief",
+          "type": "short_text",
+          "label": "The belief underneath"
+        },
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "Where you think you learned it",
+          "help": "A few words is enough. Leave this blank if you'd rather.",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Collect evidence against it",
+      "purpose": "A growing record of the moments your core belief tends to skip over.",
+      "why": "A belief like \"I'm boring\" filters what you notice. It keeps the awkward moments and quietly drops the good ones. Writing the good ones down makes them count. The aim is a fair, balanced view, not a glowing one. Something like: some people connect with you and some don't, like everyone.",
+      "source": {
+        "chapter": "Chapter 5, Building the Counter-Evidence; Appendix A, The Counter-Evidence Log"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write your belief at the top, from the last exercise.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Each day this week, look for one moment that doesn't fit it.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "A conversation that went well, or someone seeking you out. Small moments count.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write it down the same day, before the belief can explain it away.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "At the end of the week, read the list. Write a fairer version of the belief.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata kept a list of the conversations and connections her belief usually deleted as they happened. Writing them down meant they stayed. Over weeks, the belief softened. She never landed on \"I'm fascinating,\" which she wouldn't have believed anyway. She landed on something accurate and balanced: some people connect with her, some don't, like everyone, and no single conversation decides her worth."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one moment from today that doesn't fit your belief.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_log"
+        ]
+      },
+      "done_when": "Your evidence log has started. Each entry makes the belief a little less certain.",
+      "reflect": "What kinds of moments does your belief usually skip?",
+      "feeds_plan": [
+        {
+          "field_id": "f_fairer",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_log",
+          "type": "long_text",
+          "label": "Moments that don't fit the belief",
+          "help": "For example: a chat that went well, someone who saved me a seat, a message back."
+        },
+        {
+          "id": "f_fairer",
+          "type": "short_text",
+          "label": "A fairer, more balanced version",
+          "help": "For example: some people connect with me and some don't, like everyone."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Scan your safety behaviors",
+      "purpose": "A ranked list of the quiet things you do to feel safer, from easiest to hardest to drop.",
+      "why": "Safety behaviors are the small things you do to get through a social moment: holding a cup, scripting, staying quiet. They feel like care. When nothing goes wrong, they take the credit, so you never learn you would have been fine. They can also make you seem distant, which feeds the fear.",
+      "source": {
+        "chapter": "Chapter 6, The Hidden Engine; The Catalog; Why They Backfire; The Alcohol Question; Appendix A, The Safety Behavior Scan"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the four kinds below, and note any you use.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Hiding the signs: a cup in your hands, keeping very still, turning a flushed face away.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rehearsing: over-preparing, scripting, checking every sentence before you say it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Holding back: saying little, avoiding eye contact, staying at the edge, leaving early.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Props: your phone as a shield, a drink in your hand, a friend as a buffer.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Rank yours from easiest to hardest to give up.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If drinking has become how you get through social time, please talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ayesha",
+        "text": "Ayesha had a system for meetings. She prepared three times as much as anyone else and scripted answers to likely questions. She sat near the door. She kept a coffee cup in her hands so the slight tremor wouldn't show. She spoke only when sure the words would come out right. Each piece felt like being careful. Seeing them named as one system, the thing keeping her fear in place, was the first step to setting it down."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one thing you do to feel safer around people.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_net"
+        ]
+      },
+      "done_when": "Your safety behaviors are named and ranked. You do not need to drop any yet.",
+      "reflect": "Which one feels hardest to imagine going without?",
+      "feeds_plan": [
+        {
+          "field_id": "f_net",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_net",
+          "type": "ranked_list",
+          "label": "Your safety behaviors, easiest to drop first",
+          "help": "For example: hold a coffee cup, sit near the door, script my opening line.",
+          "max_items": 8
+        },
+        {
+          "id": "f_protects",
+          "type": "short_text",
+          "label": "What the hardest one seems to protect you from",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Turn your attention outward",
+      "purpose": "A way to move your attention from how you seem to the people and room around you.",
+      "why": "In a social moment, attention often swings inward to your face, your voice, your hands. That builds a picture of you far worse than what others see. It also uses up the attention you need to listen. Turning outward helps on both counts, and many people find they talk more easily.",
+      "source": {
+        "chapter": "Chapter 3, Trap Two: The Inward Camera; Chapter 7, Carmen, Reconsidered"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one ordinary conversation this week. Low stakes is best.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "When you catch yourself checking how you look or sound, name it: inward.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Bring your attention back to their words, their face, or one thing in the room.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "It'll swing back inward. That's normal. Each return is the practice.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Afterward, write what you noticed about them or the room.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Carmen",
+        "text": "In the dining hall, Carmen used to build a picture of herself as stiff and obvious, with everyone watching. When she turned her attention to the room instead of her racing heart, she saw something else. The other students were eating, talking, and looking at their own phones. No one was looking at her."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "In your next conversation, bring your attention back to the other person once.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_outward"
+        ]
+      },
+      "done_when": "You've tried turning outward. Each time you bring your attention back, it gets a little easier.",
+      "reflect": "What did you notice when your attention was on the room instead of on you?",
+      "toolkit_link": "t06",
+      "fields": [
+        {
+          "id": "f_inward",
+          "type": "short_text",
+          "label": "What you caught yourself checking",
+          "help": "For example: whether my face was red."
+        },
+        {
+          "id": "f_outward",
+          "type": "long_text",
+          "label": "What you noticed when you looked outward",
+          "help": "For example: she seemed nervous too. The room was busy with its own talk."
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Catch the replay early",
+      "purpose": "A plan for spotting the replay in its first minute and moving into something else.",
+      "why": "After a social moment, the mind often replays it. The replay edits as it goes, keeping what went wrong and dropping what went fine. Each pass makes the memory a little worse. Telling yourself to stop rarely works. Moving into something absorbing, early, works better.",
+      "source": {
+        "chapter": "Chapter 8, The Mind's Editing Room; Why Telling Yourself to Stop Does Not Work; The Techniques That Work; Appendix A, The Replay Interrupt"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back to a recent replay. What set it off, and when did it start?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one or two absorbing things you can switch to, like a walk, dishes, or a task.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Next time the replay starts, switch within the first minute. Doing beats thinking here.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Ask: is this going anywhere? Reflection reaches an answer and stops. A replay loops.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If one moment won't let go, give it 10 to 15 minutes at a set time, then put it down.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Ayesha",
+        "text": "Ayesha's meetings were going better, but the hour afterward was still hard. Back at her desk, the replay would start, and by the third loop a fine meeting had become a small disaster in her memory. She started catching it in the first minute and going for a walk or turning to a task. The replay didn't stop completely, but it lost its grip, and her progress started to hold."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Choose one absorbing thing to switch to when the replay starts.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_switch"
+        ]
+      },
+      "done_when": "You have a way to step out of the replay, ready for next time.",
+      "reflect": "How long do your replays usually run, and what do they focus on?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_switch",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_switch",
+          "type": "short_text",
+          "label": "What you'll switch to",
+          "help": "For example: a walk around the block, a load of dishes, a task that needs focus."
+        },
+        {
+          "id": "f_window",
+          "type": "time_of_day",
+          "label": "A set time for a replay that won't let go",
+          "optional": true
+        },
+        {
+          "id": "f_trigger",
+          "type": "short_text",
+          "label": "What tends to set off your replays",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Debrief on paper",
+      "purpose": "A short, factual review that closes a social moment instead of looping on it.",
+      "why": "Sometimes a moment does need a look back. A short debrief gives you that without the endless loop. Writing things plainly works against the replay's habit of keeping only the negatives. Once it's written, the moment is closed. After a facing step, this is also how the lesson sticks.",
+      "source": {
+        "chapter": "Chapter 8, The Techniques That Work; Protecting What Exposure Builds; Appendix A, The Factual Debrief and The Perspective Shift"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one recent moment that keeps coming back.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what actually happened, in plain words, the way a camera would have recorded it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what went well, or was just fine. Look for at least one thing.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If anything, write one small thing you'd do differently. A change, not a verdict on you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself the other person was likely busy with their own day.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Close it. If the moment comes back, you can tell yourself it's already reviewed.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ayesha",
+        "text": "When a meeting truly needed a look back, Ayesha did one debrief on paper. She wrote what had actually happened and what had gone well. Then she reminded herself that the colleague she kept replaying had almost certainly forgotten the moment, busy with their own day. The debrief met her urge to go over it, and then it was done."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on what happened, and one on what went fine.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_happened",
+          "f_well"
+        ]
+      },
+      "done_when": "Your debrief is written, and that moment is closed.",
+      "reflect": "How did the moment look once it was on paper?",
+      "toolkit_link": "t08",
+      "fields": [
+        {
+          "id": "f_happened",
+          "type": "long_text",
+          "label": "What actually happened"
+        },
+        {
+          "id": "f_well",
+          "type": "long_text",
+          "label": "What went well, or was fine"
+        },
+        {
+          "id": "f_adjust",
+          "type": "short_text",
+          "label": "One small thing to adjust",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Build your facing ladder",
+      "purpose": "A ladder of situations you fear, from easiest to hardest, each rated from 0 to 100.",
+      "why": "Social fear changes through experience more than argument. Facing what you fear, in small steps, is how the alarm learns that the disaster it predicts doesn't come. A ladder lets you start where it's manageable. You choose every rung, and you set the pace.",
+      "source": {
+        "chapter": "Chapter 7, What Exposure Actually Is; Building the Ladder; Appendix A, The Exposure Ladder; Chapter 13, Week Three"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Start from your list in week 1. Add any situations you've noticed since.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate each one from 0 to 100 for how anxious it would make you.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Put them in order, lowest first. The bottom rungs should feel only mildly uneasy.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Put the situations that matter most to you near the top.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If two rungs are far apart, add a smaller step between them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Building the ladder doesn't mean climbing it today. You decide when, and how far.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Carmen",
+        "text": "Carmen's ladder started low: brief eye contact with a cashier, then asking a stranger for the time. The middle rungs were speaking once in a seminar and eating in the dining hall with her phone away. Near the top was giving a class presentation. At the very top was walking across the graduation stage. Every rung was hers, and the gaps were small enough to reach."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three situations, from easiest to hardest. That's a start.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_ladder"
+        ]
+      },
+      "done_when": "Your ladder is built, with rungs you chose. It can change as you go.",
+      "reflect": "Which rung near the bottom feels most doable?",
+      "feeds_plan": [
+        {
+          "field_id": "f_ladder",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_ladder",
+          "type": "ranked_list",
+          "label": "Your ladder, easiest first",
+          "help": "Add a number from 0 to 100 to each. For example: eye contact with a cashier, asking someone the time, speaking once in class.",
+          "max_items": 10
+        },
+        {
+          "id": "f_top",
+          "type": "short_text",
+          "label": "The rung at the top, and why it matters to you"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Name what it's for",
+      "purpose": "The concrete reasons this work matters to you, to come back to when a step feels hard.",
+      "why": "Wanting to feel less anxious is a thin reason to keep going when it gets hard. A life you want is a stronger one. The book asks you to be concrete: the friends you want, the work you want noticed. When avoiding is tempting, the question becomes what's on the other side.",
+      "source": {
+        "chapter": "Chapter 13, Values and the Life You Are Building; Chapter 5, Self-Compassion as the Ground; Chapter 12, Maintenance and the Shape of Recovery"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about what social fear has been taking from your life.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Name what you'd like instead: friendships, work, family, things you'd join.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write each as a picture, like \"the kind of parent who talks easily at pickup.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the one that pulls at you most.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "When a step feels hard, ask: what's on the other side, and is it worth the crossing?",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata watched herself hang back at the playground while her children noticed. She worried she was teaching them that other people are something to fear. That fear became her reason. Children can learn as much from watching a parent face a fear as from watching them avoid it. So she wasn't only doing the hard steps for herself. She was doing them for two reasons, and that made them easier to try."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you'd like your life to have that fear has been taking.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values"
+        ]
+      },
+      "done_when": "Your reasons are written down, ready for when a step feels hard.",
+      "reflect": "How does it feel to put what you want into words?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p1"
+        },
+        {
+          "field_id": "f_pull",
+          "plan_section": "p1"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "long_text",
+          "label": "What you want on the other side of the fear",
+          "help": "For example: the friendships I want, work where people see what I can do."
+        },
+        {
+          "id": "f_pull",
+          "type": "short_text",
+          "label": "The one that pulls at you most"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Drop one safety behavior",
+      "purpose": "One small experiment: a social moment without the easiest safety behavior on your list.",
+      "why": "A safety behavior gets the credit when things go fine. Going without one, just once, lets the real lesson land: you were managing on your own. Start with the easiest on your list. Some unease is expected. You choose the moment, and you can stop at any time.",
+      "source": {
+        "chapter": "Chapter 6, Learning to Let Go; Ayesha, Reconsidered; Chapter 13, Week Four"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose the easiest behavior on your list, and one low-stakes moment to try without it.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write what you predict will happen without it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Go in without that one behavior. Keep everything else the same.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Notice what actually happens, around you as well as inside you.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Afterward, write what happened next to what you predicted.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can stop at any point. If this feels like too much, choose a smaller step.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ayesha",
+        "text": "Ayesha began with the coffee cup, the easiest part of her system. She predicted her hands would shake and someone would see. She went to a meeting without it. Her hands held steady, and nobody remarked on anything. It was a small piece of evidence, but it was the first clean one she had collected in years of meetings. Over the next weeks, she dropped the over-scripting too."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one behavior to go without once this week, and when.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_dropped"
+        ]
+      },
+      "done_when": "Your experiment is planned. Whatever happens, you'll learn something real.",
+      "reflect": "What do you expect to notice without it? If you've tried it, what surprised you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_dropped",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_dropped",
+          "type": "short_text",
+          "label": "The behavior you'll go without, and when",
+          "help": "For example: no coffee cup at Tuesday's team meeting."
+        },
+        {
+          "id": "f_predict",
+          "type": "short_text",
+          "label": "What you predict will happen"
+        },
+        {
+          "id": "f_result",
+          "type": "long_text",
+          "label": "What actually happened",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Take a step on your ladder",
+      "purpose": "One rung from your ladder, faced on purpose, with your prediction named first.",
+      "why": "A facing step has one job: to find out whether what you feared actually happens. Feeling calm isn't the goal. You can feel anxious the whole time and still learn a lot. Name the prediction first, so you can check it. Start low, and you can stop whenever you need to.",
+      "source": {
+        "chapter": "Chapter 7, How to Make an Exposure Work; When the Prediction Comes True; Carmen, Reconsidered; Appendix A, The Exposure Protocol and The Exposure Debrief"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Pick the lowest rung that feels doable this week. You choose.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write your prediction, specifically. Not \"it'll go badly\" but \"my voice will shake and they'll stare.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Leave one habit behind, like keeping your phone in your pocket.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Go in. Stay long enough to see what happens, if you can.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Keep your attention on the room, not on how you feel inside.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "You can stop at any point. Stepping back is allowed. Try a smaller rung next time.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Afterward, debrief: what you predicted, what happened, and what the gap shows you.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Carmen",
+        "text": "Carmen stood at the door of the dining hall with her phone in her pocket, not her hand. She named her prediction first: people would notice her sitting alone, see her as awkward, and she wouldn't be able to bear it. She went in, sat down, and stayed. She paid attention to the room. No one looked. Everyone was busy with their own lunch. She was anxious the whole time, and that no longer mattered. Her prediction had been wrong."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick your lowest rung, and write what you predict will happen.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_rung",
+          "f_predict"
+        ]
+      },
+      "done_when": "Your step is chosen and your prediction is named. Whatever happens next counts as learning.",
+      "reflect": "What did you predict, and what happened? If you haven't gone yet, what do you expect?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_rung",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rung",
+          "type": "short_text",
+          "label": "The rung you chose"
+        },
+        {
+          "id": "f_predict",
+          "type": "short_text",
+          "label": "Your prediction",
+          "help": "Make it specific enough to check."
+        },
+        {
+          "id": "f_debrief",
+          "type": "two_column",
+          "label": "Your debrief",
+          "columns": [
+            "What you predicted",
+            "What actually happened"
+          ],
+          "optional": true
+        },
+        {
+          "id": "f_learned",
+          "type": "short_text",
+          "label": "What the gap shows you",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Test a belief in the world",
+      "purpose": "A small, real test of what your core belief predicts will happen.",
+      "why": "A core belief makes predictions. \"I'm boring\" predicts that if you talk about something you care about, people will drift away. That can be tested. What you see for yourself can shift a belief in a way no argument can. Keep the test small, and choose it yourself.",
+      "source": {
+        "chapter": "Chapter 5, Testing the Belief in the World; Renata, Reconsidered"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write your belief, and what it predicts will happen in one specific situation.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Plan a small test. When, where, and with whom?",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Do it, watching what actually happens rather than how it feels.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Compare the result with the prediction. Did the belief get it right?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Add what you learned to your evidence log.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can stop at any point. A smaller test still counts.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata's belief predicted that if she talked at length to another parent about something she loved, they would lose interest and pull away. So she tested it. Instead of retreating into her phone, she talked to another parent about a book she loved. The parent joined in, and the conversation kept going. The belief took a hit it couldn't easily absorb, because she had seen the result for herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing your belief predicts, and one small way to test it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_beliefpred",
+          "f_test"
+        ]
+      },
+      "done_when": "Your test is planned. A belief that can be tested can change.",
+      "reflect": "What do you think will happen? If you've run the test, what surprised you?",
+      "fields": [
+        {
+          "id": "f_beliefpred",
+          "type": "long_text",
+          "label": "Your belief, and what it predicts",
+          "help": "For example: I'm boring, so if I talk about a book I love, they'll drift off."
+        },
+        {
+          "id": "f_test",
+          "type": "short_text",
+          "label": "Your test",
+          "help": "For example: tell one parent at pickup about the book I'm reading."
+        },
+        {
+          "id": "f_outcome",
+          "type": "long_text",
+          "label": "What actually happened",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Make your phone a bridge",
+      "purpose": "A look at whether your screen time leads toward people or away from them, and one change.",
+      "why": "Online, there's no eye contact and time to edit every word. That can be a real relief. It can also become a comfortable place to hide. The same habit can be a bridge or a hiding place. The difference is the direction it points: toward people, or away from them.",
+      "source": {
+        "chapter": "Chapter 9, The Paradox; The Same Traps, a Different Screen; Bridge or Hiding Place; Using the Digital World Well"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List how you use your phone around people and online. No judging.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "For each, ask: is this leading toward more in-person contact, or replacing it?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If your phone is a shield around people, try one setting with it put away.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Notice when scrolling turns into comparing. A feed shows how people choose to look.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Pick one way to use the screen as a first step, like messaging to arrange a meetup.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any point. If this feels like too much, choose a smaller step.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Carmen",
+        "text": "Carmen's online account showed a confident, social young woman. Offline, she held her phone like a shield. She made putting it away one of her early steps. She noticed when scrolling slid into comparing, and stepped out of it. And she started messaging people from an online group she belonged to, with the goal of meeting them. As her real social life grew, the gap between her two selves began to narrow."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one setting this week where your phone stays in your pocket.",
+            "figure": "fig_phone_down"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You've looked at where your screen points, and picked one change.",
+      "reflect": "Which of your screen habits feels most like a bridge?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_uses",
+          "type": "two_column",
+          "label": "How you use your screen",
+          "columns": [
+            "What you do",
+            "Bridge or hiding place?"
+          ]
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "One change to try this week",
+          "help": "For example: phone in my bag at lunch, or a message to one person about meeting up."
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "One step at work or school",
+      "purpose": "One small step toward being seen at work or school, taken from your own ladder.",
+      "why": "At work and school, avoiding has a quiet cost. Speaking up is how good work gets noticed, and staying silent adds up over time. Start smaller than feels necessary: one question, one comment, one coffee. The first one is usually the hardest, and the next tends to come more easily.",
+      "source": {
+        "chapter": "Chapter 10, Where the Cost Is Highest; The Workplace Hierarchy; Speaking Up and Being Visible; Networking and Hierarchy Without Performing; The Disclosure Decision"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List the work or school moments you avoid, from easiest to hardest.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick a tiny first rung. One sentence in a meeting or class counts, even agreeing.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Name your prediction. Then speak before you feel completely ready.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For networking, think one coffee with one person, not working a room.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If it would help, consider telling your manager a practical need, like advance notice before presenting.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can stop at any point. A smaller step still counts.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Devon",
+        "text": "Three months in, Devon had said almost nothing in meetings and eaten most lunches at his desk. He had started wondering about a more solitary job. Instead, he built a work ladder. The lowest rung was one sentence in the weekly team meeting, even just agreeing. It was survivable, and the second came more easily. Later he had coffee with colleagues, one at a time. He told his manager that advance notice helped him present well, and the response was kinder than he'd feared."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Plan one sentence to say in your next meeting or class.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your first step at work or school is chosen.",
+      "reflect": "What do you expect to happen when you speak up? If you already did, how did it go?",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_workladder",
+          "type": "ranked_list",
+          "label": "Your work or school ladder, easiest first",
+          "help": "For example: one comment in a meeting, lunch with a colleague, a question for someone senior.",
+          "max_items": 6
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step this week"
+        },
+        {
+          "id": "f_need",
+          "type": "short_text",
+          "label": "A practical need you might mention",
+          "help": "Describe the need, without any label. For example: advance notice before presenting.",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Let someone know you",
+      "purpose": "One small, honest disclosure with someone you're getting to know, matched to the trust between you.",
+      "why": "Closeness grows as people share a little more of themselves and find it received. Social fear sees sharing as all or nothing, which makes it feel too risky. Small steps work: an honest opinion, something you care about, a small admission. Each one that goes well makes the next a little easier.",
+      "source": {
+        "chapter": "Chapter 11, What the Fear Protects You From; Letting Yourself Be Known; Dating With Social Anxiety; Marcus, Reconsidered"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one person you'd like to know better. Choose someone you feel comfortable with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Choose one small disclosure: an honest opinion, something you care about, or a real answer.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Keep it to the size of the trust you have. Small is the point.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Share it, and notice how it's received.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write what happened. What might the next small step be?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can stop at any point. It's fine to wait until there's more trust.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus, a high school shop teacher in a small Ohio town, had been on his own for two years. He had acquaintances, but no one who knew anything real about him. His early steps were small. An honest answer where he would once have deflected. A genuine opinion offered to a colleague. Each one was received without the rejection he feared, and that made the next a little less frightening."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person, and one small, honest thing you could share with them.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_person",
+          "f_share"
+        ]
+      },
+      "done_when": "Your small disclosure is chosen. Closeness gets built one step like this at a time.",
+      "reflect": "What do you imagine might happen when you share it?",
+      "feeds_plan": [
+        {
+          "field_id": "f_person",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "The person"
+        },
+        {
+          "id": "f_share",
+          "type": "short_text",
+          "label": "What you'll share",
+          "help": "For example: an honest answer instead of a quick deflection."
+        },
+        {
+          "id": "f_received",
+          "type": "long_text",
+          "label": "How it was received",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Reach out first",
+      "purpose": "One message or invitation you start yourself, with a calm way to read a slow reply.",
+      "why": "Friendships stay alive when someone reaches out. Social fear says to wait, because reaching out might be unwelcome. The other person may read that waiting as not caring. Reaching out is a facing step with a prediction you can test. A slow reply usually just means a busy life.",
+      "source": {
+        "chapter": "Chapter 11, Friendship and the Work of Maintenance; Marcus, Reconsidered"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one person you'd like to see more of.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write your prediction about reaching out, like \"they'll think I'm a bother.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Send a message or make a plan. Keep it simple: a time and a place.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If the reply is slow, take it as neutral. People get busy.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write what actually happened, next to your prediction.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can stop at any point. A short hello still counts.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus had sat in his car outside a woodworking group for three Tuesdays in a row, then driven home. In time, he went in and stayed. He came to value one member's company, and against every instinct he invited that person for coffee. The warm response told him his prediction had been wrong. The friendships that formed were slow and partial, and they were real."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a message to someone you'd like to see. Sending it is your choice.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_who"
+        ]
+      },
+      "done_when": "Your reach-out is planned, with a calm way to read a slow reply.",
+      "reflect": "What do you expect to happen? If you sent it, how was it received?",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you'll reach out to"
+        },
+        {
+          "id": "f_predict",
+          "type": "short_text",
+          "label": "Your prediction"
+        },
+        {
+          "id": "f_result",
+          "type": "long_text",
+          "label": "What happened",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Know your early warning signs",
+      "purpose": "Your personal signs that fear is creeping back, so you can act early.",
+      "why": "Social fear tends to come back under stress. That is expected, and it does not undo your progress. Catching it early makes it much easier to turn around. Your signs come from your own pattern: avoiding creeping back, a familiar dread, an old safety behavior, or the replay starting up again.",
+      "source": {
+        "chapter": "Chapter 12, When It Comes Back; The Personal Recovery Plan; Renata, Reconsidered"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Look back at your list from week 1 and your traps from week 2.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write the first signs you'd notice if fear were creeping back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Think about avoiding, dread, old habits returning, and longer replays.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one that usually shows up first.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Next to each sign, write one small thing you'll do when you notice it.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata had made real progress when her daughter's birthday party brought twenty families into her backyard. Her anxiety came back hard. She found herself hiding in the kitchen, refilling bowls that didn't need refilling. Her plan named that retreat into busywork as one of her early signs. Reading it as a sign, and not a verdict, meant she could act on it."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the sign that usually shows up first.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_firstsign"
+        ]
+      },
+      "done_when": "Your early warning signs are written, so you can catch them sooner.",
+      "reflect": "Which sign do you think would be easiest to miss?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_firstsign",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "long_text",
+          "label": "Your early warning signs",
+          "help": "For example: skipping lunch with the team, holding my phone again, replaying chats at night."
+        },
+        {
+          "id": "f_firstsign",
+          "type": "short_text",
+          "label": "The sign that usually comes first"
+        },
+        {
+          "id": "f_response",
+          "type": "two_column",
+          "label": "What you'll do",
+          "columns": [
+            "When you notice",
+            "One small step"
+          ],
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your personal plan",
+      "purpose": "A written plan with your tools, your signs, what to do as fear rises, and who to call.",
+      "why": "A plan kept in your head is hard to reach on a hard week, when clear thinking is in short supply. So the book asks you to write it during a calm stretch. Most of it builds from your answers. Your job is to check it, fill the gaps, and make it yours.",
+      "source": {
+        "chapter": "Chapter 12, What You Have Built; The Personal Recovery Plan; When Self-Help Is Not Enough; Chapter 11, For the People Who Love Them; Appendix A, The Personal Recovery Plan"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Read your draft plan. It's built from your answers so far.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Tools: keep the ones that earned their place. Drop any that didn't fit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Warning signs: check the list from last week.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write what you'll do at the first sign, and what you'll do if it builds.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose when you'd talk to a professional, such as after six to eight weeks of steady effort.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Add your support contacts: one person, and one professional or helpline.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Tell your support person what helps: encouragement toward the next step, not doing it for you.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "Renata wrote her plan in a calmer week, not quite believing she'd need it. After the party, she read it that evening instead of spiraling. It named her early sign, the retreat into busywork. It named the tools that had worked for her: checking predictions, small disclosures, reaching out first. And it reminded her, in her own words, that a setback could be turned around. That week, she went back to the playground instead of avoiding it."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Check your draft plan, and add one support contact.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_contacts"
+        ]
+      },
+      "done_when": "Your personal plan is written and saved, ready for a harder week.",
+      "reflect": "What would you want to read on a harder week?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tools",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_rising",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_reach",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_contacts",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_tools",
+          "type": "long_text",
+          "label": "Tools that work for you"
+        },
+        {
+          "id": "f_rising",
+          "type": "long_text",
+          "label": "What you'll do as fear rises",
+          "help": "For example: at the first sign, the two questions and one small step. If it builds, my yellow-day version."
+        },
+        {
+          "id": "f_reach",
+          "type": "short_text",
+          "label": "When you'll reach out for professional help",
+          "help": "For example: after six to eight weeks of real practice with little change, or if fear keeps me from work or people."
+        },
+        {
+          "id": "f_contacts",
+          "type": "long_text",
+          "label": "Your support contacts",
+          "help": "Someone you trust, and a doctor, therapist, or helpline."
+        },
+        {
+          "id": "f_supporter",
+          "type": "short_text",
+          "label": "What helps from your support person",
+          "help": "For example: encourage my next step, but let me take it.",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan your way back",
+      "purpose": "A note for a hard week, a plan for three common bumps, and a short weekly review.",
+      "why": "Setbacks happen, often under stress. A hard week only turns into a lasting slide through how you read it. \"It's all coming back\" is the same all-or-nothing thinking you've learned to catch. Progress over months looks like a rising line with dips in it.",
+      "source": {
+        "chapter": "Chapter 12, When It Comes Back; Maintenance and the Shape of Recovery; Chapter 13, When the Thirty Days Get Hard; Appendix B"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write a short note to yourself for a hard week, in your own words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "A missed day: pick up the next day, as if the gap never happened.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "A step that goes badly: debrief it plainly. You found out it was survivable.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "A hard week: drop to your yellow or red version, do the minimum, and come back later.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Choose a day and time for a 5-minute weekly review.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "At each review, ask yourself: still facing things, or is avoiding creeping back?",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Renata",
+        "text": "At the party, Renata's first thought was that her progress had been an illusion and she was who she'd always been. That thought was the same all-or-nothing pattern she had learned to catch, now aimed at her own progress. She went back to the playground that week instead of retreating, and within days the surge eased. She came away with proof that a setback could be survived and turned around."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'd want to read on a hard week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_note"
+        ]
+      },
+      "done_when": "Your note and your weekly review are ready, so a hard week has a way back.",
+      "reflect": "What would you want to hear from yourself on a hard week?",
+      "feeds_plan": [
+        {
+          "field_id": "f_note",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_review",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_note",
+          "type": "long_text",
+          "label": "Your note for a hard week",
+          "help": "For example: \"This is a setback, and it can be turned around. Start with one small step.\""
+        },
+        {
+          "id": "f_review",
+          "type": "short_text",
+          "label": "Your weekly review day and time",
+          "help": "For example: Sunday, 7 p.m."
+        },
+        {
+          "id": "f_stepback",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: the arrival anchor, then the lowest rung on my ladder.",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The arrival anchor",
+      "when_to_use": "You're walking into a room, a meeting, or any social setting.",
+      "steps": [
+        "Plant your feet. Feel the floor through your shoes.",
+        "Inhale slowly while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Silently name the color of one thing in the room.",
+        "That's it. About 10 seconds, and you're here."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Introduction, the tool to carry from the very start; Appendix A, The Arrival Anchor"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The slow-exhale breath",
+      "when_to_use": "You want to take the edge off before or during a social moment, without anyone noticing.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "If it feels okay, pause briefly. You can skip this part.",
+        "Exhale through your mouth while you count to six.",
+        "Do three rounds. Nobody around you will be able to tell."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Appendix A, The Slow-Exhale Breath; Chapter 13, Week One"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Two questions",
+      "when_to_use": "A prediction feels like a fact, and there's no time to write it down.",
+      "steps": [
+        "Ask: what am I predicting, and how do I actually know that?",
+        "Ask: what would I tell a friend who had this thought?",
+        "Let the fairer answer stand next to the fear.",
+        "The fear may stay. Now it has a competitor."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 4, Two Questions for the Moment; Appendix A, The Two-Question Check"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Name the alarm",
+      "when_to_use": "Nerves are rising, and you want enough clarity to choose what to do next.",
+      "steps": [
+        "Notice the rise: your heart, the heat, the urge to leave.",
+        "Name it silently: this is my threat alarm going off.",
+        "Add: there is no real danger here.",
+        "Then choose your next move, instead of reacting."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Appendix A, Name It to Tame It"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Talk to yourself like a friend",
+      "when_to_use": "The harsh inner voice starts up after an awkward moment.",
+      "steps": [
+        "Notice the harsh line, like \"Of course. You're boring.\"",
+        "Ask what you'd say to a friend who stumbled the same way.",
+        "Say that to yourself. Awkward moments are ordinary and human.",
+        "Give yourself credit for trying something hard."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 5, Self-Compassion as the Ground; Appendix A, The Self-Compassion Substitution"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Turn the camera outward",
+      "when_to_use": "You catch yourself checking how you look or sound in a conversation.",
+      "steps": [
+        "Notice the inward check: face, voice, hands.",
+        "Move your attention to the other person's words.",
+        "Or pick one thing in the room to notice.",
+        "When it swings back, return again. That's the practice."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 3, Trap Two: The Inward Camera"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Interrupt the replay",
+      "when_to_use": "A social moment starts replaying in your head afterward.",
+      "steps": [
+        "Catch it early, ideally in the first minute.",
+        "Switch from thinking to doing.",
+        "Pick something absorbing: a walk, dishes, a task that needs focus.",
+        "If it comes back, switch again, or save it for a set time."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 8, The Techniques That Work; Appendix A, The Replay Interrupt"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "The perspective shift",
+      "when_to_use": "You're sure someone noticed a slip and will remember it.",
+      "steps": [
+        "Picture the moment from the other person's side.",
+        "They were mostly busy with their own day and their own nerves.",
+        "They've almost certainly forgotten what you're still going over.",
+        "Other people don't keep a record of your social moments."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 8, The Techniques That Work; Appendix A, The Perspective Shift"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Read your day",
+      "when_to_use": "Each morning, or before a social situation, to match your effort to the day.",
+      "steps": [
+        "Green: nervous but managing. Do the full practice and climb your ladder.",
+        "Yellow: fear has a real grip. Do the short version of each tool.",
+        "Red: the basics feel impossible. Tap Help now, lean on support, see a professional.",
+        "Be honest both ways. Calling a green day yellow can be avoiding in disguise."
+      ],
+      "minutes": 1,
+      "figure": "fig_rating",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Green-Yellow-Red Card"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Before and after a step",
+      "when_to_use": "You're about to face a rung on your ladder, or you just did.",
+      "steps": [
+        "Before: name what you predict will happen, specifically.",
+        "Leave one safety behavior behind.",
+        "Stay to see what happens, if you can. You can stop anytime.",
+        "After: write what you predicted and what actually happened."
+      ],
+      "minutes": 2,
+      "figure": "fig_door",
+      "source": {
+        "chapter": "Chapter 7, How to Make an Exposure Work; Appendix A, The Exposure Protocol and The Exposure Debrief"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a look at the three traps that keep fear going."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can see what you avoid, and the traps that keep fear going."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your tools and your ladder are ready. Next, you take small steps you choose."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why, and what it's all for"
+    },
+    {
+      "id": "p2",
+      "title": "Your pattern"
+    },
+    {
+      "id": "p3",
+      "title": "Your ways of checking the fear"
+    },
+    {
+      "id": "p4",
+      "title": "Your ladder and your steps"
+    },
+    {
+      "id": "p5",
+      "title": "Your people, your screen, and your replays"
+    },
+    {
+      "id": "p6",
+      "title": "Your plan for harder weeks"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by listing what you avoid. Since then, you have checked predictions, found the belief underneath, set down some safety behaviors, quieted the replay, and taken steps you chose. Fear may still show up. The aim was for it to stop making your choices, and your plan is ready for when it gets louder.",
+    "book_bridge": "Every tool here comes from Facing the Room by Maya Vaughn. The book tells the full stories of Carmen, Marcus, Ayesha, Devon, and Renata. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which tool are you reaching for most?",
+      "Are you still facing things, or has avoiding crept back anywhere?",
+      "What's one small step toward what matters to you this month?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e04",
+      "e06",
+      "e07",
+      "e11",
+      "e14"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Facing_the_Room.docx",
+    "v1_id": "social",
+    "cut_log": [
+      {
+        "item": "Research findings and statistics (WHO World Mental Health Survey and NCS-R prevalence, median onset at thirteen, Eisenberger, Lieberman and Williams, Clark and Wells trial results and the network meta-analysis, the 2024 meta-analysis and review on post-event processing, Gilovich spotlight studies, neuroimaging, faux pas studies, connection and health)",
+        "chapter": "Introduction; Chapters 1, 3, 4, 7, 8 and 11",
+        "reason": "Not needed for instruction, and each would be a claim needing fresh verification. The spotlight effect is kept as a named thinking error, with no figures."
+      },
+      {
+        "item": "Three features that separate the disorder from shyness, the introversion comparison, and the performance-only specifier",
+        "chapter": "Chapter 1, More Than Shyness; The Three Forms It Takes",
+        "reason": "Reads as a diagnostic screen. The fear-or-preference question is kept in e01 as a question about one choice, not a label."
+      },
+      {
+        "item": "The brain account: amygdala, prefrontal brake, neuroplasticity",
+        "chapter": "Chapter 1, What the Brain Is Doing",
+        "reason": "Insight only, with no action. Kept as plain wording: the threat alarm (t04) and learned patterns (Explore primer)."
+      },
+      {
+        "item": "Companion conditions and the order they arrive in",
+        "chapter": "Chapter 1, What Travels With It",
+        "reason": "Kept as the Start safety note on low mood, Help now and a doctor. Not an exercise, so nothing reads as a screen."
+      },
+      {
+        "item": "Three contributors: temperament, learning, adolescence, family, bullying and the pandemic",
+        "chapter": "Chapter 2",
+        "reason": "Insight only. Life-history reflection risks drifting into childhood and bullying recall, which is out of scope for a standard-tier workbook."
+      },
+      {
+        "item": "The Origin Audit (earliest memory, what it taught, whose voice)",
+        "chapter": "Appendix A, attributed to Chapter 2",
+        "reason": "Asks for the earliest painful social memory. Kept only as one optional few-words field in e05, with a skip line."
+      },
+      {
+        "item": "Video feedback",
+        "chapter": "Chapter 3, Trap Two; Appendix F",
+        "reason": "A therapist-led technique the book says cannot be reproduced alone. Its principle is folded into e08."
+      },
+      {
+        "item": "Inhibitory learning detail: variability, combining feared elements, expectancy violation as a term",
+        "chapter": "Chapter 7, How to Make an Exposure Work",
+        "reason": "Kept in plain words (name the prediction, notice the gap, vary the situation through the ladder). Combining feared elements is an advanced step left out."
+      },
+      {
+        "item": "The deliberate small mistake",
+        "chapter": "Chapter 7, When the Prediction Comes True",
+        "reason": "The book calls it an advanced exposure. Not set as an exercise, so no reader is asked to court an awkward moment. A reader can add it to their own ladder."
+      },
+      {
+        "item": "Dating as its own exercise",
+        "chapter": "Chapter 11, Dating With Social Anxiety",
+        "reason": "Folded into e18 (gradual disclosure) and the reader's own ladder. A dating exercise would assume a relationship status."
+      },
+      {
+        "item": "For the people who love them",
+        "chapter": "Chapter 11",
+        "reason": "Written for supporters, not the reader. Folded into e21 as one step on telling a support person what helps."
+      },
+      {
+        "item": "Senior colleagues, the capable but silent employee, full disclosure weighing",
+        "chapter": "Chapter 10",
+        "reason": "Folded into e17 (ladder examples and an optional practical-need field). The diagnostic label is left out, as the book suggests."
+      },
+      {
+        "item": "Alcohol as a chemical safety behavior and the self-medication pathway",
+        "chapter": "Chapter 6, The Alcohol Question",
+        "reason": "Kept as one talk-to-a-doctor step in e07, with no cutting-down advice."
+      },
+      {
+        "item": "Acceptance and the shift from removing anxiety to living by values",
+        "chapter": "Chapter 12, Maintenance and the Shape of Recovery",
+        "reason": "Folded into the Practice primer and e12. Acceptance and commitment therapy is not named."
+      },
+      {
+        "item": "Medication, therapy types, finding a therapist and directories",
+        "chapter": "Chapter 12, When Self-Help Is Not Enough; Appendices E and F",
+        "reason": "Medical and referral content. The six-to-eight-week marker is kept in e21. Help now and the app's safety page carry the contacts."
+      },
+      {
+        "item": "Thirty-day calendar",
+        "chapter": "Chapter 13; Appendix C",
+        "reason": "Its order (observe, thoughts and beliefs, facing, consolidate) sets the order of weeks 1 to 12. Its three obstacles are kept in e22."
+      },
+      {
+        "item": "Common questions",
+        "chapter": "Appendix D",
+        "reason": "Folded into e01 (fear or preference), e04 (still anxious after checking), e09 (checking turned into rumination) and e22."
+      },
+      {
+        "item": "Affect labeling claim",
+        "chapter": "Appendix A, Name It to Tame It",
+        "reason": "The tool is kept as t04. The claim that labeling reduces intensity is cut as a research claim."
+      }
+    ],
+    "notes": "v1 topic_name: Social\nv1 set_id: worry-and-fear (Worry and Fear); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 270"
+  }
+}

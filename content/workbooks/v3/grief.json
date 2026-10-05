@@ -1,0 +1,2601 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-8AQWW",
+  "slug": "when-everything-changes-8aqww",
+  "title": "When Everything Changes",
+  "short_title": "Grief",
+  "card_line": "Twelve weeks of gentle, practical support for living with grief and loss",
+  "tagline": "Twelve weeks of gentle, practical support for living with grief and loss",
+  "book": {
+    "book_id": "when-everything-changes",
+    "title": "When Everything Changes",
+    "subtitle": "A Practical Guide to Grief and Loss",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4HDKDFS",
+      "US": "https://www.amazon.com/dp/B0H4HDKDFS"
+    },
+    "asin": "B0H4HDKDFS"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "higher",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Name what's here",
+          "body": "The Explore stage is about understanding, not fixing. Grief touches your feelings, your thinking, your body, and your days, often all at once. Over two weeks, you'll put some of that into words and look at everything that changed with your loss. Grief comes in waves, not stages, so there's no right order and no right way to feel. Go at your own pace.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clearer picture of how grief shows up for you, and of everything your loss changed.",
+        "review_question": "What did you notice that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Steady ground first",
+          "body": "In the Build stage, you set up support for your days as they are. Over five weeks, you'll cover the basics, ask for help, look after sleep and your body, give grief a place to land, answer guilt kindly, and get words ready for hard comments. Small and steady is enough. Skip anything that feels like too much for now. It will still be here later.",
+          "figure": "fig_walking"
+        },
+        "outcome": "Daily basics, ways to ride a wave, kinder answers to guilt, and your people mapped.",
+        "review_question": "Which tool or habit helped most, even a little?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Living alongside it",
+          "body": "The Practice stage turns toward life alongside grief. Facing the loss and getting on with daily life tend to take turns, and both are part of grieving. Over four weeks, you'll build a steady anchor, choose how to remember if and when you're ready, plan for hard dates, try something new, and name your warning signs. Some weeks will pull you back toward the loss. That's part of it too.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "A steadier shape to your days, your own ways to remember, a plan for hard dates, and your warning signs.",
+        "review_question": "What has made room for life alongside the grief, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what helps",
+          "body": "The Keep stage brings twelve weeks together. You'll start your grief handbook, a few lines on what helps you and who to call, and a plan for when grief comes back strongly. Grief doesn't end on a schedule. It can return for years, often around dates that matter. These pages are for those times.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your grief handbook and a plan for when grief returns, both saved in your plan.",
+        "review_question": "What do you want to remember from these twelve weeks?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If you're carrying a loss, whether it's a death, a divorce, a job, your health, or something few people see, this is built for that. It's twelve weeks of gentle, practical steps. Grief has no timetable, and nothing here asks you to move on. Most weeks take 15 to 20 minutes, and every exercise has a short version. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools for grief waves, open anytime, starting today.",
+      "You set the pace. Any exercise can wait, and you can stop at any point."
+    ],
+    "why_prompt": "What would help you most in the weeks ahead? One line is enough.",
+    "higher_tier_note": "This workbook is designed to be used alongside other support, such as a doctor, a grief counselor, a support group, or people you trust. That is true for everyone who uses it. It does not mean anything is wrong with you. Grief is a natural response to loss. If at any point this workbook is not enough, that is useful to know, and reaching out for more support is a sensible step.",
+    "extra_safety_note": "If you have any thoughts of harming yourself or of not wanting to be here, please stop and tap Help now. It is at the top of every screen. Talk to a doctor or a crisis line today. If, after many months, grief still feels as heavy as it did at the start, or daily life has become very hard to manage, please talk to a doctor or a grief counselor. Grief can affect the body too. Do not assume chest pain or other new physical symptoms are only grief. Please see a doctor about them. If any exercise here feels like too much, stop. You can come back to it later, or leave it."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? There are no right answers, and grief can change from day to day. Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "basics",
+        "label": "Getting through the day"
+      },
+      {
+        "id": "waves",
+        "label": "Riding the waves"
+      },
+      {
+        "id": "support",
+        "label": "Support around you"
+      },
+      {
+        "id": "life",
+        "label": "Life alongside grief"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "basics",
+        "text": "You manage to eat something most days, even if it's small."
+      },
+      {
+        "id": "q02",
+        "area": "basics",
+        "text": "You get some rest, even when sleep is hard."
+      },
+      {
+        "id": "q03",
+        "area": "basics",
+        "text": "The things that truly can't wait get done, with help if you need it."
+      },
+      {
+        "id": "q04",
+        "area": "basics",
+        "text": "Your day has at least one small, steady part to it."
+      },
+      {
+        "id": "q05",
+        "area": "waves",
+        "text": "When a wave of grief comes, you can let it pass."
+      },
+      {
+        "id": "q06",
+        "area": "waves",
+        "text": "You have something that helps when grief feels like too much."
+      },
+      {
+        "id": "q07",
+        "area": "waves",
+        "text": "You can speak to yourself kindly when guilt or anger shows up."
+      },
+      {
+        "id": "q08",
+        "area": "waves",
+        "text": "You can step away from thoughts that keep replaying."
+      },
+      {
+        "id": "q09",
+        "area": "support",
+        "text": "You have at least one person you can be honest with about your grief."
+      },
+      {
+        "id": "q10",
+        "area": "support",
+        "text": "You let people help when they offer."
+      },
+      {
+        "id": "q11",
+        "area": "support",
+        "text": "You can ask for something specific when you need it."
+      },
+      {
+        "id": "q12",
+        "area": "support",
+        "text": "You feel able to protect yourself from comments that hurt."
+      },
+      {
+        "id": "q13",
+        "area": "life",
+        "text": "You have moments of ease or warmth alongside the grief."
+      },
+      {
+        "id": "q14",
+        "area": "life",
+        "text": "You can do something you care about, even briefly."
+      },
+      {
+        "id": "q15",
+        "area": "life",
+        "text": "Grief has room in your days without filling every hour."
+      },
+      {
+        "id": "q16",
+        "area": "life",
+        "text": "You have some sense of what matters to you now."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own earlier answers, never with anyone else. Grief doesn't follow a straight line, so harder weeks show up here too. That's normal, and it's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to steadier (10)?"
+      },
+      {
+        "id": "c_manage",
+        "type": "checklist",
+        "label": "Getting through the days this week",
+        "options": [
+          "Mostly managing",
+          "Hard, but getting through",
+          "Too much to manage"
+        ],
+        "help": "If it has been too much to manage, please lean on support this week and think about talking to a doctor. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_basics",
+        "type": "weekly_grid",
+        "label": "Days you covered the basics, like eating and resting"
+      },
+      {
+        "id": "c_helped",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_people",
+        "type": "short_text",
+        "label": "Someone you were in touch with this week",
+        "optional": true
+      },
+      {
+        "id": "c_ahead",
+        "type": "short_text",
+        "label": "A hard date or moment ahead, and one thing that might help",
+        "optional": true
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_helped"
+    ]
+  },
+  "daily_check": {
+    "question": "How did today feel?",
+    "scale_low": "Very hard",
+    "scale_high": "Steadier",
+    "tags": [
+      "Slept a little",
+      "Ate something",
+      "Moved my body",
+      "Talked to someone",
+      "Had some grief time",
+      "Let a wave pass",
+      "Felt a moment of ease",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Name how grief shows up for you",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "See everything that changed",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Cover the basics and ask for help",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Look after sleep, food, and movement",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t04",
+        "t06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Give grief a place, and notice your body",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Answer guilt kindly and step out of loops",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Protect yourself and find your people",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Notice the back and forth, and build an anchor",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Remember in your own way",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e07"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Plan for a hard date and try something new",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "What matters now, and your warning signs",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08",
+        "e10"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e12",
+        "e13"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "How grief shows up for you",
+      "purpose": "A gentle picture of how grief is showing up in your feelings, thinking, body, and days.",
+      "why": "Grief can feel like chaos, and it's easy to think you're doing it wrong. The book describes grief as a natural response that touches many parts of life at once. It comes in waves, not stages, and there's no correct order. Seeing your own mix can ease the fear that something is wrong with you.",
+      "source": {
+        "chapter": "Introduction, The Shape of Grief; Chapter 1, The Anatomy of Grief; Waves, Not Stages"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the five parts below. Each one has a few common signs.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick any signs you've noticed lately. There's no right number.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write one recent moment that shows how grief feels for you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read your picks back. All of these are common in grief.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If this stirs up a lot, stop here and try Hand on your heart in your Toolkit.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Margaret's husband, David, died suddenly after 38 years of marriage. At the memorial service, she felt nothing, as if she were watching herself from far away. That evening, she found an old note from him and cried for two hours. In the weeks after, she forgot why she'd walked into rooms, and climbing the stairs exhausted her. She worried something was wrong with her. Seeing that numbness, fog, and tiredness are all common in grief let her stop judging herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the part of grief you notice most right now.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one line about it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moment"
+        ]
+      },
+      "done_when": "You've put some of your grief into words. What you noticed is a common part of grief.",
+      "reflect": "How does it feel to see it written down?",
+      "toolkit_link": "t01",
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "checklist",
+          "label": "Signs you've noticed lately",
+          "options": [
+            "Feelings: sadness, anger, guilt, relief, numbness, or longing",
+            "Thinking: fog, forgetting, trouble concentrating",
+            "Body: tiredness, poor sleep, appetite changes, aches",
+            "Behavior: restlessness, pulling away, keeping or carrying their things",
+            "Beliefs and meaning: questioning what you believed, searching for why"
+          ]
+        },
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "One recent moment that shows how grief feels for you",
+          "help": "For example: feeling numb at work, or forgetting why you came into a room."
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "See everything that changed",
+      "purpose": "A list of the other losses that came with your main one, so the weight makes more sense.",
+      "why": "When grief feels bigger than the loss itself, there's usually a reason. Every main loss brings others with it: routines, roles, plans, people, and your sense of who you are. The book calls these secondary losses. Listing them shows you're responding to many changes at once. You're not overreacting.",
+      "source": {
+        "chapter": "Chapter 2, All Loss Is Loss; The Losses Nobody Sees; Apply This"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write your main loss in a few words. Only as much as feels okay.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Look at the areas of life: routines, roles, people, plans, money, home, health, and identity.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "For each area that changed, write one line on what you lost there.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read the list back. It shows how much you're carrying.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If it feels like too much, stop. You can add to it another day.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara had worked at the same company for twenty-two years when her job was cut in a fifteen-minute meeting. Around the same time, she got difficult news about her health. People told her it was just a job. When she listed what had gone with it, the page filled: her daily routine, her colleagues, her sense of purpose, her financial confidence, and an easy answer to \"What do you do?\" Seeing the list helped her understand why it felt so heavy."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one other thing that changed with your loss.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_secondary"
+        ]
+      },
+      "done_when": "Your list of what changed is written down. It helps explain the weight you're carrying.",
+      "reflect": "Did anything on the list surprise you?",
+      "fields": [
+        {
+          "id": "f_main",
+          "type": "short_text",
+          "label": "Your main loss, in a few words"
+        },
+        {
+          "id": "f_secondary",
+          "type": "two_column",
+          "label": "What else changed",
+          "columns": [
+            "Area of life",
+            "What you lost there"
+          ],
+          "help": "For example: Routines. Sunday breakfast together."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Three things for today",
+      "purpose": "A short list of the only things today needs, so everything else can wait.",
+      "why": "In early grief, ordinary tasks can feel impossible. The book's advice is to aim low on purpose: keep yourself safe, cover the basics, and do only what truly cannot wait. A piece of toast counts as eating. Letting the rest wait is a sensible choice when your energy is low.",
+      "source": {
+        "chapter": "Chapter 3, Safety First; Apply This; Chapter 9, Work, Purpose, and New Activities"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three things for today. Only three.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose from the basics: eat something, drink water, rest, take any medication you need, or send one text.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Add anything that truly can't wait, like a bill due this week or caring for children.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Ask what would really go wrong if a task waited. If nothing serious, let it wait.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If a big decision is pressing, write it down and let it wait if you can.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "When your three are done, that's enough for today.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "The days after the meeting, Amara woke at 4 a.m. with nowhere to be. When her sister arrived one morning at 9 a.m., Amara was still in her bathrobe. She hadn't eaten or showered. She'd been scrolling job sites without reading them. Her sister stocked the fridge and sorted the mail. Amara's part that day was much smaller: eat something, take a shower, and answer one message. That was enough."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the one or two things today truly needs.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_three"
+        ]
+      },
+      "done_when": "You have three things for today. When they're done, you've done enough.",
+      "reflect": "What made it hard, or easier, to let the rest wait?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_three",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_three",
+          "type": "ranked_list",
+          "label": "Your three things for today",
+          "max_items": 3,
+          "help": "For example: eat some toast, take a short shower, text my sister."
+        },
+        {
+          "id": "f_wait",
+          "type": "short_text",
+          "label": "One thing that can wait",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Ask for one specific thing",
+      "purpose": "One clear request, ready to give to someone who has offered help.",
+      "why": "People often say \"Let me know if you need anything\" and then wait. They usually mean it, but don't know where to start. A specific request is easier to say yes to: groceries tomorrow, or an hour together on Thursday. Letting people help is a normal part of grief, and it often helps them too.",
+      "source": {
+        "chapter": "Chapter 3, Community and Burden-Sharing; Chapter 7, Finding Your People"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of someone who has offered help, or who would likely say yes.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one task: a meal, a school run, groceries, paperwork, or company.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write the request in one short line, with a day or time.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Send it, if you can. If not, keep it ready for the next offer.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If they help, let them. You can return the favor later, when you're able.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara had spent twenty-two years in a job that rewarded doing everything herself. Asking for help felt like admitting defeat. When she told her sister she didn't want to be a burden, her sister said, \"You are not a burden. You are my sister. This is what sisters do.\" That changed something. Later, when friends asked what they could do, Amara learned to give them something concrete, like bringing groceries the next day."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one specific thing someone could do for you this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ask"
+        ]
+      },
+      "done_when": "You have one specific request ready. Help is easier to give when it's clear.",
+      "reflect": "What makes asking hard for you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_ask",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you'll ask"
+        },
+        {
+          "id": "f_ask",
+          "type": "short_text",
+          "label": "Your request",
+          "help": "For example: Could you sit with me for an hour on Thursday?"
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Look after sleep and food",
+      "purpose": "One or two small steps for sleep and eating, sized for the energy you have.",
+      "why": "Grief is physical as well as emotional, and it often upsets sleep and appetite. Poor sleep then makes everything else harder. You don't need to do this well. A steady wake time, a notebook by the bed, or soup when meals feel impossible all count. Looking after your body is part of grieving, not a distraction from it.",
+      "source": {
+        "chapter": "Chapter 3, Safety First; Chapter 6, Sleep and Rest; Eating and Appetite"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the sleep basics: a steady wake time, screens off an hour before bed, and a cool, dark room.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If you can, limit caffeine after midday and keep alcohol away from bedtime.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick one sleep step to try this week. One is enough.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "For food, pick one small step, like soup, toast, or one regular meal.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If sleep or eating has been very hard for more than a few weeks, please talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Nights were the hardest part for Margaret. \"In the dark there was nothing between me and the fact that he was gone,\" she said. Her sleep was light and broken, and some days she couldn't remember her last proper meal. She didn't try to fix everything at once. She kept a steady wake time, put a notebook by the bed for the thoughts that kept her up, and let a bowl of soup count as dinner."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one small step for sleep or food this week.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_sleep"
+        ]
+      },
+      "done_when": "You've chosen a small step for your body. Partial counts.",
+      "reflect": "What does your body seem to need most right now?",
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_sleep",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_food",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_sleep",
+          "type": "short_text",
+          "label": "Your one sleep step",
+          "help": "For example: get up at 7 a.m. every day, even after a poor night."
+        },
+        {
+          "id": "f_food",
+          "type": "short_text",
+          "label": "Your one eating step",
+          "help": "For example: soup or toast at lunchtime."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Move a little, often",
+      "purpose": "One small, regular way to move your body, at a pace that suits you.",
+      "why": "Grief can leave you restless and tense, or too tired to move. Gentle movement gives that tension somewhere to go, and it can quiet looping thoughts for a while. Regular matters more than hard. A ten-minute walk most days does more than an occasional tough workout. Stretching, or a walk around the block, counts.",
+      "source": {
+        "chapter": "Chapter 4, Regulation and Processing; Chapter 6, Movement as Medicine"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one kind of movement you can manage: a walk, stretching, swimming, or chair exercises.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Make it small. Five or ten minutes is plenty.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose when you'll do it, and how often.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If you'd like company, ask someone to join you.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Try it once this week, if you can. Notice how you feel after.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "After the divorce, the evenings when Daniel's children were at their mother's house were the hardest. His apartment was too quiet, and he couldn't sit still. He'd never been a runner, but he started running because he had to move. Over the weeks, it became a way to settle. After a run, his thoughts quieted just enough to make the evening manageable. Six months later, he ran his first 5K. He didn't run it fast. Finishing was the point."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Take a five-minute walk or stretch today. That counts.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_move"
+        ]
+      },
+      "done_when": "You have a small way to move that fits your life right now.",
+      "reflect": "What made it easier, or harder, to get started?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "Your movement"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When and how often",
+          "help": "For example: a 10-minute walk after breakfast, three days a week."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How you felt after",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Give grief a place",
+      "purpose": "A regular time for grief, so it has room without filling every hour.",
+      "why": "Pushing grief away tends to make it stronger, and being flooded by it all day is exhausting. The book suggests a middle path: a container, a set time when grief is welcome. You might write, look at photos, or cry. When the time is up, you gently turn to something else. The grief will still be there tomorrow.",
+      "source": {
+        "chapter": "Chapter 4, Emotions Are Waves; Regulation and Processing; Chapter 8, Rituals and Memorials"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose a time for grief, daily or a few days a week. Up to 30 minutes.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick what you'll do then: write, look at photos, sit quietly, or cry.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If you like, keep a box of meaningful things to open then and close after.",
+          "figure": "fig_folders"
+        },
+        {
+          "text": "When the time ends, do one grounding thing, like making tea.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Stop early whenever you need to. A shorter time still counts.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If grief comes at other times too, that's okay. Let it come.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "After her second miscarriage, Grace's grief had nowhere to go. Few people knew about the loss, so it surfaced at work, at a friend's barbecue, in the middle of ordinary days. She began lighting a candle on the fourteenth of each month, the date of her loss, and sitting with it for five minutes. She didn't pray, exactly. She acknowledged what had happened. Giving grief a set time helped it feel less like an ambush."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose a time for five minutes of grief time this week.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_time"
+        ]
+      },
+      "done_when": "Grief has a place in your week now. You can stop early anytime.",
+      "reflect": "How did it feel to give grief a set time?",
+      "feeds_plan": [
+        {
+          "field_id": "f_time",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_time",
+          "type": "short_text",
+          "label": "Your grief time",
+          "help": "For example: 20 minutes after dinner, with a cup of tea."
+        },
+        {
+          "id": "f_what",
+          "type": "checklist",
+          "label": "What you'll do in that time",
+          "options": [
+            "Write",
+            "Look at photos",
+            "Sit quietly",
+            "Listen to music",
+            "Open a memory box",
+            "Light a candle",
+            "Something else"
+          ]
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Notice where you hold it",
+      "purpose": "A gentle check of where grief sits in your body, and what care it may need.",
+      "why": "Grief lives in the body as well as the mind. It can show up as tightness, heaviness, aches, or numbness. A body scan is a few quiet minutes of noticing, from your feet to your head, without judging what you find. Over a week, patterns can show you what care your body needs: rest, stretching, or a walk.",
+      "source": {
+        "chapter": "Chapter 6, Why Grief Is Physical; Medical Care for the Grieving Body; Apply This"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Sit or lie comfortably. Close your eyes only if that feels safe.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Starting at your feet, move your attention slowly upward. You can stop at any point.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "In each area, notice what's there: tension, heaviness, ache, numbness, or ease.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "At the top of your head, take one slow, full breath.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Write a few words on what you noticed. No judgment needed.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you notice chest pain or anything that worries you, please see a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara sat in her doctor's office listing things she could barely explain: deep exhaustion, headaches, poor sleep, a strange pressure in her chest. \"Am I ill?\" she asked. \"Is something wrong with me?\" Her doctor said, \"You have experienced significant losses recently. Your body is grieving too.\" Amara had thought of grief as sadness and tears. Learning to notice where her body held it, and to care for it, became part of her week."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Notice your shoulders, chest, and jaw. Write one word for each.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_notice"
+        ]
+      },
+      "done_when": "You've checked in with your body. What you noticed can guide how you care for it.",
+      "reflect": "What surprised you about what you noticed?",
+      "toolkit_link": "t04",
+      "feeds_plan": [
+        {
+          "field_id": "f_care",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_notice",
+          "type": "two_column",
+          "label": "What you noticed",
+          "columns": [
+            "Part of your body",
+            "What was there"
+          ]
+        },
+        {
+          "id": "f_care",
+          "type": "short_text",
+          "label": "One kind of care your body may need",
+          "help": "For example: an early night, a stretch, or a warm bath."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Answer guilt as a friend would",
+      "purpose": "A kinder, fairer answer to one guilty thought, in the words you'd use with a friend.",
+      "why": "Guilt is one of the most common parts of grief: for things said or unsaid, for not being there, for relief, or for feeling better. The book explains it as the mind seeking control over something that was out of your hands. A kind answer doesn't excuse anything. It holds you to the standard you'd use for a friend.",
+      "source": {
+        "chapter": "Chapter 1, The Anatomy of Grief; Chapter 4, Anger and Guilt"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write one guilty thought in a single line. No details needed.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Imagine a friend telling you the same thing about their loss.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write what you'd say to them, as kindly as you'd say it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back, this time as if it's meant for you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If guilt feels overwhelming or comes with thoughts of harming yourself, stop and tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Four months after David died, Margaret began sorting his clothes. When she picked up his old sweater, anger hit her, and she threw it across the room. Then guilt came. How could she be angry at a man who hadn't chosen to die? Her therapist told her, \"That anger is love, turned sideways by loss.\" The anger didn't vanish, but the shame eased. She learned to answer her guilt the way she'd answer a friend's."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one kind sentence you'd say to a friend feeling this guilt.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_kind"
+        ]
+      },
+      "done_when": "You have a kinder answer to one guilty thought, ready for when guilt returns.",
+      "reflect": "How does the kind answer sit with you?",
+      "fields": [
+        {
+          "id": "f_guilt",
+          "type": "short_text",
+          "label": "One guilty thought"
+        },
+        {
+          "id": "f_kind",
+          "type": "long_text",
+          "label": "What you'd say to a friend",
+          "help": "For example: You did the best you could with what you knew then."
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Spot the loop",
+      "purpose": "A way to tell thinking that helps from thinking that goes round and round, and a time for both.",
+      "why": "After a loss, the mind often replays the same scenes and what-ifs. Some thinking helps you understand. Some only repeats and leaves you feeling worse. The book's test is to ask whether this thinking is leading somewhere. If it isn't, you can give those thoughts 15 minutes a day, and gently postpone them at other times.",
+      "source": {
+        "chapter": "Chapter 5, When Thoughts Loop"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a thought you keep coming back to. Write it in one line.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask: is this leading somewhere, or covering the same ground again?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If it's a loop, choose a 15-minute time each day for it.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "When it starts at other times, tell yourself: \"Later, at my set time.\"",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "In your set time, write the thoughts down. Stop whenever you need to.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Daniel woke at 2 a.m. most nights, replaying his last argument with his ex-wife. If he'd apologized sooner. If he hadn't raised his voice. He'd gone over it hundreds of times and never learned anything new. When he asked whether the thinking was leading anywhere, the answer was clear. It felt like working things out, but it was a loop, and it was costing him sleep."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Next time a thought repeats, ask: is this leading somewhere?",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_type"
+        ]
+      },
+      "done_when": "You can spot a loop when it starts, and you have a time to give it.",
+      "reflect": "Which thoughts tend to loop most for you?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_time",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "A thought you keep coming back to"
+        },
+        {
+          "id": "f_type",
+          "type": "checklist",
+          "label": "Is it leading somewhere?",
+          "options": [
+            "Yes, it's helping me understand",
+            "No, it's covering the same ground",
+            "Not sure yet"
+          ]
+        },
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "Your daily time for these thoughts"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Get your words ready",
+      "purpose": "A few short replies for unhelpful comments, ready before you need them.",
+      "why": "People often say hurtful things without meaning to, like \"Everything happens for a reason.\" It usually comes from not knowing what to say. Having replies ready takes the pressure off when you're already worn out. You don't owe anyone access to your grief. You decide what to share, with whom, and when.",
+      "source": {
+        "chapter": "Chapter 7, How Grief Changes Relationships"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the five ways to answer in your Toolkit.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the two that fit you best.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Put them in your own words, if you like. Keep them short.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Think of a comment you've heard, or expect to hear. Choose your reply.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Keep the exit ready too: \"I need to step away for a few minutes.\"",
+          "figure": "fig_door"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "After her miscarriages, Grace heard the same comments again and again: \"At least it was early.\" \"At least you can try again.\" Each one landed like a small punch. She knew people meant well. She also needed to protect herself. With people who mattered, she tried a gentle correction: \"I know you mean well, but comments like that make this harder. The loss was very real to me.\" With others, she changed the subject."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick one reply to keep ready, like \"I'd rather not talk about it right now.\"",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_replies"
+        ]
+      },
+      "done_when": "Your words are ready. You decide what to share, and with whom.",
+      "reflect": "Which reply feels hardest to say, and why?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_replies",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_replies",
+          "type": "ranked_list",
+          "label": "Your ready replies",
+          "max_items": 3,
+          "help": "For example: \"Thank you for your concern. I'd rather not talk about it right now.\""
+        },
+        {
+          "id": "f_comment",
+          "type": "two_column",
+          "label": "A comment you expect, and your reply",
+          "columns": [
+            "The comment",
+            "Your reply"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Map your people",
+      "purpose": "A simple picture of who can support you, and how, with one way to widen it.",
+      "why": "Grief is harder alone, and support often thins out after the first weeks. Different people help in different ways. One brings meals, another sits quietly, another makes you laugh. Seeing who's there, and what each can offer, shows you where to lean and where there's a gap. One new contact is enough.",
+      "source": {
+        "chapter": "Chapter 7, We Are Not Meant to Grieve Alone; Finding Your People; Apply This"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List people who might support you. A few names is fine.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each, note what they offer: listening, practical help, company, or expertise.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice any gaps, like no one to talk to about the loss itself.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one step to widen it: a support group, a faith community, a class, or a call.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If few names come yet, a grief support group or counselor is a good start.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Three months after David died, people at Margaret's church no longer lingered after the service. When she said she was still struggling, she saw discomfort in their faces. Then a walking group took her in. For weeks she barely spoke, and nobody pressed her. Six weeks in, passing a garden, she said, \"My husband loved snapdragons.\" Joan, walking beside her, said, \"Tell me about him.\" The group became her steadiest support."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person you could lean on, and what they offer.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_people"
+        ]
+      },
+      "done_when": "You have a picture of your support, and one step to widen it.",
+      "reflect": "Who surprised you, either way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_people",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_step",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_people",
+          "type": "two_column",
+          "label": "Your people, and what each offers",
+          "columns": [
+            "Person",
+            "What they offer"
+          ]
+        },
+        {
+          "id": "f_gap",
+          "type": "short_text",
+          "label": "A gap you noticed",
+          "optional": true
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One step to widen your support"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Notice the back and forth",
+      "purpose": "A quick read of where you are between grieving and daily life, and one step to balance them.",
+      "why": "Grief often swings between two sides. Sometimes you face the loss: feeling it, remembering. Sometimes you turn to daily life: routines, tasks, new things. The book explains that moving between the two is how grief works. A good day doesn't betray your loss, and a hard day after good ones doesn't mean going backward.",
+      "source": {
+        "chapter": "Introduction, The Dual Process Model; Chapter 9, The Dual Process Revisited; Apply This"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think about the past few days.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Rate how much of your time went to facing the loss, from 0 (none) to 10 (all).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Rate how much went to daily life, from 0 (none) to 10 (all).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "If grief has filled most days, pick one small step toward daily life: a walk, a call, a task.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you've kept busy to keep grief away, allow a little grief time, if it feels okay.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Neither side is better. Both are part of grieving.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "For months, Margaret's days were mostly about the loss. Then, on a walk with her group, a golden retriever broke free and bounded over to lick her hand, and she laughed out loud. She felt guilty right away. Her therapist told her, \"Joy is not betrayal. It is evidence that your capacity for life is larger than your capacity for grief.\" Margaret began to let both sides have their time."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Ask which side you've been on lately. Write one small step toward the other.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "You know which side you've been on lately, and one small way to balance it.",
+      "reflect": "Which side is harder for you to allow?",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_loss",
+          "type": "scale_0_10",
+          "label": "Time spent facing the loss"
+        },
+        {
+          "id": "f_life",
+          "type": "scale_0_10",
+          "label": "Time spent on daily life"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small step to balance them"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Build one steady anchor",
+      "purpose": "A small daily shape: a morning anchor, one planned activity, and one reason to leave the house.",
+      "why": "Loss can take away the routines that gave your days their shape. The book suggests building a new shape slowly, starting with three pieces: a morning routine, one activity each day, and one regular commitment outside the house. The new shape may look nothing like the old one. That's fine. It's built for life as it is now.",
+      "source": {
+        "chapter": "Chapter 9, Rebuilding Structure; Work, Purpose, and New Activities"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one morning anchor, like getting up at the same time, tea first, or a short stretch.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose one small activity for each day: a walk, a call, or a task.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Choose one regular commitment outside the house: a class, a group, or a volunteer shift.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "If you're going back to work, note one thing that would make it easier.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Leave room for rest. Time doing nothing is part of the shape too.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Start with one piece if three is too many. Add more later.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara's old days had run on early alarms and deadlines. That shape was gone. She built a gentler one. She got up at the same time each morning, even with nowhere to be, so the day had a beginning. She added swimming three mornings a week, a weekly call with her sister, and a Thursday evening craft group. None of it would have fit her old calendar. All of it fit the life she had now."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Choose one morning anchor to try tomorrow.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_morning"
+        ]
+      },
+      "done_when": "Your days have a little more shape, built for life as it is now.",
+      "reflect": "Which piece feels most doable?",
+      "feeds_plan": [
+        {
+          "field_id": "f_morning",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_daily",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_out",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_morning",
+          "type": "short_text",
+          "label": "Your morning anchor"
+        },
+        {
+          "id": "f_daily",
+          "type": "short_text",
+          "label": "Your daily activity"
+        },
+        {
+          "id": "f_out",
+          "type": "short_text",
+          "label": "Your commitment outside the house"
+        },
+        {
+          "id": "f_work",
+          "type": "short_text",
+          "label": "One thing that would make work easier",
+          "optional": true,
+          "help": "For example: shorter hours at first, or a quiet place to go if grief comes at work."
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Remember in your own way",
+      "purpose": "A gentle, optional way to remember, chosen by you, at a pace you set.",
+      "why": "Memories can bring comfort, pain, or both at once. Early on, many people avoid reminders, and that can be protective. Over time, remembering often becomes a way to stay connected to what you loved. The book is clear that this shouldn't be forced. If it's too soon, \"not yet\" is a complete answer.",
+      "source": {
+        "chapter": "Chapter 5, Remembering Well; Chapter 8, Continuing Bonds; Apply This"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Check in first. If remembering feels like too much today, choose \"not yet\" and stop here.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If you'd like to go on, pick one form: an object, a photo, a story, or a letter.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose a happy or ordinary memory. Leave the hardest moments for another time, or for support.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Spend a few minutes with it. Have a friend nearby if that helps.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Stop whenever you want. Then feel your feet on the floor for a moment.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Decide where the object or words belong: kept in view, stored away, or carried with you.",
+          "figure": "fig_folders"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "Packing after the divorce, Daniel found his daughter Emma's first painting from preschool: purple blobs she'd called \"Daddy and Emma at the park.\" People had told him to clear out reminders of his old life. He didn't want to. He framed the painting and hung it in his kitchen. Over the months, a photo from a weekend at the lake and a Father's Day card joined it. The wall became a record that the love had continued."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Choose \"not yet,\" or one way you might remember on another day.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_ready"
+        ]
+      },
+      "done_when": "You've chosen how to remember, or chosen to wait. Either one is right.",
+      "reflect": "How did it feel to decide this for yourself?",
+      "fields": [
+        {
+          "id": "f_ready",
+          "type": "checklist",
+          "label": "How you'd like to remember today",
+          "options": [
+            "Not yet",
+            "An object",
+            "A photo",
+            "A story to write down",
+            "A letter",
+            "Something else"
+          ]
+        },
+        {
+          "id": "f_memory",
+          "type": "long_text",
+          "label": "Your words, if you'd like",
+          "optional": true,
+          "help": "A few lines about an ordinary or happy memory. Only if it feels right."
+        },
+        {
+          "id": "f_place",
+          "type": "short_text",
+          "label": "Where it belongs in your life",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Make a small ritual",
+      "purpose": "One small ritual that gives your grief a regular time and shape.",
+      "why": "Many cultures have long traditions for mourning, but modern life often stops at the funeral, or offers nothing for losses people don't see. A small ritual of your own can fill that gap. It might be a candle, a walk, a garden, or a meal. The form matters less than the meaning. Keep it small enough to keep doing.",
+      "source": {
+        "chapter": "Chapter 8, Rituals and Memorials; Legacy"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think about what you want to honor: a person, a relationship, a time of life, or a hope.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick a kind: private, shared with others, tied to a season, or creative, like planting something.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose how often: daily, monthly, or on certain dates.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Write it in one line. Keep it small enough to keep doing.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If it brings up too much, make it smaller or pause it. You decide.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "The garden had been David's for decades. He'd built the raised beds and labeled the tools in his careful handwriting. The first spring, Margaret stood at the back door looking at beds going wild. She knelt in the soil anyway and planted the snapdragons he'd loved, probably in the wrong place, talking to him while she worked. By the second spring she'd learned enough to do it properly, and she added a few flowers of her own."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one small ritual you might try.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_ritual"
+        ]
+      },
+      "done_when": "You have a small ritual of your own. You can change it anytime.",
+      "reflect": "What does this ritual say about what mattered?",
+      "feeds_plan": [
+        {
+          "field_id": "f_ritual",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_honor",
+          "type": "short_text",
+          "label": "What you want to honor"
+        },
+        {
+          "id": "f_ritual",
+          "type": "short_text",
+          "label": "Your ritual, in one line",
+          "help": "For example: plant something each spring, or light a candle on the 14th."
+        },
+        {
+          "id": "f_often",
+          "type": "short_text",
+          "label": "How often"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Plan for a hard date",
+      "purpose": "A plan for one hard date ahead, so you choose how the day goes.",
+      "why": "Anniversaries, birthdays, holidays, and other dates tied to your loss can bring strong waves of grief, even years later. The book's advice is to plan for them rather than be caught off guard. The days leading up to a hard date are often harder than the day itself, especially with people around you and a plan for the hours.",
+      "source": {
+        "chapter": "Chapter 3, Grief Spikes and Triggers; Chapter 8, Planning for Anniversaries; Chapter 12, Grief Returns"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one hard date ahead: an anniversary, a birthday, a holiday, or another date that matters.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Decide how you want to spend it: quietly, with company, with a ritual, or kept busy.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Give yourself permission to feel whatever comes. There's no right way to feel that day.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Tell someone it's coming, like: \"Next Tuesday is a hard day for me.\"",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add one kind thing to the day: a favorite meal, time outside, or a call.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Note any hard seasons too, like a month or a kind of weather.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If planning feels like too much today, stop. You can come back closer to the date.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Margaret dreaded the first anniversary of David's death for weeks. Her daughter offered to come, and Joan from the walking group offered to be available. She said yes to both. In the morning, she visited his grave alone and told him about the year. In the afternoon, she and her daughter looked through photo albums, laughing and crying. By evening she was tired, but okay. The weeks before had been harder than the day."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one hard date ahead and one person you'll tell.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_date",
+          "f_tell"
+        ]
+      },
+      "done_when": "You have a plan for a hard date. You get to choose how it goes.",
+      "reflect": "What would help you most on that day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_date",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_plan",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_date",
+          "type": "short_text",
+          "label": "The date"
+        },
+        {
+          "id": "f_plan",
+          "type": "long_text",
+          "label": "How you want to spend it"
+        },
+        {
+          "id": "f_tell",
+          "type": "short_text",
+          "label": "Who you'll tell"
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "One kind thing for the day"
+        },
+        {
+          "id": "f_season",
+          "type": "short_text",
+          "label": "A hard season to watch for",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Try one thing, once",
+      "purpose": "One new activity to try once, with no promise to keep going.",
+      "why": "Grief can leave empty time, and old routines that no longer fit. Trying something new doesn't replace what you lost. It can show you what else might bring some ease or connection. The book suggests going once and seeing how it feels. Keep it if it helps. Let it go if it doesn't.",
+      "source": {
+        "chapter": "Chapter 9, Work, Purpose, and New Activities; Chapter 11, Clarifying Values"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List a few things you've never had time for, or that wouldn't have fit your old life.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Include some that have nothing to do with grief, like a class or a choir.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one to try once. No commitment beyond that.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose a day for it.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Afterward, note how it felt. Keep it, or let it go.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara joined a Thursday evening craft group and tried ceramics on a whim. She'd never had time for anything like it. She liked working with her hands, and the slowness of it. She wasn't good at ceramics, and she didn't need to be. The pleasure was in the doing. It became a weekly habit, and a source of quiet satisfaction that no performance review had ever given her."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one thing you'd be willing to try once.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_try"
+        ]
+      },
+      "done_when": "You've picked one new thing to try once. However it goes, you'll know a little more.",
+      "reflect": "What would make it easier to go the first time?",
+      "feeds_plan": [
+        {
+          "field_id": "f_try",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_ideas",
+          "type": "ranked_list",
+          "label": "Things you might try",
+          "max_items": 5
+        },
+        {
+          "id": "f_try",
+          "type": "short_text",
+          "label": "The one you'll try, and when"
+        },
+        {
+          "id": "f_felt",
+          "type": "short_text",
+          "label": "How it felt",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "What matters now",
+      "purpose": "A short list of what matters to you now, and one small step toward it.",
+      "why": "Loss can strip away what doesn't matter and show what does. What matters to you now may be different from before, and that's expected. The aim here is noticing, with no pressure to change your life. Some people also want to carry something forward from what they lost, like a value, a tradition, or a story.",
+      "source": {
+        "chapter": "Chapter 11, Clarifying Values; Finding Purpose and Giving Back; Chapter 8, Legacy; Apply This"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write up to five things that matter most to you now. Not before. Now.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If nothing comes, ask when you've felt most like yourself lately.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice one gap between what matters and how your time goes.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one small step toward what matters. One is enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you'd like, write one thing you want to carry forward from what you lost.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Daniel",
+        "text": "After the divorce, Daniel saw he'd been living by values he'd never examined. He'd chased career success because ambitious people did, kept friendships that drained him, and confused busyness with purpose. When he asked what mattered now, the list was short: his children, his integrity, time in nature, and people who really knew him. He became a more present father. He learned to braid his daughter's hair, and to ask questions and wait for the answers."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that matters to you now.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values"
+        ]
+      },
+      "done_when": "You've named some of what matters now. It can guide your next steps, at your pace.",
+      "reflect": "Did anything you wrote surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_carry",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "ranked_list",
+          "label": "What matters most to you now",
+          "max_items": 5
+        },
+        {
+          "id": "f_gap",
+          "type": "short_text",
+          "label": "One gap you noticed"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small step"
+        },
+        {
+          "id": "f_carry",
+          "type": "short_text",
+          "label": "Something to carry forward",
+          "optional": true,
+          "help": "For example: her kindness to strangers, or Sunday dinners."
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Know your warning signs",
+      "purpose": "A short list of signs that grief needs more support, and who you will contact.",
+      "why": "Most grief, however painful, softens in its own time with support. Sometimes it needs more. Signs can include sleep that does not improve, daily life becoming very hard to manage, drinking more to cope, or grief that feels as heavy as at the start after many months. Noticing early means you can reach out sooner.",
+      "source": {
+        "chapter": "Introduction, When to Seek Professional Support; Chapter 10, Signs That You Need More Help; Chapter 12, Setbacks and Prevention"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the list of signs. Pick any you want to watch for.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Add one of your own, like pulling away from people who help.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each sign, write what you will do, like call a friend or make a doctor's appointment.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write who you will contact: a doctor, a grief counselor, or a support group.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If you have thoughts of harming yourself, do not wait. Tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Six months after David died, Margaret's daughter was worried. Margaret had lost weight, was barely sleeping, had missed appointments, and had stopped answering the phone. Margaret told herself she only needed to be stronger. Her daughter insisted she see her doctor. That visit gave Margaret permission to accept help, and in time she found a therapist who suited her. \"You do not have to carry it alone anymore,\" the therapist told her."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sign to watch for, and who you would contact.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_do"
+        ]
+      },
+      "done_when": "You know your warning signs and who you will contact. Reaching out early is a sensible step.",
+      "reflect": "Which sign would you be most likely to miss?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_do",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_contact",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "checklist",
+          "label": "Signs to watch for",
+          "options": [
+            "Sleep that does not improve for weeks",
+            "Struggling to manage daily life or care for others",
+            "Drinking or using other substances more to cope",
+            "Grief feeling as heavy as at the start, after many months",
+            "Pulling away from everyone",
+            "A sense that something is wrong beyond what you expected"
+          ]
+        },
+        {
+          "id": "f_do",
+          "type": "two_column",
+          "label": "Your signs, and what you will do",
+          "columns": [
+            "Sign",
+            "What you will do"
+          ]
+        },
+        {
+          "id": "f_contact",
+          "type": "short_text",
+          "label": "Who you will contact",
+          "help": "For example: my doctor, a grief counselor, or a local support group."
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Start your grief handbook",
+      "purpose": "A few lines on what you know about your own grief, for times when thinking clearly is hard.",
+      "why": "You know more about your grief now than you did twelve weeks ago: what sets off waves, what helps, what doesn't, and who to call. When grief surges, that knowledge can be hard to reach. The book suggests writing it down while you're steady. Your earlier answers are filled in to start you off.",
+      "source": {
+        "chapter": "Chapter 12, Your Personal Grief Handbook; Apply This"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write up to three things that set off grief waves for you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write up to three things that help, and three that don't.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add up to three people you can call, with their numbers.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add one warning sign that tells you to reach out for more support.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Keep it short. You can add to it anytime.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "By the second year, Margaret knew her grief well. October light could set off a wave, and so could David's brand of coffee. Walking with Joan and the group helped, and so did the garden and talking to David. Staying indoors for days made things worse. She wrote it all down in a few lines, with names and numbers, so that on a hard day she wouldn't have to remember it all herself."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read what's filled in. Add one thing that helps and one person to call.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_helps",
+          "f_allies"
+        ]
+      },
+      "done_when": "Your grief handbook is started. It's there for the days when grief surges.",
+      "reflect": "What would you most want to remember on a hard day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_triggers",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_helps",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_allies",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_sign",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_triggers",
+          "type": "ranked_list",
+          "label": "What sets off waves",
+          "max_items": 3
+        },
+        {
+          "id": "f_helps",
+          "type": "ranked_list",
+          "label": "What helps",
+          "max_items": 3
+        },
+        {
+          "id": "f_not",
+          "type": "ranked_list",
+          "label": "What doesn't help",
+          "max_items": 3
+        },
+        {
+          "id": "f_allies",
+          "type": "two_column",
+          "label": "People you can call",
+          "columns": [
+            "Name",
+            "Number"
+          ]
+        },
+        {
+          "id": "f_sign",
+          "type": "short_text",
+          "label": "One sign to reach out for more support"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "When grief comes back",
+      "purpose": "A plan for when grief returns strongly, written while you're steady.",
+      "why": "Grief doesn't follow a straight line. After steadier weeks, a song, a date, or an old voicemail can bring a wave as strong as the early ones. A setback like that doesn't erase what you've built. Planning now means you'll know your first steps: the basics, your people, and when to reach out for more support.",
+      "source": {
+        "chapter": "Chapter 12, Grief Returns; Setbacks and Prevention; Chapter 3, Safety First"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write what a strong return of grief might look like for you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your back-to-basics steps: sleep, food, a little movement, and one person.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Name who you'll contact first. If no one comes to mind, a support line counts.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write a kind line to read then, like: \"Hello, grief. I know you. You will pass.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note when you would check in with a doctor, like if it lasts more than a few weeks.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Margaret",
+        "text": "Eight months after David died, Margaret had been doing well. Then she found a voicemail she hadn't known was there: David asking her to pick up sourdough on the way home. She played it again and again, and didn't leave the house for three days. On the fourth day, her walking group came to the door. Joan sat beside her and held her hand. On the fifth day, Margaret walked with them, crying most of the way. What she'd built held."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step for when grief comes back strongly. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_basics"
+        ]
+      },
+      "done_when": "Your plan for when grief returns is ready, with your basics and your people.",
+      "reflect": "What would you want to hear from yourself on that day?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_basics",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_line",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_looks",
+          "type": "short_text",
+          "label": "What a strong return might look like"
+        },
+        {
+          "id": "f_basics",
+          "type": "long_text",
+          "label": "Your back-to-basics steps"
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Who you'll contact first"
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "A kind line to read then"
+        },
+        {
+          "id": "f_check",
+          "type": "short_text",
+          "label": "When you would check in with a doctor",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Hand on your heart",
+      "when_to_use": "Grief feels sharp or confusing, and you need a moment.",
+      "steps": [
+        "Place your hand on your chest. Feel your heart beating.",
+        "Say to yourself: \"This is grief. It is hard, and it is normal.\"",
+        "Inhale slowly while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Let yourself feel what's here, just for this moment."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 1, Apply This; Chapter 4, Regulation and Processing"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Ride the wave",
+      "when_to_use": "A wave of grief hits, at home or out in the world.",
+      "steps": [
+        "Name it: \"This is a grief wave. It will pass.\"",
+        "Inhale while you count to four. Exhale while you count to six.",
+        "Ground yourself: feet on the floor, hands on something solid.",
+        "Let the wave move through. You don't have to fight it.",
+        "When it passes, gently go back to what you were doing."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Apply This; Chapter 3, Grief Spikes and Triggers"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Three things only",
+      "when_to_use": "Everything feels like too much, and you don't know where to start.",
+      "steps": [
+        "Pick three things for today. Only three.",
+        "Start with the basics: eat something, drink water, rest.",
+        "Add only what truly can't wait.",
+        "When the three are done, that's enough."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 3, Safety First; Apply This"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Longer exhale",
+      "when_to_use": "You feel tense or wound up, or grief wakes you in the night.",
+      "steps": [
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly while you count to six, or to eight if comfortable.",
+        "Repeat a few times. Three slow breaths count."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Regulation and Processing"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Five, four, three",
+      "when_to_use": "A wave or a looping thought is pulling you away from the present.",
+      "steps": [
+        "Feel your feet on the floor.",
+        "Name five things you can see.",
+        "Name four things you can hear.",
+        "Name three things you can touch."
+      ],
+      "minutes": 1,
+      "figure": "fig_looking_at_map",
+      "source": {
+        "chapter": "Chapter 4, Regulation and Processing"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Write it down at night",
+      "when_to_use": "Thoughts keep you awake at bedtime.",
+      "steps": [
+        "Keep a notebook and pen by the bed.",
+        "Write down whatever is going round in your mind.",
+        "Leave it on the page. It's held there now.",
+        "Turn the light off and rest, even if sleep is slow."
+      ],
+      "minutes": 2,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 6, Sleep and Rest"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Step out of the loop",
+      "when_to_use": "You notice yourself going over the same ground again.",
+      "steps": [
+        "Notice it: \"I'm going over the same ground again.\"",
+        "Name three things you can see, hear, and touch.",
+        "Take three slow breaths, letting each breath out be longer.",
+        "Do one small thing in the next five minutes: tea, a step outside, a text."
+      ],
+      "minutes": 2,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 5, When Thoughts Loop; Apply This"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Five ways to answer",
+      "when_to_use": "Someone says something about your grief that hurts or doesn't help.",
+      "steps": [
+        "Redirect: \"Thank you. I'd rather not talk about it right now.\"",
+        "Ask: \"What would help most is someone to listen.\"",
+        "Correct gently: \"I know you mean well, but that makes this harder.\"",
+        "Change topic: \"I don't have the energy today. Tell me about you.\"",
+        "Exit: \"I need to step away for a few minutes.\""
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 7, How Grief Changes Relationships"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Hello, grief",
+      "when_to_use": "Grief returns out of nowhere, maybe months or years later.",
+      "steps": [
+        "Notice the wave. It may come from a song, a date, or a smell.",
+        "Say to yourself: \"Hello, grief. Here you are again. I know you.\"",
+        "Remind yourself that grief comes back because love lasts.",
+        "Let it pass. Open Ride the wave if you need it."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 12, Grief Returns"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Back to basics",
+      "when_to_use": "Grief has surged again, and the days feel hard.",
+      "steps": [
+        "Sleep: rest when you can, even without sleeping.",
+        "Food: something small counts.",
+        "Movement: a short walk or a stretch.",
+        "Connection: one message to someone who cares.",
+        "If it lasts for weeks, please talk to a doctor."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 12, Setbacks and Prevention; Chapter 3, Safety First"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. Whatever you wrote is saved, just for you."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready whenever a wave comes."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a gentle look at everything that changed."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern on Progress. Ups and downs are part of grief."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You've put words to how grief shows up for you."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to your first. Grief moves in waves, so any result is useful."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have basics, tools for waves, and your people mapped. Next, life alongside grief."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Grief takes the time it takes. Pick up with one small step."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now. Your plan and Toolkit stay with you."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Getting through the day"
+    },
+    {
+      "id": "p3",
+      "title": "When a wave comes"
+    },
+    {
+      "id": "p4",
+      "title": "Your people"
+    },
+    {
+      "id": "p5",
+      "title": "Life alongside grief"
+    },
+    {
+      "id": "p6",
+      "title": "Hard dates and harder times"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by putting words to how grief shows up for you. Since then, you've covered the basics, found ways to ride the waves, answered guilt more kindly, gathered your people, and made some room for life alongside the loss. Grief doesn't end on a schedule, and it may come back, often around dates that matter. That comes with having loved someone or something. Your handbook and your plan are here for those times.",
+    "book_bridge": "Every tool here comes from When Everything Changes by Maya Vaughn. The book tells the full stories of Margaret, Daniel, Amara, and Grace. You can find it in Books.",
+    "related_codes": [
+      "lowmood",
+      "mindfulness"
+    ]
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What has helped this month, even a little?",
+      "Is a hard date coming up? What's your plan for it?",
+      "Have any of your warning signs shown up? Who could you reach out to?"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e05",
+      "e06",
+      "e07",
+      "e08",
+      "e10",
+      "e12",
+      "e13"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/When_Everything_Changes.docx",
+    "v1_id": "grief",
+    "cut_log": [
+      {
+        "item": "The five stages model",
+        "chapter": "Introduction; Chapter 1, Waves, Not Stages",
+        "reason": "Named only as 'waves, not stages' so nothing implies a sequence to complete. No stage content."
+      },
+      {
+        "item": "Statistics, study details and researcher names",
+        "chapter": "Introduction; Chapters 1, 2, 5, 6, 10, 11",
+        "reason": "Trajectory percentages, the one-in-ten figure, treatment response rates, sleep and antidepressant figures, inflammation and heart detail. Not needed for instruction, and the book gives inconsistent figures."
+      },
+      {
+        "item": "Prolonged Grief Disorder criteria and the twelve-month threshold",
+        "chapter": "Chapter 1; Chapter 10, Signs That You Need More Help; Apply This",
+        "reason": "Would read as a screen and a label. Kept as plain warning signs in e20 and the start note, pointing to a doctor or grief counselor."
+      },
+      {
+        "item": "Therapy types, medication and finding a therapist",
+        "chapter": "Chapter 10",
+        "reason": "Medical and referral content. The start note, e20 and Help now carry the professional-help message."
+      },
+      {
+        "item": "Intrusive thoughts and competing imagery",
+        "chapter": "Chapter 5, When Thoughts Loop",
+        "reason": "Engages with images of how a person died. Higher tier rules exclude recall of a death. Better handled with professional support, as the book says."
+      },
+      {
+        "item": "Detailed memories of the death or loss event",
+        "chapter": "Chapters 2, 4, 5, 10",
+        "reason": "No exercise asks for them. e15 steers to happy or ordinary memories and offers 'not yet'. Grace's physical memories of the miscarriage are left out of every example."
+      },
+      {
+        "item": "Ambiguous loss and both/and thinking",
+        "chapter": "Chapter 2, The Losses Nobody Sees",
+        "reason": "The book says ambiguous loss often benefits from professional support. Covered only by e02's all-loss framing."
+      },
+      {
+        "item": "Children's grief",
+        "chapter": "Chapter 7, Finding Your People",
+        "reason": "Applies only to readers with children in their lives, and needs more than one screen. Candidate for a later optional extra."
+      },
+      {
+        "item": "New relationships",
+        "chapter": "Chapter 12, New Relationships",
+        "reason": "Risks implying a timeline or a next step to reach."
+      },
+      {
+        "item": "Giving back, benefit-finding and what grief teaches",
+        "chapter": "Chapter 5, Finding Meaning; Chapter 11",
+        "reason": "Risks implying the reader should find a silver lining or turn loss into service. The carry-forward line in e19 keeps the optional impulse."
+      },
+      {
+        "item": "Physiological sigh, cold water on the face and shaking",
+        "chapter": "Chapter 6, Medical Care for the Grieving Body",
+        "reason": "Toolkit kept to one breathing tool with the book's own counts. Cold water has medical cautions the book does not give."
+      },
+      {
+        "item": "Hope that holds",
+        "chapter": "Chapter 5; Chapter 11",
+        "reason": "Not an exercise. Its spirit is in the primers, m11 and the finish summary, without promising that grief will lift."
+      }
+    ],
+    "notes": "v1 topic_name: Grief\nv1 set_id: healing-and-loss (Healing and Loss); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 18"
+  }
+}

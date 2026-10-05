@@ -1,0 +1,2614 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-F536B",
+  "slug": "rest-to-reset-f536b",
+  "title": "Rest to Reset",
+  "short_title": "Sleep",
+  "card_line": "Twelve weeks of small, practical steps toward calmer nights and steadier sleep",
+  "tagline": "Twelve weeks of small, practical steps toward calmer nights and steadier sleep",
+  "book": {
+    "book_id": "rest-to-reset",
+    "title": "Rest to Reset",
+    "subtitle": "A Practical Guide to Sleep and Mental Health",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H59PDQNK",
+      "US": "https://www.amazon.com/dp/B0H59PDQNK"
+    },
+    "asin": "B0H59PDQNK"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See your sleep clearly first",
+          "body": "The Explore stage is about understanding, not fixing. Many people blame themselves for poor sleep, as if it should come easily. Over two weeks, you'll make two simple changes, name the pattern behind your nights, and look at what you believe about sleep. Some of those beliefs make nights harder than they need to be. Seeing that is already a step.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "Two changes in place, a name for your sleep pattern, and a calmer, more accurate view of sleep.",
+        "review_question": "What surprised you about your sleep, or about what you believed?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Set up the conditions",
+          "body": "Sleep comes when the conditions are right and your system can stand down. In the Build stage, you'll set up those conditions one at a time over five weeks: a steady wake time, morning light, your evening habits, your bedroom, your day, a wind-down, and ways to calm your body. Where you can, make each change once, so it doesn't run on willpower.",
+          "figure": "fig_desk_ready"
+        },
+        "outcome": "A steady wake time, morning light, a bedroom set up for sleep, a wind-down, and ways to settle your body.",
+        "review_question": "Which change made the most difference, and which one hasn't stuck yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Work with the night",
+          "body": "The Practice stage turns to the night itself. Over four weeks, you will work with churning thoughts, the habits that keep poor sleep going, and what to do when sleep does not come. You will also get notes ready for a doctor, in case you need one. If your capacity drops, hold the basics and let the rest wait. Yellow weeks are part of this too.",
+          "figure": "fig_moon"
+        },
+        "outcome": "Ways to meet churning thoughts, a wakeful night, and a rough night, plus notes ready for a doctor if needed.",
+        "review_question": "What's different about how you meet a wakeful night now, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what's working",
+          "body": "The Keep stage brings twelve weeks together. You'll write your sleep plan and a plan for getting back on track after a hard patch. Keep both modest. Good-enough sleep, held steadily, is the goal.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your sleep plan and your plan for hard patches, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If nights have become a struggle, and the usual advice hasn't helped, this is built for that. It's twelve weeks of small, practical steps toward sleep that's good enough, not perfect. Most weeks take 15 to 25 minutes, and every exercise has a shorter version. Nothing here asks you to force sleep. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting tonight.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If you slept a little better, what would you want the extra energy for? One line is enough.",
+    "extra_safety_note": "Some sleep problems need a doctor, not a workbook. Loud snoring, gasping or pauses in breathing at night, an urge to move your legs at night that you cannot resist, or falling asleep in the day without meaning to should be checked by a doctor. So should sleeplessness that has gone on for a long time. If poor sleep comes with low mood that will not lift, or any thoughts of harming yourself, please tap Help now. If you take medication for sleep or mood, do not change it based on anything here. Talk to your doctor first."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "nights",
+        "label": "Your nights"
+      },
+      {
+        "id": "days",
+        "label": "Your days and body clock"
+      },
+      {
+        "id": "mind",
+        "label": "Your mind at bedtime"
+      },
+      {
+        "id": "relationship",
+        "label": "How you feel about sleep"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "nights",
+        "text": "You fall asleep without a long struggle."
+      },
+      {
+        "id": "q02",
+        "area": "nights",
+        "text": "When you wake in the night, you drift back to sleep."
+      },
+      {
+        "id": "q03",
+        "area": "nights",
+        "text": "You wake feeling at least a little rested."
+      },
+      {
+        "id": "q04",
+        "area": "nights",
+        "text": "Getting into bed feels like the start of sleep."
+      },
+      {
+        "id": "q05",
+        "area": "days",
+        "text": "You wake at about the same time on workdays and free days."
+      },
+      {
+        "id": "q06",
+        "area": "days",
+        "text": "You get some daylight soon after waking."
+      },
+      {
+        "id": "q07",
+        "area": "days",
+        "text": "You have enough energy to get through most of the day."
+      },
+      {
+        "id": "q08",
+        "area": "days",
+        "text": "You keep caffeine to the earlier part of the day."
+      },
+      {
+        "id": "q09",
+        "area": "mind",
+        "text": "You have some calm time to wind down before bed."
+      },
+      {
+        "id": "q10",
+        "area": "mind",
+        "text": "Your mind settles fairly soon after you lie down."
+      },
+      {
+        "id": "q11",
+        "area": "mind",
+        "text": "Tasks and worries are out of your head before bed."
+      },
+      {
+        "id": "q12",
+        "area": "mind",
+        "text": "When thoughts start churning at night, you can let them pass."
+      },
+      {
+        "id": "q13",
+        "area": "relationship",
+        "text": "You feel calm, not dread, as bedtime gets close."
+      },
+      {
+        "id": "q14",
+        "area": "relationship",
+        "text": "You can let a rough night go without worrying about tomorrow."
+      },
+      {
+        "id": "q15",
+        "area": "relationship",
+        "text": "You let sleep come, instead of trying hard to make it happen."
+      },
+      {
+        "id": "q16",
+        "area": "relationship",
+        "text": "You can think about your sleep without blaming yourself."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Sleep rarely gets better in a straight line, so harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: you have room to work on sleep. Yellow: sleep has a real grip, so hold the basics. Red: sleep loss is taking over your days. If you pick red, please see a doctor and lean on support. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_wake",
+        "type": "weekly_grid",
+        "label": "Days you woke at your set time"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that got in the way, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_wind",
+        "type": "weekly_grid",
+        "label": "Days you had a wind-down before bed",
+        "help": "Your wind-down starts in week 6. Leave this blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How rested did you feel today?",
+    "scale_low": "Worn out",
+    "scale_high": "Rested",
+    "tags": [
+      "Woke at my set time",
+      "Got morning light",
+      "Phone slept elsewhere",
+      "Caffeine early only",
+      "Moved my body",
+      "Wound down before bed",
+      "Wrote things down",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Make two changes and name your pattern",
+      "exercise_ids": [
+        "e01",
+        "e02"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Look at what you believe about sleep",
+      "exercise_ids": [
+        "e03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Anchor your body clock",
+      "exercise_ids": [
+        "e04",
+        "e05"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Look at your habits and make them easy",
+      "exercise_ids": [
+        "e06",
+        "e07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Set up your bedroom for sleep",
+      "exercise_ids": [
+        "e08",
+        "e09"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Shape the day and build a wind-down",
+      "exercise_ids": [
+        "e10",
+        "e11"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Clear your mind and calm your body",
+      "exercise_ids": [
+        "e12",
+        "e13"
+      ],
+      "new_toolkit_ids": [
+        "t04",
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Work with churning thoughts and old habits",
+      "exercise_ids": [
+        "e14",
+        "e15"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e04"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Plan for wakeful nights, and know when to get help",
+      "exercise_ids": [
+        "e16",
+        "e17"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e11"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Loosen the worry and stop chasing sleep",
+      "exercise_ids": [
+        "e18",
+        "e19"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06",
+        "e10"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Meet rough nights and hard stretches calmly",
+      "exercise_ids": [
+        "e20",
+        "e21"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03",
+        "e09"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e22",
+        "e23"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e15",
+        "e18"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Make two changes tonight",
+      "purpose": "Your phone charging outside the bedroom, and one wake time you'll hold whatever the night brings.",
+      "why": "When sleep is hard, ordinary advice can feel useless. The book starts with two changes that each take one decision, not nightly willpower. Moving your phone out takes away the light, the stimulation, and the late-night clock checks. A set wake time anchors your body clock. Together, they're the best place to begin.",
+      "source": {
+        "chapter": "How to Use This Book; Introduction; Chapter 5, The Phone in the Bedroom; Appendix A, The One Change to Start With; Appendix C, Week one"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a spot outside your bedroom where your phone can charge overnight.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "If your phone is your alarm, plan to use a separate alarm clock.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose a wake time you can hold every day, weekends included.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set the alarm for that time, whatever kind of night you have.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Tonight, put the phone in its new spot before you get ready for bed.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya was thirty-eight, with two young children. She answered the last work emails of the day in bed. She scrolled there after the children were down, and she checked her phone when she woke in the night. Moving it out of the bedroom was one change she could make that same day. It took away the light, the late emails, and the checking all at once. It didn't stop the children waking. But one thing that had been working against her sleep was gone."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Put your phone outside the bedroom tonight.",
+            "figure": "fig_phone_down"
+          },
+          {
+            "text": "Set one wake time for tomorrow.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_spot",
+          "f_wake"
+        ]
+      },
+      "done_when": "Your phone has a new home for the night, and your wake time is set.",
+      "reflect": "What do you expect will be hardest about these two changes?",
+      "feeds_plan": [
+        {
+          "field_id": "f_wake",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_spot",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_spot",
+          "type": "short_text",
+          "label": "Where your phone will charge overnight"
+        },
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time",
+          "help": "Pick one you can keep on free days too."
+        },
+        {
+          "id": "f_alarm",
+          "type": "yes_no",
+          "label": "Do you need a separate alarm clock?",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Name your sleep pattern",
+      "purpose": "A clearer picture of what's behind your nights, and where the rest of this workbook can aim.",
+      "why": "Poor sleep often brings shame, as if you alone can't do something that should come naturally. Sleep problems are common, and they usually have causes you can work on. Sleep and mood also feed each other, in both directions. So working on your sleep can help how you feel, too.",
+      "source": {
+        "chapter": "How to Use This Book; Chapter 2, It Runs in Both Directions; Sleep and Anxiety, Depression, and Burnout; The Shame That Makes It Worse; Chapter 7, The Patterns of Anxiety, Depression, and Burnout"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the five patterns. Many people see a mix.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the ones that sound like your nights.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For the one that fits best, write a recent night that shows it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back. This is a common pattern, not a flaw in you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If you picked early waking with low mood, please talk to a doctor as well.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus was forty-two, a senior professional whose work never switched off. He lay awake wired and exhausted at the same time. He'd assumed his poor sleep was a side effect of stress that would sort itself out once work calmed down. Seeing his pattern changed that. His sleep was feeding his burnout as much as the burnout was feeding his sleep. That meant the sleep was something he could work on now, instead of waiting."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the pattern that sounds most like your nights.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_pattern"
+        ]
+      },
+      "done_when": "Your sleep pattern has a name. That tells you where to aim next.",
+      "reflect": "How does it feel to see your pattern written down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_pattern",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_pattern",
+          "type": "checklist",
+          "label": "Patterns that sound like your nights",
+          "options": [
+            "Worry about sleep itself keeps me awake",
+            "Wired and exhausted at the same time",
+            "My body clock is out of step with my days",
+            "Waking very early, with a low mood",
+            "Life keeps breaking up my nights"
+          ],
+          "help": "If early waking with low mood fits, please talk to a doctor. It is worth checking."
+        },
+        {
+          "id": "f_night",
+          "type": "short_text",
+          "label": "A recent night that shows your main pattern"
+        }
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Check your beliefs about sleep",
+      "purpose": "The beliefs that make your nights harder, each set beside a calmer, more accurate picture.",
+      "why": "Lying awake counting lost hours raises the stakes and pushes sleep further away. Much of that pressure comes from beliefs that aren't accurate. Sleep need varies from person to person. Brief waking between sleep cycles is normal. One rough night is survivable, and your body recovers. Knowing this can take some of the fear out of a hard night.",
+      "source": {
+        "chapter": "Chapter 1, What Happens While You Sleep; Why Eight Hours Is the Wrong Target; A Calmer View of Sleep Debt; Chapter 12, The Beliefs That Fuel Sleep Anxiety; Appendix A, Accurate Beliefs About Sleep"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the five beliefs, and the more accurate picture beside each one.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate each belief from 1 (not at all true for you) to 5 (completely).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick the belief you hold most strongly.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write a calmer, more accurate version of it in your own words.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia was thirty-four and prone to anxiety. At one in the morning she lay awake doing arithmetic. If she fell asleep now, she'd get five hours. If it took another hour, four. She had a presentation the next day and was sure she'd fall apart. Her fear rested on beliefs that weren't accurate: that she needed eight unbroken hours, that waking meant broken sleep, that one short night would ruin her. Seeing that didn't promise a good night. But it took away some of the stakes."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the belief you hold most strongly.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write a calmer version of it in one line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_calm"
+        ]
+      },
+      "done_when": "Your strongest belief about sleep has a calmer, more accurate version beside it.",
+      "reflect": "Which belief was hardest to look at?",
+      "feeds_plan": [
+        {
+          "field_id": "f_calm",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_beliefs",
+          "type": "rating_grid",
+          "label": "How strongly you hold each belief",
+          "rows": [
+            "You need eight unbroken hours. More accurately, sleep need varies, and many people do well on a bit less.",
+            "Waking in the night means your sleep is broken. More accurately, brief waking between cycles is normal.",
+            "One rough night is a disaster. More accurately, your body copes and recovers.",
+            "You're a bad sleeper, and that won't change. More accurately, poor sleep has causes you can work on.",
+            "You have to try hard to make sleep come. More accurately, sleep comes more easily without force."
+          ]
+        },
+        {
+          "id": "f_calm",
+          "type": "short_text",
+          "label": "The calmer version of your strongest belief",
+          "help": "For example: one short night is hard, but you'll get through tomorrow."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Hold a steady wake time",
+      "purpose": "One wake time you hold across workdays and free days, so your body clock can settle.",
+      "why": "Sleeping in on free days feels like the obvious fix after a tiring week. But shifting your sleep later each weekend works on your body clock like crossing time zones every week. That's part of why Mondays feel so hard. A wake time that stays close to the same every day keeps the clock steady.",
+      "source": {
+        "chapter": "Chapter 3, What the Circadian Rhythm Actually Is; Chronotype Is Biology, Not Laziness; Social Jet Lag and the Disrupted Clock; Appendix C, Week one"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write the time you usually wake on workdays.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Write the time you usually wake on free days.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Look at the gap. A big gap shifts your clock every week.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one wake time to hold every day, with only small changes.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If you're a natural night owl, that's biology, not laziness. Work with it where life allows.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena was twenty-nine and a nurse on rotating shifts. Her body never knew what time it was. On her days off she slept late into the afternoon to catch up, which scrambled things further. She'd decided she was just bad at sleep. In fact, her body clock was being pulled around the whole day. She couldn't make her schedule regular. But she anchored what she could, and stopped blaming herself for the rest."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Set your wake time for the coming week, free days included.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_anchor"
+        ]
+      },
+      "done_when": "You've chosen one wake time to hold, and your body clock has an anchor.",
+      "reflect": "How far apart were your workday and free-day wake times?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchor",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_work",
+          "type": "time_of_day",
+          "label": "Your usual workday wake time"
+        },
+        {
+          "id": "f_free",
+          "type": "time_of_day",
+          "label": "Your usual free-day wake time"
+        },
+        {
+          "id": "f_anchor",
+          "type": "time_of_day",
+          "label": "The wake time you'll hold"
+        },
+        {
+          "id": "f_shift",
+          "type": "short_text",
+          "label": "If your hours change, what you can keep steady",
+          "optional": true,
+          "help": "With shift work, one steady anchor still helps."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Get light in the morning",
+      "purpose": "A daily habit of daylight soon after waking, fitted into something you already do.",
+      "why": "Light is the main signal that sets your body clock. Bright light soon after waking anchors the clock, which helps sleep come at night. Indoor light feels bright, but it's far dimmer than daylight, even on a cloudy day. A few minutes outside is often enough.",
+      "source": {
+        "chapter": "Chapter 3, Light Is the Master Signal; Chapter 6, Morning Light, the Underused Tool; Appendix A, Working With the Body Clock"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think about what you already do in the first hour after waking.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one thing to take outside, like a coffee, a walk, or the commute.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If you can't get outside, plan to sit by a bright window.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write when and where your morning light will happen.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Try it for the next few mornings. A few minutes counts.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena noticed that her sleep was being decided long before she lay down. On days she came off a night shift and went straight into a dark bedroom, she slept poorly. On days she got outside into daylight early in her waking hours, she slept better, even with her schedule. Bright light at the start of her day, whenever that fell, became one of her steadiest tools."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Step outside for a few minutes soon after you wake tomorrow.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_when"
+        ]
+      },
+      "done_when": "Morning light has a time and a place in your day.",
+      "reflect": "What might make morning light easy to keep?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_when",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "Your morning light: when and where",
+          "help": "For example: coffee on the back step at 7:15 a.m."
+        },
+        {
+          "id": "f_backup",
+          "type": "short_text",
+          "label": "Your backup for dark or busy mornings",
+          "optional": true,
+          "help": "A bright window works. People on shifts or in dark seasons sometimes use a light box."
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Check caffeine, alcohol, and screens",
+      "purpose": "An honest look at how caffeine, alcohol, and evening screens affect your nights, and one change to try.",
+      "why": "These three are easy to underestimate. Caffeine lingers for hours after you stop feeling it, so an afternoon coffee can still be working at bedtime. Alcohol can help you fall asleep, but it breaks up the sleep that follows. Screens keep your mind switched on, not just your eyes. Seeing your own pattern makes the change clearer.",
+      "source": {
+        "chapter": "Chapter 4, Caffeine, the Honest Version; Alcohol, and What It Actually Does; Screens, Light, and the Evening Wind-Down; Appendix C, Week two"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write the time of your last caffeine on a usual day.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick anything from the list that's part of your evenings.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Think about which one seems most in the way of your sleep.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one small change, like moving your last coffee earlier or putting screens away sooner.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus had been running on coffee all day to keep up with work. He didn't connect it to his nights, because he no longer felt it by evening. He also had a drink most nights to take the edge off, and his work followed him onto his phone after dark. Looking honestly, he moved his caffeine earlier, cut back on the evening drink, and put the work screens away sooner."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one of the three to change this week. Write the change in one line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You know which habit is most in the way, and you have one change to try.",
+      "reflect": "Did anything here surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_caffeine",
+          "type": "time_of_day",
+          "label": "Time of your last caffeine on a usual day"
+        },
+        {
+          "id": "f_evening",
+          "type": "checklist",
+          "label": "What's part of your evenings",
+          "options": [
+            "Caffeine in the afternoon or evening",
+            "Alcohol in the evening",
+            "Work email or messages late",
+            "Scrolling or videos in bed",
+            "None of these"
+          ]
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "One change to try this week"
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Make it easy by design",
+      "purpose": "Two or three changes made once, so the habits that help sleep happen without nightly willpower.",
+      "why": "Most sleep advice asks for discipline every night, and that's hard to keep up when you're tired. The book's answer is design: change your surroundings once, so the helpful choice is the easy one. Moving the phone out is the clearest example. One decision does the work every night after.",
+      "source": {
+        "chapter": "Chapter 4, Design Over Willpower; Appendix A, Sleep Hygiene Through Design"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of the habits you keep having to resist each evening.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For each one, ask what you could change once to make it easier.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick two or three one-time changes, like keeping afternoon coffee out of reach.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Make the easiest one today.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Write when you'll make the others.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus had tried sleep hygiene before and slept no better. He'd seen it as a list of rules to resist each night, and his tired brain kept losing. This time he changed things once. The phone charged outside the bedroom. The afternoon coffee was out of reach. His evening was set up to wind down without him having to decide. The changes held, because they didn't depend on willpower."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Make one change to your space that makes a helpful habit easier.",
+            "figure": "fig_desk_ready"
+          }
+        ],
+        "field_ids": [
+          "f_done"
+        ]
+      },
+      "done_when": "At least one helpful habit now runs by design, not willpower.",
+      "reflect": "Which one-time change do you expect will help most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_design",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_design",
+          "type": "two_column",
+          "label": "Habits and one-time fixes",
+          "columns": [
+            "What you keep resisting",
+            "What you'll change once"
+          ]
+        },
+        {
+          "id": "f_done",
+          "type": "short_text",
+          "label": "The change you made today"
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Set up your bedroom",
+      "purpose": "A bedroom that's cooler, darker, and quieter, adjusted around the realities of your life.",
+      "why": "Your bedroom does more than hold your bed. Your body needs to cool slightly to sleep, light signals daytime, and noise can break up sleep without you noticing. None of this fixes poor sleep alone. But each one you sort out removes an obstacle. Where the ideal isn't possible, adapt around what you can't change.",
+      "source": {
+        "chapter": "Chapter 5, Temperature, Darkness, and Quiet; Sleep and the Realities of Life; Appendix A, Designing the Environment"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Rate your bedroom on how cool, dark, and quiet it is.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick the one that's most in the way.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose a fix you can manage, like a fan, a sleep mask, or earplugs.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If you share a bed and run warmer or cooler, try separate bedding.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Make one fix this week.",
+          "figure": "fig_desk_ready"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's bedroom was too warm, because the thermostat suited her husband. Light leaked in from the hallway and the street. She was moving into perimenopause, and when night sweats woke her, she lay there fully alert. She couldn't make the room perfect. But she used separate bedding suited to her own temperature, a sleep mask for the light, and earplugs for the noise. Each one removed something that had been working against her."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one: cooler, darker, or quieter. Write one small fix.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_fix"
+        ]
+      },
+      "done_when": "Your bedroom has at least one fewer obstacle to sleep.",
+      "reflect": "Was there anything about your room you'd assumed you couldn't change?",
+      "feeds_plan": [
+        {
+          "field_id": "f_fix",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_room",
+          "type": "rating_grid",
+          "label": "How well your bedroom supports sleep",
+          "help": "1 is not at all, 5 is just right.",
+          "rows": [
+            "Cool enough",
+            "Dark enough",
+            "Quiet enough"
+          ]
+        },
+        {
+          "id": "f_fix",
+          "type": "short_text",
+          "label": "Your fix for this week"
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Give the bed back to sleep",
+      "purpose": "A bed that's linked with sleep again, with one waking activity moved somewhere else.",
+      "why": "Your brain learns what the bed is for from what happens there. Hours of working, scrolling, or worrying in bed can teach it that bed means being alert. That's why some people feel sleepy on the couch but wide awake once they lie down. Keeping the bed for sleep, as far as life allows, helps it relearn.",
+      "source": {
+        "chapter": "Chapter 5, The Bedroom as a Learned Cue; Chapter 11, Stimulus Control: Reconditioning the Bed; Appendix A, Designing the Environment"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick what you do in bed besides sleep.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose the one that keeps your mind most switched on.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose another spot for it, like a chair or the kitchen table.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "This week, do that activity there instead of in bed.",
+          "figure": "fig_door"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's bedroom was where she answered late emails, scrolled after the children were down, worried in the dark, and sometimes worked when the house was quiet. She hadn't thought of that as part of the problem. But her bed had come to mean being alert. She began moving the emails and the scrolling elsewhere, a little at a time, so the link between her bed and sleep could grow stronger."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one waking activity and do it outside the bed tonight.",
+            "figure": "fig_door"
+          }
+        ],
+        "field_ids": [
+          "f_move"
+        ]
+      },
+      "done_when": "One waking activity has a new home outside your bed.",
+      "reflect": "What do you notice when you get into bed now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_inbed",
+          "type": "checklist",
+          "label": "What happens in your bed besides sleep",
+          "options": [
+            "Work or email",
+            "Scrolling or videos",
+            "Watching TV",
+            "Worrying or planning",
+            "Lying awake for a long time"
+          ]
+        },
+        {
+          "id": "f_move",
+          "type": "two_column",
+          "label": "What you'll move, and where",
+          "columns": [
+            "The activity",
+            "Where it will happen instead"
+          ]
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Let the day shape the night",
+      "purpose": "A day that builds your drive to sleep, with movement and naps timed to help the night.",
+      "why": "By bedtime, much of the night is already decided. Your drive to sleep builds the longer you're awake, and long or late naps use it up. Movement builds it too, though hard exercise close to bed can keep you up. So the day is where you have the most say over the night.",
+      "source": {
+        "chapter": "Chapter 6, The Full Day as Preparation; Exercise and Sleep; Napping and the Building of Sleep Pressure; Appendix A, Shaping the Day"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Note when you usually move your body, and how hard.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If hard exercise falls in the last two or three hours before bed, try moving it earlier.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Gentle movement in the evening, like a calm walk or stretching, is fine.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Note when you nap, and for how long.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If you need a nap, keep it short, around 20 minutes, and earlier in the day.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena had been trying to fix her sleep at bedtime, which was far too late. On her better days, she'd had morning light, moved her body, and timed her one coffee carefully. She started keeping anything vigorous to the earlier part of her waking hours. When her shifts made a nap necessary, she kept it short and early, so there was still a drive to sleep left for her main sleep."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change to your movement or naps for this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_move",
+          "f_nap"
+        ]
+      },
+      "done_when": "Your day has a plan that builds toward sleep at night.",
+      "reflect": "What part of your day seems to shape your nights most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "When you'll move, and how"
+        },
+        {
+          "id": "f_nap",
+          "type": "short_text",
+          "label": "Your nap plan, if you need one",
+          "optional": true,
+          "help": "For example: 20 minutes, early in the day. Or no nap."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Build your wind-down",
+      "purpose": "A short, calm routine before bed that lets your mind and body settle before you lie down.",
+      "why": "Going straight from a busy evening into bed can leave your mind loudest at the worst moment. The thoughts were there all day. The quiet of bed just reveals them. A wind-down gives your system time to settle first. It needn't be long or fancy. What matters is that it's calm and steady.",
+      "source": {
+        "chapter": "Chapter 7, Why Quiet Surfaces Thought; Chapter 9, What a Wind-Down Routine Actually Does; Replacing the Screens; Appendix C, Week two"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick a time to start winding down each evening.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose two or three calm, screen-free things to fill that time.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Ideas: a paper book, calm audio, gentle stretching, a warm bath, or quiet conversation.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Have them ready, so putting the screen down doesn't leave an empty gap.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Keep the same order most nights, so it becomes a signal for sleep.",
+          "figure": "fig_moon"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia's evenings went straight from late work, her phone, and the TV into bed, and her mind was loudest the moment her head hit the pillow. She built a wind-down instead: a set time to stop, a few minutes of writing, slow breathing, and a book. Having those ready made it easier to leave the screen behind. She arrived at bed already starting to settle."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one calm thing to do instead of a screen tonight.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_routine"
+        ]
+      },
+      "done_when": "Your wind-down has a start time and a few calm steps.",
+      "reflect": "What do you expect will be hardest about putting the screen down?",
+      "feeds_plan": [
+        {
+          "field_id": "f_start",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_routine",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_start",
+          "type": "time_of_day",
+          "label": "When your wind-down starts"
+        },
+        {
+          "id": "f_routine",
+          "type": "ranked_list",
+          "label": "Your wind-down, in order",
+          "min_items": 2,
+          "max_items": 4
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Write it down before bed",
+      "purpose": "A short writing habit that moves tasks and worries out of your head before sleep.",
+      "why": "Unfinished tasks and worries tend to loop at night, as if your mind is holding on so nothing gets lost. Writing them down tells your mind they're captured, so it can let go. Writing tomorrow's tasks before bed can help people fall asleep faster.",
+      "source": {
+        "chapter": "Chapter 8, Cognitive Offloading and the Open Loop; Chapter 9, Cognitive Offloading: Closing the Loops; Appendix A, Clearing the Mind"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "During your wind-down, sit somewhere other than the bed.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Write tomorrow's tasks, the things to remember, and any worries.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep going until your head feels a little emptier.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Close the page. It's all there for tomorrow.",
+          "figure": "fig_clear_desk"
+        },
+        {
+          "text": "If worries crowd in most evenings, set a worry time earlier in the day.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray was fifty-eight. He fell asleep well enough, but he woke at four in the morning into a darkness that filled with thought. His churning was more about old regrets than unfinished tasks. Even so, writing gave it somewhere to go. A few lines on paper before bed meant less was left to loop in the dark."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things on your mind, then close the page.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_list"
+        ]
+      },
+      "done_when": "What was circling in your head is on paper for tonight.",
+      "reflect": "What did you notice after writing, if anything?",
+      "toolkit_link": "t04",
+      "feeds_plan": [
+        {
+          "field_id": "f_where",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_list",
+          "type": "long_text",
+          "label": "What's on your mind tonight",
+          "help": "Tasks, things to remember, worries. Rough notes are fine. Paper works too."
+        },
+        {
+          "id": "f_where",
+          "type": "short_text",
+          "label": "When and where you'll write each evening"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Calm your body before sleep",
+      "purpose": "Two ways to settle your body at bedtime: slow breathing with a longer exhale, and muscle relaxation.",
+      "why": "When your system is switched on, a slow breath with a long exhale helps your body calm down. Tensing and releasing your muscles eases tension and gives your mind something gentle to follow. Use these to settle, not to force sleep. Trying to make sleep happen is its own kind of effort, and effort keeps you alert.",
+      "source": {
+        "chapter": "Chapter 9, Relaxation Techniques That Work; Chapter 7, Why Trying to Stop Backfires; Appendix A, Clearing the Mind"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Sit or lie comfortably. Inhale slowly through your nose while you count to four.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Exhale slowly while you count to six. Repeat a few times.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Now gently tense the muscles in your feet for a few moments, then let go.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Move up your body, tensing and releasing one area at a time.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Notice which practice settles you more.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia wanted something to do in bed other than trying harder. Slow breathing gave her that, with each long exhale helping her body slow down. Tensing and releasing her muscles drew her attention onto her body and away from the racing thoughts. The difference came when she stopped using them to force sleep, and used them to settle instead."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Inhale slowly while you count to four. Exhale while you count to six. Repeat three times.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_which"
+        ]
+      },
+      "done_when": "You've tried two ways to settle your body, and you know which suits you.",
+      "reflect": "What felt different between trying to sleep and trying to settle?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_use",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_which",
+          "type": "checklist",
+          "label": "Which practice settled you more",
+          "options": [
+            "Slow breathing",
+            "Muscle relaxation",
+            "Both",
+            "Neither yet"
+          ]
+        },
+        {
+          "id": "f_use",
+          "type": "short_text",
+          "label": "When you'll use it",
+          "optional": true,
+          "help": "For example: at the end of your wind-down, or after waking in the night."
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Notice the churn",
+      "purpose": "A way to spot churning thoughts at night and gently step back from them, instead of fighting.",
+      "why": "Going over the past can feel like working something out, but churning goes round without reaching an answer. Telling yourself to stop rarely works, because pushing a thought away keeps it close. What helps is noticing the churn, naming it, and gently moving your attention elsewhere. It's a skill, and it builds with practice.",
+      "source": {
+        "chapter": "Chapter 8, Rumination: Churning Without Resolution; Why Telling Yourself to Stop Does Not Work; Chapter 7, Why Trying to Stop Backfires; Appendix A, Working With Rumination"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a recent night when your thoughts went round and round.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what they were about, in a few words. No need for detail.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask yourself: did going over it lead anywhere new?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Give it a short name, like \"the old loop\".",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next time, name it, then move your attention to your breath or your body.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray's four o'clock waking filled with the same regrets, going over the same ground again and again. It felt like reckoning with his life. But it was churning without an answer, and it left him lower each time. Telling himself to stop only made him frustrated. Noticing the loop, naming it, and gently moving his attention elsewhere was something he could practice."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick a name for your churning thoughts. Next time, name it and exhale slowly.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_name"
+        ]
+      },
+      "done_when": "Your churn has a name, and you have somewhere to move your attention.",
+      "reflect": "What usually happens when you try to push these thoughts away?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_redirect",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_topic",
+          "type": "short_text",
+          "label": "What the churning was about, in a few words"
+        },
+        {
+          "id": "f_name",
+          "type": "short_text",
+          "label": "Your name for the churn"
+        },
+        {
+          "id": "f_redirect",
+          "type": "short_text",
+          "label": "Where you'll move your attention",
+          "help": "For example: the feel of your breath, or relaxing your shoulders."
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "See what keeps it going",
+      "purpose": "The coping habits that may be keeping poor sleep going, and the one you'd like to change first.",
+      "why": "Poor sleep often starts with something, like stress or a loss. It can then carry on long after that has passed. Often it's held there by ways of coping that seem sensible: more time in bed, lying awake trying, napping, canceling plans. These habits are understandable. And unlike the original cause, they're things you can change.",
+      "source": {
+        "chapter": "Chapter 10, How Insomnia Sustains Itself: The Three Factors; The Perpetuating Behaviors; Sleep Effort and the Performance Trap; Appendix A, Understanding Insomnia"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "If you like, write a few words about when your sleep first got harder.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Read the coping habits. Pick any that sound like you.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Remember: these are natural responses to poor sleep, not mistakes.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick one to work on next. The coming weeks have tools for each.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "If you picked extra time in bed, talk to a doctor about the best way to change it.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray had begun getting help for his low mood. Yet the sleeplessness carried on, as if it had a life of its own. He dreaded bed, lay awake for hours willing sleep to come, and tried harder the more it slipped away. Those habits had felt like coping. Seeing them as part of what kept his sleep stuck showed him what he could change."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the coping habit that sounds most like you.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_habits"
+        ]
+      },
+      "done_when": "You know which habits may be keeping poor sleep going, and which one to start with.",
+      "reflect": "Which habit felt most like it was helping at the time?",
+      "feeds_plan": [
+        {
+          "field_id": "f_next",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_start",
+          "type": "short_text",
+          "label": "When your sleep first got harder",
+          "optional": true
+        },
+        {
+          "id": "f_habits",
+          "type": "checklist",
+          "label": "Coping habits that sound like you",
+          "options": [
+            "Going to bed earlier or staying in bed later",
+            "Lying awake in bed for a long time",
+            "Napping to make up for the night",
+            "Canceling plans because of poor sleep",
+            "Trying hard to make sleep come"
+          ],
+          "help": "If you picked going to bed earlier or staying in bed later, please talk to a doctor about the best way to change it."
+        },
+        {
+          "id": "f_next",
+          "type": "short_text",
+          "label": "The habit you'll work on next"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Get up when sleep won't come",
+      "purpose": "A plan for when you've been awake in bed a while, so the bed stays linked with sleep.",
+      "why": "Lying awake for long stretches teaches your bed to mean struggle. The book's answer can feel backward. If you've been awake a while and aren't drowsy, get up. Go somewhere else, do something calm in dim light, and come back when you feel sleepy. Your wake time stays the same.",
+      "source": {
+        "chapter": "Chapter 11, Stimulus Control: Reconditioning the Bed; Appendix D, lying awake; Appendix A, The CBT-I Techniques"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose where you'll go if you get up: somewhere calm, with a dim light.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Pick one or two quiet, screen-free things to do there.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Go to bed when you feel sleepy, not just tired or because it's time.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "If you're awake for about 20 minutes and not drowsy, get up. A rough guess is fine.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Come back to bed when you feel sleepy. Keep your wake time the same.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "After years of burnout, Marcus's bed had become a place of wired wakefulness. Leaving it when he couldn't sleep felt like the wrong move. He was exhausted and wanted to rest. But lying there awake was what had taught the bed to mean struggle. He chose somewhere calm with a dim light, and got up when sleep didn't come. It was hard to accept, and over time it helped."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Decide where you'll go if sleep won't come tonight.",
+            "figure": "fig_door"
+          }
+        ],
+        "field_ids": [
+          "f_place"
+        ]
+      },
+      "done_when": "You have a place and a plan for nights when sleep won't come.",
+      "reflect": "What part of this feels hardest to try?",
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_place",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_do",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_place",
+          "type": "short_text",
+          "label": "Where you'll go"
+        },
+        {
+          "id": "f_do",
+          "type": "short_text",
+          "label": "What you'll do there"
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "How it went the first time",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Get ready to see a doctor",
+      "purpose": "Clear notes about your sleep for a doctor, so you can ask for the right help with confidence.",
+      "why": "Some sleep problems need more than a workbook. Long-term sleeplessness, loud snoring or gasping at night, and early waking with low mood are worth checking. A doctor can also tell you about CBT-I, a structured sleep program, and about limiting time in bed. The second is not right for everyone, so it is best done with a professional.",
+      "source": {
+        "chapter": "Disclaimer; Chapter 8, When the Night-Time Mind Is a Signal; Chapter 11, Sleep Restriction: Rebuilding the Drive; A Note on Access and Patience; Chapter 13, The Specific Challenges; Appendix E, Medical assessment; Appendix F, Working With a Professional"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write how long your sleep has been hard, and what a usual night is like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick anything from the list that a doctor should hear about.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "List what you have tried so far in this workbook.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write your questions, such as whether CBT-I or limiting time in bed could suit you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you take medication for sleep or mood, do not change it without your doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray had been reluctant to name his low mood. But waking at four every morning, the low mood, and the churning over regrets, all together, were a pattern worth taking seriously. He wrote them down and took them to a doctor. That conversation pointed him toward help for his mood as well as his sleep. He had feared this was just how life would be now. It turned out to be something he could get help with."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick anything from the list that a doctor should hear about.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_check"
+        ]
+      },
+      "done_when": "Your notes for a doctor are ready, whenever you choose to use them.",
+      "reflect": "If you decide to see a doctor, what would make it easier?",
+      "fields": [
+        {
+          "id": "f_story",
+          "type": "long_text",
+          "label": "How long sleep has been hard, and what a usual night is like"
+        },
+        {
+          "id": "f_check",
+          "type": "checklist",
+          "label": "Things to mention",
+          "options": [
+            "Loud snoring",
+            "Gasping or pauses in breathing at night",
+            "An urge to move your legs at night",
+            "Falling asleep in the day without meaning to",
+            "Low mood or very early waking",
+            "Night sweats or hormonal changes",
+            "None of these"
+          ]
+        },
+        {
+          "id": "f_tried",
+          "type": "short_text",
+          "label": "What you have tried so far"
+        },
+        {
+          "id": "f_questions",
+          "type": "long_text",
+          "label": "Your questions for the doctor",
+          "help": "For example: Could CBT-I help me? Is limiting my time in bed safe for me?"
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Test one belief",
+      "purpose": "One worry about sleep checked against what actually happened, and a fairer thought to hold instead.",
+      "why": "Fears about sleep often run ahead of the facts. Arguing with them or pushing them away tends to keep them loud. A gentler way is to look at the evidence. How did you actually get through the day after a rough night? It's usually better than the fear predicted.",
+      "source": {
+        "chapter": "Chapter 12, The Beliefs That Fuel Sleep Anxiety; Working With Thoughts Rather Than Fighting Them; Appendix A, The Cognitive Work"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write one thing you tell yourself about sleep that makes you anxious.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how true it feels right now, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Think of a recent rough night. Write how the next day actually went.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write any recent nights you did sleep, even partly.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write a fairer version of the thought, based on what you found.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how true the first thought feels now.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia believed a rough night would ruin her next day. Instead of arguing with that belief, she tested it. She looked at how she had actually managed after poor nights, and it was usually better than her fear predicted. She also looked at the nights she did sleep, which didn't fit the idea that she was a broken sleeper. Gently, the belief began to loosen."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one anxious thought about sleep. Then write one thing that happened that doesn't fit it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_thought",
+          "f_evidence"
+        ]
+      },
+      "done_when": "One worry about sleep has been checked against the facts, and you have a fairer thought.",
+      "reflect": "How did the thought feel once it sat beside the evidence?",
+      "feeds_plan": [
+        {
+          "field_id": "f_fair",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The thought about sleep"
+        },
+        {
+          "id": "f_before",
+          "type": "scale_0_10",
+          "label": "How true it feels right now"
+        },
+        {
+          "id": "f_evidence",
+          "type": "two_column",
+          "label": "What actually happened",
+          "columns": [
+            "The day after a rough night",
+            "Nights you did sleep"
+          ]
+        },
+        {
+          "id": "f_fair",
+          "type": "short_text",
+          "label": "A fairer version of the thought"
+        },
+        {
+          "id": "f_after",
+          "type": "scale_0_10",
+          "label": "How true the first thought feels now"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Stop chasing sleep",
+      "purpose": "A gentler way to be in bed: letting sleep come, instead of trying to make it happen.",
+      "why": "Sleep isn't something you can perform. It's a state your body enters when it's allowed to. Trying hard to sleep is a kind of effort, and effort keeps you alert. So the way in is often to stop chasing it. Some people even gently let themselves stay awake, which takes the pressure off.",
+      "source": {
+        "chapter": "Chapter 10, Sleep Effort and the Performance Trap; Chapter 12, Letting Go of Sleep Effort; Appendix A, The Cognitive Work"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Notice the ways you try to make sleep happen. Write one or two.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Tonight, when you lie down, tell yourself there's no need to sleep yet.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Rest your body and let your eyes close, without checking for sleep.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "If you like, gently let yourself stay awake. Let sleep arrive when it does.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "If you're awake a long while and not drowsy, use your get-up plan.",
+          "figure": "fig_door"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia's effort to sleep had become part of what kept her awake. Letting go of it ran against every anxious instinct she had. It felt like giving up on the thing she wanted most. But when she stopped chasing sleep and let herself rest, the pressure went out of the night. The sleep she had chased so hard came more easily once she stopped chasing it."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Tonight, tell yourself there's no need to sleep yet, and let your body rest.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_line"
+        ]
+      },
+      "done_when": "You have a gentler way to meet bedtime, without chasing sleep.",
+      "reflect": "What was it like to stop trying so hard, even for a moment?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_effort",
+          "type": "short_text",
+          "label": "How you try to make sleep happen",
+          "help": "For example: checking the clock, counting hours, willing yourself to sleep."
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "A line to tell yourself at bedtime",
+          "help": "For example: there's no need to sleep yet. Resting is enough for now."
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Meet a rough night calmly",
+      "purpose": "A short, calm script for your next rough night, written now while you're steady.",
+      "why": "Everyone has rough nights. The trouble starts when one feels like a disaster, because dreading the next night can keep you awake then too. Meeting a rough night calmly takes away that extra fuel. This doesn't mean giving up on good sleep. It means taking the stakes out of an ordinary night.",
+      "source": {
+        "chapter": "Chapter 12, Acceptance and the Bad Night; Chapter 1, A Calmer View of Sleep Debt; Appendix A, The Cognitive Work"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write what you usually tell yourself during a rough night.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what a calm friend who understands sleep might say instead.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Add one line about tomorrow, like: you'll get through the day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add what you'll do in the night, like your slow breaths or your get-up plan.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Keep it short enough to remember in the dark.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia still had the occasional rough night, as everyone does. The difference was in how she met it. She no longer did the arithmetic or saw the night as a disaster. She reminded herself that waking is normal, that her body would cope, and that tomorrow would be manageable. Without the dread, one rough night stopped turning into several."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one calm line to tell yourself on your next rough night.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_new"
+        ]
+      },
+      "done_when": "Your calm script is ready for the next rough night.",
+      "reflect": "What would you want to hear from yourself at 3 a.m.?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_new",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_old",
+          "type": "short_text",
+          "label": "What you usually tell yourself on a rough night"
+        },
+        {
+          "id": "f_new",
+          "type": "long_text",
+          "label": "Your calm script for a rough night"
+        },
+        {
+          "id": "f_do",
+          "type": "short_text",
+          "label": "What you'll do in the night"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Know what knocks you off",
+      "purpose": "The stretches of life most likely to disrupt your sleep, and the one anchor you'll protect through them.",
+      "why": "Stress, illness, busy seasons, shift changes, and young children can all knock sleep off course. Usually the foundations go first: the steady wake time, the wind-down, the evening limits. That's expected, and it doesn't mean your progress is lost. Knowing your likely disruptions helps you protect what you can, especially your wake time.",
+      "source": {
+        "chapter": "Chapter 13, How Stress Collapses the Foundations; The Specific Challenges: Shift Work, Parenting, and Hormonal Change; Appendix A, Sleeping Through Life"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List what's most likely to disrupt your sleep in the coming months.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "For each, note which part of your routine tends to go first.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the one anchor you'll protect, even in a hard stretch.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If parenting, shift work, or hormonal changes are part of it, adapt the tools rather than drop them.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Go easy on yourself in a hard season. Some things no tool fully fixes.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya had spent a long time waiting for life to settle so she could finally sort out her sleep. It never did. The children would wake in the night for years yet, and perimenopause had its own schedule. What helped was expecting the disruptions, and holding her wake time as her anchor. She kept the room cool for the night sweats, talked to her doctor, and was gentler with herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one likely disruption, and the one anchor you'll keep through it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_anchor"
+        ]
+      },
+      "done_when": "You know what's likely to knock your sleep off course, and what you'll hold onto.",
+      "reflect": "Which disruption feels most likely in the next few months?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchor",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_disrupt",
+          "type": "two_column",
+          "label": "Likely disruptions",
+          "columns": [
+            "What could disrupt your sleep",
+            "What tends to go first"
+          ]
+        },
+        {
+          "id": "f_anchor",
+          "type": "short_text",
+          "label": "The anchor you'll protect",
+          "help": "For many people, this is the wake time."
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Write your sleep plan",
+      "purpose": "One modest page of what helps your sleep most, in your own words, pulled from your earlier answers.",
+      "why": "You've tried a lot over these weeks, and not all of it needs to stay. The aim was never perfect sleep. It's a steady, good-enough relationship with sleep that holds up in real life. A short plan you'll keep is worth more than a long one you won't.",
+      "source": {
+        "chapter": "Chapter 13, The Goal Is Not Perfect Sleep; The Five People, Reconsidered; Appendix C, After thirty days"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Keep your anchors: your wake time, your morning light, and where your phone sleeps.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep your evening: your wind-down and your bedroom setup.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Add what you'll do on nights when sleep won't come.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your yellow-week basics: the few things you'll keep when capacity is low.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Read it once more. Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's plan was short. A set wake time, and his phone charging outside the bedroom. His last coffee earlier in the day. A wind-down with the work screens put away. Somewhere calm to go when sleep wouldn't come. His working life was still demanding. But each piece was small enough to keep, and together they kept his sleep on track."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted anchors and evening. Fix anything that's wrong.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_anchors",
+          "f_evening"
+        ]
+      },
+      "done_when": "Your sleep plan is on one page, modest enough to keep.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_anchors",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_evening",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_night",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_capacity",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_anchors",
+          "type": "long_text",
+          "label": "Your anchors"
+        },
+        {
+          "id": "f_evening",
+          "type": "long_text",
+          "label": "Your evening"
+        },
+        {
+          "id": "f_night",
+          "type": "short_text",
+          "label": "For nights when sleep won't come"
+        },
+        {
+          "id": "f_capacity",
+          "type": "short_text",
+          "label": "Your yellow-week basics"
+        }
+      ]
+    },
+    {
+      "id": "e23",
+      "title": "Plan your way back",
+      "purpose": "A plan for getting back on track after a run of rough nights, written while you're steady.",
+      "why": "A hard patch is normal. What matters most is how you respond. Panic can bring back old habits, like extra time in bed and trying harder, and those can keep poor sleep going. Going back calmly to what you know lets the hard patch pass. Deciding your steps now makes that easier later.",
+      "source": {
+        "chapter": "Chapter 13, Recovering After a Bad Patch; Appendix B, The Capacity Card; Appendix A, Sleeping Through Life"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write the early signs that a hard patch is starting for you.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the old habits you might slip back into.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick your basics: wake time, phone out, and a short wind-down.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write your first step back after a run of rough nights.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a line to remind yourself that hard patches pass.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If a hard patch goes on, or your mood drops, please talk to a doctor.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's life was sure to bring hard patches: the children's illnesses, busy weeks at work, the hormonal changes. Rather than panicking when a run of rough nights came, she learned to see it as a temporary setback. She went back to her basics, held her wake time, and trusted that her sleep would settle again, as it had before. Being able to come back mattered more than never slipping."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step back after a hard patch. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your way back is planned: the signs, your basics, and a first step.",
+      "reflect": "What would you want to hear from yourself after a run of rough nights?",
+      "toolkit_link": "t10",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "short_text",
+          "label": "Early signs of a hard patch"
+        },
+        {
+          "id": "f_old",
+          "type": "short_text",
+          "label": "Old habits to watch for"
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: hold tomorrow's wake time, and get some morning light."
+        },
+        {
+          "id": "f_remind",
+          "type": "short_text",
+          "label": "A line to remind yourself"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Slow breaths, longer exhale",
+      "when_to_use": "You want to settle before sleep or in the night, and a minute is all you have.",
+      "steps": [
+        "Inhale slowly through your nose while you count to four.",
+        "Exhale slowly while you count to six.",
+        "Repeat a few times. Let it be calm, not a test."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 9, Relaxation Techniques That Work; Appendix A, Clearing the Mind"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Check your capacity",
+      "when_to_use": "You're deciding how much sleep work to take on this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: you have room. The fuller steps are workable.",
+        "Yellow: hold your wake time, phone out, and a basic wind-down.",
+        "Red: basics only. Please see a doctor. Help now is always there."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Capacity Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Get morning light",
+      "when_to_use": "You've just woken up, or your body clock feels out of step.",
+      "steps": [
+        "Soon after waking, step outside, even on a cloudy day.",
+        "A few minutes is enough. Pair it with coffee, a walk, or the commute.",
+        "Can't get outside? Sit by a bright window."
+      ],
+      "minutes": 2,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 3, Light Is the Master Signal; Chapter 6, Morning Light, the Underused Tool"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Empty your head onto paper",
+      "when_to_use": "Tasks or worries are circling as bedtime gets close.",
+      "steps": [
+        "Take paper and a pen, away from the bed.",
+        "Write tasks, reminders, and worries. Rough notes are fine.",
+        "Close the page. It's all there for tomorrow."
+      ],
+      "minutes": 2,
+      "figure": "fig_writing",
+      "source": {
+        "chapter": "Chapter 8, Cognitive Offloading and the Open Loop; Chapter 9, Cognitive Offloading: Closing the Loops"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Tense and release",
+      "when_to_use": "Your body feels tense, or your mind needs something gentle to follow.",
+      "steps": [
+        "Gently tense the muscles in your feet for a few moments.",
+        "Let go, and notice the difference.",
+        "Move up your body, one area at a time.",
+        "Use it to settle, not to force sleep."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 9, Relaxation Techniques That Work"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Get up and reset",
+      "when_to_use": "You've been awake in bed a while, and you don't feel drowsy.",
+      "steps": [
+        "Get up and go somewhere calm, with a dim light.",
+        "Do something quiet and screen-free.",
+        "Go back to bed when you feel sleepy.",
+        "Keep tomorrow's wake time the same."
+      ],
+      "minutes": 2,
+      "figure": "fig_door",
+      "source": {
+        "chapter": "Chapter 11, Stimulus Control: Reconditioning the Bed; Appendix D"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Name the churn",
+      "when_to_use": "Your thoughts are going round and round at night.",
+      "steps": [
+        "Notice it: this is churning, not solving.",
+        "Name it, using your own name for it.",
+        "Gently move your attention to your breath or your body.",
+        "If it comes back, notice and move again. That's the practice."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 8, Rumination: Churning Without Resolution; Why Telling Yourself to Stop Does Not Work"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Let sleep come",
+      "when_to_use": "You notice yourself trying hard to fall asleep.",
+      "steps": [
+        "Tell yourself there's no need to sleep yet.",
+        "Let your body rest, eyes closed if you like.",
+        "Stop checking whether sleep is coming.",
+        "Let it arrive when it does."
+      ],
+      "minutes": 1,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 12, Letting Go of Sleep Effort"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "The truth about tonight",
+      "when_to_use": "It's the middle of the night, and you're counting the hours of sleep you've lost.",
+      "steps": [
+        "Waking in the night is a normal part of sleep.",
+        "One rough night is hard, but your body copes and recovers.",
+        "Tomorrow usually goes better than the fear predicts.",
+        "Put the counting down. Resting is enough for now."
+      ],
+      "minutes": 1,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 1, A Calmer View of Sleep Debt; Chapter 12, Acceptance and the Bad Night; Appendix A, Accurate Beliefs About Sleep"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Back to the basics",
+      "when_to_use": "A run of rough nights has knocked you off course.",
+      "steps": [
+        "Hold tomorrow's wake time, whatever the night was like.",
+        "Keep the phone out of the bedroom.",
+        "Do a wind-down, even a short one.",
+        "Let the rest wait until things settle."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 13, Recovering After a Bad Patch; Appendix B, The Capacity Card"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you wrote is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready for tonight."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a look at what you believe about sleep."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. Your sleep has a name and a clearer picture now."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever a night gets hard."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your anchors, bedroom, and wind-down are set up. Next, working with the night."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up with one small step, like tomorrow's wake time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Your sleep pattern"
+    },
+    {
+      "id": "p3",
+      "title": "Your anchors"
+    },
+    {
+      "id": "p4",
+      "title": "Your evenings and bedroom"
+    },
+    {
+      "id": "p5",
+      "title": "For wakeful nights"
+    },
+    {
+      "id": "p6",
+      "title": "Getting back on track"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started with two changes and a clearer picture of your nights. Since then, you've set up steady anchors, an evening and a bedroom that support sleep, and calmer ways to meet a wakeful night. Rough nights will still come sometimes, as they do for everyone. The aim was never perfect sleep. It was a steadier, good-enough relationship with it, and your plan is here for the harder stretches.",
+    "book_bridge": "Every tool here comes from Rest to Reset by Maya Vaughn. The book tells the full stories of Nadia, Marcus, Elena, Ray, and Priya. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which anchor is still part of your week without much effort?",
+      "Have any old habits crept back this month? What's one small step back?",
+      "How have you been meeting rough nights lately?"
+    ],
+    "refresher_ids": [
+      "e03",
+      "e04",
+      "e06",
+      "e09",
+      "e10",
+      "e11",
+      "e15",
+      "e18"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Rest_to_Reset.docx",
+    "v1_id": "sleep",
+    "cut_log": [
+      {
+        "item": "Sleep restriction as a self-run technique",
+        "chapter": "Chapter 11, Sleep Restriction: Rebuilding the Drive; Appendix A; Appendix C, Week four",
+        "reason": "Never presented as something to do alone, and no schedule is given. E15 and E17 point the reader to a doctor for any change to time in bed. The book's cautions (bipolar disorder, seizure disorder, dangerous daytime sleepiness) are left to that conversation."
+      },
+      {
+        "item": "Statistics and research detail",
+        "chapter": "Chapters 1, 2, 3, 4, 6, 8, 10, 11",
+        "reason": "Cut: the amygdala study and its percentage, caffeine half-life figures, CBT-I response and follow-up rates, social jet lag hours, indoor light ratios, and the names Walker, Spielman and Roenneberg. The 20-minute nap and the 20-minute get-up guide stay because they are instructions."
+      },
+      {
+        "item": "Chronic insomnia definition",
+        "chapter": "Chapter 10, What Insomnia Actually Is; Appendix D",
+        "reason": "The three-nights, three-months rule would read as a screen. The safety note asks readers with long-term sleeplessness to see a doctor instead."
+      },
+      {
+        "item": "The 3P model by name",
+        "chapter": "Chapter 10",
+        "reason": "Folded into E15 as cause versus the habits that keep poor sleep going. The model name and threshold picture are not needed for the exercise."
+      },
+      {
+        "item": "Sleep architecture",
+        "chapter": "Chapter 1, What Happens While You Sleep; Memory, Emotion, and Restoration",
+        "reason": "Kept only as the line that brief waking between cycles is normal (E03, T09)."
+      },
+      {
+        "item": "CBT-I as a named treatment, and medication",
+        "chapter": "Introduction; Chapter 11; Appendices D and F",
+        "reason": "Claim wording. CBT-I is named only as something to ask a doctor about (E17). Sleeping pills are covered only by the safety note: do not change medication without a doctor."
+      },
+      {
+        "item": "Sleep disorders needing medical assessment",
+        "chapter": "Disclaimer; Appendix E; Appendix F",
+        "reason": "Apnea, restless legs and narcolepsy are not named as conditions. Their signs appear in the start safety note and the E17 list, pointing to a doctor."
+      },
+      {
+        "item": "Depression and early waking",
+        "chapter": "Chapter 2; Chapter 8, When the Night-Time Mind Is a Signal; Appendix D",
+        "reason": "Not an exercise, to avoid self-assessment. Kept as an option in E02 with a doctor line, in E17, and in the safety note. Ray's stories say low mood, never a diagnosis."
+      },
+      {
+        "item": "Perimenopause and hormonal change",
+        "chapter": "Chapters 5 and 13",
+        "reason": "Kept only in Priya's stories and as one item to mention to a doctor. No symptom advice beyond a cool room."
+      },
+      {
+        "item": "Shift-work light strategy",
+        "chapter": "Chapters 3, 6 and 13",
+        "reason": "Bright light during night shifts and darkness by day is folded into E04 and E05 at a general level. Detailed shift planning is left to the book."
+      },
+      {
+        "item": "Alcohol",
+        "chapter": "Chapter 4; Appendix C",
+        "reason": "Kept only as the book's point that it breaks up sleep. No drinking guidance or amounts."
+      },
+      {
+        "item": "Paradoxical intention by name",
+        "chapter": "Chapter 12",
+        "reason": "Folded gently into E19 and T08 as letting yourself stay awake, optional."
+      },
+      {
+        "item": "Supporting someone with insomnia",
+        "chapter": "Appendix D",
+        "reason": "Outside the reader's own twelve weeks."
+      },
+      {
+        "item": "Thirty-day reset as a schedule",
+        "chapter": "Appendix C",
+        "reason": "Its order informs weeks 1 to 7. Its week four, which adds sleep restriction, is not used."
+      }
+    ],
+    "notes": "v1 topic_name: Sleep\nv1 set_id: self-and-connection (Self and Connection); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 324"
+  }
+}

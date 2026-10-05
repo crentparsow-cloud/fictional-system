@@ -1,0 +1,2733 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-VQ6SF",
+  "slug": "quieting-the-noise-vq6sf",
+  "title": "Quieting the Noise",
+  "short_title": "Worry",
+  "card_line": "Twelve weeks of small, practical steps to quiet the worry",
+  "tagline": "Twelve weeks of small, practical steps to quiet the worry",
+  "book": {
+    "book_id": "quieting-the-noise",
+    "title": "Quieting the Noise",
+    "subtitle": "A Practical Guide to Generalised Anxiety",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4NZKQ5D",
+      "US": "https://www.amazon.com/dp/B0H4NZKQ5D"
+    },
+    "asin": "B0H4NZKQ5D"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See your worry clearly first",
+          "body": "The Explore stage is about noticing, not fixing. Over two weeks, you'll look at how worry shows up in your body, your thoughts, your feelings, and what you do. Then you'll look at the habits that keep it going. Many people notice only one part at first. By the end, you'll know where to aim the rest of the work.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clear picture of how worry shows up for you, and the habits that keep it going.",
+        "review_question": "What surprised you most about your own pattern?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build your tools, one at a time",
+          "figure": "fig_feet_grounded",
+          "body": "In the Build stage, you add one or two tools a week. You start with your body, because clear thinking is easier once your body has calmed down. Then you look at anxious thoughts, give worry its own time, check its track record, and practice stepping back from it. New tools can feel awkward at first. That's the skill forming."
+        },
+        "outcome": "A working set of tools: a calming practice, a thought record, a worry time, an outcome record, and a way to step back.",
+        "review_question": "Which tool helped most, and which one hasn't fit yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Try your tools on real weeks",
+          "figure": "fig_walking",
+          "body": "Now you take your tools into everyday life. The Practice stage covers living with not knowing, testing a worried prediction, steadying your nights, and letting someone in. Some steps will feel uncomfortable, and that's expected. Go at your own pace, and start with the easiest step each time."
+        },
+        "outcome": "Your tools tried on real uncertainty, your nights, your daily habits, and the people around you.",
+        "review_question": "Where did your tools hold up best, and where did they need changing?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Make it yours to keep",
+          "figure": "fig_writing",
+          "body": "The Keep stage brings twelve weeks together. You'll write your personal plan: the tools that work for you, your early warning signs, and what to do when worry gets louder again. Write it while you're steady, so it's ready on a harder week. It doesn't need to be perfect, just clear enough to follow when you're tired."
+        },
+        "outcome": "Your personal plan, with your tools, your warning signs, and your support, saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If your mind keeps running ahead to what might go wrong, this is built for that. It's twelve weeks of small, practical steps, drawn from the book Quieting the Noise. Most weeks take 15 to 30 minutes in total. The aim is to help worry move into the background, not to make it vanish. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard weeks.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick calming tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If worry took up less room, what would you do more of? One line is enough.",
+    "extra_safety_note": "If a practice here leaves you more distressed each time you try it, stop and talk to a doctor or other health professional. If you take medication for anxiety, do not change it based on anything in this workbook. Talk to your prescriber first."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "settling",
+        "label": "Settling your body"
+      },
+      {
+        "id": "thoughts",
+        "label": "Seeing thoughts clearly"
+      },
+      {
+        "id": "worry_place",
+        "label": "Keeping worry in its place"
+      },
+      {
+        "id": "not_knowing",
+        "label": "Living with not knowing"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "settling",
+        "text": "You can bring yourself back down after a spike of worry."
+      },
+      {
+        "id": "q02",
+        "area": "settling",
+        "text": "You notice tension in your body and let it go before it builds."
+      },
+      {
+        "id": "q03",
+        "area": "settling",
+        "text": "You can rest without feeling a pull to worry about something."
+      },
+      {
+        "id": "q04",
+        "area": "settling",
+        "text": "When worry wakes you at night, you can settle again."
+      },
+      {
+        "id": "q05",
+        "area": "thoughts",
+        "text": "When a worried thought comes, you can ask whether it's a fact or a fear."
+      },
+      {
+        "id": "q06",
+        "area": "thoughts",
+        "text": "You notice when your mind jumps to the worst outcome."
+      },
+      {
+        "id": "q07",
+        "area": "thoughts",
+        "text": "You can tell the difference between something possible and something likely."
+      },
+      {
+        "id": "q08",
+        "area": "thoughts",
+        "text": "You can let a worried thought pass without arguing with it or pushing it away."
+      },
+      {
+        "id": "q09",
+        "area": "worry_place",
+        "text": "You can put a worry aside and come back to it later."
+      },
+      {
+        "id": "q10",
+        "area": "worry_place",
+        "text": "Thinking about a problem leads you to a next step, and then it stops."
+      },
+      {
+        "id": "q11",
+        "area": "worry_place",
+        "text": "You can tell a worry you can act on from a what-if."
+      },
+      {
+        "id": "q12",
+        "area": "worry_place",
+        "text": "Worry stays in the background while you get on with your day."
+      },
+      {
+        "id": "q13",
+        "area": "not_knowing",
+        "text": "You can leave a question open without needing an answer right away."
+      },
+      {
+        "id": "q14",
+        "area": "not_knowing",
+        "text": "You check something once, then let it be."
+      },
+      {
+        "id": "q15",
+        "area": "not_knowing",
+        "text": "You get through a worry without asking someone to tell you it's okay."
+      },
+      {
+        "id": "q16",
+        "area": "not_knowing",
+        "text": "You do things that matter to you, even when they make you uneasy."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_practice",
+        "type": "weekly_grid",
+        "label": "Days you practiced a calming tool"
+      },
+      {
+        "id": "c_tools",
+        "type": "checklist",
+        "label": "Tools you used",
+        "options": [
+          "From your Toolkit"
+        ]
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One win, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_worrytime",
+        "type": "weekly_grid",
+        "label": "Days you kept your worry time",
+        "help": "Your worry time starts in week 5. Leave this blank until then."
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How quiet was the worry today?",
+    "scale_low": "Loud all day",
+    "scale_high": "Quiet, in the background",
+    "tags": [
+      "Slept well",
+      "Moved my body",
+      "Ate regular meals",
+      "Caffeine in the morning only",
+      "Used a tool",
+      "Kept my worry time",
+      "Talked to someone"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "See how worry shows up for you",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Notice what keeps worry going",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Calm your body first",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Look closely at anxious thoughts",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Give worry its own time",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t06",
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Check worry's track record",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Step back, and find what matters",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Practice living with not knowing",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e08"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Steady your nights and your days",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Let someone in",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Know your signs, and match your days",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e13"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Map your worry in four places",
+      "purpose": "A fuller picture of how worry shows up in your body, thoughts, feelings, and actions.",
+      "why": "Worry can feel like one big knot. The book splits it into four parts: your body, your thinking, your feelings, and what worry makes you do. Many people notice only one or two. Seeing all four gives you more places to step in, including choices you may have been calling sensible.",
+      "source": {
+        "chapter": "Chapter 1, How Anxiety Shows Up; Sarah, Reconsidered; Appendix A, The Four-Domain Map"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the four areas. Each one has a few everyday examples.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Body: note what you feel, like a racing heart, tight shoulders, or broken sleep.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Thoughts: note what your mind does, like racing ahead or jumping to the worst outcome.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Feelings: note what you feel inside, like dread, edginess, or trouble relaxing.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Actions: note what worry makes you do, like avoiding, checking, or putting things off.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Look at your actions again. Is any choice you call sensible really worry deciding?",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah, a marketing manager in Denver, thought of herself as a worrier, nothing more. When she looked at the four areas, she found worry in all of them. Body: waking around 3 a.m., and shoulders that were always tight. Thoughts: rehearsing ordinary conversations for hours. Feelings: a dread she'd taken for her personality. Actions: turning down three promotions because each meant more public speaking. She had called that caution. Seeing it laid out changed how she understood herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about how worry shows up in your body.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Write one line about what worry makes you do.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_body",
+          "f_actions"
+        ]
+      },
+      "done_when": "You've mapped worry in four places. Each tool from here aims at one of them.",
+      "reflect": "Did anything you wrote surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_body",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_actions",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_body",
+          "type": "long_text",
+          "label": "Body",
+          "help": "For example: tight shoulders, a racing heart, waking at 3 a.m."
+        },
+        {
+          "id": "f_thoughts",
+          "type": "long_text",
+          "label": "Thoughts",
+          "help": "For example: racing ahead, trouble concentrating, expecting the worst."
+        },
+        {
+          "id": "f_feelings",
+          "type": "long_text",
+          "label": "Feelings",
+          "help": "For example: dread, irritability, feeling on edge."
+        },
+        {
+          "id": "f_actions",
+          "type": "long_text",
+          "label": "Actions",
+          "help": "For example: avoiding, over-preparing, putting things off, asking if things are okay."
+        },
+        {
+          "id": "f_sensible",
+          "type": "short_text",
+          "label": "A choice that might be worry deciding",
+          "optional": true,
+          "help": "For example: saying no to a role that means speaking up."
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Spot what keeps worry going",
+      "purpose": "A list of what you avoid or check to feel safer, and what each habit quietly takes credit for.",
+      "why": "The things that bring quick relief can be the things that keep worry going. Avoiding, checking, and asking for reassurance all calm you for a while. The book calls the quieter ones safety behaviors: things you do to feel safer. When nothing goes wrong, the habit gets the credit, and you miss the chance to learn you were fine.",
+      "source": {
+        "chapter": "Chapter 3, Avoidance, the Master Mechanism; The Avoidance That Does Not Look Like Avoidance; Safety Behaviors, the Subtle Cousin"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List what you avoid because of worry, even small things.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add tasks you put off that carry a feeling of dread.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your safety behaviors: checking, rehearsing, over-preparing, or asking if things are okay.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each one, write what you think it protects you from.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one. When things went fine, was it the habit, or was it you?",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Rebecca",
+        "text": "Rebecca, a resident physician in Boston, rehearsed before every patient conversation. She checked a reference before committing to any decision, then reviewed her whole shift afterward. She asked colleagues to confirm her calls so often that she started spacing the requests out. Each reassurance settled her for an hour, sometimes less. Looking at her list, she saw that every shift that ended well had been credited to the checking, not to her own skill."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one thing you check, avoid, or ask about to feel more sure.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_safety"
+        ]
+      },
+      "done_when": "Your list is written. You can see what keeps worry going, without changing anything yet.",
+      "reflect": "Which item on your list feels hardest to imagine letting go of?",
+      "feeds_plan": [
+        {
+          "field_id": "f_safety",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_avoid",
+          "type": "long_text",
+          "label": "What you avoid or put off",
+          "help": "For example: speaking up in meetings, opening bills, a drive you used to take."
+        },
+        {
+          "id": "f_safety",
+          "type": "two_column",
+          "label": "Your safety behaviors",
+          "columns": [
+            "What you do",
+            "What it protects you from"
+          ],
+          "help": "For example: reread every email three times, so no mistake slips through."
+        },
+        {
+          "id": "f_credit",
+          "type": "short_text",
+          "label": "One habit that might be taking credit for you",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Start a daily calming practice",
+      "purpose": "One calming tool, practiced for 5 minutes a day while you're settled, so it's ready when worry spikes.",
+      "why": "A tool tried for the first time mid-spike usually doesn't help much, and then it gets dropped. Calming tools are skills, and skills grow with practice in calm moments. Your breath, muscles, and senses link straight to your body's alarm system, so they can settle it even when your thoughts won't. Five minutes a day builds the habit.",
+      "source": {
+        "chapter": "Chapter 4, Why the Body Is the Fastest Route; Building the Skill Before the Crisis; Chapter 13, Week One: Calm the Body"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one tool from your Toolkit: five senses grounding, box breathing, or the cyclic sigh.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If paying attention to your breath makes you more uneasy, start with five senses grounding.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick a set time each day. A calm moment is the best time to practice.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Before you start, rate how worried you feel, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Practice for about 5 minutes. Then rate again.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "If the tool doesn't suit you after a few days, try a different one.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Andre",
+        "text": "Andre, a software developer and new dad in Austin, tried breathing first. Paying attention to his breath made him more aware of his pounding heart, and that scared him more. So he switched to five senses grounding, which sent his attention outward to the things on his desk. Within a couple of weeks, he could bring a spike down from a 7 to a 4 without leaving his chair. Once grounding had shown him the sensations would pass, he added the cyclic sigh."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Do one round of your chosen tool, wherever you are.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_tool"
+        ]
+      },
+      "done_when": "Your calming tool and practice time are set. Come back each day this week to practice.",
+      "reflect": "What did you notice in your body after the first practice?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tool",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_time",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_tool",
+          "type": "short_text",
+          "label": "Your calming tool",
+          "help": "For example: box breathing."
+        },
+        {
+          "id": "f_time",
+          "type": "short_text",
+          "label": "When you'll practice each day",
+          "help": "For example: 7 a.m., before coffee."
+        },
+        {
+          "id": "f_ratings",
+          "type": "two_column",
+          "label": "Your ratings",
+          "columns": [
+            "Before",
+            "After"
+          ],
+          "help": "Rough numbers are fine."
+        }
+      ],
+      "repeat_units": [
+        7
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Release tension, muscle by muscle",
+      "purpose": "A feel for the difference between tension and release, plus a 30-second version for busy days.",
+      "why": "Worry tightens your muscles, and tight muscles tell your brain something is wrong. After years of tension, many people lose the feel for what relaxed is like. Tensing each muscle group, then letting go all at once, teaches your body the difference. With practice, you can notice tension early and let it go before it builds.",
+      "source": {
+        "chapter": "Chapter 4, Releasing the Body Through the Muscles; Appendix B, The Card"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Sit or lie down somewhere comfortable.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Squeeze your hands into fists while you count to five. Then let go all at once.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Rest and notice the difference while you count to ten.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Do the same with your upper arms, then your shoulders, drawn up toward your ears.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Then your face, your chest and stomach, your legs, and your feet.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Afterward, write down where you noticed the most tension.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah's worry showed up in her body as tension in her shoulders that never quite left. The book notes that many people who've been tense for years lose the feel for the difference between tension and release. Letting go all at once is the part that teaches it again. On a busy day, the short version works on just the shoulders, jaw, and hands, and takes about 30 seconds."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Tense your shoulders, jaw, and hands while you count to five. Let go all at once.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_tension"
+        ]
+      },
+      "done_when": "You've felt the difference between tension and release, and you have a 30-second version ready.",
+      "reflect": "Where in your body do you think worry sits most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_when",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_tension",
+          "type": "short_text",
+          "label": "Where you noticed the most tension",
+          "help": "For example: shoulders and jaw."
+        },
+        {
+          "id": "f_feel",
+          "type": "short_text",
+          "label": "What the release felt like",
+          "optional": true
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you could use the 30-second version",
+          "help": "For example: before a meeting, or after a long call."
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Name your thinking patterns",
+      "purpose": "Your two most common worry patterns, named, so you can spot them as they start.",
+      "why": "Anxious thoughts tend to arrive feeling like facts, and the more frightening a thought, the truer it can feel. But anxious thinking follows a few predictable patterns, like jumping to the worst outcome or predicting the future. Once you can name a pattern as it starts, the thought gets easier to question.",
+      "source": {
+        "chapter": "Chapter 5, A Thought Is Not a Fact; The Patterns Anxious Thinking Follows"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the eight patterns. Each has a short description.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Think back over the past week. Pick any patterns that sound familiar.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For each one, write a recent worried thought that fits it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose your top two. These are the patterns your mind reaches for most.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "This week, try naming one to yourself as it starts, like \"catastrophizing.\"",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "James",
+        "text": "James, an operations manager in Minneapolis, was good at reasoning, and his mind turned that skill against him. A twinge in his chest became a chain: this could be my heart, heart trouble can be silent, so this could be serious. Each step felt rigorous. When he read the list of patterns, he saw his two right away: catastrophizing, with fortune telling close behind. The chain still started. But now he could name it as it formed."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one pattern your mind uses most, and write one thought that fits it.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_top"
+        ]
+      },
+      "done_when": "Your most common patterns are named. Try catching them by name this week.",
+      "reflect": "How did it feel to see your thoughts as patterns?",
+      "feeds_plan": [
+        {
+          "field_id": "f_top",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_patterns",
+          "type": "checklist",
+          "label": "Patterns that sound familiar",
+          "options": [
+            "Catastrophizing: jumping to the worst possible outcome",
+            "Fortune telling: predicting it will go badly",
+            "Mind reading: assuming others think badly of you",
+            "All-or-nothing thinking: no middle ground",
+            "Overgeneralizing: one time becomes always or never",
+            "Personalizing: taking the blame for things outside your control",
+            "Mental filtering: seeing only the negative",
+            "Should statements: rigid rules for yourself and others"
+          ]
+        },
+        {
+          "id": "f_examples",
+          "type": "two_column",
+          "label": "Your patterns, with a recent thought for each",
+          "columns": [
+            "Pattern",
+            "The thought"
+          ]
+        },
+        {
+          "id": "f_top",
+          "type": "short_text",
+          "label": "Your top two patterns",
+          "help": "For example: catastrophizing and mind reading."
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Write a thought record",
+      "purpose": "One anxious thought checked against the facts, with a balanced thought to set beside it.",
+      "why": "Worry circles a fear without ever testing it. A thought record puts the fear on trial against what really happened, and writing it down slows a racing mind. Your ratings rarely fall to zero, and they don't need to. A drop in intensity is the result you're after. Small moments are the easiest place to practice.",
+      "source": {
+        "chapter": "Chapter 5, The Thought Record; Doing It on Paper, Then in the Head; Where Cognitive Work Reaches Its Limits; Appendix A"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Pick a small moment of worry from today. Write the situation in one plain line.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name what you felt, and rate each feeling from 0 to 100.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Write the worried thought exactly as it came, however extreme.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Name the thinking pattern it follows.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "List facts for and against it. Ask what you'd tell a friend, and what's most likely.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a balanced thought that fits the facts. Believable matters more than positive.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate your feelings again. Any drop counts. If writing starts to churn, stop and use a calming tool.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Rebecca",
+        "text": "Rebecca's recurring thought was that she had made, or was about to make, a serious mistake with a patient. It felt urgent and true every time. Working through the evidence, again and again, showed her what the feeling hid. Her track record was strong, her supervision was steady, and no colleague had raised a concern. The fear didn't vanish. It fell from overwhelming to manageable, and that was enough to let her work."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Ask three questions: Is this a fact or a fear? What would I tell a friend? What's most likely?",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write your balanced thought in one line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_balanced"
+        ]
+      },
+      "done_when": "You've checked one worried thought against the facts and written a balanced one beside it.",
+      "reflect": "Did your rating change? If it barely moved, what do you think got in the way?",
+      "toolkit_link": "t05",
+      "fields": [
+        {
+          "id": "f_situation",
+          "type": "short_text",
+          "label": "The situation",
+          "help": "For example: my manager asked to talk tomorrow."
+        },
+        {
+          "id": "f_before",
+          "type": "short_text",
+          "label": "Your feelings, rated 0 to 100",
+          "help": "For example: anxious 80, tense 60."
+        },
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The worried thought",
+          "help": "If the thought is about a new or unexplained body sensation, it is fine to get it checked by a doctor too."
+        },
+        {
+          "id": "f_evidence",
+          "type": "two_column",
+          "label": "The evidence",
+          "columns": [
+            "For the thought",
+            "Against the thought"
+          ],
+          "help": "Facts only, not feelings. Include what you'd tell a friend."
+        },
+        {
+          "id": "f_balanced",
+          "type": "short_text",
+          "label": "Your balanced thought",
+          "help": "If the thought is partly true, add one step you can take on the part you can control."
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "Your feelings now, rated again"
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Sort your worries",
+      "purpose": "Your worries sorted into ones you can act on and what-ifs, with a next step for one.",
+      "why": "Worry can feel like problem-solving, but it goes in circles. Problem-solving ends in a next step. Worry ends only when something interrupts it. The book splits worries in two. Practical worries are real problems you can act on now. What-if worries are about a future that may never come, with no step to take today.",
+      "source": {
+        "chapter": "Chapter 6, Why Worry Feels Productive; Practical Worries and Hypothetical Worries; Appendix A, The Worry Sort"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write down the worries on your mind right now, a few words each.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, ask: is there something I can do about this now?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If yes, it's practical. If it starts with \"what if\" or has no step, it's a what-if.",
+          "figure": "fig_folders"
+        },
+        {
+          "text": "Pick one practical worry. Write the next concrete step, and when you'll take it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For the what-ifs, try noting each one and letting it pass for now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah thought of her 3 a.m. worrying as a kind of work, as if she were getting ahead of things. When she tested it, she found almost none of it was problem-solving. It went in circles and produced dread, not decisions. So she started sorting. Practical worries about a project became short written plans that she acted on. The what-ifs about her aging parents, she practiced letting pass."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Take one worry and ask: can I do something about it now? If yes, write the step.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "Your worries are sorted, and one practical worry has a next step.",
+      "reflect": "How did it feel to split your worries into two piles?",
+      "toolkit_link": "t06",
+      "fields": [
+        {
+          "id": "f_worries",
+          "type": "long_text",
+          "label": "What's on your mind",
+          "help": "A few words for each worry."
+        },
+        {
+          "id": "f_sort",
+          "type": "two_column",
+          "label": "Your worries, sorted",
+          "columns": [
+            "Practical: something to do",
+            "What-if: something to let pass"
+          ]
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One practical worry, its next step, and when",
+          "help": "For example: the noise the car is making. Call the mechanic Tuesday at noon."
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Set your worry time",
+      "purpose": "A daily 30-minute worry time, well before bed, and a way to postpone worries until then.",
+      "why": "Worry can attach itself to any moment of the day. A set worry time gives it one home, so the rest of your day has more room. You're not trying to stop worrying, which tends to backfire. You're moving it. And each worry you postpone shows you that worry can wait.",
+      "source": {
+        "chapter": "Chapter 6, Scheduled Worry Time; Worry About Worry; Appendix A, The Worry Period"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a time for 30 minutes each day, well before bed.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose a place for it too, the same each day, and not your bed.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "During the day, when a worry comes, note it in a few words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Tell yourself you'll come back to it at worry time. Then return to what you were doing.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "At worry time, go through your notes. Plan for the practical ones. Let the what-ifs pass.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "When the time is up, stop, even partway through a worry. Go back to your evening.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah set her worry time for 6 p.m., well before bed. When worries came during the day, or in the night, she noted them and put them off until then. It felt artificial at first. Then she noticed that most of what had felt urgent at 3 a.m. had faded by 6 p.m. the next day. That showed her how little of her worry was a real signal."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick your worry time for tomorrow, and put it in your calendar.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_time"
+        ]
+      },
+      "done_when": "Your worry time is set. When a worry comes, note it and let it wait.",
+      "reflect": "What do you expect will be hardest about postponing a worry?",
+      "feeds_plan": [
+        {
+          "field_id": "f_time",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t07",
+      "fields": [
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "Your worry time"
+        },
+        {
+          "id": "f_place",
+          "type": "short_text",
+          "label": "Where you'll do it",
+          "help": "For example: the kitchen table, not the bedroom."
+        },
+        {
+          "id": "f_list",
+          "type": "long_text",
+          "label": "Worries you postponed today",
+          "optional": true,
+          "help": "A few words each. You'll go through them at worry time."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Start a worry outcome record",
+      "purpose": "A running record of what you feared and what actually happened, in your own words.",
+      "why": "Most worries get replaced by the next one before anyone checks whether they came true. This record does the checking. You write down a worry, the outcome you fear, and how strongly you believe it. Later, you note what really happened. Over time, it shows you how well your worry predicts things.",
+      "source": {
+        "chapter": "Chapter 6, The Worry Outcome Record; Sarah, Reconsidered; Appendix A"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write down one current worry.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the specific outcome you fear.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how strongly you believe it will happen, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Set a reminder to check back in a few days, or a few weeks.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "When the day comes, write what actually happened, and how you handled it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add new worries through the week if you like. Three or four is plenty.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah kept a worry outcome record for two months. Of the forty or so worries she logged, two came true, and both were manageable. Seeing that in her own handwriting made the next alarm much harder to believe. Long after, the record sat in a drawer, and she took it out on hard weeks."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one worry and what you fear will happen. Pick a day to check back.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_worry",
+          "f_fear"
+        ]
+      },
+      "done_when": "Your record has its first worry and a day to check back.",
+      "reflect": "What do you think the record will show when you check back?",
+      "fields": [
+        {
+          "id": "f_worry",
+          "type": "short_text",
+          "label": "The worry"
+        },
+        {
+          "id": "f_fear",
+          "type": "short_text",
+          "label": "What you fear will happen"
+        },
+        {
+          "id": "f_belief",
+          "type": "scale_0_10",
+          "label": "How strongly you believe it will happen"
+        },
+        {
+          "id": "f_check",
+          "type": "short_text",
+          "label": "When you'll check back",
+          "help": "For example: next Friday."
+        },
+        {
+          "id": "f_happened",
+          "type": "long_text",
+          "label": "What actually happened, and how you handled it",
+          "optional": true,
+          "help": "Fill this in when the day comes."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Test what worry does for you",
+      "purpose": "Your beliefs about worry, checked against your own history.",
+      "why": "It's hard to let go of something that feels protective. Many people quietly believe worry keeps them prepared, keeps bad things away, or shows they care. But preparing is action, and worry is thinking without action. These beliefs can feel true mostly because no one has ever checked them.",
+      "source": {
+        "chapter": "Chapter 3, The Beliefs That Protect the Worry; Chapter 6, The Beliefs That Keep Worry Running"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the list of beliefs. Pick any that feel true for you.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "For each one, think back. When did worry actually prepare you, or prevent something?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what you find, as honestly as you can. A blank is an answer too.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Think of a time something hard did happen. Did worry see it coming?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write one line about what worry has really done for you.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "For thirty years, Sarah believed that worrying was the price of caring and a way to stay prepared. When she finally looked, she couldn't find a single time worry had prepared her for anything. Most of what she'd worried about never happened. The hard things that did happen arrived without warning. Her worry, she realized, had been paying premiums on insurance that never paid out."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one belief about worry. Write one time it held true, or didn't.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_evidence"
+        ]
+      },
+      "done_when": "You've checked your beliefs about worry against your own history.",
+      "reflect": "Which belief feels a little weaker now, if any?",
+      "feeds_plan": [
+        {
+          "field_id": "f_line",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_beliefs",
+          "type": "checklist",
+          "label": "Beliefs that feel true for you",
+          "options": [
+            "If I worry, I'll be prepared",
+            "If I stop worrying, something bad will happen",
+            "Worrying shows I care",
+            "Worry keeps the people I love safe"
+          ]
+        },
+        {
+          "id": "f_evidence",
+          "type": "long_text",
+          "label": "What your history shows",
+          "help": "For example: times worry helped, and times it didn't."
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "What worry has really done for you"
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Step back from a thought",
+      "purpose": "A few ways to see a worried thought as a thought, without needing to argue with it.",
+      "why": "Pushing a thought away tends to make it louder. In a well-known study, people told not to think about a white bear ended up thinking about it more. Stepping back works differently. You notice the thought as something passing through your mind, not a report on reality. It doesn't even need to be false.",
+      "source": {
+        "chapter": "Chapter 3, Fighting Anxiety, Which Strengthens It; Chapter 7, Cognitive Defusion; Appendix A, The Defusion Moves"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write down one worried thought that keeps coming back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it again with \"I'm having the thought that\" in front.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Try labeling it in your head: \"Here's a worry thought.\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Picture it as a leaf floating down a stream, or a cloud crossing the sky.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If you're somewhere private, say one key word aloud many times, until it's just a sound.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Note which move gave you the most distance.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena taught third grade in Tucson for thirty-one years, and she was good at control. When she retired, worry filled her quiet mornings. She fought it the way she had run her classroom, and it grew louder. So she tried stepping back. When worries about her adult children came, she noticed, \"I'm having the thought that something will happen to them.\" She watched the thought, rather than getting swept into the imagined disaster."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Say your worry to yourself with \"I'm having the thought that\" in front.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_reframed"
+        ]
+      },
+      "done_when": "You have a few ways to step back from a thought, and one that suits you best.",
+      "reflect": "How did the thought feel once you'd stepped back from it?",
+      "feeds_plan": [
+        {
+          "field_id": "f_best",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t08",
+      "fields": [
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The thought that keeps coming back"
+        },
+        {
+          "id": "f_reframed",
+          "type": "short_text",
+          "label": "The same thought, with \"I'm having the thought that\" in front"
+        },
+        {
+          "id": "f_moves",
+          "type": "checklist",
+          "label": "Moves you tried",
+          "options": [
+            "\"I'm having the thought that\"",
+            "Labeling it as a worry thought",
+            "A leaf on a stream, or a cloud in the sky",
+            "Saying one word aloud until it's just a sound"
+          ]
+        },
+        {
+          "id": "f_best",
+          "type": "short_text",
+          "label": "The move that gave you the most distance"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Find what matters to you",
+      "purpose": "Your values in a few areas of life, and one small step toward one of them, worry and all.",
+      "why": "Worry can shrink a life to fit around it. Making room for worry isn't giving up. It's carrying it along while you move toward what matters. Values are directions, not finish lines, like being a present parent or a loyal friend. They give you a reason to feel some unease and go anyway.",
+      "source": {
+        "chapter": "Chapter 7, What Acceptance Is Not; Finding the Values Underneath; Willingness and Values"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Read the five areas: relationships, work, health, community, and personal growth.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "For each, write the kind of person you'd like to be there. Skip any that don't fit.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Leave aside, for now, whether it feels possible.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one area where worry has made your life smaller.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose one small step toward that value this week, even if it brings some unease.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Elena",
+        "text": "Elena found her values quickly, because she had retired to make room for them: her grandchildren, travel, and reading. Naming them gave her struggle with the morning worry a purpose. Before, the only goal had been to make the worry stop. Now the question was different. Would she feel some worry in order to see her grandchildren, and to start the travel she'd put off for years? She would."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing that matters to you that worry has made harder.",
+            "figure": "fig_thinking"
+          },
+          {
+            "text": "Write one small step toward it.",
+            "figure": "fig_walking"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "Your values are written, with one small step toward what matters.",
+      "reflect": "What would you move toward if worry weren't making the decisions?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p1"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_values",
+          "type": "two_column",
+          "label": "Your values",
+          "columns": [
+            "Area of life",
+            "The kind of person you'd like to be"
+          ],
+          "help": "For example: relationships. A present, patient parent."
+        },
+        {
+          "id": "f_shrunk",
+          "type": "short_text",
+          "label": "Where worry has made your life smaller"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "One small step this week",
+          "help": "For example: say yes to dinner with a friend."
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Build your not-knowing ladder",
+      "purpose": "Your habits for feeling sure, ranked from easiest to hardest to drop, and a first step.",
+      "why": "Checking, rereading, searching online, and asking for reassurance all bring quick relief from not knowing. They also keep the need for certainty strong. Dropping them one at a time, starting with the easiest, shows you that not knowing is uncomfortable rather than dangerous. Some discomfort is expected. It usually eases as you repeat each step.",
+      "source": {
+        "chapter": "Chapter 8, Uncertainty as the Core; Building Tolerance Through Practice; Certainty-Seeking in an Age of Information; Appendix A, The Uncertainty Practice"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "List the things you do to feel sure: checking, rereading, searching online, asking others.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rank them from easiest to hardest to give up.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Pick the easiest one. Decide how you'll do it differently this week.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For example, check once and stop. Or send an email after one read.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "When the unease comes, let it be there. A calming tool can help.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Afterward, write what happened and how uneasy you felt, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "If a step feels like too much, go back to an easier one.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Rebecca",
+        "text": "Rebecca's checking all aimed at one question she couldn't answer for sure: had she missed something? She started with the least frightening step, sending routine paperwork after reading it once. The discomfort was sharp at first. She sat with it, and nothing bad happened. Over months she worked up the ladder: less reassurance-seeking next, then less reviewing of past cases. Her care stayed careful. What changed was that she stopped needing a certainty she could never have."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one small thing you'll check only once today.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your ladder is ranked, and you've chosen your first step.",
+      "reflect": "What do you expect to happen when you don't check?",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_habits",
+          "type": "ranked_list",
+          "label": "Your ladder, easiest first",
+          "max_items": 8,
+          "help": "For example: rereading emails, searching symptoms online, checking the locks again."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "The step you'll take this week",
+          "help": "For example: send work emails after one read."
+        },
+        {
+          "id": "f_after",
+          "type": "two_column",
+          "label": "How it went",
+          "columns": [
+            "What happened",
+            "How uneasy you felt, 0 to 10"
+          ],
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Test a worried prediction",
+      "purpose": "One worried prediction tested in real life, and what actually happened.",
+      "why": "Some worries won't budge on paper, because evidence you didn't gather yourself is easy to wave away. A worried thought is really a prediction, and a prediction can be tested. Set up a small, real test, then compare what happened with what you expected. Evidence you collect yourself is much harder to dismiss.",
+      "source": {
+        "chapter": "Chapter 5, Testing Thoughts Against Reality; Chapter 13, The Five Characters, Reconsidered"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Write the prediction: if you do this, what do you expect will happen?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how likely it feels, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Choose a small, real situation that would test it. Start with something manageable.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Do it, and notice what actually happens.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Write down the outcome. Compare it with your prediction.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note what this tells you about the next prediction like it.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah had turned down three promotions because each one meant more public speaking. Later in her work with worry, she took one. The presentation it required frightened her, and she gave it anyway. What happened taught her more than any thought record could, because she gathered the evidence herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one worried prediction, and one small way you could test it this week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_prediction",
+          "f_test"
+        ]
+      },
+      "done_when": "You've set up a test for one worried prediction, so real life can answer it.",
+      "reflect": "How close was the prediction to what happened? If you haven't tested it yet, what's in the way?",
+      "fields": [
+        {
+          "id": "f_prediction",
+          "type": "short_text",
+          "label": "Your prediction",
+          "help": "For example: if I speak up in the meeting, I'll be humiliated."
+        },
+        {
+          "id": "f_likely",
+          "type": "scale_0_10",
+          "label": "How likely it feels"
+        },
+        {
+          "id": "f_test",
+          "type": "short_text",
+          "label": "Your test",
+          "help": "For example: say one thing in Tuesday's meeting."
+        },
+        {
+          "id": "f_outcome",
+          "type": "long_text",
+          "label": "What actually happened",
+          "optional": true
+        },
+        {
+          "id": "f_learned",
+          "type": "short_text",
+          "label": "What this tells you",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Steady your nights",
+      "purpose": "A steady wake time, a wind-down, a bedside notebook, and a plan for waking at night.",
+      "why": "At night, nothing competes for your attention, so worry fills the quiet. Sleep and worry feed each other. Poor sleep makes worry louder the next day, and worry makes sleep harder. That also means steadier nights can make your days easier. Sleep can't be forced. These steps make room for it.",
+      "source": {
+        "chapter": "Chapter 9, The Two-Way Street; Why the Anxious Mind Resists Sleep; The Foundations of Sleep; Handling the Mind at Night; When Sleep Problems Need More; Appendix A, The Bedtime Tools"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Choose one wake time for every day, weekends included.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set a wind-down of 30 to 60 minutes before bed, with no screens or work.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Keep your bedroom cool, dark, and quiet if you can.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Put a notebook by your bed. Write any bedtime worry, with the smallest morning step beside it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Still awake after about 20 minutes? Get up and do something calm in low light.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Go back to bed when you feel sleepy. Let yourself rest, without demanding sleep.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "If poor sleep goes on for months despite these steps, talk to a doctor.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "James",
+        "text": "James would fall asleep easily, then wake at 2 a.m. with his heart pounding and his mind running. He'd lie there straining and checking the clock. He changed a few things: a steady schedule, a screen-free wind-down, a cool dark room, and his worry time moved to 7 p.m. A notebook by the bed held any worry that came anyway, with a morning step beside it. When he woke, he got up, sat in low light with a slow exhale, and went back to bed when sleepy."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Put a notebook and pen by your bed tonight.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_notebook"
+        ]
+      },
+      "done_when": "Your nights have a plan, from wind-down to what you'll do if you wake.",
+      "reflect": "Which part of this plan do you think will be hardest to keep?",
+      "feeds_plan": [
+        {
+          "field_id": "f_wake",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_wind",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t09",
+      "fields": [
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time"
+        },
+        {
+          "id": "f_wind",
+          "type": "time_of_day",
+          "label": "When your wind-down starts"
+        },
+        {
+          "id": "f_notebook",
+          "type": "short_text",
+          "label": "Where your notebook lives",
+          "help": "For example: on the nightstand, with a pen."
+        },
+        {
+          "id": "f_awake",
+          "type": "short_text",
+          "label": "What you'll do if you're awake after 20 minutes",
+          "help": "For example: sit in the living room with one lamp on, and take a few slow breaths."
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Check your foundations",
+      "purpose": "A quick look at movement, meals, caffeine, and alcohol, and one change to try this week.",
+      "why": "Some everyday habits quietly add to worry. A dip in blood sugar can feel almost the same as anxiety. Caffeine late in the day is still in your body at bedtime. Alcohol calms for an hour or two, then often brings a rebound of unease hours later. Pick one change, not all four at once.",
+      "source": {
+        "chapter": "Chapter 10, Movement as Medicine for Anxiety; Blood Sugar and the Anxiety Mimic; Caffeine; Alcohol and the Rebound; Appendix A, The Foundations Check; Chapter 13, Week Four"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Movement: did you move at all today, even a short walk?",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Meals: did you eat at regular times, with some protein?",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Caffeine: is it in the morning only, at an amount that suits you?",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Alcohol: could it be adding unease to your nights?",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Choose the one change most likely to help, and keep it small.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Cutting back on caffeine? Go gradually over a couple of weeks.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If cutting back on drinking feels hard, or it has become your main way to cope, talk to a doctor.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Andre",
+        "text": "Andre was drinking four or five cups of coffee a day, the last one late in the afternoon. A couple of beers most nights took the edge off. He grabbed food between feedings and work, and he'd stopped exercising. He changed things slowly: caffeine in the morning only, cut by about half over two weeks. A non-alcoholic drink on most nights. Protein at regular times. And a ten-minute walk with the stroller most mornings."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one foundation, and one small change to try tomorrow.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_change"
+        ]
+      },
+      "done_when": "You've checked your foundations and chosen one small change to start with.",
+      "reflect": "Which foundation do you think affects your worry most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_change",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_check",
+          "type": "checklist",
+          "label": "Which foundations could use some attention?",
+          "options": [
+            "Movement",
+            "Regular meals with some protein",
+            "Caffeine in the morning only",
+            "Alcohol"
+          ]
+        },
+        {
+          "id": "f_change",
+          "type": "short_text",
+          "label": "Your one change this week",
+          "help": "For example: a 10-minute walk after breakfast."
+        },
+        {
+          "id": "f_notice",
+          "type": "short_text",
+          "label": "What you noticed by the end of the week",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Let one person in",
+      "purpose": "A short, clear way to tell one trusted person about your worry, and what helps.",
+      "why": "Carrying worry alone can feel like strength, but hiding it takes constant effort. A fear kept inside goes unchallenged. Said aloud to someone you trust, it often shrinks. You don't need to tell everyone. One or two people is enough. Telling them what helps spares you both a lot of well-meant advice.",
+      "source": {
+        "chapter": "Chapter 11, Why Connection Buffers Anxiety; The Cost of Hiding; Telling People; Appendix A, The Disclosure Script"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose one person you trust who is usually supportive.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write a short, plain opening: you deal with worry, and how it affects you.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add what helps, like listening without fixing, and patience instead of \"just relax.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add that they don't need to fix anything.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick a calm time to say it, in person, by phone, or in a message.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If no one feels right yet, keep the words for later. That counts too.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah had kept her worry sealed away for thirty years. No one at work knew, and most of her friends didn't either. She told a close friend, and months later, her sister. Each time, she kept it short and said what helped. The conversations went better than her worry had predicted. Her friend became someone she could say a fear to and watch it shrink. What surprised her most was the relief of no longer hiding."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the name of one person you could tell, and one thing that would help.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_person"
+        ]
+      },
+      "done_when": "Your words are ready for one trusted person, whenever you choose to share them.",
+      "reflect": "How do you feel about sharing, now that the words are written?",
+      "feeds_plan": [
+        {
+          "field_id": "f_person",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who you could tell",
+          "optional": true
+        },
+        {
+          "id": "f_words",
+          "type": "long_text",
+          "label": "What you'd say",
+          "help": "For example: \"I deal with a lot of worry. It affects my sleep. What helps is talking it through, not being told to relax. You don't need to fix anything.\""
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you might say it",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Swap reassurance for support",
+      "purpose": "A way to lean on people close to you without asking for reassurance on repeat.",
+      "why": "Asking if everything's okay brings relief, then the doubt returns, and you ask again. Over time it can tire the people you ask, and it keeps the need for certainty strong. Support is different: being listened to, and having company. You can ask someone to remind you that you can handle not knowing.",
+      "source": {
+        "chapter": "Chapter 11, The Reassurance Trap; Sarah, Reconsidered; Appendix A, The Disclosure Script"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Notice the questions you ask others again and again, like \"Are you sure it's fine?\"",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write down the one or two you ask most.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose someone you could ask for support instead.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write your request: when you ask again, could they kindly remind you that you can handle not knowing?",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "When the urge to ask comes, try waiting, and use a calming tool first.",
+          "figure": "fig_feet_grounded"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah knew she tended to look for certainty in other people. So when she told her sister about her worry, she asked for something specific. When Sarah asked the same worried questions on repeat, her sister wouldn't answer them again. Instead, she would kindly remind Sarah that she could handle not knowing. Sarah kept the support and let go of the reassurance loop."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Notice one question you ask others for reassurance, and write it down.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_questions"
+        ]
+      },
+      "done_when": "You've named your reassurance questions and written a request for support instead.",
+      "reflect": "What do you think will be hardest about not asking?",
+      "feeds_plan": [
+        {
+          "field_id": "f_request",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_questions",
+          "type": "long_text",
+          "label": "Questions you ask again and again",
+          "help": "For example: did I lock the door? Are you upset with me?"
+        },
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who you'll ask for support",
+          "optional": true
+        },
+        {
+          "id": "f_request",
+          "type": "long_text",
+          "label": "Your request",
+          "help": "For example: \"When I ask if it'll be okay, please remind me I can handle not knowing.\""
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Know your early warning signs",
+      "purpose": "Your earliest signs that worry is building, across body, thoughts, feelings, and actions.",
+      "why": "Worry rarely comes back all at once. It usually builds through small changes you can learn to spot. Caught in the first day or two, it's much easier to turn down. Your signs are your own, and the best guide is how worry has built for you before.",
+      "source": {
+        "chapter": "Chapter 12, Knowing Your Early Warning Signs"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Think back to a time worry built up. What changed first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Body: for example, broken sleep, tense muscles, or a change in appetite.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Thoughts: racing thoughts, trouble concentrating, or worst-case thinking coming back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Feelings: more irritability, a returning sense of dread, or feeling on edge.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Actions: more avoiding, more asking for reassurance, or old checking habits creeping back.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the sign that usually comes first. That's your signal to reach for your tools.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah's earliest sign was always sleep. The 3 a.m. waking came back before anything else. Knowing that turned it into a signal to act, not a verdict. When it returned, she knew to go back to her worry time, her slow breathing, and her morning walk, before things built any further."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one sign that usually tells you worry is building.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your early warning signs are written, with the one that usually comes first.",
+      "reflect": "How might you notice that first sign a little sooner next time?",
+      "feeds_plan": [
+        {
+          "field_id": "f_signs",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_signs",
+          "type": "two_column",
+          "label": "Your warning signs",
+          "columns": [
+            "Area",
+            "What you notice"
+          ],
+          "help": "For example: body. Waking at 3 a.m."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "The sign that usually comes first"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Match your practice to the day",
+      "purpose": "Your own green, yellow, and red versions of your practice, for steady, stretched, and very hard days.",
+      "why": "Energy changes from week to week, and sometimes hour to hour. Insisting on the full practice every day tends to end with dropping it altogether. Matching the practice to the day keeps it going. A lighter practice kept up all week does more than a full one started and dropped.",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Card; How to Read the Day; Chapter 12, The Personal Anxiety Management Plan"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Green: steady mood and enough energy. Write what your full practice looks like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Yellow: low energy, more stress, or a flare. Write the short versions you'd use.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Red: a crisis or a very hard day. Your practice is the red-day anchors, and Help now.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Each morning, ask yourself which color today is. Then match your practice to it.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah's plan was her own version of green, yellow, and red. On a green day: the full worry time, a written thought record, and her walk. On a yellow day: a short grounding instead of the long one, and the three questions instead of the written record. On a red day, only the basic anchors. Writing it down meant she didn't have to work it out on a hard day."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your yellow practice: the short versions you'd use on a stretched day.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_yellow"
+        ]
+      },
+      "done_when": "Your green, yellow, and red practices are written, ready to match to the day.",
+      "reflect": "Which color has this week mostly been?",
+      "feeds_plan": [
+        {
+          "field_id": "f_green",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_red",
+          "plan_section": "p6"
+        }
+      ],
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_green",
+          "type": "long_text",
+          "label": "Your green practice",
+          "help": "For example: full worry time, a written thought record, a walk."
+        },
+        {
+          "id": "f_yellow",
+          "type": "long_text",
+          "label": "Your yellow practice",
+          "help": "For example: one round of grounding, the three questions, the 30-second muscle release."
+        },
+        {
+          "id": "f_red",
+          "type": "short_text",
+          "label": "Your red practice",
+          "help": "The red-day anchors in your Toolkit. Add one thing of your own if you like."
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your personal plan",
+      "purpose": "One page with your tools, warning signs, next steps, and support, written while you're steady.",
+      "why": "A hard week makes clear thinking harder, so a plan built in the middle of one is tough to make. That's why the book asks you to write it ahead of time, while you're calm. Your answers from earlier weeks are filled in here. Your part is to check them and fill the gaps.",
+      "source": {
+        "chapter": "Chapter 12, The Personal Anxiety Management Plan; Sarah, Reconsidered; Appendix A, The Personal Plan"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Read through your answers from earlier weeks. They're filled in here.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "List the tools that have actually helped you. Leave out any that didn't fit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Check your early warning signs, and the one that comes first.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write what you'll do at the first sign.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'll do if it keeps building.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write when you will reach out to a doctor or therapist.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Add your support contacts, personal and professional.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "Sarah wrote her plan a few months in, almost as an exercise, not really believing she'd need it. Eight months in, a reorganization at work brought the 3 a.m. waking back. She found the plan and followed it. It named her earliest sign, the tools that worked for her, and the number of the therapist she'd started seeing. She called for one session to steady herself. Within two weeks, the surge had passed."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read the drafted plan. Fix anything that's wrong, and add one support contact.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_tools",
+          "f_contacts"
+        ]
+      },
+      "done_when": "Your personal plan is on one page, ready for the week you need it.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tools",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_first_step",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_building",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_pro",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_contacts",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_tools",
+          "type": "ranked_list",
+          "label": "Tools that work for you",
+          "max_items": 5
+        },
+        {
+          "id": "f_first_sign",
+          "type": "short_text",
+          "label": "Your first warning sign"
+        },
+        {
+          "id": "f_first_step",
+          "type": "long_text",
+          "label": "What you'll do at the first sign",
+          "help": "For example: worry time every day, and a calming tool each morning."
+        },
+        {
+          "id": "f_building",
+          "type": "long_text",
+          "label": "What you'll do if it keeps building"
+        },
+        {
+          "id": "f_pro",
+          "type": "short_text",
+          "label": "When you'll reach out for professional support",
+          "help": "For example: if a few weeks of steady effort hasn't helped, or worry is getting in the way of work, sleep, or people."
+        },
+        {
+          "id": "f_contacts",
+          "type": "long_text",
+          "label": "Your support contacts",
+          "help": "Names and numbers, personal and professional."
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Plan your way back",
+      "purpose": "A note to yourself for a hard week, and a short weekly review to catch drift early.",
+      "why": "Worry will flare again at times, often under stress. That's a normal part of the process. A hard week tends to grow when it feels like proof that nothing worked, and the tools get set aside. They're still there. Progress over months looks like a rising line with dips in it.",
+      "source": {
+        "chapter": "Chapter 12, Lapse Is Not Relapse; What Recovery Actually Means; Maintenance Between Setbacks; Chapter 13, When the Thirty Days Get Hard"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write a short note to yourself for a hard week, in your own words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Remind yourself that a hard week is a short return of old patterns, and your tools are still here.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your first step back, from your personal plan.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose a day and time for a 5-minute weekly review.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "At each review, ask: how did the week go? Any warning signs? Has any practice slipped?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Missed a day, or a week? Pick up where you are. No catching up needed.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Sarah",
+        "text": "When the reorganization brought her worry back, Sarah's first thought was that she was back to square one. That thought was the same worst-case pattern she had learned to spot, now aimed at her own progress. Her plan reminded her, in her own handwriting, that a hard week was not a verdict, and the work was still there to pick up. She came through it with proof that a setback could be turned around."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one line you'd want to read on a hard week.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_note"
+        ]
+      },
+      "done_when": "Your note and your weekly review are ready, so a hard week has a way back.",
+      "reflect": "What would you want to hear from yourself on a hard week?",
+      "feeds_plan": [
+        {
+          "field_id": "f_note",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_review",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_note",
+          "type": "long_text",
+          "label": "Your note for a hard week",
+          "help": "For example: \"This is a flare, and it will pass. Start with worry time and a walk.\""
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: grounding, then tomorrow's worry time."
+        },
+        {
+          "id": "f_review",
+          "type": "short_text",
+          "label": "Your weekly review day and time",
+          "help": "For example: Sunday, 7 p.m."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Five senses grounding",
+      "when_to_use": "Worry is spiking, or focusing on your breath makes you more uneasy.",
+      "steps": [
+        "Take one slow breath. Then name five things you can see, in detail.",
+        "Name four things you can feel, like the chair or your feet.",
+        "Name three things you can hear, even quiet ones.",
+        "Name two things you can smell, and one you can taste.",
+        "Give each one a few real seconds. Silently or aloud is fine."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, Grounding Through the Senses; Appendix A, The Five-Senses Grounding Practice"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Box breathing",
+      "when_to_use": "You want to steady yourself before something hard, even in public.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "If it feels okay, hold for a count of four. You can skip this part.",
+        "Exhale through your mouth while you count to four.",
+        "If it feels okay, hold again for a count of four. Or skip it.",
+        "Repeat the whole breath three or four times."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Introduction; Chapter 4, The Breath as a Direct Lever; Appendix A, The Breathing Tools"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "The cyclic sigh",
+      "when_to_use": "You want a stronger calming effect, and have a minute or two.",
+      "steps": [
+        "Take a full, slow inhale through your nose.",
+        "Then take a second, short inhale on top, to fill your lungs.",
+        "Exhale slowly through your mouth, longer than the inhale.",
+        "Repeat for a minute or more.",
+        "If breath focus makes you uneasy, use five senses grounding instead."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 4, The Breath as a Direct Lever; Appendix A, The Breathing Tools"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "The 30-second muscle release",
+      "when_to_use": "Tension is building in your body, and you have half a minute.",
+      "steps": [
+        "Draw your shoulders up toward your ears while you count to five.",
+        "Let go all at once. Notice the difference.",
+        "Tense your jaw gently, then let it go.",
+        "Make fists while you count to five, then let go."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 4, Releasing the Body Through the Muscles; Appendix B, The Card"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Three questions",
+      "when_to_use": "A worried thought feels like a fact, and there's no time to write.",
+      "steps": [
+        "Ask: is this a fact or a fear?",
+        "Ask: what would I tell a friend who had this thought?",
+        "Ask: what is most likely to actually happen?",
+        "Let the answers sit beside the worry. Any easing counts."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 5, Doing It on Paper, Then in the Head; Appendix A, The Thought Record"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Practical or what-if?",
+      "when_to_use": "A worry is circling, and you're not sure what to do with it.",
+      "steps": [
+        "Ask: can I do something about this now?",
+        "If yes, it's practical. Write the next step and when you'll take it.",
+        "If it's a what-if, note it and let it pass for now.",
+        "Or save it for your worry time."
+      ],
+      "minutes": 1,
+      "figure": "fig_folders",
+      "source": {
+        "chapter": "Chapter 6, Practical Worries and Hypothetical Worries; Appendix A, The Worry Sort"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Postpone the worry",
+      "when_to_use": "A worry shows up outside your worry time.",
+      "steps": [
+        "Notice the worry. Don't argue with it or push it away.",
+        "Write it down in a few words.",
+        "Tell yourself you'll give it your full attention at worry time.",
+        "Go back to what you were doing."
+      ],
+      "minutes": 1,
+      "figure": "fig_writing",
+      "source": {
+        "chapter": "Chapter 6, Scheduled Worry Time; Appendix A, The Worry Period"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Step back from the thought",
+      "when_to_use": "A thought keeps coming back, even after you've checked it.",
+      "steps": [
+        "Add \"I'm having the thought that\" in front of it.",
+        "Or label it: \"Here's a worry thought.\"",
+        "Picture it as a leaf on a stream, floating past.",
+        "Let it be there while you get on with what matters."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 7, Cognitive Defusion; Appendix A, The Defusion Moves"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "When worry wakes you",
+      "when_to_use": "You're lying awake at night with worry running.",
+      "steps": [
+        "Write the worry in your bedside notebook, with one morning step beside it.",
+        "Exhale slowly a few times, longer than you inhale.",
+        "Still awake after about 20 minutes? Get up and sit in low light.",
+        "Go back to bed when sleepy. Let yourself rest. Sleep can come later."
+      ],
+      "minutes": 2,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 9, Handling the Mind at Night; Appendix A, The Bedtime Tools"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Red-day anchors",
+      "when_to_use": "Today is very hard. If you are in crisis, tap Help now first.",
+      "steps": [
+        "Take five slow breaths. Make each exhale long.",
+        "Name five things you can see.",
+        "Drink a glass of water.",
+        "Step outside for 2 minutes, if you can.",
+        "That's the whole practice today, and it's enough."
+      ],
+      "minutes": 2,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Appendix B, The Daily Anchors for a Red Day"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a look at what keeps worry going."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can see how worry shows up for you, and what keeps it going."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your tools are in place. Next, you try them on real weeks."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why, and what matters to you"
+    },
+    {
+      "id": "p2",
+      "title": "Your worry pattern"
+    },
+    {
+      "id": "p3",
+      "title": "Your calming tools"
+    },
+    {
+      "id": "p4",
+      "title": "Your ways of working with worry"
+    },
+    {
+      "id": "p5",
+      "title": "Your nights, habits, and support"
+    },
+    {
+      "id": "p6",
+      "title": "Your plan for harder weeks"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by noticing how worry shows up for you. Since then, you've built tools for your body, your thoughts, and the worry itself, tried them on real weeks, and written your own plan. Worry will still visit sometimes. The aim was to help it settle into the background, and your plan is ready for when it gets louder.",
+    "book_bridge": "Every tool here comes from Quieting the Noise by Maya Vaughn. The book tells the full stories of Sarah, James, Rebecca, Elena, and Andre. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which tool are you reaching for most?",
+      "Did any early warning signs show up this month? What helped?",
+      "Where has worry made things harder lately, and what's one small step toward what matters?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e03",
+      "e06",
+      "e08",
+      "e09",
+      "e13"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Quieting_the_Noise.docx",
+    "v1_id": "worry",
+    "cut_log": [
+      {
+        "item": "Research findings and statistics (Hofmann and Smits, Carpenter, Balban, Ben Simon and Walker, Stubbs, Gordon, Su, Wegner figures)",
+        "chapter": "Introduction; Chapters 2, 4, 8, 9 and 10",
+        "reason": "Not needed for instruction, and each would be a claim needing fresh verification. The white bear study is kept as a one-line illustration in e11, with no figures."
+      },
+      {
+        "item": "Three features of generalized anxiety and the clinical definition",
+        "chapter": "Chapter 1, When Worry Becomes a Disorder",
+        "reason": "Reads as a diagnostic screen. The workbook never assumes or confirms a diagnosis."
+      },
+      {
+        "item": "Three contributors: biology, psychology, life experience",
+        "chapter": "Chapter 1, Why Your Particular Brain Does This",
+        "reason": "Insight only, with no action. Life-experience reflection risks drifting into childhood and trauma recall, which is out of scope for a standard-tier workbook."
+      },
+      {
+        "item": "Three-question evidence filter",
+        "chapter": "Chapter 2; Appendix A",
+        "reason": "A tool for judging research claims, not a practice for worry."
+      },
+      {
+        "item": "Myths that keep people stuck",
+        "chapter": "Chapter 3",
+        "reason": "Insight only. The useful parts are covered by e02 and e10."
+      },
+      {
+        "item": "Window of tolerance",
+        "chapter": "Chapter 4",
+        "reason": "Folded into the Build stage primer and e03 as the reason the body comes first. The term itself is not used."
+      },
+      {
+        "item": "Thought-sensation loop",
+        "chapter": "Chapter 3, The Anxiety Cycle in the Body",
+        "reason": "Folded into e15 (the bedtime spiral) and the e03 why. Not a separate exercise."
+      },
+      {
+        "item": "Meta-worry and the belief that worry is uncontrollable",
+        "chapter": "Chapter 6, Worry About Worry",
+        "reason": "Folded into e08: each postponed worry shows worry can wait. The term is not used."
+      },
+      {
+        "item": "Attention bias training and structured mindfulness courses",
+        "chapter": "Chapter 8, The Attention Problem; Mindfulness, Honestly Assessed",
+        "reason": "The book itself is cautious about attention bias programs. Noticing and returning is covered by grounding and e11."
+      },
+      {
+        "item": "Supplements, including omega-3",
+        "chapter": "Chapter 10, A Word on Supplements",
+        "reason": "Medical. Left out entirely."
+      },
+      {
+        "item": "Medication and CBT-I detail",
+        "chapter": "Chapters 2, 9 and 11; Appendices D and F",
+        "reason": "Medical. Only the safety note on medication at Start, and a talk-to-a-doctor step in e15, e16 and e21."
+      },
+      {
+        "item": "Thirty-day calendar",
+        "chapter": "Chapter 13; Appendix C",
+        "reason": "Its order (body, thoughts, worry, foundations) sets the order of weeks 3 to 9. Its day-by-day schedule is replaced by the twelve-week path."
+      },
+      {
+        "item": "Finding a therapist, insurance and directories",
+        "chapter": "Appendices E and F",
+        "reason": "US-specific and changes over time. Help now and the app's safety page carry the contacts."
+      }
+    ],
+    "notes": "v1 topic_name: Worry\nv1 set_id: worry-and-fear (Worry and Fear); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 180"
+  }
+}

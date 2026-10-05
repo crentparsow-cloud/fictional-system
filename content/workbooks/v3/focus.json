@@ -1,0 +1,2604 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-EE7WH",
+  "slug": "wired-differently-ee7wh",
+  "title": "Wired Differently",
+  "short_title": "Focus",
+  "card_line": "Twelve weeks of small, practical steps for steadier focus",
+  "tagline": "Twelve weeks of small, practical steps for steadier focus",
+  "book": {
+    "book_id": "wired-differently",
+    "title": "Wired Differently",
+    "subtitle": "A Practical Guide to ADHD",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4PNN9GG",
+      "US": "https://www.amazon.com/dp/B0H4PNN9GG"
+    },
+    "asin": "B0H4PNN9GG"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See your pattern first",
+          "body": "The Explore stage is about noticing, not fixing. Over two weeks, you'll rate five everyday thinking skills and track your focus through the day. By the end, you'll know where to aim the rest of the work.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A clear picture of the skills that trip you up and the hours you work best.",
+        "review_question": "What surprised you most about your own pattern?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Set up your days to work for you",
+          "figure": "fig_desk_ready",
+          "body": "In the Build stage, you set things up so the right thing gets a little easier. Over five weeks, you'll add a quieter phone, a focus spot, a daily plan, and a few brakes. New setups can feel awkward at first, and that's normal."
+        },
+        "outcome": "A setup that works with your brain: your phone, your space, one capture place, a daily plan, a weekly reset, and your brakes.",
+        "review_question": "Which part of your setup helped most, and which part hasn't stuck yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Try it on real weeks",
+          "figure": "fig_walking",
+          "body": "Now you get to see how your setup handles a busy week. The Practice stage takes it into deadlines, mornings, sleep, and the people around you. If something doesn't work the first time, change the system, not your opinion of yourself."
+        },
+        "outcome": "Your setup tried out on deadlines, mornings, sleep, and the people in your life.",
+        "review_question": "Where did your setup hold up best, and where did it need changing?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Make it yours to keep",
+          "figure": "fig_writing",
+          "body": "The Keep stage brings twelve weeks of work together. You'll write your everyday plan and a restart plan for getting back on track after a hard patch. Neither needs to be perfect, just clear enough to follow on a tired Tuesday."
+        },
+        "outcome": "Your everyday plan and your restart plan, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If your days keep slipping away from you, this is built for that. It's twelve weeks of small, practical steps for living with ADHD or ADHD traits. Most weeks take 15 to 30 minutes in total. Nothing here runs on willpower. It works by setting up your days so the right thing is the easy thing. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If focus got a little easier, what would be different for you? One line is enough."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "getting_started",
+        "label": "Getting started"
+      },
+      {
+        "id": "keeping_track",
+        "label": "Keeping track"
+      },
+      {
+        "id": "staying_steady",
+        "label": "Staying steady"
+      },
+      {
+        "id": "pausing_first",
+        "label": "Pausing first"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "getting_started",
+        "text": "You start important tasks without a long delay."
+      },
+      {
+        "id": "q02",
+        "area": "getting_started",
+        "text": "You know what matters most today."
+      },
+      {
+        "id": "q03",
+        "area": "getting_started",
+        "text": "You can break a big task into a small first step."
+      },
+      {
+        "id": "q04",
+        "area": "getting_started",
+        "text": "You get going on dull tasks, not just interesting ones."
+      },
+      {
+        "id": "q05",
+        "area": "keeping_track",
+        "text": "You remember appointments and deadlines in time."
+      },
+      {
+        "id": "q06",
+        "area": "keeping_track",
+        "text": "You find things when you need them."
+      },
+      {
+        "id": "q07",
+        "area": "keeping_track",
+        "text": "You follow through on what you've promised other people."
+      },
+      {
+        "id": "q08",
+        "area": "keeping_track",
+        "text": "You keep ideas and to-dos in one place you trust."
+      },
+      {
+        "id": "q09",
+        "area": "staying_steady",
+        "text": "You calm down fairly quickly after getting upset."
+      },
+      {
+        "id": "q10",
+        "area": "staying_steady",
+        "text": "You handle small criticism without it staying with you all day."
+      },
+      {
+        "id": "q11",
+        "area": "staying_steady",
+        "text": "You speak kindly to yourself after a mistake."
+      },
+      {
+        "id": "q12",
+        "area": "staying_steady",
+        "text": "You keep one strong feeling from taking over your whole day."
+      },
+      {
+        "id": "q13",
+        "area": "pausing_first",
+        "text": "You pause before buying something you hadn't planned."
+      },
+      {
+        "id": "q14",
+        "area": "pausing_first",
+        "text": "You let other people finish before you speak."
+      },
+      {
+        "id": "q15",
+        "area": "pausing_first",
+        "text": "You wait before sending a message you wrote while upset."
+      },
+      {
+        "id": "q16",
+        "area": "pausing_first",
+        "text": "You get back to a task after checking your phone."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_planned",
+        "type": "weekly_grid",
+        "label": "Days you made a plan"
+      },
+      {
+        "id": "c_tools",
+        "type": "checklist",
+        "label": "Tools you used",
+        "options": [
+          "From your Toolkit"
+        ]
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One win, however small"
+      },
+      {
+        "id": "c_slip",
+        "type": "short_text",
+        "label": "Something that didn't go to plan, and one small change to try",
+        "optional": true
+      },
+      {
+        "id": "c_wake",
+        "type": "weekly_grid",
+        "label": "Days you woke at about the same time"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How steady was your focus today?",
+    "scale_low": "All over the place",
+    "scale_high": "Steady",
+    "tags": [
+      "Slept well",
+      "Moved my body",
+      "Planned the day",
+      "Phone out of reach",
+      "Used a tool",
+      "Ate regular meals"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "See which thinking skills trip you up",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Find your best hours",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Set up your phone and your space",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Make the good choice the easy one",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Plan your day and keep it in view",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Catch what slips, and quiet the critic",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Decide ahead and build your brakes",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03"
+      ]
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Follow through on what you promise",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e07"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Smooth your mornings and hard switches",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Protect your best hours and your sleep",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Ask for help and repair what slipped",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05",
+        "e11"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e10"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Profile your five thinking skills",
+      "purpose": "A clear view of which everyday thinking skills trip you up most, so you know where to start.",
+      "why": "Some days go wrong for reasons that are hard to name. Five skills do most of the work of running a day: pausing before acting, holding things in mind, handling feelings, steering attention, and planning ahead. The book calls them executive functions. Once you know the two that cost you most, every later exercise can aim at them.",
+      "source": {
+        "chapter": "Chapter 1, What Is Actually Happening in Your Brain"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the five skills. Each one has an everyday example.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate each skill from 1 to 5. 1 means it's often hard. 5 means it's usually fine.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick your two lowest ratings. If there's a tie, go with your gut.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For each one, write a moment from the last two weeks when it got in your way.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you like, add what those moments made harder: time, money, or trust.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam rated planning ahead a 1. His exams were three weeks away, and at 11 p.m. on a Thursday he had three sentences typed and his phone in his hand. He rated holding things in mind a 2, after forgetting to answer a professor's email about a research job. With both on the page, he stopped calling himself lazy. He had two skills to work on, and a place to start."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick the one skill that got in your way most in the last two weeks.",
+            "figure": "fig_circling"
+          },
+          {
+            "text": "Write one line about the moment.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_moments"
+        ]
+      },
+      "done_when": "You've named the skills that get in your way. Every exercise from here aims at them.",
+      "reflect": "Did anything you wrote surprise you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_moments",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_skills",
+          "type": "rating_grid",
+          "label": "Rate each skill",
+          "rows": [
+            "Pausing before acting, like waiting before you reply",
+            "Holding things in mind, like remembering why you walked into a room",
+            "Handling strong feelings, like settling after a frustrating moment",
+            "Steering your attention, like getting back to a task after a distraction",
+            "Planning ahead, like starting early on something due next month"
+          ]
+        },
+        {
+          "id": "f_moments",
+          "type": "two_column",
+          "label": "Your lowest skills, and a moment for each",
+          "columns": [
+            "The skill",
+            "A moment it got in your way"
+          ]
+        },
+        {
+          "id": "f_cost",
+          "type": "short_text",
+          "label": "What those moments made harder",
+          "optional": true,
+          "help": "For example: an hour lost, a late fee, a friend let down."
+        }
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Map your energy through the day",
+      "purpose": "Your best two or three hours of the day, so your hardest work can go there.",
+      "why": "It's easy to guess wrong about when you focus best. Focus isn't flat across the day. Many people have one or two sharp stretches and a few dips, and sleep and meals move them around. Hard work placed in a dip takes longer and feels worse. A week of quick ratings shows where your peaks really are.",
+      "source": {
+        "chapter": "Chapter 8, Energy Management; Appendix A, The Energy Mapping Template"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "This week, rate your focus a few times a day. Each rating takes a few seconds.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Use 1 for scattered and 5 for sharp.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Try to rate soon after each slot. Skip any slot when you're asleep or busy.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Missed a day? That's fine. Three or four days is enough to see a pattern.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "At the end of the week, pick your two best slots.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Note anything that moved the pattern, like poor sleep or a skipped meal.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam did most of his studying late at night, cramming before deadlines. His week of ratings showed his sharpest slot was mid-morning, from about 9:30 a.m. to noon. Work that took him two hours in the afternoon took forty-five minutes before lunch. He started keeping that window for his hardest studying and saved reading and review for the afternoon."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Note today's sharpest slot.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_peaks"
+        ]
+      },
+      "done_when": "Your energy map is set up. Come back each day this week to add a few ratings.",
+      "reflect": "Do your best hours match what you expected?",
+      "feeds_plan": [
+        {
+          "field_id": "f_peaks",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_grid",
+          "type": "weekly_grid",
+          "label": "Your focus, 1 to 5",
+          "rows": [
+            "6 to 9 a.m.",
+            "9 a.m. to noon",
+            "Noon to 3 p.m.",
+            "3 to 6 p.m.",
+            "6 to 9 p.m.",
+            "9 p.m. to midnight"
+          ]
+        },
+        {
+          "id": "f_peaks",
+          "type": "short_text",
+          "label": "Your best hours",
+          "help": "For example: 9:30 a.m. to noon."
+        },
+        {
+          "id": "f_notes",
+          "type": "short_text",
+          "label": "What moved the pattern",
+          "optional": true,
+          "help": "For example: slept badly on Tuesday."
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Turn down your phone's noise",
+      "purpose": "A phone that only interrupts you for things that matter, set up once.",
+      "why": "Your phone is designed to pull at you. This is about taking some of that back. Every ping pulls your attention away, and getting it back takes longer than the ping did. Many alerts come from apps that want your attention, because attention is their business. Sort them once, and you stop fighting the same fight all day.",
+      "source": {
+        "chapter": "Chapter 4, The Notification Audit; Chapter 7, Digital Impulsivity"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Open your phone's notification settings.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Go app by app. Mark each one: keep, silence, or remove.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Keep alerts for calls, close contacts, your calendar, and anything you rely on for health or safety.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Move social apps off your home screen and into a folder.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Turn on Do Not Disturb or grayscale for your work hours. Let calls from your key people through.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "When Liam sat down to study, his phone kept pulling him away. So he made it quiet while he worked: Do Not Disturb on, and the phone face down. Nothing on it could ping him. If he wanted to look, he had to turn it over on purpose. Checking it became something he chose to do, not something that happened to him."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Silence the three apps that interrupt you most.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_silence"
+        ]
+      },
+      "done_when": "Your phone is quieter now. It may feel strange for a day or two, and that's normal.",
+      "reflect": "What do you notice now that your phone is quieter?",
+      "feeds_plan": [
+        {
+          "field_id": "f_hours",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_keep",
+          "type": "short_text",
+          "label": "Apps that keep their alerts",
+          "help": "For example: Phone, messages from family, Calendar, medication reminders."
+        },
+        {
+          "id": "f_silence",
+          "type": "long_text",
+          "label": "Apps you silenced or removed",
+          "help": "For example: social apps, news, shopping apps."
+        },
+        {
+          "id": "f_hours",
+          "type": "short_text",
+          "label": "When your phone goes quiet each day",
+          "help": "For example: 9 a.m. to noon, Do Not Disturb, phone face down."
+        }
+      ],
+      "repeat_units": [
+        7
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Set up one place to focus",
+      "purpose": "One clear surface where your brain knows it's time to work.",
+      "why": "Clutter is tiring to work around. Every object in view competes for your attention, even the ones you're trying to ignore. A clear surface with only what the task needs leaves your brain less to chase. You don't need a separate room. One surface, facing the right way, is enough.",
+      "source": {
+        "chapter": "Chapter 4, Workspace Design; Liam's Workspace Transformation"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Pick one surface for focused work. If it has other uses, clear it each time you start.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Clear it completely, even the things that usually live there.",
+          "figure": "fig_clear_desk"
+        },
+        {
+          "text": "Bring back only what the task in front of you needs.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Turn away from the busiest thing in view. If your back to a door feels uneasy, face a wall.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Add a small lamp over the work, if you have one.",
+          "figure": "fig_desk_ready"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam's room had been a mess for years, so he didn't try to fix the whole room. He cleared his desk completely and put everything else in a box to sort later. Back on the desk went his laptop, a notebook, a pen, a water bottle, and his phone on Do Not Disturb. He turned the desk to face a blank wall and added a small lamp. It took less than an hour."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Clear one surface completely. Put back only what today's work needs.",
+            "figure": "fig_clear_desk"
+          }
+        ],
+        "field_ids": [
+          "f_place"
+        ]
+      },
+      "done_when": "Your focus spot is ready. Sit down there for your next piece of work.",
+      "reflect": "What did you notice the first time you sat down there?",
+      "feeds_plan": [
+        {
+          "field_id": "f_place",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_place",
+          "type": "short_text",
+          "label": "Your focus spot",
+          "help": "For example: the kitchen table, cleared each morning."
+        },
+        {
+          "id": "f_needs",
+          "type": "long_text",
+          "label": "What stays on the surface",
+          "help": "For example: laptop, notebook, pen, water."
+        },
+        {
+          "id": "f_faces",
+          "type": "short_text",
+          "label": "What you face now while you work",
+          "help": "For example: a blank wall."
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Make the right thing easier",
+      "purpose": "Small changes in your space that make good choices easier and unhelpful ones harder.",
+      "why": "Good intentions often lose to one small obstacle. One extra step can be enough to stop you starting. That works both ways. Remove a step from the things you want to do more. Add a step to the things you want to do less. Then the easy path and the right path are the same one.",
+      "source": {
+        "chapter": "Chapter 4, The Friction Principle; Environmental Modification Beyond Workspace"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "List three things you mean to do but keep skipping.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, remove a step. Lay it out, open it, or put it in view.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "List three things you do more than you'd like to.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For each one, add a step. Log out, move it, or put it in another room.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Look around your kitchen, bedroom, and front door for one more change.",
+          "figure": "fig_door"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Filing used to take Priya several steps: find the right pile, hunt for the folder, make room for the paper. Important papers went missing along the way. She took those steps out. Each client got a labeled folder, and papers that needed action went in one tray. Filing became one step instead of a search. When a client called, she could find their file in seconds."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Make one thing easier and one thing harder today.",
+            "figure": "fig_desk_ready"
+          }
+        ],
+        "field_ids": [
+          "f_easier",
+          "f_harder"
+        ]
+      },
+      "done_when": "You've changed your space so one good choice is easier and one unhelpful one is harder.",
+      "reflect": "Which change do you expect to notice first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_easier",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_easier",
+          "type": "two_column",
+          "label": "Things to make easier",
+          "columns": [
+            "What you want to do more",
+            "The step you removed"
+          ],
+          "help": "For example: go to the gym, with the bag packed by the door."
+        },
+        {
+          "id": "f_harder",
+          "type": "two_column",
+          "label": "Things to make harder",
+          "columns": [
+            "What you want to do less",
+            "The step you added"
+          ],
+          "help": "For example: late-night shopping, after logging out of the app."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Choose one place for everything",
+      "purpose": "One trusted place where every task, idea, and promise goes, so nothing lives only in your head.",
+      "why": "Keeping everything in your head is tiring. Your brain can only hold a few things at once, and for many people with ADHD that limit feels lower. Notes spread across seven places mean searching seven places. Your capture place is the one spot where everything goes. Trust it, and you stop holding things in your head as backup.",
+      "source": {
+        "chapter": "Chapter 5, The Single Capture System; Chapter 1, The Interest-Based Nervous System"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "List every place you write things down now, and count them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick one. It needs to be with you all day and quick to open.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Move everything from the other places into it.",
+          "figure": "fig_folders"
+        },
+        {
+          "text": "For the next three days, put everything in it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Each evening, go through it. Move each item to your calendar or tomorrow's list, or delete it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "If a dull task sits there, give it a reason to start: a deadline, a timer, or a new spot.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam had tried planners, apps, and complicated methods. None of them lasted. This time he picked the plainest option he could find: one note on his phone called \"inbox.\" Assignment deadlines, ideas, a reminder to text his mom, things to buy. All of it went there. Every evening he spent five minutes going through it. Some items went into the calendar, some became tomorrow's tasks, and some got deleted. It was simple, and it was the first system that stuck."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name your one capture place, and use only that today.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_one"
+        ]
+      },
+      "done_when": "Your capture place is chosen. Over the next three days, put everything there.",
+      "reflect": "What's one thing you've been holding in your head that can go there now?",
+      "feeds_plan": [
+        {
+          "field_id": "f_one",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_review",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t07",
+      "fields": [
+        {
+          "id": "f_places",
+          "type": "long_text",
+          "label": "Every place you write things down now",
+          "help": "For example: sticky notes, two apps, email drafts, the back of a notebook."
+        },
+        {
+          "id": "f_one",
+          "type": "short_text",
+          "label": "Your one capture place",
+          "help": "For example: a note on your phone called Inbox."
+        },
+        {
+          "id": "f_review",
+          "type": "short_text",
+          "label": "When you'll go through it each day",
+          "help": "For example: five minutes after dinner."
+        }
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Plan today in ten minutes",
+      "purpose": "A short daily plan with three priorities or fewer, each with a start time.",
+      "why": "Without a plan, the day tends to get steered by whatever shouts loudest. A few minutes each morning turns a long list into a few clear choices with times attached. Fewer decisions during the day means more energy left for the work itself.",
+      "source": {
+        "chapter": "Chapter 5, The Daily Planning Ritual; Appendix A"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Check your calendar for anything fixed today.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Look through your capture place for anything due soon.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Choose up to three priorities. One is enough on a hard day.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Give each priority a start time in a free gap.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Get set up for the first one. Open the file, or clear the desk.",
+          "figure": "fig_desk_ready"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya plans at the kitchen table every morning before client work. It takes about ten minutes: calendar, inbox, three priorities, start times. On a typical day her three are her most complex client account first thing, her client calls after lunch, and the invoices she used to forget to send."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one priority, with the time you'll start it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_priorities"
+        ]
+      },
+      "done_when": "Today has a shape now: a few priorities, each with a start time.",
+      "reflect": "What might make today's plan easy or hard to keep?",
+      "feeds_plan": [
+        {
+          "field_id": "f_when",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_fixed",
+          "type": "short_text",
+          "label": "Fixed commitments today",
+          "help": "For example: dentist at 2 p.m., school pickup at 3:15."
+        },
+        {
+          "id": "f_priorities",
+          "type": "ranked_list",
+          "label": "Today's priorities",
+          "max_items": 3
+        },
+        {
+          "id": "f_times",
+          "type": "two_column",
+          "label": "When you'll start each one",
+          "columns": [
+            "Priority",
+            "Start time"
+          ]
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When and where you'll plan each day",
+          "help": "For example: 7:30 a.m., kitchen table, with coffee."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Make the important things visible",
+      "purpose": "A launch pad by the door, and your priorities and calendar where you'll see them.",
+      "why": "If you can't see something, it's easy to forget it. A task buried in an app you never open might as well not exist. If something matters, put it where your eyes already go: the door you leave by, the wall above your desk, a calendar you pass every day.",
+      "source": {
+        "chapter": "Chapter 4, The Visual Thinking System; Chapter 5, The Out-of-Sight Problem"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a launch pad: one spot by the door for keys, wallet, phone, and bag.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Tonight, put anything you need to take tomorrow on the launch pad.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Write today's priorities where you work, in plain view.",
+          "figure": "fig_board"
+        },
+        {
+          "text": "Choose one calendar you'll actually see: on the wall, on paper, or open on screen.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya put a whiteboard on her office wall showing every client deadline for the month. A calendar next to it held her appointments. Each morning she filled in a simple daily checklist. Nothing important lived only in her head, or in a system she forgot to check. The constant background scan for what she might be forgetting finally eased off."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Put tomorrow's must-take item by the door tonight.",
+            "figure": "fig_door"
+          }
+        ],
+        "field_ids": [
+          "f_launch"
+        ]
+      },
+      "done_when": "Your launch pad, priorities, and calendar are all where you'll see them.",
+      "reflect": "What's one thing you won't have to remember now, because you'll see it?",
+      "feeds_plan": [
+        {
+          "field_id": "f_visible",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_launch",
+          "type": "short_text",
+          "label": "Your launch pad spot",
+          "help": "For example: the small table by the front door."
+        },
+        {
+          "id": "f_items",
+          "type": "short_text",
+          "label": "What always goes on it",
+          "help": "For example: keys, wallet, work badge."
+        },
+        {
+          "id": "f_visible",
+          "type": "short_text",
+          "label": "Where your priorities and calendar live",
+          "help": "For example: a whiteboard above the desk."
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Run your weekly reset",
+      "purpose": "A weekly half hour that catches what slipped during the week, before it grows into a problem.",
+      "why": "Things slip through even a good daily plan. The weekly reset catches them. Once a week, it sweeps your capture place, your calendar, and your desk while forgotten things are still small. Setting it up takes about 15 minutes. The reset itself takes about half an hour. After a few weeks, it takes less effort.",
+      "source": {
+        "chapter": "Chapter 5, The Weekly Reset; Chapter 4, The Maintenance Question; Appendix A"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Pick a regular day and time, and put it in your calendar.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Look back: what went well, what slipped, and what you learned.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Go through your capture place. Do, schedule, or delete each item.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Look at next week's calendar and note what needs getting ready.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Choose next week's top priorities and one likely obstacle.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Reset your space. Clear the desk and file loose papers.",
+          "figure": "fig_clear_desk"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Every Friday from 4 to 5 p.m., Priya runs her reset. She looks back at the week, clears everything that piled up in her inbox, and plans the week ahead. Then she clears her desk, so Monday starts clean. It's the hour where things that slipped during the week get caught, before they turn into problems."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "For now, just empty your capture place. Then note one thing that slipped.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_slipped"
+        ]
+      },
+      "done_when": "Your reset has a day and time. Each week, it catches what slipped while it's still small.",
+      "reflect": "What did this first reset catch, if anything?",
+      "feeds_plan": [
+        {
+          "field_id": "f_when",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "Your reset day and time",
+          "help": "For example: Friday, 4 p.m."
+        },
+        {
+          "id": "f_slipped",
+          "type": "long_text",
+          "label": "What slipped this week",
+          "help": "A few words for each is plenty."
+        },
+        {
+          "id": "f_priorities",
+          "type": "ranked_list",
+          "label": "Next week's priorities",
+          "max_items": 3
+        },
+        {
+          "id": "f_obstacle",
+          "type": "short_text",
+          "label": "One likely obstacle, and what you'll do about it"
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Rewrite the story you tell yourself",
+      "purpose": "A fairer, more accurate way to say one thing you often tell yourself.",
+      "why": "This one can sting a little. After years of criticism, the stories your brain tells about you can get harsh. A small comment that felt like a big blow often sets them off. These stories can feel like the truth, but they're interpretations. Rewriting them is about being accurate. You're a person with patterns, and patterns can change.",
+      "source": {
+        "chapter": "Chapter 3, Separating Identity from Behavior; Chapter 6, Rewriting Internal Narratives"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "If this brings up more than you expected, stop here. Help now is at the top of every screen.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Write down one harsh thing you said to yourself this week, as close to word for word as feels okay.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write down only the facts of what happened.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write two other ways to explain what happened.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask yourself what you'd say to a friend who said this about themselves.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Rewrite the line. Swap \"I am\" for \"I have a pattern of.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add one small thing you can do about that pattern.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam's line was one he'd heard for years: the smart kid who can't get it together. Teachers told him he wasn't applying himself. His dad told him to toughen up. By now he said it to himself before he even tried something new. Checked against the facts, it didn't hold. His strategies had let him down, not his character. His rewrite: \"I have a pattern of losing track when I start something new, and I can set up a system for it.\""
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Rewrite one \"I am\" line as \"I have a pattern of.\"",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_rewrite"
+        ]
+      },
+      "done_when": "You've rewritten one harsh line as a pattern you can work with. That takes honesty.",
+      "reflect": "How does the new line feel when you read it back?",
+      "fields": [
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "The harsh line",
+          "help": "Write it as close to word for word as feels okay. If the line is about hurting yourself or not wanting to be here, stop and tap Help now. The structured pause is also in your Toolkit."
+        },
+        {
+          "id": "f_facts",
+          "type": "long_text",
+          "label": "Just the facts",
+          "help": "For example: I sent the report two days late."
+        },
+        {
+          "id": "f_other",
+          "type": "ranked_list",
+          "label": "Two other explanations",
+          "max_items": 2,
+          "help": "For example: I had three deadlines that week."
+        },
+        {
+          "id": "f_rewrite",
+          "type": "short_text",
+          "label": "Your rewrite",
+          "help": "Start with \"I have a pattern of\" and add one thing you can do."
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Decide now: when this, then that",
+      "purpose": "Three ready-made plans for the moments when you most often slip.",
+      "why": "When a moment moves fast, it's hard to stop and choose. So choose ahead, while you're calm. A plan in the form \"when this happens, I will do that\" means the choice is already made when the moment comes. You don't have to find the willpower. The plan does the work for you.",
+      "source": {
+        "chapter": "Chapter 7, Implementation Intentions"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name your three most common slip moments: the times you most often do what you didn't mean to.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "For each one, finish the line \"When this happens, I will...\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Make each action small enough to do on a hard day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep the plans somewhere private you'll see each day, like a phone note.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Read them each morning this week, to help them stick.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam noticed that his phone checking was worst in the first fifteen minutes of any study session, when the work felt most boring. So he made a plan: \"When I sit down to study, my phone goes in my backpack for twenty minutes.\" By the time twenty minutes had passed, he was usually into the material and the urge had faded. The plan did the job his willpower couldn't."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one plan for the moment you slip most.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_plans"
+        ]
+      },
+      "done_when": "Your plans are written. Read them each morning this week, so they're ready when the moment comes.",
+      "reflect": "Which plan do you expect to test first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_plans",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t02",
+      "fields": [
+        {
+          "id": "f_moments",
+          "type": "ranked_list",
+          "label": "Your three slip moments",
+          "max_items": 3,
+          "help": "For example: the first fifteen minutes of studying."
+        },
+        {
+          "id": "f_plans",
+          "type": "two_column",
+          "label": "Your plans",
+          "columns": [
+            "When this happens",
+            "Then I will"
+          ],
+          "help": "For example: When I sit down to study, my phone goes in my bag."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Build your brakes",
+      "purpose": "Two outside brakes, set up while you're calm, for the area where acting fast costs you most.",
+      "why": "If stopping in the moment is hard, put the stop outside you. A brake is anything that adds a pause between the urge and the action: a saved card removed, a site blocker, a rule to wait, a person to call first. These are sensible tools, the same way a seatbelt is. They hold even when your judgment feels rushed.",
+      "source": {
+        "chapter": "Chapter 7, Creating External Brakes; The Four Domains of Impulsivity; The 24-Hour Rule; Decision Impulsivity"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick the area that costs you most: money, words, big decisions, or screens.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write down what usually sets it off, like boredom or a hard day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose two brakes from the list, or make your own.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Set them up today, while you're calm.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "If it helps, tell one person which brakes you chose.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "On client calls, Priya had a habit of saying whatever came into her head, and it sometimes made things awkward. Her brake was a notepad next to the phone. When she felt the urge to jump in, she wrote the thought down instead. After the call she read her notes and decided what, if anything, needed saying. Most of it did not. Over time the pause came on its own, even without the notepad."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Set up one brake today.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_mine"
+        ]
+      },
+      "done_when": "Your brakes are set up, ready for the moments when stopping is hard.",
+      "reflect": "Which brake do you expect to test first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_mine",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_area",
+          "type": "short_text",
+          "label": "The area that costs you most",
+          "help": "For example: late-night shopping."
+        },
+        {
+          "id": "f_triggers",
+          "type": "short_text",
+          "label": "What usually sets it off",
+          "help": "For example: boredom after 10 p.m."
+        },
+        {
+          "id": "f_brakes",
+          "type": "checklist",
+          "label": "Pick two brakes",
+          "options": [
+            "Remove saved cards from shopping sites",
+            "Delete shopping apps from your phone",
+            "Wait 24 hours before buying anything you don't need",
+            "Block sites or apps during set hours",
+            "Charge your phone in another room at night",
+            "Save upset messages as drafts first",
+            "Wait two days and ask one trusted person before a big decision",
+            "Keep a notepad for what you want to say"
+          ]
+        },
+        {
+          "id": "f_mine",
+          "type": "short_text",
+          "label": "Your two brakes, in your own words"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Build a follow-through system",
+      "purpose": "A simple system so promises, deadlines, and follow-ups stop slipping.",
+      "why": "A forgotten promise can feel personal, but it usually comes down to memory. Following through gets easier when nothing depends on it. Each promise goes where you'll see it. Each deadline gets early reminders. Each request you send gets a date to check back.",
+      "source": {
+        "chapter": "Chapter 8, The Reliability System; Communication as Professional Infrastructure"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Put every promise you make into your capture place, the same day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Give each deadline three reminders: a week, two days, and one day before.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If a deadline is less than a week away, set one reminder for tomorrow and one for the day before.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "When you send a request, add a date to follow up if you hear nothing.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "For messages that need a reply, send a short note within a day or two saying when you'll answer.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If it helps, send one person a short update each week.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's biggest change at work wasn't a better way to track deadlines, though that helped. It was a short weekly update to each of her main clients: what she'd finished, what was coming next, and any questions. It took about fifteen minutes each week. Clients who used to wonder whether she was on top of things stopped wondering, because she told them first."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Add three reminders to one real deadline.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_deadline"
+        ]
+      },
+      "done_when": "Your open promises are captured, and at least one deadline has its reminders.",
+      "reflect": "Which promise might have slipped if you hadn't written it down?",
+      "fields": [
+        {
+          "id": "f_promises",
+          "type": "long_text",
+          "label": "Promises you've made that aren't written down yet",
+          "help": "For example: send Dana the photos, call the bank back."
+        },
+        {
+          "id": "f_deadline",
+          "type": "two_column",
+          "label": "Deadlines and their reminders",
+          "columns": [
+            "Deadline",
+            "Reminder dates"
+          ]
+        },
+        {
+          "id": "f_update",
+          "type": "short_text",
+          "label": "Who gets a weekly update, and when",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Plan backward from a deadline",
+      "purpose": "One real deadline broken into dated milestones, each with its own small deadline.",
+      "why": "A faraway deadline can feel like a problem for later, so nothing happens until the last minute. Working backward turns one distant date into several close ones. Each milestone brings its own small deadline, and small deadlines are what get you started.",
+      "source": {
+        "chapter": "Chapter 8, The Reliability System; Liam's Academic Turnaround"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one real deadline in the next month or two.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Ask yourself what needs to be done just before the deadline. Write that down.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Keep working backward until you reach something you could start this week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Aim for three to five milestones, each with a date.",
+          "figure": "fig_board"
+        },
+        {
+          "text": "Put each milestone in your calendar with a reminder.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam's senior thesis had one deadline at the end of the semester, which made it feel like a problem for later. He broke it into weekly milestones and tracked them on a whiteboard. His advisor helped too, splitting it into smaller pieces with their own deadlines. Every week now had a finish line. By the end of the semester his grades were the best they'd been in years, and he was working fewer hours, not more. The same approach works for a work report or a tax return."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Set the first milestone and put it in your calendar.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your deadline is broken into milestones, each with a date in your calendar.",
+      "reflect": "How does the first milestone feel compared with the whole deadline?",
+      "fields": [
+        {
+          "id": "f_deadline",
+          "type": "short_text",
+          "label": "The deadline",
+          "help": "For example: tax return, due April 15."
+        },
+        {
+          "id": "f_milestones",
+          "type": "two_column",
+          "label": "Your milestones",
+          "columns": [
+            "Milestone",
+            "Date"
+          ]
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "The first milestone, and when you'll start it"
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Build a morning that runs itself",
+      "purpose": "A set morning you can follow without much deciding, plus a three-step minimum day for hard mornings.",
+      "why": "Mornings can feel like a pile of small decisions. Those decisions add up, and they can leave less focus for later. A routine does the deciding for you: same steps, same order, same time. Give it more time than you think it needs, because mornings often run long.",
+      "source": {
+        "chapter": "Chapter 5, Routines as Cognitive Relief; Chapter 9, Building Sustainable Routines; Chapter 12, Building Your Morning Routine"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Set one wake time for every day, weekends included. It may feel hard for the first week or two.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "List five to eight steps in order, from waking up to starting your day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Include some movement that suits your body, like a short walk, a stretch, or moving to music.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Time the whole routine, then add spare time. If it takes 45 minutes, allow an hour.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Move one decision to the night before, like clothes or your bag.",
+          "figure": "fig_door"
+        },
+        {
+          "text": "Write your minimum day: three steps you'll do even on a hard morning.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya wakes at 6:30 a.m. every day, weekends too. She walks around the neighborhood for thirty minutes, which gets her moving and out in the morning light. Then a shower, getting dressed, breakfast sitting down with no screens, and ten minutes of planning at the kitchen table. By 8 a.m. she's at her desk on her hardest client task. She doesn't decide any of it. It just runs."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your minimum day: three steps for hard mornings.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_min"
+        ]
+      },
+      "done_when": "Your morning is written down with spare time built in, and your minimum day is ready.",
+      "reflect": "Which step of your morning holds the rest together?",
+      "feeds_plan": [
+        {
+          "field_id": "f_steps",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_min",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time"
+        },
+        {
+          "id": "f_steps",
+          "type": "ranked_list",
+          "label": "Your morning, in order",
+          "max_items": 8
+        },
+        {
+          "id": "f_min",
+          "type": "ranked_list",
+          "label": "Your minimum day: three steps for hard mornings",
+          "max_items": 3
+        },
+        {
+          "id": "f_night",
+          "type": "short_text",
+          "label": "What you'll decide the night before",
+          "help": "For example: clothes and lunch."
+        },
+        {
+          "id": "f_pair",
+          "type": "short_text",
+          "label": "Optional: if you take a prescribed medication, which morning step could remind you to take it as your prescriber advised?",
+          "optional": true,
+          "help": "Skip this if it does not apply."
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Smooth your hardest switch",
+      "purpose": "Two alarms and a small ritual for each of the two switches you find hardest.",
+      "why": "Switching tasks can be the hardest part of a day. Stopping something absorbing is hard because it feels good. Starting something dull is hard because it doesn't. Your sense of time may not warn you either way. So build the switch outside your head: an alarm before it, a short ritual to mark it, and five minutes to get started.",
+      "source": {
+        "chapter": "Chapter 12, Managing Transitions; Priya's Daily Operating System"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Name your two hardest switches, like stopping a game or starting paperwork.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Set an alarm five minutes before each one, so you can wrap up.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set a second alarm for the switch itself.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick a short ritual to mark the change, like making tea, a short walk, or closing the laptop.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Give the new task just five minutes. Then decide whether to keep going.",
+          "figure": "fig_desk_ready"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya ends her working day at 5 p.m., the same way every time. A five-minute desk reset: she clears the surface, files her papers, looks at tomorrow's calendar, and closes the laptop. Closing it is the signal. Work is done. Dinner is at 6, then screen-free time with her husband, Michael. The ritual marks the line between the two parts of her day, so work doesn't trail into the evening."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Set one alarm for your hardest switch.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_alarms"
+        ]
+      },
+      "done_when": "Your two hardest switches each have an alarm and a ritual.",
+      "reflect": "Which switch do you expect to feel easier now, and why?",
+      "feeds_plan": [
+        {
+          "field_id": "f_switches",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t05",
+      "fields": [
+        {
+          "id": "f_switches",
+          "type": "two_column",
+          "label": "Your two hardest switches",
+          "columns": [
+            "The switch",
+            "Your ritual"
+          ]
+        },
+        {
+          "id": "f_alarms",
+          "type": "short_text",
+          "label": "The alarm times you set",
+          "help": "For example: 4:55 p.m. and 5 p.m."
+        },
+        {
+          "id": "f_start",
+          "type": "short_text",
+          "label": "What your five-minute start looks like",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Guard your best hours",
+      "purpose": "One protected block in your best hours, kept clear of meetings, messages, and paperwork.",
+      "why": "Your sharpest hours are easy to lose to email. An hour or two at your best can move your hardest work further than a scattered day. Keep that time for work that needs clear thinking, and move routine tasks to the hours when your focus dips.",
+      "source": {
+        "chapter": "Chapter 8, Energy Management; Chapter 12, Protecting Your Peak Hours"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look at your energy map from week 2, and this week's if you've redone it.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "Block one to two hours in your calendar, starting tomorrow.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Choose the one task that needs your sharpest thinking for that block.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Set your space: phone away, blocker on, door closed if you can.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Move email, calls, and paperwork to your lower hours.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's peak is the start of her working day. From 8 a.m. she works on her most complex client account, with her phone in another room and no email until 10. Calls, paperwork, and the inbox wait for the afternoon, when her focus is lower anyway. Those first two hours are where her hardest work gets done."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Block one hour tomorrow for your hardest task.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_block"
+        ]
+      },
+      "done_when": "Your best hours are blocked out, with one task and a quiet space ready.",
+      "reflect": "What's most likely to try to get into your protected block?",
+      "feeds_plan": [
+        {
+          "field_id": "f_block",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_peak",
+          "type": "short_text",
+          "label": "Your peak hours",
+          "help": "For example: 8 to 10 a.m."
+        },
+        {
+          "id": "f_block",
+          "type": "short_text",
+          "label": "The block you're protecting",
+          "help": "For example: weekdays, 8 to 10 a.m."
+        },
+        {
+          "id": "f_task",
+          "type": "short_text",
+          "label": "What goes in it",
+          "help": "For example: your hardest report."
+        },
+        {
+          "id": "f_low",
+          "type": "short_text",
+          "label": "What moves to your lower hours",
+          "help": "For example: email, calls, bills."
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Set your sleep anchor",
+      "purpose": "A steady wake time and a simple evening routine that protect your sleep.",
+      "why": "Sleep affects attention, memory, and patience more than most people expect. After a poor night, focus is often harder to find. Many people with ADHD feel most awake late at night. A steady wake time and morning light can slowly shift your body clock earlier.",
+      "source": {
+        "chapter": "Chapter 9, Sleep: The Non-Negotiable Foundation; Chapter 12, Building Your Evening Routine; Appendix A"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a wake time you can keep every day, weekends included.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose a time for your last caffeine of the day. Early afternoon works for many people.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Choose when your wind-down starts, one to two hours before bed.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Charge your phone outside the bedroom.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Keep a notepad by the bed for thoughts that won't settle.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Get daylight soon after you wake. If you can't get out, sit by your brightest window.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "If poor sleep lasts weeks, or daytime tiredness is heavy, talk to a doctor or other health professional.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam stayed up until 2 a.m. most nights, gaming or scrolling, then dragged himself to 9 a.m. classes feeling foggy. He wasn't tired any earlier. His body clock ran late. What changed it was the walk to campus in the morning light. Within two weeks of walking every morning, he found himself getting sleepy earlier in the evening."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Set your wake time, and keep it tomorrow.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_wake"
+        ]
+      },
+      "done_when": "Your wake time, caffeine cutoff, and wind-down are set, and your phone sleeps outside the bedroom.",
+      "reflect": "What do you think will be hardest to keep, and what might make it easier?",
+      "feeds_plan": [
+        {
+          "field_id": "f_wake",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_wind",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time"
+        },
+        {
+          "id": "f_caffeine",
+          "type": "time_of_day",
+          "label": "Your last caffeine of the day"
+        },
+        {
+          "id": "f_wind",
+          "type": "time_of_day",
+          "label": "When your wind-down starts"
+        },
+        {
+          "id": "f_phone",
+          "type": "short_text",
+          "label": "Where your phone charges at night",
+          "help": "For example: the kitchen counter."
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Ask for one kind of help",
+      "purpose": "One specific request for the kind of support you're missing most.",
+      "why": "Asking for help can feel hard, especially if you've managed alone for a long time. You can do this alone, but it's harder than it needs to be. Support comes in four kinds: information, encouragement, practical help, and someone who checks in. A small, clear ask is easy to say yes to.",
+      "source": {
+        "chapter": "Chapter 11, Types of Support; Building an Accountability System; Body Doubling; How to Ask for Help Effectively"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose the kind of support you have least of right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Name one person who could give it. Someone to work beside you counts.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If no one comes to mind, a support group or a coach counts too.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write the ask. Make it specific, give a short reason, and keep it small.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Decide how you'll take a no. It's about their time, not your worth.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "After they help, tell them what difference it made.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Liam",
+        "text": "Liam and a friend who was also writing a thesis agreed to check in every Sunday evening for thirty minutes. Three questions each: what did you get done, what didn't you get done, and what are your three priorities for next week? Knowing someone would ask was enough. \"Work on my thesis\" turned into \"finish the literature review by Sunday,\" and that made the difference."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person you could ask, and what you'd ask them for.",
+            "figure": "fig_two_people"
+          }
+        ],
+        "field_ids": [
+          "f_person"
+        ]
+      },
+      "done_when": "Your ask is written. Send it, or pick a time to say it.",
+      "reflect": "How do you feel about asking, now that it's written?",
+      "fields": [
+        {
+          "id": "f_kind",
+          "type": "checklist",
+          "label": "The kinds of support you have least of",
+          "options": [
+            "Information",
+            "Encouragement",
+            "Practical help",
+            "Someone who checks in"
+          ]
+        },
+        {
+          "id": "f_person",
+          "type": "short_text",
+          "label": "Who you could ask, and for what",
+          "help": "If no one comes to mind, a support group or a coach counts.",
+          "optional": true
+        },
+        {
+          "id": "f_ask",
+          "type": "long_text",
+          "label": "Your ask, as you'd say it",
+          "help": "For example: Could you sit with me on Sunday while I do my taxes?"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Repair one thing",
+      "purpose": "A short, calm repair for one recent slip that affected someone.",
+      "why": "Facing a slip is hard. What helps most is how you respond. A good repair has three parts: say what happened, explain what made it hard without making excuses, and say what will change. Choose someone you feel safe raising this with. If there is no one like that, write the lines for yourself and stop there.",
+      "source": {
+        "chapter": "Chapter 10, Practical Strategies for Relationship Repair; Repairing Trust"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Pick one recent slip that affected someone you feel safe with: a partner, friend, relative, or colleague.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Line one: say what happened and how it affected them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Line two: say what made it hard, without using it as an excuse.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Line three: say what will change, and how you'll set that up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose a calm time to say it, not in the middle of an argument.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Afterward, write down how it went.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya told her husband, Michael, she'd call the insurance company. Three days later it still wasn't done, and he only found out when he tried to follow up. Her repair was three lines: \"I know it was frustrating when I forgot to call. My ADHD makes that kind of task hard, but that doesn't make it okay. From now on, anything I say I'll do goes into my calendar that day.\" Then she put the call in her calendar."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the three lines. Saying them can wait.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_lines"
+        ]
+      },
+      "done_when": "Your three lines are written, with a calm time to say them, or kept just for you.",
+      "reflect": "How did it go, and how do you feel about it now?",
+      "toolkit_link": "t09",
+      "fields": [
+        {
+          "id": "f_slip",
+          "type": "short_text",
+          "label": "The slip, and who it affected"
+        },
+        {
+          "id": "f_lines",
+          "type": "ranked_list",
+          "label": "Your three lines",
+          "max_items": 3,
+          "help": "Line 1: what happened. Line 2: what made it hard. Line 3: what will change."
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll say it"
+        },
+        {
+          "id": "f_after",
+          "type": "long_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Write your everyday plan",
+      "purpose": "One page that shows how an ordinary day runs, built from what you've already worked out.",
+      "why": "Holding a whole day in your head is tiring. Over these weeks you've worked out your best hours, your morning, your planning time, your sleep, and your reset. This page brings them together, so tomorrow already has a shape.",
+      "source": {
+        "chapter": "Chapter 12, The Daily Operating System; Designing Your Ideal Day"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Check your morning: wake time and the steps in order.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Check your best hours, and add any breaks you like to take.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Add your hardest switch and how you handle it.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Check your evening: when wind-down starts and when you sleep.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Add your weekly reset day and time.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Read it through. Cut anything you wouldn't do on an ordinary day.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya's day, trimmed down: wake at 6:30 a.m., walk, breakfast, plan at the kitchen table. Hardest client work from 8, phone in another room, no email until 10. Lunch away from the desk. Calls and paperwork in the afternoon, inbox at 3 p.m. A five-minute desk clear at 5. Dinner at 6, wind-down at 9, asleep by 10. Weekly reset on Friday at 4. It isn't rigid, but the anchors stay put."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read the drafted morning and evening. Fix anything that's wrong.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_morning",
+          "f_evening"
+        ]
+      },
+      "done_when": "Your everyday plan is on one page, ready to follow on an ordinary day.",
+      "reflect": "Which part of this page matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_morning",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_work",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_evening",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_week",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_morning",
+          "type": "long_text",
+          "label": "Morning"
+        },
+        {
+          "id": "f_work",
+          "type": "long_text",
+          "label": "Your best hours and breaks"
+        },
+        {
+          "id": "f_switch",
+          "type": "short_text",
+          "label": "Your hardest switch and how you handle it"
+        },
+        {
+          "id": "f_evening",
+          "type": "long_text",
+          "label": "Evening"
+        },
+        {
+          "id": "f_week",
+          "type": "short_text",
+          "label": "Weekly reset"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Write your restart plan",
+      "purpose": "A short plan for getting back on track after a hard patch, written while you're steady.",
+      "why": "Your system will slip sometimes. That's normal, and it happens to everyone. A restart after three hard days still counts. What matters is coming back. Write your restart now, while you're steady, so the first step is ready when you need it.",
+      "source": {
+        "chapter": "Chapter 12, The Imperfect System; Building Gradually; Chapter 10, Priya and Michael's Turning Point"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write your first step back. For many people, it's tomorrow's ten-minute plan.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your minimum day: the three steps from your morning plan in week 9.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you like, name one person you could tell when things start to slip.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "List what you'll drop first to make room.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep the plan where you'll find it on a hard day.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "When Priya missed something, she used to get defensive, then tearful, and the conversation with Michael went nowhere. Now, when he points out a task she forgot, she says: \"You're right. I missed that. Let me add it to my system right now.\" No spiral and no long apology. The slip goes into her capture place, and her system carries on. That's a restart at its smallest: one plain step back, taken right away."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write your first step back. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your restart plan is ready: a first step, a minimum day, and what to drop.",
+      "reflect": "What would you want to hear from yourself on a hard day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_drop",
+          "plan_section": "p6"
+        }
+      ],
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: plan tomorrow in ten minutes."
+        },
+        {
+          "id": "f_min",
+          "type": "ranked_list",
+          "label": "Your minimum day",
+          "max_items": 3,
+          "help": "Three steps you'll do even on a hard day."
+        },
+        {
+          "id": "f_tell",
+          "type": "short_text",
+          "label": "Who you could tell",
+          "optional": true,
+          "help": "If no one comes to mind, a note to yourself counts."
+        },
+        {
+          "id": "f_drop",
+          "type": "long_text",
+          "label": "What you'll drop first",
+          "help": "For example: extra projects and late plans, for a week."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The structured pause",
+      "when_to_use": "A strong feeling is rising fast and you're about to react. This takes under a minute.",
+      "steps": [
+        "Press your feet into the floor, or your hands into your lap.",
+        "Inhale slowly through your nose while you count to four.",
+        "If it feels okay, hold for a count of four. You can skip this part.",
+        "Exhale slowly while you count to six. Repeat the whole breath two or three times.",
+        "Name the feeling in one word. Then choose your next step. Waiting counts too."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 6, The Structured Pause; Appendix A"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "STOP, in four steps",
+      "when_to_use": "You're about to act, buy, or reply on impulse.",
+      "steps": [
+        "Stop. Let your hands go still for a moment.",
+        "Take a breath. Inhale while you count to four. Exhale while you count to six.",
+        "Observe what you feel and what you're about to do.",
+        "Proceed on purpose, with the action you choose."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 7, The STOP Technique"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Impulse check",
+      "when_to_use": "You're tempted to do something you might regret.",
+      "steps": [
+        "Exhale slowly while you count to six.",
+        "Name exactly what you're about to do.",
+        "Ask what it will cost you, now and later.",
+        "Ask what you're really after: rest, fun, comfort, or less boredom.",
+        "Choose a smaller way to get it, like a short walk."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Appendix A, The Impulse Interruption Script"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "The 24-hour rule",
+      "when_to_use": "You want to buy something right now, and you don't need it.",
+      "steps": [
+        "Add it to a wishlist or cart. Don't buy yet.",
+        "Close the page and wait 24 hours.",
+        "Tomorrow, ask if you still want it and if it's worth it.",
+        "Still yes? Buy it. Urge gone? Delete it."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 7, The 24-Hour Rule; Appendix A"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Five-minute start",
+      "when_to_use": "Stuck at the start? Five minutes is enough to begin.",
+      "steps": [
+        "Pick the smallest first action, like opening the file.",
+        "Set a timer for five minutes.",
+        "Work only until it rings.",
+        "Then choose: keep going, or stop for now."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 12, Managing Transitions"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Write it, save it, wait",
+      "when_to_use": "You're upset and about to send a message.",
+      "steps": [
+        "Write it in your notes app, not in the reply box.",
+        "Save it. Don't send it yet.",
+        "Come back in an hour, or tomorrow morning.",
+        "Read it again, calmer. Edit, send, or delete."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "Chapter 7, Verbal Impulsivity"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Park the thought",
+      "when_to_use": "A thought won't let go, in a meeting or at bedtime.",
+      "steps": [
+        "Grab your capture place, or the notepad by the bed.",
+        "Write the thought down in a few words.",
+        "Remind yourself it's saved and will be there later.",
+        "Go back to what you were doing, or back to sleep."
+      ],
+      "minutes": 1,
+      "figure": "fig_writing",
+      "source": {
+        "chapter": "Chapter 7, Verbal Impulsivity; Chapter 9, Sleep"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Clear surface reset",
+      "when_to_use": "It's the end of your working day, and you'd like tomorrow to start clean.",
+      "steps": [
+        "Deal with each loose paper: file it, do it, or put it in your tray.",
+        "Put everything back in its home.",
+        "Set out what you need for tomorrow's first task.",
+        "Leave the surface clear."
+      ],
+      "minutes": 2,
+      "figure": "fig_clear_desk",
+      "source": {
+        "chapter": "Chapter 4, Priya's Home Office; The Maintenance Question"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Repair in three lines",
+      "when_to_use": "You said or did something you wish you had not. Only use this with someone you feel safe with.",
+      "steps": [
+        "Say what happened and how it affected them.",
+        "Say what made it hard, without excusing it.",
+        "Say what will change, and how.",
+        "Then listen."
+      ],
+      "minutes": 2,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 10, Practical Strategies for Relationship Repair"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Restart with one step",
+      "when_to_use": "You've had a few hard days, and your routines have slipped.",
+      "steps": [
+        "Go easy on yourself. Slips are part of this, for everyone.",
+        "Do one thing: plan tomorrow in ten minutes.",
+        "Keep tomorrow to your minimum day.",
+        "Add one routine back each day after that."
+      ],
+      "minutes": 1,
+      "figure": "fig_walking",
+      "source": {
+        "chapter": "Chapter 12, The Imperfect System"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a week of quick energy ratings."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You know where to aim, and when you work best."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. Your setup is in place. Next, you try it on real weeks."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up where you left off, one small step at a time."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "What trips you up, and your best hours"
+    },
+    {
+      "id": "p3",
+      "title": "Your setup"
+    },
+    {
+      "id": "p4",
+      "title": "Your everyday plan"
+    },
+    {
+      "id": "p5",
+      "title": "Your pauses and brakes"
+    },
+    {
+      "id": "p6",
+      "title": "Your restart plan"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by noticing your own pattern. Since then, you've built a setup around how your brain works, tried it on real weeks, and written it down in your own words. It won't run perfectly, and it doesn't need to. When it slips, your restart plan is ready.",
+    "book_bridge": "Every tool here comes from Wired Differently by Maya Vaughn. The book tells the full story of Liam and Priya. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which part of your setup is working without much thought?",
+      "What slipped this month, and what's one small step to bring it back?",
+      "What's one thing you're glad you kept doing?"
+    ],
+    "refresher_ids": [
+      "e02",
+      "e03",
+      "e05",
+      "e07",
+      "e09",
+      "e10",
+      "e11"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Wired_Differently_Corrected.docx",
+    "v1_id": "focus",
+    "cut_log": [
+      {
+        "item": "E19 partner link",
+        "chapter": "Chapter 11",
+        "reason": "The in-app partner feature is not built yet, so the exercise does not mention it. Add one line when it ships."
+      },
+      {
+        "item": "E15 medication",
+        "chapter": "Chapter 9, Medication; Chapter 12",
+        "reason": "Only the optional pairing question. Priya's medication step from the book is left out of her example."
+      },
+      {
+        "item": "E18 melatonin",
+        "chapter": "Chapter 9, Sleep",
+        "reason": "Left out, per blueprint. A doctor step is included instead."
+      }
+    ],
+    "notes": "v1 topic_name: Focus\nv1 set_id: stress-and-overload (Stress and Overload); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 252"
+  }
+}

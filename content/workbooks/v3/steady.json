@@ -1,0 +1,2889 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-583T5",
+  "slug": "steady-ground-583t5",
+  "title": "Steady Ground",
+  "short_title": "Steady",
+  "card_line": "Twelve weeks of small, steady steps toward a more even rhythm in your days",
+  "tagline": "Twelve weeks of small, steady steps toward a more even rhythm in your days",
+  "book": {
+    "book_id": "steady-ground",
+    "title": "Steady Ground",
+    "subtitle": "A Practical Guide to Bipolar Disorder",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H4YQK5LM",
+      "US": "https://www.amazon.com/dp/B0H4YQK5LM"
+    },
+    "asin": "B0H4YQK5LM"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "higher",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Notice your pattern",
+          "body": "The Explore stage is about noticing. Over two weeks, you will start short notes on your mood, sleep and energy, make a crisis card, and look at what tends to come before a high or a low. Patterns are hard to see from inside a single day. A few weeks of rough notes can show what memory misses. Nothing here is a test or a score. Go at your own pace.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "Your first notes, a crisis card you can reach quickly, and a first sketch of your pattern.",
+        "review_question": "What did your notes show you that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build a steady rhythm",
+          "body": "In the Build stage, you set up the rhythm that steadies you. Over five weeks, you'll anchor your wake time, plan a wind-down, set your daily anchors and a minimum day, list your early signs, ask someone you trust to help watch for them, and write an early action plan. Set these up while things feel calm, so they're ready when they're not. Small and steady is enough.",
+          "figure": "fig_calendar"
+        },
+        "outcome": "Steady anchors, a wind-down, a minimum day, your early signs, a trusted person, and an early action plan.",
+        "review_question": "Which part of your rhythm feels steadiest so far, and which hasn't settled yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Use it on real days",
+          "body": "The Practice stage puts your plan to work. Over four weeks, you'll practice slowing down when you're heading up, set up money safeguards, take small steps when you're low, and check hard thoughts. You'll also look after movement, meals and screens, prepare for appointments, and write a plan for hard days. If a week feels heavy, do the short version, or take it slower.",
+          "figure": "fig_walking"
+        },
+        "outcome": "Ways to slow a high and lift a low, money safeguards, notes for your care team, and a hard-day plan.",
+        "review_question": "What has changed in how you respond to an early sign, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what steadies you",
+          "body": "The Keep stage brings twelve weeks together. You'll write a short letter about what matters to you and a steadying plan you can keep using. Keep both modest. A small plan you follow helps more than a big one you put down.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your letter about what matters, and your steadying plan, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If your mood and energy can swing high and low, and the swings take a toll on your days, this workbook is built for that. It's twelve weeks of small, steady steps: protecting sleep, steadying your days, noticing early signs, and planning with the people around you. Most weeks take 15 to 25 minutes, and every exercise has a short version. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for heavier weeks.",
+      "A daily check that takes about a minute. Over time, it shows patterns you can share with your care team.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "You choose the pace, and you can stop any exercise at any time."
+    ],
+    "why_prompt": "If your days felt a little steadier, what would you want more room for? One line is enough.",
+    "higher_tier_note": "This workbook is designed to work alongside care from a doctor or psychiatrist. That is true for everyone who uses it, whatever brought them here. It does not give advice about medication. For any question about medication, please talk to your prescriber. The mood, sleep and energy notes you keep here are for noticing your own patterns and sharing them with your care team. They are not a clinical measure. You choose the pace, and you can stop any exercise at any time.",
+    "extra_safety_note": "If you are in danger right now, or you have thoughts of harming yourself, please stop and tap Help now. If you feel agitated and hopeless at the same time, with racing thoughts, this is urgent. Contact a crisis line or go to an emergency department, and do not wait to see if it passes. If you are seeing or hearing things that other people do not, contact your prescriber right away or go to an emergency department. If you are sleeping fewer than five hours a night without feeling tired, contact your prescriber or care team promptly. If any exercise makes you feel worse, stop. You can come back another day."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "rhythm",
+        "label": "Sleep and daily rhythm"
+      },
+      {
+        "id": "noticing",
+        "label": "Noticing your patterns"
+      },
+      {
+        "id": "support",
+        "label": "Support and plans"
+      },
+      {
+        "id": "kindness",
+        "label": "Kindness and meaning"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "rhythm",
+        "text": "You get up at about the same time each day, weekends included."
+      },
+      {
+        "id": "q02",
+        "area": "rhythm",
+        "text": "You have a wind-down routine before bed."
+      },
+      {
+        "id": "q03",
+        "area": "rhythm",
+        "text": "Your meals happen at fairly regular times."
+      },
+      {
+        "id": "q04",
+        "area": "rhythm",
+        "text": "Your days have a steady, predictable shape."
+      },
+      {
+        "id": "q05",
+        "area": "noticing",
+        "text": "You notice changes in your sleep early."
+      },
+      {
+        "id": "q06",
+        "area": "noticing",
+        "text": "You notice changes in your energy before they build."
+      },
+      {
+        "id": "q07",
+        "area": "noticing",
+        "text": "You keep some notes on your mood, sleep and energy."
+      },
+      {
+        "id": "q08",
+        "area": "noticing",
+        "text": "You can pause before acting on a big, sudden idea."
+      },
+      {
+        "id": "q09",
+        "area": "support",
+        "text": "At least one person knows your early signs."
+      },
+      {
+        "id": "q10",
+        "area": "support",
+        "text": "You feel able to tell someone when you're struggling."
+      },
+      {
+        "id": "q11",
+        "area": "support",
+        "text": "You know what you would do if early signs appeared."
+      },
+      {
+        "id": "q12",
+        "area": "support",
+        "text": "You know who you would contact on a very hard day."
+      },
+      {
+        "id": "q13",
+        "area": "kindness",
+        "text": "You speak to yourself with some kindness about your moods."
+      },
+      {
+        "id": "q14",
+        "area": "kindness",
+        "text": "You give yourself credit for small steps."
+      },
+      {
+        "id": "q15",
+        "area": "kindness",
+        "text": "You spend some time on something that matters to you."
+      },
+      {
+        "id": "q16",
+        "area": "kindness",
+        "text": "Your moods feel like part of your life, not all of it."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis or a clinical measure. Your answers are compared only with your own first answers, never with anyone else. You can share them with your care team if that is useful. If your answers drop a lot, or you do not feel safe, please tap Help now and talk to someone you trust.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How steady did this week feel, from unsettled (0) to steady (10)?"
+      },
+      {
+        "id": "c_signs",
+        "type": "short_text",
+        "label": "Any early signs you noticed",
+        "optional": true,
+        "help": "A few words is enough. If a sign showed up, follow your early action plan and contact the people on it. If you have thoughts of harming yourself, please tap Help now."
+      },
+      {
+        "id": "c_sleep",
+        "type": "short_text",
+        "label": "How your sleep and wake time went"
+      },
+      {
+        "id": "c_helped",
+        "type": "short_text",
+        "label": "What helped this week"
+      },
+      {
+        "id": "c_adjust",
+        "type": "short_text",
+        "label": "One small change for next week"
+      },
+      {
+        "id": "c_days",
+        "type": "weekly_grid",
+        "label": "Days you kept your wake time"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_signs"
+    ]
+  },
+  "daily_check": {
+    "question": "Where did your mood sit today? 5 is your usual, level mood.",
+    "scale_low": "Very low",
+    "scale_high": "Very high or wired",
+    "tags": [
+      "Kept my wake time",
+      "Wound down",
+      "Regular meals",
+      "Some movement",
+      "Went outside",
+      "Time with someone",
+      "Screens off early",
+      "Used a tool"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Start your notes and make your crisis card",
+      "exercise_ids": [
+        "e01",
+        "e02"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Sketch your pattern",
+      "exercise_ids": [
+        "e03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Anchor your sleep",
+      "exercise_ids": [
+        "e04",
+        "e05"
+      ],
+      "new_toolkit_ids": [
+        "t03",
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Set your anchors and your minimum day",
+      "exercise_ids": [
+        "e06",
+        "e07"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "List your early signs",
+      "exercise_ids": [
+        "e08",
+        "e09"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Choose someone to help you notice",
+      "exercise_ids": [
+        "e10",
+        "e11"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Plan what you'll do when signs appear",
+      "exercise_ids": [
+        "e12",
+        "e13"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Slow down when you're heading up",
+      "exercise_ids": [
+        "e14",
+        "e15"
+      ],
+      "new_toolkit_ids": [
+        "t07",
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e05"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Small steps and kinder thoughts when you're low",
+      "exercise_ids": [
+        "e16",
+        "e17"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Look after your days and prepare for appointments",
+      "exercise_ids": [
+        "e18",
+        "e19"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e03",
+        "e08"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Plan for hard days and disruptions",
+      "exercise_ids": [
+        "e20",
+        "e21"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02",
+        "e07"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e22",
+        "e23"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e01",
+        "e13"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Your mood, sleep and energy notes",
+      "purpose": "A quick daily note of three things, so patterns you can share with your care team start to show.",
+      "why": "Moods can feel random from the inside, like weather. The book starts with a short note each day: mood, sleep and energy. After a few weeks, patterns often show up that memory misses. These notes are for you and your care team to look at together. They are not a score or a clinical measure.",
+      "source": {
+        "chapter": "Chapter 1, Quick Tool: The Mood Check; Chapter 5, Quick Tool: The Daily 3-Point Check; Amara; Tracking Methods; When Tracking Becomes Counterproductive",
+        "note": "The book's mood scale runs from -5 to +5. The app's 0 to 10 scale is used with 5 as the usual, level mood."
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a time to do this each day. Right after waking is easiest.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Rate your mood from 0 to 10. 5 is your usual, level mood.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Below 5 means lower than usual. Above 5 means higher, faster or more wired.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Note how many hours you slept, and how rested you felt.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Rate your energy from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Rough answers are fine. If noting this ever makes you feel worse, do it less often, or stop.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara started writing three numbers in a notebook each morning, over her first cup of tea. Her psychiatrist had suggested it. She didn't expect much. Her moods had always felt random, like weather. After six weeks, she looked back through the pages, and something became visible that had been invisible from inside each day. The pattern had been there the whole time. She had just never stood far enough back to see it."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Rate your mood from 0 to 10. 5 is your usual, level mood.",
+            "figure": "fig_rating"
+          },
+          {
+            "text": "Note last night's sleep in a few words.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_mood",
+          "f_sleep"
+        ]
+      },
+      "done_when": "Your first notes are saved. Over time, they'll show your pattern.",
+      "reflect": "What was it like to put a number on today?",
+      "fields": [
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "When you'll make your note each day"
+        },
+        {
+          "id": "f_mood",
+          "type": "scale_0_10",
+          "label": "Mood today",
+          "help": "5 is your usual, level mood. Lower means lower than usual. Higher means higher, faster or more wired than usual."
+        },
+        {
+          "id": "f_sleep",
+          "type": "short_text",
+          "label": "Sleep last night: hours, and how rested you felt",
+          "help": "For example: about 7 hours, fairly rested."
+        },
+        {
+          "id": "f_energy",
+          "type": "scale_0_10",
+          "label": "Energy today",
+          "help": "0 is no energy at all. 10 is far more than usual."
+        },
+        {
+          "id": "f_note",
+          "type": "short_text",
+          "label": "Anything else you noticed",
+          "optional": true,
+          "help": "For example: late night, skipped lunch, felt restless."
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Make your crisis card",
+      "purpose": "A small card with what helps in a crisis, so you do not have to think of it then.",
+      "why": "In a crisis, it is hard to think clearly. The card holds what you need: one way to calm your body, one person to call, one crisis line, and one reason to keep going. Write it on a calmer day, and keep it where you can reach it quickly.",
+      "source": {
+        "chapter": "Quick Start, 4. Create a Minimal Crisis Card; Chapter 11, Quick Tool: The Wallet Card; David"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one way to calm your body, such as the double inhale in your Toolkit.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Write one person you could call, with their number.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add one crisis line. Help now always has the numbers for where you are.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Write one reason to keep going. A few words is enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Save it on your phone. Keep a copy in your wallet or on the fridge.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "If you are not safe right now, stop and tap Help now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David kept his crisis card on the fridge, held there by a magnet his daughter had made at school. He had put it there during a stable time, for exactly this kind of moment. Months later, at 2 a.m. in a hard stretch, he read it. He did the breathing on it, slowly. Then he called the number on the card: his brother, who came over. They sat in the kitchen with tea until morning. The card did not make the pain disappear. It gave him somewhere to start."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one person to call, and one reason to keep going.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "Help now is always at the top of your screen.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_person",
+          "f_reason"
+        ]
+      },
+      "done_when": "Your crisis card is made. It is there when you need it.",
+      "reflect": "Where will you keep your card so you can reach it quickly?",
+      "feeds_plan": [
+        {
+          "field_id": "f_person",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_reason",
+          "plan_section": "p5"
+        }
+      ],
+      "toolkit_link": "t02",
+      "fields": [
+        {
+          "id": "f_calm",
+          "type": "short_text",
+          "label": "One way to calm your body"
+        },
+        {
+          "id": "f_person",
+          "type": "two_column",
+          "label": "One person to call",
+          "columns": [
+            "Name",
+            "Number"
+          ]
+        },
+        {
+          "id": "f_line",
+          "type": "short_text",
+          "label": "One crisis line",
+          "help": "Help now lists the crisis lines for where you are."
+        },
+        {
+          "id": "f_reason",
+          "type": "short_text",
+          "label": "One reason to keep going"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Your pattern so far",
+      "purpose": "A first sketch of what tends to come before a high or a low for you.",
+      "why": "Highs and lows can seem to arrive out of nowhere. Looking back, many people find the same things come first, often a change in sleep. Good changes can play a part too. A first sketch helps you spot your pattern sooner. Someone who knows you well may have noticed things you missed.",
+      "source": {
+        "chapter": "Chapter 1, Troubleshooting; Chapter 2, The Circadian Connection; Stress and Kindling; Chapter 3, Seasonal and Hormonal Patterns; Chapter 5, Amara; Chapter 6, Why Routine Matters"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think about times your mood went higher than usual. What tended to come first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Now think about times it went lower. What tended to come first there?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look at sleep, late nights, changes to routine, big events and time of year.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Good changes count too. A new job or a vacation can shift your rhythm.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If you can, ask someone close what they noticed.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Rough notes are fine. Skip anything that feels like too much right now.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "After six weeks of notes, Amara saw the same sequence before every crash. First her sleep quality improved, which she had always taken as a good sign. Then she stopped needing her alarm. She woke at 5:30 a.m. feeling sharp, planned elaborate lessons, and signed up for evening courses. About ten days later, the energy drained away and the familiar heaviness settled in. For ten years, she had mistaken the start of a high for the start of feeling well."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick what tends to come first for you. \"Not sure yet\" is a fine answer.",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_before"
+        ]
+      },
+      "done_when": "You have a first sketch of your pattern. It will get clearer over time.",
+      "reflect": "Was anything on your list a surprise?",
+      "feeds_plan": [
+        {
+          "field_id": "f_before",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_before",
+          "type": "checklist",
+          "label": "What tends to come first for you",
+          "options": [
+            "Less sleep, without feeling tired",
+            "Sleeping more than usual",
+            "Late nights",
+            "Changes to your routine",
+            "Big events, good or hard",
+            "Travel across time zones",
+            "A certain time of year",
+            "Stress at work or home",
+            "Not sure yet"
+          ]
+        },
+        {
+          "id": "f_up",
+          "type": "long_text",
+          "label": "What you've noticed before a high",
+          "optional": true
+        },
+        {
+          "id": "f_down",
+          "type": "long_text",
+          "label": "What you've noticed before a low",
+          "optional": true
+        },
+        {
+          "id": "f_others",
+          "type": "short_text",
+          "label": "What someone close has noticed",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Anchor your wake time",
+      "purpose": "One wake time you keep every day, the anchor the rest of your rhythm builds on.",
+      "why": "Sleep changes are often the first sign that mood is shifting. The book's most important sleep rule is a steady wake time, because it sets your body clock. Try to keep it within 30 minutes every day, weekends included, even after a poor night.",
+      "source": {
+        "chapter": "Quick Start, 1. Protect Tonight's Sleep; Chapter 4, Nathan; Sleep Hygiene Adapted for Bipolar; Managing Real-World Disruptions; When You Cannot Sleep"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a wake time you can keep seven days a week.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Count back 7 to 9 hours to find a bedtime that fits.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Plan for weekends. Sleeping in late can shift your body clock like a time zone change.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "After a late night, still get up at your usual time.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If you're sleeping much less or much more than usual, note it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If you feel wired, not tired, for two nights in a row, contact your prescriber.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Nathan could tell you the exact sequence. Every high he'd had started with sleep. He would lie awake, not anxious, just buzzing. The next day he felt sharp and told himself he didn't need the rest. It took three highs for him to see that sleep was the entry point. Once he did, protecting his sleep became the most important thing he did for his stability."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose a wake time you can keep every day, weekends included.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_wake"
+        ]
+      },
+      "done_when": "Your wake time is set. It's the anchor for everything else.",
+      "reflect": "What usually pulls your wake time off track?",
+      "feeds_plan": [
+        {
+          "field_id": "f_wake",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_bed",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_wake",
+          "type": "time_of_day",
+          "label": "Your wake time"
+        },
+        {
+          "id": "f_bed",
+          "type": "time_of_day",
+          "label": "Your bedtime"
+        },
+        {
+          "id": "f_weekend",
+          "type": "short_text",
+          "label": "How you'll keep your wake time on weekends"
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Plan your wind-down",
+      "purpose": "An evening routine that tells your body sleep is coming, done the same way each night.",
+      "why": "Evenings can fill up with screens, work and late coffee, and sleep gets pushed back. The book's 10-3-2-1-0 countdown gives a simple shape to the hours before bed. The same calm steps in the same order each night help your body expect sleep.",
+      "source": {
+        "chapter": "Chapter 4, Quick Tool: The 10-3-2-1-0 Sleep Formula; Nathan; Practical Sleep Protection; Evening Light Restriction"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Ten hours before bed: your last caffeine. Earlier if you're sensitive to it.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Three hours before bed: your last food and alcohol.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Two hours before bed: stop work, and dim the lights at home.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "One hour before bed: screens off. Charge your phone outside the bedroom.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Choose two or three calm steps to do in the same order each night.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep your bedroom cool, dark and quiet if you can.",
+          "figure": "fig_moon"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Nathan's highs often began the same way. He'd go to bed at his usual time but lie awake, buzzing. Ideas kept turning over. Nothing urgent, just a mind that wouldn't switch off. He'd check the time at midnight, then at two, then give up and get out of bed at three, because lying there felt pointless."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one step for tonight: dim the lights, or screens off an hour before bed.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_steps"
+        ]
+      },
+      "done_when": "Your wind-down is planned, ready to try tonight.",
+      "reflect": "Which step feels easiest to keep, and which feels hardest?",
+      "feeds_plan": [
+        {
+          "field_id": "f_steps",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t03",
+      "fields": [
+        {
+          "id": "f_steps",
+          "type": "ranked_list",
+          "label": "Your wind-down steps, in order",
+          "max_items": 4
+        },
+        {
+          "id": "f_start",
+          "type": "time_of_day",
+          "label": "When your wind-down starts"
+        },
+        {
+          "id": "f_phone",
+          "type": "short_text",
+          "label": "Where your phone will charge overnight"
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Set your five anchors",
+      "purpose": "Five daily times that stay about the same each day, giving your body clock a steady rhythm.",
+      "why": "Late finishes, skipped meals and weekend sleep-ins each seem small. Together they can unsettle your body clock. The book's five anchors are wake time, first meal, the start of your main activity, dinner and bedtime. Try to keep each within about 45 minutes, weekends included.",
+      "source": {
+        "chapter": "Chapter 6, Quick Tool: The Five Anchors; David; The Social Rhythm Metric; Building Your Anchor Points; Creating Your Routine Document; Appendix A, The Five Anchors"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Start with your wake time and bedtime from week 3.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set a time for your first meal, and for when your main activity starts.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Set a dinner time, ideally three hours or more before bed.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Make a weekend version with the same anchors. What happens between them can change.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "If you can, plan some contact with another person in the first few hours.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Most days is the aim. Five days out of seven is a good start.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David had been self-employed for twelve years, with no fixed schedule. Some weeks he started at 6 a.m. and finished at 9 p.m. Other weeks he barely worked. When his psychiatrist explained social rhythms, something clicked. He began using 8:30 a.m. as his start time, even on days with no jobs booked. He ate breakfast at the same time and stopped taking jobs that ran past 7 p.m. Within weeks, his wife noticed he was steadier."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Set one more anchor: a time for your first meal or for dinner.",
+            "figure": "fig_clock_check"
+          }
+        ],
+        "field_ids": [
+          "f_meal",
+          "f_dinner"
+        ]
+      },
+      "done_when": "Your five anchors are set, a steady frame for your days.",
+      "reflect": "Which anchor will be hardest to keep, and what might help?",
+      "feeds_plan": [
+        {
+          "field_id": "f_meal",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_main",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_dinner",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_meal",
+          "type": "time_of_day",
+          "label": "First meal"
+        },
+        {
+          "id": "f_main",
+          "type": "time_of_day",
+          "label": "Main activity starts"
+        },
+        {
+          "id": "f_dinner",
+          "type": "time_of_day",
+          "label": "Dinner"
+        },
+        {
+          "id": "f_weekend",
+          "type": "short_text",
+          "label": "What stays the same on weekends, and what can change"
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Your minimum day",
+      "purpose": "A short list of steps for heavy days, so you lower the bar instead of dropping everything.",
+      "why": "On a heavy day, a full routine can feel impossible. The book's answer is to lower the bar, not drop it. Its minimum day is six small things. If that's too much, there's a floor of just a few. Doing your floor still counts.",
+      "source": {
+        "chapter": "Chapter 6, Structure During Different Mood States; Chapter 10, Quick Tool: The Depression Survival Minimum; Amara; Behavioral Activation",
+        "note": "The book's floor and survival minimum include taking medication. Left out under the Steady rule. See the clinician review list."
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Here are the book's six. First, wake at your set time, even if you rest again later.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Shower and dress. Eat one meal.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Contact one person, even by text.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Go outside briefly if you can. Go to bed at your set time.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Now choose your floor: two or three steps for the very hardest days.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "On a heavy day, your floor is enough.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara described her lows as the world losing its color. Food tasted like cardboard. Music she loved sounded flat. The worst part was not the sadness but the absence: of motivation, of interest. What helped in the end was not one big thing. It was a few small ones together: protected sleep, a minimum routine, and the smallest possible steps. None of them felt helpful in the moment. Together, they made room for the low to lift when it was ready."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose your floor: two or three tiny steps for the hardest days.",
+            "figure": "fig_three_cards"
+          }
+        ],
+        "field_ids": [
+          "f_floor"
+        ]
+      },
+      "done_when": "Your minimum day and your floor are ready for heavy days.",
+      "reflect": "What would help you remember your floor on a heavy day?",
+      "feeds_plan": [
+        {
+          "field_id": "f_floor",
+          "plan_section": "p2"
+        }
+      ],
+      "toolkit_link": "t05",
+      "fields": [
+        {
+          "id": "f_min",
+          "type": "checklist",
+          "label": "Your minimum day",
+          "options": [
+            "Wake at your set time",
+            "Shower and dress",
+            "Eat one meal",
+            "Contact one person",
+            "Go outside briefly",
+            "Bed at your set time"
+          ]
+        },
+        {
+          "id": "f_floor",
+          "type": "ranked_list",
+          "label": "Your floor, for the hardest days",
+          "max_items": 3,
+          "help": "For example: wake at your set time, drink water, eat something."
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Early signs of going up",
+      "purpose": "Your own short list of the first signs that your mood may be heading up.",
+      "why": "A high can feel like finally being yourself, which makes it hard to spot. Many people find the same signs show up each time, often starting with sleep. A short list, earliest first, gives you time to act. It works best when someone close knows it too.",
+      "source": {
+        "chapter": "Chapter 5, Your Personal Relapse Signature; Common Early Warning Signs; The Timeline of Warning Signs; Involving Others; Appendix A, Personal Warning Signs Worksheet"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look back at your pattern from week 2.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick the signs below that you recognize from times your mood went up.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add any that are yours alone. Be specific: buying three laptops, not one.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Put them in order, earliest first. Early signs give you the most time.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Four to six signs is plenty.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Nathan's list started with sleep: under six hours without feeling tired. That was always first. Then came late-night online shopping, starting new projects before finishing old ones, and talking faster, which his partner noticed before he did. Last came irritability when anyone questioned his ideas, and a growing certainty that he had finally figured things out. If he caught the sleep change, he had time. If he waited for the irritability, the window might have closed."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the earliest sign you know of. One is enough for now.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_up_list"
+        ]
+      },
+      "done_when": "Your list of early signs for going up is written.",
+      "reflect": "Which sign might someone close to you spot before you do?",
+      "feeds_plan": [
+        {
+          "field_id": "f_up_list",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_up_signs",
+          "type": "checklist",
+          "label": "Signs you recognize",
+          "options": [
+            "Needing less sleep, without feeling tired",
+            "Trouble falling asleep because of racing thoughts",
+            "Waking early, full of energy",
+            "Starting lots of new projects",
+            "Taking on more than usual",
+            "Restless, hard to sit still",
+            "Racing thoughts or a rush of ideas",
+            "Talking more, or faster",
+            "Reaching out to lots of people",
+            "Spending more than usual",
+            "Feeling unusually confident or certain",
+            "Irritable when questioned or slowed down"
+          ]
+        },
+        {
+          "id": "f_up_list",
+          "type": "ranked_list",
+          "label": "Your early signs of going up, earliest first",
+          "max_items": 6
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Early signs of going down",
+      "purpose": "Your own short list of the first signs that your mood may be heading down.",
+      "why": "Lows often creep in quietly, more like a slow dimming than an event. That can make them harder to spot than highs. The early signs tend to repeat in the same order, which is why writing them down helps. They're signs to notice, not flaws in you.",
+      "source": {
+        "chapter": "Chapter 5, Common Early Warning Signs; David; Your Personal Relapse Signature; Appendix A, Personal Warning Signs Worksheet"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think back to times your mood went lower. What changed first?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick the signs below that you recognize.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add your own, in plain words. Small, everyday changes count.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Put them in order, earliest first.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Go easy on yourself as you do this. These are signs, not character flaws.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's early signs were easy to miss, because he had always called them laziness. He lost interest in quoting for new jobs. He let the van get messy. He ate takeout instead of cooking. For years he saw these as flaws in his character. Then he saw them in his notes as the same sequence, in the same order, about three weeks before each low fully set in."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the earliest sign you know of, in plain words.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_down_list"
+        ]
+      },
+      "done_when": "Your list of early signs for going down is written.",
+      "reflect": "Which sign tends to show up first for you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_down_list",
+          "plan_section": "p3"
+        }
+      ],
+      "stuck_alternative": "e08",
+      "fields": [
+        {
+          "id": "f_down_signs",
+          "type": "checklist",
+          "label": "Signs you recognize",
+          "options": [
+            "Hard to wake, wanting to stay in bed",
+            "Sleeping more than usual",
+            "Sleep that doesn't refresh you",
+            "Low energy, everyday tasks feel effortful",
+            "Dropping exercise or hobbies",
+            "Hard to concentrate",
+            "Hard to make small decisions",
+            "Familiar harsh thoughts coming back",
+            "Pulling away from people",
+            "Canceling plans",
+            "Less care for yourself",
+            "Eating more or less than usual"
+          ]
+        },
+        {
+          "id": "f_down_list",
+          "type": "ranked_list",
+          "label": "Your early signs of going down, earliest first",
+          "max_items": 6
+        }
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Choose your trusted person",
+      "purpose": "One person who knows your early signs and has agreed to tell you if they notice them.",
+      "why": "When mood is heading up, it often feels good, so it's hard to see from the inside. People close to you can often spot changes before you do. Choosing someone while things feel calm gives you a second pair of eyes. You don't need to explain everything.",
+      "source": {
+        "chapter": "Introduction, The People You Will Meet; Quick Start, 3. Tell One Person; Chapter 5, Involving Others: Your External Warning System; Chapter 13, When You Lack a Support System"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of someone you trust: a partner, relative or friend.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Lean toward someone calm by nature, who would raise a worry gently.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If no one comes to mind, a peer support group is a good place to start.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Plan when to talk: a calm time, not during a hard stretch.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Choose what to share. Your early signs are enough to start.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "You can pause this and come back to it anytime.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Priya",
+        "text": "Priya is a doctor in training in London. She spent her days caring for patients while she struggled to care for herself, and the irony was not lost on her. She hid her condition from her colleagues, afraid of the stigma that still surrounds mental illness in medicine. She is learning that asking for help is not weakness."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the name of one person you trust. That's enough for now.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_who"
+        ]
+      },
+      "done_when": "You've chosen your trusted person, someone to help you notice.",
+      "reflect": "How do you feel about asking someone to help in this way?",
+      "feeds_plan": [
+        {
+          "field_id": "f_who",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Your trusted person"
+        },
+        {
+          "id": "f_why",
+          "type": "short_text",
+          "label": "Why them"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll talk to them"
+        },
+        {
+          "id": "f_backup",
+          "type": "short_text",
+          "label": "A second person, if you'd like one",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Agree how they'll raise it",
+      "purpose": "An agreement, made while calm, on how your trusted person raises a concern and how you'll respond.",
+      "why": "When someone says they're worried, it's natural to brush it off, especially if you feel great. Agreeing in advance makes that moment easier. The book's approach: share your specific signs, agree on the words they'll use, and commit now to taking their view seriously, even if you disagree at the time.",
+      "source": {
+        "chapter": "Chapter 5, Involving Others: Your External Warning System; Chapter 9, Nathan; Troubleshooting; Chapter 13, Quick Tool: The Partner Quick Brief; Communication Strategies"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Share your two lists of early signs from week 5.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Agree on the words they'll use. The book's version is below.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Agree on how you'll respond: pause, check your notes, and take it seriously.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Agree on what they can do if they stay worried, like contacting someone you name.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Their role is to notice and speak up. Your choices about your care stay with you.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Before he had a plan, Nathan rode one high for three weeks. His wife, Sarah, watched it unfold without knowing she had permission to step in. Two years later, things were different. He woke after five hours of sleep feeling sharp, checked his notes, and saw the pattern. He didn't want to act on it. But he had made a commitment. He texted Sarah: \"I think I'm going up. Can we do the plan?\""
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the words your trusted person will use if they notice a sign.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_words"
+        ]
+      },
+      "done_when": "You've agreed on how concerns get raised, while things feel calm.",
+      "reflect": "What might make it hard to hear their concern, and what would help?",
+      "feeds_plan": [
+        {
+          "field_id": "f_words",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_ifworried",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_words",
+          "type": "long_text",
+          "label": "The words they'll use",
+          "help": "From the book: \"I have noticed [specific behavior] and I am a bit concerned. I am not telling you what to do, but I wanted to mention it because you asked me to. What do you think is going on?\""
+        },
+        {
+          "id": "f_respond",
+          "type": "short_text",
+          "label": "How you'll respond"
+        },
+        {
+          "id": "f_ifworried",
+          "type": "short_text",
+          "label": "What they can do if they stay worried",
+          "help": "For example: contact someone you name, like a family member or your care team."
+        },
+        {
+          "id": "f_talked",
+          "type": "yes_no",
+          "label": "Have you had this conversation yet?",
+          "help": "Not yet is fine. Pick a calm time to have it."
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Your early action plan",
+      "purpose": "What you'll do, and who you'll contact, when early signs of going up or down appear.",
+      "why": "Spotting a sign only helps if you know what to do next. A plan written while you are calm lets you follow your own clearer thinking later. The book says to agree the plan with your care team. It covers steps for going up, steps for going down, and who to contact.",
+      "source": {
+        "chapter": "Chapter 5, What to Do When Warning Signs Appear; Tracking Methods; Chapter 9, Quick Tool: The Mania Circuit Breaker; Nathan; Immediate Actions When Warning Signs Appear"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Decide what tells you to act, like two short nights in a row with mood up.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick your steps for going up, from the list below.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick your steps for going down.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write who you will contact: your trusted person, and your prescriber or care team.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Share the plan with your care team, and agree on it together.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "If you have thoughts of harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop anytime and finish this another day.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Nathan had written a rule into his plan: two nights under six hours of sleep, with his mood up, meant he would act. When it happened, he followed the plan. He contacted his psychiatrist that day. He canceled a meeting about expanding his business. He put his laptop in Sarah's car and gave her his bank card. He was in bed by 10 p.m. Within four days, things turned. The high that might have cost him weeks never fully developed."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write who you will contact if early signs appear, and how to reach them.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_contacts"
+        ]
+      },
+      "done_when": "Your early action plan is written, with who to contact.",
+      "reflect": "How would you like your trusted person to remind you of this plan?",
+      "feeds_plan": [
+        {
+          "field_id": "f_trigger",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_up_steps",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_down_steps",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_contacts",
+          "plan_section": "p4"
+        }
+      ],
+      "toolkit_link": "t06",
+      "fields": [
+        {
+          "id": "f_trigger",
+          "type": "short_text",
+          "label": "What tells you to act",
+          "help": "The book suggests signals to watch, not tests: mood moving more than two points one way over three days, sleep under six or over nine hours two nights running, or high energy with low mood. Agree on yours with your care team."
+        },
+        {
+          "id": "f_up_steps",
+          "type": "checklist",
+          "label": "When you're going up",
+          "options": [
+            "Usual bedtime, lights low, no late screens",
+            "Cut back plans and activity",
+            "Put off big decisions",
+            "Write down new ideas and wait two weeks",
+            "Hand your bank card to someone you trust",
+            "Skip alcohol and caffeine",
+            "Tell your trusted person",
+            "Contact your prescriber"
+          ]
+        },
+        {
+          "id": "f_down_steps",
+          "type": "checklist",
+          "label": "When you're going down",
+          "options": [
+            "Keep your wake time",
+            "Follow your minimum day",
+            "Keep at least one contact a day",
+            "Take a ten-minute walk",
+            "Tell your trusted person",
+            "Contact your prescriber"
+          ]
+        },
+        {
+          "id": "f_contacts",
+          "type": "two_column",
+          "label": "Who you'll contact",
+          "columns": [
+            "Who",
+            "How to reach them"
+          ],
+          "help": "Include your trusted person, and your prescriber or care team. If you feel agitated and hopeless at the same time, that is a crisis. Tap Help now."
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Your weekly look-back",
+      "purpose": "Ten minutes a week to look over your notes and spot slow changes a single day hides.",
+      "why": "Day to day, a slow drift is easy to miss. Over a week, it can be obvious. The book suggests a short look-back on the same day each week. Notice what is changing, check for early signs, and decide whether anything needs adjusting.",
+      "source": {
+        "chapter": "Chapter 5, The Weekly Review; Chapter 9, Nathan"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose a day and time for your look-back each week.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Read your last seven days of notes.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Is your mood drifting one way? How steady was your sleep?",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Check your early signs lists. Has any sign shown up?",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Choose one thing to adjust. If a sign has shown up, follow your plan.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "No notes this week? That's okay. Start from today.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "Nathan woke at 4:30 a.m. feeling sharp and rested after five hours of sleep. He felt better than he had in months. He did his morning check: mood up, energy high. Then he looked at the week before. His mood had been climbing by a little each day. His sleep had dropped from seven hours to six to five. His energy had been rising while his sleep fell. He had seen this pattern before."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Read your last few days of notes. Write one thing you notice.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_trend"
+        ]
+      },
+      "done_when": "Your look-back is done. Slow changes are easier to see now.",
+      "reflect": "What did a week of notes show that a single day didn't?",
+      "feeds_plan": [
+        {
+          "field_id": "f_day",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_day",
+          "type": "short_text",
+          "label": "Your look-back day and time"
+        },
+        {
+          "id": "f_trend",
+          "type": "short_text",
+          "label": "What you noticed this week"
+        },
+        {
+          "id": "f_signs",
+          "type": "yes_no",
+          "label": "Did any early signs show up?"
+        },
+        {
+          "id": "f_adjust",
+          "type": "short_text",
+          "label": "One thing to adjust"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Slow down when heading up",
+      "purpose": "Ways to lower the pace and protect sleep when your mood or energy starts climbing.",
+      "why": "Rising energy can feel like waking up after a long time, so slowing down feels wrong. The book's advice is the opposite of what a high wants: fewer plans, less stimulation, more sleep, and no big decisions. Choosing your steps now, while calm, makes them easier to follow later.",
+      "source": {
+        "chapter": "Chapter 1, What Hypomania Looks Like; Chapter 6, Structure During Different Mood States; Digital Rhythm and Screen Management; Chapter 9, Immediate Actions When Warning Signs Appear; Damage Limitation During Full Mania; The Challenge of Intervening When You Feel Good"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose two things you'd cut back first, like plans, late calls or new projects.",
+          "figure": "fig_clear_desk"
+        },
+        {
+          "text": "Choose how you'll keep evenings calm and quiet.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Pick a place to park new ideas. Look at them again in two weeks.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose which decisions you'll put off until you're steady.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Choose one person to show messages and posts to before you send them.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "These steps can feel wrong when you feel great. That feeling can be a sign too.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "For years, Amara thought her highs were just what being well felt like. She stayed up late planning lessons, volunteered for extra responsibilities, rewrote her teaching materials and signed up for a long race. Her colleagues admired her energy. But every burst was paid for with weeks of exhaustion, self-doubt, and canceling the plans she had made when she felt invincible."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two things you'd cut back first if your energy started climbing.",
+            "figure": "fig_clear_desk"
+          }
+        ],
+        "field_ids": [
+          "f_cut"
+        ]
+      },
+      "done_when": "Your slow-down steps are chosen, ready before you need them.",
+      "reflect": "What would make these steps easier to follow when you feel great?",
+      "feeds_plan": [
+        {
+          "field_id": "f_cut",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_holds",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t07",
+      "fields": [
+        {
+          "id": "f_cut",
+          "type": "short_text",
+          "label": "What you'll cut back first"
+        },
+        {
+          "id": "f_evening",
+          "type": "short_text",
+          "label": "How you'll keep evenings calm"
+        },
+        {
+          "id": "f_park",
+          "type": "short_text",
+          "label": "Where you'll park new ideas"
+        },
+        {
+          "id": "f_holds",
+          "type": "checklist",
+          "label": "Decisions you'll put off until you're steady",
+          "options": [
+            "Big purchases",
+            "Signing contracts",
+            "Lending money",
+            "Quitting a job",
+            "Ending a relationship",
+            "Posts or messages you can't take back"
+          ]
+        },
+        {
+          "id": "f_check",
+          "type": "short_text",
+          "label": "Who you'll show messages to first",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Set up money safeguards",
+      "purpose": "A few money systems set up now, so a high can do less damage later.",
+      "why": "Spending can be one of the hardest parts of a high to undo. The book's point is that systems work better than willpower, because they don't rely on your judgment in the moment. Set them up while you're steady. They're a sign that you understand your pattern.",
+      "source": {
+        "chapter": "Chapter 3, Employment and Finances; Chapter 9, Immediate Actions When Warning Signs Appear; Chapter 12, Quick Tool: The Spending Pause; David; Financial Management"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Set a 24-hour wait for non-essential purchases over an amount you choose.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Remove saved card details from online stores.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Delete shopping apps you don't need.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Set up spending alerts, and lower your card limits if you can.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If you'd like, give a trusted person a view of your account activity.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Pick one step for this week. The rest can come later.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David nearly lost his business during one high. He signed a lease on a second warehouse, ordered equipment he didn't need, and hired three apprentices he couldn't afford. Each time before, he had promised it wouldn't happen again. What changed was not willpower. David had willpower. He built systems that didn't depend on his judgment being intact, because during a high, his judgment was the first thing to go."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one safeguard and set it up today.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your money safeguards are chosen, with a first step set.",
+      "reflect": "How does it feel to have these in place before you need them?",
+      "feeds_plan": [
+        {
+          "field_id": "f_safeguards",
+          "plan_section": "p3"
+        }
+      ],
+      "toolkit_link": "t08",
+      "fields": [
+        {
+          "id": "f_amount",
+          "type": "short_text",
+          "label": "Your 24-hour wait applies to purchases over"
+        },
+        {
+          "id": "f_safeguards",
+          "type": "checklist",
+          "label": "Safeguards you'll set up",
+          "options": [
+            "24-hour wait on purchases",
+            "Saved card details removed",
+            "Shopping apps deleted",
+            "Spending alerts on",
+            "Lower card limits",
+            "Trusted person can see account activity",
+            "Automatic bill payments"
+          ]
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step this week"
+        }
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "One small step when low",
+      "purpose": "Tiny, planned steps for low times, so action can come before motivation.",
+      "why": "When you're low, waiting to feel like doing something can mean waiting a long time. The book's principle is that action comes first, and the wanting often follows. Break tasks into the smallest steps. \"Clean the kitchen\" is too big. \"Put one cup in the dishwasher\" is a start.",
+      "source": {
+        "chapter": "Chapter 6, Structure During Different Mood States; Exercise as Mood Medicine; Chapter 10, Behavioral Activation; Protecting Your Foundations During Depression; Troubleshooting; Chapter 11, After a Crisis"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one task that feels too big right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Break it into the smallest step, something you could do in two minutes.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Plan when you'll do that step. Then do it, even without wanting to.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "If getting up feels impossible, stand and walk to the window. Five minutes counts.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Notice each small step you take, even if it doesn't feel like much.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "If you truly cannot get moving for days, contact your prescriber.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "After his hardest stretch, David went back to work in small steps. He started with half days, then added more over three weeks. His wife handled the bills that had piled up. His brother checked in every day for the first week, then twice a week, then weekly. Nothing happened all at once. Each small step made the next one possible."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one tiny step you could take today, under two minutes.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "You have one small step planned. Taking it counts.",
+      "reflect": "If you took a step, what helped? If not yet, what got in the way?",
+      "fields": [
+        {
+          "id": "f_task",
+          "type": "short_text",
+          "label": "The task that feels too big"
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your smallest first step"
+        },
+        {
+          "id": "f_when",
+          "type": "short_text",
+          "label": "When you'll do it"
+        },
+        {
+          "id": "f_done",
+          "type": "long_text",
+          "label": "Small steps you've taken this week",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Would I believe this?",
+      "purpose": "A question to ask when a low brings thoughts that feel completely true.",
+      "why": "During a low, a thought like \"nothing will ever improve\" can feel like a fact. The book offers one question: would I believe this if I were not low? It gives you enough distance to look at the thought. Words like always, never and no one are a clue.",
+      "source": {
+        "chapter": "Chapter 10, Cognitive Strategies for Bipolar Depression; Amara; The Long Depressive Episode; Troubleshooting"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the thought that feels most true right now, in a few words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask: would I believe this if I were not low?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Look for words like always, never, everyone or no one.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write a more honest line. It doesn't need to be cheerful, only true.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "For example: my lows have lifted before, and nothing says this one is different.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If thoughts turn to harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara knew her earlier lows had lifted. She had the evidence in her notes. But a low doesn't respond to evidence. It creates its own certainty: this time is different, this time it won't lift. So she learned to ask herself one question: \"Would I believe this thought if I were not depressed?\" It gave her enough distance to look at the thought, instead of taking it as fact."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the thought, then ask: would I believe this if I were not low?",
+            "figure": "fig_thinking"
+          }
+        ],
+        "field_ids": [
+          "f_thought",
+          "f_honest"
+        ]
+      },
+      "done_when": "You've looked at one hard thought from a little distance.",
+      "reflect": "What changed, if anything, when you asked the question?",
+      "toolkit_link": "t09",
+      "fields": [
+        {
+          "id": "f_thought",
+          "type": "short_text",
+          "label": "The thought"
+        },
+        {
+          "id": "f_absolute",
+          "type": "yes_no",
+          "label": "Does it use words like always, never or no one?"
+        },
+        {
+          "id": "f_honest",
+          "type": "short_text",
+          "label": "A more honest line",
+          "help": "Honest and steady is enough. It doesn't have to be positive."
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Movement, meals and screens",
+      "purpose": "Small, steady habits for moving, eating and screen use that support your daily rhythm.",
+      "why": "Movement, meals and screens all affect your body clock and mood. The book keeps it practical: some movement on most days, regular meals, and no screens at the edges of the day. During a high, calmer movement and fewer screens help. During a low, any movement counts.",
+      "source": {
+        "chapter": "Chapter 1, Nathan; Chapter 6, Exercise as Mood Medicine; Nutrition Basics; Digital Rhythm and Screen Management"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose a kind of movement you can do most days. A brisk walk counts.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Plan it for the morning or afternoon, not late in the evening.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Pick three or four simple meals you can make without much thought.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose your screen edges, like none in the first 30 minutes after waking.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "During a high, choose steady movement over crowded gyms or competitive sports.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "During a low, a ten-minute walk is plenty.",
+          "figure": "fig_walking"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "During his first high, Nathan barely slept. He spent his nights on his phone, messaging everyone he knew about his new idea. At 2 a.m. he sent a twelve-paragraph message to a former professor, explaining his vision. After the crash, he scrolled through his sent messages and could not recognize the person who had written them."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Choose one screen edge to try this week.",
+            "figure": "fig_phone_down"
+          }
+        ],
+        "field_ids": [
+          "f_screens"
+        ]
+      },
+      "done_when": "Your movement, meals and screen edges are chosen.",
+      "reflect": "Which of the three feels easiest to keep?",
+      "feeds_plan": [
+        {
+          "field_id": "f_move",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_screens",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_move",
+          "type": "short_text",
+          "label": "Your movement, and when"
+        },
+        {
+          "id": "f_meals",
+          "type": "ranked_list",
+          "label": "Your go-to simple meals",
+          "max_items": 4
+        },
+        {
+          "id": "f_screens",
+          "type": "checklist",
+          "label": "Your screen edges",
+          "options": [
+            "No screens for 30 minutes after waking",
+            "No screens at meals",
+            "No screens in the last hour before bed",
+            "Phone charges outside the bedroom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Prepare for your appointment",
+      "purpose": "A one-page summary of your notes and questions, ready for your next appointment.",
+      "why": "Appointments are often short, and it's easy to forget what mattered. The book suggests a one-page summary drawn from your notes: how your mood has moved, any early signs, your sleep, and your questions. Put your most important point first, not last.",
+      "source": {
+        "chapter": "Chapter 2, Quick Tool: The Family Conversation; Amara; Chapter 5, Monthly Clinician Summary; Chapter 7, Quick Tool: The Medication Question; Advocating for Yourself in Brief Appointments; Appendix A, Monthly Clinician Summary Template",
+        "note": "The book's side effects question and template row are left out under the Steady rule. Medication questions are routed to the prescriber."
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look over your notes since your last appointment.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Sum up how your mood has moved, in a sentence or two.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Note any early signs you spotted, and how your sleep has been.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your biggest concern or question. Plan to raise it first.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write down any question about medication to ask your prescriber.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Bring this to your appointment, or share it with your care team.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "When Amara's psychiatrist asked about family history, her first answer was no. No one in her family had ever seen a psychiatrist. Then the doctor asked differently. Had anyone had periods of unusual energy, spent money recklessly, or withdrawn for weeks at a time? Amara thought of her Uncle Kwame, who could light up a room one month and disappear from family gatherings for the next three. A more specific question brought out what a general one had missed."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your most important question for your next appointment.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_concern"
+        ]
+      },
+      "done_when": "Your summary is ready to bring or share.",
+      "reflect": "What do you most want your care team to understand?",
+      "feeds_plan": [
+        {
+          "field_id": "f_concern",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_trend",
+          "type": "short_text",
+          "label": "How your mood has moved"
+        },
+        {
+          "id": "f_signs",
+          "type": "short_text",
+          "label": "Early signs and sleep"
+        },
+        {
+          "id": "f_concern",
+          "type": "short_text",
+          "label": "Your most important concern or question"
+        },
+        {
+          "id": "f_questions",
+          "type": "long_text",
+          "label": "Other questions for your care team",
+          "optional": true
+        },
+        {
+          "id": "f_family",
+          "type": "short_text",
+          "label": "Family patterns you'd like to mention",
+          "optional": true,
+          "help": "From the book: has anyone in your family had extreme highs and lows, long spells in bed, or problems with mood?"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Your hard-day plan",
+      "purpose": "A step-by-step plan for a crisis, written on a calmer day, with people and services to contact.",
+      "why": "In a crisis, it is very hard to think clearly. A plan written now lets you follow the decisions of a calmer you. The book's plan has six steps: warning signs, things you can do alone, people and places for company, people to ask for help, professionals and crisis lines, and making your space safer.",
+      "source": {
+        "chapter": "Quick Start, 5. Remove Immediate Risks; Chapter 11, David; Building Your Safety Plan; Making Your Environment Safer; After a Crisis; Appendix A, Safety Plan Template"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Write two or three warning signs that a crisis may be building. Be specific.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add things you can do on your own, like the double inhale or cold water on your face.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Add people and places for company, where you do not have to explain anything.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "List three people you could ask for help, in the order you would call them.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Add your prescriber or care team, and crisis lines. Help now is always on your screen.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "If you have thoughts of harming yourself, stop and tap Help now.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "You can stop at any time and finish this on another day.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "David's warning signs were specific: trouble sleeping despite exhaustion, and a calm, resigned feeling that replaced his usual agitation. For the first person he would call, he chose his brother. His brother was calm by nature, lived nearby, and had already agreed that a late-night call would mean something serious. The choice was deliberate. Not the person who would panic. The person who would be steady."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write one warning sign, and one person you could ask for help.",
+            "figure": "fig_writing"
+          },
+          {
+            "text": "You can stop here and finish this on another day.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_warn",
+          "f_help"
+        ]
+      },
+      "done_when": "Your hard-day plan is written. It is there when you need it.",
+      "reflect": "How does it feel to have a plan written by a calmer you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_warn",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_alone",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_company",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_help",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_pros",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_reason",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_warn",
+          "type": "short_text",
+          "label": "Your warning signs",
+          "help": "Be specific. For example: trouble sleeping despite exhaustion."
+        },
+        {
+          "id": "f_alone",
+          "type": "ranked_list",
+          "label": "Things you can do on your own",
+          "max_items": 3
+        },
+        {
+          "id": "f_company",
+          "type": "two_column",
+          "label": "People and places for company",
+          "columns": [
+            "Who or where",
+            "How to reach them"
+          ]
+        },
+        {
+          "id": "f_help",
+          "type": "two_column",
+          "label": "People you could ask for help",
+          "columns": [
+            "Name",
+            "Number"
+          ],
+          "help": "Three names, in the order you would call them, in case someone is not available."
+        },
+        {
+          "id": "f_pros",
+          "type": "short_text",
+          "label": "Your prescriber, care team and crisis lines",
+          "help": "Include their numbers and your nearest emergency department. The book's plan also includes making your space safer during a crisis, for example around medicines. Please work this out with a professional or a crisis line. Help now is always there."
+        },
+        {
+          "id": "f_reason",
+          "type": "short_text",
+          "label": "Your reasons to keep going"
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Plan for disruptions",
+      "purpose": "A plan for late nights, travel and big changes, so one disruption doesn't turn into three.",
+      "why": "Changes to routine can unsettle mood, even good ones like a new job, a new relationship or a vacation. The book's rule for late nights: one is manageable, but don't let it become two or three. Keep your wake time the next morning, and plan ahead for bigger changes.",
+      "source": {
+        "chapter": "Chapter 2, Stress and Kindling; Chapter 4, Managing Real-World Disruptions; Chapter 6, David; Why Routine Matters for Bipolar; Chapter 12, Travel Considerations"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "List changes coming up in the next few months: events, trips, busy spells.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "For a late night, plan to keep your wake time the next morning.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Plan an early night after it, so one late night stays one.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "For travel across time zones, shift your sleep about an hour a day beforehand.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Watch for early signs for two weeks after a big change or a long trip.",
+          "figure": "fig_looking_at_map"
+        },
+        {
+          "text": "If shift work or travel is part of your job, talk with your prescriber about it.",
+          "figure": "fig_two_people"
+        }
+      ],
+      "example": {
+        "character": "David",
+        "text": "When David's psychiatrist explained social rhythms, he saw his old schedule differently. Every late finish, every skipped meal, every weekend sleep-in had been a small disruption to his body clock. On their own, none of them mattered much. Built up over weeks and months, they set the stage for his hardest stretches."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change coming up, and how you'll protect your wake time around it.",
+            "figure": "fig_calendar"
+          }
+        ],
+        "field_ids": [
+          "f_coming",
+          "f_late"
+        ]
+      },
+      "done_when": "You have a plan for the next disruption, before it arrives.",
+      "reflect": "Which kind of disruption tends to unsettle you most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_late",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_coming",
+          "type": "short_text",
+          "label": "Changes coming up"
+        },
+        {
+          "id": "f_late",
+          "type": "short_text",
+          "label": "Your plan after a late night"
+        },
+        {
+          "id": "f_watch",
+          "type": "short_text",
+          "label": "How you'll watch for early signs afterward",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "What matters to you",
+      "purpose": "A short letter to yourself about the life you want, to read when you need a reminder.",
+      "why": "Looking after your moods takes steady effort, and it helps to know what it's for. If years went by without a name for what was happening, grief for that time is real, and it takes the time it takes. The book's five-year letter turns your attention to what you want to build next.",
+      "source": {
+        "chapter": "Chapter 14, Quick Tool: The Five-Year Letter; Amara; Identity Beyond the Diagnosis; Grief and Late Diagnosis; Meaning and Purpose; The Long View"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Picture your life five years from now, at a steady pace.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what steady looks like for you on an ordinary day.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'd like to have built, big or small.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Purpose can be small: being a reliable parent, a garden, or showing up for a friend.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Your moods are part of your life. They don't have to be all of it.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Keep it short. You can change it anytime.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Amara",
+        "text": "Amara grieved the years before she had a name for what was happening: a master's degree she left unfinished, jobs she cycled through. The grief was real, and she didn't rush it. At 38, she went back and finished that degree part-time, while keeping her teaching job and her routines. It took three years instead of one. The degree was not the point. The point was that she could do it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence about the life you want in five years.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_matters"
+        ]
+      },
+      "done_when": "Your letter is written, ready to read when you need a reminder.",
+      "reflect": "What did writing the letter bring up for you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_matters",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_letter",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_letter",
+          "type": "long_text",
+          "label": "Your letter to yourself"
+        },
+        {
+          "id": "f_matters",
+          "type": "short_text",
+          "label": "What matters most to you now"
+        }
+      ]
+    },
+    {
+      "id": "e23",
+      "title": "Your steadying plan",
+      "purpose": "One page of what keeps you steady: your rhythm, your notes, your people and your hard-day steps.",
+      "why": "When things feel steady, it's easy to drop what helped. A short plan keeps the core in place: your anchors, a daily note, a weekly look-back, your people and your plans. Keep it modest enough to follow in an ordinary week.",
+      "source": {
+        "chapter": "Conclusion, Your Personal Management System; Your First 30 Days; What Comes Next; Chapter 11, After a Crisis; Chapter 14, The Long View"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in below. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Check that your anchors and wind-down still fit your life.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Keep a daily note and a weekly look-back. Choose when.",
+          "figure": "fig_calendar"
+        },
+        {
+          "text": "Check that your early signs, action plan and hard-day plan still feel right.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Add who you'll keep in touch with, including your care team.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Nathan",
+        "text": "At 45, Nathan described his life as \"smaller than I imagined at 25 but more solid.\" He ran a landscaping company, coached his son's soccer team, and went to bed at the same time every night. He measured his success not by ambition achieved but by stability kept."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted plan. Fix anything that doesn't feel right for you.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_daily"
+        ]
+      },
+      "done_when": "Your steadying plan is on one page, modest enough to keep.",
+      "reflect": "What do you most want to keep from these twelve weeks?",
+      "feeds_plan": [
+        {
+          "field_id": "f_daily",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_people",
+          "plan_section": "p4"
+        },
+        {
+          "field_id": "f_after",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_daily",
+          "type": "long_text",
+          "label": "Your daily rhythm and notes"
+        },
+        {
+          "id": "f_weekly",
+          "type": "short_text",
+          "label": "When you'll do your weekly look-back"
+        },
+        {
+          "id": "f_people",
+          "type": "short_text",
+          "label": "Who you'll keep in touch with"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "Your first steps after a hard stretch",
+          "help": "The book's advice: start with sleep. Get your wake time and bedtime back first, then add the other anchors gradually."
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "The double inhale",
+      "when_to_use": "You feel wound up or unsettled and want to calm your body quickly.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "At the top, take a second small sip of air through your nose.",
+        "Exhale slowly through your mouth while you count to six.",
+        "Repeat three times, or until you feel a little calmer."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Quick Start, Immediate Stabilization Tool: The Physiological Sigh; Chapter 11, Step 2: Internal Coping Strategies",
+        "note": "The book gives no counts. Counts follow the brief: inhale for four, exhale for six, no hold. The book's research claim is cut."
+      }
+    },
+    {
+      "id": "t02",
+      "title": "Your crisis card",
+      "when_to_use": "Things feel like too much, and you need your plan in one place.",
+      "steps": [
+        "Use the calming step on your card.",
+        "Call the person on your card.",
+        "Read your reason to keep going.",
+        "If you are not safe right now, tap Help now."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Quick Start, 4. Create a Minimal Crisis Card; Chapter 11, Quick Tool: The Wallet Card"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "The bedtime countdown",
+      "when_to_use": "You're planning your evening, so sleep comes at your usual time.",
+      "steps": [
+        "10 hours before bed: your last caffeine.",
+        "3 hours before bed: your last food and alcohol.",
+        "2 hours before bed: work stops.",
+        "1 hour before bed: screens off.",
+        "0 is how many times you hit snooze."
+      ],
+      "minutes": 1,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 4, Quick Tool: The 10-3-2-1-0 Sleep Formula"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Awake at night",
+      "when_to_use": "You've been lying awake for more than 20 minutes.",
+      "steps": [
+        "Get up and go to another room. Keep the lights dim.",
+        "Do something calm. Go back to bed when you feel sleepy.",
+        "Racing thoughts? Write them on a notepad and set it aside.",
+        "Still get up at your usual wake time.",
+        "Wired, not tired, two nights running? Contact your prescriber."
+      ],
+      "minutes": 2,
+      "figure": "fig_moon",
+      "source": {
+        "chapter": "Chapter 4, When You Cannot Sleep"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Your floor",
+      "when_to_use": "Everything feels like too much, and even your minimum day is out of reach.",
+      "steps": [
+        "Do the two or three steps on your floor.",
+        "Drink some water. Eat something. Anything counts.",
+        "Tell one person you're struggling.",
+        "That's enough for today."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "Chapter 6, Structure During Different Mood States; Chapter 10, Quick Tool: The Depression Survival Minimum",
+        "note": "The book's version includes taking medication. Left out under the Steady rule."
+      }
+    },
+    {
+      "id": "t06",
+      "title": "The circuit breaker",
+      "when_to_use": "You suspect your mood or energy is starting to climb.",
+      "steps": [
+        "Put your phone in another room.",
+        "Go to bed at your usual time tonight, however you feel.",
+        "Put off any big decisions.",
+        "Tell your trusted person, or call your prescriber."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_down",
+      "source": {
+        "chapter": "Chapter 9, Quick Tool: The Mania Circuit Breaker"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Park the idea",
+      "when_to_use": "An idea feels urgent and brilliant, and you want to act on it right now.",
+      "steps": [
+        "Write the idea down in full.",
+        "Add a date two weeks from today.",
+        "Look at it again then, when you're steady.",
+        "If it's still a good idea, it'll still be good then."
+      ],
+      "minutes": 1,
+      "figure": "fig_writing",
+      "source": {
+        "chapter": "Chapter 9, Immediate Actions When Warning Signs Appear"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "The spending pause",
+      "when_to_use": "You want to buy something that isn't essential.",
+      "steps": [
+        "Wait 24 hours before buying anything over your chosen amount.",
+        "Tell your trusted person, if you've agreed to.",
+        "Still want it after 24 hours? Then decide."
+      ],
+      "minutes": 1,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 12, Quick Tool: The Spending Pause",
+        "note": "The book's 50 dollar threshold becomes an amount the reader chooses."
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Would I believe this?",
+      "when_to_use": "A low brings a thought that feels completely true.",
+      "steps": [
+        "Notice the thought, and name it in a few words.",
+        "Ask: would I believe this if I were not low?",
+        "Look for always, never, everyone or no one.",
+        "Say a more honest line, like: my lows have lifted before."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 10, Cognitive Strategies for Bipolar Depression"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "When someone raises a concern",
+      "when_to_use": "Your trusted person says they've noticed one of your early signs.",
+      "steps": [
+        "Pause before you answer.",
+        "Remember: you agreed to take this seriously.",
+        "Feeling irritated by it can be a sign too.",
+        "Check your notes, then follow your early action plan."
+      ],
+      "minutes": 1,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 5, Involving Others: Your External Warning System; Chapter 9, Troubleshooting"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. Your first notes are in, and your pattern starts here."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready whenever you need it."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: a first sketch of your pattern, at your own pace."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Seven daily checks. Your notes are starting to show a pattern you can share with your care team."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You have your first notes, a crisis card, and a sketch of your pattern."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have your anchors, your early signs, a trusted person and an early action plan."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Pick up with one small step, at your own pace."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "Your daily rhythm"
+    },
+    {
+      "id": "p3",
+      "title": "Your early signs and actions"
+    },
+    {
+      "id": "p4",
+      "title": "Your people and care team"
+    },
+    {
+      "id": "p5",
+      "title": "Your hard-day plan"
+    },
+    {
+      "id": "p6",
+      "title": "What matters to you"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started with a few notes on your mood, sleep and energy. Since then, you have made a crisis card, anchored your wake time and your days, listed your early signs, chosen a trusted person, and written an early action plan. You have practiced slowing down and taking small steps, and written a plan for hard days. Keep sharing your notes with your care team, and keep going at your own pace.",
+    "book_bridge": "Every tool here comes from Steady Ground: A Practical Guide to Bipolar Disorder by Maya Vaughn. The book tells the fuller stories of Nathan, Amara, David and Priya. You can find it in Books.",
+    "related_codes": [
+      "sleep",
+      "worry"
+    ]
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which of your anchors are still part of your days?",
+      "Have any early signs shown up this month? What did you do, and who did you tell?",
+      "Are your crisis card and hard-day plan still right, and still close by?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e03",
+      "e05",
+      "e06",
+      "e07",
+      "e08",
+      "e13"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Steady_Ground_Corrected.docx",
+    "v1_id": "steady",
+    "cut_log": [
+      {
+        "item": "All medication content: Quick Start step 2, Chapter 7, Medication and Sleep, medication in the minimum day, the survival minimum and expanded tracking, the Medication History Document and Appendix C",
+        "chapter": "Quick Start; Chapter 4; Chapter 5; Chapter 6; Chapter 7; Chapter 10; Appendix A; Appendix C",
+        "reason": "Steady rule: nothing about medication. Medication questions are routed to the prescriber in the start note, e19 and the safety lines."
+      },
+      {
+        "item": "Light therapy, light boxes, morning light timing, dark therapy and blue-blocking glasses",
+        "chapter": "Chapter 4; Chapter 5; Chapter 9",
+        "reason": "Clinical interventions with timing risks the book itself describes. The book also gives conflicting advice on morning light. Dim evening light and screen limits are kept."
+      },
+      {
+        "item": "Diagnostic types, criteria, mixed states detail, rapid cycling, psychosis, cognitive symptoms and gender differences",
+        "chapter": "Chapter 1",
+        "reason": "Clinical and diagnostic content. The mixed-state and psychosis warnings are kept as plain safety lines at Start."
+      },
+      {
+        "item": "Genetics, brain differences, kindling and diagnostic delay",
+        "chapter": "Introduction; Chapter 2",
+        "reason": "Statistics and biology not needed for instruction. The family conversation is kept as an optional field in e19."
+      },
+      {
+        "item": "Comorbidity Screen quick tool and comorbidity sections",
+        "chapter": "Chapter 3",
+        "reason": "Reads as a screen. Substance use is touched only as skipping alcohol in the early action plan."
+      },
+      {
+        "item": "Therapy Readiness Check and therapy types",
+        "chapter": "Chapter 8",
+        "reason": "Treatment choice belongs with the reader's care team. Peer support is kept in e10."
+      },
+      {
+        "item": "Hospitalization, advance directives and self-binding directives",
+        "chapter": "Chapter 9; Chapter 11",
+        "reason": "Clinical and legal content that needs professional input. Listed for clinician review."
+      },
+      {
+        "item": "Means restriction as exercise steps",
+        "chapter": "Quick Start, 5. Remove Immediate Risks; Chapter 11, Making Your Environment Safer",
+        "reason": "Kept as one help line in e20 that points to a professional or crisis line. For clinician review."
+      },
+      {
+        "item": "Treatment-resistant depression options",
+        "chapter": "Chapter 10",
+        "reason": "Treatment content. The workbook says to contact the prescriber when a low will not shift."
+      },
+      {
+        "item": "Work disclosure, legal protections, students, self-employment, debt recovery and emergency fund targets",
+        "chapter": "Chapter 3; Chapter 12",
+        "reason": "Legal and financial specifics vary by country. Spending safeguards are kept in e15 and t08."
+      },
+      {
+        "item": "Relationship repair, parenting, boundaries, creativity and Appendix D",
+        "chapter": "Chapter 13; Chapter 14; Appendix D",
+        "reason": "Kept to the trusted person role and the partner brief to stay within the word budget. Strong material for a later update."
+      },
+      {
+        "item": "Box breathing and 5-4-3-2-1",
+        "chapter": "Chapter 11, Step 2",
+        "reason": "Box breathing has a fixed hold. The double inhale and cold water cover the same step."
+      },
+      {
+        "item": "Nutrition detail, exercise targets and tracking apps and wearables",
+        "chapter": "Chapter 5; Chapter 6",
+        "reason": "Statistics, product names and supplement claims cut. Regular meals and some movement are kept."
+      },
+      {
+        "item": "Statistics, study names and effect sizes throughout",
+        "chapter": "All chapters",
+        "reason": "Cut under the no-statistics rule."
+      }
+    ],
+    "notes": "v1 topic_name: Steady\nv1 set_id: mood-and-energy (Mood and Energy); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 342"
+  }
+}

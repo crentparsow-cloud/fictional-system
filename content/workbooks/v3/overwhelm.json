@@ -1,0 +1,2519 @@
+{
+  "schema_version": "3.0",
+  "code": "AK-6AJZ6",
+  "slug": "bending-not-breaking-6ajz6",
+  "title": "Bending, Not Breaking",
+  "short_title": "Overwhelm",
+  "card_line": "Twelve weeks of small, steady steps for handling overwhelm day to day",
+  "tagline": "Twelve weeks of small, steady steps for handling overwhelm day to day",
+  "book": {
+    "book_id": "bending-not-breaking",
+    "title": "Bending, Not Breaking",
+    "subtitle": "A Practical Guide to Emotional Resilience",
+    "store_links": {
+      "GB": "https://www.amazon.co.uk/dp/B0H59QRKXK",
+      "US": "https://www.amazon.com/dp/B0H59QRKXK"
+    },
+    "asin": "B0H59QRKXK"
+  },
+  "author": {
+    "author_id": "AU-2DA6H",
+    "display_name": "Maya Vaughn"
+  },
+  "genre": "wellbeing",
+  "language": "en",
+  "spelling": "en-US",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "official",
+  "status": "in_review",
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "map",
+        "number": 1,
+        "name": "Explore",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "See it clearly first",
+          "body": "The Explore stage is about understanding, not fixing. Overwhelm can feel like proof that you're not a resilient person. Resilience isn't toughness, or a life without struggle. It's the ordinary, buildable ability to feel, bend, and recover. Over two weeks, you'll practice naming what you feel and map the edges of your window, the range where you can still think clearly. Go gently. Understanding is where the building starts.",
+          "figure": "fig_looking_at_map"
+        },
+        "outcome": "A word for what you feel, and a map of what pushes you into overwhelm or shutdown.",
+        "review_question": "What did you notice that you hadn't put into words before?"
+      },
+      {
+        "id": "build",
+        "number": 2,
+        "name": "Build",
+        "units": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "primer": {
+          "title": "Build your steadying tools",
+          "body": "In the Build stage, you set up tools for the moments that tip you over. Over five weeks, you'll let go of the comparison, practice calming your body, check the stories your mind tells, and learn to make a pause before you react. Practice the tools while you're calm, so they're ready when you aren't. One tool you use is worth more than five you don't.",
+          "figure": "fig_board"
+        },
+        "outcome": "A small, practiced toolkit, a way to check a story, and a plan for the moment of overwhelm.",
+        "review_question": "Which tool do you reach for most, and which one hasn't stuck yet?"
+      },
+      {
+        "id": "use",
+        "number": 3,
+        "name": "Practice",
+        "units": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "primer": {
+          "title": "Bring it into your days",
+          "body": "The Practice stage takes your tools into your days and your relationships. Over four weeks, you'll find your people, meet your inner critic with kindness, set limits with your phone, repair after hard moments, and look at what keeps you steady. You don't need to fix everything at once. A change in one place often eases the rest. On yellow weeks, the short versions are plenty.",
+          "figure": "fig_two_people"
+        },
+        "outcome": "Support you can draw on, a kinder inner voice, protected rest, and a clearer sense of what matters.",
+        "review_question": "What has changed in how you meet hard moments, even a little?"
+      },
+      {
+        "id": "keep",
+        "number": 4,
+        "name": "Keep",
+        "units": [
+          12
+        ],
+        "primer": {
+          "title": "Keep what's working",
+          "body": "The Keep stage brings twelve weeks together. You'll write a plan for harder stretches and an everyday plan. Keep both small. Resilience is something you keep practicing rather than somewhere you arrive, and it can always be picked up again.",
+          "figure": "fig_writing"
+        },
+        "outcome": "Your plan for harder stretches and your everyday plan, both saved in your plan.",
+        "review_question": "What will you keep doing now that the twelve weeks are done?"
+      }
+    ]
+  },
+  "start": {
+    "welcome": "If you're stretched past what you can carry, and you've started to think you're just not a resilient person, this is built for that. It's twelve weeks of small, steady steps for handling overwhelm and bending without breaking. Most weeks take 15 to 25 minutes, and every exercise has a shorter version. On a hard day, one small thing is enough. Week 1 is free. No card needed, and nothing renews on its own.",
+    "how_it_works": [
+      "One or two short exercises a week. Each has a short version for hard days.",
+      "A daily check that takes about a minute.",
+      "A weekly check-in: six quick questions, or just two on a hard week.",
+      "A Toolkit of quick tools you can open anytime, starting today.",
+      "A plan that builds itself from your answers."
+    ],
+    "why_prompt": "If you could meet hard days a little more steadily, what would that give you? One line is enough.",
+    "extra_safety_note": "Feeling overwhelmed is a common human response to pressure. Sometimes it is also a sign that more support is needed. If low mood, hopelessness, or overwhelming anxiety has lasted for weeks, or is making daily life hard to manage, please talk to a doctor or health professional. If you have any thoughts of suicide or of harming yourself, that comes first. Tap Help now and reach out right away. This workbook can sit alongside professional support. It does not replace it. If any practice here makes you feel worse rather than better, stop, and ask a professional for advice."
+  },
+  "selfcheck": {
+    "intro": "Think about the past two weeks. How often has each of these been true for you? Go with your first answer. You'll see the same questions again in week 6 and week 12.",
+    "scale_labels": [
+      "Rarely",
+      "Sometimes",
+      "About half the time",
+      "Often",
+      "Nearly always"
+    ],
+    "areas": [
+      {
+        "id": "steady",
+        "label": "Steadying yourself"
+      },
+      {
+        "id": "clear",
+        "label": "Seeing things clearly"
+      },
+      {
+        "id": "support",
+        "label": "Kindness and support"
+      },
+      {
+        "id": "foundations",
+        "label": "Foundations and direction"
+      }
+    ],
+    "items": [
+      {
+        "id": "q01",
+        "area": "steady",
+        "text": "You can tell what you're feeling and put a word to it."
+      },
+      {
+        "id": "q02",
+        "area": "steady",
+        "text": "When a feeling surges, you can bring it down a little."
+      },
+      {
+        "id": "q03",
+        "area": "steady",
+        "text": "You notice when you're getting close to overwhelm."
+      },
+      {
+        "id": "q04",
+        "area": "steady",
+        "text": "After a hard moment, you come back to yourself fairly soon."
+      },
+      {
+        "id": "q05",
+        "area": "clear",
+        "text": "You can tell what happened apart from the story you tell about it."
+      },
+      {
+        "id": "q06",
+        "area": "clear",
+        "text": "When your mind jumps to the worst, you can question it."
+      },
+      {
+        "id": "q07",
+        "area": "clear",
+        "text": "You can pause before you react when something goes wrong."
+      },
+      {
+        "id": "q08",
+        "area": "clear",
+        "text": "You hold off on big decisions and sharp words while you're flooded."
+      },
+      {
+        "id": "q09",
+        "area": "support",
+        "text": "You can turn to someone when things get hard."
+      },
+      {
+        "id": "q10",
+        "area": "support",
+        "text": "You let other people help you."
+      },
+      {
+        "id": "q11",
+        "area": "support",
+        "text": "You speak to yourself with some kindness when you struggle."
+      },
+      {
+        "id": "q12",
+        "area": "support",
+        "text": "You see your struggle on its own terms, without comparing yourself to others."
+      },
+      {
+        "id": "q13",
+        "area": "foundations",
+        "text": "You sleep well enough to face the day."
+      },
+      {
+        "id": "q14",
+        "area": "foundations",
+        "text": "Your phone leaves you room to rest."
+      },
+      {
+        "id": "q15",
+        "area": "foundations",
+        "text": "You get some real rest during the week."
+      },
+      {
+        "id": "q16",
+        "area": "foundations",
+        "text": "You have a sense of what matters to you, even on hard days."
+      }
+    ],
+    "result_note": "This is a personal check, not a diagnosis. Your answers are compared only with your own first answers, never with anyone else. Progress is uneven for everyone, so harder weeks show up here too, and that's useful to know.",
+    "scored": false
+  },
+  "checkin": {
+    "fields": [
+      {
+        "id": "c_week",
+        "type": "scale_0_10",
+        "label": "How did this week feel overall, from hard (0) to good (10)?"
+      },
+      {
+        "id": "c_level",
+        "type": "checklist",
+        "label": "Your capacity this week",
+        "options": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "help": "Green: you have capacity, so the fuller work is workable. Yellow: capacity is lower, so scale down. Red: things feel overwhelming. If you pick red, please lean on support and talk to a professional. Help now is at the top of every screen."
+      },
+      {
+        "id": "c_tool",
+        "type": "weekly_grid",
+        "label": "Days you used a tool from your Toolkit"
+      },
+      {
+        "id": "c_win",
+        "type": "short_text",
+        "label": "One thing that helped, however small"
+      },
+      {
+        "id": "c_hard",
+        "type": "short_text",
+        "label": "A moment that pushed you out of your window, and what helped",
+        "optional": true
+      },
+      {
+        "id": "c_named",
+        "type": "weekly_grid",
+        "label": "Days you named a feeling as it came up"
+      }
+    ],
+    "short_field_ids": [
+      "c_week",
+      "c_win"
+    ]
+  },
+  "daily_check": {
+    "question": "How steady did you feel today?",
+    "scale_low": "Swamped",
+    "scale_high": "Steady",
+    "tags": [
+      "Named a feeling",
+      "Took a slow breath",
+      "Paused before reacting",
+      "Questioned a story",
+      "Reached out to someone",
+      "Went easy on myself",
+      "Phone out of the bedroom",
+      "Slept okay"
+    ]
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "map",
+      "focus": "Name what you're feeling",
+      "exercise_ids": [
+        "e01"
+      ],
+      "new_toolkit_ids": [
+        "t03"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 2,
+      "stage": "map",
+      "focus": "Map your window",
+      "exercise_ids": [
+        "e02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 3,
+      "stage": "build",
+      "focus": "Let go of the comparison, and calm your body",
+      "exercise_ids": [
+        "e03",
+        "e04"
+      ],
+      "new_toolkit_ids": [
+        "t02"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 4,
+      "stage": "build",
+      "focus": "Separate what happened from the story",
+      "exercise_ids": [
+        "e05",
+        "e06"
+      ],
+      "new_toolkit_ids": [
+        "t04"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 5,
+      "stage": "build",
+      "focus": "Reframe a story, and let the wave pass",
+      "exercise_ids": [
+        "e07",
+        "e08"
+      ],
+      "new_toolkit_ids": [
+        "t05"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 6,
+      "stage": "build",
+      "focus": "Build your toolkit and your pause",
+      "exercise_ids": [
+        "e09",
+        "e10"
+      ],
+      "new_toolkit_ids": [
+        "t06"
+      ],
+      "selfcheck": true
+    },
+    {
+      "number": 7,
+      "stage": "build",
+      "focus": "Get through the hardest moments",
+      "exercise_ids": [
+        "e11",
+        "e12"
+      ],
+      "new_toolkit_ids": [
+        "t07"
+      ],
+      "selfcheck": false
+    },
+    {
+      "number": 8,
+      "stage": "use",
+      "focus": "Find your people",
+      "exercise_ids": [
+        "e13",
+        "e14"
+      ],
+      "new_toolkit_ids": [
+        "t09"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e01"
+      ]
+    },
+    {
+      "number": 9,
+      "stage": "use",
+      "focus": "Meet your inner critic with kindness",
+      "exercise_ids": [
+        "e15",
+        "e16"
+      ],
+      "new_toolkit_ids": [
+        "t08"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e06"
+      ]
+    },
+    {
+      "number": 10,
+      "stage": "use",
+      "focus": "Protect your rest, and repair",
+      "exercise_ids": [
+        "e17",
+        "e18"
+      ],
+      "new_toolkit_ids": [
+        "t10"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e02"
+      ]
+    },
+    {
+      "number": 11,
+      "stage": "use",
+      "focus": "Find what keeps you steady",
+      "exercise_ids": [
+        "e19",
+        "e20"
+      ],
+      "selfcheck": false,
+      "repeat_ids": [
+        "e09",
+        "e07"
+      ]
+    },
+    {
+      "number": 12,
+      "stage": "keep",
+      "focus": "Bring it all together",
+      "exercise_ids": [
+        "e21",
+        "e22"
+      ],
+      "selfcheck": true,
+      "repeat_ids": [
+        "e13",
+        "e15"
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "id": "e01",
+      "title": "Name what you're feeling",
+      "purpose": "A few plain words for what you feel, and a first sense of how naming can take the edge off.",
+      "why": "When everything feels like too much, it's hard to think at all. Putting a feeling into words, like \"I feel overwhelmed,\" can quiet the brain's alarm a little. It won't make the feeling vanish. But it can ease it enough to give you room to think. The book calls this the one tool to start with.",
+      "source": {
+        "chapter": "How to Use This Book; Chapter 3, Naming Calms the Brain; Appendix A, The One Tool to Start With; Appendix C, Week one"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a moment today, or recently, when things felt like too much.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Notice what you felt then. Look for the feeling, not the story about it.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Put it into a few plain words, like \"I feel overwhelmed\" or \"I feel afraid.\"",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Say it to yourself, out loud or silently. Notice if anything shifts, even slightly.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "This week, try naming a feeling when a strong one comes up. Once a day is plenty.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Tariq owned a successful small business, and underneath he was consumed by money worries. At three in the morning the dread would wake him, his heart racing. He used to endure it, or reach for his phone. Naming it was something he could do right there in the dark: \"I am feeling anxious.\" It didn't make the anxiety go away. But it quieted the alarm enough for him to think."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Put what you're feeling right now into a few plain words.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_feeling"
+        ]
+      },
+      "done_when": "You've named a feeling in your own words. That's the first tool, and it goes everywhere with you.",
+      "reflect": "How did it feel to put it into words?",
+      "toolkit_link": "t01",
+      "feeds_plan": [
+        {
+          "field_id": "f_feeling",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_feeling",
+          "type": "short_text",
+          "label": "The feeling, in a few plain words",
+          "help": "For example: I feel overwhelmed."
+        },
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "When you felt it",
+          "optional": true
+        },
+        {
+          "id": "f_shift",
+          "type": "short_text",
+          "label": "What you noticed after naming it",
+          "optional": true,
+          "help": "Even a small shift counts. No shift is fine too."
+        }
+      ],
+      "repeat_units": [
+        8
+      ]
+    },
+    {
+      "id": "e02",
+      "title": "Map your window",
+      "purpose": "A map of your window: how overwhelm and shutdown look for you, and what pushes you there.",
+      "why": "Overwhelm can seem to come from nowhere. The book describes a window of tolerance: the range where you can feel stress and still think clearly. Above it, you get flooded: anxious, angry, or panicky. Below it, you shut down: numb, flat, or withdrawn. Both are understandable states, not character flaws. Knowing your signs helps you notice sooner.",
+      "source": {
+        "chapter": "Chapter 3, The Threat Response; Why Adversity Shapes the Response; The Window of Tolerance"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Read the three zones: inside your window, flooded above it, and shut down below it.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write how flooded looks for you: in your body, your thoughts, and what you do.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write how shut down looks for you, if it happens. Skip this if it doesn't fit.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what inside your window feels like, even if it's rare right now.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "List what tends to push you out: certain people, times of day, or kinds of pressure.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus was twenty-eight, capable and independent, and he trusted one emotion: anger. When something went wrong, he felt the heat rise before he could think. Sharp words were out before he chose them. Other times, a wall came down and he withdrew. He took this as proof he was difficult. The window showed him two states instead: flooded, when the anger took over, and shut down, when he went behind the wall."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sign that tells you you're getting flooded.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_flooded"
+        ]
+      },
+      "done_when": "Your window is mapped. You know a few signs that you're near the edge.",
+      "reflect": "Which sign could you catch earliest?",
+      "feeds_plan": [
+        {
+          "field_id": "f_flooded",
+          "plan_section": "p2"
+        },
+        {
+          "field_id": "f_pushes",
+          "plan_section": "p2"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_flooded",
+          "type": "short_text",
+          "label": "How flooded looks for you",
+          "help": "For example: heart racing, snapping at people."
+        },
+        {
+          "id": "f_shutdown",
+          "type": "short_text",
+          "label": "How shut down looks for you",
+          "optional": true
+        },
+        {
+          "id": "f_inside",
+          "type": "short_text",
+          "label": "How it feels inside your window"
+        },
+        {
+          "id": "f_pushes",
+          "type": "long_text",
+          "label": "What tends to push you out"
+        }
+      ],
+      "repeat_units": [
+        10
+      ]
+    },
+    {
+      "id": "e03",
+      "title": "Let go of the comparison",
+      "purpose": "A fairer way to see your own struggle, without measuring it against someone else's.",
+      "why": "It's easy to look at someone who seems to cope and decide you're weaker. That comparison misleads. The same event weighs differently on different people. Support and resources differ. Much struggle is hidden. And you may be comparing your hardest moment with their recovery. How much you struggle reflects your situation and history, not your worth.",
+      "source": {
+        "chapter": "Chapter 1, Resilience Is Not the Absence of Struggle; Chapter 2, Why Comparison Misleads; Vulnerability Is Not Weakness"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write down one person you compare yourself to, and the comparison you make.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask: is this really the same situation for both of you?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: do you have the same support, time, and resources?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: are you comparing your inside to their outside, or your now to their later?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write one fairer sentence about your own struggle.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace was fifty-two when her husband ended their marriage. Three months later she was barely functioning. Her sister had been through a similar divorce and seemed to recover within months. Grace took this as proof she was weaker. But Grace had built her whole identity around being a wife and mother, so the same kind of blow landed differently. And her sister's quick recovery may have hidden struggles Grace never saw."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one fairer sentence about your own struggle.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_fair"
+        ]
+      },
+      "done_when": "You have a fairer sentence about your struggle, one that doesn't depend on anyone else.",
+      "reflect": "What would you say to a friend who made this comparison?",
+      "feeds_plan": [
+        {
+          "field_id": "f_fair",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_compare",
+          "type": "short_text",
+          "label": "Who you compare yourself to, and how"
+        },
+        {
+          "id": "f_diff",
+          "type": "checklist",
+          "label": "Which of these were different for you?",
+          "options": [
+            "The situation itself",
+            "Support and resources",
+            "What you can see of their struggle",
+            "Where each of you is in time"
+          ]
+        },
+        {
+          "id": "f_fair",
+          "type": "short_text",
+          "label": "A fairer sentence about your struggle",
+          "help": "For example: This hit me hard for real reasons. It says nothing about my worth."
+        }
+      ]
+    },
+    {
+      "id": "e04",
+      "title": "Calm your body first",
+      "purpose": "A breathing tool you've practiced while calm, so it's there when stress spikes.",
+      "why": "When you're flooded, thinking your way out is hard. The body offers a faster route. Slow breathing with a longer exhale signals to your brain that it can settle. The physiological sigh, a double inhale and a long exhale, is one of the quickest ways to calm down. A tool practiced while calm is easier to reach under pressure.",
+      "source": {
+        "chapter": "Chapter 5, Regulating Through the Body; Appendix A, From Chapter 5; Appendix C, Week two"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Sit or stand comfortably. Let your shoulders drop.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Inhale through your nose while you count to four.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Take one more short sip of air on top, to fill your lungs.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Exhale slowly through your mouth while you count to six.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Repeat a few times. Notice how your body feels after.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Choose a calm time each day to practice it once.",
+          "figure": "fig_clock_check"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Tariq's anxiety lived in his body: the racing heart, the tight chest, the constant low hum of dread. When it surged at three in the morning, he couldn't think his way out. The physiological sigh worked on his body directly. He practiced it once a day while calm, so that in the small hours it was already familiar, a tool he could reach without having to think."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Do one physiological sigh now: a double inhale, then a long, slow exhale.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_after"
+        ]
+      },
+      "done_when": "You've practiced the sigh, and you have a time to keep practicing while calm.",
+      "reflect": "Where in your body did you notice a change, if anywhere?",
+      "toolkit_link": "t02",
+      "feeds_plan": [
+        {
+          "field_id": "f_time",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_time",
+          "type": "time_of_day",
+          "label": "When you'll practice each day"
+        },
+        {
+          "id": "f_after",
+          "type": "short_text",
+          "label": "How your body felt after",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e05",
+      "title": "Separate the event from the story",
+      "purpose": "One hard moment pulled apart into what happened and what your mind added.",
+      "why": "A hard moment can turn into hours of distress. Often, what weighs most is the meaning your mind adds on top. Between an event and how you feel lies a story. You can't always change the event, but you can learn to notice the story. The first step is sorting the two apart.",
+      "source": {
+        "chapter": "Chapter 4, The Story Is Not the Event; Appendix A, From Chapter 4"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Pick one recent moment that upset you. A small one is fine to start.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what happened, as a camera would record it. Facts only.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write the story your mind told about it: what it meant, and what would happen next.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how upsetting the story felt, from 0 to 10.",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Notice how much of the weight came from the story, and how much from the facts.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia was a teacher and a mother, stretched past her limits. After a parent complained, the principal asked to see her. By the time she sat down, she had built a whole catastrophe: she was a bad teacher, she'd be let go, her family would suffer. The principal wanted to discuss a minor scheduling matter and mentioned the complaint only in passing. The event was small. The story had cost her hours."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line for what happened, and one for the story you told.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_event",
+          "f_story"
+        ]
+      },
+      "done_when": "You've pulled one moment apart into the facts and the story.",
+      "reflect": "How did the facts and the story compare?",
+      "fields": [
+        {
+          "id": "f_event",
+          "type": "long_text",
+          "label": "What happened, facts only"
+        },
+        {
+          "id": "f_story",
+          "type": "long_text",
+          "label": "The story your mind told"
+        },
+        {
+          "id": "f_rating",
+          "type": "scale_0_10",
+          "label": "How upsetting the story felt"
+        }
+      ]
+    },
+    {
+      "id": "e06",
+      "title": "Spot your mind's habits",
+      "purpose": "The thinking habits your mind reaches for most under stress, named so you can catch them.",
+      "why": "Under stress, the mind's stories tilt toward the worst. They follow a few familiar habits: jumping to disaster, all-or-nothing thinking, assuming what others think, turning one event into a pattern, taking blame for what isn't yours, and screening out the good. These feel like facts. Naming the habit is the first step to questioning it.",
+      "source": {
+        "chapter": "Chapter 4, The Mind's Distortions; Appendix A, From Chapter 4; Appendix C, Week two"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the six thinking habits.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Look back at the story you wrote last time, or one from today.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Pick any habits you can see in it. One is enough.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Pick the one or two you notice most often in general.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Give each a short name, so you can catch it in the moment.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Looking back at her afternoon before the meeting, Nadia could see the habits at work. Certain her career was over: jumping to disaster. Deciding she was a bad teacher: all-or-nothing thinking. Sure that everyone would know: assuming what others think. Forgetting her years of good teaching: screening out the good. None of these were facts. They were familiar habits, and naming them loosened their grip."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Pick the habit your mind reaches for most.",
+            "figure": "fig_circling"
+          }
+        ],
+        "field_ids": [
+          "f_habits"
+        ]
+      },
+      "done_when": "You can name the thinking habits your mind reaches for most.",
+      "reflect": "Which habit surprised you most?",
+      "feeds_plan": [
+        {
+          "field_id": "f_habits",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_habits",
+          "type": "checklist",
+          "label": "Habits you can see in your stories",
+          "options": [
+            "Jumping to disaster",
+            "All-or-nothing thinking",
+            "Assuming what others think",
+            "One event becomes a pattern",
+            "Taking blame that isn't yours",
+            "Screening out the good"
+          ]
+        },
+        {
+          "id": "f_names",
+          "type": "short_text",
+          "label": "Short names for your top habits",
+          "optional": true,
+          "help": "For example: the disaster story again."
+        }
+      ],
+      "repeat_units": [
+        9
+      ]
+    },
+    {
+      "id": "e07",
+      "title": "Reframe one story",
+      "purpose": "A more accurate version of one hard story, neither darker nor rosier than the facts.",
+      "why": "Once you can see a story, you can question it. The aim isn't positive thinking. Forced cheer is a distortion of its own, and it rarely holds up. The aim is accuracy: a version that fits the evidence. Sometimes that means a real problem, seen clearly. Because feelings follow the story, a truer story usually brings a more proportionate feeling.",
+      "source": {
+        "chapter": "Chapter 4, Reframing the Story; Reframing Is Not Positive Thinking; Appendix C, Week three"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Choose one story that's weighing on you. Write the facts first.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Ask: what's the actual evidence for the worst version?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: what's the most likely outcome, rather than the most feared one?",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask: what would you tell a friend who held this story?",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write a more accurate story. Keep any real difficulty in it.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Rate how upsetting the new story feels, from 0 to 10.",
+          "figure": "fig_rating"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia's new story about the meeting didn't pretend everything was fine. A parent had complained, and that was uncomfortable. It was also ordinary. The meeting was likely routine. And one complaint did not erase her years of good teaching. The new story still held a real concern. It held it in proportion, and her feeling came down to match."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Ask what you'd tell a friend who held this story.",
+            "figure": "fig_two_people"
+          },
+          {
+            "text": "Write one more accurate sentence.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_new"
+        ]
+      },
+      "done_when": "You have a more accurate version of one story, with any real difficulty still in it.",
+      "reflect": "What did you notice when you set the two stories side by side?",
+      "toolkit_link": "t04",
+      "fields": [
+        {
+          "id": "f_facts",
+          "type": "short_text",
+          "label": "The facts"
+        },
+        {
+          "id": "f_evidence",
+          "type": "long_text",
+          "label": "What the evidence says"
+        },
+        {
+          "id": "f_new",
+          "type": "long_text",
+          "label": "Your more accurate story"
+        },
+        {
+          "id": "f_rating",
+          "type": "scale_0_10",
+          "label": "How upsetting the new story feels"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e08",
+      "title": "Let the wave pass",
+      "purpose": "A way to ride out the first surge of a feeling without feeding it.",
+      "why": "Strong feelings can seem endless. The book points out that the first physical wave is fairly brief, often a minute or two. What keeps it going is the mind: replaying, worst-case thinking, scrolling for more. When you stop feeding it, the wave usually settles. Turning your attention to something absorbing helps break the loop.",
+      "source": {
+        "chapter": "Chapter 5, Regulating Through the Mind; Appendix A, From Chapter 5"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a feeling that tends to stay with you for hours.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what usually keeps it going: replaying, worst-case thoughts, or your phone.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next time it comes, name it, then take one slow breath.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Let the first wave rise and fall. It's often a minute or two.",
+          "figure": "fig_clock_check"
+        },
+        {
+          "text": "Turn your attention to something in front of you: a task, a person, or the room.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Afterward, note how long the wave lasted when you didn't feed it.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Tariq spent much of the night scrolling worst-case scenarios about his business. Each one set off the dread again and kept it going long past its natural wave. Learning that the first surge was brief, and that his scrolling was feeding it, pointed him somewhere new. He could name the anxiety, put the phone down, and let the wave pass."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one thing that keeps your feelings going, so you can spot it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_feeds"
+        ]
+      },
+      "done_when": "You know what feeds your feelings, and one place to turn your attention instead.",
+      "reflect": "What makes it hard to stop feeding a feeling?",
+      "toolkit_link": "t05",
+      "feeds_plan": [
+        {
+          "field_id": "f_redirect",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_feeds",
+          "type": "short_text",
+          "label": "What usually keeps the feeling going"
+        },
+        {
+          "id": "f_redirect",
+          "type": "short_text",
+          "label": "Something you can turn your attention to",
+          "help": "For example: making tea, or stepping outside."
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How long the wave lasted",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "title": "Build your steadying toolkit",
+      "purpose": "A short list of tools matched to how you feel, practiced enough to use under pressure.",
+      "why": "No single tool fits every moment. A fast body tool suits a sudden surge. Naming or reframing suits a story that won't let go. Turning your attention suits a loop of replaying. A tool you've practiced while calm is one you can find when thinking is hard. Tools ease a feeling rather than erase it, and they improve with practice.",
+      "source": {
+        "chapter": "Chapter 5, Building a Regulation Toolkit; Appendix A, From Chapter 5"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Look at the tools you've tried so far. Keep the ones that helped, even a little.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Match one to a sudden surge, like the physiological sigh.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Match one to a story that won't let go, like naming or reframing.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Match one to replaying or scrolling, like turning your attention elsewhere.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Choose one to practice while calm this week.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Tariq's toolkit came from his own anxiety. The sigh was for the sudden surges, the racing heart and tight chest. Naming and reframing were for the catastrophic stories about money. Turning his attention elsewhere was for the night scrolling. He practiced them while calm, so they were familiar in the small hours. He accepted that they would ease the anxiety rather than end it."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one tool you'll reach for when a feeling surges.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_kit"
+        ]
+      },
+      "done_when": "Your toolkit is written down, with a tool matched to each kind of moment.",
+      "reflect": "Which tool feels most like yours so far?",
+      "feeds_plan": [
+        {
+          "field_id": "f_kit",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_kit",
+          "type": "two_column",
+          "label": "Your toolkit",
+          "columns": [
+            "When this happens",
+            "Reach for this"
+          ]
+        },
+        {
+          "id": "f_practice",
+          "type": "short_text",
+          "label": "The one you'll practice while calm"
+        }
+      ],
+      "repeat_units": [
+        11
+      ]
+    },
+    {
+      "id": "e10",
+      "title": "Plan your pause",
+      "purpose": "A four-step pause for the moment of overwhelm, practiced ahead of time.",
+      "why": "In a heated moment, the gap between what sets you off and how you react can be tiny. Even a few seconds of pause can be enough to choose. Under pressure you can't invent a plan, but you can follow a familiar one. The book's method has four steps: stop, breathe, observe, and proceed with awareness.",
+      "source": {
+        "chapter": "Chapter 6, Creating a Gap Between Trigger and Reaction; A Method for the Moment; Appendix A, From Chapter 6"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the four steps: stop, breathe, observe, proceed.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Stop: do nothing for a moment. Don't speak, act, or send.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Breathe: take one slow breath to stretch the pause.",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Observe: notice your feeling, your body, and the story. Then notice what's actually happening.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Proceed: choose your response. Waiting until you're calmer counts as a choice.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Picture a moment this week where you might need it. Walk through the steps.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "When a coworker said something that landed as a slight, the heat rose in Marcus and sharp words came out before he'd decided to speak. Understanding his alarm hadn't helped in the moment. So he learned a short sequence. Stop, before the words. Breathe, to calm the surge and stretch the pause. Observe what was actually happening. Then choose his response, instead of letting the reaction choose for him."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Say the four steps to yourself: stop, breathe, observe, proceed.",
+            "figure": "fig_hand_raised"
+          }
+        ],
+        "field_ids": [
+          "f_cue"
+        ]
+      },
+      "done_when": "Your pause is planned, ready for the next time a moment tips you over.",
+      "reflect": "Where do you think the pause will be hardest to find?",
+      "toolkit_link": "t06",
+      "feeds_plan": [
+        {
+          "field_id": "f_cue",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "A moment where you might need the pause"
+        },
+        {
+          "id": "f_cue",
+          "type": "short_text",
+          "label": "What will remind you to stop",
+          "help": "For example: the heat rising in your face."
+        }
+      ]
+    },
+    {
+      "id": "e11",
+      "title": "Don't make it worse",
+      "purpose": "A few things you'll hold off on while flooded, so one hard moment stays one problem.",
+      "why": "When you're flooded, judgment is at its weakest. That's when a sharp message or a rash decision can add a second problem to the first. In that state, the most useful aim is modest: don't make it worse. Hold off on anything big until you're back inside your window. Sorting it out can wait.",
+      "source": {
+        "chapter": "Chapter 6, Not Making It Worse; Appendix A, From Chapter 6"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of times you reacted while flooded and wished you hadn't.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Write what you did: a message, a sharp word, a decision, or walking out.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Turn each into a hold-off rule, like: no sending messages while flooded.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Choose what you'll do instead while you wait, like a slow breath or a short walk.",
+          "figure": "fig_walking"
+        },
+        {
+          "text": "Keep the list short. Two or three rules are plenty.",
+          "figure": "fig_three_cards"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus's quick reactions were what turned a coworker's slight into a damaged working relationship, or a moment of conflict into a lasting rift. He didn't need to handle every conflict well in the heat of it. His flooding made that close to impossible. He only needed to hold off on the cutting words until the surge passed and he could think again."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one thing you'll hold off on while flooded.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_rules"
+        ]
+      },
+      "done_when": "You have a few hold-off rules for flooded moments, and something to do while you wait.",
+      "reflect": "Which rule do you expect to be hardest to keep?",
+      "toolkit_link": "t07",
+      "feeds_plan": [
+        {
+          "field_id": "f_rules",
+          "plan_section": "p3"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rules",
+          "type": "ranked_list",
+          "label": "Your hold-off rules",
+          "max_items": 3,
+          "help": "For example: no big decisions while flooded."
+        },
+        {
+          "id": "f_instead",
+          "type": "short_text",
+          "label": "What you'll do while you wait"
+        }
+      ]
+    },
+    {
+      "id": "e12",
+      "title": "Respond from your values",
+      "purpose": "One value to steer by in hard moments, and what responding from it could look like.",
+      "why": "Holding off stops the damage. The pause can do more than that. Once you've made a gap, you can ask: given what matters to me, how do I want to respond? Someone who values their relationships can choose a reply that protects them. Steering by your values turns a hard moment into a chance to act as you mean to.",
+      "source": {
+        "chapter": "Chapter 6, Acting From Values, Not Reactions"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Think of a kind of moment that often tips you over.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask what matters to you in that moment: a relationship, calm, kindness, or honesty.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Pick one value. Write it in a word or two.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write what responding from that value could look like.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next time, after your pause, ask yourself how you want to respond.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Under the anger, Marcus valued connection, however walled off he had become. He didn't want to be the difficult person his reactions made him. So the gap he learned to create wasn't only for avoiding sharp words. It gave him a moment to respond as the person he wanted to be, choosing connection over the anger that had kept him alone."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one value you want to steer by when things get heated.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_value"
+        ]
+      },
+      "done_when": "You have a value to steer by when a moment gets hard.",
+      "reflect": "What might change if you responded this way more often?",
+      "feeds_plan": [
+        {
+          "field_id": "f_value",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_moment",
+          "type": "short_text",
+          "label": "The kind of moment"
+        },
+        {
+          "id": "f_value",
+          "type": "short_text",
+          "label": "The value you want to steer by"
+        },
+        {
+          "id": "f_response",
+          "type": "long_text",
+          "label": "What responding from it could look like"
+        }
+      ]
+    },
+    {
+      "id": "e13",
+      "title": "Find your people",
+      "purpose": "A short list of the few people you could turn to in a hard time.",
+      "why": "If you've always handled things alone, needing people can feel risky or weak. Yet support is one of the strongest sources of resilience. It eases the load and offers comfort and perspective. Self-reliance is a real strength, until it hardens into a wall that keeps help out. Naming your people is a first step.",
+      "source": {
+        "chapter": "Chapter 7, Connection Is a Source of Strength; When Self-Reliance Becomes a Trap; Appendix A, From Chapter 7"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write the names of people you could turn to, even a little. Two or three is plenty.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Next to each, note what they could offer: practical help, comfort, or perspective.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice any pull to handle it all alone. Write where it comes from, if you like.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "If no names come, write a group, a service, or someone you'd like to know better.",
+          "figure": "fig_thinking"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "Marcus had learned early to rely on no one. In a home where the adults were unpredictable, depending on others had not been safe. Self-reliance got him through, and he wore it with pride. But the wall that protected the boy now kept the man alone. Seeing his self-reliance as a strength that had become a trap let him keep his competence and start letting people in."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name: someone you could turn to in a hard time.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_people"
+        ]
+      },
+      "done_when": "You've named your people. Support you can see is easier to reach for.",
+      "reflect": "Who was easiest to name, and who was hardest?",
+      "feeds_plan": [
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_people",
+          "type": "two_column",
+          "label": "Your people",
+          "columns": [
+            "Who",
+            "What they could offer"
+          ]
+        },
+        {
+          "id": "f_pull",
+          "type": "short_text",
+          "label": "Where the pull to go it alone comes from",
+          "optional": true
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e14",
+      "title": "Ask for one small thing",
+      "purpose": "One small step of letting someone help, chosen and taken at your own pace.",
+      "why": "Knowing support matters is one thing. Using it is another. For many people, asking for help is a skill that takes practice. Start small: accept a small offer, or share a little of what you're carrying. Support runs both ways, so you're not imposing. It takes courage and time, and some awkwardness is normal.",
+      "source": {
+        "chapter": "Chapter 7, Building and Drawing On Support; Connection Takes Courage and Time; Appendix C, Week three"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one person from your list.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Choose one small step: ask for a hand, accept an offer, or share a little.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Write what you'll say. Short and honest is enough.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Take the step this week, if you can.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Afterward, note how it went and how it felt.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Marcus",
+        "text": "For Marcus, letting someone in meant becoming open in the very way his wall was built to prevent. So he didn't try to change all at once. He started small: accepting a small offer, sharing a little of what he carried. He reminded himself that support runs both ways, and he could give too. The old refusal came back now and then. That was part of the work, and no sign that connection wasn't for him."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Send one short message to someone on your list.",
+            "figure": "fig_phone_quick"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "One small step toward support is chosen, or already taken. Either one counts.",
+      "reflect": "What do you expect asking to feel like?",
+      "toolkit_link": "t09",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p5"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your small step"
+        },
+        {
+          "id": "f_say",
+          "type": "short_text",
+          "label": "What you'll say",
+          "help": "For example: Could you give me a hand with this?"
+        },
+        {
+          "id": "f_how",
+          "type": "short_text",
+          "label": "How it went",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e15",
+      "title": "Answer your inner critic",
+      "purpose": "A kinder, more balanced reply to the harsh voice that shows up when you struggle.",
+      "why": "A harsh inner voice can feel deserved, even useful, as if it keeps you going. The book finds the opposite. Self-criticism adds a second layer of pain, wears down your confidence, and keeps your alarm switched on. Over time, it doesn't motivate well. Hearing the critic as a voice, rather than the truth, lets you answer it.",
+      "source": {
+        "chapter": "Chapter 8, The Inner Critic Undermines Resilience; The Practices of Self-Compassion; Appendix A, From Chapter 8"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Write one thing your inner critic says when you struggle. Use its exact words.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Notice it as the critic speaking, rather than the truth.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Ask what you'd say to a good friend facing the same thing.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write that reply, then say it to yourself.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Read it back slowly. Rough is fine. It gets easier with practice.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "After her divorce, Grace's harshest opponent was her own inner voice. It said she should have seen it coming, that she was weak for falling apart, that her sister had managed and she couldn't. It was crueler than anything her ex-husband had said. She believed the harshness kept her from giving up. But she would never speak to a struggling friend that way. That question showed her the kindness she was holding back from herself."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Ask what you'd say to a friend in your place. Write one line.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_reply"
+        ]
+      },
+      "done_when": "You've answered your critic with the kindness you'd offer a friend.",
+      "reflect": "How does the kinder reply sit with you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_reply",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_critic",
+          "type": "short_text",
+          "label": "What your critic says"
+        },
+        {
+          "id": "f_friend",
+          "type": "long_text",
+          "label": "What you'd say to a friend"
+        },
+        {
+          "id": "f_reply",
+          "type": "short_text",
+          "label": "Your reply, to yourself"
+        }
+      ],
+      "repeat_units": [
+        12
+      ]
+    },
+    {
+      "id": "e16",
+      "title": "Take a self-compassion break",
+      "purpose": "Three short phrases for a hard moment, in words that feel like yours.",
+      "why": "Self-compassion can sound soft, or like letting yourself off the hook. The book sees it as a real strength. It helps you recover from setbacks and try again. The self-compassion break has three parts: notice the difficulty, remember that struggle is part of being human, and offer yourself some kindness. It takes under a minute.",
+      "source": {
+        "chapter": "Chapter 8, Self-Compassion Is a Strength, Not a Weakness; The Practices of Self-Compassion; Self-Compassion and Recovery From Setback; Appendix C, Week four"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of something hard right now. A small thing is fine.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "Say the first part: \"This is a moment of difficulty.\"",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Say the second: \"Struggle is part of being human. I am not alone in this.\"",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Say the third: \"May I be kind to myself right now.\"",
+          "figure": "fig_feet_grounded"
+        },
+        {
+          "text": "Rewrite any phrase in your own words, so it sounds like you.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Grace",
+        "text": "Grace's inner critic insisted that kindness would make her collapse, or let her off the hook. The self-compassion break gave her a few phrases for the hard moments. She acknowledged that this was hard, remembered that she wasn't the only one to struggle like this, and offered herself some kindness. As she kept practicing, the kind voice grew stronger and the cruel one quieter."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Say the three phrases to yourself, slowly.",
+            "figure": "fig_feet_grounded"
+          }
+        ],
+        "field_ids": [
+          "f_three"
+        ]
+      },
+      "done_when": "You have three phrases for hard moments, in words that sound like you.",
+      "reflect": "Which part of the break was hardest to say?",
+      "toolkit_link": "t08",
+      "feeds_plan": [
+        {
+          "field_id": "f_three",
+          "plan_section": "p4"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_one",
+          "type": "short_text",
+          "label": "Your words for noticing the difficulty"
+        },
+        {
+          "id": "f_two",
+          "type": "short_text",
+          "label": "Your words for not being alone"
+        },
+        {
+          "id": "f_three",
+          "type": "short_text",
+          "label": "Your words of kindness"
+        }
+      ]
+    },
+    {
+      "id": "e17",
+      "title": "Set limits with your phone",
+      "purpose": "One or two phone limits that protect your sleep, your calm, and your time with people.",
+      "why": "Your phone can quietly feed overwhelm. It keeps you reachable, invites comparison with polished lives, serves up alarming news, and eats into sleep. It can pull you from people too. Stress, scrolling, and strain with others feed each other. You don't need to fix it all. A change in one place, like a phone-free bedroom, often eases the rest.",
+      "source": {
+        "chapter": "Chapter 9, How the Digital World Erodes Resilience; Setting Boundaries With the Digital World; The Reinforcing Loop of Stress and Disconnection"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Notice how your phone affects you: sleep, calm, comparison, or time with people.",
+          "figure": "fig_phone_quick"
+        },
+        {
+          "text": "Pick one limit to start. A phone-free bedroom at night is a strong first choice.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "If you like, add one more: phone-free meals, fewer alerts, or less news.",
+          "figure": "fig_phone_down"
+        },
+        {
+          "text": "Decide where the phone will spend the night, if not in the bedroom.",
+          "figure": "fig_desk_ready"
+        },
+        {
+          "text": "Try it this week. Keep it modest. Partial still counts.",
+          "figure": "fig_calendar"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Tariq spent the small hours scrolling worst-case financial scenarios and comparing his business with competitors' polished images. Glued to his phone, he was present with his family in body only. His stress drove the scrolling, the scrolling stole his sleep and his presence, and the distance left him more alone. He started with one change: a phone-free bedroom. It began to turn the whole loop."
+      },
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Choose where your phone will spend tonight, outside the bedroom if you can.",
+            "figure": "fig_moon"
+          }
+        ],
+        "field_ids": [
+          "f_limit"
+        ]
+      },
+      "done_when": "You have at least one phone limit to try, protecting your rest or your time with people.",
+      "reflect": "What do you expect to notice first?",
+      "feeds_plan": [
+        {
+          "field_id": "f_limit",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_effects",
+          "type": "checklist",
+          "label": "How your phone affects you",
+          "options": [
+            "Less sleep",
+            "Less calm",
+            "Comparing yourself",
+            "Less time with people",
+            "Always reachable"
+          ]
+        },
+        {
+          "id": "f_limit",
+          "type": "short_text",
+          "label": "Your first limit",
+          "help": "For example: the phone charges in the kitchen overnight."
+        },
+        {
+          "id": "f_more",
+          "type": "short_text",
+          "label": "One more limit",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e18",
+      "title": "Turn back toward someone",
+      "purpose": "A small plan to reconnect with someone after a hard stretch between you.",
+      "why": "When you're overwhelmed, you can get short with the people you love, or drift away from them. Every close relationship has moments like this. What keeps relationships close is repair: turning back toward the other person, naming what happened, and reconnecting. Being fully present, even for a few minutes, is part of it too.",
+      "source": {
+        "chapter": "Chapter 9, Bringing Resilience to Relationships; Appendix A, From Chapter 9"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Choose one person you have been short with or distant from, and feel safe with.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Write what happened, plainly, without blame either way.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what it may have been like for them.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write what you'd like to say to reconnect. It can be short.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Choose a calm moment, turn toward them, and listen.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Plan one stretch of time together, with your phone away.",
+          "figure": "fig_phone_down"
+        }
+      ],
+      "example": {
+        "character": "Tariq",
+        "text": "Lost in his worries and his phone, Tariq had been short with his children and distant from his wife. Left alone, those moments would harden into distance. So he turned toward them. He acknowledged that he had been absent and short, tried to understand what it had been like for them, and made time to be with them for real, without the phone."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line you could say to reconnect with someone.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_say"
+        ]
+      },
+      "done_when": "You have a plan to turn back toward someone. Choose the moment that feels right.",
+      "reflect": "What do you hope they'll hear?",
+      "toolkit_link": "t10",
+      "fields": [
+        {
+          "id": "f_who",
+          "type": "short_text",
+          "label": "Who you'll turn toward"
+        },
+        {
+          "id": "f_happened",
+          "type": "short_text",
+          "label": "What happened"
+        },
+        {
+          "id": "f_say",
+          "type": "short_text",
+          "label": "What you'd like to say"
+        },
+        {
+          "id": "f_time",
+          "type": "short_text",
+          "label": "Your time together, phone away",
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "e19",
+      "title": "Find your compass",
+      "purpose": "A few values and sources of meaning that hold steady when your circumstances shift.",
+      "why": "When your sense of worth rests on work, roles, or achievement, a hard stretch can shake everything. Values work more like a compass. They don't control what happens, but they give you direction through it. Meaning and purpose anchor you too: the people, care, and contribution that remain when other things change.",
+      "source": {
+        "chapter": "Chapter 10, Meaning in the Hardest Times; Chapter 12, A Life Built on Values; Meaning and Purpose as Anchors; Appendix C, Week four"
+      },
+      "minutes": 10,
+      "steps": [
+        {
+          "text": "Write what your sense of worth leans on most right now.",
+          "figure": "fig_thinking"
+        },
+        {
+          "text": "List a few values you want to live by: connection, kindness, honesty, or your own.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Pick the two or three that matter most.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "For each, write one small way to live it this week.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write one thing that gives your life meaning, even on hard days.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray was sixty-three when serious health news arrived alongside a retirement that suddenly felt like a loss. He had built his life on work and achievement, and when the work was threatened, so was everything. He couldn't change what had come. But he could steer by what he valued, connection and contribution, and hold on to what still mattered: his family, and what he could still offer."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one value you want to steer by.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_values"
+        ]
+      },
+      "done_when": "You've named the values and meaning you want to steer by.",
+      "reflect": "Which value felt most like yours?",
+      "feeds_plan": [
+        {
+          "field_id": "f_values",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_meaning",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_leans",
+          "type": "short_text",
+          "label": "What your sense of worth leans on now"
+        },
+        {
+          "id": "f_values",
+          "type": "ranked_list",
+          "label": "Your values",
+          "max_items": 3
+        },
+        {
+          "id": "f_live",
+          "type": "two_column",
+          "label": "Living them this week",
+          "columns": [
+            "Value",
+            "One small way"
+          ]
+        },
+        {
+          "id": "f_meaning",
+          "type": "short_text",
+          "label": "What gives your life meaning"
+        }
+      ]
+    },
+    {
+      "id": "e20",
+      "title": "Shore up your foundations",
+      "purpose": "One or two small changes to sleep, movement, rest, or pace, so you have more to draw on.",
+      "why": "Resilience draws on your physical and mental reserves. Sleep, movement, reasonable eating, rest, time with people, and a pace you can keep are what refill them. They aren't extras to fit in once things calm down. When they slip, everything else gets harder. Small, steady changes here give your tools more to work with.",
+      "source": {
+        "chapter": "Chapter 12, Sustainable Foundations; Chapter 9, Setting Boundaries With the Digital World; Appendix A, From Chapter 12"
+      },
+      "minutes": 8,
+      "steps": [
+        {
+          "text": "Read the foundations: sleep, movement, eating, rest, people, and pace.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Rate how each one is going, from 1 (struggling) to 5 (steady).",
+          "figure": "fig_rating"
+        },
+        {
+          "text": "Pick the one that would give you the most back.",
+          "figure": "fig_circling"
+        },
+        {
+          "text": "Choose one small step for it this week. Small is the point.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "If anything about your health worries you, talk to a doctor.",
+          "figure": "fig_hand_raised"
+        }
+      ],
+      "example": {
+        "character": "Ray",
+        "text": "Ray's life had run on productivity, with little room for rest, connection, or balance. Now his health needed attention: rest, movement, and care of his body. Retirement, for all it took away, also gave him a chance to build in what the busy years had crowded out. He began to live at a pace that kept his reserves topped up rather than drained."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one foundation and write one small step for it.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_step"
+        ]
+      },
+      "done_when": "You've chosen one small step to shore up your foundations.",
+      "reflect": "Which foundation has been slipping most quietly?",
+      "feeds_plan": [
+        {
+          "field_id": "f_step",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_rate",
+          "type": "rating_grid",
+          "label": "How each foundation is going",
+          "rows": [
+            "Sleep",
+            "Movement",
+            "Eating",
+            "Rest",
+            "Time with people",
+            "A pace you can keep"
+          ]
+        },
+        {
+          "id": "f_step",
+          "type": "short_text",
+          "label": "Your one small step",
+          "help": "For example: lights out by 11 p.m. on weeknights."
+        }
+      ]
+    },
+    {
+      "id": "e21",
+      "title": "Plan for harder stretches",
+      "purpose": "A plan for yellow and red stretches, written while you're steady, including where to turn for more help.",
+      "why": "Progress rarely runs in a straight line. Old patterns can come back under enough stress, even when your tools are working. That's the normal shape of this, and the work still counts. It helps to decide now what you'll keep when capacity drops, when to reach for more help, and your first step back.",
+      "source": {
+        "chapter": "Chapter 11, The Signs That Warrant Professional Help; Chapter 13, Progress Is Not Linear; Appendix B, The Capacity Card"
+      },
+      "minutes": 12,
+      "steps": [
+        {
+          "text": "Write your yellow-week basics: the one or two tools you'll keep when capacity drops.",
+          "figure": "fig_three_cards"
+        },
+        {
+          "text": "Name someone you could lean on in a harder stretch, if you like.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Read the signs that it is time to talk to a doctor or another professional.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Write who you would contact first, such as your doctor.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Write your first step back after a setback.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Add a kind line to read on a hard day.",
+          "figure": "fig_writing"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "Nadia's path wasn't a steady climb. There were stretches when the old overwhelm came back under stress, and her tools seemed out of reach. She learned to read these as the normal shape of the work, rather than proof that nothing had changed. On those days she kept to the smallest things: naming the feeling, a slow breath, one person. Then, when she could, she came back to the practice."
+      },
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your first step back after a setback. That's enough for today.",
+            "figure": "fig_writing"
+          }
+        ],
+        "field_ids": [
+          "f_first"
+        ]
+      },
+      "done_when": "Your plan for harder stretches is ready, including where to turn for more help.",
+      "reflect": "What would you want to hear from yourself on a hard day?",
+      "toolkit_link": "t03",
+      "feeds_plan": [
+        {
+          "field_id": "f_yellow",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_contact",
+          "plan_section": "p6"
+        },
+        {
+          "field_id": "f_first",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_yellow",
+          "type": "short_text",
+          "label": "Your yellow-week basics"
+        },
+        {
+          "id": "f_lean",
+          "type": "short_text",
+          "label": "Who you could lean on",
+          "optional": true,
+          "help": "If no one comes to mind, a note to yourself counts."
+        },
+        {
+          "id": "f_contact",
+          "type": "short_text",
+          "label": "Who you would contact for more help",
+          "help": "Signs it is time: struggle lasting weeks without easing, daily life getting hard to manage, leaning on harmful ways to cope, or low mood or hopelessness that will not lift. Any thoughts of harming yourself mean tap Help now right away."
+        },
+        {
+          "id": "f_first",
+          "type": "short_text",
+          "label": "Your first step back",
+          "help": "For example: name the feeling and take one slow breath."
+        },
+        {
+          "id": "f_kind",
+          "type": "short_text",
+          "label": "A kind line for a hard day"
+        }
+      ]
+    },
+    {
+      "id": "e22",
+      "title": "Write your everyday plan",
+      "purpose": "One page of the tools, people, and habits that keep you steady, in your own words.",
+      "why": "You've tried a lot over these weeks, and not all of it needs to stay. Keep what helped and let the rest go. Resilience grows with use, and it can be rebuilt after a slip. A short plan you'll keep is worth more than an ambitious one you put down. This page pulls in what you've already written.",
+      "source": {
+        "chapter": "Chapter 13, Resilience Is an Ongoing Practice; A Resilient Life Is Not a Life Without Adversity; Appendix C, After thirty days"
+      },
+      "minutes": 15,
+      "steps": [
+        {
+          "text": "Your answers from earlier weeks are filled in here. Read them through.",
+          "figure": "fig_reading"
+        },
+        {
+          "text": "Keep the tools you actually use. Cut the rest.",
+          "figure": "fig_writing"
+        },
+        {
+          "text": "Keep your pause and your hold-off rules.",
+          "figure": "fig_hand_raised"
+        },
+        {
+          "text": "Keep your people, and one small way to stay in touch.",
+          "figure": "fig_two_people"
+        },
+        {
+          "text": "Keep your phone limit and your foundation step.",
+          "figure": "fig_moon"
+        },
+        {
+          "text": "Read it once more. Cut anything you wouldn't do in an ordinary week.",
+          "figure": "fig_reading"
+        }
+      ],
+      "example": {
+        "character": "Nadia",
+        "text": "It's 7:45 on a Tuesday morning, and Nadia is sitting in the same school parking lot. Nothing outside the car has changed: two children, a demanding job, a partner who travels, a to-do list that never ends. But she slept seven hours, because she stopped checking her phone late and learned to quiet her mind. She opens the door. The door didn't get lighter. She got stronger."
+      },
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read your drafted plan. Fix anything that's wrong.",
+            "figure": "fig_reading"
+          }
+        ],
+        "field_ids": [
+          "f_tools",
+          "f_moment"
+        ]
+      },
+      "done_when": "Your everyday plan is on one page, small enough to keep.",
+      "reflect": "Which part of this plan matters most to you?",
+      "feeds_plan": [
+        {
+          "field_id": "f_tools",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_moment",
+          "plan_section": "p3"
+        },
+        {
+          "field_id": "f_people",
+          "plan_section": "p5"
+        },
+        {
+          "field_id": "f_foundations",
+          "plan_section": "p6"
+        }
+      ],
+      "fields": [
+        {
+          "id": "f_tools",
+          "type": "long_text",
+          "label": "Your steadying tools"
+        },
+        {
+          "id": "f_moment",
+          "type": "long_text",
+          "label": "Your plan for hard moments"
+        },
+        {
+          "id": "f_people",
+          "type": "short_text",
+          "label": "Your people"
+        },
+        {
+          "id": "f_foundations",
+          "type": "short_text",
+          "label": "Your foundations and limits"
+        }
+      ]
+    }
+  ],
+  "toolkit": [
+    {
+      "id": "t01",
+      "title": "Name the feeling",
+      "when_to_use": "A feeling is building, and it's hard to think straight.",
+      "steps": [
+        "Pause where you are.",
+        "Find a few plain words for the feeling.",
+        "Say it to yourself: \"I feel overwhelmed,\" or \"I feel angry.\"",
+        "Notice if it eases, even a little."
+      ],
+      "minutes": 1,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "How to Use This Book; Chapter 3, Naming Calms the Brain; Appendix A, The One Tool to Start With"
+      }
+    },
+    {
+      "id": "t02",
+      "title": "The physiological sigh",
+      "when_to_use": "Stress spikes and you want to settle fast. It takes under a minute.",
+      "steps": [
+        "Inhale through your nose while you count to four.",
+        "Take one more short sip of air on top, to fill your lungs.",
+        "Exhale slowly through your mouth while you count to six.",
+        "Repeat a few times, if it helps."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 5, Regulating Through the Body; Appendix A, From Chapter 5"
+      }
+    },
+    {
+      "id": "t03",
+      "title": "Check your capacity",
+      "when_to_use": "You're deciding how much to take on today or this week.",
+      "steps": [
+        "Ask yourself: green, yellow, or red right now?",
+        "Green: you have capacity. The fuller work is workable.",
+        "Yellow: capacity is lower. Keep the smallest tools and let the rest wait.",
+        "Red: basics only. Reach for support and a professional. Help now is always there."
+      ],
+      "minutes": 1,
+      "figure": "fig_three_cards",
+      "source": {
+        "chapter": "How to Use This Book; Appendix B, The Capacity Card"
+      }
+    },
+    {
+      "id": "t04",
+      "title": "Check the story",
+      "when_to_use": "Your mind has jumped to the worst, and it feels like fact.",
+      "steps": [
+        "Ask what a camera would have recorded.",
+        "Ask what is most likely, rather than most feared.",
+        "Ask what you'd tell a friend.",
+        "Say a more accurate version, with any real problem still in it."
+      ],
+      "minutes": 2,
+      "figure": "fig_thinking",
+      "source": {
+        "chapter": "Chapter 4, Reframing the Story; Appendix A, From Chapter 4"
+      }
+    },
+    {
+      "id": "t05",
+      "title": "Let the wave pass",
+      "when_to_use": "A feeling has surged, and your mind wants to replay it.",
+      "steps": [
+        "Name the feeling.",
+        "Let the first wave rise and fall. It's often a minute or two.",
+        "Try not to feed it with replaying or scrolling.",
+        "Turn your attention to something in front of you."
+      ],
+      "minutes": 2,
+      "figure": "fig_clock_check",
+      "source": {
+        "chapter": "Chapter 5, Regulating Through the Mind"
+      }
+    },
+    {
+      "id": "t06",
+      "title": "Stop, breathe, observe, proceed",
+      "when_to_use": "Something sets you off, and a reaction is already on its way.",
+      "steps": [
+        "Stop. Don't speak, act, or send yet.",
+        "Breathe. Take one slow breath.",
+        "Observe. What are you feeling, and what's actually happening?",
+        "Proceed. Choose your response. Waiting counts."
+      ],
+      "minutes": 1,
+      "figure": "fig_hand_raised",
+      "source": {
+        "chapter": "Chapter 6, A Method for the Moment; Appendix A, From Chapter 6"
+      }
+    },
+    {
+      "id": "t07",
+      "title": "Hold off while flooded",
+      "when_to_use": "You're flooded and about to send, say, or decide something big.",
+      "steps": [
+        "Notice that you're outside your window.",
+        "Hold off on anything you can't take back.",
+        "Breathe, walk, or wait until you're calmer.",
+        "Come back to it when you can think."
+      ],
+      "minutes": 1,
+      "figure": "fig_phone_down",
+      "source": {
+        "chapter": "Chapter 6, Not Making It Worse"
+      }
+    },
+    {
+      "id": "t08",
+      "title": "Self-compassion break",
+      "when_to_use": "Your inner critic is loud, or you've hit a setback.",
+      "steps": [
+        "Say: \"This is a moment of difficulty.\"",
+        "Say: \"Struggle is part of being human.\"",
+        "Say: \"May I be kind to myself right now.\"",
+        "Use your own words, if they fit better."
+      ],
+      "minutes": 1,
+      "figure": "fig_feet_grounded",
+      "source": {
+        "chapter": "Chapter 8, The Practices of Self-Compassion; Appendix A, From Chapter 8"
+      }
+    },
+    {
+      "id": "t09",
+      "title": "Reach out to one person",
+      "when_to_use": "You're carrying it alone, and the pull is to keep it that way.",
+      "steps": [
+        "Pick one person from your list.",
+        "Send a short, honest message.",
+        "If they offer help, try saying yes.",
+        "Small steps count. You can give back another time."
+      ],
+      "minutes": 2,
+      "figure": "fig_phone_quick",
+      "source": {
+        "chapter": "Chapter 7, Building and Drawing On Support; Appendix A, From Chapter 7"
+      }
+    },
+    {
+      "id": "t10",
+      "title": "Turn back toward them",
+      "when_to_use": "Things got tense or distant with someone close to you.",
+      "steps": [
+        "Pick a calm moment.",
+        "Name what happened, without blame.",
+        "Ask how it was for them, and listen.",
+        "Spend a few minutes together, phone away."
+      ],
+      "minutes": 2,
+      "figure": "fig_two_people",
+      "source": {
+        "chapter": "Chapter 9, Bringing Resilience to Relationships"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": "m01",
+      "trigger": "first_exercise",
+      "message": "First exercise done. What you found is saved in your plan."
+    },
+    {
+      "id": "m02",
+      "trigger": "first_toolkit_use",
+      "message": "First tool used. It stays in your Toolkit, ready anytime."
+    },
+    {
+      "id": "m03",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Next up: mapping your window, the range where you can still think clearly."
+    },
+    {
+      "id": "m04",
+      "trigger": "daily_checks:7",
+      "message": "Your daily checks are starting to show a pattern. You can see it on Progress."
+    },
+    {
+      "id": "m05",
+      "trigger": "stage_complete:map",
+      "message": "Explore stage done. You can name what you feel and see the edges of your window."
+    },
+    {
+      "id": "m06",
+      "trigger": "selfcheck:6",
+      "message": "Halfway. Your week 6 self-check now sits next to where you started."
+    },
+    {
+      "id": "m07",
+      "trigger": "toolkit_uses:10",
+      "message": "You've reached for your Toolkit ten times. It's there whenever you need it."
+    },
+    {
+      "id": "m08",
+      "trigger": "stage_complete:build",
+      "message": "Build stage done. You have a toolkit, a way to check a story, and a pause. Next, your days."
+    },
+    {
+      "id": "m09",
+      "trigger": "first_repeat",
+      "message": "An earlier exercise came back. Your two sets of answers now sit side by side."
+    },
+    {
+      "id": "m10",
+      "trigger": "stage_complete:use",
+      "message": "Practice stage done. One week left to bring it all together."
+    },
+    {
+      "id": "m11",
+      "trigger": "return_after_gap",
+      "message": "Welcome back. No catching up needed. Progress is uneven for everyone. Pick up with one small step."
+    },
+    {
+      "id": "m12",
+      "trigger": "program_complete",
+      "message": "Twelve weeks done. Here's where you started, and where you are now."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "p1",
+      "title": "Your why"
+    },
+    {
+      "id": "p2",
+      "title": "How overwhelm shows up for you"
+    },
+    {
+      "id": "p3",
+      "title": "Your steadying tools"
+    },
+    {
+      "id": "p4",
+      "title": "Kinder, clearer thinking"
+    },
+    {
+      "id": "p5",
+      "title": "Your people"
+    },
+    {
+      "id": "p6",
+      "title": "Staying steady"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve weeks ago, you started by putting a feeling into words. Since then, you've mapped your window, built tools to steady yourself, learned to check a story and pause before reacting, and practiced meeting yourself with kindness. You've found your people and protected your rest. Hard days will still come. Your plan is here to help you bend without breaking.",
+    "book_bridge": "Every tool here comes from Bending, Not Breaking by Maya Vaughn. The book tells the full stories of Nadia, Marcus, Grace, Tariq, and Ray. You can find it in Books."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which tool are you still reaching for without much effort?",
+      "When did something last push you out of your window? What helped you come back?",
+      "Who have you turned to this month, or who could you turn to?"
+    ],
+    "refresher_ids": [
+      "e01",
+      "e02",
+      "e06",
+      "e07",
+      "e09",
+      "e13",
+      "e15",
+      "e17"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "MH_Final/Bending_Not_Breaking.docx",
+    "v1_id": "overwhelm",
+    "cut_log": [
+      {
+        "item": "Resilience myths and the six pillars as exercises",
+        "chapter": "Introduction; Chapter 1",
+        "reason": "Kept as framing in the welcome and the Explore primer, and in e03. An exercise on definitions would add reading without giving the reader a tool."
+      },
+      {
+        "item": "Biological, psychological and environmental factors in detail",
+        "chapter": "Chapter 2",
+        "reason": "Folded into the e03 why as 'your situation and history'. The genetics and temperament detail is not needed to use the tool."
+      },
+      {
+        "item": "How adversity tunes the threat response, and Marcus's childhood",
+        "chapter": "Chapter 3; Chapter 7",
+        "reason": "Named lightly in e02 and e13 only. No exercise asks the reader to recall their own childhood."
+      },
+      {
+        "item": "Progressive muscle relaxation and sensory grounding as tools",
+        "chapter": "Chapter 5",
+        "reason": "The book names them but gives no steps. Left out rather than invent instructions."
+      },
+      {
+        "item": "Resilience at the hardest times and post-traumatic growth",
+        "chapter": "Chapter 10",
+        "reason": "Meaning is kept in e19. Growth is left out, because the book itself warns it cannot be demanded, and an exercise would imply it should be found."
+      },
+      {
+        "item": "When help is urgent, crisis numbers, therapy and medication detail",
+        "chapter": "Front matter; Chapter 11; Appendices E and F",
+        "reason": "Carried by the start safety note, the capacity red line, e21 and the app's Help now, which shows crisis lines by market. No medication or therapy-type content."
+      },
+      {
+        "item": "Statistics, researcher names and brain-imaging detail",
+        "chapter": "Introduction; Chapters 1, 3, 5, 7, 8, 10; Acknowledgements",
+        "reason": "Not needed for instruction. Kept only as plain claims the book makes, such as naming quieting the alarm and the first wave lasting a minute or two."
+      },
+      {
+        "item": "A Thirty-Day Beginning as a separate plan",
+        "chapter": "Appendix C",
+        "reason": "Its order (naming, the sigh, stories, reframing and connection, self-compassion and values) shapes weeks 1 to 11."
+      }
+    ],
+    "notes": "v1 topic_name: Overwhelm\nv1 set_id: stress-and-overload (Stress and Overload); Theme to be assigned from the naming board\nAK code minted provisionally on migration; replace with the naming board code [check]\ncatalogue hue: 126"
+  }
+}
