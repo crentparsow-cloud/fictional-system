@@ -1,0 +1,2159 @@
+[
+  {
+    "id": "F-001",
+    "surface": "Marketing site and library",
+    "name": "Publish with Akana page and enquiry form",
+    "what": "Public page for authors and publishing houses: what Akana does, the three acquisition models, the white-label option, and an enquiry form that writes to a leads table and emails Crent. Process only, no revenue figures until Crent sets them.",
+    "who": "author, publisher, white-label tenant",
+    "why": "Outreach starts now and needs a page to point at before the portal exists.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-014"
+    ],
+    "risk": "Publishing terms or rates before they are decided. Page stays on process."
+  },
+  {
+    "id": "F-002",
+    "surface": "Marketing site and library",
+    "name": "Marketing home page",
+    "what": "Home with the line 'the place where books become practical', how it works in three steps, featured shelves, membership offer, local prices, trust points (official author-licensed workbooks, no ad pixels, what we never collect). Reduced-motion cover hero.",
+    "who": "reader, author, publisher",
+    "why": "Front door for readers and the first thing an author judges.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-014",
+      "F-094",
+      "F-003"
+    ],
+    "risk": "Copy drifting into outcome claims. Runs through the claims check."
+  },
+  {
+    "id": "F-003",
+    "surface": "Marketing site and library",
+    "name": "Library with genre shelves and Themes",
+    "what": "Public library across the eleven genres with Themes grouped under genre shelves. Filter chips for genre, Theme, author, language, programme length, Mine and In progress. Cards show title-first identity: book title, author, Theme chip, card line, badge. A shelf stays hidden until it reaches a minimum count Crent sets.",
+    "who": "reader",
+    "why": "Browsing is the main way in with 50 or more titles and 17 or more authors. It must look like a multi-author store on day one.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-109",
+      "F-014",
+      "F-115"
+    ],
+    "risk": "Wellbeing and finance Themes side by side read oddly. Group Themes under genre."
+  },
+  {
+    "id": "F-004",
+    "surface": "Marketing site and library",
+    "name": "Badges and demo labelling on every surface",
+    "what": "One badge per workbook from licence_ref: Official, Made with the author, Public domain classic (edition and translator named), Demo. Demo shows on card, page, author page, search, player header and checkout. Checkout refuses a demo id.",
+    "who": "reader, Akana admin",
+    "why": "Selling invented authors as real would mislead buyers. The Official badge is the pitch, so it must be accurate.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-003",
+      "F-114"
+    ],
+    "risk": "A demo title slipping into live paid listings. Build check and checkout both refuse."
+  },
+  {
+    "id": "F-005",
+    "surface": "Marketing site and library",
+    "name": "Public workbook pages on slug URLs",
+    "what": "Server-rendered page per workbook at /w/{slug}: cover, title, author, code, badge, card line, who it is for, week-by-week outline, a readable sample of the first exercise, time per day, language, price in local currency, buy and membership buttons, links to buy the book through /go/, Help now link on wellbeing titles. schema.org Book and Product with no health claims. 301 on retitle. Hidden topics never in page text or metadata.",
+    "who": "reader, author",
+    "why": "This is the page that sells and the page authors share.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-003",
+      "F-004",
+      "F-094"
+    ],
+    "risk": "Hidden topics leaking into metadata. A build check fails on any topic word."
+  },
+  {
+    "id": "F-006",
+    "surface": "Marketing site and library",
+    "name": "Author and publisher pages",
+    "what": "/author/{slug} and /publisher/{slug}: display name (pen name, never legal name), photo, short bio, country, their workbooks and books, link to their own site. Demo label on demo authors and in metadata.",
+    "who": "reader, author, publisher",
+    "why": "Seventeen named authors is the marketplace's proof, and the URL authors will share.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-005"
+    ],
+    "risk": "Invented authors that look real. Demo label on page and in metadata."
+  },
+  {
+    "id": "F-007",
+    "surface": "Marketing site and library",
+    "name": "Theme pages",
+    "what": "/t/{slug} per Theme with its plain line and every workbook on it from any author. Email links land here because emails never name a title.",
+    "who": "reader",
+    "why": "Themes are the shared positive shelves and the landing point for email.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-003"
+    ],
+    "risk": "Theme names not trademark cleared (gate T1). Renameable through the registry."
+  },
+  {
+    "id": "F-008",
+    "surface": "Marketing site and library",
+    "name": "On-device search with Help now first",
+    "what": "Search over a catalogue index built at deploy and searched in the browser: title, author, publisher, Theme, code, shelf and hidden topics. No query sent or stored. Crisis words show a Help now card above results.",
+    "who": "reader",
+    "why": "Positive Theme names are hard to guess. Private search is a published promise.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-003",
+      "F-021"
+    ],
+    "risk": "Crisis word list awaits clinician sign-off (gate C1). Ship the interim list. A server search later would break the promise; the privacy notice must cover both cases."
+  },
+  {
+    "id": "F-009",
+    "surface": "Marketing site and library",
+    "name": "For publishers, white-label and pricing pages",
+    "what": "Pages for publishers (marketplace), white-label (own branded site), and reader pricing. Plan names and prices only once Crent sets them; until then 'talk to us'.",
+    "who": "publisher, white-label tenant, reader",
+    "why": "Crent is selling both models now.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-002"
+    ],
+    "risk": "Quoting plan prices before they exist."
+  },
+  {
+    "id": "F-010",
+    "surface": "Marketing site and library",
+    "name": "Help centre and FAQ",
+    "what": "Static help pages for readers (access, refunds, deletion, Help now) and a link to the support address. Marked as not a crisis service.",
+    "who": "reader",
+    "why": "Cuts support load and is expected in any paid product.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-002",
+      "F-090"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-011",
+    "surface": "Marketing site and library",
+    "name": "Sitemap, Open Graph and hreflang",
+    "what": "Sitemap, robots, Open Graph share images per workbook and author, canonical tags, hreflang for en-GB and en-US.",
+    "who": "reader, author",
+    "why": "Authors share links; a bare preview looks unfinished.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-005",
+      "F-139"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-012",
+    "surface": "Marketing site and library",
+    "name": "Reader ratings and reviews (parked)",
+    "what": "Star ratings or written reviews on workbook pages, pre-moderated, possibly non-wellbeing only.",
+    "who": "reader",
+    "why": "Earlier board banned ratings on wellbeing titles as an effectiveness claim. Reviews bring health disclosures, moderation and wider Online Safety Act and DSA duties. Commercial wants social proof.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-005"
+    ],
+    "risk": "Not planned. Needs Crent's decision and a lawyer's view."
+  },
+  {
+    "id": "F-013",
+    "surface": "Marketing site and library",
+    "name": "Headless CMS for marketing content",
+    "what": "Blog, campaigns and landing pages in a CMS. At launch, pages come from the catalogue plus MDX in the repo.",
+    "who": "Akana admin",
+    "why": "Only needed once someone other than Crent edits the site.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-002"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-014",
+    "surface": "Reader app",
+    "name": "Reader app shell with tenant design tokens",
+    "what": "One Next.js App Router project for site, library and player. Five-tab reader nav carried over (Home, Today, Toolkit, Library, You). Design tokens from index.html moved into CSS variables using logical properties, read per tenant from the host, defaulting to Akana.",
+    "who": "reader, white-label tenant",
+    "why": "Everything else sits inside it. Tokens now cost a day; retrofitting later costs a week.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-128",
+      "F-129"
+    ],
+    "risk": "Creep into a full design system. Tokens plus the components ported from the current app only."
+  },
+  {
+    "id": "F-015",
+    "surface": "Reader app",
+    "name": "Workbook player port with a parity harness",
+    "what": "Port the engine in app/src/index.html to React client components reading the same JSON: all field types now used, stages and weeks, short versions, Start screen with 'I have read this', toolkit and breathing pacer, daily check, weekly check-in, unscored self-checks, milestones, autosave with 'Saved'. Logic lifted, not rewritten. A harness loads every workbook JSON, renders every screen and fails on any field it cannot draw. Old app stays live until parity.",
+    "who": "reader",
+    "why": "This is the product. The current engine is about 180 KB in one file, so it is a port with hidden edge cases.",
+    "priority": "Week 2",
+    "size": "XL",
+    "depends_on": [
+      "F-107",
+      "F-134",
+      "F-014"
+    ],
+    "risk": "Largest single item; starts day 1 and is due end of Week 2. Field types first, Maya Vaughn 20 through the harness daily. Fallback if it slips past day 10: mount the old engine as a client island and port screen by screen after launch."
+  },
+  {
+    "id": "F-016",
+    "surface": "Reader app",
+    "name": "Today and Home across several workbooks",
+    "what": "A continue card per active workbook, capped with the rest under Library. One reminder. The daily check appears only for workbooks that have one, so a finance reader never gets a mood question.",
+    "who": "reader",
+    "why": "Membership makes several open workbooks across genres the normal case.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-015",
+      "F-095"
+    ],
+    "risk": "Clutter. Cap shown cards."
+  },
+  {
+    "id": "F-017",
+    "surface": "Reader app",
+    "name": "My plan, prefill and finish sequence",
+    "what": "Generalise prefill_from so earlier answers carry into My plan in every workbook, each line tagged by week and editable. Keep going mode after the last week. Finish screen names the book and author and links to buy it through /go/.",
+    "who": "reader, author",
+    "why": "My plan is the payoff. The finish screen is the author's main reward.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-015"
+    ],
+    "risk": "A prefilled line the reader no longer agrees with. Every line editable."
+  },
+  {
+    "id": "F-018",
+    "surface": "Reader app",
+    "name": "Progress without streaks",
+    "what": "Weeks done, current step, milestones, My plan lines, a plain list of recent daily checks with blank days neutral. No streaks, missed-day counts or comparison.",
+    "who": "reader",
+    "why": "Readers want to see where they are. House rules forbid punishing streaks.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-015"
+    ],
+    "risk": "Commercial pressure to add streaks. The rule stands."
+  },
+  {
+    "id": "F-019",
+    "surface": "Reader app",
+    "name": "Free first week and calm paywall",
+    "what": "Week 1 open after sign-up with no card. Week 2 onwards shows a calm paywall with buy and membership. Answers carry into the paid workbook. Per-workbook flag, on by default.",
+    "who": "reader, author",
+    "why": "Market standard, already built, and the conversion step without pressure.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-095",
+      "F-015"
+    ],
+    "risk": "Free weeks across 50 titles add up. Crent may cap free weeks per reader."
+  },
+  {
+    "id": "F-020",
+    "surface": "Reader app",
+    "name": "Completed-step event capture",
+    "what": "Record step completed and week opened as ids and timestamps only, per reader, workbook and version, from day one. Feeds the subscription pool and funnel.",
+    "who": "Akana admin, author",
+    "why": "The first pool cannot be calculated fairly later if the events were not captured at launch.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-015",
+      "F-141"
+    ],
+    "risk": "An event carrying an answer or a feeling. Ids and timestamps only."
+  },
+  {
+    "id": "F-021",
+    "surface": "Reader app",
+    "name": "Safety hub and Help now by market",
+    "what": "Carry over hubHTML, markets.json and support_lines.json. Help now one tap away on every screen of a wellbeing workbook, by region, with the verified date. Helpline finder for markets outside the six. Non-wellbeing titles get a quiet 'Need support?' footer link.",
+    "who": "reader",
+    "why": "Standing rule. A multi-country catalogue brings readers from many countries.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-015",
+      "F-107"
+    ],
+    "risk": "A stale number. Rebuilt from JSON every deploy; weekly link checker kept."
+  },
+  {
+    "id": "F-022",
+    "surface": "Reader app",
+    "name": "Safety tier gating and the hardest answer card",
+    "what": "Each workbook carries a safety tier (none, standard, higher). Higher tier keeps the Start screen and needs a recorded clinical sign-off before going live. Unified hardest-answer card at most weekly, never alerting anyone.",
+    "who": "reader",
+    "why": "Wellness not treatment applies to every author's workbook.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-107",
+      "F-015"
+    ],
+    "risk": "A parenting or relationships title touching abuse or self-harm tagged non-wellbeing. Akana sets tier at review, never the author."
+  },
+  {
+    "id": "F-023",
+    "surface": "Reader app",
+    "name": "Export of the reader's own work",
+    "what": "JSON export and a print-ready page of prompts, answers and My plan, printed to PDF from the browser. Gated by emailed code, passkey optional. Neutral header unless the reader ticks Show the book title. Exports prompts and answers, not the teaching text. Server-side PDF with a name watermark follows after launch.",
+    "who": "reader",
+    "why": "UK GDPR portability and market standard. Already built in the old app.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-015",
+      "F-134"
+    ],
+    "risk": "Server-side PDF on Vercel needs fonts and a print layout per field type. Fallback is print-to-PDF from the browser."
+  },
+  {
+    "id": "F-024",
+    "surface": "Reader app",
+    "name": "Calendar reminder",
+    "what": "Downloadable calendar reminder with neutral text ('Daily check' or 'Workbook time'), never a title or Theme.",
+    "who": "reader",
+    "why": "Reminders without push permission or a server job. Already built.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-015"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-025",
+    "surface": "Reader app",
+    "name": "You tab: account, settings and data rights",
+    "what": "My library (owned, membership, in progress, finished), region and currency, appearance settings carried over, email preferences, receipts, export, and deletion with the 7-day undo. Deletion cascades through answers, entitlements, tenant memberships and Stripe customer metadata, keeping only the financial records tax law requires.",
+    "who": "reader",
+    "why": "Readers must find what they paid for and leave cleanly. UK and EU law gives them most of this.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-132",
+      "F-097"
+    ],
+    "risk": "Deleting tax records that must be kept. Financial records held apart and named in the privacy notice."
+  },
+  {
+    "id": "F-026",
+    "surface": "Reader app",
+    "name": "Health data consent screen",
+    "what": "Explicit, versioned consent before a reader's first wellbeing workbook. News opt-in carried over.",
+    "who": "reader",
+    "why": "Wellbeing answers are health data.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-025",
+      "F-122"
+    ],
+    "risk": "Consent text not reviewed. Reuse the reviewed version from the current build."
+  },
+  {
+    "id": "F-027",
+    "surface": "Reader app",
+    "name": "Discreet tab title and hide covers",
+    "what": "Plain tab title and covers hidden on Home, as a setting. Copy says it stops a glance only.",
+    "who": "reader",
+    "why": "Title-first identity makes screens more revealing. The small part is cheap; app lock is not.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-025"
+    ],
+    "risk": "Readers reading 'discreet' as 'secure'."
+  },
+  {
+    "id": "F-028",
+    "surface": "Reader app",
+    "name": "App lock with passkey",
+    "what": "Optional app lock reusing passkeys, Help now reachable from the lock screen.",
+    "who": "reader",
+    "why": "Matters most for higher-tier titles, which stay paused until clinician sign-off.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-027",
+      "F-132"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-029",
+    "surface": "Reader app",
+    "name": "Interactive signed-out first exercise",
+    "what": "Answer the first exercise without an account; answers held in the browser and moved into sealed storage on sign-up. At launch the public page shows a readable sample only.",
+    "who": "reader",
+    "why": "Value before sign-up. Hidden work moving local answers safely and clearing them on shared devices.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-015",
+      "F-134"
+    ],
+    "risk": "Wellbeing answers left in a shared browser."
+  },
+  {
+    "id": "F-030",
+    "surface": "Reader app",
+    "name": "Support partner",
+    "what": "Carry over partner invites with share levels and never-cached token links, never sharing answers.",
+    "who": "reader",
+    "why": "Built and valued, but adds token routes, mail and safety review. Not needed to sell.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-015",
+      "F-140"
+    ],
+    "risk": "Partner mail naming a workbook. Render test applies."
+  },
+  {
+    "id": "F-031",
+    "surface": "Reader app",
+    "name": "Hard-day mode, cross-workbook toolkit, read aloud",
+    "what": "Short version plus one tool and Help now; one Toolkit across owned workbooks; on-device read aloud.",
+    "who": "reader",
+    "why": "Retention features from the old roadmap.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-015"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-032",
+    "surface": "Reader app",
+    "name": "Native app store wrappers (parked)",
+    "what": "App Store and Google Play wrappers.",
+    "who": "reader",
+    "why": "Store fees and store health-claim review. The web avoids both.",
+    "priority": "After launch",
+    "size": "XL",
+    "depends_on": [
+      "F-015"
+    ],
+    "risk": "Not planned."
+  },
+  {
+    "id": "F-033",
+    "surface": "Author portal",
+    "name": "Invite-only author and publisher onboarding",
+    "what": "Akana staff create the organisation and send an invite. The invitee signs in with magic link or passkey and lands on a first-run checklist: profile, add a book, sign licence, set up payouts, submit. No open public sign-up at launch.",
+    "who": "author, publisher, Akana admin",
+    "why": "Leanest route to real authors. Open sign-up brings fraud screening and likely Online Safety Act and DSA marketplace duties.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-130",
+      "F-082"
+    ],
+    "risk": "Manual invites do not scale past a few dozen. Fine for launch."
+  },
+  {
+    "id": "F-034",
+    "surface": "Author portal",
+    "name": "Author profile editor",
+    "what": "Display name (pen name) and legal name held apart, short bio, photo with a rights tick, country, website, links. Bio runs the claim-word check; staff approve before it goes public.",
+    "who": "author, publisher",
+    "why": "Regulators read intended purpose from all marketing, including bios on Akana's site.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-033",
+      "F-108"
+    ],
+    "risk": "False positives. Show the flagged phrase; staff override with a logged reason."
+  },
+  {
+    "id": "F-035",
+    "surface": "Author portal",
+    "name": "Book records with contributors and editions",
+    "what": "Book record separate from the workbook: title, subtitle, series, contributors with roles (author, translator, editor) and death years, edition, ISBN or ASIN, publisher, imprint, year, language, genre, cover with rights tick, store link, KDP Select declaration. One book can have several workbooks.",
+    "who": "author, publisher",
+    "why": "Title-first identity hangs off the book. Translators matter for public-domain traps.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-109",
+      "F-033"
+    ],
+    "risk": "Duplicate book records. ISBN uniqueness check; merge tool after launch."
+  },
+  {
+    "id": "F-036",
+    "surface": "Author portal",
+    "name": "Licence capture by clickwrap or signed upload",
+    "what": "Per book, accept a versioned interactive workbook licence with plain heads of terms, variable terms (territory, term, exclusivity, subscription inclusion, cover and audio rights, what buyers keep), warranties (rights held, no publisher or KDP Select clash, no health claims in own marketing). Stores version, signer, time and IP as licence_ref. Also accepts an uploaded signed PDF for houses that insist on paper. Build refuses to set a workbook live without it.",
+    "who": "author, publisher, Akana admin",
+    "why": "No in-copyright workbook can be sold without a written licence (board decision 8).",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-035",
+      "F-122"
+    ],
+    "risk": "The licence text is the blocker, not the code (gate L3). Code ships with placeholder text marked draft; no real author signs until L3 clears."
+  },
+  {
+    "id": "F-037",
+    "surface": "Author portal",
+    "name": "Workbook submission: upload or request Akana development",
+    "what": "Route one: upload manuscript and any existing workbook (DOCX, EPUB, PDF) to a private bucket with a short brief; Akana editors build the JSON. Route two: request Akana development, receive a quote, pay a deposit by Stripe payment link or invoice. Both create a Draft workbook.",
+    "who": "author, publisher, Akana admin",
+    "why": "How real workbooks reach the platform in three weeks with a small team.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-035",
+      "F-036",
+      "F-135"
+    ],
+    "risk": "Editor capacity becomes the bottleneck [check team size]. Manuscripts are unpublished IP: private bucket, no public URLs, never used for training."
+  },
+  {
+    "id": "F-038",
+    "surface": "Author portal",
+    "name": "Preview in the real reader engine",
+    "what": "Open any draft in the actual player in preview mode: Demo watermark, no purchase, answers not saved server side. Phone and desktop, both themes, 200% text. Org members only.",
+    "who": "author, publisher, Akana admin",
+    "why": "Authors will not sign off what they cannot see as readers see it.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-015",
+      "F-110"
+    ],
+    "risk": "Preview drifting from live. One renderer."
+  },
+  {
+    "id": "F-039",
+    "surface": "Author portal",
+    "name": "Author review, comments and sign-off",
+    "what": "Author sees status, the single comment thread per workbook, and approves short title, card line and the Made with the author badge, then signs off against an exact content hash. Safety lines and Help now are locked against author edits.",
+    "who": "author, publisher",
+    "why": "Sign-off on an exact version is what makes the release gate mean anything.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-038",
+      "F-084"
+    ],
+    "risk": "Reviewers re-read whole workbooks without diffs. Fine at launch volumes."
+  },
+  {
+    "id": "F-040",
+    "surface": "Author portal",
+    "name": "Pricing from the Akana ladder",
+    "what": "Author picks from a fixed GBP ladder with preset local prices, chooses subscription inclusion if the licence allows, and sees an estimate of their share net of VAT and fees. Akana approves with the workbook and creates the Stripe prices.",
+    "who": "author, publisher, Akana admin",
+    "why": "Free-text prices break the store, the currency tables and pool maths. Net estimates stop disputes about what a share means.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-093",
+      "F-036"
+    ],
+    "risk": "Ladder and share figures not set. Built as config with placeholders marked as such."
+  },
+  {
+    "id": "F-041",
+    "surface": "Author portal",
+    "name": "Earnings and statements view",
+    "what": "Org sees its ledger lines and monthly statements per workbook, with the method stated in plain words. No reader identity.",
+    "who": "author, publisher",
+    "why": "Authors and their accountants need a statement they can check.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-100",
+      "F-101"
+    ],
+    "risk": "Net receipts definition must match the licence exactly."
+  },
+  {
+    "id": "F-042",
+    "surface": "Author portal",
+    "name": "Privacy-safe sales and engagement dashboard",
+    "what": "Monthly counts per workbook: listing views, free weeks started, purchases, readers finishing week one and the final week. Counts under 10 show as 'Fewer than 10'; no daily view; filters cannot combine below the threshold; country is the finest location. Never answers, check-ins or how readers felt. Simple tables, CSV.",
+    "who": "author, publisher",
+    "why": "Authors promote only if they can see results. Strong point in outreach.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-141",
+      "F-100"
+    ],
+    "risk": "Exact earnings can back out small counts. Crent to decide whether earnings are thresholded."
+  },
+  {
+    "id": "F-043",
+    "surface": "Author portal",
+    "name": "Author status and payout emails",
+    "what": "Invite, submission received, changes requested, ready for sign-off, live, paused, payout action needed, statement ready. Separate template set from reader mail; author mail may name the workbook.",
+    "who": "author, publisher",
+    "why": "Authors lose trust when nothing seems to move.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-137"
+    ],
+    "risk": "Confusion with the reader rule. Separate set keeps the reader render test intact."
+  },
+  {
+    "id": "F-044",
+    "surface": "Author portal",
+    "name": "Author help pages and house rules",
+    "what": "Short help on house rules in plain words, review timeline, pricing rules, how payment works, what the pool will be.",
+    "who": "author, publisher",
+    "why": "Authors from many countries will not know why a bio was flagged or why scores are not allowed.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-039"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-045",
+    "surface": "Author portal",
+    "name": "Demo author login and seeded portal states",
+    "what": "A resettable demo author and demo publisher login for sales calls, with workbooks in every state (draft, in review, live, paused), test-mode sales, a sample statement and a populated dashboard, all labelled Demo.",
+    "who": "Akana admin, publisher",
+    "why": "Crent sells by showing. An empty portal does not sell.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-115",
+      "F-042",
+      "F-101"
+    ],
+    "risk": "Demo figures confused with real results. Test mode only and labelled everywhere."
+  },
+  {
+    "id": "F-046",
+    "surface": "Author portal",
+    "name": "Author referral link attribution",
+    "what": "/from/{slug}?a={org} records author-referred sales in checkout metadata with a first-party cookie. Rate application waits on Crent's two-rate decision.",
+    "who": "author, publisher",
+    "why": "Capturing attribution from day one is cheap; applying a second rate is a ledger rule later.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-096"
+    ],
+    "risk": "Attribution disputes. Publish the window rule."
+  },
+  {
+    "id": "F-047",
+    "surface": "Author portal",
+    "name": "No-code workbook builder",
+    "what": "Form editor over schema v3: listing, weeks, steps, exercises from allowed field types, toolkit, milestones, live validation, safety blocks locked, no scores or self-harm questions offered.",
+    "who": "author, publisher, Akana admin",
+    "why": "Scales the catalogue without staff. One side argued it pays for the demo content; the other that Akana builds first workbooks anyway and it is XL.",
+    "priority": "After launch",
+    "size": "XL",
+    "depends_on": [
+      "F-107",
+      "F-039",
+      "F-110"
+    ],
+    "risk": "Author-built content moves Akana toward a marketplace model with different Online Safety Act, DSA and P2B position. Legal view first."
+  },
+  {
+    "id": "F-048",
+    "surface": "Author portal",
+    "name": "DOCX and EPUB import to draft",
+    "what": "Mammoth DOCX import and EPUB reading order to a draft outline and JSON, every exercise citing its manuscript location. Word template with Akana styles.",
+    "who": "author, Akana admin",
+    "why": "Speeds editors at volume. First authors are built by hand.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-037",
+      "F-108"
+    ],
+    "risk": "Invented content. Citation rule and validator guard."
+  },
+  {
+    "id": "F-049",
+    "surface": "Author portal",
+    "name": "Machine-assisted draft from manuscript",
+    "what": "Generate outline, exercise map and draft JSON with citations from an uploaded manuscript, always through full review.",
+    "who": "Akana admin",
+    "why": "A library of thousands cannot be built by hand.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-048"
+    ],
+    "risk": "Invented content. Needs licence cover for adaptation."
+  },
+  {
+    "id": "F-050",
+    "surface": "Author portal",
+    "name": "Author promo codes",
+    "what": "Author-created discount codes within Akana limits, backed by Stripe promotion codes. Staff create codes by hand at launch.",
+    "who": "author, publisher",
+    "why": "Useful for launches, not needed to take first money.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-040",
+      "F-096"
+    ],
+    "risk": "Leaks to deal sites. Caps and expiry by default."
+  },
+  {
+    "id": "F-051",
+    "surface": "Author portal",
+    "name": "Co-authors and split payees",
+    "what": "Several payees per workbook with percentage splits. One payee per workbook is a stated licence term until then.",
+    "who": "author, publisher",
+    "why": "Real but uncommon at launch.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-100"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-052",
+    "surface": "Author portal",
+    "name": "Line comments and version diffs in review",
+    "what": "Comments on a line and diffs since the reviewer's last sign-off.",
+    "who": "author, Akana admin",
+    "why": "Cuts review time at volume.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-110"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-053",
+    "surface": "Author portal",
+    "name": "Reader to author messaging (not planned)",
+    "what": "No direct messages. An author welcome letter and end-of-week notes ship as reviewed workbook content instead.",
+    "who": "author, reader",
+    "why": "Messages about wellbeing are health data and make Akana a user-to-user service.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-107"
+    ],
+    "risk": "Authors will ask. The answer is the dashboard and the referral link."
+  },
+  {
+    "id": "F-054",
+    "surface": "Author portal",
+    "name": "SAML sign-in for publisher staff",
+    "what": "SAML through Supabase SSO for large organisations.",
+    "who": "publisher, white-label tenant",
+    "why": "Large houses ask in procurement.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-130"
+    ],
+    "risk": "A named prospect may require it to sign [check]."
+  },
+  {
+    "id": "F-055",
+    "surface": "Publisher console",
+    "name": "Organisation console with members and invites",
+    "what": "One console for publishers, solo authors and tenants: invite, resend, revoke, change role, remove a member with session revocation. An organisation always keeps one owner, enforced in the database. Ownership transfer by staff at launch.",
+    "who": "publisher, white-label tenant",
+    "why": "Publishers must give staff access without sharing a login, and a departed employee must lose payout access.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-130"
+    ],
+    "risk": "Last owner leaves. Database rule."
+  },
+  {
+    "id": "F-056",
+    "surface": "Publisher console",
+    "name": "Author roster and imprints as labels",
+    "what": "An organisation lists its authors (profiles without logins unless invited) and imprints. Imprint is a label and a statement filter, not a permission boundary.",
+    "who": "publisher, author",
+    "why": "Title-first identity needs the author on every card; publishers think in imprints.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-057",
+    "surface": "Publisher console",
+    "name": "CSV catalogue import",
+    "what": "CSV template for book and listing metadata with row-by-row validation and a dry run. Creates drafts only; licence gate still applies.",
+    "who": "publisher",
+    "why": "A backlist cannot be keyed by hand. CSV covers launch prospects; ONIX follows.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-035"
+    ],
+    "risk": "Bad cover URLs and rights mismatches. Draft-only."
+  },
+  {
+    "id": "F-058",
+    "surface": "Publisher console",
+    "name": "Publisher statements and sales roll-up",
+    "what": "Statements and the privacy-safe dashboard rolled up across imprints and authors, filterable by imprint, CSV export.",
+    "who": "publisher",
+    "why": "No publisher signs without statements they can reconcile.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-101",
+      "F-042"
+    ],
+    "risk": "Pool rule undecided, so subscription lines show as pending."
+  },
+  {
+    "id": "F-059",
+    "surface": "Publisher console",
+    "name": "Organisation audit log view",
+    "what": "Owners see who changed prices, listings, roles, payout details and domains.",
+    "who": "publisher, white-label tenant",
+    "why": "Disputes over prices and payouts need a record.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-081"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-060",
+    "surface": "Publisher console",
+    "name": "Bulk catalogue tools",
+    "what": "Change price, Theme, availability or subscription inclusion across many titles with preview and undo.",
+    "who": "publisher",
+    "why": "Routine publisher work once catalogues grow.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-057"
+    ],
+    "risk": "Bulk publish must respect each title's review gate."
+  },
+  {
+    "id": "F-061",
+    "surface": "Publisher console",
+    "name": "ONIX import and translated editions",
+    "what": "ONIX feed import [check version] and translated workbooks linked to the original, each with its own safety review and local Help now.",
+    "who": "publisher",
+    "why": "Larger houses will not enter backlists by hand.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-057"
+    ],
+    "risk": "Each language needs its own clinical and legal review."
+  },
+  {
+    "id": "F-062",
+    "surface": "Publisher console",
+    "name": "Catalogue potential finder",
+    "what": "Admin uploads a backlist CSV and gets a rubric-scored shortlist with editable reasons, as a PDF for a sales meeting. No sales forecasts. Done by hand with Claude until built.",
+    "who": "Akana admin, publisher",
+    "why": "Turns the 'unused potential' pitch into a deliverable.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-057"
+    ],
+    "risk": "Must never show invented figures."
+  },
+  {
+    "id": "F-063",
+    "surface": "Publisher console",
+    "name": "Per-author payouts inside a publisher",
+    "what": "Split a publisher's royalties to its authors' Connect accounts.",
+    "who": "publisher, author",
+    "why": "Publishers already pay their own authors.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-101"
+    ],
+    "risk": "More Connect accounts and fees."
+  },
+  {
+    "id": "F-064",
+    "surface": "Publisher console",
+    "name": "Publisher API and sales webhooks",
+    "what": "Read-only API and webhooks for sales and statement data.",
+    "who": "publisher",
+    "why": "Larger houses will ask once volume exists.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-100"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-065",
+    "surface": "Publisher console",
+    "name": "Self-billing statements for VAT-registered publishers",
+    "what": "Statements issued as self-billed VAT invoices under a self-billing agreement [check accountant].",
+    "who": "publisher, Akana admin",
+    "why": "UK publishers charge VAT on royalties. Needed before the first VAT-registered publisher payout, not before launch.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-101",
+      "F-099"
+    ],
+    "risk": "Easy to miss until a finance team asks."
+  },
+  {
+    "id": "F-066",
+    "surface": "White-label",
+    "name": "Tenant resolution by hostname and cookie isolation",
+    "what": "Proxy reads the host, looks up the tenant (Edge Config cache) and serves its catalogue and branding. Tenant subdomains on a separate apex from Akana's own, submitted to the Public Suffix List. __Host- cookies with no Domain attribute, Origin checks. Admin and auth stay on the Akana apex.",
+    "who": "white-label tenant, reader",
+    "why": "This is the white-label product, and the leak that would end it.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-129",
+      "F-014"
+    ],
+    "risk": "Public Suffix List inclusion takes time [check]. Cookie rules must hold on their own until then."
+  },
+  {
+    "id": "F-067",
+    "surface": "White-label",
+    "name": "Tenant branding with contrast check",
+    "what": "Logo, favicon, two brand colours, a font from a fixed list, footer links, legal page links, sender name. Colours validated against WCAG 2.2 AA in both themes before save. 'Powered by Akana' by plan.",
+    "who": "white-label tenant",
+    "why": "Brand is what a white-label buyer pays for. Contrast checking keeps tenants inside EAA duties they mostly carry.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-066"
+    ],
+    "risk": "A tenant wanting full CSS. No at launch."
+  },
+  {
+    "id": "F-068",
+    "surface": "White-label",
+    "name": "Locked standards on tenant sites",
+    "what": "Help now, safety lines and the wellness-not-treatment notice cannot be hidden or restyled. No custom script or pixel injection. Tenant wellbeing titles pass Akana's safety review. Emails never name a title on any tenant.",
+    "who": "white-label tenant, reader, Akana admin",
+    "why": "A tenant site is Akana software; a safety failure there is Akana's.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-067",
+      "F-125"
+    ],
+    "risk": "Tenants asking for analytics. Offer aggregate exports."
+  },
+  {
+    "id": "F-069",
+    "surface": "White-label",
+    "name": "Tenant catalogue and own prices",
+    "what": "Tenant picks which licensed workbooks appear and sets its own prices from the ladder in GBP and fixed local currencies. Same pages, outline and free week, in tenant branding.",
+    "who": "white-label tenant, reader",
+    "why": "Own pricing is the second publisher ask in research. Reuses marketplace pages.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-066",
+      "F-005",
+      "F-093"
+    ],
+    "risk": "Tenant subscriptions need their own pool. Single sales only on tenants at launch."
+  },
+  {
+    "id": "F-070",
+    "surface": "White-label",
+    "name": "Tenant checkout on the shared payment path",
+    "what": "Stripe Checkout on the tenant's site using the marketplace code path: destination charge to the tenant's Connect account with Akana's application fee, tenant name on receipts, entitlement written with tenant_id.",
+    "who": "white-label tenant, reader",
+    "why": "Taking money on a tenant site in three weeks is only realistic by reusing one flow. The other side: direct charges make the publisher seller of record and keep Akana out of VAT on tenant sales.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-096",
+      "F-099",
+      "F-069"
+    ],
+    "risk": "With destination charges Akana is seller of record and owes VAT on tenant sales. Depends on Crent's merchant-of-record answer. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+  },
+  {
+    "id": "F-071",
+    "surface": "White-label",
+    "name": "Custom domain, admin assisted",
+    "what": "Akana admin adds a tenant domain through the Vercel API (add, TXT check, verify) with a status line the tenant sees. SSL automatic.",
+    "who": "Akana admin, white-label tenant",
+    "why": "Own domain is the main reason to buy white-label. Admin-assisted is a fraction of the build.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-066",
+      "F-080"
+    ],
+    "risk": "DNS support. Clear status screen. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+  },
+  {
+    "id": "F-072",
+    "surface": "White-label",
+    "name": "Tenant Site tab in the organisation console",
+    "what": "Branding, domain status, catalogue toggles, prices, plan and billing, members and audit log in one tab. No separate admin product.",
+    "who": "white-label tenant",
+    "why": "Tenants run their site without emailing Akana.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-055",
+      "F-067",
+      "F-069"
+    ],
+    "risk": "Scope creep. This list only. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+  },
+  {
+    "id": "F-073",
+    "surface": "White-label",
+    "name": "Tenant plans on Stripe Billing with plan flags",
+    "what": "Starter and Pro as Stripe Billing subscriptions, Enterprise invoiced by hand. One table maps plan to limits (titles, domains, seats, branding removal); admins override per org. Stripe portal and default dunning. Suspension stops admin and new sales, never readers' paid access.",
+    "who": "white-label tenant, Akana admin",
+    "why": "The white-label tier earns nothing until tenants can be billed.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-092",
+      "F-129",
+      "F-136"
+    ],
+    "risk": "Prices not set. Plan flags let prices change without code. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+  },
+  {
+    "id": "F-074",
+    "surface": "White-label",
+    "name": "Seeded demo publisher and demo tenant site",
+    "what": "One invented publisher with two imprints and demo authors, and one demo tenant on its own subdomain with distinct branding, all marked Demo, with a reset script.",
+    "who": "Akana admin, publisher",
+    "why": "A working branded site beside the marketplace is the demo that closes a publisher.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-115",
+      "F-067"
+    ],
+    "risk": "Demo data in real statements. Flagged and excluded from every ledger."
+  },
+  {
+    "id": "F-075",
+    "surface": "White-label",
+    "name": "Direct charges with publisher as merchant of record",
+    "what": "Second payment mode where sales land on the tenant's own Stripe account and the tenant carries VAT, refunds and disputes.",
+    "who": "white-label tenant",
+    "why": "Larger publishers may insist on being seller of record.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-070"
+    ],
+    "risk": "Splits refund, tax and entitlement logic into two paths."
+  },
+  {
+    "id": "F-076",
+    "surface": "White-label",
+    "name": "Self-serve tenant sign-up, domains and email domain",
+    "what": "Public plan sign-up with trial, self-serve domain entry, sending from the tenant's own domain.",
+    "who": "white-label tenant",
+    "why": "Growth features while sales are founder-led.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-073",
+      "F-071"
+    ],
+    "risk": "Unvetted tenants publishing unsafe wellbeing content. Review gate stays."
+  },
+  {
+    "id": "F-077",
+    "surface": "White-label",
+    "name": "Tenant data export and offboarding",
+    "what": "CSV of orders and consented contacts, termination flow covering what readers keep and domain release. Never answers.",
+    "who": "white-label tenant, reader",
+    "why": "Standard procurement ask. The DPA covers it contractually at launch.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-070",
+      "F-133"
+    ],
+    "risk": "Consent scope must be clear."
+  },
+  {
+    "id": "F-078",
+    "surface": "White-label",
+    "name": "Tenant titles also listed on the marketplace",
+    "what": "Toggle to list tenant workbooks on Akana, with a rule on reader ownership and rate.",
+    "who": "white-label tenant",
+    "why": "Cross-sell, but needs Crent's commercial rule.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-069",
+      "F-101"
+    ],
+    "risk": "Channel conflict."
+  },
+  {
+    "id": "F-079",
+    "surface": "White-label",
+    "name": "Per-tenant manifest, SEO and accessibility statement",
+    "what": "Manifest, icons, sitemap and Open Graph per tenant; generated accessibility statement per tenant.",
+    "who": "white-label tenant",
+    "why": "A branded site that installs under the Akana name looks unfinished.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-067"
+    ],
+    "risk": "Service worker scope per host needs testing."
+  },
+  {
+    "id": "F-080",
+    "surface": "Admin",
+    "name": "Staff roles and admin access",
+    "what": "Staff roles in app_metadata: owner, editor, safety reviewer, support, finance. Admin on its own route on the Akana apex, never a tenant host. Passkey or TOTP required. is_staff(role) checked on every admin call. No role can see reader answers.",
+    "who": "Akana admin",
+    "why": "Every other admin feature needs to know who is acting.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-132",
+      "F-129"
+    ],
+    "risk": "A staff account takeover. MFA and short sessions; answers out of reach."
+  },
+  {
+    "id": "F-081",
+    "surface": "Admin",
+    "name": "Append-only audit log",
+    "what": "Widen admin_access_log into one append-only log for staff and org actions: who, role, action, target, reason (picklist plus note), time. Insert only, no update or delete grant.",
+    "who": "Akana admin, publisher",
+    "why": "Takedowns, refunds, payout holds and price changes all need a record.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-080"
+    ],
+    "risk": "Must never log answers or health data."
+  },
+  {
+    "id": "F-082",
+    "surface": "Admin",
+    "name": "Create and approve organisations",
+    "what": "Staff create an organisation, set type and plan, invite the owner, attach contract records, see Connect and terms status, suspend a payee or tenant.",
+    "who": "Akana admin",
+    "why": "Akana curates, so every organisation is approved before it sells.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-080",
+      "F-130"
+    ],
+    "risk": "Admin bottleneck past a few dozen orgs."
+  },
+  {
+    "id": "F-083",
+    "surface": "Admin",
+    "name": "Kill switch and pause controls",
+    "what": "Pause one exercise, a workbook, an author's catalogue or a tenant within minutes through a server flag read on every content fetch. Paused content leaves sale; owners keep their own answers. Every pause logged with a reason.",
+    "who": "Akana admin",
+    "why": "Response to a wrong support line, takedown, licence dispute or suspension.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-136",
+      "F-081"
+    ],
+    "risk": "Pool maths across pause windows. Ledger records them."
+  },
+  {
+    "id": "F-084",
+    "surface": "Admin",
+    "name": "Review queue with statuses and validator results",
+    "what": "One status per workbook version: draft, submitted, editorial, safety review, clinical sign-off (higher tier only), author sign-off, live, paused, retired. Queue lists assignee, age and validator result. Reviewers comment, send back with reasons, or advance. One email to the assignee.",
+    "who": "Akana admin, author",
+    "why": "Curation keeps Akana publisher of provider content and the house rules intact across many authors.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-108",
+      "F-110",
+      "F-080"
+    ],
+    "risk": "Crent as sole reviewer becomes the bottleneck. Simple enough for a second editor on day one."
+  },
+  {
+    "id": "F-085",
+    "surface": "Admin",
+    "name": "Release gate with sign-off records",
+    "what": "Go-live refused unless the version passed the validator and has editor, author or publisher, and (wellbeing) safety reviewer sign-offs against its content hash, plus a licence or public-domain record. Higher tier also needs a named clinician record. Override needs two named staff, logged.",
+    "who": "Akana admin",
+    "why": "Today nothing technical stops unsigned content reaching readers.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-084",
+      "F-036",
+      "F-118"
+    ],
+    "risk": "Without a clinician (gate C1) higher-tier titles cannot launch. Intended, not a bug."
+  },
+  {
+    "id": "F-086",
+    "surface": "Admin",
+    "name": "Staff workbook JSON editor with live validation",
+    "what": "In-admin editor for workbook JSON with schema hints and live validator output, saving a new draft version. Replaces the no-code builder at launch.",
+    "who": "Akana admin",
+    "why": "Editors need to fix and build workbooks without a deploy, and the builder is cut.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-108",
+      "F-110"
+    ],
+    "risk": "Hand-edited JSON errors. Validator blocks save on errors."
+  },
+  {
+    "id": "F-087",
+    "surface": "Admin",
+    "name": "Account lookup console with four actions",
+    "what": "Look up a reader by email (entitlements, orders, subscription, email log, deletion status) or an organisation (Connect status, workbooks, ledger totals). Actions: refund, resend a service email, restore access, cancel a deletion. Reason required, every lookup logged. No route to answers.",
+    "who": "Akana admin",
+    "why": "Without it every support case is raw SQL on live data.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-081",
+      "F-100"
+    ],
+    "risk": "Creep into an edit-anything admin. Four actions only."
+  },
+  {
+    "id": "F-088",
+    "surface": "Admin",
+    "name": "Owner dashboards from saved views",
+    "what": "Extend db/008 owner views to many authors and tenants: funnel by workbook, author and genre; revenue gross, VAT, fees, net; refunds; royalties owed and paid. owner.sup() hides 1 to 4. Tables, no charts. Excludes demo and test mode.",
+    "who": "Akana admin",
+    "why": "Crent needs to see whether it sells.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-141",
+      "F-100",
+      "F-114"
+    ],
+    "risk": "Demo or test orders in the numbers."
+  },
+  {
+    "id": "F-089",
+    "surface": "Admin",
+    "name": "Support line freshness list",
+    "what": "Every line in support_lines.json with its verified date; lines past a set age show as due; staff record a new check.",
+    "who": "Akana admin",
+    "why": "A wrong number is the most serious content fault. Data already exists.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-080"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-090",
+    "surface": "Admin",
+    "name": "Support inbox on an existing tool with saved replies",
+    "what": "Route the support address to an existing inbox (Resend inbound or a basic helpdesk) [check fit], with saved replies for refunds, access, deletion, payouts and 'I am worried about someone'. Auto-reply says it is not a crisis service.",
+    "who": "reader, author, Akana admin",
+    "why": "A human route is needed before the first live payment. Building a helpdesk is waste.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-137"
+    ],
+    "risk": "Provider holds messages with health information. DPA needed, no tracking."
+  },
+  {
+    "id": "F-091",
+    "surface": "Admin",
+    "name": "Data subject request list",
+    "what": "Staff list of open deletion and access requests with statutory due dates.",
+    "who": "Akana admin",
+    "why": "Reader flows are automatic; staff only need visibility.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-025"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-092",
+    "surface": "Commerce and payouts",
+    "name": "Stripe platform account, Tax and Connect enabled",
+    "what": "Platform account in live and test mode, Stripe Tax on, Connect platform profile submitted, Radar defaults, webhook endpoints. Product names generic ('Akana workbook') so bank statements never name a title.",
+    "who": "Akana admin",
+    "why": "Nothing sells without it, and Connect approval can take time.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [],
+    "risk": "Connect platform review time [check]. Submit on day one."
+  },
+  {
+    "id": "F-093",
+    "surface": "Commerce and payouts",
+    "name": "Price ladder and Stripe price catalogue",
+    "what": "GBP ladder with fixed EUR, USD, AUD, CAD and NZD prices per point, membership monthly and annual, held as config and Stripe price ids. Tax-inclusive display where that is the rule.",
+    "who": "Akana admin, author",
+    "why": "One source for every displayed and charged price.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-092"
+    ],
+    "risk": "Figures not set by Crent. Placeholders marked."
+  },
+  {
+    "id": "F-094",
+    "surface": "Commerce and payouts",
+    "name": "Local currency price display",
+    "what": "Price chosen from region with a manual switch, read from the same Stripe price ids the checkout uses. Adaptive Pricing elsewhere.",
+    "who": "reader",
+    "why": "GBP leads; readers abroad will not buy in a currency they cannot read.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-093",
+      "F-138"
+    ],
+    "risk": "Shown price differing from checkout. Same ids."
+  },
+  {
+    "id": "F-095",
+    "surface": "Commerce and payouts",
+    "name": "Entitlements engine",
+    "what": "One table and one check for free week, purchase for life, membership, tenant access (gift and team seat types reserved). Lapsed membership becomes read only. Buyers keep access when a licence ends. Content served a week at a time only to entitled readers.",
+    "who": "reader",
+    "why": "Every screen asks 'can this reader open this'.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-129",
+      "F-109"
+    ],
+    "risk": "The old 'whole library for life' tier may not survive a multi-author store. Crent to decide."
+  },
+  {
+    "id": "F-096",
+    "surface": "Commerce and payouts",
+    "name": "Single workbook checkout and webhook",
+    "what": "Stripe Checkout in payment mode with Apple Pay, Google Pay and Link, Stripe Tax, promotion codes, tax ID field. Immediate-access consent with version [check legal] alongside the pro rata refund promise. Destination charge to the payee's Connect account where verified. Webhook grants access idempotently; success page reconciles and drops the reader into Week 1. Demo ids refused.",
+    "who": "reader, author",
+    "why": "The minimum to take real money.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-095",
+      "F-093",
+      "F-099",
+      "F-132"
+    ],
+    "risk": "Webhook failure leaving a paid reader locked out. Reconcile on the success page; alert on failures."
+  },
+  {
+    "id": "F-097",
+    "surface": "Commerce and payouts",
+    "name": "Membership subscription and self-service",
+    "what": "Monthly and annual membership in subscription mode with the auto-renewal consent. Stripe customer portal for cancel, card change and invoices. Renewal reminder before annual renewal, failed-payment email and grace period. Cancellation as easy as sign-up.",
+    "who": "reader",
+    "why": "The business case leans on subscription income.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-096"
+    ],
+    "risk": "Membership on sale before authors know how the pool pays. Reader side ships; pool rule must be in the licence before outreach."
+  },
+  {
+    "id": "F-098",
+    "surface": "Commerce and payouts",
+    "name": "Receipts without titles in email",
+    "what": "Email receipts show the plan or AK code only. Full receipt with title, VAT breakdown and Akana's VAT number in the account and as a PDF.",
+    "who": "reader",
+    "why": "Reconciles 'emails never name a title' with VAT receipt rules.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-096",
+      "F-137"
+    ],
+    "risk": "A code-only email may not be a valid VAT invoice [check accountant]."
+  },
+  {
+    "id": "F-099",
+    "surface": "Commerce and payouts",
+    "name": "Connect Express onboarding for organisation payees",
+    "what": "Org owner or finance completes Stripe-hosted Express onboarding. Console shows not started, pending, verified, action needed. Captures tax residence and treaty declaration. Paid workbooks cannot go live until verified, except Akana-owned and public-domain titles. Payees outside the self-serve cross-border list are told plainly and held as payout pending.",
+    "who": "author, publisher",
+    "why": "No author signs without a clear route to being paid.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-092",
+      "F-130"
+    ],
+    "risk": "From a UK platform, self-serve payouts reach the US, UK, EEA, Canada and Switzerland only (research_money). Authors in India, Nigeria, Brazil and elsewhere need Global Payouts or Stripe sales."
+  },
+  {
+    "id": "F-100",
+    "surface": "Commerce and payouts",
+    "name": "Royalty ledger on net receipts",
+    "what": "Append-only ledger written by the webhook: one row per sale, refund, dispute and payout with gross, VAT, Stripe fee, net, Akana share, author share, currency and the rate stored on the line. Refunds reverse the Connect transfer. Demo and test mode never enter. Daily reconciliation to Stripe balance transactions.",
+    "who": "author, publisher, Akana admin",
+    "why": "Research found the summary counted VAT as revenue and left out fees. Paying on net from day one avoids paying on money Akana never kept.",
+    "priority": "Week 3",
+    "size": "L",
+    "depends_on": [
+      "F-096",
+      "F-099"
+    ],
+    "risk": "Refund after transfer leaves negative balances. Carried forward; tested before launch."
+  },
+  {
+    "id": "F-101",
+    "surface": "Commerce and payouts",
+    "name": "Monthly statements PDF and CSV",
+    "what": "Statement per organisation and month: units, gross, deductions, net and rate per title, method in plain words. Closes after the refund window.",
+    "who": "author, publisher",
+    "why": "A statement they cannot reconcile kills the relationship.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-100"
+    ],
+    "risk": "Rounding and FX drift. Minor units and FX rate stored per line."
+  },
+  {
+    "id": "F-102",
+    "surface": "Commerce and payouts",
+    "name": "Refunds from the console",
+    "what": "Refund button that calls Stripe, applies the billing.ts rule (pro rata on passes in the window, reopens after annual renewal), handles single purchases under Crent's policy, reverses the author transfer and sends the refund email. Partial refunds.",
+    "who": "reader, Akana admin",
+    "why": "Taking money requires a working refund path on day one.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-087",
+      "F-100"
+    ],
+    "risk": "Refund after payout. First payouts held past the refund window."
+  },
+  {
+    "id": "F-103",
+    "surface": "Commerce and payouts",
+    "name": "Payout holds and fraud controls",
+    "what": "First payout held past the refund window, minimum threshold, manual approval above a threshold Crent sets, rate limits on sign-in, checkout, export code and forms, Radar rules.",
+    "who": "Akana admin",
+    "why": "Under Connect Express the platform carries fraud and dispute liability.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-100",
+      "F-099"
+    ],
+    "risk": "Thresholds not set."
+  },
+  {
+    "id": "F-104",
+    "surface": "Commerce and payouts",
+    "name": "Subscription pool calculation and monthly transfers",
+    "what": "Month-end job closing the pool after the refund window, user-centric split by capped completed steps (as research leans), Akana share, ledger lines, transfers after a staff approval click, threshold, small-number suppression.",
+    "who": "author, publisher",
+    "why": "Authors will not accept a library that pays nothing. The first pool closes about a month after launch.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-100",
+      "F-020"
+    ],
+    "risk": "Must be ready before the first month-end after launch (late November 2026 if launch is 26 October). Rule must be in the licence before outreach."
+  },
+  {
+    "id": "F-105",
+    "surface": "Commerce and payouts",
+    "name": "Royalty withholding and year-end summaries",
+    "what": "Apply UK deduction at source on literary royalties to non-UK payees with treaty relief [check accountant]; year-end summary per payee. Manual hold until then.",
+    "who": "author, publisher, Akana admin",
+    "why": "Wrong withholding is Akana's liability.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-099",
+      "F-100"
+    ],
+    "risk": "Needs gate F1 before the first overseas payout."
+  },
+  {
+    "id": "F-106",
+    "surface": "Commerce and payouts",
+    "name": "Gifts, bundles and team seats",
+    "what": "Gift a workbook or membership (gift email shows a Theme only), author bundles, team seats with aggregate uptake only.",
+    "who": "reader, corporate buyer",
+    "why": "Seasonal and corporate revenue, not needed for first money.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-096",
+      "F-095"
+    ],
+    "risk": "Employer reporting becoming staff health data. Suppression only."
+  },
+  {
+    "id": "F-107",
+    "surface": "Content engine",
+    "name": "Workbook schema v3 with genre profiles",
+    "what": "Extend workbook.schema.json: genre, language, is_demo, programme length not fixed at 12 weeks, configurable stage names, safety_tier with 'none', optional daily check, self-check and check-in, title-first fields (title, author_id, code, slug, theme_id, licence_ref, badge), stable ids on every exercise and field, author welcome note. Genre profiles set counts and required blocks: wellbeing keeps every current safety field; finance adds a no-personal-advice check; parenting keeps adults-only. Frozen by day 4.",
+    "who": "author, Akana admin",
+    "why": "The current schema assumes a 12-week wellbeing programme. Every demo workbook and every import depends on this.",
+    "priority": "Week 1",
+    "size": "L",
+    "depends_on": [],
+    "risk": "Changing it after demo content exists means rewriting 50 files. Freeze by day 4."
+  },
+  {
+    "id": "F-108",
+    "surface": "Content engine",
+    "name": "TypeScript validator with genre-aware claim rules",
+    "what": "Port validate.py to TypeScript so the portal, build and API share one rulebook; keep Python as a CI cross-check until both agree on all 20 Maya Vaughn files. Per-genre claim allow lists, since 'improve' and 'effective' are normal in business copy. Also checks bios and listing copy.",
+    "who": "Akana admin, author",
+    "why": "The validator encodes the standing rules; reusing it is cheaper than checking every line by hand.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-107"
+    ],
+    "risk": "False positives in business genres. Allow lists owned by Editorial."
+  },
+  {
+    "id": "F-109",
+    "surface": "Content engine",
+    "name": "Catalogue data model in Postgres",
+    "what": "Tables for books, contributors, workbooks, versions, authors, Themes, genres and badges, carrying over AK codes, slugs, short_title, card_line and licence_ref from catalog.json and themes.json. Content served from Postgres, not static files.",
+    "who": "Akana admin, reader",
+    "why": "Title-first identity and multi-author catalogues need real records.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-129",
+      "F-107"
+    ],
+    "risk": "Badge honesty. Made with the author set only by the author's own sign-off."
+  },
+  {
+    "id": "F-110",
+    "surface": "Content engine",
+    "name": "Content versioning and safe updates",
+    "what": "Every submit and sign-off stores an immutable snapshot with a content hash. Readers get the signed-off version. Answers attach to stable ids; ids are never reused or deleted once live (validator checks against the last live version). Removed exercises stay readable in My answers. A change to a safety line resets safety sign-off.",
+    "who": "reader, author, Akana admin",
+    "why": "Invisible until the first author edit, then very expensive.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-109",
+      "F-134"
+    ],
+    "risk": "Migration bugs losing answers. Never delete answer rows; only remap."
+  },
+  {
+    "id": "F-111",
+    "surface": "Content engine",
+    "name": "Migrate the 20 Maya Vaughn workbooks to v3",
+    "what": "Convert the 20 JSON files to v3, keep exercise ids stable, load into Postgres under the Akana house organisation, run old and new validators and the parity harness.",
+    "who": "Akana admin, reader",
+    "why": "The 20 are the parity test set and the first live catalogue.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-107",
+      "F-108",
+      "F-109"
+    ],
+    "risk": "Breaking existing answers. Ids stable; tests before and after."
+  },
+  {
+    "id": "F-112",
+    "surface": "Content engine",
+    "name": "Themes, areas and card lines for ten new genres",
+    "what": "Write Themes as shared positive shelves, areas and card lines for personal development, relationships, parenting, career, leadership, business, productivity, finance, education and life skills, in the registry with clearance status pending.",
+    "who": "Akana admin, reader",
+    "why": "The library makes no sense until the new genres have shelves.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-109"
+    ],
+    "risk": "Theme names not trademark cleared (gate T1). In-app only, renameable."
+  },
+  {
+    "id": "F-113",
+    "surface": "Content engine",
+    "name": "Three new field types for non-wellbeing genres",
+    "what": "Number and currency fields with computed totals, a table with add-a-row (min and max rows), and a decision matrix. Each with renderer, print layout, keyboard pattern and validator rules. Dated action list and unscored knowledge check wait.",
+    "who": "reader",
+    "why": "A finance or leadership workbook with text boxes only looks thin next to competitors.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-015",
+      "F-107"
+    ],
+    "risk": "Scope creep. Capped at three. Unscored knowledge check needs Crent's view."
+  },
+  {
+    "id": "F-114",
+    "surface": "Content engine",
+    "name": "Demo flag and one-switch hide",
+    "what": "is_demo on organisation, author, book and workbook. Demo items carry the Demo label, cannot be bought with real money, never enter ledger, payout, tax or funnel views, and can be hidden from the public store with one switch.",
+    "who": "Akana admin, reader",
+    "why": "Invented authors must never be mistaken for real ones or earn money.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-109"
+    ],
+    "risk": "Demo left live after real launch. Launch checklist item."
+  },
+  {
+    "id": "F-115",
+    "surface": "Content engine",
+    "name": "Demo catalogue: about 50 workbooks across 17 or more authors",
+    "what": "Generate through the validator: at least 17 invented authors marked Demo plus a few Tier A public-domain classics, across all eleven genres. Every workbook has a listing, cover, outline and a usable Week 1; about ten are fully written. Each passes the v3 validator.",
+    "who": "Akana admin, reader, publisher",
+    "why": "The store must look like a multi-author marketplace for outreach.",
+    "priority": "Week 1",
+    "size": "L",
+    "depends_on": [
+      "F-107",
+      "F-108",
+      "F-114",
+      "F-112"
+    ],
+    "risk": "Thin or invented-sounding content on wellbeing titles. Wellbeing demo titles stay standard tier and pass the claims check."
+  },
+  {
+    "id": "F-116",
+    "surface": "Content engine",
+    "name": "Demo scale-up to 15 workbooks per author",
+    "what": "If Crent confirms the original ask of 15 per author, extend to about 255 demo listings: listing, cover and outline only beyond the first 50, generated in batch.",
+    "who": "Akana admin",
+    "why": "The user's request said 15 each for at least 17 authors; the decision record says about 50. Needs confirming.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-115",
+      "F-117"
+    ],
+    "risk": "Volume of thin listings makes the store look padded. Library shows depth badges."
+  },
+  {
+    "id": "F-117",
+    "surface": "Content engine",
+    "name": "Generated covers for demo and classics",
+    "what": "Typographic covers generated from tokens per genre for every demo and public-domain workbook, with alt text. Real authors supply their own.",
+    "who": "Akana admin, reader",
+    "why": "Every listing needs a cover; cover rights for real books are separate.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-115"
+    ],
+    "risk": "Covers that imitate a real publisher's design. Plain typographic style only."
+  },
+  {
+    "id": "F-118",
+    "surface": "Content engine",
+    "name": "Public-domain file for classics",
+    "what": "House-only record per classic: contributor death years with a source, edition used (never a modern reprint layout), UK, US and EU tier. Only Tier A classics clear in all three ship at launch, which avoids territory blocking.",
+    "who": "Akana admin",
+    "why": "Known traps: Gummere's Seneca, Giles's Art of War, The Richest Man in Babylon.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-035"
+    ],
+    "risk": "Death years in research mostly marked [check]. Each verified and sourced before going live."
+  },
+  {
+    "id": "F-119",
+    "surface": "Content engine",
+    "name": "Media in workbooks",
+    "what": "Images, diagrams, audio and video by signed short-lived URLs, alt text, captions and transcripts required.",
+    "who": "reader",
+    "why": "Publishers bring figures and video.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-107",
+      "F-135"
+    ],
+    "risk": "Audio rights held separately."
+  },
+  {
+    "id": "F-120",
+    "surface": "Content engine",
+    "name": "Further field types and advanced logic",
+    "what": "Dated action list, unscored knowledge check, carry-forward between exercises, conditional steps, reusable templates.",
+    "who": "author, reader",
+    "why": "Market standard within weeks; review and migration get harder.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-113",
+      "F-110"
+    ],
+    "risk": "Add only with tests."
+  },
+  {
+    "id": "F-121",
+    "surface": "Trust and legal",
+    "name": "Legal and trust pages",
+    "what": "Reader terms, privacy notice, refund policy, cookie statement (strictly necessary only, no banner), accessibility statement, What we never collect, wellness-not-treatment statement, company details. Marketplace text marked [check legal].",
+    "who": "reader",
+    "why": "Needed before the first payment.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-002"
+    ],
+    "risk": "Company details still placeholders; mailer refuses marketing mail until the postal address is real."
+  },
+  {
+    "id": "F-122",
+    "surface": "Trust and legal",
+    "name": "Versioned terms acceptance for every party",
+    "what": "Clickwrap for reader terms, author terms, publisher terms and white-label SaaS terms plus DPA and sub-processor list, with version, time and user stored like consent_versions. 15 days' notice of changes for business users. Signed PDF upload for negotiated deals.",
+    "who": "reader, author, publisher, white-label tenant",
+    "why": "No title or tenant goes live without accepted terms; P2B notice needs version history.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-132"
+    ],
+    "risk": "Templates need a lawyer (gate L3). Mechanism ships with draft text; nobody signs drafts."
+  },
+  {
+    "id": "F-123",
+    "surface": "Trust and legal",
+    "name": "Notice and takedown flow",
+    "what": "Public report form capturing DMCA 512(c)(3) and DSA Article 16 fields, queue, decision through the kill switch, statement of reasons template (DSA Article 17), counter-notice route, repeat infringer flag.",
+    "who": "Akana admin, author, publisher",
+    "why": "Rights complaints can arrive on day one once third-party books are on sale.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-083",
+      "F-081"
+    ],
+    "risk": "A curated store taking a revenue share may not get DMCA safe harbour. Lawyer to confirm. Designated agent registration is a Crent task."
+  },
+  {
+    "id": "F-124",
+    "surface": "Trust and legal",
+    "name": "Ranking statement and business complaints route",
+    "what": "Published main ranking parameters, internal complaints route for authors and publishers, reasons on suspension and notice before termination.",
+    "who": "author, publisher",
+    "why": "Applies if authors count as business users of an intermediary [check UK status].",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-122"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-125",
+    "surface": "Trust and legal",
+    "name": "No third-party trackers by design",
+    "what": "Content Security Policy that blocks third-party scripts and pixels on every host, a CI test that fails on any new external script, and no client error tracker on reader screens unless it captures no page content.",
+    "who": "reader, white-label tenant",
+    "why": "No ad pixels is a standing rule and a selling point; tenants will ask for pixels in week one.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-128"
+    ],
+    "risk": "A marketing tool added later breaking the What we never collect page."
+  },
+  {
+    "id": "F-126",
+    "surface": "Trust and legal",
+    "name": "DPIA, records of processing and sub-processor list",
+    "what": "Update the DPIA for marketplace, white-label (Akana as processor) and health data; records of processing; sub-processor list for the DPA.",
+    "who": "Akana admin",
+    "why": "Health data at scale and processor duties for tenants.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "Needs a privacy lawyer's read [check]."
+  },
+  {
+    "id": "F-127",
+    "surface": "Trust and legal",
+    "name": "Adults-only confirmation",
+    "what": "18 and over confirmation at sign-up, generic sign-up screen naming no topic.",
+    "who": "reader",
+    "why": "Wellbeing and parenting titles are written for adults.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-132"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-128",
+    "surface": "Platform",
+    "name": "Repo, environments and CI",
+    "what": "Private GitHub repo, Next.js App Router with TypeScript, Vercel preview and production, new Supabase project with migrations, CI running lint, type check, unit tests, validator and axe. Seed and reset scripts.",
+    "who": "Akana admin",
+    "why": "Day-one foundation for every stream.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [],
+    "risk": "Vercel Pro and Supabase Pro plans needed [check costs]."
+  },
+  {
+    "id": "F-129",
+    "surface": "Platform",
+    "name": "Organisation and tenant model with RLS",
+    "what": "organisations (publisher, author, white-label tenant, Akana house), org_members, tenant_id on every content, commerce and membership table from the first migration, RLS through a security definer is_member(org_id, role) reading app_metadata. Ports and rewrites migrations 001 to 009. Maya Vaughn's 20 sit under the Akana house organisation.",
+    "who": "Akana admin, publisher, white-label tenant",
+    "why": "Retrofitting tenancy onto live health data is the most expensive retrofit in the build.",
+    "priority": "Week 1",
+    "size": "L",
+    "depends_on": [
+      "F-128"
+    ],
+    "risk": "A missed policy leaks one publisher's sales or one reader's answers."
+  },
+  {
+    "id": "F-130",
+    "surface": "Platform",
+    "name": "Organisation roles and permissions",
+    "what": "Fixed org roles: owner, editor, finance, author (own titles only), viewer. One permissions table drives RLS and the UI, with a test per role per table. No custom roles.",
+    "who": "publisher, author",
+    "why": "Finance must see statements but not drafts; authors only their own titles.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "Role sprawl. Fixed list."
+  },
+  {
+    "id": "F-131",
+    "surface": "Platform",
+    "name": "Cross-tenant isolation and RLS test suite",
+    "what": "CI tests sign in as org A and try to read and write org B's workbooks, sales, statements, members and settings, and a reader tries another tenant's entitlements. Supabase advisors in CI. Build fails on any leak.",
+    "who": "Akana admin",
+    "why": "The first thing a publisher asks about, and the first thing cut under pressure. It should not be.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-129",
+      "F-130"
+    ],
+    "risk": "Tests only cover what they name. A test per new table."
+  },
+  {
+    "id": "F-132",
+    "surface": "Platform",
+    "name": "Sign-in with magic link, Google and passkeys",
+    "what": "Supabase Auth magic link and Google, passkeys carried over from webauthn.js. __Host- cookies. Apple sign-in once the developer account exists.",
+    "who": "reader, author, publisher",
+    "why": "WCAG 2.2 Accessible Authentication favours magic links and passkeys.",
+    "priority": "Week 1",
+    "size": "M",
+    "depends_on": [
+      "F-128",
+      "F-137"
+    ],
+    "risk": "Magic links in spam on a new domain. SPF, DKIM, DMARC and warm-up before launch."
+  },
+  {
+    "id": "F-133",
+    "surface": "Platform",
+    "name": "Shared reader identity with per-tenant membership",
+    "what": "One auth pool. A reader who signs up on a tenant site gets tenant-scoped membership, profile, consent and entitlements. Tenants see only their own members, never answers. Sign-in screen explains one login works on several sites.",
+    "who": "reader, white-label tenant",
+    "why": "Separate pools per tenant are a large build. Needs Crent's yes.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-132",
+      "F-066"
+    ],
+    "risk": "A publisher insisting on fully separate accounts. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+  },
+  {
+    "id": "F-134",
+    "surface": "Platform",
+    "name": "Sealed answer storage",
+    "what": "Carry over seal.ts AES-GCM sealing with AAD extended to tenant and owner id. Answers, daily checks, check-ins and self-check results sealed at rest and unsealed only server side for the owner. Seal key server side only. Autosave with last-write-wins and a visible note across two devices.",
+    "who": "reader",
+    "why": "Health data handled as health data; the encryption wording is already published.",
+    "priority": "Week 1",
+    "size": "L",
+    "depends_on": [
+      "F-129",
+      "F-132"
+    ],
+    "risk": "A leaked service key or missing policy exposes health data. RLS tests and advisors before launch."
+  },
+  {
+    "id": "F-135",
+    "surface": "Platform",
+    "name": "Private storage with signed URLs",
+    "what": "Supabase Storage buckets scoped by tenant for manuscripts, signed licences, covers and exports, signed short-lived URLs, no public buckets except covers.",
+    "who": "author, publisher",
+    "why": "Manuscripts and contracts are confidential.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "A bucket left public. Advisor check."
+  },
+  {
+    "id": "F-136",
+    "surface": "Platform",
+    "name": "Feature flags and config",
+    "what": "Extend app_config into flags with scope (global, tenant, workbook), server read and short cache. Used by the kill switch, launch toggles (membership, white-label, demo visible) and markets.",
+    "who": "Akana admin",
+    "why": "Lets unfinished parts ship switched off instead of delaying everything.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-137",
+    "surface": "Platform",
+    "name": "Email system carried over with its guards",
+    "what": "Port emails.ts and mailer.ts: no workbook title in reader mail (render test fails on any catalogue title), Theme only in bodies, nothing identifying in subjects, POST-only one-click unsubscribe, refusal while the postal address is a placeholder, send log, bounce and complaint suppression. Wording updated where it says 'twelve weeks'.",
+    "who": "reader, author",
+    "why": "The rules are settled and coded; rewriting would reopen them.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-128"
+    ],
+    "risk": "No sending domain (gate T2) or postal address blocks most mail. Decide in Week 1."
+  },
+  {
+    "id": "F-138",
+    "surface": "Platform",
+    "name": "Markets and locale data",
+    "what": "Carry over markets.json and locale.js: six launch markets, currency, date formats, Help now mapping.",
+    "who": "reader",
+    "why": "Prices, dates and Help now all read from it.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-128"
+    ],
+    "risk": "Low."
+  },
+  {
+    "id": "F-139",
+    "surface": "Platform",
+    "name": "Interface strings ready for more languages",
+    "what": "All interface strings in next-intl message files with en-GB and en-US sets, Intl for dates and currency, a language field on each workbook, lang attributes on content, logical CSS properties. No translations at launch.",
+    "who": "reader, publisher",
+    "why": "Cheap now, slow and error-prone after launch.",
+    "priority": "Week 1",
+    "size": "S",
+    "depends_on": [
+      "F-014"
+    ],
+    "risk": "A foreign-language wellbeing title with English-only Help now. Not live until helplines and safety review exist for that language."
+  },
+  {
+    "id": "F-140",
+    "surface": "Platform",
+    "name": "Allowlist service worker and offline Help now page",
+    "what": "Static help.html with inline CSS and tel: links for every market, precached, working signed out and offline. Worker caches only the versioned shell, help.html, fonts, icons and covers; auth callbacks, /go/, /api/, preview and token links are network only. Caches clear on sign-out. A test lists every cached URL.",
+    "who": "reader",
+    "why": "Fixes the known fault where the current worker caches every GET, and keeps Help now reachable when the app fails.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-014",
+      "F-021"
+    ],
+    "risk": "Safari sign-out clearing. Test it."
+  },
+  {
+    "id": "F-141",
+    "surface": "Platform",
+    "name": "First-party funnel events",
+    "what": "Page view, sample view, free week started, checkout started, purchase, week completed: ids and timestamps only, 13-month retention, small-number suppression downstream. No third-party analytics or replay.",
+    "who": "Akana admin, author",
+    "why": "Crent needs sales figures from day one; author dashboards read the same events.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-129"
+    ],
+    "risk": "An event carrying an answer. Schema forbids free text."
+  },
+  {
+    "id": "F-142",
+    "surface": "Platform",
+    "name": "Operational alerts and scrubbed logs",
+    "what": "Email alerts to Crent on webhook failure, payout failure, email failure above a threshold and validator job errors. Logs scrubbed of form values.",
+    "who": "Akana admin",
+    "why": "With one operator, silent payment failures are the main way to lose money and trust.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-096"
+    ],
+    "risk": "An error tracker capturing form values. Off reader screens."
+  },
+  {
+    "id": "F-143",
+    "surface": "Platform",
+    "name": "Staff and payee sign-in hardening",
+    "what": "Passkey or TOTP required for owner, finance and admin roles; re-authentication before changing payout details or domains; recovery through support with identity checks.",
+    "who": "publisher, white-label tenant, Akana admin",
+    "why": "Payout detail changes are the classic fraud route on royalty platforms.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-130",
+      "F-132"
+    ],
+    "risk": "Locked-out staff. Recovery route."
+  },
+  {
+    "id": "F-144",
+    "surface": "Platform",
+    "name": "WCAG 2.2 AA build and manual pass",
+    "what": "axe in CI from Week 1 on every route in both themes at 320px and 200% text. Accessible patterns for every field type, focus management between exercises, reduced motion. Manual keyboard, VoiceOver and TalkBack pass on the player in Week 3. Statement matches real results.",
+    "who": "reader, white-label tenant",
+    "why": "The EAA has applied to e-books and e-commerce since 28 June 2025 and publisher tenants will ask.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-015",
+      "F-128"
+    ],
+    "risk": "Treating an automated pass as enough. A day of manual testing is budgeted."
+  },
+  {
+    "id": "F-145",
+    "surface": "Platform",
+    "name": "Launch readiness and go-live checklist",
+    "what": "Load test checkout and webhook in test mode, end-to-end tests for buy, membership, refund and deletion, live-mode switch, demo visibility decision, DNS and email warm-up, backups confirmed, rollback plan.",
+    "who": "Akana admin",
+    "why": "Sellable means it works on the day, not that the parts exist.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-096",
+      "F-097",
+      "F-102",
+      "F-144"
+    ],
+    "risk": "Squeezed by slippage. Protected time in the last three days."
+  },
+  {
+    "id": "F-146",
+    "surface": "Platform",
+    "name": "Offline owned workbooks and drafts queue",
+    "what": "Owned content cached by version, short-lived encrypted offline drafts queue, install prompt after the first win.",
+    "who": "reader",
+    "why": "Market standard but not needed to take first money. Needs the DPIA update.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-140",
+      "F-134"
+    ],
+    "risk": "Two-device conflicts."
+  },
+  {
+    "id": "F-147",
+    "surface": "Platform",
+    "name": "Web Push reminders",
+    "what": "One opt-in daily push, off by default, neutral text, quiet hours.",
+    "who": "reader",
+    "why": "Readers will want it; the calendar covers launch.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-140"
+    ],
+    "risk": "iOS supports web push only for home-screen apps [check]."
+  }
+]
