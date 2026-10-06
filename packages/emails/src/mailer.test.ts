@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { type SendLogEntry, createMailer, createResendTransport, isOneClickUnsubscribeRequest, redact, unsubscribeHeaders } from "./mailer.js";
+import { type SendLogEntry, createMailer, createResendTransport, isOneClickUnsubscribeRequest, redact, unsubscribeHeaders } from "./mailer";
 
 const KEY = "re_test_0123456789abcdef";
 const reader = { name: "Sam", appUrl: "https://example.test/home", settingsUrl: "https://example.test/you", supportEmail: "support@example.test", themeName: "Worry and Fear" };

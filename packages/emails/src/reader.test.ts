@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { READER_TEMPLATES, type ReaderProps, type ReaderTemplateName, type Theme, assertNoTitleProps, renderReader, renderSigninTemplate, SIGNIN_TEMPLATES } from "./reader.js";
+import { READER_TEMPLATES, type ReaderProps, type ReaderTemplateName, type Theme, assertNoTitleProps, renderReader, renderSigninTemplate, SIGNIN_TEMPLATES } from "./reader";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..", "..");

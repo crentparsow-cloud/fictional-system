@@ -2,7 +2,7 @@
 // the workbook, because the recipient wrote it. They are kept apart from the
 // reader templates so the reader title test never covers them.
 
-import { type Email, type FooterLinks, type Rendered, footerText, render } from "./layout.js";
+import { type Email, type FooterLinks, type Rendered, footerText, render } from "./layout";
 
 export type AuthorBase = {
   /** The author's or publisher contact's first name, if known. */
@@ -21,6 +21,24 @@ export type AuthorProps = {
   paused: AuthorBase & { reason?: string };
   payout_action_needed: AuthorBase & { actionUrl: string; what: string };
   statement_ready: AuthorBase & { period: string; statementUrl: string };
+  /**
+   * To the Akana team when someone sends the enquiry form on /publish (F-001).
+   * studioUrl is where staff open leads. The subject is fixed: it never carries
+   * the book title, the sender's name or their message.
+   */
+  lead_received: Omit<AuthorBase, "workbookTitle"> & {
+    leadId: string;
+    receivedAt: string;
+    leadName: string;
+    leadEmail: string;
+    kind: string;
+    organisation?: string;
+    bookTitle?: string;
+    bookRef?: string;
+    genre?: string;
+    interest?: string;
+    message?: string;
+  };
 };
 export type AuthorTemplateName = keyof AuthorProps;
 
@@ -137,7 +155,42 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
     buttons: [{ label: "Open the statement", url: x.statementUrl }],
     footer: "author",
   }),
+
+  lead_received: (x) => ({
+    subject: LEAD_SUBJECT,
+    preheader: "Someone has sent the Publish with Akana form.",
+    hero: "author",
+    eyebrow: "Enquiry",
+    headline: "A new publishing enquiry",
+    greeting: "Hello,",
+    paragraphs: ["Someone has sent the enquiry form on the Publish with Akana page. They gave consent to be contacted about this enquiry only."],
+    panels: [
+      { title: "The enquiry", rows: leadRows(x), tone: "tint" },
+      ...(x.message && x.message.trim() ? [{ title: "Their message", lines: [x.message.trim()], tone: "terms" as const }] : []),
+    ],
+    after: ["Reply from the team inbox, not a personal address. Do not add them to any mailing list."],
+    buttons: [{ label: "Open leads", url: x.studioUrl }],
+    footer: "author",
+  }),
 };
+
+const LEAD_SUBJECT = "New publishing enquiry";
+
+export function leadRows(x: AuthorProps["lead_received"]): [string, string][] {
+  const rows: [string, string | undefined][] = [
+    ["Name", x.leadName],
+    ["Email", x.leadEmail],
+    ["I am", x.kind],
+    ["Organisation", x.organisation],
+    ["Book title", x.bookTitle],
+    ["Published at", x.bookRef],
+    ["Genre", x.genre],
+    ["Wants to talk about", x.interest],
+    ["Received", x.receivedAt],
+    ["Reference", x.leadId],
+  ];
+  return rows.filter((r): r is [string, string] => typeof r[1] === "string" && r[1].trim() !== "");
+}
 
 export function renderAuthor<K extends AuthorTemplateName>(name: K, props: AuthorProps[K], links: FooterLinks = {}, postal?: string | null, lang = "en-GB"): Rendered {
   const make = AUTHOR_TEMPLATES[name];

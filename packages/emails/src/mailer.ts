@@ -13,10 +13,10 @@
 //  - Sending goes to Resend when RESEND_API_KEY is set, otherwise to a dev
 //    transport that records what would have gone out.
 
-import { type Rendered, isPostalPlaceholder } from "./layout.js";
-import { type AuthorProps, type AuthorTemplateName, renderAuthor } from "./author.js";
-import { type ReaderProps, type ReaderTemplateName, renderReader } from "./reader.js";
-import type { FooterLinks } from "./layout.js";
+import { type Rendered, isPostalPlaceholder } from "./layout";
+import { type AuthorProps, type AuthorTemplateName, renderAuthor } from "./author";
+import { type ReaderProps, type ReaderTemplateName, renderReader } from "./reader";
+import type { FooterLinks } from "./layout";
 
 export type SendCategory = "transactional" | "progress" | "marketing" | "partner";
 export type SendStatus = "sent" | "sent_test" | "skipped" | "refused" | "suppressed" | "failed";
