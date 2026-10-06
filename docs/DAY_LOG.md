@@ -160,3 +160,47 @@ Schema v3 freeze summary for your approval. Publish with Akana enquiry form writ
 
 - Point Vercel previews at staging. Edit `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` to Production only, then add both again for Preview with `https://qddsfkontkjdblidqxym.supabase.co` and the staging publishable key from the staging project's API keys page. Both values are public. I started this but the session's safety check stopped it, because it was not asked for directly. Say the word and I will do it.
 - Stripe keys and `ANSWERS_KEYS` into Vercel (tabs are open; steps in chat).
+
+## Thursday 8 October 2026 (Day 4, started Wednesday evening)
+
+**Asked by Crent:** point previews at staging, set the 5 public-domain classics live, begin Day 4.
+
+**Done on the live projects**
+
+- Previews and local development now use `akana-staging`. In Vercel, `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` are Production only (akana-saas), with a Preview and Development pair for akana-staging. Production values did not change.
+- The 5 public-domain classics are live on production and staging. The Library now has 50 live titles: 45 demo and 5 classics. The 20 Maya Vaughn titles stay in review.
+- Migration 0005 (leads) is applied to both projects from the committed file and recorded. The Supabase security advisor reports no issues.
+
+**Live now:** akana-one.vercel.app runs the Day 4 build. CI run 53 is green on the final commit. `/publish` has the working enquiry form. `/admin` asks visitors to sign in, then needs a staff role and a code from an authenticator app.
+
+**Landed in the repo** (4 commits, 58 files)
+
+- Schema v3 freeze summary for your approval: `docs/SCHEMA_V3_FREEZE.md`. It is one page, with three questions at the end and an approval line.
+- Id stability check (F-110). A live workbook may not lose or reuse an exercise, field, unit, toolkit card or milestone id. Any change to a safety line resets safety sign-off. Run it with `pnpm check:ids`. It reports 0 findings across the 20 workbooks. The content hash now lives in one shared place, and the seed is byte for byte unchanged.
+- The finance advice note `money_guidance_not_advice` from the demo catalogue is now accepted and stored as `not_financial_advice`.
+- Publish with Akana enquiry form (F-001). It writes to a new leads table through one checked database function. Each visitor may send at most 5 enquiries an hour, and there is a ceiling of 200 an hour overall. IP addresses are stored only as salted hashes. A hidden field catches bots. Staff can read leads; nobody else can. A notification email to the team goes through the mailer, and nothing leaves the server until Resend is set up. Until `LEAD_HASH_SALT` is set in Vercel, the form says calmly that it is not open yet.
+- Staff admin (F-080). `/admin` is on the Akana host only and needs a staff role, then an authenticator code (TOTP). There is a set-up page with a QR code. No admin page shows reader answers.
+- Generated covers (F-117). Each workbook gets a 600 by 900 cover in the house colours, with a pattern per genre and a Demo or Public domain label where it applies. Covers are served at `/covers/<AK code>` with alt text.
+- Library filters (F-003). New filters for author, language, programme length, Mine and In progress, all combinable. A shelf stays hidden until it holds `SHELF_MIN_COUNT` live titles (default 3).
+- Check-ins and daily checks now record that they happened (ids and times only, no answers) (F-020).
+- The rendering check across all 70 workbooks: 1,524 screens from the 20 full workbooks with 0 failures. The other 50 are listings with no content to draw yet. Report: `docs/reports/harness-2026-10-08.md`.
+
+**Checks:** typecheck and lint clean. 204 unit tests pass. Database tests 0001 to 0005 pass. The validator reports 20 files with 0 failures. The id check reports 0 findings. The CSP and client bundle checks are clean.
+
+**Needs Crent**
+
+1. **Approve the schema freeze** in `docs/SCHEMA_V3_FREEZE.md`, and answer its three questions: the finance advice wording, the board codes for the 20 Maya Vaughn titles, and whether a change of safety tier or advice note should reset safety sign-off.
+2. **Approve the Publish with Akana page copy** (`docs/legal/publish-with-akana-copy.md`, now live at `/publish`).
+3. **Vercel variables for the form.** Add `LEAD_HASH_SALT` as a Secret, Production only. Any long random text works; the same PowerShell line used for `ANSWERS_KEYS` will do. Add `LEADS_NOTIFY_TO` (the address that receives enquiries). Redeploy afterwards.
+4. **Your staff access to /admin.** Sign in on the site once with your email. Then run this in the akana-saas SQL editor, replacing the email if needed:
+   `insert into public.platform_roles (user_id, role) select id, 'owner' from auth.users where email = 'crentparsow@gmail.com';`
+   `update auth.users set raw_app_meta_data = raw_app_meta_data || '{"platform_roles":["owner"]}' where email = 'crentparsow@gmail.com';`
+   Then turn on TOTP under Authentication, Multi-Factor in Supabase, sign out and back in, and open `/admin`. I can run the SQL for you once you have signed in, if you ask.
+5. **Money questions D1 to D4** (still open).
+6. **`SHELF_MIN_COUNT`**: tell me the figure, or keep 3.
+
+**Not done from the Thursday plan:** first weeks for the 50 demo workbooks. That is content writing, not code, and sits with the content track. A leads list in `/admin` is the next admin page; the notification email already links to it.
+
+**Friday 9 October (Day 5)**
+
+Close the week 1 features or carry them with a written reason. First end-to-end smoke run: sign in, open a workbook, answer, reload, Help now on a wellbeing title. Stripe test-mode products with generic names. The `/admin/leads` page.
