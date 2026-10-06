@@ -1,7 +1,9 @@
 import "server-only";
-import type { Badge, ContinueCard, Depth, LibraryCard, ListingBody, SafetyTier, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
+import type { Badge, ContinueCard, Depth, EnrolmentStatus, LibraryCard, ListingBody, SafetyTier, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
 import { createUserClient } from "@/lib/supabase/server";
 import { MARKETPLACE_TENANT_ID, tenantIdForRequest } from "@/lib/tenant-id";
+// Demo catalogue, read for programme length only (see demoUnitCounts below).
+import demoCatalogue from "../../../docs/planning/AK_Demo_Catalogue.json";
 
 export type { ContinueCard, LibraryCard, ListingBody, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
 
@@ -9,14 +11,14 @@ export type { ContinueCard, LibraryCard, ListingBody, ShelfWithThemes, StartBody
  * Typed catalogue queries over the user client, so RLS decides what a visitor
  * or reader sees (0002: public workbooks for everyone, drafts for their own
  * organisation and staff). Every select names its columns. authors is only
- * ever read as display_name: legal_name has no client grant and must never be
- * asked for. themes.topics is never selected.
+ * ever read as slug and display_name: legal_name has no client grant and must
+ * never be asked for. themes.topics is never selected.
  */
 
-// Named columns only. The nested authors select is display_name alone.
+// Named columns only. The nested authors select is slug and display_name alone.
 const CARD_COLUMNS =
   "id, code, slug, title, short_title, card_line, genre_id, theme_id, badge, is_demo, depth, safety_tier, current_version_id, " +
-  "genres(name), themes(name), books(title, language, book_contributors(role, sort, authors(display_name)))";
+  "genres(name), themes(name), books(title, language, book_contributors(role, sort, authors(slug, display_name)))";
 
 interface CardRow {
   id: string;
@@ -37,15 +39,16 @@ interface CardRow {
   books: {
     title: string;
     language: string;
-    book_contributors: { role: string; sort: number; authors: { display_name: string } | null }[];
+    book_contributors: { role: string; sort: number; authors: { slug: string; display_name: string } | null }[];
   } | null;
 }
 
 function toCard(row: CardRow): LibraryCard {
-  const authors = (row.books?.book_contributors ?? [])
+  const authorRefs = (row.books?.book_contributors ?? [])
     .filter((c) => c.role === "author" && c.authors?.display_name)
     .sort((a, b) => a.sort - b.sort)
-    .map((c) => c.authors!.display_name);
+    .map((c) => ({ slug: c.authors!.slug, name: c.authors!.display_name }));
+  const authors = authorRefs.map((a) => a.name);
   return {
     id: row.id,
     code: row.code,
@@ -63,7 +66,53 @@ function toCard(row: CardRow): LibraryCard {
     safetyTier: row.safety_tier,
     authors,
     hasVersion: row.current_version_id !== null,
+    authorRefs,
+    language: row.books?.language ?? "en",
+    unitCount: null,
   };
+}
+
+/**
+ * Programme length for demo titles that have no published version yet, so no
+ * listing section to read. Keyed by AK code from the demo catalogue's weeks
+ * figure. A published listing's structure.count always wins over this.
+ */
+let demoCounts: Map<string, number> | null = null;
+function demoUnitCounts(): Map<string, number> {
+  if (!demoCounts) {
+    demoCounts = new Map();
+    for (const w of (demoCatalogue as { workbooks: { code: string; weeks?: number }[] }).workbooks) {
+      if (typeof w.weeks === "number") demoCounts.set(w.code, w.weeks);
+    }
+  }
+  return demoCounts;
+}
+
+/**
+ * Fills unitCount on each card: structure.count from the published listing
+ * section where there is one, otherwise the demo catalogue's figure. One
+ * query on the indexed version_id column, one named JSON path.
+ */
+async function withUnitCounts(supabase: Awaited<ReturnType<typeof createUserClient>>, rows: CardRow[], cards: LibraryCard[]): Promise<LibraryCard[]> {
+  const versionIds = [...new Set(rows.map((r) => r.current_version_id).filter((v): v is string => v !== null))];
+  const byVersion = new Map<string, number>();
+  if (versionIds.length) {
+    const { data, error } = await supabase
+      .from("workbook_sections")
+      .select("version_id, count:body->structure->count")
+      .eq("kind", "listing")
+      .in("version_id", versionIds);
+    if (error) throw new Error(`listLibrary lengths: ${error.message}`);
+    for (const s of (data ?? []) as unknown as { version_id: string; count: unknown }[]) {
+      if (typeof s.count === "number" && Number.isFinite(s.count)) byVersion.set(s.version_id, s.count);
+    }
+  }
+  const demo = demoUnitCounts();
+  return cards.map((card, i) => {
+    const v = rows[i]?.current_version_id;
+    const count = (v ? byVersion.get(v) : undefined) ?? demo.get(card.code) ?? null;
+    return { ...card, unitCount: count };
+  });
 }
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -90,7 +139,20 @@ export async function listLibrary(filter: LibraryFilter = {}): Promise<LibraryCa
   if (q) query = query.ilike("title", `%${q}%`);
   const { data, error } = await query;
   if (error) throw new Error(`listLibrary: ${error.message}`);
-  return ((data ?? []) as unknown as CardRow[]).map(toCard);
+  const rows = (data ?? []) as unknown as CardRow[];
+  return withUnitCounts(supabase, rows, rows.map(toCard));
+}
+
+/**
+ * The reader's enrolment status by workbook id on this tenant, for the Mine
+ * and In progress chips. Ids and status only.
+ */
+export async function myEnrolmentStatuses(userId: string): Promise<Map<string, EnrolmentStatus>> {
+  const supabase = await createUserClient();
+  const tenantId = (await tenantIdForRequest()) ?? MARKETPLACE_TENANT_ID;
+  const { data, error } = await supabase.from("enrolments").select("workbook_id, status").eq("user_id", userId).eq("tenant_id", tenantId).limit(500);
+  if (error) throw new Error(`myEnrolmentStatuses: ${error.message}`);
+  return new Map(((data ?? []) as { workbook_id: string; status: EnrolmentStatus }[]).map((r) => [r.workbook_id, r.status]));
 }
 
 /** One workbook by slug with its public listing and start sections, or null. */
@@ -117,7 +179,8 @@ export async function getWorkbookBySlug(slug: string): Promise<WorkbookDetail | 
       if (s.kind === "start") start = s.body as StartBody;
     }
   }
-  return { card, bookTitle: row.books?.title ?? null, bookLanguage: row.books?.language ?? null, listing, start };
+  const unitCount = typeof listing?.structure?.count === "number" ? listing.structure.count : (demoUnitCounts().get(card.code) ?? null);
+  return { card: { ...card, unitCount }, bookTitle: row.books?.title ?? null, bookLanguage: row.books?.language ?? null, listing, start };
 }
 
 /** Active shelves with their Themes for the filter chips. Topics are never selected. */

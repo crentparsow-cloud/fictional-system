@@ -46,6 +46,13 @@ export interface PlayerProps {
   onViewChange?: (view: PlayerView) => void;
   /** Called when the reader marks an exercise done. scope is the answer scope (the id, or the repeat scope). */
   onExerciseDone?: (exerciseId: string, scope: string) => void;
+  /** Called once each time the reader saves a check-in, with its unit number. Ids only, never the answers. */
+  onCheckInDone?: (unitNumber: number) => void;
+  /**
+   * Called once each time the reader saves the daily check. Never the score
+   * or the tags. When set, the daily check screen shows its Save button.
+   */
+  onDailyCheckDone?: () => void;
 }
 
 /**
@@ -54,7 +61,19 @@ export interface PlayerProps {
  * self-check, Finish and Keep going. Progress, sealing and unlocking are the
  * app's job. Nothing here counts streaks or missed days.
  */
-export function Player({ workbook: doc, store, helpSlot, initialView, readOnly, lockedUnits, lockedNotice, onViewChange, onExerciseDone }: PlayerProps) {
+export function Player({
+  workbook: doc,
+  store,
+  helpSlot,
+  initialView,
+  readOnly,
+  lockedUnits,
+  lockedNotice,
+  onViewChange,
+  onExerciseDone,
+  onCheckInDone,
+  onDailyCheckDone,
+}: PlayerProps) {
   const [view, setView] = useState<PlayerView>(initialView ?? { kind: "start" });
 
   useEffect(() => {
@@ -64,6 +83,7 @@ export function Player({ workbook: doc, store, helpSlot, initialView, readOnly, 
   }, [view.kind, "number" in view ? view.number : null]);
   const [, bump] = useReducer((n: number) => n + 1, 0);
   const [daily, setDaily] = useState<DailyCheckValue>(emptyDailyCheck);
+  const [dailySaved, setDailySaved] = useState(false);
   const [selfcheck, setSelfcheck] = useState<Record<string, SelfCheckAnswers>>({});
 
   // Writes go straight to the store. The Player re-renders so the screens read the new value.
@@ -171,7 +191,30 @@ export function Player({ workbook: doc, store, helpSlot, initialView, readOnly, 
         {view.kind === "toolkit" ? <ToolkitScreen toolkit={doc.toolkit} /> : null}
 
         {view.kind === "daily" && doc.daily_check ? (
-          <DailyCheckScreen dailyCheck={doc.daily_check} value={daily} onChange={setDaily} readOnly={readOnly} />
+          <DailyCheckScreen
+            dailyCheck={doc.daily_check}
+            value={daily}
+            onChange={(v) => {
+              setDailySaved(false);
+              setDaily(v);
+            }}
+            readOnly={readOnly}
+            onSave={
+              onDailyCheckDone
+                ? () => {
+                    // Clearing the value disables Save again, so one press is one event.
+                    setDaily(emptyDailyCheck());
+                    setDailySaved(true);
+                    onDailyCheckDone();
+                  }
+                : undefined
+            }
+          />
+        ) : null}
+        {view.kind === "daily" && dailySaved ? (
+          <p className="ak-small ak-muted" role="status">
+            Saved.
+          </p>
         ) : null}
 
         {view.kind === "checkin" && doc.checkin ? (
@@ -182,7 +225,10 @@ export function Player({ workbook: doc, store, helpSlot, initialView, readOnly, 
             store={liveStore}
             toolkitTitles={toolkitTitles}
             readOnly={readOnly}
-            onSave={() => setView({ kind: "unit", number: view.number })}
+            onSave={() => {
+              onCheckInDone?.(view.number);
+              setView({ kind: "unit", number: view.number });
+            }}
           />
         ) : null}
 
