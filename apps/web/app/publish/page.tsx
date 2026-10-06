@@ -1,30 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GENRES } from "@akana/schema";
 import { brand } from "@/lib/brand";
+import { EnquiryForm } from "./enquiry-form";
 
 export const metadata: Metadata = { title: `Publish with ${brand.name}` };
 
 /**
  * F-001. Copy is the draft in docs/legal/publish-with-akana-copy.md, for
  * Crent to approve on Thursday 8 October. Process only. No revenue figures,
- * rates or prices until Crent sets them. The enquiry form posts nowhere yet:
- * the leads table and the email to Crent land on Thursday.
+ * rates or prices until Crent sets them. The enquiry form posts to the
+ * submitEnquiry server action: one row in public.leads through
+ * public.submit_lead, then an email to the Akana team.
  */
-
-const GENRE_LABELS: Record<(typeof GENRES)[number], string> = {
-  wellbeing: "Wellbeing",
-  personal_development: "Personal development",
-  relationships: "Relationships",
-  parenting: "Parenting",
-  career: "Career",
-  leadership: "Leadership",
-  business: "Business",
-  productivity: "Productivity",
-  finance: "Finance",
-  education: "Education",
-  life_skills: "Life skills",
-};
 
 const STEPS: { title: string; body: string }[] = [
   {
@@ -108,39 +95,6 @@ const FAQ: { q: string; a: string }[] = [
     a: "The licence sets out the notice period. Readers who already bought the workbook keep access to the version they bought.",
   },
 ];
-
-const fieldStyle: React.CSSProperties = {
-  display: "block",
-  inlineSize: "100%",
-  padding: "0.6rem 0.75rem",
-  border: "1px solid var(--line)",
-  borderRadius: "var(--radius)",
-  background: "var(--surface)",
-  color: "inherit",
-  font: "inherit",
-};
-
-function Field({
-  id,
-  label,
-  required,
-  children,
-}: {
-  id: string;
-  label: string;
-  required?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label htmlFor={id} style={{ display: "block", fontWeight: 600, marginBlockEnd: "0.3rem" }}>
-        {label}
-        {required ? <span aria-hidden="true"> *</span> : null}
-      </label>
-      {children}
-    </div>
-  );
-}
 
 export default function PublishPage() {
   return (
@@ -236,71 +190,7 @@ export default function PublishPage() {
 
         <section id="enquiry" style={{ marginBlockStart: "2.5rem" }}>
           <h2>Enquiry</h2>
-          <p className="badge demo" role="note">The form opens Thursday. Nothing you type here is sent yet.</p>
-          <form className="card" style={{ display: "grid", gap: "1rem", marginBlockStart: "1rem" }} aria-describedby="enquiry-note">
-            <Field id="enq-name" label="Your name" required>
-              <input id="enq-name" name="name" type="text" autoComplete="name" style={fieldStyle} disabled />
-            </Field>
-            <Field id="enq-email" label="Email" required>
-              <input id="enq-email" name="email" type="email" autoComplete="email" style={fieldStyle} disabled />
-            </Field>
-            <Field id="enq-role" label="I am" required>
-              <select id="enq-role" name="role" style={fieldStyle} disabled defaultValue="">
-                <option value="">Choose one</option>
-                <option value="author">An author</option>
-                <option value="publisher">A publisher</option>
-                <option value="agent">An agent</option>
-                <option value="other">Other</option>
-              </select>
-            </Field>
-            <Field id="enq-org" label="Organisation or imprint">
-              <input id="enq-org" name="organisation" type="text" autoComplete="organization" style={fieldStyle} disabled />
-            </Field>
-            <Field id="enq-title" label="Book title" required>
-              <input id="enq-title" name="book_title" type="text" style={fieldStyle} disabled />
-            </Field>
-            <Field id="enq-where" label="Where it is published: ISBN or a link">
-              <input id="enq-where" name="book_ref" type="text" style={fieldStyle} disabled />
-            </Field>
-            <Field id="enq-genre" label="Genre" required>
-              <select id="enq-genre" name="genre" style={fieldStyle} disabled defaultValue="">
-                <option value="">Choose one</option>
-                {GENRES.map((g) => (
-                  <option key={g} value={g}>
-                    {GENRE_LABELS[g]}
-                  </option>
-                ))}
-              </select>
-            </Field>
-            <Field id="enq-interest" label="What you want to talk about" required>
-              <select id="enq-interest" name="interest" style={fieldStyle} disabled defaultValue="">
-                <option value="">Choose one</option>
-                <option value="marketplace">A marketplace listing</option>
-                <option value="built">A workbook built for us</option>
-                <option value="white_label">Our own branded site</option>
-                <option value="unsure">Not sure yet</option>
-              </select>
-            </Field>
-            <Field id="enq-notes" label="Anything else you want us to know">
-              <textarea id="enq-notes" name="notes" rows={4} style={fieldStyle} disabled />
-            </Field>
-            <div className="check">
-              <input id="enq-consent" name="consent" type="checkbox" disabled />
-              <label htmlFor="enq-consent">
-                You may store what I have entered and contact me about this enquiry. {brand.name} does not send marketing
-                without a separate opt-in. <span aria-hidden="true">*</span>
-              </label>
-            </div>
-            <div>
-              <button type="button" className="btn" disabled aria-disabled="true">
-                Form opens Thursday
-              </button>
-            </div>
-            <p id="enquiry-note" className="small muted" style={{ margin: 0 }}>
-              We reply within [enquiry response time]. Your details go to the {brand.name} team and nowhere else. See our{" "}
-              <Link href="/legal/privacy">privacy notice</Link>.
-            </p>
-          </form>
+          <EnquiryForm brandName={brand.name} />
         </section>
 
         <section style={{ marginBlockStart: "2.5rem" }}>
