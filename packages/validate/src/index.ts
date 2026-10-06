@@ -19,6 +19,7 @@ import {
 } from "./rules";
 
 export * from "./rules";
+export * from "./stability";
 
 export type Severity = "error" | "warning";
 export type Category = "schema" | "style" | "claims" | "limit" | "refs" | "count" | "safety" | "depth";

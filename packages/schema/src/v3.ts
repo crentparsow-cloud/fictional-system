@@ -45,6 +45,23 @@ export type Genre = z.infer<typeof Genre>;
 export const SafetyTier = z.enum(["none", "standard", "higher"]);
 export type SafetyTier = z.infer<typeof SafetyTier>;
 
+export const ADVICE_GUARDRAILS = ["none", "not_legal_or_tax_advice", "not_medical_advice", "not_financial_advice"] as const;
+export const AdviceGuardrail = z.enum(ADVICE_GUARDRAILS);
+export type AdviceGuardrail = z.infer<typeof AdviceGuardrail>;
+
+/**
+ * Older names accepted on input and rewritten to the canonical value.
+ * money_guidance_not_advice: used by the six finance titles in the demo
+ * catalogue. The genre registry gives finance not_financial_advice, so it maps
+ * there. Added 8 October 2026, before the freeze. Additive: every value that
+ * parsed before still parses to the same result.
+ */
+export const ADVICE_GUARDRAIL_ALIASES = { money_guidance_not_advice: "not_financial_advice" } as const;
+export const AdviceGuardrailInput = z.union([
+  AdviceGuardrail,
+  z.enum(["money_guidance_not_advice"]).transform((v) => ADVICE_GUARDRAIL_ALIASES[v]),
+]);
+
 export const Depth = z.enum(["listing", "outline", "first_unit", "full"]);
 export const Spelling = z.enum(["en-GB", "en-US"]);
 export const Badge = z.enum(["official", "made_with_author", "public_domain", "demo"]);
@@ -295,7 +312,8 @@ export const WorkbookV3 = z
     // Safety
     safety_tier: SafetyTier,
     // Finance and business workbooks must carry this note (genre guardrail).
-    advice_guardrail: z.enum(["none", "not_legal_or_tax_advice", "not_medical_advice", "not_financial_advice"]).optional(),
+    // money_guidance_not_advice is accepted and stored as not_financial_advice.
+    advice_guardrail: AdviceGuardrailInput.optional(),
 
     // Shape
     structure: Structure,
