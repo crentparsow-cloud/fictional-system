@@ -121,3 +121,23 @@ Commerce tables and Stripe Checkout in test mode (T5), entitlements and the `has
 **Thursday 8 October (Day 4)**
 
 Schema v3 freeze summary for your approval. Publish with Akana enquiry form writing to a leads table. Parity harness across all 70 workbooks. Staff second factor. The remaining Library filters. Check-in and daily-check events.
+
+### Wednesday follow-up (Crent: apply 0003 and 0004, load the library, do what Chrome can)
+
+**Done on the live project**
+
+- Migrations 0003 and 0004 are applied to `akana-saas` through the SQL editor in Chrome, loaded from the committed files. Six new tables exist (enrolments, answers, progress_events, price_points, purchases, entitlements). The 8 price points are in as placeholders. The sections policy now includes the entitlement check. Both migrations are recorded. The Supabase security advisor reports no issues.
+- The seed is loaded. It ran in seven transactional batches to stay under the editor limit, and every count matches the file: 11 genres, 7 shelves, 12 areas, 17 themes, 24 authors, 70 books, 70 contributors, 70 workbooks, 20 versions and 70 marketplace listings.
+- Supabase Auth: Site URL is now `https://akana-one.vercel.app`. Redirect URLs are `https://akana-one.vercel.app/auth/callback`, `https://akana-*-crentparsow-clouds-projects.vercel.app/auth/callback` and `http://localhost:3000/auth/callback`. Both settings were checked after a reload.
+- Stripe: a test-mode webhook destination `akana-test-webhook` now exists in the Akana sandbox. It points to `https://akana-one.vercel.app/api/stripe/webhook` and listens to `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed` and `charge.refunded`. The dashboard only offers API version 2026-08-26.dahlia for this account, while the code pins 2026-09-30.endive. The fields the handler reads are the same in both. I did not reveal the signing secret.
+
+**What only you can do (each one either needs a secret, a new account, money, or your decision)**
+
+1. **Make the demo titles visible.** The Library shows only live workbooks, and all 70 are draft or in review, so the live Library is still empty. Setting the 50 demo workbooks live (labelled Demo, cannot be bought, demo_visible flag already on) was refused because you had not asked for it in so many words. Say "set the demo titles live" and I will do it. The 20 Maya Vaughn titles stay in review until you clear their content findings.
+2. **Stripe keys into Vercel.** Copy the `sk_test_` key (Developers, API keys) and the `whsec_` signing secret of `akana-test-webhook` into Vercel as `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`. I must not type secrets into any field.
+3. **ANSWERS_KEYS.** Same reason. Run `pnpm tsx scripts/new-seal-key.ts` on your machine and add the result in Vercel as a sensitive variable.
+4. **Stripe Tax.** Turning it on needs your business address and tax registrations.
+5. **Staging project.** The free plan allows two active projects and both are in use (akana-saas and workbooks-dev). A third means paying, or pausing workbooks-dev. Your choice.
+6. **Google sign-in and Resend.** Both need new accounts and secrets.
+7. **Prices (D1 to D4, C4)** and the decisions listed for Day 2 and Day 3.
+8. **Lawyer and accountant.** Send them the drafts in `docs/legal/`.
