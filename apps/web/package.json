@@ -11,6 +11,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@akana/engine": "workspace:*",
     "@akana/schema": "workspace:*",
     "@akana/seal": "workspace:*",
     "@akana/validate": "workspace:*",
