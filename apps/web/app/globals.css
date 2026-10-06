@@ -308,3 +308,41 @@ a { color: var(--brand); text-underline-offset: 0.15em; }
 .help-other { margin-block: 0.75rem 0; }
 .help-checked { margin-block-start: 0.5rem; }
 details.help-group summary { cursor: pointer; font-weight: 600; min-block-size: 44px; display: flex; align-items: center; }
+
+/* ---------- library filters ---------- */
+.library-filters { display: grid; gap: 0.25rem; margin-block: 0.75rem 0.5rem; }
+.library-chip-row { align-items: center; margin-block: 0.25rem; }
+.library-chip-label { flex-basis: 100%; color: var(--ink-soft); font-weight: 600; }
+.library-count-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem 1rem; margin-block: 0.25rem 1rem; }
+.library-count-row .library-count { margin: 0; }
+.library-clear { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--brand); font-weight: 600; }
+
+/* ---------- admin and covers ---------- */
+.admin-shell { min-block-size: 100dvh; }
+.admin-bar { background: var(--surface); border-block-end: 1px solid var(--line); }
+.admin-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.5rem; }
+.admin-brand { font-family: var(--f-display); font-weight: 700; color: var(--ink); text-decoration: none; }
+.admin-signout { min-block-size: 40px; padding-block: 0.4em; }
+.admin-main { padding-block: 2rem 3rem; }
+.admin-home .eyebrow { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-block-end: 0.5rem; }
+.admin-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0 0 2rem; }
+.admin-role-owner { background: var(--brand); color: var(--brand-ink); }
+.admin-role-safety_reviewer { background: var(--rose-soft); color: var(--rose); }
+.admin-role-finance { background: var(--stage-3-t); color: var(--stage-3-i); }
+.admin-role-support { background: var(--stage-4-t); color: var(--stage-4-i); }
+.admin-coming { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); list-style: none; padding: 0; margin: 0 0 2rem; }
+.admin-coming h3 { margin-block-end: 0.25rem; }
+.admin-note { border-inline-start: 4px solid var(--brand); padding-inline-start: 0.75rem; color: var(--ink-soft); }
+.admin-mfa-form { display: grid; gap: 0.75rem; margin-block-start: 1rem; }
+.admin-mfa-form label { font-weight: 600; }
+.admin-mfa-form input[type="text"] {
+  font: inherit; font-size: 1.25rem; letter-spacing: 0.2em; min-block-size: 48px; padding: 0.5em 0.75em;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink);
+}
+.admin-mfa-form input[aria-invalid="true"] { border-color: var(--rose); }
+.admin-mfa-form .btn { justify-content: center; }
+.admin-mfa-qr { display: block; margin-block: 0.5rem 1rem; background: #ffffff; padding: 8px; border-radius: var(--radius-sm); }
+.admin-mfa-secret { margin-block-end: 0.5rem; }
+.admin-mfa-secret summary { cursor: pointer; color: var(--brand); }
+.admin-mfa-secret code { display: block; overflow-wrap: anywhere; font-size: 0.95rem; padding: 0.5rem; background: var(--surface-2); border-radius: 6px; }
+.cover { display: block; block-size: auto; max-inline-size: 100%; border-radius: 6px; box-shadow: var(--shadow); background: var(--surface-2); }
