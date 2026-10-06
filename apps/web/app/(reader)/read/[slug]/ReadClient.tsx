@@ -18,7 +18,10 @@ interface Props {
 /**
  * Client half of the reader. Loads the sealed answers for this enrolment,
  * hands the Player a store that autosaves, shows the save line, and records
- * progress events (ids and timestamps only) on unit open and exercise done.
+ * progress events (ids and timestamps only, F-020) on unit open, exercise
+ * done, check-in saved and daily check saved. An event never carries an
+ * answer, a score or a feeling: the check-in ref is the unit number and the
+ * daily check sends no ref at all, so no date ends up in the row's ref.
  */
 export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
@@ -49,11 +52,11 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
   }, [store]);
 
   const record = useCallback(
-    (kind: "unit_opened" | "step_done", ref: string) => {
+    (kind: "unit_opened" | "step_done" | "checkin_done" | "daily_check_done", ref?: string) => {
       void fetch("/api/progress", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ enrolment: enrolmentId, kind, ref }),
+        body: JSON.stringify(ref === undefined ? { enrolment: enrolmentId, kind } : { enrolment: enrolmentId, kind, ref }),
         keepalive: true,
       }).catch(() => undefined);
     },
@@ -71,6 +74,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
   );
 
   const onExerciseDone = useCallback((exerciseId: string) => record("step_done", exerciseId), [record]);
+  const onCheckInDone = useCallback((unitNumber: number) => record("checkin_done", String(unitNumber)), [record]);
+  const onDailyCheckDone = useCallback(() => record("daily_check_done"), [record]);
 
   const helpSlot =
     workbook.safety_tier !== "none" ? (
@@ -119,6 +124,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
         lockedNotice={lockedNotice}
         onViewChange={onViewChange}
         onExerciseDone={onExerciseDone}
+        onCheckInDone={onCheckInDone}
+        onDailyCheckDone={onDailyCheckDone}
       />
     </section>
   );

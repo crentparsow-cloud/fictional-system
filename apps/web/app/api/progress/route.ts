@@ -6,6 +6,11 @@ import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
  * Progress events (F-020): ids and timestamps only, never an answer or a
  * feeling. POST /api/progress { enrolment, kind, ref? } -> { ok }
  *
+ * ref by kind: unit_opened and checkin_done carry the unit number,
+ * step_done the exercise id, daily_check_done nothing (ref is stored null,
+ * so no date or score is ever written there). The pattern matches the 0003
+ * check on progress_events.ref.
+ *
  * The insert goes through the reader's own client, so RLS checks ownership
  * a second time and the row is refused if the enrolment is not theirs. No
  * admin client here; there is nothing to seal. Nothing in this table is ever

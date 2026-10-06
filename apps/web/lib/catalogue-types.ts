@@ -27,7 +27,23 @@ export interface LibraryCard {
   authors: string[];
   /** False when the workbook has no published version yet: the card shows "Outline only". */
   hasVersion: boolean;
+  /**
+   * Filter facts (F-003). Optional so older fixtures still type check; the
+   * library query always fills them.
+   */
+  /** Author slug and display name pairs in contributor order, for the author chips. */
+  authorRefs?: { slug: string; name: string }[];
+  /** The book's language tag, for example "en" or "en-GB". */
+  language?: string;
+  /** Number of units in the programme, or null when nothing says. */
+  unitCount?: number | null;
 }
+
+/** Programme length buckets for the length chips: up to 4 units, 5 to 8, 9 or more. */
+export type LengthBucket = "short" | "medium" | "long";
+
+/** A reader's enrolment status by workbook id, for the Mine and In progress chips. */
+export type EnrolmentStatus = "active" | "finished" | "paused";
 
 /** The listing section body app.publish_version() writes, the parts the public page reads. */
 export interface ListingBody {
