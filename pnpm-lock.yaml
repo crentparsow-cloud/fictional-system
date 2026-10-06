@@ -29,6 +29,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@akana/emails':
+        specifier: workspace:*
+        version: link:../../packages/emails
       '@akana/engine':
         specifier: workspace:*
         version: link:../../packages/engine
