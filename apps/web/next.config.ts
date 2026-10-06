@@ -33,7 +33,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  transpilePackages: ["@akana/schema", "@akana/validate", "@akana/seal", "@akana/engine"],
+  transpilePackages: ["@akana/schema", "@akana/validate", "@akana/seal", "@akana/engine", "@akana/emails"],
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
