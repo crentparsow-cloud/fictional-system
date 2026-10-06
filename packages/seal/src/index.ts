@@ -63,7 +63,7 @@ export class KeyRing {
   }
 
   /** Build from the ANSWERS_KEYS env value (and optional legacy ANSWERS_KEY_V1). */
-  static fromEnv(env: { ANSWERS_KEYS?: string; ANSWERS_KEY_V1?: string } = process.env): KeyRing {
+  static fromEnv(env: Record<string, string | undefined> = process.env): KeyRing {
     const raw = (env.ANSWERS_KEYS ?? "").split(",").map((s) => s.trim()).filter(Boolean);
     if (raw.length === 0) throw new Error("seal_not_configured");
     const entries = raw.map((spec) => {

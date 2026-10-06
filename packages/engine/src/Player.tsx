@@ -1,7 +1,7 @@
 "use client";
 
 import type { WorkbookV3 } from "@akana/schema";
-import { useReducer, useState, type ReactNode } from "react";
+import { useEffect, useReducer, useState, type ReactNode } from "react";
 import { START_SCOPE } from "./store";
 import { CheckInScreen } from "./screens/CheckIn";
 import { DailyCheckScreen, emptyDailyCheck, type DailyCheckValue } from "./screens/DailyCheck";
@@ -35,6 +35,17 @@ export interface PlayerProps {
   /** Skip the Start screen. Useful when a reader has already read it. */
   initialView?: PlayerView;
   readOnly?: boolean;
+  /**
+   * Units the reader may not open yet. The app decides this from
+   * entitlements; the Player only swaps the unit's content for lockedNotice.
+   */
+  lockedUnits?: readonly number[];
+  /** Shown in place of a locked unit's exercises. */
+  lockedNotice?: ReactNode;
+  /** Called after every view change, so the app can record "unit opened" and the like. */
+  onViewChange?: (view: PlayerView) => void;
+  /** Called when the reader marks an exercise done. scope is the answer scope (the id, or the repeat scope). */
+  onExerciseDone?: (exerciseId: string, scope: string) => void;
 }
 
 /**
@@ -43,8 +54,14 @@ export interface PlayerProps {
  * self-check, Finish and Keep going. Progress, sealing and unlocking are the
  * app's job. Nothing here counts streaks or missed days.
  */
-export function Player({ workbook: doc, store, helpSlot, initialView, readOnly }: PlayerProps) {
+export function Player({ workbook: doc, store, helpSlot, initialView, readOnly, lockedUnits, lockedNotice, onViewChange, onExerciseDone }: PlayerProps) {
   const [view, setView] = useState<PlayerView>(initialView ?? { kind: "start" });
+
+  useEffect(() => {
+    onViewChange?.(view);
+    // The app records views, not every render: only the view identity matters here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view.kind, "number" in view ? view.number : null]);
   const [, bump] = useReducer((n: number) => n + 1, 0);
   const [daily, setDaily] = useState<DailyCheckValue>(emptyDailyCheck);
   const [selfcheck, setSelfcheck] = useState<Record<string, SelfCheckAnswers>>({});
@@ -60,6 +77,7 @@ export function Player({ workbook: doc, store, helpSlot, initialView, readOnly }
 
   const units = [...doc.units].sort((a, b) => a.number - b.number);
   const current = view.kind === "unit" ? units.find((u) => u.number === view.number) : undefined;
+  const currentLocked = current !== undefined && (lockedUnits ?? []).includes(current.number);
   const whyRaw = store.get(START_SCOPE, "why");
   const why = typeof whyRaw === "string" ? whyRaw : "";
   const toolkitTitles = doc.toolkit.map((t) => t.title);
@@ -127,13 +145,23 @@ export function Player({ workbook: doc, store, helpSlot, initialView, readOnly }
           />
         ) : null}
 
-        {view.kind === "unit" && current ? (
+        {view.kind === "unit" && current && currentLocked ? (
+          <section className="ak-screen ak-unit ak-unit-locked" data-unit={current.number}>
+            <header className="ak-unit-head">
+              <span className="ak-eyebrow">{unitLabel(doc, current.number)}</span>
+              <h2 className="ak-h2">{current.focus}</h2>
+            </header>
+            {lockedNotice}
+          </section>
+        ) : null}
+
+        {view.kind === "unit" && current && !currentLocked ? (
           <UnitScreen
             workbook={doc}
             unit={current}
             store={liveStore}
             readOnly={readOnly}
-            onExerciseDone={() => undefined}
+            onExerciseDone={onExerciseDone ?? (() => undefined)}
             onOpenCheckIn={doc.checkin ? () => setView({ kind: "checkin", number: current.number }) : undefined}
             onOpenSelfCheck={doc.selfcheck ? () => setView({ kind: "selfcheck", number: current.number }) : undefined}
           />
