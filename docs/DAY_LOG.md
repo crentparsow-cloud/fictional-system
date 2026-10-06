@@ -77,3 +77,47 @@ Validator port hardening and the Themes registry for the ten new genres (T2), te
 **Wednesday 7 October (Day 3)**
 
 Commerce tables and Stripe Checkout in test mode (T5), entitlements and the `has_entitlement` hook in the sections policy, the Library and Today tabs reading real sections from Supabase, sealed answer storage wired to the engine's store (F-134), Help now hub by market, and the catalogue pages for the marketplace home. Schema freeze is Thursday.
+
+## Wednesday 7 October 2026 (Day 3, started Tuesday evening)
+
+**Asked by Crent:** apply migration 0002 to `akana-saas` through Chrome, then start Day 3.
+
+**Done on the live project**
+
+- Migration 0002 is applied to `akana-saas` through the Supabase SQL editor in Chrome. The file was loaded from the committed repo version, so it matches the tested file exactly. All 11 catalogue tables exist, 35 policies are in place, the 11 genres are seeded, citext now lives in `extensions`, and the migration is recorded as `0002_catalogue`. The Supabase security advisor reports no issues.
+- The seed was not loaded. It is 1.5 MB, which is over the SQL editor's size limit. When I tried to split it into smaller runs, the session's safety check refused that as a production change. It needs you: run `SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... pnpm tsx scripts/seed.ts --apply` on your machine, or `psql "<connection string>" -f supabase/seed/seed.sql`. Until then the live Library is empty, and the page is designed to look right empty.
+- Migrations 0003 and 0004 are tested locally but not applied. You asked for 0002 only. Say the word and I will apply them the same way.
+
+**Live now**
+
+- akana-one.vercel.app runs the Day 3 build. CI run 37 is green on the final commit. New routes: `/library`, `/w/[slug]`, `/read/[slug]`, `/help-now`, `/legal/terms`, `/legal/privacy`, `/legal/cookies`, `/legal/refunds`, `/publish` (new copy), and the API routes `/api/answers`, `/api/progress`, `/api/checkout` and `/api/stripe/webhook`.
+
+**Landed in the repo** (5 commits, 62 files, about 5,800 lines)
+
+- Sealed answers (F-134, T1). Migration 0003 adds enrolments, answers and progress events. Answers hold only the sealed string; there is no plaintext column and no client write grant. The server route checks ownership under RLS, seals with the key ring bound to user, tenant and field, and then writes. Progress events hold ids and timestamps only, and a test asserts that nothing named streak or missed exists (F-018, F-020).
+- Reader player (T3). `/read/[slug]` enrols the reader on first open, pins the published version, rebuilds the workbook from the sections RLS returns, and runs the engine with autosave: 600 ms debounce per field, retry with backoff, and a "Saved / Saving / Could not save" note. Units the reader has not unlocked show a calm "This unit opens with the full workbook" card.
+- Library and pages (T4). `/library` groups cards by genre shelf, then Theme, with Demo badges and an "Outline only" state. `/w/[slug]` is the public page: outline, sample start copy, Help now on wellbeing titles, schema.org data with no claims and no price, and noindex while a title is a demo. A test fails if any hidden Theme topic leaks into page text or metadata. Home and Today show up to three continue cards with plain status lines and no streaks.
+- Help now hub (F-021). 57 support lines ported word for word from the legacy app, with their checked date. One line (NZ Al-Anon) is shown as "Listed, not yet confirmed", as it was in the legacy data.
+- Commerce groundwork (T5). Migration 0004 adds price points, purchases and entitlements. `app.has_entitlement` now opens paid sections in the section policy. Granting and revoking are idempotent and audited. A demo workbook cannot be bought. Checkout runs in Stripe test mode, names the line "Akana workbook" with only the AK code, and refuses until real prices exist. The webhook verifies the signature, grants on payment and revokes on a full refund. A partial refund keeps access. The stripe package does not reach any client bundle.
+- Legal first drafts (T10). Reader terms, privacy notice, cookie statement and refund policy in `docs/legal/`, each marked "DRAFT for the lawyer". Published promises from the legacy app are carried over word for word: the encryption line, the immediate-access consents, the auto-renew consent and the pro rata formula. Placeholders are in square brackets with a list at the end of each document.
+- Publish with Akana page copy for your approval on Thursday, with no revenue figures. The enquiry form is visible but disabled until Thursday.
+
+**Checks:** typecheck and lint clean across the workspace. 135 unit tests pass (web 67, engine 22, emails 19, seed 10, validate 9, seal 5, schema 3). Database tests 0001 to 0004 pass. The validator reports 20 files with 0 failures. The CSP check is clean.
+
+**Needs Crent**
+
+1. **Seed the live database** (see above). One command on your machine.
+2. **Apply 0003 and 0004** when you are ready. Ask and I will do it.
+3. **ANSWERS_KEYS.** Generate on your machine with `pnpm tsx scripts/new-seal-key.ts` and add it in Vercel as a sensitive variable. Saving answers returns 503 until then.
+4. **Supabase Auth URLs** (still open from Day 2). Sign-in will not finish without them.
+5. **Stripe test account.** Turn on Stripe Tax. Add a webhook to `/api/stripe/webhook` for `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed` and `charge.refunded`. Put the `sk_test_` and `whsec_` values in Vercel yourself. No live keys yet.
+6. **Money questions D1 to D4 and C4.** Every price shows "Price to be confirmed" and checkout refuses until the figures are set.
+7. **Decisions:** (a) Help now on wellbeing titles only, with a "Need support?" footer elsewhere (current), or on every title. (b) When to show the domestic abuse and family support lines on relationship and parenting titles. (c) The minimum number of titles before a shelf shows. (d) Should a partial refund keep access (current) or revoke it? (e) White-label hosts cannot read workbooks until the tenant lookup lands in week 2. Is that acceptable for now?
+8. **Lawyer and accountant.** Send them the four drafts. The open points are listed at the end of each document. Also approve the Publish page copy on Thursday.
+9. **Plan items still open:** approve the two new shelves and twelve Themes (B3), and confirm the lawyer can start this week.
+
+**Not done from the Day 3 plan:** the full set of Library filter chips (author, language, length, Mine, In progress), hiding shelves below the minimum count, membership checkout, and recording check-in and daily-check completion events. These carry to Thursday.
+
+**Thursday 8 October (Day 4)**
+
+Schema v3 freeze summary for your approval. Publish with Akana enquiry form writing to a leads table. Parity harness across all 70 workbooks. Staff second factor. The remaining Library filters. Check-in and daily-check events.
