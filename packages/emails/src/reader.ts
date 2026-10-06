@@ -9,8 +9,8 @@
 //  - Nothing assumes a programme length. Stage names and unit labels come in
 //    as props because workbook schema v3 leaves them free.
 
-import { type Email, type FooterKind, type Panel, type Rendered, type StageStrip, BRAND, footerText, render, stageHero } from "./layout.js";
-import type { FooterLinks } from "./layout.js";
+import { type Email, type FooterKind, type Panel, type Rendered, type StageStrip, BRAND, footerText, render, stageHero } from "./layout";
+import type { FooterLinks } from "./layout";
 
 /** A catalogue theme. Reader mail may name a theme in its body, never a title. */
 export type Theme = { id: string; name: string };
