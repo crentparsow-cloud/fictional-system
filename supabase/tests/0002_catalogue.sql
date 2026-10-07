@@ -187,13 +187,14 @@ do $$ declare n int; b jsonb; begin
   select count(*) into n from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'unit';
   if n <> 3 then raise exception 'expected 3 unit sections, saw %', n; end if;
   select count(*) into n from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and free;
-  if n <> 4 then raise exception 'expected listing, start, safety_hub and unit 1 free, saw % free sections', n; end if;
+  -- 0008 makes the toolkit free at publish.
+  if n <> 5 then raise exception 'expected listing, start, toolkit, safety_hub and unit 1 free, saw % free sections', n; end if;
   if not (select free from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'unit' and unit_number = 1) then
     raise exception 'unit 1 should be free'; end if;
   if (select free from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'unit' and unit_number = 2) then
     raise exception 'unit 2 should not be free'; end if;
-  if (select free from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'toolkit') then
-    raise exception 'toolkit should not be free'; end if;
+  if not (select free from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'toolkit') then
+    raise exception 'toolkit should be free (0008)'; end if;
   -- unit 2 carries its two exercises in exercise_ids order
   select body into b from public.workbook_sections where version_id = 'aaaaaaaa-0000-0000-0000-0000000000a6' and kind = 'unit' and unit_number = 2;
   if jsonb_array_length(b->'exercises') <> 2 then raise exception 'unit 2 should carry 2 exercises'; end if;
@@ -249,8 +250,10 @@ do $$ declare n int; begin
   if n <> 1 then raise exception 'reader should see the free unit 1'; end if;
   select count(*) into n from public.workbook_sections where kind = 'unit' and unit_number = 2;
   if n <> 0 then raise exception 'reader saw unit 2 without an entitlement'; end if;
-  select count(*) into n from public.workbook_sections where kind in ('toolkit','finish','keep_going');
+  select count(*) into n from public.workbook_sections where kind in ('finish','keep_going');
   if n <> 0 then raise exception 'reader saw paid sections'; end if;
+  select count(*) into n from public.workbook_sections where kind = 'toolkit';
+  if n <> 1 then raise exception 'reader should see the free toolkit (0008), saw %', n; end if;
   select count(*) into n from public.workbook_sections where kind in ('start','safety_hub');
   if n <> 2 then raise exception 'reader should see start and safety_hub, saw %', n; end if;
   select count(*) into n from public.workbook_versions;
