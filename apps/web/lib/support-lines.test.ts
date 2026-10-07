@@ -1,6 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { LAUNCH_MARKETS } from "./markets";
-import { EMERGENCY_LINES, SUPPORT_CHECKED, SUPPORT_GROUPS, SUPPORT_LINES, contactHref, emergencyFor, regionFromAcceptLanguage, supportLinesFor } from "./support-lines";
+import {
+  EMERGENCY_LINES,
+  SIGNPOSTS_CHECKED,
+  SIGNPOST_GROUPS,
+  SUPPORT_CHECKED,
+  SUPPORT_GROUPS,
+  SUPPORT_LINES,
+  contactHref,
+  emergencyFor,
+  regionFromAcceptLanguage,
+  signpostFor,
+  signpostHref,
+  supportLinesFor,
+} from "./support-lines";
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -64,5 +77,60 @@ describe("support lines data", () => {
     expect(regionFromAcceptLanguage("fr-CA,en-US;q=0.8", LAUNCH_MARKETS)).toBe("CA");
     expect(regionFromAcceptLanguage("de-DE,de;q=0.9", LAUNCH_MARKETS)).toBeNull();
     expect(regionFromAcceptLanguage(null, LAUNCH_MARKETS)).toBeNull();
+  });
+});
+
+describe("signposts (F-154)", () => {
+  it("carries the five groups, GB only, every other market null", () => {
+    expect(SIGNPOST_GROUPS.map((g) => g.id)).toEqual([
+      "money_worries_lines",
+      "eating_support_lines",
+      "bereavement_support_lines",
+      "new_parent_support_lines",
+      "carer_support_lines",
+    ]);
+    for (const g of SIGNPOST_GROUPS) {
+      expect(signpostFor(g.id, "GB")?.lines.length).toBeGreaterThan(0);
+      for (const m of ["US", "CA", "AU", "IE", "NZ", "XX"] as const) expect(signpostFor(g.id, m)).toBeNull();
+    }
+  });
+
+  it("dates and links every line, with a verified number or none", () => {
+    for (const g of SIGNPOST_GROUPS) {
+      for (const line of signpostFor(g.id, "GB")!.lines) {
+        expect(line.url).toMatch(/^https:\/\//);
+        expect(line.verifiedOn).toBe(SIGNPOSTS_CHECKED);
+        if (line.number === null) expect(line.verified).toBe(false);
+        expect(line.name.trim().length).toBeGreaterThan(0);
+      }
+    }
+    expect(SIGNPOSTS_CHECKED).toMatch(DATE);
+  });
+
+  it("ignores unknown ids and builds hrefs", () => {
+    expect(signpostFor("when_home_is_not_safe", "GB")).toBeNull();
+    expect(signpostFor(null, "GB")).toBeNull();
+    const money = signpostFor("money_worries_lines", "GB")!;
+    expect(money.title).toBe("Money worries");
+    expect(signpostHref(money.lines[0]!)).toBe("tel:08000113797");
+    expect(signpostHref({ ...money.lines[0]!, number: null })).toBe(money.lines[0]!.url);
+  });
+
+  it("matches the registry file", async () => {
+    const file = (await import("../../../content/catalog/support_lines.json")).default as unknown as {
+      signposts: { groups: Record<string, { markets: Record<string, { label: string; number: string | null; hours: string | null; url: string }[] | null> }> };
+    };
+    for (const g of SIGNPOST_GROUPS) {
+      const markets = file.signposts.groups[g.id]!.markets;
+      for (const [m, lines] of Object.entries(markets)) {
+        const ts = signpostFor(g.id, m as never)?.lines ?? null;
+        if (lines === null) expect(ts).toBeNull();
+        else expect(ts?.map((l) => [l.name, l.number, l.hours, l.url])).toEqual(lines.map((l) => [l.label, l.number, l.hours, l.url]));
+      }
+    }
+  });
+
+  it("keeps the Help now hub list unchanged", () => {
+    expect(SUPPORT_GROUPS).toHaveLength(6);
   });
 });
