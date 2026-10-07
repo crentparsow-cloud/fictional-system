@@ -1,4 +1,4 @@
-import { PRICE_TO_BE_CONFIRMED, type Price } from "@/lib/pricing";
+import { GBP_PRICE_NOTE, PRICE_TO_BE_CONFIRMED, type Price } from "@/lib/pricing";
 
 /**
  * What the calm paywall shows (F-019), as data. The card replaces a unit the
@@ -49,7 +49,7 @@ export interface PaywallYearly {
 export type PaywallState =
   | { kind: "open" }
   | { kind: "demo"; message: string }
-  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton; yearly?: PaywallYearly };
+  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton; yearly?: PaywallYearly; currencyNote?: string };
 
 export const DEMO_NOT_FOR_SALE = "This is a demo title. Demo titles cannot be bought.";
 export const MEMBERSHIP_NOT_OPEN = "Membership is not open yet";
@@ -70,10 +70,16 @@ export function paywallState(input: PaywallInput): PaywallState {
   else if (!input.membershipCheckoutReady) membership = { enabled: false, label: "Join the membership", note: MEMBERSHIP_NOT_OPEN };
   else membership = { enabled: true, label: "Join the membership", note: `${input.membershipPrice.formatted} a month` };
 
-  if (included && input.membershipYearlyPrice && input.membershipYearlyReady) {
-    return { kind: "offer", buy, membership, yearly: { label: `Or pay ${input.membershipYearlyPrice.formatted} a year` } };
+  const yearlyShown = included && !!input.membershipYearlyPrice && !!input.membershipYearlyReady;
+  // F-094: a price shown in GBP to a reader whose market uses another currency says so.
+  const inGbp =
+    !!input.workbookPrice?.inGbp || (membership.enabled && !!input.membershipPrice?.inGbp) || (yearlyShown && !!input.membershipYearlyPrice?.inGbp);
+  const extra = inGbp ? { currencyNote: GBP_PRICE_NOTE } : {};
+
+  if (yearlyShown && input.membershipYearlyPrice) {
+    return { kind: "offer", buy, membership, yearly: { label: `Or pay ${input.membershipYearlyPrice.formatted} a year` }, ...extra };
   }
-  return { kind: "offer", buy, membership };
+  return { kind: "offer", buy, membership, ...extra };
 }
 
 /** "8 weeks", "1 module": the unit count from the listing in plain words. */

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { CHECKOUT_CONSENTS, CONSENT_REQUIRED_MESSAGE, type CheckoutConsentKind } from "@/lib/checkout-consent";
 import { READER_TERMS_LINKS, READER_TERMS_VERSION } from "@/lib/terms";
 import type { PaywallState } from "./paywall";
 
@@ -17,10 +18,33 @@ interface Props {
  * entitlement does not cover. No countdown, no scarcity, no "only today".
  * The Toolkit tab and Help now stay where they are; this card only fills
  * the unit.
+ *
+ * Before either checkout the reader ticks an unticked box carrying the
+ * immediate-access wording from the refund policy: for a workbook, that
+ * access starts now and ends the 14-day right to cancel; for membership,
+ * that cancelling within 14 days gives a pro rata refund. The version they
+ * ticked goes to the route, which refuses without it and records it (0019).
  */
 export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [agreed, setAgreed] = useState<Record<CheckoutConsentKind, boolean>>({ workbook: false, membership: false });
+  const [missing, setMissing] = useState<CheckoutConsentKind | null>(null);
+  const boxes = { workbook: useRef<HTMLInputElement>(null), membership: useRef<HTMLInputElement>(null) };
+
+  function tick(kind: CheckoutConsentKind, on: boolean) {
+    setAgreed((a) => ({ ...a, [kind]: on }));
+    if (on && missing === kind) setMissing(null);
+  }
+
+  /** The consent must be ticked before payment starts. Says so, and moves focus to the box, when it is not. */
+  function consented(kind: CheckoutConsentKind): boolean {
+    if (agreed[kind]) return true;
+    setMessage(null);
+    setMissing(kind);
+    boxes[kind].current?.focus();
+    return false;
+  }
 
   // One path for both checkouts: the single workbook and the membership (F-097).
   async function start(url: string, payload: Record<string, string>) {
@@ -45,8 +69,17 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
     setBusy(false);
   }
 
-  const buy = () => start("/api/checkout", { workbook: slug });
-  const join = (plan: "monthly" | "yearly") => start("/api/checkout/membership", { plan, workbook: slug });
+  const buy = () => {
+    if (consented("workbook")) void start("/api/checkout", { workbook: slug, consent: CHECKOUT_CONSENTS.workbook.version });
+  };
+  const join = (plan: "monthly" | "yearly") => {
+    if (consented("membership")) void start("/api/checkout/membership", { plan, workbook: slug, consent: CHECKOUT_CONSENTS.membership.version });
+  };
+
+  const offer = state.kind === "offer" ? state : null;
+  const consentKinds: { kind: CheckoutConsentKind; heading: string }[] = [];
+  if (offer?.buy.enabled) consentKinds.push({ kind: "workbook", heading: "If you buy this workbook" });
+  if (offer && (offer.membership.enabled || offer.yearly)) consentKinds.push({ kind: "membership", heading: "If you join the membership" });
 
   return (
     <div className="paywall-card" role="note" aria-labelledby="paywall-title">
@@ -59,6 +92,35 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
         <>
           <p>Everything you have written so far carries over into it.</p>
           <p className="muted">Your free {unitWord} and your answers stay here whatever you decide.</p>
+          {consentKinds.length ? (
+            <fieldset className="paywall-consent">
+              <legend>Before you pay</legend>
+              {consentKinds.map(({ kind, heading }) => (
+                <div key={kind} className="paywall-consent-item">
+                  <label className="paywall-check">
+                    <input
+                      ref={boxes[kind]}
+                      type="checkbox"
+                      name={`consent-${kind}`}
+                      checked={agreed[kind]}
+                      disabled={busy}
+                      onChange={(e) => tick(kind, e.currentTarget.checked)}
+                      aria-describedby={missing === kind ? `paywall-consent-${kind}-error` : undefined}
+                      aria-invalid={missing === kind ? true : undefined}
+                    />
+                    <span>
+                      <strong>{heading}.</strong> {CHECKOUT_CONSENTS[kind].text}
+                    </span>
+                  </label>
+                  {missing === kind ? (
+                    <p id={`paywall-consent-${kind}-error`} className="small form-error paywall-consent-error" role="alert">
+                      {CONSENT_REQUIRED_MESSAGE}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </fieldset>
+          ) : null}
           <div className="paywall-actions">
             <button type="button" className="btn" disabled={!state.buy.enabled || busy} onClick={state.buy.enabled ? buy : undefined}>
               <span>{state.buy.label}</span>
@@ -81,6 +143,7 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
               </button>
             </p>
           ) : null}
+          {state.currencyNote ? <p className="small muted paywall-currency">{state.currencyNote}</p> : null}
           <p className="small muted paywall-terms">
             By continuing to payment you agree to our{" "}
             {READER_TERMS_LINKS.map((l, i) => (
