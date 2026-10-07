@@ -20,6 +20,8 @@ import { countFunnelEvent } from "@/lib/funnel";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { checkoutTermsDecision } from "@/lib/terms";
 import { acceptReaderTerms } from "@/lib/terms-server";
+import { checkoutConsentDecision, consentMetadata } from "@/lib/checkout-consent";
+import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
@@ -35,6 +37,14 @@ import { acceptReaderTerms } from "@/lib/terms-server";
  * The body carries the reader terms version shown by the pay button; a
  * missing or out of date one is refused (409), and the acceptance is
  * recorded before Stripe is called (F-122).
+ *
+ * The body also carries the version of the membership consent the reader
+ * ticked: access starts now, and cancelling within 14 days gives a pro rata
+ * refund (docs/legal/refund-policy.md, section 1). Missing or out of date is
+ * refused (409, code consent_required or consent_changed). The consent is
+ * recorded in public.checkout_consents (0019) before Stripe is called, its
+ * id goes into the session and subscription metadata, and the row is linked
+ * to the Checkout Session once it exists.
  *
  * Refuses (409) a reader who already has a live membership on this tenant.
  * 401 without a session, 404 for an unknown tenant.
@@ -59,6 +69,8 @@ const Body = z
       .optional(),
     // The reader terms version shown by the pay button (F-122).
     terms: z.string().max(40).optional(),
+    // The membership consent version the reader ticked (0019).
+    consent: z.string().max(60).optional(),
   })
   .strict();
 
@@ -84,6 +96,8 @@ export async function POST(request: NextRequest) {
   const { plan, workbook } = parsed.data;
   const terms = checkoutTermsDecision(parsed.data.terms);
   if (!terms.ok) return NextResponse.json({ error: terms.error, code: terms.code }, { status: terms.status, headers: NO_STORE });
+  const consent = checkoutConsentDecision("membership", parsed.data.consent);
+  if (!consent.ok) return NextResponse.json({ error: consent.error, code: consent.code }, { status: consent.status, headers: NO_STORE });
 
   // PLACEHOLDER until Crent sets the membership prices (C4, D1 to D4).
   const priceId = membershipPriceId(plan);
@@ -114,6 +128,9 @@ export async function POST(request: NextRequest) {
 
   // F-122: the acceptance is recorded before payment starts. No record, no checkout.
   if (!(await acceptReaderTerms("checkout", tenantId))) return refuse("Could not start checkout.", 500);
+  // The membership consent, recorded the same way before payment starts.
+  const consentId = await recordCheckoutConsent({ kind: "membership", version: consent.version, tenantId, plan: MEMBERSHIP_PLAN_POINT[plan] });
+  if (consentId === null) return refuse("Could not start checkout.", 500);
 
   const origin = siteOrigin(request);
   const successUrl = workbook ? `${origin}/read/${workbook}?member=1&session_id={CHECKOUT_SESSION_ID}` : `${origin}/you?membership=welcome#membership`;
@@ -121,21 +138,29 @@ export async function POST(request: NextRequest) {
 
   let checkout;
   try {
-    checkout = await stripe.checkout.sessions.create(
-      membershipCheckoutParams({
-        plan,
-        priceId,
-        userId: session.userId,
-        tenantId,
-        email: session.email,
-        customerId: portalCustomerId(rows),
-        successUrl,
-        cancelUrl,
-      }),
-    );
+    const params = membershipCheckoutParams({
+      plan,
+      priceId,
+      userId: session.userId,
+      tenantId,
+      email: session.email,
+      customerId: portalCustomerId(rows),
+      successUrl,
+      cancelUrl,
+    });
+    const consentMeta = consentMetadata(consentId, consent.version);
+    params.metadata = { ...params.metadata, ...consentMeta };
+    params.subscription_data = { ...params.subscription_data, metadata: { ...params.subscription_data?.metadata, ...consentMeta } };
+    checkout = await stripe.checkout.sessions.create(params);
   } catch (err) {
     console.error("membership_checkout_failed", { reason: err instanceof Error ? err.name : "unknown" });
     return refuse("Checkout could not start just now. Please try again later.", 502);
+  }
+
+  // Tie the consent to this session. If that fails, do not leave a payable session behind.
+  if (!(await linkCheckoutConsent(consentId, checkout.id))) {
+    await expireQuietly(stripe, checkout.id);
+    return refuse("Could not start checkout.", 500);
   }
 
   const admin = createAdminClient();
@@ -152,11 +177,7 @@ export async function POST(request: NextRequest) {
     status: "pending",
   });
   if (insErr) {
-    try {
-      await stripe.checkout.sessions.expire(checkout.id);
-    } catch {
-      // the session expires on its own within 24 hours
-    }
+    await expireQuietly(stripe, checkout.id);
     console.error("membership checkout: purchase insert failed", { session: checkout.id, code: insErr.code });
     return refuse("Could not start checkout.", 500);
   }
@@ -165,6 +186,14 @@ export async function POST(request: NextRequest) {
   // F-141: a daily count, ids only, unless the visitor has opted out.
   await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
+}
+
+async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): Promise<void> {
+  try {
+    await stripe.checkout.sessions.expire(id);
+  } catch {
+    // the session expires on its own within 24 hours
+  }
 }
 
 /** The public origin for the redirect URLs, from the proxy's headers. */

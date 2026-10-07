@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { adminAbilities } from "@/lib/admin/permissions";
 import { isKillSwitchAction, killSwitchErrorNotice, killSwitchTarget, parsePauseReason, parseWorkbookCode } from "@/lib/admin/workbooks";
+import { sendAuthorStatus } from "@/lib/author-mail";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -49,6 +50,10 @@ export async function setWorkbookLive(formData: FormData): Promise<void> {
     const notice = killSwitchErrorNotice(error.code);
     redirect(notice === "reason" ? `/admin/workbooks?confirm=${code}&notice=reason` : `/admin/workbooks?notice=${notice}`);
   }
+
+  // F-043: the organisation hears that its workbook is paused. The staff
+  // reason stays in the audit log; the email points them to support.
+  if (target === "paused") await sendAuthorStatus((row as { id: string }).id, "paused");
 
   revalidatePath("/admin/workbooks");
   revalidatePath("/admin");
