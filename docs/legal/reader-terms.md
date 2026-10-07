@@ -44,9 +44,9 @@ Our refund policy explains what we do if something goes wrong with a workbook yo
 
 Membership gives you access to every workbook in the membership library while your membership is active. It is billed monthly or annually, in advance, and renews automatically until you cancel. We tell you the price and the renewal terms before you pay, and we ask you to agree to renewal in words like these:
 
-"I agree that my pass renews automatically at the price above until I cancel."
+"I agree that my membership renews automatically at the price above until I cancel."
 
-We email you before an annual renewal. You can cancel at any time from your account. Cancelling is as easy as signing up.
+We email you before an annual renewal with the date and the amount. You can cancel at any time: go to You, then Manage membership, then Cancel. Cancelling is as easy as signing up.
 
 If you cancel within 14 days of your membership starting, it ends at once and we refund the unused time on a pro rata basis, as the refund policy describes. If you cancel later, your membership stops renewing and you keep access until the end of the period you have paid for.
 

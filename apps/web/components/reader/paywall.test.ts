@@ -48,14 +48,20 @@ describe("paywallState (F-019)", () => {
     for (const w of ["only today", "hurry", "last chance", "left", "ends", "limited", "countdown", "now only"]) expect(text).not.toContain(w);
   });
 
-  it("works with the real ladder: placeholders give null prices, so the offer is disabled", () => {
+  it("works with the real ladder: a placeholder workbook price is disabled, the interim membership price shows", () => {
     const market = MARKETS.GB;
     const workbookPrice = priceFor({ pricePointId: "p3" }, market);
     const membershipPrice = priceFor({ pricePointId: "member_month" }, market);
+    const membershipYearlyPrice = priceFor({ pricePointId: "member_year" }, market);
     expect(workbookPrice).toBeNull();
-    expect(membershipPrice).toBeNull();
+    expect(membershipPrice?.formatted).toBe("£7.99");
     const s = paywallState({ entitled: false, demo: false, workbookPrice, membershipPrice });
     expect(s.kind === "offer" && [s.buy.enabled, s.membership.enabled]).toEqual([false, false]);
+    const open = paywallState({ entitled: false, demo: false, workbookPrice, membershipPrice, membershipCheckoutReady: true, membershipYearlyPrice, membershipYearlyReady: true });
+    expect(open.kind === "offer" && open.membership).toEqual({ enabled: true, label: "Join the membership", note: "£7.99 a month" });
+    expect(open.kind === "offer" && open.yearly).toEqual({ label: "Or pay £69.99 a year" });
+    // A demo title still shows no buttons at all, whatever the membership price.
+    expect(paywallState({ entitled: false, demo: true, workbookPrice, membershipPrice, membershipCheckoutReady: true })).toEqual({ kind: "demo", message: DEMO_NOT_FOR_SALE });
 
     const priced: PricePoint = { ...PRICE_LADDER.p3, amounts: { GBP: 1200 }, active: true };
     const live = priceFor({ pricePointId: "p3" }, market, { p3: priced });

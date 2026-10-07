@@ -5,10 +5,16 @@ import { formatMoney, type Market } from "@/lib/markets";
  * public.price_points in migration 0004. One source for every displayed
  * and charged price: pages show what checkout charges.
  *
- * PLACEHOLDER: every amount below is empty because Crent has not set the
- * figures (questions C4 and D1 to D4 are open). While a point has no
+ * PLACEHOLDER: the workbook amounts below are empty because Crent has not
+ * set the figures (questions C4 and D1 to D4 are open). While a point has no
  * amount, priceFor() returns null and pages show "Price to be confirmed".
  * Nothing can be sold from a placeholder point: the checkout route refuses.
+ *
+ * INTERIM: the two membership points carry test-mode prices for the GBP
+ * market until Crent confirms them: GBP 7.99 a month and GBP 69.99 a year,
+ * VAT inclusive, no free trial (migration 0010). Their Stripe prices come
+ * from STRIPE_PRICE_MEMBERSHIP_MONTHLY and _YEARLY, not from this file, so
+ * stripePriceId stays null here and in price_points.
  *
  * When the figures arrive they go in two places at once: here, and in
  * public.price_points (plus the Stripe price ids). The database row wins at
@@ -49,6 +55,15 @@ const placeholder = (id: PricePointId, kind: PricePointKind, label: string): Pri
   active: false,
 });
 
+/**
+ * INTERIM membership prices in minor units, GBP market only, VAT inclusive.
+ * Mirrors public.price_points after migration 0010. Change both together.
+ */
+export const INTERIM_MEMBERSHIP_AMOUNTS: Readonly<Record<MembershipPricePointId, Amounts>> = Object.freeze({
+  member_month: Object.freeze({ GBP: 799 }) as Amounts,
+  member_year: Object.freeze({ GBP: 6999 }) as Amounts,
+});
+
 /** The ladder. p1 is the shortest workbook, p6 the longest. */
 export const PRICE_LADDER: Readonly<Record<PricePointId, PricePoint>> = {
   p1: placeholder("p1", "workbook", "Ladder point 1 (shortest)"),
@@ -57,8 +72,8 @@ export const PRICE_LADDER: Readonly<Record<PricePointId, PricePoint>> = {
   p4: placeholder("p4", "workbook", "Ladder point 4"),
   p5: placeholder("p5", "workbook", "Ladder point 5"),
   p6: placeholder("p6", "workbook", "Ladder point 6 (longest)"),
-  member_month: placeholder("member_month", "membership", "Membership, monthly"),
-  member_year: placeholder("member_year", "membership", "Membership, annual"),
+  member_month: { ...placeholder("member_month", "membership", "Membership, monthly"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_month, active: true },
+  member_year: { ...placeholder("member_year", "membership", "Membership, annual"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_year, active: true },
 };
 
 export const PRICE_POINT_IDS = Object.keys(PRICE_LADDER) as PricePointId[];
