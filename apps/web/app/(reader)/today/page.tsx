@@ -3,15 +3,19 @@ import Link from "next/link";
 import { ContinueCardView } from "@/components/catalogue/ContinueCardView";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
+import { CalendarReminder } from "@/components/today/CalendarReminder";
+import { NightNote } from "@/components/today/NightNote";
 import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards, withDailyCheck } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
+import { finishedEnrolments } from "@/lib/reader-progress";
 
 /**
  * Today (F-016): the same continue cards as Home, plus the daily check
  * prompt only for workbooks whose start section carries a daily_check. A
- * finance reader never gets a mood question. No reminders of missed days.
+ * finance reader never gets a mood question. One reminder for everything
+ * (F-024), made on the device. No reminders of missed days, no streaks.
  */
 export const dynamic = "force-dynamic";
 
@@ -27,6 +31,7 @@ export default async function TodayPage() {
   const { shown, hidden } = splitContinueCards(cards);
   const daily = withDailyCheck(cards);
   const wellbeing = anyWellbeing(cards);
+  const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
 
   return (
     <section className="tab-page">
@@ -44,6 +49,7 @@ export default async function TodayPage() {
         </div>
       ) : (
         <>
+          <NightNote />
           {daily.length > 0 ? (
             <section className="card daily-check" aria-labelledby="daily-check-title">
               <h2 id="daily-check-title">{t("today.dailyCheck")}</h2>
@@ -52,7 +58,7 @@ export default async function TodayPage() {
                 {daily.map((card) => (
                   <li key={card.enrolmentId}>
                     <span>{card.shortTitle ?? card.title}</span>
-                    <Link href={`/read/${card.slug}`}>{t("today.dailyCheckOpen")}</Link>
+                    <Link href={`/read/${card.slug}?view=daily`}>{t("today.dailyCheckOpen")}</Link>
                   </li>
                 ))}
               </ul>
@@ -62,13 +68,15 @@ export default async function TodayPage() {
           <h2 className="section-title">{t("home.continue")}</h2>
           <div className="grid wb-grid">
             {shown.map((card) => (
-              <ContinueCardView key={card.enrolmentId} card={card} t={t} />
+              <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} />
             ))}
           </div>
           <p className="muted see-all">
             {hidden > 0 ? <>{t("home.moreInLibrary", { count: hidden })} </> : null}
             <Link href="/library">{t("home.seeAll")}</Link>
           </p>
+
+          <CalendarReminder />
         </>
       )}
 

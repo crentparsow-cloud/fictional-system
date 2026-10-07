@@ -8,7 +8,7 @@ import { CheckInPartner, type PartnerReply } from "@/components/you/CheckInPartn
 import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
 import { partnerNoticeText, type PartnerRow } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
-import { cancelDeletion, requestDeletion, withdrawHealthConsent } from "./actions";
+import { cancelDeletion, requestDeletion, withdrawFaithConsent, withdrawHealthConsent } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +44,14 @@ export default async function YouPage({ searchParams }: Props) {
     : { data: null, error: null };
   const showConsent = Boolean(session) && !consentError;
   const consentAt = (consentRow as { health_consent_at: string | null } | null)?.health_consent_at ?? null;
+
+  // Faith consent (0015, F-150). Read on its own so a database without the
+  // column yet leaves this line out and nothing else.
+  const { data: faithRow, error: faithError } = session
+    ? await supabase.from("profiles").select("faith_consent_at").eq("user_id", session.userId).maybeSingle()
+    : { data: null, error: null };
+  const showFaithConsent = Boolean(session) && !faithError;
+  const faithConsentAt = (faithRow as { faith_consent_at: string | null } | null)?.faith_consent_at ?? null;
 
   // Membership (F-097): the reader's own subscription rows under RLS (0009).
   // If they cannot be read, the section is left out rather than guessed at.
@@ -156,6 +164,15 @@ export default async function YouPage({ searchParams }: Props) {
         />
       ) : null}
 
+      {/* One reminder for all workbooks (F-024). It lives on Today; this is the way there. */}
+      <section className="you-section" aria-labelledby="you-reminder">
+        <h2 id="you-reminder">Reminder</h2>
+        <p className="muted">One daily reminder in your own calendar, made on your device. Akana never sees it.</p>
+        <p>
+          <Link href="/today#reminder">Set up your reminder</Link>
+        </p>
+      </section>
+
       <section className="you-section" aria-labelledby="you-work">
         <h2 id="you-work">Download my work</h2>
         <p>Every answer, check-in and plan. Prompts and answers only, not the teaching text.</p>
@@ -208,6 +225,20 @@ export default async function YouPage({ searchParams }: Props) {
             ) : (
               <p className="small muted">Not given. We ask before you open your first wellbeing workbook.</p>
             )}
+          </div>
+        ) : null}
+
+        {/* Shown only once given: most readers never open a faith workbook. */}
+        {showFaithConsent && faithConsentAt ? (
+          <div className="card you-consent">
+            <h3>Faith consent</h3>
+            <p>You agreed on {longDate(faithConsentAt)} that we may store what you write in faith workbooks.</p>
+            <p className="small muted">If you withdraw it, you can no longer add to faith workbooks. What you have written stays until you delete it.</p>
+            <form action={withdrawFaithConsent}>
+              <button type="submit" className="btn secondary">
+                Withdraw faith consent
+              </button>
+            </form>
           </div>
         ) : null}
 

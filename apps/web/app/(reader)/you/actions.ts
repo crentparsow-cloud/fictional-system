@@ -40,3 +40,13 @@ export async function withdrawHealthConsent(): Promise<void> {
   if (error) back("consent-failed");
   back("consent-withdrawn");
 }
+
+/** Calls app.clear_faith_consent() through its public wrapper (0015, F-150). */
+export async function withdrawFaithConsent(): Promise<void> {
+  const supabase = await createUserClient();
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) redirect("/sign-in?next=/you");
+  const { error } = await supabase.rpc("clear_faith_consent");
+  if (error) back("faith-consent-failed");
+  back("faith-consent-withdrawn");
+}
