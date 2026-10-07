@@ -1,0 +1,1147 @@
+{
+ "group": "work-money",
+ "prepared": "2026-10-07",
+ "_note": "Work and Career and Money additions for the Akana catalogue. All new codes are minted with code_rule (key = workbook id, author slug or imprint slug) and checked against every AK-, AU- and PB- code found in content/, docs/ and packages/. All are provisional until the naming board confirms. advice_guardrail uses the schema's stored value not_financial_advice (reader copy: 'This workbook is for learning. It is not financial advice.'). support_signpost money_worries_lines is a new support_lines.json group still to be added and checked by market.",
+ "areas_new": [
+  {
+   "id": "long-term-money",
+   "name": "Long-Term Money",
+   "shelf_id": "money",
+   "status": "proposed in docs/research/categories.md [Crent]"
+  }
+ ],
+ "support_signposts_new": [
+  {
+   "id": "money_worries_lines",
+   "title": "Free help with debt and money worries",
+   "status": "to add to content/catalog/support_lines.json; numbers and hours to be verified by market before use [check]",
+   "GB": [
+    {
+     "label": "MoneyHelper",
+     "url": "https://www.moneyhelper.org.uk/"
+    },
+    {
+     "label": "StepChange Debt Charity",
+     "url": "https://www.stepchange.org/"
+    },
+    {
+     "label": "National Debtline",
+     "url": "https://nationaldebtline.org/"
+    },
+    {
+     "label": "Citizens Advice",
+     "url": "https://www.citizensadvice.org.uk/"
+    }
+   ],
+   "IE": [
+    {
+     "label": "MABS (Money Advice and Budgeting Service)",
+     "url": "https://www.mabs.ie/"
+    }
+   ],
+   "other_markets": "to research [check]",
+   "rule": "Signposts only. Akana names free services and makes no claim that it is endorsed by, partnered with or approved by any of them."
+  }
+ ],
+ "authors_new": [
+  {
+   "id": "AU-WFC25",
+   "code_status": "provisional",
+   "slug": "priya-sandhu-lavoie",
+   "name": "Priya Sandhu-Lavoie",
+   "country": "CA",
+   "genre": "career",
+   "publisher_id": "PB-2E6YP",
+   "publisher": "Larchmere Atlas Books",
+   "spelling": "en-CA",
+   "bio": "Spent years presenting a weekend show on community radio in Winnipeg, then ran the volunteer rota there. Writes about speaking up at work when you would rather not. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Priya Sandhu-Lavoie\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-H8PV1",
+   "code_status": "provisional",
+   "slug": "lamar-whitfield-osei",
+   "name": "Lamar Whitfield-Osei",
+   "country": "US",
+   "genre": "career",
+   "publisher_id": "PB-2E6YP",
+   "publisher": "Larchmere Atlas Books",
+   "spelling": "en-US",
+   "bio": "Coached a high school debate club in Columbus, Ohio, for a decade and now buys stock for a family hardware store. Writes about asking for things fairly and calmly. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Lamar Whitfield-Osei\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-PTR2C",
+   "code_status": "provisional",
+   "slug": "mei-lin-gallagher-ross",
+   "name": "Mei-Lin Gallagher-Ross",
+   "country": "AU",
+   "genre": "leadership",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "spelling": "en-AU",
+   "bio": "Ran the office for a small architecture practice in Adelaide through two moves and a switch to hybrid working. Writes about workplaces where people feel at ease. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Mei-Lin Gallagher-Ross\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-2D1J1",
+   "code_status": "provisional",
+   "slug": "niamh-oyelaran-byrne",
+   "name": "Niamh Oyelaran-Byrne",
+   "country": "IE",
+   "genre": "business",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "spelling": "en-GB",
+   "bio": "Grew her mother's Cork bakery stall into a small shop with a weekly email list. Writes about marketing for people who dislike selling. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Niamh Oyelaran-Byrne\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-D21DK",
+   "code_status": "provisional",
+   "slug": "rhiannon-asante-pugh",
+   "name": "Rhiannon Asante-Pugh",
+   "country": "GB",
+   "genre": "finance",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "spelling": "en-GB",
+   "bio": "Worked in a Swansea call centre for twelve years and paid off her own credit cards slowly along the way. Writes about owing money without blame or shame. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Rhiannon Asante-Pugh\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-0W5W9",
+   "code_status": "provisional",
+   "slug": "tomasz-kowalczyk-hale",
+   "name": "Tomasz Kowalczyk-Hale",
+   "country": "GB",
+   "genre": "finance",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "spelling": "en-GB",
+   "bio": "A Leeds bus driver who moved from Gdańsk in his twenties and once fell behind on rent and council tax. Writes about facing the post and the phone calls. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Tomasz Kowalczyk-Hale\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only (several Polish men named Tomasz Kowalczyk exist; none with this double-barrelled name)"
+   }
+  },
+  {
+   "id": "AU-RSCF4",
+   "code_status": "provisional",
+   "slug": "iona-bhattacharya-reid",
+   "name": "Iona Bhattacharya-Reid",
+   "country": "GB",
+   "genre": "finance",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "spelling": "en-GB",
+   "bio": "Spent most of her working life in a council payroll office in Dundee, answering colleagues' questions about payslips and pension letters. Writes about long-term money in plain words. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Iona Bhattacharya-Reid\"",
+    "tool": "WebSearch",
+    "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
+   }
+  },
+  {
+   "id": "AU-NZCNB",
+   "code_status": "provisional",
+   "slug": "william-strunk-jr",
+   "name": "William Strunk Jr.",
+   "country": "US",
+   "life": "1869 to 1946",
+   "translator": null,
+   "genre": "career",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "William Strunk Jr. (1869 to 1946). Real author. Taught English at Cornell University. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true,
+   "sources": [
+    "https://www.gutenberg.org/ebooks/37134"
+   ]
+  },
+  {
+   "id": "AU-T0XP9",
+   "code_status": "provisional",
+   "slug": "claude-c-hopkins",
+   "name": "Claude C. Hopkins",
+   "country": "US",
+   "life": "1866 to 1932",
+   "translator": null,
+   "genre": "business",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "Claude C. Hopkins (1866 to 1932). Real author. American advertising writer. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true,
+   "sources": [
+    "https://en.wikipedia.org/wiki/Claude_C._Hopkins",
+    "https://en.wikipedia.org/wiki/Scientific_Advertising"
+   ]
+  },
+  {
+   "id": "AU-DNA5J",
+   "code_status": "provisional",
+   "slug": "charles-mackay",
+   "name": "Charles Mackay",
+   "country": "GB",
+   "life": "1814 to 1889",
+   "translator": null,
+   "genre": "finance",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "Charles Mackay (1814 to 1889). Real author. Scottish journalist and songwriter. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true,
+   "sources": [
+    "https://www.gutenberg.org/ebooks/24518"
+   ]
+  }
+ ],
+ "publishers_new": [
+  {
+   "id": "PB-7AFQE",
+   "code_status": "provisional",
+   "slug": "brackenfold",
+   "name": "Brackenfold Books",
+   "city": "Leeds",
+   "country": "GB",
+   "note": "Demo UK imprint for household money, debt and pension titles.",
+   "is_demo": true,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Brackenfold Books\" OR \"Brackenfold Press\" publisher",
+    "tool": "WebSearch",
+    "result": "No publisher of that name found. Results were Brockhampton Press and unrelated small presses [check registers]"
+   }
+  }
+ ],
+ "workbooks_new": [
+  {
+   "id": "the-elements-of-style",
+   "code": "AK-WXE4R",
+   "code_status": "provisional",
+   "url_slug": "the-elements-of-style-wxe4r",
+   "title": "The Elements of Style",
+   "subtitle": "A Workbook on William Strunk Jr.'s Little Book",
+   "author_id": "AU-NZCNB",
+   "author": "William Strunk Jr.",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "career",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "careers-and-craft",
+   "theme_id": "words-that-land",
+   "theme": "Words That Land",
+   "card_line": "Put Strunk's short rules to work on your own emails and reports.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "full",
+   "fully_written": false,
+   "outline": [
+    "Week 1: Strunk's elementary rules of usage, tried on one work email.",
+    "Week 2: composition, paragraphs and putting statements in positive form.",
+    "Week 3: omitting needless words from a report or update.",
+    "Week 4: rules that have aged, rules that still help, and your own style sheet."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'The Elements of Style', William Strunk Jr., text of the 1920 Harcourt, Brace and Howe edition (first privately printed at Ithaca, 1918), Project Gutenberg eBook #37134 [confirm edition year against the file]. Not the 1959 Strunk and White edition, which is in copyright.",
+    "first_published": "1918 (privately printed, Ithaca, New York); 1920 Harcourt edition",
+    "people": [
+     {
+      "name": "William Strunk Jr.",
+      "died": 1946,
+      "role": "author"
+     }
+    ],
+    "tier": "A",
+    "uk_status": "clear: Strunk died 1946, so the UK term (life plus 70) ended on 31 December 2016. The Gutenberg text has no later editor. E. B. White's 1959 revisions are excluded.",
+    "us_status": "clear: published 1918 and 1920, both before 1931. Gutenberg marks the eBook public domain in the USA.",
+    "sources": [
+     "https://www.gutenberg.org/ebooks/37134"
+    ]
+   }
+  },
+  {
+   "id": "five-minutes-at-the-front-of-the-room",
+   "code": "AK-5NJQA",
+   "code_status": "provisional",
+   "url_slug": "five-minutes-at-the-front-of-the-room-5njqa",
+   "title": "Five Minutes at the Front of the Room",
+   "subtitle": "Short Talks at Work, Calmly Given",
+   "author_id": "AU-WFC25",
+   "author": "Priya Sandhu-Lavoie",
+   "publisher_id": "PB-2E6YP",
+   "publisher": "Larchmere Atlas Books",
+   "genre": "career",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "careers-and-craft",
+   "theme_id": "words-that-land",
+   "theme": "Words That Land",
+   "card_line": "Plan, practise and give a five-minute talk to your team.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: choosing one point and building a five-minute talk around it.",
+    "Weeks 3 to 4: practising out loud, notes you can glance at and handling nerves in ordinary ways.",
+    "Weeks 5 to 6: giving the talk, taking questions and asking for one piece of feedback."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-CA",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Five Minutes at the Front of the Room\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Nearby: 'Training from the Back of the Room' (Bowman) and 'Standing at the Front of the Room' (teacher education). Legal to rule on closeness [check]"
+   }
+  },
+  {
+   "id": "asking-well-agreeing-fairly",
+   "code": "AK-WRRC3",
+   "code_status": "provisional",
+   "url_slug": "asking-well-agreeing-fairly-wrrc3",
+   "title": "Asking Well, Agreeing Fairly",
+   "subtitle": "Everyday Negotiation at Work",
+   "author_id": "AU-H8PV1",
+   "author": "Lamar Whitfield-Osei",
+   "publisher_id": "PB-2E6YP",
+   "publisher": "Larchmere Atlas Books",
+   "genre": "career",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "careers-and-craft",
+   "theme_id": "words-that-land",
+   "theme": "Words That Land",
+   "card_line": "Prepare for a work negotiation, ask clearly and agree terms both sides can keep.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: what you want, what they want and your walk-away point.",
+    "Weeks 3 to 4: opening clearly, listening and trading rather than conceding.",
+    "Weeks 5 to 6: practice rounds on a supplier, a deadline and a workload request.",
+    "Weeks 7 to 8: writing the agreement down and reviewing how it went."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-US",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Asking Well, Agreeing Fairly\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were notes on 'Getting to Yes' (Fisher and Ury)"
+   }
+  },
+  {
+   "id": "the-new-starters-desk",
+   "code": "AK-EK8V2",
+   "code_status": "provisional",
+   "url_slug": "the-new-starters-desk-ek8v2",
+   "title": "The New Starter's Desk",
+   "subtitle": "A Four-Week Welcome for New Team Members",
+   "author_id": "AU-1ZS6X",
+   "author": "Tama Rāwiri-Hughes",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "leadership",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "welcoming-workplaces",
+   "theme": "Welcoming Workplaces",
+   "card_line": "Plan a new starter's first month so they know who to ask and what good looks like.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: before day one, a buddy, a desk and a plain welcome note.",
+    "Week 2: the first week, introductions and one small early win.",
+    "Week 3: checking in, questions without judgement and the unwritten rules made written.",
+    "Week 4: a month-one conversation and what to change for the next starter."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-AU",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The New Starter's Desk\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Nearby: 'The New Manager's Starter Kit' and 'Ultimate New Job' (Kogan Page)"
+   }
+  },
+  {
+   "id": "office-days-home-days",
+   "code": "AK-01V20",
+   "code_status": "provisional",
+   "url_slug": "office-days-home-days-01v20",
+   "title": "Office Days, Home Days",
+   "subtitle": "Hybrid Working That Suits the Whole Team",
+   "author_id": "AU-PTR2C",
+   "author": "Mei-Lin Gallagher-Ross",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "leadership",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "welcoming-workplaces",
+   "theme": "Welcoming Workplaces",
+   "card_line": "Agree how your team uses office days and home days, and write it down.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: what each kind of day is for and what people need from each.",
+    "Weeks 3 to 4: meetings, messages and making sure remote voices are heard.",
+    "Weeks 5 to 6: a one-page team agreement and a date to review it."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": "not_legal_or_tax_advice",
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-AU",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Office Days, Home Days\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were home office guides such as 'The 60-Second Commute'"
+   }
+  },
+  {
+   "id": "meetings-where-everyone-speaks",
+   "code": "AK-MBRV9",
+   "code_status": "provisional",
+   "url_slug": "meetings-where-everyone-speaks-mbrv9",
+   "title": "Meetings Where Everyone Speaks",
+   "subtitle": "A Team Programme for Fair and Open Ways of Working",
+   "author_id": "AU-PTR2C",
+   "author": "Mei-Lin Gallagher-Ross",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "leadership",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "welcoming-workplaces",
+   "theme": "Welcoming Workplaces",
+   "card_line": "A twelve-week team programme on speaking up, fair turns and honest disagreement.",
+   "price_tier": "programme",
+   "weeks": 12,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 3: noticing who speaks, who does not and why.",
+    "Weeks 4 to 6: turn-taking, written input and room for quieter people.",
+    "Weeks 7 to 9: disagreeing well, admitting mistakes and thanking people for raising them.",
+    "Weeks 10 to 12: fair hiring and welcome habits, and a team charter to keep."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-AU",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Meetings Where Everyone Speaks\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Nearby: a 1940s book 'Everybody Speaks' and a blog post 'Better Meetings: How to Give Everyone a Chance to Speak and Be Heard' [check]"
+   }
+  },
+  {
+   "id": "scientific-advertising",
+   "code": "AK-01AZG",
+   "code_status": "provisional",
+   "url_slug": "scientific-advertising-01azg",
+   "title": "Scientific Advertising",
+   "subtitle": "A Workbook on Claude C. Hopkins' 1923 Classic",
+   "author_id": "AU-T0XP9",
+   "author": "Claude C. Hopkins",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "business",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "wider-reach",
+   "theme": "Wider Reach",
+   "card_line": "Test one small advert at a time, the way Hopkins urged a century ago.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: Hopkins' case for advertising as salesmanship, read as history.",
+    "Weeks 3 to 4: headlines, being specific and telling the full story, tried on your own offer.",
+    "Weeks 5 to 6: small tests, keeping records and which of his ideas fit honest marketing today."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Scientific Advertising', Claude C. Hopkins, Lord and Thomas, Chicago, 1923 (original printing). No Project Gutenberg text found. A scan of the 1923 printing must be located (HathiTrust or Internet Archive) and transcribed; modern reprints such as the Dover or Library of Congress facsimile editions must not be copied [check].",
+    "first_published": "1923",
+    "people": [
+     {
+      "name": "Claude C. Hopkins",
+      "died": 1932,
+      "role": "author"
+     }
+    ],
+    "tier": "A",
+    "uk_status": "clear: Hopkins died in 1932, so the UK term ended on 31 December 2002.",
+    "us_status": "clear: published 1923, before 1931.",
+    "sources": [
+     "https://en.wikipedia.org/wiki/Claude_C._Hopkins",
+     "https://en.wikipedia.org/wiki/Scientific_Advertising",
+     "https://www.holloway.com/g/scientific-advertising"
+    ]
+   }
+  },
+  {
+   "id": "a-newsletter-people-look-forward-to",
+   "code": "AK-EEG0Q",
+   "code_status": "provisional",
+   "url_slug": "a-newsletter-people-look-forward-to-eeg0q",
+   "title": "A Newsletter People Look Forward To",
+   "subtitle": "Email for Small Businesses, One Issue at a Time",
+   "author_id": "AU-2D1J1",
+   "author": "Niamh Oyelaran-Byrne",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "business",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "wider-reach",
+   "theme": "Wider Reach",
+   "card_line": "Start a monthly customer newsletter and keep it going.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: who it is for, what they want to hear and how you ask permission to email them.",
+    "Week 2: a simple template and your first issue.",
+    "Week 3: subject lines, one clear offer and plain unsubscribe wording.",
+    "Week 4: a three-month plan of topics and a time in the diary to write."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": "not_legal_or_tax_advice",
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"A Newsletter People Look Forward To\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were bookshop and author newsletters"
+   }
+  },
+  {
+   "id": "selling-like-a-good-neighbour",
+   "code": "AK-2W5XQ",
+   "code_status": "provisional",
+   "url_slug": "selling-like-a-good-neighbour-2w5xq",
+   "title": "Selling Like a Good Neighbour",
+   "subtitle": "Sales Conversations for Small Firms",
+   "author_id": "AU-2D1J1",
+   "author": "Niamh Oyelaran-Byrne",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "business",
+   "shelf_id": "work-and-career",
+   "shelf": "Work and Career",
+   "area_id": "teams-and-ventures",
+   "theme_id": "wider-reach",
+   "theme": "Wider Reach",
+   "card_line": "Learn to talk to customers about what you sell without pushing.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: what you sell, who it helps and who it does not.",
+    "Weeks 3 to 4: listening first, asking good questions and saying the price plainly.",
+    "Weeks 5 to 6: follow-up, handling 'not now' and staying honest.",
+    "Weeks 7 to 8: a simple sales log and a monthly review."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Selling Like a Good Neighbour\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found in either spelling. Results were 'good neighbor' books and 'Sell It Like Serhant'. First choice 'Honest Selling for Small Firms' dropped as close to 'Honesty Sells'"
+   }
+  },
+  {
+   "id": "everything-i-owe-on-one-page",
+   "code": "AK-GY8S3",
+   "code_status": "provisional",
+   "url_slug": "everything-i-owe-on-one-page-gy8s3",
+   "title": "Everything I Owe, On One Page",
+   "subtitle": "A Calm First Look at Your Debts",
+   "author_id": "AU-D21DK",
+   "author": "Rhiannon Asante-Pugh",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "spending-and-saving",
+   "theme_id": "paying-it-down",
+   "theme": "Paying It Down",
+   "card_line": "List what you owe in one place and see which bills come first.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: gathering statements and letters, with a pause whenever you need one.",
+    "Week 2: one page listing who you owe, how much and the minimum payment.",
+    "Week 3: priority bills, such as rent, council tax and energy, and the rest.",
+    "Week 4: where free, independent debt advice can help, and booking a conversation if you want one."
+   ],
+   "safety_profile": "standard",
+   "help_now": true,
+   "advice_guardrail": "not_financial_advice",
+   "support_signpost": "money_worries_lines",
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": false,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Everything I Owe, On One Page\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were 'I Owe You One' (novel) and 'What You Owe Me'"
+   }
+  },
+  {
+   "id": "the-repayment-notebook",
+   "code": "AK-EDYRR",
+   "code_status": "provisional",
+   "url_slug": "the-repayment-notebook-edyrr",
+   "title": "The Repayment Notebook",
+   "subtitle": "Steady Steps With What You Owe",
+   "author_id": "AU-D21DK",
+   "author": "Rhiannon Asante-Pugh",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "spending-and-saving",
+   "theme_id": "paying-it-down",
+   "theme": "Paying It Down",
+   "card_line": "Set a repayment plan you can afford and keep notes as you go.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: a realistic budget and the amount you can spare each month.",
+    "Weeks 3 to 4: two common ways to order repayments, compared without a recommendation.",
+    "Weeks 5 to 6: talking to lenders, keeping records and spotting offers that sound too good.",
+    "Weeks 7 to 8: tight months, small setbacks and when to ask a free debt advice service for help."
+   ],
+   "safety_profile": "standard",
+   "help_now": true,
+   "advice_guardrail": "not_financial_advice",
+   "support_signpost": "money_worries_lines",
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The Repayment Notebook\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were loan repayment guides and bill tracker printables. First choice 'Paying Back, Bit by Bit' dropped because it echoed the Theme name"
+   }
+  },
+  {
+   "id": "opening-the-brown-envelopes",
+   "code": "AK-KVEBR",
+   "code_status": "provisional",
+   "url_slug": "opening-the-brown-envelopes-kvebr",
+   "title": "Opening the Brown Envelopes",
+   "subtitle": "Facing Bills, Letters and Arrears",
+   "author_id": "AU-0W5W9",
+   "author": "Tomasz Kowalczyk-Hale",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "spending-and-saving",
+   "theme_id": "paying-it-down",
+   "theme": "Paying It Down",
+   "card_line": "Open the post, understand what each letter asks and reply in time.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: opening the post with a plan, sorting letters and noting dates.",
+    "Weeks 3 to 4: what reminders, final demands and arrears letters usually mean, in general terms.",
+    "Weeks 5 to 6: phone and letter scripts, keeping a call log and where to find free advice."
+   ],
+   "safety_profile": "standard",
+   "help_now": true,
+   "advice_guardrail": "not_financial_advice",
+   "support_signpost": "money_worries_lines",
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": false,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Opening the Brown Envelopes\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were stationery listings"
+   }
+  },
+  {
+   "id": "extraordinary-popular-delusions",
+   "code": "AK-4HBJN",
+   "code_status": "provisional",
+   "url_slug": "extraordinary-popular-delusions-4hbjn",
+   "title": "Extraordinary Popular Delusions and the Madness of Crowds",
+   "subtitle": "A Workbook on Charles Mackay's Money Manias",
+   "author_id": "AU-DNA5J",
+   "author": "Charles Mackay",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "long-term-money",
+   "theme_id": "patient-investing",
+   "theme": "Patient Investing",
+   "card_line": "Read the tulip, South Sea and Mississippi stories and ask why patience matters.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: the Mississippi Scheme and how a promise of easy money spread.",
+    "Week 2: the South Sea Bubble and the people who joined late.",
+    "Week 3: tulip mania, and how far Mackay's account is now questioned by historians.",
+    "Week 4: your own notes on hype, risk and taking time over money decisions."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Memoirs of Extraordinary Popular Delusions and the Madness of Crowds', Charles Mackay, Project Gutenberg eBook #24518 (likely the 1852 second edition, Office of the National Illustrated Library, London) [confirm edition against the file]. The workbook uses only the three money chapters.",
+    "first_published": "1841 (Richard Bentley, London)",
+    "people": [
+     {
+      "name": "Charles Mackay",
+      "died": 1889,
+      "role": "author"
+     }
+    ],
+    "tier": "A",
+    "uk_status": "clear: Mackay died 1889; the UK term ended on 31 December 1959. Check the Gutenberg file names no later editor.",
+    "us_status": "clear: published 1841 and 1852, before 1931. Gutenberg marks the eBook public domain in the USA.",
+    "sources": [
+     "https://www.gutenberg.org/ebooks/24518"
+    ]
+   }
+  },
+  {
+   "id": "your-workplace-pension-explained-slowly",
+   "code": "AK-ZSFV9",
+   "code_status": "provisional",
+   "url_slug": "your-workplace-pension-explained-slowly-zsfv9",
+   "title": "Your Workplace Pension, Explained Slowly",
+   "subtitle": "Reading Your Pension Letters, Line by Line",
+   "author_id": "AU-RSCF4",
+   "author": "Iona Bhattacharya-Reid",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "long-term-money",
+   "theme_id": "patient-investing",
+   "theme": "Patient Investing",
+   "card_line": "Find your pensions, read your statements and know what questions to ask.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: what a workplace pension is, how contributions and tax relief work in general terms, and finding old pots.",
+    "Weeks 3 to 4: reading an annual statement, charges and the default fund.",
+    "Weeks 5 to 6: the State Pension forecast, questions for your provider, and free guidance such as MoneyHelper and Pension Wise."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": "not_financial_advice",
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Your Workplace Pension, Explained Slowly\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Results were pension provider guide pages"
+   }
+  },
+  {
+   "id": "the-long-view-on-saving",
+   "code": "AK-TZT8G",
+   "code_status": "provisional",
+   "url_slug": "the-long-view-on-saving-tzt8g",
+   "title": "The Long View on Saving",
+   "subtitle": "Pensions, ISAs and How Investing Works",
+   "author_id": "AU-RSCF4",
+   "author": "Iona Bhattacharya-Reid",
+   "publisher_id": "PB-7AFQE",
+   "publisher": "Brackenfold Books",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "long-term-money",
+   "theme_id": "patient-investing",
+   "theme": "Patient Investing",
+   "card_line": "A twelve-week course on how long-term saving and investing work, with no tips.",
+   "price_tier": "programme",
+   "weeks": 12,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 3: cash savings, an emergency fund and why time matters, including compound growth explained with made-up numbers.",
+    "Weeks 4 to 6: what shares, bonds and funds are, and what an index fund is, explained rather than recommended.",
+    "Weeks 7 to 9: pensions and ISAs in general terms, charges, and checking a firm on the FCA register.",
+    "Weeks 10 to 12: risk, losses, scams, and writing your own questions before speaking to a regulated adviser or free guidance service."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": "not_financial_advice",
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The Long View on Saving\" book",
+    "tool": "WebSearch",
+    "result": "No exact title found. Nearby: 'The Long View' (Richard Fisher, 2023, on long-term thinking) and 'The Decline in Saving'. Legal to rule on closeness [check]"
+   }
+  },
+  {
+   "id": "thrift",
+   "code": "AK-097A5",
+   "code_status": "provisional",
+   "url_slug": "thrift-097a5",
+   "title": "Thrift",
+   "subtitle": "A Workbook on Samuel Smiles' Victorian Classic",
+   "author_id": "AU-HX8HW",
+   "author": "Samuel Smiles",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "finance",
+   "shelf_id": "money",
+   "shelf": "Money",
+   "area_id": "spending-and-saving",
+   "theme_id": "money-for-later",
+   "theme": "Money for Later",
+   "card_line": "Read Smiles on saving and small habits, and test his ideas against modern life.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Weeks 1 to 2: Smiles' idea of thrift, read with care for its Victorian view of poverty.",
+    "Weeks 3 to 4: means of saving, little things and the savings banks of his day.",
+    "Weeks 5 to 6: living beyond the means and his chapter on great debtors, read as history.",
+    "Weeks 7 to 8: what still fits today and a small saving plan of your own."
+   ],
+   "safety_profile": "none",
+   "help_now": false,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Thrift', Samuel Smiles, Project Gutenberg eBook #14418 [confirm which printing the file transcribes]",
+    "first_published": "1875 (John Murray, London)",
+    "people": [
+     {
+      "name": "Samuel Smiles",
+      "died": 1904,
+      "role": "author"
+     }
+    ],
+    "tier": "A",
+    "uk_status": "clear: Smiles died 1904; the UK term ended on 31 December 1974.",
+    "us_status": "clear: published 1875, before 1931. Gutenberg marks the eBook public domain in the USA.",
+    "sources": [
+     "https://gutenberg.org/ebooks/14418"
+    ]
+   }
+  }
+ ],
+ "coverage": [
+  {
+   "subcategory": "work-worth-choosing",
+   "existing_ids": [
+    "a-new-trade-at-forty",
+    "talking-money-with-your-manager",
+    "your-career-in-five-stories",
+    "mentoring-someone-new"
+   ],
+   "new_ids": [],
+   "total": 4
+  },
+  {
+   "subcategory": "purposeful-time",
+   "existing_ids": [
+    "the-unhurried-to-do-list",
+    "deep-mornings",
+    "the-agenda-on-a-postcard",
+    "how-to-live-on-24-hours-a-day"
+   ],
+   "new_ids": [],
+   "total": 4
+  },
+  {
+   "subcategory": "words-that-land",
+   "existing_ids": [],
+   "new_ids": [
+    "the-elements-of-style",
+    "five-minutes-at-the-front-of-the-room",
+    "asking-well-agreeing-fairly"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "shared-direction",
+   "existing_ids": [
+    "the-elders-chair",
+    "your-first-team",
+    "letting-go-of-the-clipboard",
+    "feedback-over-coffee",
+    "decisions-in-the-open",
+    "teams-that-carry-it-together"
+   ],
+   "new_ids": [],
+   "total": 6
+  },
+  {
+   "subcategory": "welcoming-workplaces",
+   "existing_ids": [],
+   "new_ids": [
+    "the-new-starters-desk",
+    "office-days-home-days",
+    "meetings-where-everyone-speaks"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "ventures-taking-shape",
+   "existing_ids": [
+    "the-open-air-ledger",
+    "customers-who-come-back",
+    "selling-beyond-the-street",
+    "hiring-your-first-five"
+   ],
+   "new_ids": [],
+   "total": 4
+  },
+  {
+   "subcategory": "wider-reach",
+   "existing_ids": [],
+   "new_ids": [
+    "scientific-advertising",
+    "a-newsletter-people-look-forward-to",
+    "selling-like-a-good-neighbour"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "considered-spending",
+   "existing_ids": [
+    "budgets-for-busy-households",
+    "invoices-savings-and-you",
+    "the-way-to-wealth"
+   ],
+   "new_ids": [],
+   "total": 3
+  },
+  {
+   "subcategory": "money-for-later",
+   "existing_ids": [
+    "the-shared-pot",
+    "a-little-each-month",
+    "lumpy-income-steady-plans"
+   ],
+   "new_ids": [
+    "thrift"
+   ],
+   "total": 4
+  },
+  {
+   "subcategory": "paying-it-down",
+   "existing_ids": [],
+   "new_ids": [
+    "everything-i-owe-on-one-page",
+    "the-repayment-notebook",
+    "opening-the-brown-envelopes"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "patient-investing",
+   "existing_ids": [],
+   "new_ids": [
+    "extraordinary-popular-delusions",
+    "your-workplace-pension-explained-slowly",
+    "the-long-view-on-saving"
+   ],
+   "total": 3
+  }
+ ]
+}
