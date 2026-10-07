@@ -41,6 +41,13 @@ In week 2 the new items are small and additive. If week 2 runs late, the first b
 
 **Migration numbers.** 0011 and 0012 are taken. The taxonomy and faith genre migrations take the next free numbers, so the 0013 to 0022 numbers in `akana-business.md` move up by however many land first.
 
+**Later on 7 October 2026: Crent's decisions.**
+- Bible study is out of scope for now. Faith titles stay Bible-based (devotional, prayer, character, practical, Christian living). The Reading Scripture Theme is retired by migration 0025, which keeps the id and blocks new workbooks from joining it. Its four demo titles are removed, so v2 seeding (F-153) loads 120 new titles, not 124, and 50 Themes are active, not 51. F-151 is now quotation support only.
+- The faith consent wording and the privacy notice line about religious belief need no lawyer review now. Closed.
+- Daily ratings and self-check answers stay kept and sealed, readable only by the reader, as in the old app. Decided.
+- The author licence goes to lawyer review after the build. `OPS_ALERT_TO` stays a placeholder for now.
+- Everything left for after the build is gathered in `AK_Post_Build_List.md`.
+
 ## 1. The plan on one page
 
 **What Crent will have on Friday 23 October.** A working Akana marketplace on Vercel and the akana-saas Supabase project, code in the private GitHub repo `crentparsow-cloud/akana`. A reader can browse a library across eleven genres, read a public workbook page, sign in, use the free first week in the ported player, buy a single workbook or a membership in GBP, and keep their sealed answers. An invited author or publisher can sign a licence, connect payouts, submit a book and sign off a workbook. Akana staff can review, release, pause, refund and take down. A royalty ledger and monthly statements run on net receipts. A demo white-label tenant runs on its own host with locked safety standards. The demo catalogue holds 50 workbooks from 18 invented authors and 5 public-domain classics, all labelled, plus the 20 Maya Vaughn workbooks held in review.
