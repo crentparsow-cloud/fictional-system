@@ -1,4 +1,7 @@
 import type Stripe from "stripe";
+import { errorCode, refundCoolingOff, type RefundOutcome, type StripeRefundApi } from "@/lib/membership-refund";
+
+export { COOLING_OFF_DAYS, errorCode, proRataRefund, type RefundOutcome } from "@/lib/membership-refund";
 
 /**
  * The account deletion job (F-025) as a function over its effects, so it can
@@ -9,11 +12,24 @@ import type Stripe from "stripe";
  *   1. Every live membership of a reader whose deletion is due is cancelled
  *      in Stripe at once (no proration, no final invoice), then recorded as
  *      cancelled in public.subscriptions (migration 0009).
- *   2. Only if every cancel worked does complete_due_deletions() run. If one
- *      failed, nothing is deleted this run and the job tries again next
+ *      Straight after a cancel that worked, the cooling-off refund in
+ *      lib/membership-refund.ts runs (shared with the webhook): within 14
+ *      days of the membership starting, or of a yearly renewal's payment,
+ *      the unused whole days are refunded pro rata, once per invoice.
+ *      A refund error never fails the deletion once the cancel has worked:
+ *      it is logged with a code and counted, and the run goes on.
+ *   2. Only if every cancel worked does the run go on. If one failed,
+ *      nothing is deleted or redacted this run and the job tries again next
  *      time. The database guards this too: a deletion cannot be marked
  *      complete while the mirror still shows a live subscription.
- *   3. Each auth user is removed and stamped, as before.
+ *   3. Redact. Every Stripe customer linked to a reader whose deletion is
+ *      due (public.due_deletion_customers(), migration 0010) has its name,
+ *      email, phone, address and shipping cleared and its metadata emptied
+ *      except akana_deleted=true, whether or not a membership was live.
+ *      Invoices keep their own copy for the tax record. A failure is logged
+ *      with a code and counted, and never blocks the deletion.
+ *   4. complete_due_deletions() runs, then each auth user is removed and
+ *      stamped, as before.
  *
  * Ids are never logged or returned, only counts.
  */
@@ -38,6 +54,14 @@ export interface DeletionJobDeps {
   deleteAuthUser(userId: string): Promise<"removed" | "gone" | "failed">;
   /** public.mark_auth_removed() */
   markAuthRemoved(userId: string): Promise<boolean>;
+  /** Refund the unused part of a membership just cancelled, when it is due. Throws on a Stripe error. */
+  refundUnused?(subscriptionId: string): Promise<RefundOutcome>;
+  /** public.due_deletion_customers(): every Stripe customer id linked to a reader whose deletion is due. */
+  dueCustomers?(): Promise<string[]>;
+  /** Clear a Stripe customer, keeping only a deleted flag. Throws on a Stripe error. */
+  redactCustomer?(customerId: string): Promise<void>;
+  /** A code and a short reason (a Stripe error code, never an id or an address). */
+  log?(code: string, reason: string): void;
 }
 
 export interface DeletionJobResult {
@@ -45,6 +69,10 @@ export interface DeletionJobResult {
   status: "ok" | "blocked";
   subscriptions_cancelled: number;
   subscriptions_failed: number;
+  refunds_issued: number;
+  refunds_failed: number;
+  customers_redacted: number;
+  redactions_failed: number;
   processed: number;
   auth_removed: number;
   auth_failed: number;
@@ -55,6 +83,10 @@ export async function runDeletionJob(deps: DeletionJobDeps): Promise<DeletionJob
     status: "ok",
     subscriptions_cancelled: 0,
     subscriptions_failed: 0,
+    refunds_issued: 0,
+    refunds_failed: 0,
+    customers_redacted: 0,
+    redactions_failed: 0,
     processed: 0,
     auth_removed: 0,
     auth_failed: 0,
@@ -62,9 +94,27 @@ export async function runDeletionJob(deps: DeletionJobDeps): Promise<DeletionJob
 
   const due = await deps.dueSubscriptions();
   for (const s of due) {
+    const id = s.stripe_subscription_id;
+    let cancelled: CancelResult;
     try {
-      await deps.cancelSubscription(s.stripe_subscription_id);
-      await deps.markSubscriptionCancelled(s.stripe_subscription_id);
+      cancelled = await deps.cancelSubscription(id);
+    } catch {
+      result.subscriptions_failed += 1;
+      continue;
+    }
+
+    // The cancel worked. From here a Stripe error is logged and counted, never fatal.
+    if (cancelled === "cancelled" && deps.refundUnused) {
+      try {
+        const refund = await deps.refundUnused(id);
+        if (refund.status === "refunded") result.refunds_issued += 1;
+      } catch (err) {
+        result.refunds_failed += 1;
+        deps.log?.("deletion_refund_failed", errorCode(err));
+      }
+    }
+    try {
+      await deps.markSubscriptionCancelled(id);
       result.subscriptions_cancelled += 1;
     } catch {
       result.subscriptions_failed += 1;
@@ -73,6 +123,26 @@ export async function runDeletionJob(deps: DeletionJobDeps): Promise<DeletionJob
   if (result.subscriptions_failed > 0) {
     result.status = "blocked";
     return result;
+  }
+
+  // Redact every linked Stripe customer before the rows that link them go.
+  if (deps.dueCustomers && deps.redactCustomer) {
+    let customers: string[] = [];
+    try {
+      customers = [...new Set(await deps.dueCustomers())];
+    } catch (err) {
+      result.redactions_failed += 1;
+      deps.log?.("deletion_redact_lookup_failed", errorCode(err));
+    }
+    for (const c of customers) {
+      try {
+        await deps.redactCustomer(c);
+        result.customers_redacted += 1;
+      } catch (err) {
+        result.redactions_failed += 1;
+        deps.log?.("deletion_redact_failed", errorCode(err));
+      }
+    }
   }
 
   const ids = await deps.completeDueDeletions();
@@ -124,4 +194,34 @@ export function stripeCanceller(subscriptions: StripeSubscriptionsApi) {
 function isMissing(err: unknown): boolean {
   const e = err as { code?: string; statusCode?: number } | null;
   return Boolean(e && (e.code === "resource_missing" || e.statusCode === 404));
+}
+
+// ---------------------------------------------------------------------------
+// Refund and redaction over the Stripe client (F-025, F-097)
+// ---------------------------------------------------------------------------
+
+/** The slice of the Stripe client the refund and redaction steps use, so a fake can stand in for it. */
+export interface StripeSettlementApi extends StripeRefundApi {
+  customers: Pick<Stripe["customers"], "retrieve" | "update">;
+}
+
+/** The only metadata key left on a redacted customer. */
+export const DELETED_FLAG = "akana_deleted";
+
+/** Both steps throw on a Stripe error so the job can count it. */
+export function stripeSettlement(api: StripeSettlementApi, now: () => Date = () => new Date()) {
+  async function refundUnused(subscriptionId: string): Promise<RefundOutcome> {
+    return refundCoolingOff(api, subscriptionId, { now: now(), reason: "account_deletion" });
+  }
+
+  async function redactCustomer(customerId: string): Promise<void> {
+    const customer = await api.customers.retrieve(customerId);
+    if ("deleted" in customer && customer.deleted) return;
+    const metadata: Record<string, string> = {};
+    for (const key of Object.keys(customer.metadata ?? {})) metadata[key] = "";
+    metadata[DELETED_FLAG] = "true";
+    await api.customers.update(customerId, { name: "", email: "", phone: "", address: "", shipping: "", metadata });
+  }
+
+  return { refundUnused, redactCustomer };
 }
