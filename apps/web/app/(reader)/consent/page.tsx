@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { brand } from "@/lib/brand";
 import { getReaderSession, safeNextPath } from "@/lib/auth";
+import { hasCurrentConsent } from "@/lib/consent";
 import { marketFor } from "@/lib/markets";
 import { createUserClient } from "@/lib/supabase/server";
 import { giveHealthConsent } from "./action";
@@ -27,10 +28,18 @@ export default async function ConsentPage({ searchParams }: { searchParams: Prom
   const supabase = await createUserClient();
   const { data: profile } = await supabase
     .from("profiles")
-    .select("health_consent_at, country")
+    .select("health_consent_at, health_consent_version, country")
     .eq("user_id", session.userId)
     .maybeSingle();
-  if (profile?.health_consent_at) redirect(next);
+  // Consent to an older wording does not count: the reader is asked again.
+  if (
+    hasCurrentConsent({
+      consentAt: (profile?.health_consent_at as string | null | undefined) ?? null,
+      consentVersion: (profile?.health_consent_version as string | null | undefined) ?? null,
+    })
+  ) {
+    redirect(next);
+  }
   const market = marketFor((profile?.country as string | null | undefined) ?? null);
 
   const error =

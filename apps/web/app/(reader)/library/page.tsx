@@ -3,6 +3,9 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
+import { CatalogueSearch } from "@/components/search/CatalogueSearch";
+import { searchLabels } from "@/lib/search";
+import { searchEntriesFor } from "@/lib/search-data";
 import { getReaderSession } from "@/lib/auth";
 import type { LengthBucket } from "@/lib/catalogue-types";
 import { listLibrary, listShelvesWithThemes, myEnrolmentStatuses } from "@/lib/catalogue";
@@ -60,6 +63,8 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
   // A shelf below it stays hidden unless the genre filter names it directly.
   const shelfMin = parseShelfMinCount(process.env.SHELF_MIN_COUNT);
   const pool = applyShelfMinimum(all, shelfMin, query.genre);
+  // F-008: the on-device search index covers every visible title, whatever the filters.
+  const searchEntries = await searchEntriesFor(applyShelfMinimum(all, shelfMin));
 
   const cards = filterLibrary(pool, query, enrolments);
   const groups = groupLibrary(cards);
@@ -82,6 +87,8 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
     <section className="tab-page library-page">
       <h1>{t("nav.library")}</h1>
       <p className="muted">{t("library.line")}</p>
+
+      <CatalogueSearch entries={searchEntries} labels={searchLabels(t)} />
 
       <div className="library-filters">
         {genres.length > 1 || query.genre ? (

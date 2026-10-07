@@ -4,6 +4,7 @@ import "@akana/engine/engine.css";
 import { getReaderSession } from "@/lib/auth";
 import { consentGate, consentHref } from "@/lib/consent";
 import { marketFor } from "@/lib/markets";
+import { membershipPlansOpen } from "@/lib/membership";
 import { PRICE_LADDER, priceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
 import { rebuildWorkbook, type SectionRow } from "@/lib/rebuild-workbook";
 import { createUserClient } from "@/lib/supabase/server";
@@ -47,6 +48,7 @@ interface WorkbookRow {
   safety_tier: "none" | "standard" | "higher";
   is_demo: boolean;
   price_point_id: string | null;
+  in_membership: boolean;
   current_version_id: string | null;
 }
 
@@ -59,6 +61,7 @@ interface PricePointRow {
 }
 
 const MEMBERSHIP_POINT: PricePointId = "member_month";
+const MEMBERSHIP_YEARLY_POINT: PricePointId = "member_year";
 
 interface EnrolmentRow {
   id: string;
@@ -77,7 +80,7 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
 
   const { data: wb } = await supabase
     .from("workbooks")
-    .select("id, slug, title, safety_tier, is_demo, price_point_id, current_version_id")
+    .select("id, slug, title, safety_tier, is_demo, price_point_id, in_membership, current_version_id")
     .eq("slug", slug)
     .maybeSingle();
   const workbook = wb as WorkbookRow | null;
@@ -85,10 +88,14 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("health_consent_at, country")
+    .select("health_consent_at, health_consent_version, country")
     .eq("user_id", session.userId)
     .maybeSingle();
-  if (consentGate(workbook.safety_tier, { consentAt: (profile?.health_consent_at as string | null | undefined) ?? null }) === "consent") {
+  const consent = {
+    consentAt: (profile?.health_consent_at as string | null | undefined) ?? null,
+    consentVersion: (profile?.health_consent_version as string | null | undefined) ?? null,
+  };
+  if (consentGate(workbook.safety_tier, consent) === "consent") {
     redirect(consentHref(`/read/${workbook.slug}`));
   }
   const market = marketFor((profile?.country as string | null | undefined) ?? null);
@@ -127,8 +134,9 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
   // database row wins, as at checkout; the config ladder is the fallback.
   let workbookPrice: Price | null = null;
   let membershipPrice: Price | null = null;
+  let membershipYearlyPrice: Price | null = null;
   if (rebuilt.lockedUnits.length && !workbook.is_demo) {
-    const ids = [MEMBERSHIP_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
+    const ids = [MEMBERSHIP_POINT, MEMBERSHIP_YEARLY_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
     const { data: points } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").in("id", ids);
     const ladder: Partial<Record<PricePointId, PricePoint>> = { ...PRICE_LADDER };
     for (const row of (points ?? []) as PricePointRow[]) {
@@ -137,7 +145,10 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
     }
     workbookPrice = priceFor({ pricePointId: workbook.price_point_id, isDemo: workbook.is_demo }, market, ladder);
     membershipPrice = priceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
+    membershipYearlyPrice = priceFor({ pricePointId: MEMBERSHIP_YEARLY_POINT }, market, ladder);
   }
+  // Membership checkout opens per plan once its Stripe price id is set (F-097).
+  const plansOpen = membershipPlansOpen();
 
   return (
     <ReadClient
@@ -147,7 +158,15 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
       missing={rebuilt.missing}
       slug={workbook.slug}
       market={market.code}
-      paywall={{ demo: workbook.is_demo, workbookPrice, membershipPrice }}
+      paywall={{
+        demo: workbook.is_demo,
+        workbookPrice,
+        membershipPrice,
+        membershipCheckoutReady: plansOpen.monthly,
+        membershipYearlyPrice,
+        membershipYearlyReady: plansOpen.yearly,
+        inMembership: workbook.in_membership !== false,
+      }}
     />
   );
 }

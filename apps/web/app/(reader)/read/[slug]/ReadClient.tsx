@@ -8,9 +8,8 @@ import { SupabaseAnswerStore, type SaveState } from "@/components/reader/AnswerS
 import { HardestAnswerCard } from "@/components/reader/HardestAnswerCard";
 import { hardestCardKey, sensitiveFieldKeys, shouldShowHardestCard } from "@/components/reader/hardest-answer";
 import { PaywallCard } from "@/components/reader/PaywallCard";
-import { paywallState, unitCountPhrase } from "@/components/reader/paywall";
+import { paywallState, unitCountPhrase, type PaywallInput } from "@/components/reader/paywall";
 import { SaveStatus } from "@/components/reader/SaveStatus";
-import type { Price } from "@/lib/pricing";
 
 interface Props {
   workbook: WorkbookV3;
@@ -20,7 +19,7 @@ interface Props {
   slug: string;
   /** The reader's market code, for Help now. "XX" means everywhere else. */
   market: string;
-  paywall: { demo: boolean; workbookPrice: Price | null; membershipPrice: Price | null };
+  paywall: Omit<PaywallInput, "entitled">;
 }
 
 /**

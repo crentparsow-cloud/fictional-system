@@ -4,6 +4,7 @@ import { signOut } from "@/app/(auth)/sign-out/action";
 import { deletionState, longDate, noticeText, type DeletionRow } from "@/lib/account";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
 import { createUserClient } from "@/lib/supabase/server";
 import { cancelDeletion, requestDeletion, withdrawHealthConsent } from "./actions";
 
@@ -41,6 +42,19 @@ export default async function YouPage({ searchParams }: Props) {
     : { data: null, error: null };
   const showConsent = Boolean(session) && !consentError;
   const consentAt = (consentRow as { health_consent_at: string | null } | null)?.health_consent_at ?? null;
+
+  // Membership (F-097): the reader's own subscription rows under RLS (0009).
+  // If they cannot be read, the section is left out rather than guessed at.
+  const { data: subRows, error: subError } = session
+    ? await supabase
+        .from("subscriptions")
+        .select("status, plan, current_period_end, cancel_at_period_end, ended_at, stripe_customer_id, updated_at")
+        .eq("user_id", session.userId)
+    : { data: null, error: null };
+  const showMembership = Boolean(session) && !subError;
+  const membership = membershipSummary(subRows as SubscriptionRow[] | null);
+  const canManageMembership = portalCustomerId(subRows as SubscriptionRow[] | null) !== null;
+  const membershipMessage = membershipNotice(params.membership);
 
   return (
     <section className="tab-page you-page">
@@ -93,6 +107,26 @@ export default async function YouPage({ searchParams }: Props) {
           </button>
         </form>
       </section>
+
+      {showMembership ? (
+        <section className="you-section" id="membership" aria-labelledby="you-membership">
+          <h2 id="you-membership">Membership</h2>
+          {membershipMessage ? (
+            <p className="you-notice" role="status">
+              {membershipMessage}
+            </p>
+          ) : null}
+          <p>{membershipLine(membership, longDate)}</p>
+          {canManageMembership ? (
+            <form method="post" action="/api/billing/portal">
+              <button type="submit" className="btn secondary">
+                Manage membership
+              </button>
+              <p className="small muted">Cancel, change your card or see your invoices on Stripe&apos;s secure page.</p>
+            </form>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="you-section" aria-labelledby="you-work">
         <h2 id="you-work">Download my work</h2>
