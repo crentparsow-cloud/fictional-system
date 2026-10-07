@@ -1,0 +1,38 @@
+import Link from "next/link";
+import { signOut } from "@/app/(auth)/sign-out/action";
+
+/**
+ * Shell for the Studio and the console (F-033, F-055). Served on the Akana apex only (proxy). Each
+ * page checks sign-in and membership itself through requireStudio, so the
+ * invitation page under /studio/join stays open to someone not yet signed in.
+ */
+export function StudioShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="admin-shell studio-shell">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <header className="admin-bar">
+        <div className="wrap admin-bar-inner">
+          <Link href="/studio" className="admin-brand">
+            Akana Studio
+          </Link>
+          <nav aria-label="Studio" className="studio-nav">
+            <Link href="/studio/profile">Profile</Link>
+            <Link href="/studio/books">Books</Link>
+            <Link href="/console">Team</Link>
+            <Link href="/payouts">Payouts</Link>
+          </nav>
+          <form action={signOut}>
+            <button type="submit" className="btn secondary admin-signout">
+              Sign out
+            </button>
+          </form>
+        </div>
+      </header>
+      <main id="main" className="wrap admin-main" tabIndex={-1}>
+        {children}
+      </main>
+    </div>
+  );
+}
