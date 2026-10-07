@@ -8,6 +8,7 @@ import { searchLabels } from "@/lib/search";
 import { searchEntriesFor } from "@/lib/search-data";
 import { getReaderSession } from "@/lib/auth";
 import type { LengthBucket } from "@/lib/catalogue-types";
+import { listThemes } from "@/lib/author-theme-queries";
 import { listLibrary, listShelvesWithThemes, myEnrolmentStatuses } from "@/lib/catalogue";
 import { getT, type MessageKey } from "@/lib/i18n";
 import {
@@ -21,6 +22,7 @@ import {
   parseShelfMinCount,
   type LibraryChange,
 } from "@/lib/library-grouping";
+import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 
 /**
  * The Library tab (F-003): live workbooks grouped by genre shelf, then Theme.
@@ -53,11 +55,15 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
   const { t, locale } = await getT();
   const query = parseLibraryQuery(await searchParams);
   const session = await getReaderSession();
-  const [all, shelves, enrolments] = await Promise.all([
+  const [live, shelves, enrolments, themeGates] = await Promise.all([
     listLibrary({}),
     listShelvesWithThemes(),
     session ? myEnrolmentStatuses(session.userId) : Promise.resolve(null),
+    listThemes(),
   ]);
+  // F-148: a Theme added after launch is not shown (label, heading or chip)
+  // until it holds its minimum of live titles. Its cards stay, unlabelled.
+  const all = maskHiddenThemes(live, hiddenThemeIds(themeGates, live));
 
   // Crent sets the figure: SHELF_MIN_COUNT in the environment. Default 3.
   // A shelf below it stays hidden unless the genre filter names it directly.

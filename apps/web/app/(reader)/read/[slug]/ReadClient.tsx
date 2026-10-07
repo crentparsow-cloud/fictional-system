@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { WorkbookV3 } from "@akana/schema";
-import { Player, type PlayerView } from "@akana/engine";
+import { Player, type PlayerView, type ProgressEvent } from "@akana/engine";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { SupabaseAnswerStore, type SaveState } from "@/components/reader/AnswerStore";
 import { HardestAnswerCard } from "@/components/reader/HardestAnswerCard";
@@ -20,6 +20,10 @@ interface Props {
   /** The reader's market code, for Help now. "XX" means everywhere else. */
   market: string;
   paywall: Omit<PaywallInput, "entitled">;
+  /** Stored progress events for this enrolment, ids and timestamps only. */
+  events?: ProgressEvent[];
+  /** A view a link asked for, such as the daily check from Today. */
+  openView?: "daily" | "plan" | "progress" | "toolkit" | "finish" | "keep_going" | null;
 }
 
 /**
@@ -53,7 +57,7 @@ function writeLocal(key: string, value: string): void {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall }: Props) {
+export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
@@ -105,7 +109,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
   }, [store]);
 
   const record = useCallback(
-    (kind: "unit_opened" | "step_done" | "checkin_done" | "daily_check_done", ref?: string) => {
+    (kind: "unit_opened" | "step_done" | "checkin_done" | "daily_check_done" | "toolkit_used" | "finished", ref?: string) => {
       void fetch("/api/progress", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -126,7 +130,12 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
     [lockedUnits, record],
   );
 
-  const onExerciseDone = useCallback((exerciseId: string) => record("step_done", exerciseId), [record]);
+  // The ref is the answer scope: the exercise id, or "<id>~r" for a repeat, so
+  // first_repeat can be told apart (F-018). The partner stage check in 0012
+  // matches plain ids, so a repeat ref adds nothing there.
+  const onExerciseDone = useCallback((_exerciseId: string, scope: string) => record("step_done", scope), [record]);
+  const onToolUsed = useCallback((toolId: string) => record("toolkit_used", toolId), [record]);
+  const onFinished = useCallback(() => record("finished"), [record]);
   const onCheckInDone = useCallback((unitNumber: number) => record("checkin_done", String(unitNumber)), [record]);
   const onDailyCheckDone = useCallback(() => record("daily_check_done"), [record]);
 
@@ -149,6 +158,18 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
         fullLength={unitCountPhrase(workbook.structure.count, workbook.structure.unit)}
       />
     );
+
+  // A finished reader opens on Keep going; a link may ask for one view.
+  const finished = (events ?? []).some((e) => e.kind === "finished");
+  const usable =
+    openView === "daily" ? !!workbook.daily_check : openView === "keep_going" ? !!workbook.keep_going : openView === "plan" ? workbook.plan_sections.length > 0 : !!openView;
+  const initialView: PlayerView | undefined = openView && usable
+    ? openView === "toolkit"
+      ? { kind: "toolkit" }
+      : { kind: openView }
+    : finished && workbook.keep_going
+      ? { kind: "keep_going" }
+      : undefined;
 
   if (loadError) {
     return (
@@ -183,6 +204,11 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
         onExerciseDone={onExerciseDone}
         onCheckInDone={onCheckInDone}
         onDailyCheckDone={onDailyCheckDone}
+        onToolUsed={onToolUsed}
+        onFinished={onFinished}
+        events={events}
+        buyHref={paywall.demo ? undefined : `/go/${encodeURIComponent(slug)}`}
+        initialView={initialView}
         requireAcknowledge={higher}
         acknowledged={acknowledged}
         onAcknowledge={onAcknowledge}

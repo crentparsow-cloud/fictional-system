@@ -7,6 +7,7 @@ import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
+import { finishedEnrolments } from "@/lib/reader-progress";
 
 /**
  * Home (F-016): a continue card per open workbook, capped at three, the rest
@@ -26,6 +27,7 @@ export default async function HomePage() {
   const cards = session ? await myEnrolments(session.userId) : [];
   const { shown, hidden } = splitContinueCards(cards);
   const wellbeing = anyWellbeing(cards);
+  const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
 
   return (
     <section className="tab-page">
@@ -47,7 +49,7 @@ export default async function HomePage() {
           <h2 className="section-title">{t("home.continue")}</h2>
           <div className="grid wb-grid">
             {shown.map((card) => (
-              <ContinueCardView key={card.enrolmentId} card={card} t={t} />
+              <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} />
             ))}
           </div>
           <p className="muted see-all">
