@@ -431,17 +431,17 @@
   {
     "id": "F-030",
     "surface": "Reader app",
-    "name": "Support partner",
-    "what": "Carry over partner invites with share levels and never-cached token links, never sharing answers.",
+    "name": "Check-in partner",
+    "what": "Built 7 October 2026 (Day 6), ahead of plan. Migration 0012, the /respond/[token] route and a Check-in partner section on the You page. A reader has one partner with no account, who acts only through single-purpose hashed token links. Share level 1 sends the stage reached by number, level 2 adds a gentle question, level 3 adds a short note the reader writes. Wellbeing progress is shared only if the reader ticks it. Partners never see answers, workbook titles or stage names. Invitations and updates are rate limited in the database, and audit rows never hold a name, address or note.",
     "who": "reader",
-    "why": "Built and valued, but adds token routes, mail and safety review. Not needed to sell.",
-    "priority": "After launch",
+    "why": "Carried over from the old app, where readers valued it. It is now built, so it moves from after launch into the shipped set. Its token and rate-limit pattern is reused by Akana Business invitations (F-203) and group check-ins (F-213).",
+    "priority": "Week 1",
     "size": "M",
     "depends_on": [
       "F-015",
       "F-140"
     ],
-    "risk": "Partner mail naming a workbook. Render test applies."
+    "risk": "Partner mail naming a workbook or a stage. The email render test applies. The level 3 note is reader-written text sent to another person; the lawyer should confirm it stays outside the Online Safety Act user-to-user scope [check legal]."
   },
   {
     "id": "F-031",
@@ -2155,5 +2155,453 @@
       "F-140"
     ],
     "risk": "iOS supports web push only for home-screen apps [check]."
+  },
+  {
+    "id": "F-148",
+    "surface": "Content engine",
+    "name": "Expanded taxonomy: 10 shelves, 51 Themes and seed migration",
+    "what": "Load the draft taxonomy (docs/research/taxonomy.json, categories.md) into content/registry: 3 new shelves (Health and Body, Faith and Spirituality, Creativity and Making) beside the 7 seeded, 7 new areas, and 34 new Themes beside the 17 existing, each with clearance_status pending and min_books 3. Fill line and topics for the five Mind and Mood Themes, add the extra hidden topics to existing Themes, move stoicism from Chosen Habits to Wisdom for Living. Optional additive migration adding themes.group_suitable boolean not null default false. Regenerate the seed. All 17 existing ids kept.",
+    "who": "Akana admin, reader",
+    "why": "Research found 13 of Blinkist's 31 categories with no Akana home, including faith, health, creativity and communication. The new catalogue titles need these Themes to exist before they can be seeded.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-112",
+      "F-109"
+    ],
+    "risk": "None of the 34 new names has had a register search (gate T1); they stay in-app and renameable. The hidden-topic leak test must cover the new condition words (depression, OCD, PTSD, debt, divorce). Migration number is the next free one at merge, which shifts the 0013 to 0022 numbers in akana-business.md."
+  },
+  {
+    "id": "F-149",
+    "surface": "Content engine",
+    "name": "Optional faith genre",
+    "what": "Append 'faith' to GENRES in packages/schema/src/v3.ts (append only), add it to content/registry/genres.json and a genre profile in @akana/validate with its own rules: no healing or answered-prayer claims, a pastoral signpost beside Help now, and a scripture licence check. New additive migration that drops and recreates the genres CHECK from 0002 with 12 ids, then inserts the row; 0002 itself is not edited. Add the GENRE_LABELS entry in apps/web/app/publish/options.ts. Make scripts/check-registry.ts throw on an unknown genre instead of treating it as wellbeing. Built only if Crent says yes.",
+    "who": "Akana admin, reader",
+    "why": "None of the 11 genres fits Bible study and prayer. Faith titles need their own guardrails, and a genre is what the consent screen and the release gate can key on. Adding a genre value is additive under the freeze.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-107",
+      "F-109",
+      "F-148"
+    ],
+    "risk": "supabase/tests/0002_catalogue.sql asserts exactly 11 genres (line 109) and fails once a 12th is seeded. It must change in the same pull request. F-221 covers faith titles and licences after launch; this entry is only the code change."
+  },
+  {
+    "id": "F-150",
+    "surface": "Reader app",
+    "name": "Faith consent screen",
+    "what": "Explicit, versioned consent before a reader's first faith-genre workbook, built like the health data consent (F-026) and recorded with its own version. Withdrawing it in You stops new saves in faith titles. The wording says that using a faith title can reveal religious belief and that answers stay sealed.",
+    "who": "reader",
+    "why": "Religious belief is special category data. Akana is not a religious body, so it cannot rely on Article 9(2)(d) and needs explicit consent under 9(2)(a), as for health [check legal].",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-026",
+      "F-122",
+      "F-149"
+    ],
+    "risk": "Consent wording not yet reviewed by the lawyer. If Crent declines the faith genre, the trigger must key on the Faith and Spirituality shelf instead. F-215 extends the same consent to church-run groups after launch."
+  },
+  {
+    "id": "F-151",
+    "surface": "Content engine",
+    "name": "Bible text handling and attribution",
+    "what": "World English Bible as the default text: the British Edition (WEBBE) for en-GB workbooks, the WEB for en-US, and the WEBBE with the Deuterocanon for Catholic and Orthodox titles. Optional scripture_text field on the workbook (additive). Attribution line on the Start or notes screen, for example 'Scripture quotations are from the World English Bible British Edition, which is in the public domain.' Validator rule: WEB wording is never edited, each quotation is marked when a workbook uses more than one version, and licensed versions keep a verse counter against the publisher's limit.",
+    "who": "Akana admin, author, reader",
+    "why": "The King James Version is under Crown rights in the UK and needs Cambridge University Press permission for commercial use. Modern versions such as the NIV and ESV carry verse and percentage limits. The WEB is public domain with no limit.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-107",
+      "F-149"
+    ],
+    "risk": "KJV wording quoted inside a public-domain classic (Bunyan, Spurgeon, Ryle) may still need Cambridge's permission in the UK [check legal]. en-AU, en-CA and en-NZ editions are not settled [check]. 'World English Bible' is a trade mark, so a changed text cannot carry the name."
+  },
+  {
+    "id": "F-152",
+    "surface": "Content engine",
+    "name": "Public-domain house records for the new classics",
+    "what": "One house record in docs/public-domain/ and a page at /public-domain/<code> for each of the 50 new classics in the catalogue research (29 faith, 7 growth, 7 learning, 4 work and money, 3 mind and health). Each names the edition, every author, translator and editor with a sourced death year, the UK, US and IE conclusion, the Tier (A or B) and the reviewer. First batch in week 2: the titles Crent picks for v2 seeding, led by the classics that open a hidden Theme. The rest follow as content-track work.",
+    "who": "Akana admin",
+    "why": "No classic goes live without a signed record (F-118). Edition traps are real: Gutenberg #5657 Brother Lawrence is a copyrighted 2002 edition, Gummere's Seneca is in UK copyright to 2039, and Franklin's #20203 has an editor with no known death year.",
+    "priority": "Week 2",
+    "size": "M",
+    "depends_on": [
+      "F-118"
+    ],
+    "risk": "Canada, Australia and New Zealand terms are still [to confirm]. Three classics are Tier B (In His Steps, How We Think, The Elements of Style) and stay off sale at launch. Scientific Advertising has no Gutenberg text and needs a transcription from a 1923 scan. Each record waits for a named reviewer."
+  },
+  {
+    "id": "F-153",
+    "surface": "Content engine",
+    "name": "Demo Catalogue v2 seeding",
+    "what": "Merge the five catalogue research files into docs/planning/AK_Demo_Catalogue_v2.json after Crent approves (merge plan in docs/research/catalogue/SUMMARY.md), then point the seed builder at it. 124 new listings (74 demo, 50 classics) at first-week depth with covers, outlines and card lines. Normalise genre, safety profile, advice note, area and depth values; one author record per person; final codes after a collision check. Demo titles load live with the Demo badge; classics load as draft until their record is signed; faith titles load only after the faith genre decision.",
+    "who": "Akana admin, reader",
+    "why": "Every one of the 51 Themes reaches three titles on paper, so every shelf can look stocked. It also gives Akana Business and church prospects something to browse.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-148",
+      "F-152",
+      "F-154",
+      "F-115",
+      "F-117"
+    ],
+    "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 51 Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script."
+  },
+  {
+    "id": "F-154",
+    "surface": "Reader app",
+    "name": "New support signposts",
+    "what": "Five new signpost groups in content/catalog/support_lines.json, by market and with a checked date: money_worries_lines (free debt and money help), eating_support_lines (food and eating), bereavement_support_lines, new_parent_support_lines and carer_support_lines. Shown beside Help now on the titles that name them, as when_home_is_not_safe and family_support_lines are today. Signposts only: no claim of endorsement or partnership.",
+    "who": "reader",
+    "why": "Twelve new titles name one of these groups: debt titles, food planning, grief, new babies and caring. Readers on those titles may be under strain.",
+    "priority": "Week 2",
+    "size": "S",
+    "depends_on": [
+      "F-021"
+    ],
+    "risk": "Only money_worries_lines has draft entries, for GB (MoneyHelper, StepChange, National Debtline, Citizens Advice) and IE (MABS), and their numbers and hours are not yet verified. Any group not checked by market is set to null before seeding."
+  },
+  {
+    "id": "F-155",
+    "surface": "Admin",
+    "name": "Theological reviewer workflow",
+    "what": "A Theological Reviewer sign-off kind in the release gate. A faith-genre workbook cannot move from in_review to approved without it, recorded against the content hash with the reviewer's name, tradition and date in the internal block. The reviewer approves the tradition label (Protestant, Catholic, Orthodox, General Christian) and the line 'Written from within the [tradition] tradition. Readers from other churches are welcome.' A title labelled for one tradition needs a reviewer from that tradition. Safety copy stays with the Clinical Safety Lead.",
+    "who": "Akana admin, theological reviewer",
+    "why": "One reviewer cannot speak for every church, and the classics carry doctrinal sensitivities (Bunyan's Giant Pope, MacDonald on atonement, Catholic sacramental practice in Kempis Book 4 and Ignatius).",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-084",
+      "F-085",
+      "F-149"
+    ],
+    "risk": "No reviewer is named. Without one, no faith title can release. Buddhist and Hindu classics need their own reviewers."
+  },
+  {
+    "id": "F-201",
+    "surface": "Akana Business",
+    "name": "Customer organisation kinds and profile",
+    "what": "New organisation kinds business, church, charity and community_group (migration widens the organisations.kind check). Profile with billing contact, VAT number, charity number and size band. Staff create them from /admin/organisations.",
+    "who": "Akana admin, organisation admin",
+    "why": "Businesses, churches and small groups want Akana for their people. Today organisations can only be the house, publishers, author companies or individuals.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-129",
+      "F-082"
+    ],
+    "risk": "Part of the manual-sales pilot (F-201 to F-206), which only fits if it runs as an extra stream from week 2. Crent's call."
+  },
+  {
+    "id": "F-202",
+    "surface": "Akana Business",
+    "name": "Organisation licences and seats with team_seat entitlement",
+    "what": "Seat count, title scope, start and end. Claiming a seat writes a library-wide team_seat entitlement; releasing it ends the entitlement and leaves the work read only. has_entitlement respects the licence's title scope.",
+    "who": "organisation admin, member",
+    "why": "Buyers pay per seat or by band. The team_seat source is already reserved in 0004.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-095",
+      "F-201"
+    ],
+    "risk": "Replaces app.has_entitlement, the most important access function. Needs a full RLS test pass."
+  },
+  {
+    "id": "F-203",
+    "surface": "Akana Business",
+    "name": "Invitations and seat claim",
+    "what": "Email invite with a hashed token, accepted only on a button press (the 0012 pattern), 18+ confirmation, link to an existing account. Send limits. The email names the organisation, never a title.",
+    "who": "organisation admin, member",
+    "why": "Members need a safe way in that the organisation controls.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-202",
+      "F-137",
+      "F-030"
+    ],
+    "risk": "An invite email naming a wellbeing title would disclose health data. The render test applies."
+  },
+  {
+    "id": "F-204",
+    "surface": "Akana Business",
+    "name": "Minimal organisation console: seats and invitations",
+    "what": "Invite, resend, revoke and release a seat. Counts: seats bought, claimed and people started. Suppressed under the owner threshold.",
+    "who": "organisation admin",
+    "why": "The buyer needs to see uptake. Counts are enough.",
+    "priority": "Week 3",
+    "size": "M",
+    "depends_on": [
+      "F-055",
+      "F-203"
+    ],
+    "risk": "Small groups make counts identifying. Suppression under suppression_threshold_owner (5) applies."
+  },
+  {
+    "id": "F-205",
+    "surface": "Akana Business",
+    "name": "Organisation terms, DPA and privacy notice section",
+    "what": "Drafts for the lawyer: organisation terms (adults only, no access to answers, no compulsion for wellbeing), the DPA, and a privacy notice section on joining through an organisation.",
+    "who": "organisation admin, member, Akana admin",
+    "why": "The organisation is controller of the roster and Akana its processor; Akana stays an independent controller of each member's own work [check legal].",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-122",
+      "F-126"
+    ],
+    "risk": "No organisation goes live until the lawyer approves the text (O10)."
+  },
+  {
+    "id": "F-206",
+    "surface": "Akana Business",
+    "name": "Akana for organisations page",
+    "what": "'Talk to us' until prices are set. States the privacy line. No church claims until faith titles exist.",
+    "who": "organisation admin",
+    "why": "Outreach needs a page to point at.",
+    "priority": "Week 3",
+    "size": "S",
+    "depends_on": [
+      "F-009"
+    ],
+    "risk": "Copy promising church content before any faith title is released."
+  },
+  {
+    "id": "F-210",
+    "surface": "Akana Business",
+    "name": "Groups with leaders",
+    "what": "Create a group, pick one title and pin its version, assign a leader and co-leader, add members from seat holders or by invitation. Group name warning for sensitive words.",
+    "who": "organisation admin, group leader, member",
+    "why": "Churches, book clubs and workplace cohorts do one workbook together.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-204"
+    ],
+    "risk": "A group name such as 'Anxiety support, Finance team' puts health data in the roster."
+  },
+  {
+    "id": "F-211",
+    "surface": "Akana Business",
+    "name": "Group schedule and soft pace",
+    "what": "Start date, unit open dates, meeting time. 'Your group is on unit 3' on Home and Today. Calendar file (reuses F-024).",
+    "who": "group leader, member",
+    "why": "A group needs to know which unit it is on this week.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-210",
+      "F-016"
+    ],
+    "risk": "Drifting into streaks or 'behind' labels. The 0003 rule (no streak or missed-day derivation) applies to groups."
+  },
+  {
+    "id": "F-212",
+    "surface": "Akana Business",
+    "name": "Facilitator guides",
+    "what": "Separate Zod schema in packages/schema, validator rules (claim words, Help now on wellbeing), editing through the staff JSON editor (F-086), review and sign-off, leader view per unit, print view.",
+    "who": "group leader, Akana admin, author",
+    "why": "A guide saves the leader preparing and keeps sessions consistent.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-210",
+      "F-084"
+    ],
+    "risk": "The licence must allow guides as derived material. Who writes them is Crent's call."
+  },
+  {
+    "id": "F-213",
+    "surface": "Akana Business",
+    "name": "Group check-ins",
+    "what": "Fixed choices only, member-controlled sharing, off by default in workplace groups. No free text column exists.",
+    "who": "member, group leader",
+    "why": "A light weekly signal for the leader without exposing anyone's work.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-210",
+      "F-030"
+    ],
+    "risk": "Shared free text between members would likely bring Akana into Online Safety Act user-to-user scope [check legal]."
+  },
+  {
+    "id": "F-214",
+    "surface": "Akana Business",
+    "name": "Aggregate organisation reports",
+    "what": "Monthly counts per licence and per group above threshold. CSV. No names against progress. pgTAP tests prove leaders and owners cannot read answers or private check-ins.",
+    "who": "organisation admin",
+    "why": "HR and church leaders need evidence the spend was used.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-202",
+      "F-210",
+      "F-141"
+    ],
+    "risk": "Counts per wellbeing title can reveal health data. Shown only above the threshold."
+  },
+  {
+    "id": "F-215",
+    "surface": "Akana Business",
+    "name": "Faith consent screen",
+    "what": "Explicit consent for faith titles and church groups, versioned, withdrawable. Needs a faith genre first (F-221).",
+    "who": "member",
+    "why": "Membership of a church group and use of a faith title both reveal religious belief [check legal].",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-026"
+    ],
+    "risk": "Overlaps F-150, which brings the faith-title consent forward to week 2. If F-150 ships, this entry reduces to extending it to church-run groups."
+  },
+  {
+    "id": "F-216",
+    "surface": "Akana Business",
+    "name": "Report a concern",
+    "what": "From any group screen to Akana support, with the safeguarding-lead prompt for church groups.",
+    "who": "member, group leader",
+    "why": "Church safeguarding guidance asks for a clear route for concerns.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-090"
+    ],
+    "risk": "Akana support is not a safeguarding service. The prompt must send people to their church's safeguarding lead."
+  },
+  {
+    "id": "F-220",
+    "surface": "Akana Business",
+    "name": "Organisation billing on Stripe",
+    "what": "Seat quantity, church bands, group per-member plans, invoices with 30-day terms, Bacs, tax ids, scheduled seat falls, dunning. Organisation subscription mirror separate from reader subscriptions.",
+    "who": "organisation admin, Akana admin",
+    "why": "Removes the manual invoice and bulk grant (C10) once volume justifies it.",
+    "priority": "After launch",
+    "size": "L",
+    "depends_on": [
+      "F-202",
+      "F-092"
+    ],
+    "risk": "VAT on overseas churches and charities that are not in business [check accountant]."
+  },
+  {
+    "id": "F-221",
+    "surface": "Akana Business",
+    "name": "Faith genre and first licensed Christian titles",
+    "what": "New genre with guardrails, Themes and author outreach. Content, licences and review, not only code. Blocks the church offer.",
+    "who": "Akana admin, author, publisher",
+    "why": "Churches can only use general titles until Christian titles are licensed.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-112",
+      "F-036"
+    ],
+    "risk": "Overlaps F-149, which brings the genre code change forward to week 2. If F-149 ships, this entry is the licensing and content work only."
+  },
+  {
+    "id": "F-222",
+    "surface": "Akana Business",
+    "name": "Pool and ledger for organisation income",
+    "what": "Source field on ledger and pool lines, the church per-reader split, author statements that do not name the organisation.",
+    "who": "author, publisher, Akana admin",
+    "why": "Organisation income feeds the D3 pool and must be shown apart from reader memberships.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-104",
+      "F-220"
+    ],
+    "risk": "An author learning that a named employer runs a wellbeing title [check legal]."
+  },
+  {
+    "id": "F-223",
+    "surface": "Akana Business",
+    "name": "Private organisation tenants with branding",
+    "what": "Tenant kind organisation, invite only, no checkout. Waits on A7 and the tenant sign-in decision.",
+    "who": "organisation admin, member",
+    "why": "Larger buyers want their own look and host.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-066",
+      "F-067",
+      "F-133"
+    ],
+    "risk": "Sealing binds answers to the tenant, so work on the marketplace cannot move to a branded tenant later. Decide the tenant when the organisation starts."
+  },
+  {
+    "id": "F-224",
+    "surface": "Akana Business",
+    "name": "Held pace",
+    "what": "Optional: units open when the group reaches them. Changes has_entitlement; needs a full RLS test pass.",
+    "who": "group leader, member",
+    "why": "Some leaders want the group on the same unit.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-211"
+    ],
+    "risk": "A small, risky change to the most important access function."
+  },
+  {
+    "id": "F-225",
+    "surface": "Akana Business",
+    "name": "Join links and CSV bulk invite",
+    "what": "Join code with optional email domain restriction. CSV upload with validation.",
+    "who": "organisation admin",
+    "why": "Large rosters are slow to invite one by one.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-203"
+    ],
+    "risk": "A leaked join code admitting people outside the organisation. Domain restriction and seat caps limit it."
+  },
+  {
+    "id": "F-226",
+    "surface": "Akana Business",
+    "name": "Self-serve sign-up for Group and small Teams plans",
+    "what": "Card checkout, the organiser becomes owner.",
+    "who": "organisation admin",
+    "why": "Small groups will not wait for a sales call.",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-220"
+    ],
+    "risk": "Group organisers are usually consumers, so DMCC Act subscription rules apply [check legal]."
+  },
+  {
+    "id": "F-227",
+    "surface": "Akana Business",
+    "name": "SAML SSO for organisation members",
+    "what": "Large employers only.",
+    "who": "organisation admin, member",
+    "why": "A named large prospect may require it to sign [check].",
+    "priority": "After launch",
+    "size": "M",
+    "depends_on": [
+      "F-054"
+    ],
+    "risk": "Built for one prospect's identity provider and hard to generalise."
+  },
+  {
+    "id": "F-228",
+    "surface": "Akana Business",
+    "name": "Organisation offboarding and export",
+    "what": "Roster and invoices out, roster deleted, members told their work is still theirs. Never answers.",
+    "who": "organisation admin, member",
+    "why": "The DPA requires deletion at the end of the contract.",
+    "priority": "After launch",
+    "size": "S",
+    "depends_on": [
+      "F-077"
+    ],
+    "risk": "An export path that reaches answers. None may exist."
   }
 ]
