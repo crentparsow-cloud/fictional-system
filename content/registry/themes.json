@@ -1,5 +1,5 @@
 {
- "_note": "Theme registry (F-112). Twelve new Themes from AK_Demo_Catalogue.json themes_new and five existing Mind and Mood Themes from themes_existing_used. Every Theme is clearance_status pending until the UKIPO, USPTO and EUIPO register searches are done (classes 9, 16, 41 and 44). Lines and topics for the existing five are not in the planning pack and are left empty rather than invented. min_books is the board's three-book rule. F-148 (7 October 2026) adds 34 Themes from docs/research/taxonomy.json, fills the line and topics of the five Mind and Mood Themes (proposals from the research, not from the original themes registry), adds the extra hidden topics to existing Themes and moves stoicism from Chosen Habits to Wisdom for Living. All 17 existing ids are kept. genre and safety_tier are the taxonomy's suggested values for new titles (the floor, question N8); group_suitable is whether the Theme suits a group. hidden_until_min_books is true for every new Theme: it stays hidden from readers until it holds min_books live titles. Existing Themes keep their current behaviour.",
+ "_note": "Theme registry (F-112). Twelve new Themes from AK_Demo_Catalogue.json themes_new and five existing Mind and Mood Themes from themes_existing_used. Every Theme is clearance_status pending until the UKIPO, USPTO and EUIPO register searches are done (classes 9, 16, 41 and 44). Lines and topics for the existing five are not in the planning pack and are left empty rather than invented. min_books is the board's three-book rule. F-148 (7 October 2026) adds 34 Themes from docs/research/taxonomy.json, fills the line and topics of the five Mind and Mood Themes (proposals from the research, not from the original themes registry), adds the extra hidden topics to existing Themes and moves stoicism from Chosen Habits to Wisdom for Living. All 17 existing ids are kept. genre and safety_tier are the taxonomy's suggested values for new titles (the floor, question N8); group_suitable is whether the Theme suits a group. hidden_until_min_books is true for every new Theme: it stays hidden from readers until it holds min_books live titles. Existing Themes keep their current behaviour. 7 October 2026 (later): reading-scripture is retired (status retired, migration 0025) because Bible study is out of scope for now; its row and id stay and are never reused. 50 Themes are active.",
  "themes": [
   {
    "id": "work-worth-choosing",
@@ -966,7 +966,9 @@
    ],
    "clearance_status": "pending",
    "min_books": 3,
-   "status": "proposed",
+   "status": "retired",
+   "retired_at": "2026-10-07",
+   "retired_reason": "Bible study is out of scope for now (Crent, 7 October 2026). Faith titles stay Bible-based but not Bible study. The id is kept and never reused. Migration 0025 retires the database row.",
    "clearance_note": "F-148 (7 October 2026). No register search yet (gate T1). In-app and renameable [check registers].",
    "genre": "education",
    "safety_tier": "none",
