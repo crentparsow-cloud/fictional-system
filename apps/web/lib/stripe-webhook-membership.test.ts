@@ -4,7 +4,10 @@ import type { SubscriptionState } from "@/lib/membership";
 import type { OutboundMessage } from "@akana/emails";
 import { sendMembershipNotice } from "@/lib/membership-email";
 import {
+  cancelAtPeriodEndRequested,
   handleStripeEvent,
+  immediateCancellation,
+  periodEndCancellation,
   renewalDedupeKey,
   type GrantDetails,
   type InvoiceRecord,
@@ -338,7 +341,7 @@ describe("invoice.upcoming: renewal reminders (DMCC subscription regime)", () =>
     expect(m.subs.get("sub_1")?.plan).toBe("member_year");
   });
 
-  it("does nothing for a monthly membership (six-monthly reminder is a follow-up)", async () => {
+  it("does nothing for a monthly membership (the daily job sends its six-monthly reminder)", async () => {
     const m = membershipWith(subscription());
     const out = await handleStripeEvent(
       event("invoice.upcoming", upcoming({ amount_due: 799, lines: { data: [{ period: { start: RENEWS, end: RENEWS + 31 * 86_400 } }] } })),
@@ -493,5 +496,171 @@ describe("customer.subscription.updated: a portal cancel inside the cooling-off 
     m.fresh.set("sub_1", portalCancel(3) as unknown as Stripe.Subscription);
     const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_c6", CREATED), new FakePurchases(), m);
     expect(out.action).toBe("subscription_applied");
+  });
+});
+
+describe("cancellation emails", () => {
+  const CREATED = 1_800_000_000;
+  const PERIOD_END = 1_802_000_000; // 2027-02-07T08:53:20Z
+  const portalCancel = (startedDaysAgo: number, over: Record<string, unknown> = {}) =>
+    subscription({ start_date: CREATED - startedDaysAgo * 86_400, cancel_at_period_end: true, canceled_at: CREATED, ...over });
+
+  function repo(sub: Record<string, unknown>, refund: Parameters<typeof immediateCancellation>[2] = { status: "refunded", amountMinor: 719, currency: "GBP", refundState: "pending" }) {
+    const m = new FakeMembership().withStripe();
+    m.fresh.set("sub_1", sub as unknown as Stripe.Subscription);
+    m.customerEmail = async (id) => (id === "cus_1" ? "reader@example.com" : null);
+    m.cancelInCoolingOff = async () => ({ status: "cancelled", refund });
+    return m;
+  }
+
+  function mailer() {
+    const claimed = new Set<string>();
+    const sent: OutboundMessage[] = [];
+    return {
+      claimed,
+      sent,
+      deps: {
+        env: { EMAIL_MODE: "live", EMAIL_FROM: "Akana <hello@akana.test>", POSTAL_ADDRESS: "Akana Ltd, 1 Example Street, Edinburgh" },
+        claim: (k: string) => (claimed.has(k) ? false : (claimed.add(k), true)),
+        release: (k: string) => void claimed.delete(k),
+        log: () => {},
+        transport: async (msg: OutboundMessage) => {
+          sent.push(msg);
+          return { ok: true as const, id: `re_${sent.length}` };
+        },
+      },
+    };
+  }
+
+  it("after a cooling-off refund, asks for cancellation now with the refund amount and status", async () => {
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_x1", CREATED), new FakePurchases(), repo(portalCancel(3)));
+    expect(out.action).toBe("cooling_off_cancelled");
+    expect(out.notify).toEqual({
+      template: "cancellation",
+      to: "reader@example.com",
+      subscriptionId: "sub_1",
+      cancelMode: "immediate",
+      endsAt: null,
+      refundAmountMinor: 719,
+      refundCurrency: "GBP",
+      refundState: "pending",
+      dedupeKey: "cancellation:sub_1:immediate",
+    });
+    expect(JSON.stringify(out.notify)).not.toMatch(/title/i);
+  });
+
+  it("sends it once per subscription, with the refund in the email and nothing about access to a date", async () => {
+    const mail = mailer();
+    const m = repo(portalCancel(3));
+    const a = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_x2", CREATED), new FakePurchases(), m);
+    // A retry after the refund was made reports it as already refunded, with the same amount.
+    const b = await handleStripeEvent(
+      event("customer.subscription.updated", portalCancel(3), "evt_x3", CREATED),
+      new FakePurchases(),
+      repo(portalCancel(3), { status: "already_refunded", amountMinor: 719, currency: "GBP", refundState: "succeeded" }),
+    );
+    expect(a.notify?.dedupeKey).toBe(b.notify?.dedupeKey);
+    expect((await sendMembershipNotice(a.notify!, "https://akana.test", mail.deps)).status).toBe("sent");
+    expect((await sendMembershipNotice(b.notify!, "https://akana.test", mail.deps)).status).toBe("skipped");
+    expect(mail.sent).toHaveLength(1);
+    const msg = mail.sent[0]!;
+    expect(msg.subject).toBe("Your membership is cancelled");
+    expect(msg.text).toContain("Your membership has ended today");
+    expect(msg.text).toContain("£7.19");
+    expect(msg.text).toContain("On its way");
+    expect(msg.text).not.toContain("Access until");
+  });
+
+  it("leaves the refund out when none was due", () => {
+    const n = immediateCancellation("sub_1", "reader@example.com", { status: "not_due", reason: "no_paid_invoice" });
+    expect(n).toMatchObject({ cancelMode: "immediate", refundAmountMinor: null, refundCurrency: null, refundState: null });
+    expect(immediateCancellation("sub_1", "r@example.com", { status: "already_refunded" }).refundAmountMinor).toBeNull();
+  });
+
+  it("for an ordinary cancel at period end, asks for cancellation with the end date, once per end date", async () => {
+    const sub = portalCancel(40);
+    const m = repo(sub);
+    let coolingOffCalls = 0;
+    m.cancelInCoolingOff = async () => {
+      coolingOffCalls += 1;
+      return { status: "outside_cooling_off" };
+    };
+    const out = await handleStripeEvent(event("customer.subscription.updated", sub, "evt_p1", CREATED), new FakePurchases(), m);
+    expect(coolingOffCalls).toBe(0);
+    expect(out.action).toBe("subscription_applied");
+    expect(out.notify).toEqual({
+      template: "cancellation",
+      to: "reader@example.com",
+      subscriptionId: "sub_1",
+      cancelMode: "period_end",
+      endsAt: new Date(PERIOD_END * 1000).toISOString(),
+      refundAmountMinor: null,
+      refundCurrency: null,
+      refundState: null,
+      dedupeKey: "cancellation:sub_1:period_end:2027-02-07",
+    });
+
+    const mail = mailer();
+    expect((await sendMembershipNotice(out.notify!, "https://akana.test", mail.deps)).status).toBe("sent");
+    const repeat = await handleStripeEvent(event("customer.subscription.updated", sub, "evt_p2", CREATED + 60), new FakePurchases(), m);
+    expect((await sendMembershipNotice(repeat.notify!, "https://akana.test", mail.deps)).status).toBe("skipped");
+    expect(mail.sent).toHaveLength(1);
+    expect(mail.sent[0]!.text).toContain("Access until");
+    expect(mail.sent[0]!.text).toContain("7 February 2027");
+    expect(mail.sent[0]!.text).toContain("will not renew");
+    expect(mail.sent[0]!.text).not.toContain("refund");
+  });
+
+  it("uses a cancel_at date as the end date", async () => {
+    const at = CREATED + 20 * 86_400;
+    const sub = portalCancel(40, { cancel_at_period_end: false, cancel_at: at });
+    const out = await handleStripeEvent(event("customer.subscription.updated", sub, "evt_p3", CREATED), new FakePurchases(), repo(sub));
+    expect(out.notify).toMatchObject({ cancelMode: "period_end", endsAt: new Date(at * 1000).toISOString() });
+  });
+
+  it("falls back to period end when the cooling-off check says the window has passed", async () => {
+    const sub = portalCancel(3);
+    const m = repo(sub);
+    m.cancelInCoolingOff = async () => ({ status: "outside_cooling_off" });
+    const out = await handleStripeEvent(event("customer.subscription.updated", sub, "evt_p4", CREATED), new FakePurchases(), m);
+    expect(out.notify).toMatchObject({ cancelMode: "period_end" });
+  });
+
+  it("sends nothing for an update with no cancel request, or with no address", async () => {
+    const plain = subscription();
+    expect((await handleStripeEvent(event("customer.subscription.updated", plain, "evt_n1", CREATED), new FakePurchases(), repo(plain))).notify).toBeUndefined();
+    const sub = portalCancel(40);
+    const m = repo(sub);
+    m.customerEmail = async () => null;
+    expect((await handleStripeEvent(event("customer.subscription.updated", sub, "evt_n2", CREATED), new FakePurchases(), m)).notify).toBeUndefined();
+  });
+
+  it("sends nothing when account deletion cancels: that arrives as an ended subscription", async () => {
+    // The deletion job cancels in Stripe at once, so Stripe sends
+    // customer.subscription.deleted on a canceled subscription.
+    const ended = subscription({ status: "canceled", canceled_at: CREATED, ended_at: CREATED, cancel_at_period_end: false });
+    const m = repo(ended);
+    let coolingOffCalls = 0;
+    m.cancelInCoolingOff = async () => {
+      coolingOffCalls += 1;
+      return { status: "already_ended" };
+    };
+    for (const type of ["customer.subscription.deleted", "customer.subscription.updated"]) {
+      const out = await handleStripeEvent(event(type, ended, `evt_d_${type}`, CREATED), new FakePurchases(), m);
+      expect(out.notify, type).toBeUndefined();
+    }
+    // Even an ended subscription that still shows the old cancel flag sends nothing.
+    const flagged = subscription({ status: "canceled", ended_at: CREATED, cancel_at_period_end: true });
+    const out = await handleStripeEvent(event("customer.subscription.deleted", flagged, "evt_d2", CREATED), new FakePurchases(), repo(flagged));
+    expect(out.notify).toBeUndefined();
+    expect(coolingOffCalls).toBe(0);
+  });
+
+  it("judges a running subscription by its status", () => {
+    expect(cancelAtPeriodEndRequested({ status: "active", cancel_at_period_end: true, cancel_at: null })).toBe(true);
+    expect(cancelAtPeriodEndRequested({ status: "past_due", cancel_at_period_end: false, cancel_at: 1 })).toBe(true);
+    expect(cancelAtPeriodEndRequested({ status: "active", cancel_at_period_end: false, cancel_at: null })).toBe(false);
+    expect(cancelAtPeriodEndRequested({ status: "canceled", cancel_at_period_end: true, cancel_at: null })).toBe(false);
+    expect(periodEndCancellation("sub_1", "r@example.com", null).dedupeKey).toBe("cancellation:sub_1:period_end:open");
   });
 });

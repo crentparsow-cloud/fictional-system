@@ -3,5 +3,8 @@
   "framework": "nextjs",
   "installCommand": "pnpm install",
   "regions": ["lhr1"],
-  "crons": [{ "path": "/api/account/complete", "schedule": "17 3 * * *" }]
+  "crons": [
+    { "path": "/api/account/complete", "schedule": "17 3 * * *" },
+    { "path": "/api/membership/reminders", "schedule": "41 8 * * *" }
+  ]
 }
