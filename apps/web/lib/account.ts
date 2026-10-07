@@ -52,6 +52,8 @@ export const YOU_NOTICES = {
   "cancel-failed": "There is no deletion to undo.",
   "consent-withdrawn": "Health data consent withdrawn. You can no longer add to wellbeing workbooks. What you have written stays until you delete it.",
   "consent-failed": "Withdrawing health data consent is not available right now. Please try again later.",
+  "faith-consent-withdrawn": "Faith consent withdrawn. You can no longer add to faith workbooks. What you have written stays until you delete it.",
+  "faith-consent-failed": "Withdrawing faith consent is not available right now. Please try again later.",
 } as const;
 
 export type YouNotice = keyof typeof YOU_NOTICES;

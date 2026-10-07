@@ -33,6 +33,13 @@ describe("adminAbilities", () => {
         pauseWorkbooks: true,
         readOrganisations: true,
         createOrganisations: true,
+        readReviewQueue: true,
+        releaseVersions: true,
+        readFunnel: true,
+        readOps: true,
+        acknowledgeOps: true,
+        readSupport: true,
+        updateSupport: true,
       });
     }
   });
