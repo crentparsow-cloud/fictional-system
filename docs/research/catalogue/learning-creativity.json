@@ -576,9 +576,9 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"One Learner at a Time\" book tutoring",
-    "tool": "WebSearch",
-    "result": "No exact title found. Nearby: 'Improving Student Learning One Teacher at a Time' (Pollock and Tolone, ASCD), a different title [check]."
+    "query": "\"One Learner at a Time\" book; second search \"One Learner at a Time\" ASCD",
+    "result": "close: One Kid at a Time, Eliot Levine, year not shown",
+    "note": "Also nearby: 'Improving Student Learning One Teacher at a Time' (ASCD). A Gale ebook record (ISBN 9781416629702) showed no title; the second search did not find the exact title."
    }
   },
   {
@@ -958,9 +958,9 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"Twenty Minutes at the Table\" writing book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "query": "\"Twenty Minutes at the Table\" book",
+    "result": "clear",
+    "note": "Results were cookbooks such as 'Twenty-Minute Menus' (Marian Burros)."
    }
   },
   {
@@ -1012,8 +1012,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Short Story Season\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "result": "clear",
+    "note": "Nearest: 'The Haunting Season' (anthology) and 'Season of Stories' (Penguin serial)."
    },
    "editorial_note": "Week 12 covers sending stories out but makes no promise of publication."
   },
@@ -1060,8 +1060,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Stories Told Out Loud\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "result": "clear",
+    "note": "Nearest: 'Tales for Telling' and read-aloud anthologies."
    },
    "editorial_note": "Reuses Rafael Moreira Lins, whose bio as a radio presenter fits recorded interviews. Consent from the person recorded is required before sharing. Talking about the past can bring up loss; the Clinical Safety Lead should rule on a support signpost."
   },
@@ -1113,9 +1113,9 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"Before the Names Are Lost\" family history book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "query": "\"Before the Names Are Lost\" book",
+    "result": "close: The Book of Lost Names, author and year not shown",
+    "note": "Also nearby: 'The Names of the Lost' (Liza Wieland). Both are novels."
    },
    "editorial_note": "Records weeks name UK, Irish and other national archives generically; build should add per-market sources [check]. DNA testing is out of scope. Week 10 may touch adoption, illegitimacy or loss; the Clinical Safety Lead should decide whether a support signpost is needed. Respect the privacy of living relatives."
   },
@@ -1159,9 +1159,15 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"Letters to Open Later\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "query": "\"Letters to Open Later\" book; second search \"Letters to Open Later\" Deseret OR Chronicle",
+    "result": "clash: Letters to Open When... (Chronicle Books letter-writing book)",
+    "note": "Same idea and near-identical title. First search also showed an unlabelled Deseret Book record.",
+    "title_alternative": "Letters Left in the Drawer",
+    "title_alternative_check": {
+     "date": "2026-10-07",
+     "query": "\"Letters Left in the Drawer\" book",
+     "result": "clear"
+    }
    },
    "editorial_note": "These letters are not a will or a legal document, and the workbook should say so in week 4. Legacy writing can stir grief; the Clinical Safety Lead should rule on a support signpost. Group use suits later-life and reminiscence groups."
   },
@@ -1278,9 +1284,9 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"Something Made Each Week\" craft book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "query": "\"Something Made Each Week\" book",
+    "result": "clear",
+    "note": "Nearest: 'The 52 Week Project' and 'Weekend Handmade' (Kelly Wilkinson)."
    }
   },
   {
@@ -1323,9 +1329,9 @@
    "group_suitable": true,
    "title_check": {
     "date": "2026-10-07",
-    "query": "\"The Walk With a Camera\" book photography",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this session ran out before this title was checked [check before any public use]."
+    "query": "\"The Walk With a Camera\" book",
+    "result": "clear",
+    "note": "Nearest: 'Walking with Leica' and 'The Walk Book' (Janet Cardiff)."
    },
    "editorial_note": "Week 3 covers consent and privacy when photographing people, especially children."
   }
