@@ -5,6 +5,7 @@
   "regions": ["lhr1"],
   "crons": [
     { "path": "/api/account/complete", "schedule": "17 3 * * *" },
-    { "path": "/api/membership/reminders", "schedule": "41 8 * * *" }
+    { "path": "/api/membership/reminders", "schedule": "41 8 * * *" },
+    { "path": "/api/ops/sweep", "schedule": "23 4 * * *" }
   ]
 }

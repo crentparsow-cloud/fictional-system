@@ -166,5 +166,92 @@
         ]}
       ]
     }
+  },
+  "signposts": {
+    "_note": "F-154 signpost groups, added 7 October 2026. Signposts only: no endorsement or partnership is claimed. Each GB number and its hours were read on the organisation's own website on the checked date. Every other market is null until checked by market (question N16).",
+    "checked": "2026-10-07",
+    "groups": {
+      "money_worries_lines": {
+        "title": "Money worries",
+        "_note": "Free debt and money help. MoneyHelper is the government-backed service; the others are charities.",
+        "markets": {
+          "US": null,
+          "GB": [
+            {"label": "MoneyHelper", "number": "0800 011 3797", "how": "Call", "hours": "Mon to Fri 9am to 5pm", "url": "https://www.moneyhelper.org.uk/en/contact-us", "verified": true, "checked": "2026-10-07"},
+            {"label": "StepChange Debt Charity", "number": "0800 138 1111", "how": "Call", "hours": "Mon to Fri 8am to 8pm; Sat 9am to 2pm", "url": "https://www.stepchange.org/contact-us.aspx", "verified": true, "checked": "2026-10-07"},
+            {"label": "National Debtline", "number": "0808 808 4000", "how": "Call", "hours": "Mon to Fri 9am to 8pm; Sat 9:30am to 1pm", "url": "https://nationaldebtline.org/contact-us/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Citizens Advice Adviceline (England)", "number": "0800 144 8848", "how": "Call", "hours": "Mon to Fri 9am to 5pm", "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Citizens Advice Advicelink (Wales)", "number": "0800 702 2020", "how": "Call", "hours": "Mon to Fri 8am to 7pm; Sat 9am to 1pm", "url": "https://www.citizensadvice.org.uk/wales/about-us/contact-us/contact-us/contact-us/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "CA": null,
+          "AU": null,
+          "IE": null,
+          "NZ": null,
+          "XX": null
+        }
+      },
+      "eating_support_lines": {
+        "title": "Food and eating",
+        "_note": "Beat's own page gives these four numbers and hours.",
+        "markets": {
+          "US": null,
+          "GB": [
+            {"label": "Beat Helpline (England)", "number": "0808 801 0677", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Beat Helpline (Scotland)", "number": "0808 801 0432", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Beat Helpline (Wales)", "number": "0808 801 0433", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Beat Helpline (Northern Ireland)", "number": "0808 801 0434", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "CA": null,
+          "AU": null,
+          "IE": null,
+          "NZ": null,
+          "XX": null
+        }
+      },
+      "bereavement_support_lines": {
+        "title": "Bereavement",
+        "markets": {
+          "US": null,
+          "GB": [
+            {"label": "Cruse Bereavement Support", "number": "0808 808 1677", "how": "Call", "hours": "Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm", "url": "https://www.cruse.org.uk/get-support/helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "CA": null,
+          "AU": null,
+          "IE": null,
+          "NZ": null,
+          "XX": null
+        }
+      },
+      "new_parent_support_lines": {
+        "title": "New parents",
+        "_note": "Family Lives covers England and Wales; its site points callers in Scotland to Children 1st's Parentline Scotland, not yet checked here [check]. PANDAS lists no helpline number on its home page, so only the website is given [check].",
+        "markets": {
+          "US": null,
+          "GB": [
+            {"label": "Family Lives (England and Wales)", "number": "0808 800 2222", "how": "Call", "hours": "Mon to Fri 9am to 9pm; weekends 10am to 3pm", "url": "https://www.familylives.org.uk/how-we-can-help/confidential-helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "PANDAS Foundation (perinatal mental health)", "number": "pandasfoundation.org.uk", "how": "Website", "hours": null, "url": "https://pandasfoundation.org.uk/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "CA": null,
+          "AU": null,
+          "IE": null,
+          "NZ": null,
+          "XX": null
+        }
+      },
+      "carer_support_lines": {
+        "title": "Carers",
+        "markets": {
+          "US": null,
+          "GB": [
+            {"label": "Carers UK Helpline", "number": "0808 808 7777", "how": "Call", "hours": "Mon to Fri 9am to 6pm", "url": "https://www.carersuk.org/help-and-advice/helpline-and-other-support/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "CA": null,
+          "AU": null,
+          "IE": null,
+          "NZ": null,
+          "XX": null
+        }
+      }
+    }
   }
 }
