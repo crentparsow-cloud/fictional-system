@@ -27,7 +27,6 @@ export default async function Home() {
     brandName: brand.name,
     line: brand.line,
     wellnessNotice: brand.wellnessNotice,
-    lineApproved: false,
     cards,
   });
   return <HomeView s={sections} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />;

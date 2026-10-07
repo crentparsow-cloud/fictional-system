@@ -349,7 +349,6 @@ details.help-group summary { cursor: pointer; font-weight: 600; min-block-size: 
 
 /* ---------- marketing home ---------- */
 .home-hero h1 { max-inline-size: 22ch; }
-.hero .home-approval, .home-approval { background: var(--marigold); color: var(--marigold-ink); margin-block-end: 1rem; }
 .home-lead { font-size: 1.15rem; }
 .home-ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-block: 1.5rem 0; }
 .home-btn-light { background: var(--hero-ink); color: var(--hero-bg); }
@@ -504,6 +503,8 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .paywall-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 0.5rem; }
 .paywall-actions .btn { flex-direction: column; align-items: flex-start; gap: 0.1rem; min-block-size: 44px; }
 .paywall-note { font-size: 0.85rem; font-weight: 400; }
+.paywall-yearly { background: none; border: 0; padding: 0.5rem 0; min-block-size: 44px; color: var(--brand); text-decoration: underline; font: inherit; cursor: pointer; }
+.paywall-yearly:disabled { opacity: 0.55; cursor: not-allowed; }
 .consent-page { display: grid; gap: 1rem; max-inline-size: 36rem; margin-inline: auto; padding-block: 1rem; }
 .consent-help { display: flex; justify-content: flex-end; }
 .consent-card { padding: 1.5rem; display: grid; gap: 0.75rem; }
@@ -514,3 +515,63 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .hardest-card { display: grid; gap: 0.5rem; padding: 1.1rem 1.25rem; margin-block-end: 1rem; border-radius: var(--radius); background: var(--rose-soft); }
 .hardest-card h3, .hardest-card p { margin: 0; }
 .hardest-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 0.25rem; }
+
+/* ---------- author, publisher and Theme pages (F-006, F-007) ---------- */
+.browse-eyebrow { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; margin-block-end: 0.5rem; }
+.browse-heading { font-size: 1.25rem; margin-block: 1.5rem 0.75rem; }
+.browse-group { margin-block-end: 1.5rem; }
+.browse-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.browse-item {
+  display: grid; gap: 0.15rem; min-block-size: 44px; padding: 0.75rem 1rem;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface);
+  color: var(--ink); text-decoration: none; transition: border-color 0.15s var(--ease);
+}
+.browse-item:hover { border-color: var(--line-strong); }
+.browse-item-name { font-weight: 600; color: var(--brand); }
+.browse-item-line { color: var(--ink-soft); font-size: 0.95rem; }
+.browse-item-count { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; color: var(--ink-soft); font-size: 0.85rem; }
+.browse-chips { list-style: none; padding: 0; }
+.browse-empty { margin-block: 1rem 2rem; }
+.browse-more { margin-block: 2rem 0; }
+.browse-more a { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+/* Linked chips and author names are tap targets: 44px tall on every screen. */
+.wb-card a.chip, .wb-hero a.chip, .browse-chips a.chip { min-block-size: 44px; }
+.wb-card a.chip:hover, .browse-chips a.chip:hover { border-color: var(--line-strong); color: var(--ink); }
+.wb-hero a.chip:hover { color: inherit; opacity: 1; }
+.author-link { display: inline-flex; align-items: center; min-block-size: 44px; }
+.wb-hero .author-link { color: inherit; }
+@media (min-width: 40rem) {
+  .browse-list { grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+}
+
+/* ---------- on-device search, Help now first (F-008) ---------- */
+.cat-search { display: grid; gap: 0.4rem; max-inline-size: 42rem; margin-block: 0.5rem 1.5rem; }
+.cat-search-label { font-weight: 600; }
+.cat-search-hint, .cat-search-status { margin: 0; }
+.cat-search-status { min-block-size: 1.3em; }
+.cat-search-input {
+  font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm); padding: 0.65em 0.8em; min-block-size: 44px; inline-size: 100%;
+}
+.cat-search-input::placeholder { color: var(--ink-soft); opacity: 1; }
+.cat-search-results { display: grid; gap: 0.75rem; }
+.cat-search-results:empty { display: none; }
+.search-help { border-color: var(--help-bg); border-inline-start-width: 6px; display: grid; gap: 0.25rem; }
+.search-help-title { font-size: 1.15rem; margin-block-end: 0.25rem; }
+.search-help p { margin-block-end: 0.5rem; }
+.search-help-cta { justify-self: start; }
+.search-results-title { font-size: 1rem; color: var(--ink-soft); margin-block: 0.25rem 0; }
+.search-result-list {
+  list-style: none; margin: 0; padding: 0; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.search-result { display: grid; gap: 0.15rem; padding: 0.4rem 1rem 0.6rem; border-block-start: 1px solid var(--line); }
+.search-result:first-child { border-block-start: 0; }
+.search-result-link {
+  display: flex; flex-direction: column; justify-content: center; min-block-size: 44px;
+  font-weight: 600; text-decoration: none;
+}
+.search-result-link:hover .search-result-name, .search-result-link:focus-visible .search-result-name { text-decoration: underline; }
+.search-result-link .muted { font-weight: 400; }
+.search-result-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+.search-empty { margin: 0; }
