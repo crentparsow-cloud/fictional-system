@@ -53,6 +53,16 @@ export interface PlayerProps {
    * or the tags. When set, the daily check screen shows its Save button.
    */
   onDailyCheckDone?: () => void;
+  /**
+   * Higher-tier workbooks (F-022): the reader must press "I have read this"
+   * on the Start screen before any unit opens. While unacknowledged the
+   * Player stays on Start whatever initialView says. Defaults to false.
+   */
+  requireAcknowledge?: boolean;
+  /** Already acknowledged for this enrolment, as the app stored it. */
+  acknowledged?: boolean;
+  /** Called when the reader presses "I have read this", so the app can store it. */
+  onAcknowledge?: () => void;
 }
 
 /**
@@ -73,8 +83,15 @@ export function Player({
   onExerciseDone,
   onCheckInDone,
   onDailyCheckDone,
+  requireAcknowledge,
+  acknowledged,
+  onAcknowledge,
 }: PlayerProps) {
-  const [view, setView] = useState<PlayerView>(initialView ?? { kind: "start" });
+  const [acked, setAcked] = useState<boolean>(!!acknowledged);
+  const gated = !!requireAcknowledge && !acked && !acknowledged;
+  const [viewState, setView] = useState<PlayerView>(initialView ?? { kind: "start" });
+  // A gated reader sees Start until they acknowledge it, whatever was asked for.
+  const view: PlayerView = gated ? { kind: "start" } : viewState;
 
   useEffect(() => {
     onViewChange?.(view);
@@ -161,7 +178,11 @@ export function Player({
             why={why}
             readOnly={readOnly}
             onWhyChange={(w) => liveStore.set(START_SCOPE, "why", w)}
-            onAcknowledge={() => setView({ kind: "unit", number: units[0]?.number ?? 1 })}
+            onAcknowledge={() => {
+              setAcked(true);
+              onAcknowledge?.();
+              setView({ kind: "unit", number: units[0]?.number ?? 1 });
+            }}
           />
         ) : null}
 
