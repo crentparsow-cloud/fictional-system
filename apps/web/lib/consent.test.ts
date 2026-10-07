@@ -1,5 +1,19 @@
 import { describe, expect, it } from "vitest";
-import { CONSENT_REQUIRED_MESSAGE, HEALTH_CONSENT_VERSION, answerWriteDecision, consentGate, consentHref, hasCurrentConsent } from "./consent";
+import {
+  CONSENT_REQUIRED_MESSAGE,
+  FAITH_CONSENT_REQUIRED_MESSAGE,
+  FAITH_CONSENT_VERSION,
+  FAITH_SHELF_ID,
+  HEALTH_CONSENT_VERSION,
+  answerWriteDecision,
+  consentGate,
+  consentHref,
+  faithAnswerWriteDecision,
+  faithConsentGate,
+  faithConsentHref,
+  hasCurrentConsent,
+  isFaithWorkbook,
+} from "./consent";
 
 const AT = "2026-10-07T09:00:00.000Z";
 const V = HEALTH_CONSENT_VERSION;
@@ -87,5 +101,50 @@ describe("consent to an older wording (new version re-ask)", () => {
   it("checks against a given version when one is passed", () => {
     expect(hasCurrentConsent(old, "health-2026-09")).toBe(true);
     expect(hasCurrentConsent({ consentAt: AT, consentVersion: V }, "health-2027-01")).toBe(false);
+  });
+});
+
+describe("faith consent (F-150)", () => {
+  const FV = FAITH_CONSENT_VERSION;
+  const faith = { shelfId: FAITH_SHELF_ID, genreId: "education" };
+  const other = { shelfId: "personal-growth", genreId: "personal_development" };
+
+  it("keys on the Faith and Spirituality shelf, or a future faith genre", () => {
+    expect(isFaithWorkbook(faith)).toBe(true);
+    expect(isFaithWorkbook({ shelfId: null, genreId: "faith" })).toBe(true);
+    expect(isFaithWorkbook(other)).toBe(false);
+    expect(isFaithWorkbook({ shelfId: undefined, genreId: undefined })).toBe(false);
+  });
+
+  it("uses its own version, in the pattern the migration accepts", () => {
+    expect(FV).toBe("faith-2026-10");
+    expect(FV).toMatch(/^[a-z0-9][a-z0-9._-]{0,31}$/);
+    expect(FV).not.toBe(HEALTH_CONSENT_VERSION);
+  });
+
+  it("asks before a faith workbook and never for others", () => {
+    expect(faithConsentGate(faith, { consentAt: null, consentVersion: null })).toBe("faith-consent");
+    expect(faithConsentGate(faith, { consentAt: AT, consentVersion: FV })).toBe("open");
+    expect(faithConsentGate(other, { consentAt: null, consentVersion: null })).toBe("open");
+  });
+
+  it("does not accept the health consent version as faith consent", () => {
+    expect(faithConsentGate(faith, { consentAt: AT, consentVersion: HEALTH_CONSENT_VERSION })).toBe("faith-consent");
+    expect(faithConsentGate(faith, { consentAt: AT, consentVersion: "faith-2026-09" })).toBe("faith-consent");
+  });
+
+  it("refuses new answers in a faith workbook after withdrawal", () => {
+    expect(faithAnswerWriteDecision(faith, { consentAt: null, consentVersion: null })).toEqual({
+      ok: false,
+      status: 403,
+      error: "consent_required",
+      message: FAITH_CONSENT_REQUIRED_MESSAGE,
+    });
+    expect(faithAnswerWriteDecision(faith, { consentAt: AT, consentVersion: FV })).toEqual({ ok: true });
+    expect(faithAnswerWriteDecision(other, { consentAt: null, consentVersion: null })).toEqual({ ok: true });
+  });
+
+  it("builds the faith consent URL with the path encoded", () => {
+    expect(faithConsentHref("/read/x")).toBe("/consent/faith?next=%2Fread%2Fx");
   });
 });

@@ -240,6 +240,10 @@ function scopeHeading(a: ExportAnswer): string {
   if (a.scope.startsWith("checkin:")) return "Check-in";
   if (a.scope === "start") return "Before you started";
   if (a.scope === "keep_going") return "Keep going";
+  if (a.scope === "plan:lines") return "My plan, your changes";
+  if (a.scope === "selfcheck:0") return "Starting self-check";
+  if (a.scope.startsWith("selfcheck:")) return "Self-check";
+  if (a.scope.startsWith("daily:")) return `Daily check, ${a.scope.slice("daily:".length)}`;
   return a.scope;
 }
 

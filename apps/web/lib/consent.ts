@@ -69,3 +69,59 @@ export function answerWriteDecision(tier: string | null | undefined, consent: Co
 export function consentHref(next: string): string {
   return `/consent?next=${encodeURIComponent(next)}`;
 }
+
+// ---------- faith consent (F-150) ----------
+
+/**
+ * Religious belief is special category data. Using a faith workbook can
+ * reveal it, so before a reader's first one they give explicit consent,
+ * recorded on their profile by app.set_faith_consent (migration 0015) with
+ * the version below. It is separate from the health data consent: a faith
+ * workbook on a wellbeing tier asks for both.
+ *
+ * A workbook is a faith workbook when its Theme sits on the Faith and
+ * Spirituality shelf. Crent has not yet decided the optional faith genre
+ * (F-149); if it is added, a workbook with genre "faith" counts as well.
+ */
+export const FAITH_CONSENT_VERSION = "faith-2026-10";
+export const FAITH_SHELF_ID = "faith-and-spirituality";
+export const FAITH_GENRE_ID = "faith";
+
+/** What the gate needs to know about a workbook: its Theme's shelf and its genre. */
+export interface FaithFacts {
+  shelfId: string | null | undefined;
+  genreId: string | null | undefined;
+}
+
+export function isFaithWorkbook(facts: FaithFacts): boolean {
+  return facts.shelfId === FAITH_SHELF_ID || facts.genreId === FAITH_GENRE_ID;
+}
+
+/** Faith consent is in place only when it was given to the current wording. */
+export function hasCurrentFaithConsent(consent: ConsentState, current: string = FAITH_CONSENT_VERSION): boolean {
+  return hasCurrentConsent(consent, current);
+}
+
+/** Where a reader goes when they open a workbook, for the faith consent alone. */
+export function faithConsentGate(facts: FaithFacts, consent: ConsentState): "faith-consent" | "open" {
+  if (!isFaithWorkbook(facts)) return "open";
+  return hasCurrentFaithConsent(consent) ? "open" : "faith-consent";
+}
+
+export const FAITH_CONSENT_REQUIRED_MESSAGE =
+  "Your answers in this workbook are not being saved, because consent to store them is not in place. You can give it again in You.";
+
+/**
+ * May the answers route save a value in this workbook, for the faith consent?
+ * Withdrawal stops new saves in faith workbooks, as does consent to an older
+ * wording. Reading what is already there is not affected.
+ */
+export function faithAnswerWriteDecision(facts: FaithFacts, consent: ConsentState): AnswerWriteDecision {
+  if (faithConsentGate(facts, consent) === "open") return { ok: true };
+  return { ok: false, status: 403, error: "consent_required", message: FAITH_CONSENT_REQUIRED_MESSAGE };
+}
+
+/** The faith consent screen URL for a path the reader was heading to. */
+export function faithConsentHref(next: string): string {
+  return `/consent/faith?next=${encodeURIComponent(next)}`;
+}

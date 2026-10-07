@@ -88,3 +88,28 @@ describe("catalogue guard", () => {
     expect(text).not.toContain("<");
   });
 });
+
+describe("expanded taxonomy hidden topics (F-148)", () => {
+  // The condition words the new Themes carry as hidden topics.
+  const CONDITION_WORDS = ["depression", "OCD", "PTSD", "debt", "divorce", "anxiety", "bipolar", "trauma", "dementia", "panic attacks"];
+
+  it("keeps every condition word as a hidden topic and out of every Theme name and line", async () => {
+    const { themes } = (await import("../../../content/registry/themes.json")).default as {
+      themes: { id: string; name: string; line: string | null; topics: string[] }[];
+    };
+    const topics = themes.flatMap((t) => t.topics);
+    for (const w of CONDITION_WORDS) expect(topics).toContain(w);
+    for (const t of themes) {
+      expect(findTopicLeaks(`${t.name}\n${t.line ?? ""}`, CONDITION_WORDS)).toEqual([]);
+    }
+  });
+
+  it("catches the new condition words if they leak into a page", () => {
+    const leaky: WorkbookDetail = {
+      ...fixture,
+      card: { ...fixture.card, cardLine: "Calmer steps through OCD, PTSD and debt." },
+      start: { start: { welcome: "After a divorce or depression, start small." } },
+    };
+    expect(guardWorkbookPage(leaky, CONDITION_WORDS).sort()).toEqual(["OCD", "PTSD", "debt", "depression", "divorce"].sort());
+  });
+});
