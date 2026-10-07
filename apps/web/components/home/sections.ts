@@ -111,6 +111,9 @@ export function buildHomeSections(input: HomeInput): HomeSections {
       other: [
         { href: "/help-now", label: "Help now" },
         { href: "/publish", label: `Publish with ${brandName}` },
+        { href: "/help", label: "Help centre" },
+        { href: "/trust", label: "Trust" },
+        { href: "/pricing", label: "Pricing" },
       ],
       notice: input.wellnessNotice,
     },

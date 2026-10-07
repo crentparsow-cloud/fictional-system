@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { READER_TERMS_LINKS, READER_TERMS_VERSION } from "@/lib/terms";
 import type { PaywallState } from "./paywall";
 
 interface Props {
@@ -29,7 +30,8 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
       const res = await fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
+        // F-122: the reader terms version this card links to, recorded at checkout.
+        body: JSON.stringify({ ...payload, terms: READER_TERMS_VERSION }),
       });
       const body = (await res.json().catch(() => ({}))) as { url?: string; error?: string };
       if (res.ok && body.url) {
@@ -79,6 +81,18 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
               </button>
             </p>
           ) : null}
+          <p className="small muted paywall-terms">
+            By continuing to payment you agree to our{" "}
+            {READER_TERMS_LINKS.map((l, i) => (
+              <span key={l.href}>
+                {i === 0 ? "" : i === READER_TERMS_LINKS.length - 1 ? " and " : ", "}
+                <a href={l.href} target="_blank" rel="noopener">
+                  {l.label}
+                </a>
+              </span>
+            ))}
+            .
+          </p>
           {message ? (
             <p className="muted" role="status">
               {message}
