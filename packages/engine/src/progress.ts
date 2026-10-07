@@ -1,6 +1,7 @@
 import type { Field, WorkbookV3 } from "@akana/schema";
 import { START_SCOPE, repeatScope } from "./store";
 import { coerceValue, TOOLKIT_OPTIONS_MARKER, type AnswerStore, type FieldValue } from "./types";
+import { normaliseNumber, plainText, tableTotals, type TableValue } from "./values";
 
 /**
  * Progress, My plan and milestones (F-017, F-018), worked out from what the
@@ -36,8 +37,9 @@ const DAY_MS = 86_400_000;
 /**
  * A stored answer as one plain line, or "" when there is nothing to show.
  * Lifted from the legacy showVal(), with one change: a checklist shows the
- * options the reader ticked rather than nothing. Numbers, ratings and grids
- * are not plan material, so they give "".
+ * options the reader ticked rather than nothing. Ratings and grids are not
+ * plan material, so they give "". Numbers, money and tables read as plain
+ * figures; a decision matrix gives its highest-scoring option (F-113).
  */
 export function answerText(field: Field, stored: FieldValue | undefined, toolkitTitles: readonly string[] = []): string {
   if (stored === undefined || stored === null) return "";
@@ -61,6 +63,11 @@ export function answerText(field: Field, stored: FieldValue | undefined, toolkit
         .filter((x): x is string => typeof x === "string" && x.length > 0)
         .join("; ");
     }
+    case "number":
+    case "currency":
+    case "table":
+    case "decision_matrix":
+      return plainText(field, v);
     default:
       return "";
   }
@@ -112,9 +119,13 @@ function exercisesInOrder(doc: WorkbookV3): WorkbookV3["exercises"] {
  * field with that id and an answer, its repeat answer first. Only text
  * fields take a prefill, and only while the reader has not answered them:
  * the value then becomes theirs to change.
+ *
+ * Number and currency fields (F-113) take a figure from an earlier number or
+ * currency field, or the total of an earlier computed table's last column.
  */
-export function prefillFor(doc: WorkbookV3, exerciseId: string, field: Field, store: AnswerStore, toolkitTitles: readonly string[] = []): string | undefined {
+export function prefillFor(doc: WorkbookV3, exerciseId: string, field: Field, store: AnswerStore, toolkitTitles: readonly string[] = []): FieldValue | undefined {
   if (!field.prefill_from) return undefined;
+  if (field.type === "number" || field.type === "currency") return numberPrefill(doc, exerciseId, field, store);
   if (field.type !== "short_text" && field.type !== "long_text") return undefined;
   const order = exercisesInOrder(doc);
   const at = order.findIndex((e) => e.id === exerciseId);
@@ -124,6 +135,28 @@ export function prefillFor(doc: WorkbookV3, exerciseId: string, field: Field, st
     if (!src) continue;
     const text = answerText(src, store.get(repeatScope(e.id), src.id), toolkitTitles) || answerText(src, store.get(e.id, src.id), toolkitTitles);
     if (text) return text;
+  }
+  return undefined;
+}
+
+function numberPrefill(doc: WorkbookV3, exerciseId: string, field: Field, store: AnswerStore): number | undefined {
+  const order = exercisesInOrder(doc);
+  const at = order.findIndex((e) => e.id === exerciseId);
+  const earlier = (at < 0 ? order : order.slice(0, at)).reverse();
+  for (const e of earlier) {
+    const src = e.fields.find((f) => f.id === field.prefill_from);
+    if (!src) continue;
+    for (const scope of [repeatScope(e.id), e.id]) {
+      const stored = store.get(scope, src.id);
+      if (stored === undefined) continue;
+      let n: number | null = null;
+      if (src.type === "number" || src.type === "currency") n = typeof stored === "number" ? stored : null;
+      else if (src.type === "table" && src.computed) {
+        const totals = tableTotals(src, coerceValue(src, stored) as TableValue);
+        n = totals[totals.length - 1] ?? null;
+      }
+      if (n !== null) return normaliseNumber(field, n) ?? undefined;
+    }
   }
   return undefined;
 }
