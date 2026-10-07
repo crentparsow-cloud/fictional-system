@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { READER_TEMPLATES, type ReaderProps, type ReaderTemplateName, type Theme, assertNoTitleProps, renderReader, renderSigninTemplate, SIGNIN_TEMPLATES } from "./reader";
+import { CANCEL_PATH, READER_TEMPLATES, type ReaderProps, type ReaderTemplateName, type Theme, assertNoTitleProps, renderReader, renderSigninTemplate, SIGNIN_TEMPLATES } from "./reader";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..", "..");
@@ -45,10 +45,10 @@ const sample = (themeName: string): { [K in ReaderTemplateName]: ReaderProps[K] 
   welcome: { ...base(themeName) },
   first_unit_finished: { ...base(themeName), firstUnitLabel: "Day one" },
   purchase_lifetime: { ...base(themeName), offerName: "a single workbook", price: "£14" },
-  purchase_pass: { ...base(themeName), price: "£6", periodWords: "a month", nextDate: "6 November 2026" },
+  purchase_membership: { ...base(themeName), price: "£6", periodWords: "a month", nextDate: "6 November 2026" },
   renewal_notice: { ...base(themeName), renewDate: "6 October 2027", price: "£48" },
-  pass_terms_reminder: { ...base(themeName), price: "£48", periodWords: "a year", nextDate: "6 October 2027" },
-  pass_away: { ...base(themeName), price: "£6", nextDate: "6 November 2026" },
+  membership_terms_reminder: { ...base(themeName), price: "£48", periodWords: "a year", nextDate: "6 October 2027" },
+  membership_away: { ...base(themeName), price: "£6", nextDate: "6 November 2026" },
   payment_failed: { ...base(themeName), price: "£6" },
   cancellation: { ...base(themeName), cancelMode: "immediate", refundAmount: "£3.20", refundStatus: "pending" },
   account_deleted: { ...base(themeName), deletionDate: "13 October 2026", undoUrl: "https://example.test/undo" },
@@ -138,6 +138,45 @@ describe("reader templates", () => {
     expect(renderReader("stage_complete", props.stage_complete, links).category).toBe("progress");
     expect(renderReader("crosssell_general", props.crosssell_general, links).category).toBe("marketing");
     expect(renderReader("partner_update", props.partner_update, links).category).toBe("partner");
+  });
+
+  it("calls the paid plan a membership everywhere, never a pass", () => {
+    const props = sample("Mood and Energy");
+    for (const name of names) {
+      const r = renderReader(name, props[name], links);
+      const text = [r.subject, r.text, r.html].join("\n");
+      expect(text, name).not.toMatch(/\bpass(es)?\b/i);
+      expect(text, name).not.toMatch(/all-access/i);
+      expect(text, name).not.toContain("—");
+    }
+  });
+
+  it("points every membership email at the You page and Manage membership", () => {
+    const props = sample("Mood and Energy");
+    expect(CANCEL_PATH).toBe("go to You, then Manage membership, then Cancel");
+    for (const name of ["purchase_membership", "membership_terms_reminder", "renewal_notice", "membership_away"] as const) {
+      const r = renderReader(name, props[name], links);
+      expect(r.text, name).toContain("Manage membership");
+      expect(r.text, name).not.toContain("Settings");
+    }
+    expect(renderReader("payment_failed", props.payment_failed, links).text).toContain("Go to You, then Manage membership");
+  });
+
+  it("renewal_notice gives the date, the amount and how to cancel, and no title", () => {
+    const r = renderReader("renewal_notice", { ...base("Mood and Energy"), renewDate: "6 October 2027", price: "£69.99" }, links);
+    expect(r.subject).toBe("Your membership renews on 6 October 2027");
+    expect(r.text).toContain("6 October 2027");
+    expect(r.text).toContain("£69.99");
+    expect(r.text).toContain(`If you want to cancel, ${CANCEL_PATH} before 6 October 2027.`);
+    expect(r.text).toContain("Your annual membership renews automatically.");
+    expect(findTitle([r.subject, r.text, r.html].join("\n"))).toBeNull();
+    expect(r.category).toBe("transactional");
+  });
+
+  it("payment_failed says the membership carries on while the payment is retried", () => {
+    const r = renderReader("payment_failed", { ...base("Mood and Energy"), price: "£7.99" }, links);
+    expect(r.text).toContain("The latest payment for your membership (£7.99) did not go through.");
+    expect(r.text).toContain("over the next two weeks");
   });
 
   it("writes the lang attribute from the reader's locale", () => {
