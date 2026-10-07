@@ -253,6 +253,95 @@ function checkRefs(doc: Workbook, out: Finding[]): void {
   }
 }
 
+// ---------- v3 field settings (F-113) ----------
+
+const ISO_CURRENCY = /^[A-Z]{3}$/;
+function knownCurrency(code: string | undefined): boolean {
+  if (!code || !ISO_CURRENCY.test(code)) return false;
+  try {
+    new Intl.NumberFormat("en-GB", { style: "currency", currency: code });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Upper bounds the engine renders to. Kept in step with packages/engine/src/values.ts. */
+export const TABLE_MAX_ROWS = 20;
+export const MATRIX_MAX_OPTIONS = 8;
+
+type AnyField = Workbook["exercises"][number]["fields"][number];
+
+/**
+ * Settings the schema cannot express for number, currency, table and
+ * decision_matrix: a real currency code, bounds that make sense, columns
+ * where a grid needs them. Errors are filed as schema findings because a
+ * field set up wrong cannot render as the author meant.
+ */
+export function checkFieldSettings(f: AnyField, path: string, out: Finding[]): void {
+  const err = (message: string) => out.push({ severity: "error", category: "schema", path, message });
+  const warn = (message: string) => out.push({ severity: "warning", category: "schema", path, message });
+  const numeric = f.type === "number" || f.type === "currency";
+  const grid = f.type === "table" || f.type === "decision_matrix";
+
+  if (f.computed && !grid) warn(`computed is only read on table and decision_matrix fields, not ${f.type}`);
+  if (f.min !== undefined && f.max !== undefined && f.min > f.max) err(`min ${f.min} is above max ${f.max}`);
+
+  if (numeric) {
+    if (f.options || f.rows || f.columns) warn(`options, rows and columns are not used by a ${f.type} field`);
+    if (f.type === "currency" && !knownCurrency(f.unit)) err("currency fields need a three-letter currency code in unit, such as GBP or NGN");
+    if (f.type === "number" && f.unit && f.unit.length > 20) warn("unit is shown beside the box; keep it short, such as hours or months");
+  }
+
+  if (f.type === "table") {
+    if (!f.columns) err("a table needs columns (2 to 6 headings)");
+    if (f.computed === "weighted_sum") err("weighted_sum is for decision matrices; a table can use sum or mean");
+    if (f.unit && !knownCurrency(f.unit)) warn("unit on a table is read only as a currency code for its number columns");
+    if (f.rows) {
+      if (f.min_items !== undefined || f.max_items !== undefined) warn("rows fixes the table's rows, so min_items and max_items are ignored");
+      if (f.rows.length > TABLE_MAX_ROWS) err(`a table shows at most ${TABLE_MAX_ROWS} fixed rows`);
+    } else {
+      if (f.min_items !== undefined && f.min_items < 1) err("min_items on a table must be at least 1");
+      if (f.max_items !== undefined && f.max_items > TABLE_MAX_ROWS) err(`max_items on a table must be ${TABLE_MAX_ROWS} or fewer`);
+      if (f.min_items !== undefined && f.max_items !== undefined && f.min_items > f.max_items) err("min_items is above max_items");
+    }
+  }
+
+  if (f.type === "decision_matrix") {
+    if (!f.columns) err("a decision matrix needs columns, one per criterion (2 to 6)");
+    const given = f.options ?? f.rows;
+    if (given) {
+      if (given.length < 2 || given.length > MATRIX_MAX_OPTIONS) err(`a decision matrix compares 2 to ${MATRIX_MAX_OPTIONS} options, got ${given.length}`);
+      if (f.min_items !== undefined || f.max_items !== undefined) warn("options are fixed, so min_items and max_items are ignored");
+    } else {
+      if (f.min_items !== undefined && f.min_items < 2) err("min_items on a decision matrix must be at least 2");
+      if (f.max_items !== undefined && f.max_items > MATRIX_MAX_OPTIONS) err(`max_items on a decision matrix must be ${MATRIX_MAX_OPTIONS} or fewer`);
+      if (f.min_items !== undefined && f.max_items !== undefined && f.min_items > f.max_items) err("min_items is above max_items");
+    }
+    const lo = f.min ?? 1;
+    const hi = f.max ?? 5;
+    if (!Number.isInteger(lo) || !Number.isInteger(hi) || lo < 0 || hi > 10 || lo >= hi) err("a decision matrix scale needs whole numbers with 0 <= min < max <= 10");
+    if (f.unit) warn("unit is not used by a decision matrix");
+  }
+}
+
+function checkFields(doc: Workbook, out: Finding[]): void {
+  const all = doc.exercises.flatMap((e) => e.fields.map((f) => ({ e, f })));
+  for (const { e, f } of all) {
+    const path = `exercises.${e.id}.fields.${f.id}`;
+    checkFieldSettings(f, path, out);
+    // A number or currency field can only take a figure from a figure.
+    if (f.prefill_from && (f.type === "number" || f.type === "currency")) {
+      const sources = all.filter((x) => x.f.id === f.prefill_from).map((x) => x.f);
+      const usable = sources.some((s) => s.type === "number" || s.type === "currency" || (s.type === "table" && !!s.computed));
+      if (sources.length && !usable) {
+        out.push({ severity: "warning", category: "refs", path, message: `prefill_from ${f.prefill_from} is not a number, currency or computed table, so nothing will carry over` });
+      }
+    }
+  }
+  for (const f of doc.checkin?.fields ?? []) checkFieldSettings(f, `checkin.fields.${f.id}`, out);
+}
+
 function checkSafety(doc: Workbook, out: Finding[]): void {
   const err = (path: string, message: string) => out.push({ severity: "error", category: "safety", path, message });
   const wellbeing = doc.safety_tier !== "none";
@@ -346,6 +435,7 @@ export function validateWorkbook(input: unknown, opts: ValidateOptions = {}): Va
   checkStyle(doc, findings, opts);
   checkLimits(doc, findings);
   checkRefs(doc, findings);
+  checkFields(doc, findings);
   checkSafety(doc, findings);
   checkCountsAndDepth(doc, findings, opts);
 
