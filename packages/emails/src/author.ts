@@ -15,8 +15,12 @@ export type AuthorBase = {
 export type AuthorProps = {
   invite: Omit<AuthorBase, "workbookTitle"> & { inviterName: string; organisationName: string; acceptUrl: string; workbookTitle?: string };
   submission_received: AuthorBase & { submittedAt: string };
+  /** Staff accepted the submission into review (F-043). */
+  submission_accepted: AuthorBase;
   changes_requested: AuthorBase & { notes: string[]; reviewUrl: string };
   ready_for_sign_off: AuthorBase & { signOffUrl: string };
+  /** Every release requirement is met and staff approved it. Not on sale yet (F-043). */
+  approved: AuthorBase;
   live: AuthorBase & { liveUrl: string };
   paused: AuthorBase & { reason?: string };
   payout_action_needed: AuthorBase & { actionUrl: string; what: string };
@@ -89,6 +93,21 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
     footer: "author",
   }),
 
+  submission_accepted: (x) => ({
+    subject: "Your submission has been accepted",
+    preheader: "The review has started.",
+    hero: "author",
+    eyebrow: "Accepted",
+    headline: `${x.workbookTitle} is accepted`,
+    greeting: hi(x.name),
+    paragraphs: [
+      `We have accepted ${x.workbookTitle} into review. An Akana editor is working on it now.`,
+      "When it is ready, we will ask you to preview it in the reader and sign off the exact version that goes live.",
+    ],
+    buttons: [{ label: "Open the Studio", url: x.studioUrl }],
+    footer: "author",
+  }),
+
   changes_requested: (x) => ({
     subject: "A few changes before your workbook goes live",
     preheader: "The review notes are ready.",
@@ -112,6 +131,21 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
     greeting: hi(x.name),
     paragraphs: [`${x.workbookTitle} has passed review. Take one last look and sign it off, and it goes live.`],
     buttons: [{ label: "Review and sign off", url: x.signOffUrl }],
+    footer: "author",
+  }),
+
+  approved: (x) => ({
+    subject: "Your workbook is approved",
+    preheader: "It goes live soon.",
+    hero: "author",
+    eyebrow: "Approved",
+    headline: `${x.workbookTitle} is approved`,
+    greeting: hi(x.name),
+    paragraphs: [
+      `${x.workbookTitle} has every sign-off it needs and is approved. It is not on sale yet.`,
+      "We will email you again on the day it goes live.",
+    ],
+    buttons: [{ label: "Open the Studio", url: x.studioUrl }],
     footer: "author",
   }),
 

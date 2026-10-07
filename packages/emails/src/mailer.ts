@@ -16,6 +16,7 @@
 import { type Rendered, isPostalPlaceholder } from "./layout";
 import { type AuthorProps, type AuthorTemplateName, renderAuthor } from "./author";
 import { type ReaderProps, type ReaderTemplateName, renderReader } from "./reader";
+import { type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
 import type { FooterLinks } from "./layout";
 
 export type SendCategory = "transactional" | "progress" | "marketing" | "partner";
@@ -234,6 +235,12 @@ export function createMailer(o: MailerOptions) {
     async sendAuthor<K extends AuthorTemplateName>(template: K, props: AuthorProps[K], s: SendOptions): Promise<SendResult> {
       const r = renderAuthor(template, props, s.links ?? {}, env.POSTAL_ADDRESS, s.lang);
       return deliver(r, "transactional", "author", template, s);
+    },
+
+    /** Akana for organisations (F-203). Logged under the reader audience: the recipient is, or may become, a reader. */
+    async sendOrganisation<K extends OrganisationTemplateName>(template: K, props: OrganisationProps[K], s: SendOptions): Promise<SendResult> {
+      const r = renderOrganisation(template, props, env.POSTAL_ADDRESS, s.lang);
+      return deliver(r, "transactional", "reader", `organisation_${template}`, s);
     },
   };
 }
