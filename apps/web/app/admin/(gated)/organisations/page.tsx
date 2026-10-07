@@ -5,9 +5,13 @@ import { adminAbilities, ORGANISATION_INSERT_ALLOWED } from "@/lib/admin/permiss
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack, labelFor } from "../_components/Bits";
+import { Notice } from "../_components/Notice";
+import { createOrganisation } from "./actions";
 
 export const metadata: Metadata = { title: "Organisations", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
+
+type Search = Record<string, string | string[] | undefined>;
 
 interface OrgRow {
   id: string;
@@ -24,11 +28,13 @@ const LIMIT = 500;
 
 /**
  * Organisations (F-082, light). Any staff role reads the list through
- * organisations_read. Creating one needs an insert grant and policy that
- * migration 0001 does not have, so the form stays disabled until then.
+ * organisations_read. Owners and editors create one through
+ * public.create_organisation (migration 0008), which mints the code and
+ * writes the audit row.
  */
-export default async function AdminOrganisationsPage() {
+export default async function AdminOrganisationsPage({ searchParams }: { searchParams: Promise<Search> }) {
   const staff = await getStaffSession("/admin/organisations");
+  const sp = await searchParams;
   const can = adminAbilities(staff.roles);
 
   const supabase = await createUserClient();
@@ -47,6 +53,7 @@ export default async function AdminOrganisationsPage() {
       <AdminBack />
       <h1>Organisations</h1>
       <p className="muted">Publishers, author companies and sole authors, with the Akana house organisation.</p>
+      <Notice code={sp.notice} />
 
       {error ? (
         <p className="admin-notice admin-notice-error" role="alert">
@@ -103,11 +110,11 @@ export default async function AdminOrganisationsPage() {
               Not available yet. The database has no insert policy on organisations, so a migration is needed before staff can create one here.
             </p>
           ) : null}
-          <form className="admin-form">
+          <form className="admin-form" action={createOrganisation}>
             <fieldset disabled={!formOpen}>
               <legend className="admin-vh">New organisation</legend>
               <label htmlFor="org-kind">Kind</label>
-              <select id="org-kind" name="kind" defaultValue="">
+              <select id="org-kind" name="kind" defaultValue="" required>
                 <option value="" disabled>
                   Choose a kind
                 </option>
@@ -118,11 +125,11 @@ export default async function AdminOrganisationsPage() {
                 ))}
               </select>
               <label htmlFor="org-display">Display name</label>
-              <input id="org-display" name="display_name" maxLength={200} />
+              <input id="org-display" name="display_name" maxLength={200} required />
               <label htmlFor="org-legal">Legal name</label>
-              <input id="org-legal" name="legal_name" maxLength={300} />
+              <input id="org-legal" name="legal_name" maxLength={300} required />
               <label htmlFor="org-country">Country code</label>
-              <input id="org-country" name="country" maxLength={2} placeholder="GB" autoCapitalize="characters" />
+              <input id="org-country" name="country" maxLength={2} placeholder="GB" autoCapitalize="characters" required />
               <button type="submit" className="btn">
                 Create organisation
               </button>

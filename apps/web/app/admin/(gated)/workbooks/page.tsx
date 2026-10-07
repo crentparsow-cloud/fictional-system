@@ -72,14 +72,11 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
           <form action={setWorkbookLive} className="admin-form">
             <input type="hidden" name="code" value={confirming.code} />
             <input type="hidden" name="action" value={confirmAction} />
-            <label htmlFor="reason">{confirmAction === "pause" ? "Reason for the pause" : "Note (optional)"}</label>
-            <textarea
-              id="reason"
-              name="reason"
-              rows={3}
-              maxLength={PAUSE_REASON_MAX}
-              required={confirmAction === "pause"}
-            />
+            <label htmlFor="reason">{confirmAction === "pause" ? "Reason for the pause" : "Reason for resuming"}</label>
+            <p id="reason-hint" className="muted small">
+              Kept in the audit log with your name. {PAUSE_REASON_MAX} characters at most.
+            </p>
+            <input id="reason" name="reason" type="text" maxLength={PAUSE_REASON_MAX} required aria-describedby="reason-hint" />
             <div className="admin-actions">
               <button type="submit" className={confirmAction === "pause" ? "btn help" : "btn"}>
                 {confirmAction === "pause" ? `Pause ${confirming.code}` : `Resume ${confirming.code}`}

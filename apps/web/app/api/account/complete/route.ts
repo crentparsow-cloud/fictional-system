@@ -1,5 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
+import { runDeletionJob, stripeCanceller, type DueSubscription } from "@/lib/account-complete";
+import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
@@ -7,7 +9,14 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *
  *   GET or POST /api/account/complete
  *   Authorization: Bearer <CRON_SECRET>   (Vercel Cron sends this itself)
- *   -> { processed, auth_removed, auth_failed }
+ *   -> { processed, auth_removed, auth_failed, subscriptions_cancelled, subscriptions_failed }
+ *
+ * Step 0, membership (F-097, migration 0009): any live Stripe subscription
+ * of a reader whose deletion is due is cancelled in Stripe at once and
+ * recorded as cancelled. If one cannot be cancelled, nothing is deleted this
+ * run (502) and the next run tries again; the database refuses to complete
+ * a deletion while a live subscription remains. The order and the fakes
+ * that test it are in lib/account-complete.ts.
  *
  * Step 1, in SQL: public.complete_due_deletions() deletes the reader's
  * answers, progress, enrolments, entitlements and memberships and clears
@@ -47,30 +56,60 @@ async function run(request: NextRequest) {
     return NextResponse.json({ error: "not_configured" }, { status: 503, headers: NO_STORE });
   }
 
-  const { data, error } = await admin.rpc("complete_due_deletions");
-  if (error) {
-    console.error("complete_due_deletions_failed", error.code);
+  // Stripe is needed only when a due reader still has a live membership.
+  let canceller: ReturnType<typeof stripeCanceller> | null = null;
+  const cancelSubscription = async (id: string) => {
+    canceller ??= stripeCanceller(getStripe().subscriptions);
+    return canceller(id);
+  };
+
+  let result;
+  try {
+    result = await runDeletionJob({
+      async dueSubscriptions() {
+        const { data, error } = await admin.rpc("due_deletion_subscriptions");
+        if (error) throw new SqlError(error.code);
+        return (data ?? []) as DueSubscription[];
+      },
+      cancelSubscription,
+      async markSubscriptionCancelled(id) {
+        const { error } = await admin.rpc("mark_subscription_cancelled", { p_subscription: id });
+        if (error) throw new SqlError(error.code);
+      },
+      async completeDueDeletions() {
+        const { data, error } = await admin.rpc("complete_due_deletions");
+        if (error) throw new SqlError(error.code);
+        return ((data ?? []) as { user_id: string }[]).map((r) => r.user_id);
+      },
+      async deleteAuthUser(id) {
+        const { error } = await admin.auth.admin.deleteUser(id);
+        // Already gone (an earlier run removed it and stopped before stamping) counts as done.
+        if (!error) return "removed";
+        return error.status === 404 ? "gone" : "failed";
+      },
+      async markAuthRemoved(id) {
+        const { error } = await admin.rpc("mark_auth_removed", { p_user: id });
+        return !error;
+      },
+    });
+  } catch (err) {
+    console.error("complete_due_deletions_failed", err instanceof SqlError ? err.code : "unknown");
     return NextResponse.json({ error: "sql_failed" }, { status: 500, headers: NO_STORE });
   }
-  const ids = ((data ?? []) as { user_id: string }[]).map((r) => r.user_id);
 
-  let removed = 0;
-  let failed = 0;
-  for (const id of ids) {
-    const { error: delError } = await admin.auth.admin.deleteUser(id);
-    // Already gone (an earlier run removed it and stopped before stamping) counts as done.
-    const gone = !delError || delError.status === 404;
-    if (!gone) {
-      failed += 1;
-      continue;
-    }
-    const { error: markError } = await admin.rpc("mark_auth_removed", { p_user: id });
-    if (markError) failed += 1;
-    else removed += 1;
+  const { status, ...counts } = result;
+  if (status === "blocked") {
+    console.error("account_subscription_cancel_failed", counts.subscriptions_failed);
+    return NextResponse.json({ error: "stripe_cancel_failed", ...counts }, { status: 502, headers: NO_STORE });
   }
-  if (failed) console.error("account_auth_removal_failed", failed);
+  if (counts.auth_failed) console.error("account_auth_removal_failed", counts.auth_failed);
+  return NextResponse.json(counts, { headers: NO_STORE });
+}
 
-  return NextResponse.json({ processed: ids.length, auth_removed: removed, auth_failed: failed }, { headers: NO_STORE });
+class SqlError extends Error {
+  constructor(public code: string | undefined) {
+    super("sql_failed");
+  }
 }
 
 export const GET = run;

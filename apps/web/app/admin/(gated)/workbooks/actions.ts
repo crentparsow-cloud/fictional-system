@@ -3,24 +3,22 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { adminAbilities } from "@/lib/admin/permissions";
-import { isKillSwitchAction, killSwitchTarget, parsePauseReason, parseWorkbookCode } from "@/lib/admin/workbooks";
+import { isKillSwitchAction, killSwitchErrorNotice, killSwitchTarget, parsePauseReason, parseWorkbookCode } from "@/lib/admin/workbooks";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Kill switch (F-083): pause a live workbook or resume a paused one.
  *
- * Runs through the user client. workbooks_update (0002) admits platform
- * owners and editors, and guard_workbook_status lets only them set live, so
- * the database refuses anyone else even if this check were skipped.
+ * Runs through the user client and public.set_workbook_paused (migration
+ * 0008). The function admits platform owners and editors only, moves the
+ * status between live and paused and nothing else, and writes the audit row
+ * with the reason in the same transaction. A reason is required both ways.
  *
- * The update is conditional on the status the confirm screen showed, so two
- * staff acting at once cannot flip it back and forth by accident.
- *
- * Audit: app.audit() lives in the app schema, which PostgREST does not expose,
- * and there is no public wrapper, so this action cannot write an audit row.
- * Neither the status guard nor any trigger audits workbook status changes.
- * Until a migration adds one, the change and its reason go to the server log.
+ * The status read here only checks that the confirm screen still matches.
+ * The function locks the row and refuses a pause of anything not live, or a
+ * resume of anything not paused, so two staff acting at once cannot flip it
+ * back and forth by accident.
  */
 export async function setWorkbookLive(formData: FormData): Promise<void> {
   const staff = await getStaffSession("/admin/workbooks");
@@ -41,19 +39,16 @@ export async function setWorkbookLive(formData: FormData): Promise<void> {
   const target = killSwitchTarget(action, current);
   if (!target) redirect("/admin/workbooks?notice=stale");
 
-  const { data, error } = await supabase
-    .from("workbooks")
-    .update({ status: target })
-    .eq("id", (row as { id: string }).id)
-    .eq("status", current)
-    .select("id");
+  const { error } = await supabase.rpc("set_workbook_paused", {
+    p_workbook: (row as { id: string }).id,
+    p_paused: action === "pause",
+    p_reason: reason.reason,
+  });
   if (error) {
     console.error("admin_workbook_status_failed", error.code ?? "");
-    redirect(`/admin/workbooks?notice=${error.code === "42501" ? "denied" : "failed"}`);
+    const notice = killSwitchErrorNotice(error.code);
+    redirect(notice === "reason" ? `/admin/workbooks?confirm=${code}&notice=reason` : `/admin/workbooks?notice=${notice}`);
   }
-  if (!data || data.length === 0) redirect("/admin/workbooks?notice=stale");
-
-  console.info("admin_workbook_kill_switch", JSON.stringify({ code, from: current, to: target, actor: staff.userId, reason: reason.reason }));
 
   revalidatePath("/admin/workbooks");
   revalidatePath("/admin");
