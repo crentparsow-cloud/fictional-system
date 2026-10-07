@@ -2,19 +2,22 @@
 
 Prepared 2026-10-07. Group `faith`. The machine-readable version is `faith.json` in this folder.
 
+## Update, 7 October 2026 (later): Bible study out of scope
+
+Crent decided that nothing directly about studying the Bible goes in for now. Faith titles stay Bible-based, but not Bible study. The Reading Scripture Theme is retired. Its four demo titles are removed, because each was built around reading a book or set of readings of the Bible: Slow Through Mark, Proverbs for Ordinary Mondays, Letters to Small Churches and Gospels of the Great Feasts. Each keeps its record in `faith.json` with `"status": "removed_bible_study"` and a reason, and is not seeded. No title moved to another Theme. Every other title stays, including those that draw on Scripture for prayer, devotion or comfort (Morning and Evening, Psalms of the Long Night, Content With Daily Bread). The Small Group Leader's Year stays, with week 2 reworded from "preparing a Bible study" to "preparing a session". The bios of Ruth Okonkwo-Harland and Hyejin Park-Lindqvist no longer mention Bible study. Bible quotations still use the World English Bible, as quotation support only.
+
 ## Summary
 
-This adds 51 workbooks to the new Faith and Spirituality shelf. 29 are real public-domain classics. 22 are invented demo titles. No existing catalogue workbook is a faith title, so every subcategory starts from zero.
+This adds 47 workbooks to the new Faith and Spirituality shelf (51 before the 7 October removal). 29 are real public-domain classics. 18 are invented demo titles. No existing catalogue workbook is a faith title, so every subcategory starts from zero.
 
 New authors: 24 real public-domain authors or translators, and 9 invented demo authors. Two existing demo authors are reused: Wanjiru Kamau-Otieno and Tama Rāwiri-Hughes. No new imprint is proposed. Demo titles sit with Kettlebrook Editions, Larchmere Atlas Books, Ochre Finch Press or are self-published.
 
-Every subcategory now has at least three workbooks. Every code is provisional.
+Every active subcategory has at least three workbooks. Every code is provisional.
 
 ## Coverage
 
 | Subcategory | Classics | Demo | Total |
 |---|---|---|---|
-| Reading Scripture (`reading-scripture`) | 0 | 4 | 4 |
 | Rhythms of Prayer (`rhythms-of-prayer`) | 6 | 1 | 7 |
 | Quiet Contemplation (`quiet-contemplation`) | 5 | 0 | 5 |
 | Growing in Faith (`growing-in-faith`) | 16 | 0 | 16 |
@@ -23,10 +26,14 @@ Every subcategory now has at least three workbooks. Every code is provisional.
 | Generous Living (`generous-living`) | 0 | 3 | 3 |
 | Mercy and Comfort (`mercy-and-comfort`) | 0 | 4 | 4 |
 | Serving Together (`serving-together`) | 1 | 3 | 4 |
+| **Total** | **29** | **18** | **47** |
+| Reading Scripture (`reading-scripture`), retired | 0 | 0 (4 removed) | 0 |
 
-Growing in Faith is heavy, with 16 classics. That is where most of the verified classics sit. Reading Scripture, Faith at Home, Generous Living and Mercy and Comfort have no classics, so they rely on demo titles until licensed modern titles arrive.
+Growing in Faith is heavy, with 16 classics. That is where most of the verified classics sit. Faith at Home, Generous Living and Mercy and Comfort have no classics, so they rely on demo titles until licensed modern titles arrive.
 
-## Reading Scripture (`reading-scripture`)
+## Reading Scripture (`reading-scripture`): retired, titles removed
+
+The Theme is retired and these four titles are removed (`removed_bible_study`). They are listed for the record only. Their codes and slugs are not reused.
 
 | Code | Title | Author | Tradition | Length | Tier | Help now | Groups | Badge |
 |---|---|---|---|---|---|---|---|---|
@@ -120,6 +127,8 @@ Growing in Faith is heavy, with 16 classics. That is where most of the verified 
 | AK-Q46PK (provisional) | Power Through Prayer | E. M. Bounds | Protestant | 4 weeks | none | No | Yes | Classic text, Akana workbook |
 | AK-DCSC6 (provisional) | Welcome at the Door | Tama Rāwiri-Hughes | General Christian | 4 weeks | none | No | Yes | Demo workbook |
 | AK-0G88S (provisional) | The Small Group Leader's Year | Losa Faleolo-Pierce | Protestant | 12 weeks | none | No | Yes | Demo workbook |
+
+The Small Group Leader's Year: week 2 now reads "preparing a session, with the questions and the prayer" (was "preparing a Bible study").
 | AK-CNN64 (provisional) | Visiting Well | Jerome Whitlock-Bayliss | General Christian | 6 weeks | none | No | Yes | Demo workbook |
 
 ## New authors
@@ -157,8 +166,8 @@ Growing in Faith is heavy, with 16 classics. That is where most of the verified 
 
 | Id | Name | Country | Tradition | Imprint | Bio |
 |---|---|---|---|---|---|
-| AU-HESJ2 | Ruth Okonkwo-Harland | GB | Protestant | Kettlebrook Editions | Grew up in Enugu and has lived in Leeds since her twenties. Has hosted a midweek Bible reading group in her front room for many years. Writes plain, slow guides to reading Scripture together. This author is invented for the Akana demo. |
-| AU-4SXM8 | Hyejin Park-Lindqvist | US | Protestant | Larchmere Atlas Books | A Korean-American former high school English teacher in Seattle. Leads a Saturday morning Bible study and likes reading one book of the Bible slowly. This author is invented for the Akana demo. |
+| AU-HESJ2 | Ruth Okonkwo-Harland | GB | Protestant | Kettlebrook Editions | Grew up in Enugu and has lived in Leeds since her twenties. Has hosted a midweek prayer group in her front room for many years. Writes plain, slow guides to forgiveness and prayer. This author is invented for the Akana demo. |
+| AU-4SXM8 | Hyejin Park-Lindqvist | US | Protestant | Larchmere Atlas Books | A Korean-American former high school English teacher in Seattle. Leads a Saturday morning discussion group at her church and makes room for honest questions about faith. This author is invented for the Akana demo. |
 | AU-NQZGX | Theodora Vasilakis-Reid | AU | Orthodox | Independent (self-published) | Grew up in Melbourne's Greek community and has taught Sunday school for many years. Writes about the Church year and prayer at home. This author is invented for the Akana demo. |
 | AU-C7YJ6 | Ioana Constantinescu-Byrne | IE | Orthodox | Independent (self-published) | Moved from Cluj to Dublin in her twenties and sings in a small Orthodox choir. Writes about the evening prayers and psalms she learned as a child. This author is invented for the Akana demo. |
 | AU-E5MP6 | Siobhán Carrick-Doherty | IE | Catholic | Independent (self-published) | A retired primary teacher in Cork and a grandmother of five. Has helped families get ready for their children's First Communion for many years. Writes about prayer around the kitchen table and in the working day. This author is invented for the Akana demo. |
@@ -177,15 +186,15 @@ Reused authors. Wanjiru Kamau-Otieno writes Content With Daily Bread, which fits
 
 **Other traditions.** Quiet Contemplation adds two. The Dhammapada uses F. Max Müller's translation from The Sacred Books of the East, Volume X (Clarendon Press, 1881), Gutenberg #2017. Müller died in 1900. The Song Celestial uses Edwin Arnold's 1885 verse translation of the Bhagavad Gita, Gutenberg #2388. Arnold died in 1904. Both are clear in the UK (life plus 70) and the US (before 1931), and meet Tier A. Each is labelled by its tradition and needs a reviewer from that tradition. The listing must not present them as Christian titles.
 
-**Bible text.** Akana's own prompts quote the World English Bible British Edition for en-GB and the WEB for en-US. Catholic and Orthodox titles use the edition with the Deuterocanon. For en-AU, en-CA and en-NZ the WEBBE is suggested [check]. The classics keep their own embedded quotations, which are often KJV. Whether those need Cambridge permission in the UK is already a Legal Lead question.
+**Bible text.** Quotation support only, inside Bible-based titles; no title is built around studying the Bible (7 October 2026). Akana's own prompts quote the World English Bible British Edition for en-GB and the WEB for en-US. Catholic and Orthodox titles use the edition with the Deuterocanon. For en-AU, en-CA and en-NZ the WEBBE is suggested [check]. The classics keep their own embedded quotations, which are often KJV. Whether those need Cambridge permission in the UK is already a Legal Lead question.
 
-**Safety.** No title says or suggests that faith, prayer or Scripture treats illness, grief, anxiety or low mood. The six classics the research marked `standard` keep Help now. All four Mercy and Comfort titles are tier `standard` with Help now. Kept Company in Grief adds a bereavement signpost, which is a new `support_signpost` value and needs `support_lines.json` entries [check]. Forgiving Slowly and The Year Before the Wedding carry the when-home-is-not-safe signpost, and Forgiving Slowly says plainly that forgiveness never means returning to harm. Slow Through Mark treats the healing stories as Scripture, not health advice. A Lighter Lent says fasting is not a diet or health plan. Help now lists crisis lines; a pastoral line may sit beside it but never replaces it.
+**Safety.** No title says or suggests that faith, prayer or Scripture treats illness, grief, anxiety or low mood. The six classics the research marked `standard` keep Help now. All four Mercy and Comfort titles are tier `standard` with Help now. Kept Company in Grief adds a bereavement signpost, which is a new `support_signpost` value and needs `support_lines.json` entries [check]. Forgiving Slowly and The Year Before the Wedding carry the when-home-is-not-safe signpost, and Forgiving Slowly says plainly that forgiveness never means returning to harm. A Lighter Lent says fasting is not a diet or health plan. Help now lists crisis lines; a pastoral line may sit beside it but never replaces it.
 
 **Money.** The three Generous Living titles and the Müller workbook carry `money_guidance_not_advice`. None recommends a sum, a percentage or a product. Tithing is discussed as a practice, not a rule. Straight Dealing at Work carries `not_legal_or_tax_advice` because it touches on speaking up at work.
 
 **Groups.** Most titles suit churches and small groups. Three are marked not group suitable: A Small Place for Prayer (a household practice), The Year Before the Wedding (for one couple) and Kept Company in Grief (personal grief work; a bereavement group would need a trained leader).
 
-**Traditions.** Classics: 19 Protestant, 4 Catholic, 4 General Christian, none Orthodox. The demo titles fill the gap: 4 Orthodox, 4 Catholic, 8 Protestant, 6 General Christian. The two other-tradition classics are labelled Buddhist and Hindu. Every faith listing shows its label and the line "Written from within the [tradition] tradition. Readers from other churches are welcome."
+**Traditions.** Classics: 19 Protestant, 4 Catholic, 4 General Christian, none Orthodox. The demo titles fill the gap: 3 Orthodox, 4 Catholic, 5 Protestant, 6 General Christian (4 Orthodox and 8 Protestant before the 7 October removal). The two other-tradition classics are labelled Buddhist and Hindu. Every faith listing shows its label and the line "Written from within the [tradition] tradition. Readers from other churches are welcome."
 
 ## Title and name risks
 
@@ -195,7 +204,7 @@ Reused authors. Wanjiru Kamau-Otieno writes Content With Daily Bread, which fits
 
 - The Year Before the Wedding is close to the novel The Week Before the Wedding. Legal to judge.
 
-- Gospels of the Great Feasts and Vespers at Home are generic liturgical phrases used in parish material. No book of that exact title was found.
+- Vespers at Home is a generic liturgical phrase used in parish material. No book of that exact title was found. (Gospels of the Great Feasts, also checked, is now removed.)
 
 - Rejected during checking: Twelve Feasts, Twelve Readings; Prayer at the Lighting of Lamps; When the Lamps Are Lit; Grace Before Supper; The Icon Corner; The Prayer Corner at Home; Enough for Today; When the Chair Is Empty.
 

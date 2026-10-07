@@ -27,8 +27,10 @@ const WHO = [
 
 const HOW = [
   "You choose the workbooks and how many people take part.",
-  "We set up access for your people. Each person has their own private account.",
+  "We set up your licence. You invite your people by email, and each person uses their own private account.",
+  "You see how many places are taken and how many people have started, as counts. Small numbers are not shown.",
   "Discussion stays in the room or on your call. The workbook is for each person's own answers.",
+  "Taking part is each person's choice, and a wellbeing workbook is never a condition of work or membership.",
   "Everyone taking part must be 18 or over.",
 ] as const;
 

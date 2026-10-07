@@ -20,8 +20,13 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
           <nav aria-label="Studio" className="studio-nav">
             <Link href="/studio/profile">Profile</Link>
             <Link href="/studio/books">Books</Link>
+            <Link href="/studio/workbooks">Workbooks</Link>
+            <Link href="/studio/dashboard">Readers</Link>
+            <Link href="/studio/earnings">Earnings</Link>
             <Link href="/console">Team</Link>
+            <Link href="/console/rollup">Roll-up</Link>
             <Link href="/payouts">Payouts</Link>
+            <Link href="/studio/help">Help</Link>
           </nav>
           <form action={signOut}>
             <button type="submit" className="btn secondary admin-signout">

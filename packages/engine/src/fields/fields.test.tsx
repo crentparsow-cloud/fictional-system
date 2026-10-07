@@ -138,11 +138,11 @@ describe("field components", () => {
     expect((screen.getByRole("button", { name: "Yes" }) as HTMLButtonElement).disabled).toBe(true);
   });
 
-  it("week 3 types render the labelled placeholder", () => {
+  it("number and currency render a real input, not the placeholder", () => {
     for (const type of ["number", "currency", "table", "decision_matrix"] as const) {
-      const { view } = mount({ id: `p_${type}`, type, label: `A ${type}` });
-      expect(view.container.querySelector(`[data-pending-field="${type}"]`)).toBeTruthy();
-      expect(view.container.textContent).toContain("arrives in week 3");
+      const { view } = mount({ id: `p_${type}`, type, label: `A ${type}`, columns: ["A", "B"] });
+      expect(view.container.querySelector("[data-pending-field]")).toBeNull();
+      expect(view.container.querySelector(`[data-field-type="${type}"]`)).toBeTruthy();
       cleanup();
     }
   });

@@ -2169,7 +2169,7 @@
       "F-112",
       "F-109"
     ],
-    "risk": "None of the 34 new names has had a register search (gate T1); they stay in-app and renameable. The hidden-topic leak test must cover the new condition words (depression, OCD, PTSD, debt, divorce). Migration number is the next free one at merge, which shifts the 0013 to 0022 numbers in akana-business.md."
+    "risk": "None of the 34 new names has had a register search (gate T1); they stay in-app and renameable. The hidden-topic leak test must cover the new condition words (depression, OCD, PTSD, debt, divorce). Migration number is the next free one at merge, which shifts the 0013 to 0022 numbers in akana-business.md. Update 7 October 2026: Reading Scripture (reading-scripture) is retired because Bible study is out of scope for now; migration 0025 adds themes.status and marks it retired, and the id is never reused. 50 Themes are active."
   },
   {
     "id": "F-149",
@@ -2177,7 +2177,7 @@
     "name": "Optional faith genre",
     "what": "Append 'faith' to GENRES in packages/schema/src/v3.ts (append only), add it to content/registry/genres.json and a genre profile in @akana/validate with its own rules: no healing or answered-prayer claims, a pastoral signpost beside Help now, and a scripture licence check. New additive migration that drops and recreates the genres CHECK from 0002 with 12 ids, then inserts the row; 0002 itself is not edited. Add the GENRE_LABELS entry in apps/web/app/publish/options.ts. Make scripts/check-registry.ts throw on an unknown genre instead of treating it as wellbeing. Built only if Crent says yes.",
     "who": "Akana admin, reader",
-    "why": "None of the 11 genres fits Bible study and prayer. Faith titles need their own guardrails, and a genre is what the consent screen and the release gate can key on. Adding a genre value is additive under the freeze.",
+    "why": "None of the 11 genres fits prayer and devotional titles. Faith titles need their own guardrails, and a genre is what the consent screen and the release gate can key on. Adding a genre value is additive under the freeze.",
     "priority": "Week 2",
     "size": "S",
     "depends_on": [
@@ -2201,15 +2201,15 @@
       "F-122",
       "F-149"
     ],
-    "risk": "Consent wording not yet reviewed by the lawyer. If Crent declines the faith genre, the trigger must key on the Faith and Spirituality shelf instead. F-215 extends the same consent to church-run groups after launch."
+    "risk": "Consent wording and the privacy notice line about religious belief do not need lawyer review now (Crent, 7 October 2026): closed. If Crent declines the faith genre, the trigger must key on the Faith and Spirituality shelf instead. F-215 extends the same consent to church-run groups after launch."
   },
   {
     "id": "F-151",
     "surface": "Content engine",
-    "name": "Bible text handling and attribution",
-    "what": "World English Bible as the default text: the British Edition (WEBBE) for en-GB workbooks, the WEB for en-US, and the WEBBE with the Deuterocanon for Catholic and Orthodox titles. Optional scripture_text field on the workbook (additive). Attribution line on the Start or notes screen, for example 'Scripture quotations are from the World English Bible British Edition, which is in the public domain.' Validator rule: WEB wording is never edited, each quotation is marked when a workbook uses more than one version, and licensed versions keep a verse counter against the publisher's limit.",
+    "name": "Bible quotation support and attribution",
+    "what": "Quotation support only, inside Bible-based faith titles (devotional, prayer, character, practical and Christian living). Not a Bible study feature: since 7 October 2026 no title is built around studying or reading through Scripture. World English Bible as the default quotation text: the British Edition (WEBBE) for en-GB workbooks, the WEB for en-US, and the WEBBE with the Deuterocanon for Catholic and Orthodox titles. Optional scripture_text field on the workbook (additive). Attribution line on the Start or notes screen, for example 'Scripture quotations are from the World English Bible British Edition, which is in the public domain.' Validator rule: WEB wording is never edited, each quotation is marked when a workbook uses more than one version, and licensed versions keep a verse counter against the publisher's limit. No reading plans, passage-by-passage study screens or commentary features.",
     "who": "Akana admin, author, reader",
-    "why": "The King James Version is under Crown rights in the UK and needs Cambridge University Press permission for commercial use. Modern versions such as the NIV and ESV carry verse and percentage limits. The WEB is public domain with no limit.",
+    "why": "Bible-based titles quote Scripture. The King James Version is under Crown rights in the UK and needs Cambridge University Press permission for commercial use. Modern versions such as the NIV and ESV carry verse and percentage limits. The WEB is public domain with no limit. Crent decided on 7 October 2026 that Bible study is out of scope for now, so this entry covers quotations only.",
     "priority": "Week 3",
     "size": "S",
     "depends_on": [
@@ -2236,9 +2236,9 @@
     "id": "F-153",
     "surface": "Content engine",
     "name": "Demo Catalogue v2 seeding",
-    "what": "Merge the five catalogue research files into docs/planning/AK_Demo_Catalogue_v2.json after Crent approves (merge plan in docs/research/catalogue/SUMMARY.md), then point the seed builder at it. 124 new listings (74 demo, 50 classics) at first-week depth with covers, outlines and card lines. Normalise genre, safety profile, advice note, area and depth values; one author record per person; final codes after a collision check. Demo titles load live with the Demo badge; classics load as draft until their record is signed; faith titles load only after the faith genre decision.",
+    "what": "Merge the five catalogue research files into docs/planning/AK_Demo_Catalogue_v2.json after Crent approves (merge plan in docs/research/catalogue/SUMMARY.md), then point the seed builder at it. 120 new listings (70 demo, 50 classics; the four Reading Scripture demo titles were removed on 7 October 2026 and are skipped) at first-week depth with covers, outlines and card lines. Normalise genre, safety profile, advice note, area and depth values; one author record per person; final codes after a collision check. Demo titles load live with the Demo badge; classics load as draft until their record is signed; faith titles load only after the faith genre decision.",
     "who": "Akana admin, reader",
-    "why": "Every one of the 51 Themes reaches three titles on paper, so every shelf can look stocked. It also gives Akana Business and church prospects something to browse.",
+    "why": "Every one of the 50 active Themes reaches three titles on paper, so every shelf can look stocked. It also gives Akana Business and church prospects something to browse.",
     "priority": "Week 3",
     "size": "M",
     "depends_on": [
@@ -2248,7 +2248,7 @@
       "F-115",
       "F-117"
     ],
-    "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 51 Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script."
+    "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 50 active Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script."
   },
   {
     "id": "F-154",

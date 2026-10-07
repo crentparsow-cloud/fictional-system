@@ -39,6 +39,8 @@ type MemberRow = {
   organisations: { id: string; display_name: string; kind: string; is_demo: boolean; connect_status: string } | null;
 };
 
+const CUSTOMER_KINDS = new Set(["business", "church", "charity", "community_group"]);
+
 export const getMemberships = cache(async function getMemberships(userId: string): Promise<StudioOrg[]> {
   const supabase = await createUserClient();
   const { data, error } = await supabase
@@ -47,7 +49,8 @@ export const getMemberships = cache(async function getMemberships(userId: string
     .eq("user_id", userId);
   if (error) console.error("studio_memberships_failed", error.code ?? "");
   return ((data ?? []) as unknown as MemberRow[])
-    .filter((r) => r.organisations && r.organisations.kind !== "akana_house")
+    // Customer organisations (0024: business, church, charity, community_group) use /org, not the Studio.
+    .filter((r) => r.organisations && r.organisations.kind !== "akana_house" && !CUSTOMER_KINDS.has(r.organisations.kind))
     .map((r) => ({
       id: r.organisations!.id,
       displayName: r.organisations!.display_name,

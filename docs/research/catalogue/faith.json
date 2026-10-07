@@ -2,11 +2,11 @@
   "group": "faith",
   "category": "faith-and-spirituality",
   "prepared": "2026-10-07",
-  "_note": "Faith and Spirituality catalogue additions. Real titles come from docs/research/faith-titles.json (27 verified) plus two other-tradition classics verified here for Quiet Contemplation. Fictional authors and titles are demo only. Codes are provisional, minted with packages/schema/src/codes.ts rule using keys 'faith:<slug>' (workbooks) and '<slug>' (authors), checked against existing codes. No existing catalogue workbook is a faith title, so existing_ids are empty.",
+  "_note": "Faith and Spirituality catalogue additions. Real titles come from docs/research/faith-titles.json (27 verified) plus two other-tradition classics verified here for Quiet Contemplation. Fictional authors and titles are demo only. Codes are provisional, minted with packages/schema/src/codes.ts rule using keys 'faith:<slug>' (workbooks) and '<slug>' (authors), checked against existing codes. No existing catalogue workbook is a faith title, so existing_ids are empty. Update 7 October 2026 (later): Bible study is out of scope for now (Crent). The Reading Scripture Theme is retired and its four demo titles carry status removed_bible_study with a reason; they are kept here for the record and are not seeded. Faith titles stay Bible-based (devotional, prayer, character, practical, Christian living). 47 titles remain: 29 classics, 18 demo.",
   "conventions": {
     "genre": "Existing hyphenated catalogue genres, mapped from taxonomy.json; a 'faith' genre is an open question [Crent].",
     "safety_profile": "'wellbeing_standard' is used for schema safety tier 'standard' so the loader treats it like other Help now titles; safety_tier repeats the schema value.",
-    "scripture_text": "WEBBE for en-GB, WEB for en-US, WEBBE with Deuterocanon for Catholic and Orthodox titles; en-AU, en-CA and en-NZ marked [check]. Classics keep their own embedded quotations.",
+    "scripture_text": "WEBBE for en-GB, WEB for en-US, WEBBE with Deuterocanon for Catholic and Orthodox titles; en-AU, en-CA and en-NZ marked [check]. Classics keep their own embedded quotations. Since 7 October 2026 this is quotation support only, inside Bible-based titles. No title is built around studying or reading through a book of the Bible.",
     "support_signpost": "'bereavement_support_lines' is a new value and needs support_lines.json entries by market [check].",
     "tradition": [
       "protestant",
@@ -15,7 +15,8 @@
       "general_christian",
       "buddhist",
       "hindu"
-    ]
+    ],
+    "status": "Absent means proposed. 'removed_bible_study' means removed by the 7 October 2026 scope decision; the record stays for history and the code and slug are not reused."
   },
   "authors_new": [
     {
@@ -359,11 +360,11 @@
       "slug": "ruth-okonkwo-harland",
       "name": "Ruth Okonkwo-Harland",
       "country": "GB",
-      "genre": "education",
+      "genre": "personal-development",
       "publisher_id": "PB-F5VRD",
       "publisher": "Kettlebrook Editions",
       "spelling": "en-GB",
-      "bio": "Grew up in Enugu and has lived in Leeds since her twenties. Has hosted a midweek Bible reading group in her front room for many years. Writes plain, slow guides to reading Scripture together. This author is invented for the Akana demo.",
+      "bio": "Grew up in Enugu and has lived in Leeds since her twenties. Has hosted a midweek prayer group in her front room for many years. Writes plain, slow guides to forgiveness and prayer. This author is invented for the Akana demo.",
       "tradition": "protestant",
       "is_demo": true,
       "is_public_domain": false,
@@ -372,18 +373,19 @@
         "tool": "WebSearch",
         "query": "\"Ruth Okonkwo-Harland\"",
         "result": "No exact match for the full name. Results showed only people sharing one part of the name."
-      }
+      },
+      "edit_note": "7 October 2026: genre changed from education to personal-development to match the titles that remain after the Bible-study removal. Bio reworded to drop Bible study."
     },
     {
       "id": "AU-4SXM8",
       "slug": "hyejin-park-lindqvist",
       "name": "Hyejin Park-Lindqvist",
       "country": "US",
-      "genre": "education",
+      "genre": "personal-development",
       "publisher_id": "PB-2E6YP",
       "publisher": "Larchmere Atlas Books",
       "spelling": "en-US",
-      "bio": "A Korean-American former high school English teacher in Seattle. Leads a Saturday morning Bible study and likes reading one book of the Bible slowly. This author is invented for the Akana demo.",
+      "bio": "A Korean-American former high school English teacher in Seattle. Leads a Saturday morning discussion group at her church and makes room for honest questions about faith. This author is invented for the Akana demo.",
       "tradition": "protestant",
       "is_demo": true,
       "is_public_domain": false,
@@ -392,14 +394,15 @@
         "tool": "WebSearch",
         "query": "\"Hyejin Park-Lindqvist\"",
         "result": "No exact match for the full name. Results showed only people sharing one part of the name."
-      }
+      },
+      "edit_note": "7 October 2026: genre changed from education to personal-development to match the titles that remain after the Bible-study removal. Bio reworded to drop Bible study."
     },
     {
       "id": "AU-NQZGX",
       "slug": "theodora-vasilakis-reid",
       "name": "Theodora Vasilakis-Reid",
       "country": "AU",
-      "genre": "education",
+      "genre": "relationships",
       "publisher_id": null,
       "publisher": "Independent (self-published)",
       "spelling": "en-AU",
@@ -412,7 +415,8 @@
         "tool": "WebSearch",
         "query": "\"Theodora Vasilakis-Reid\"",
         "result": "No exact match for the full name. Results showed only people sharing one part of the name."
-      }
+      },
+      "edit_note": "7 October 2026: genre changed from education to relationships to match the titles that remain after the Bible-study removal."
     },
     {
       "id": "AU-C7YJ6",
@@ -2349,7 +2353,10 @@
         "tool": "WebSearch",
         "query": "\"Slow Through Mark\" book",
         "result": "No exact title. Results showed unrelated 'slow' titles and commentaries on Mark."
-      }
+      },
+      "status": "removed_bible_study",
+      "removed_on": "2026-10-07",
+      "removed_reason": "Built around reading Mark's Gospel chapter by chapter. Bible study is out of scope for now (Crent, 7 October 2026)."
     },
     {
       "id": "proverbs-for-ordinary-mondays",
@@ -2396,7 +2403,10 @@
         "tool": "WebSearch",
         "query": "\"Proverbs for Ordinary Mondays\"",
         "result": "No exact title. Results were devotional blog posts about Proverbs and Mondays."
-      }
+      },
+      "status": "removed_bible_study",
+      "removed_on": "2026-10-07",
+      "removed_reason": "Built around reading the book of Proverbs through in four weeks. Bible study is out of scope for now (Crent, 7 October 2026)."
     },
     {
       "id": "letters-to-small-churches",
@@ -2445,7 +2455,10 @@
         "tool": "WebSearch",
         "query": "\"Letters to Small Churches\" book",
         "result": "No exact title. Results showed books about small churches (Karl Vaters, Anthony Pappas) with different titles."
-      }
+      },
+      "status": "removed_bible_study",
+      "removed_on": "2026-10-07",
+      "removed_reason": "Built around reading six of Paul's letters, one a week. Bible study is out of scope for now (Crent, 7 October 2026)."
     },
     {
       "id": "gospels-of-the-great-feasts",
@@ -2500,7 +2513,10 @@
         "tool": "WebSearch",
         "query": "\"Gospels of the Great Feasts\"",
         "result": "No book with this exact title. The phrase appears in liturgical guides and parish PDFs about the Great Feasts. Rejected first: 'Twelve Feasts, Twelve Readings' (close to an Ancient Faith 'Twelve Feasts' product)."
-      }
+      },
+      "status": "removed_bible_study",
+      "removed_on": "2026-10-07",
+      "removed_reason": "Built around the Gospel reading for each of the Twelve Great Feasts, so its main purpose is reading Scripture. Bible study is out of scope for now (Crent, 7 October 2026). Faith at Home already holds an Orthodox household title (A Small Place for Prayer)."
     },
     {
       "id": "vespers-at-home",
@@ -3304,7 +3320,7 @@
       "fully_written": false,
       "outline": [
         "Week 1: why small groups.",
-        "Week 2: preparing a Bible study.",
+        "Week 2: preparing a session, with the questions and the prayer.",
         "Week 3: asking good questions.",
         "Week 4: listening and silence.",
         "Week 5: prayer in the group.",
@@ -3333,7 +3349,8 @@
         "tool": "WebSearch",
         "query": "\"The Small Group Leader's Year\"",
         "result": "No exact title. Nearby: 'The Small Group Leader's Toolkit', 'Small Group Leaders' Handbook' (IVP)."
-      }
+      },
+      "edit_note": "7 October 2026: week 2 was 'preparing a Bible study'. Reworded because Bible study is out of scope for now; the title is about leading a group, so it stays."
     },
     {
       "id": "visiting-well",
@@ -3389,13 +3406,16 @@
     {
       "subcategory": "reading-scripture",
       "existing_ids": [],
-      "new_ids": [
+      "new_ids": [],
+      "total": 0,
+      "removed_ids": [
         "slow-through-mark",
         "proverbs-for-ordinary-mondays",
         "letters-to-small-churches",
         "gospels-of-the-great-feasts"
       ],
-      "total": 4
+      "status": "retired",
+      "note": "Theme retired on 7 October 2026 (Bible study out of scope). All four titles are marked removed_bible_study; none moved."
     },
     {
       "subcategory": "rhythms-of-prayer",

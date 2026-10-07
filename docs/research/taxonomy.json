@@ -740,28 +740,9 @@
     {
       "name": "Faith and Spirituality",
       "slug": "faith-and-spirituality",
-      "line": "Guided workbooks for Bible study, prayer and growing in faith.",
+      "line": "Guided workbooks for prayer, devotion and growing in faith.",
       "group_suitable": true,
       "subcategories": [
-        {
-          "name": "Reading Scripture",
-          "slug": "reading-scripture",
-          "line": "Guided workbooks for reading and studying the Bible week by week.",
-          "topics": [
-            "Bible study",
-            "Bible reading plan",
-            "Gospels",
-            "Psalms",
-            "Proverbs",
-            "Old Testament",
-            "New Testament",
-            "Paul's letters",
-            "inductive study"
-          ],
-          "genre": "education",
-          "safety_tier": "none",
-          "group_suitable": true
-        },
         {
           "name": "Rhythms of Prayer",
           "slug": "rhythms-of-prayer",
@@ -900,6 +881,30 @@
           "genre": "personal_development",
           "safety_tier": "none",
           "group_suitable": true
+        }
+      ],
+      "retired_subcategories": [
+        {
+          "name": "Reading Scripture",
+          "slug": "reading-scripture",
+          "line": "Guided workbooks for reading and studying the Bible week by week.",
+          "topics": [
+            "Bible study",
+            "Bible reading plan",
+            "Gospels",
+            "Psalms",
+            "Proverbs",
+            "Old Testament",
+            "New Testament",
+            "Paul's letters",
+            "inductive study"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true,
+          "status": "retired",
+          "retired_on": "2026-10-07",
+          "reason": "Bible study is out of scope for now (Crent, 7 October 2026). Faith titles stay Bible-based (devotional, prayer, character, practical and Christian living) but not Bible study. The slug is kept and never reused. No title moved: all four demo titles in this Theme were built around reading a book of the Bible and are marked removed in catalogue/faith.json."
         }
       ]
     },

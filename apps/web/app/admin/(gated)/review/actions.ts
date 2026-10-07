@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { isUuid } from "@/lib/admin/leads";
 import { adminAbilities } from "@/lib/admin/permissions";
 import { parseReason, parseSignoff, reviewErrorNotice } from "@/lib/admin/review";
+import { sendAuthorStatus } from "@/lib/author-mail";
 import { sendReviewAssigned } from "@/lib/review-mail";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
@@ -98,6 +99,9 @@ export async function sendBack(fd: FormData): Promise<void> {
   if (!reason) back(versionId, "review_invalid");
   const { error } = await supabase.rpc("review_send_back", { p_version: versionId, p_reason: reason });
   if (error) failed(versionId, "send_back", error.code);
+  // F-043: the organisation hears why, with the reason as written.
+  const wbId = await workbookOf(supabase, versionId);
+  if (wbId) await sendAuthorStatus(wbId, "changes_requested", { notes: [reason] });
   done(versionId, "sent_back");
 }
 
@@ -156,7 +160,37 @@ export async function releaseVersion(fd: FormData): Promise<void> {
     p_override: isUuid(override) ? override : null,
   });
   if (error) failed(versionId, "release", error.code);
+  // F-043: approved, or live. One email per version and recipient.
+  const wbId = await workbookOf(supabase, versionId);
+  if (wbId) await sendAuthorStatus(wbId, data === "live" ? "live" : "approved", { versionId });
   revalidatePath("/admin/workbooks");
   revalidatePath("/admin");
   done(versionId, data === "live" ? "released" : "approved");
+}
+
+async function workbookOf(supabase: Awaited<ReturnType<typeof createUserClient>>, versionId: string): Promise<string | null> {
+  const { data } = await supabase.from("workbook_versions").select("workbook_id").eq("id", versionId).maybeSingle();
+  return (data as { workbook_id?: string } | null)?.workbook_id ?? null;
+}
+
+/** F-043: ask the organisation to preview and sign off this version. */
+export async function askAuthorSignoff(fd: FormData): Promise<void> {
+  const { versionId, supabase } = await start(fd, "release");
+  const wbId = await workbookOf(supabase, versionId);
+  if (!wbId) back(versionId, "invalid");
+  const sent = await sendAuthorStatus(wbId, "ready_for_sign_off", { versionId });
+  done(versionId, sent > 0 ? "author_mailed" : "author_not_mailed");
+}
+
+/** F-040: approve or decline the author's price choice (0020 public.price_review). */
+export async function reviewPrice(fd: FormData): Promise<void> {
+  const { versionId, supabase } = await start(fd, "release");
+  const workbook = fd.get("workbook");
+  if (!isUuid(workbook)) back(versionId, "invalid");
+  const approve = fd.get("decision") === "approve";
+  const reason = parseReason(fd.get("reason"), 500);
+  if (!approve && !reason) back(versionId, "reason");
+  const { error } = await supabase.rpc("price_review", { p_workbook: workbook, p_approve: approve, p_reason: reason });
+  if (error) failed(versionId, "price_review", error.code);
+  done(versionId, approve ? "price_approved" : "price_declined");
 }

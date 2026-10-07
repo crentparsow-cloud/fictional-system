@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { resolveRequestTenant, routeDecision } from "@/lib/tenant-resolve";
+import { isTenantSiteInternalPath, resolveRequestTenant, routeDecision, tenantSiteRoute } from "@/lib/tenant-resolve";
 import { refreshSession } from "@/lib/supabase/proxy";
 
 /**
@@ -7,7 +7,8 @@ import { refreshSession } from "@/lib/supabase/proxy";
  *
  * Reads the request host, works out which tenant it belongs to and passes
  * that down as headers. Admin, studio and console routes are only ever
- * served on the Akana apex. Then the Supabase session is refreshed so Server
+ * served on the Akana apex. A white-label host gets its tenant site and
+ * Akana's locked pages, nothing else (lib/tenant-resolve.ts tenantSiteRoute). Then the Supabase session is refreshed so Server
  * Components always see a live user, with the cookies kept __Host- scoped.
  *
  * The lookup is the config map by default and tenant_domains when
@@ -33,6 +34,22 @@ export async function proxy(request: NextRequest) {
   else headers.delete("x-akana-tenant-id");
   // The path, so a layout can send a reader back where they were heading after a gate.
   headers.set("x-akana-path", path + request.nextUrl.search);
+
+  // A white-label host serves the tenant site and Akana's locked pages only
+  // (F-068, F-069). No session lives on a tenant host, because sign-in stays
+  // on the Akana apex, so there is nothing to refresh.
+  if (tenant.kind === "white_label") {
+    const site = tenantSiteRoute(path);
+    if (site.action === "not_found") return new NextResponse("Not found", { status: 404 });
+    if (site.action === "rewrite") {
+      const url = request.nextUrl.clone();
+      url.pathname = site.to;
+      return NextResponse.rewrite(url, { request: { headers } });
+    }
+    return NextResponse.next({ request: { headers } });
+  }
+  // The tenant site's own pages exist only behind that rewrite.
+  if (isTenantSiteInternalPath(path)) return new NextResponse("Not found", { status: 404 });
 
   const { response } = await refreshSession(request, headers);
   return response;

@@ -92,7 +92,7 @@ describe("building the export", () => {
     expect(doc.workbooks).toHaveLength(1);
     expect(Object.keys(doc.workbooks[0]!)).toEqual(["workbook_code", "workbook_title", "status", "started_at", "answers", "unreadable"]);
     expect(Object.keys(doc.workbooks[0]!.answers[0]!)).toEqual([
-      "unit", "exercise_id", "exercise_title", "scope", "field_id", "field_label", "value", "updated_at",
+      "unit", "exercise_id", "exercise_title", "scope", "field_id", "field_label", "value", "updated_at", "field_type", "display",
     ]);
   });
 
@@ -168,5 +168,79 @@ describe("printable page", () => {
   it("uses neutral, dated file names", () => {
     expect(exportFileName("json", now)).toBe("akana-my-work-2026-10-07.json");
     expect(exportFileName("html", now)).toBe("akana-my-work-2026-10-07.html");
+  });
+});
+
+describe("v3 figure fields in the export (F-113)", () => {
+  const typed = labelsFromUnitSections([
+    {
+      unit_number: 1,
+      body: {
+        number: 1,
+        exercises: [
+          {
+            id: "month_map",
+            title: "Map your month",
+            fields: [
+              { id: "take_home", type: "currency", label: "Take-home pay", unit: "GBP" },
+              { id: "outgoings", type: "table", label: "What goes out", columns: ["Item", "Amount"], computed: "sum", unit: "GBP" },
+              { id: "choice", type: "decision_matrix", label: "Your options", columns: ["Cost", "Ease"], computed: "weighted_sum" },
+              { id: "note", type: "short_text", label: "A note" },
+              { id: "odd", type: "hologram", label: "Unknown type" },
+            ],
+          },
+        ],
+      },
+    },
+  ]);
+  const doc = buildExport(
+    [{ ...enrolA, labels: typed }],
+    [
+      { enrolmentId: "e1", field: "exercise:month_map.take_home", value: 2150.5, updatedAt: "2026-10-01T10:00:00Z" },
+      { enrolmentId: "e1", field: "exercise:month_map.outgoings", value: [["Rent", 900], ["Food <b>", 250.25]], updatedAt: "2026-10-01T10:00:00Z" },
+      {
+        enrolmentId: "e1",
+        field: "exercise:month_map.choice",
+        value: { options: ["Stay", "Move"], weights: [3, null], scores: [[4, 2], [2, 5]] },
+        updatedAt: "2026-10-01T10:00:00Z",
+      },
+      { enrolmentId: "e1", field: "exercise:month_map.note", value: "Plain", updatedAt: "2026-10-01T10:00:00Z" },
+      { enrolmentId: "e1", field: "exercise:month_map.odd", value: 3, updatedAt: "2026-10-01T10:00:00Z" },
+    ],
+    {},
+    now,
+  );
+  const byId = (id: string) => doc.workbooks[0]!.answers.find((a) => a.field_id === id)!;
+
+  it("keeps field settings from the section, ignoring unknown types", () => {
+    expect(typed.month_map?.defs?.outgoings).toEqual({ type: "table", label: "What goes out", columns: ["Item", "Amount"], computed: "sum", unit: "GBP" });
+    expect(typed.month_map?.defs?.odd).toBeUndefined();
+  });
+
+  it("adds the field type and a formatted display, keeping the saved value as is", () => {
+    expect(byId("take_home")).toMatchObject({ value: 2150.5, field_type: "currency", display: { kind: "lines", lines: ["£2,150.50"] } });
+    expect(byId("outgoings").display).toEqual({
+      kind: "table",
+      head: ["Item", "Amount"],
+      rows: [
+        ["Rent", "£900.00"],
+        ["Food <b>", "£250.25"],
+      ],
+      foot: ["Total", "£1,150.25"],
+      caption: null,
+    });
+    expect(byId("choice").display).toMatchObject({ kind: "table", caption: "Highest score: Stay" });
+    expect(byId("note")).toMatchObject({ field_type: "short_text", display: null });
+    expect(byId("odd")).toMatchObject({ field_type: null, display: null });
+  });
+
+  it("prints tables as tables, escaped, with totals", () => {
+    const html = renderExportHtml(doc, { showTitles: false });
+    expect(html).toContain("<p>£2,150.50</p>");
+    expect(html).toContain('<th scope="col">Amount</th>');
+    expect(html).toContain('<th scope="row">Food &lt;b&gt;</th><td>£250.25</td>');
+    expect(html).toContain('<tfoot><tr><th scope="row">Total</th><td>£1,150.25</td></tr></tfoot>');
+    expect(html).toContain("Highest score: Stay");
+    expect(html).not.toMatch(/<script|<link|https?:\/\//i);
   });
 });

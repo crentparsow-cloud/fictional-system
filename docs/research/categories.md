@@ -2,13 +2,15 @@
 
 Prepared 7 October 2026. Research only. No repo file other than this one and `taxonomy.json` was changed.
 
+**Update, 7 October 2026 (later): Bible study out of scope.** Crent decided that nothing directly about studying the Bible goes in for now. Faith titles stay Bible-based: devotional, prayer, character, practical and Christian-living titles that draw on biblical teaching. The Reading Scripture Theme (`reading-scripture`) is retired. Its slug is kept and never reused, and migration 0025 marks the database row retired. None of its titles moved to another Theme, because all four were built around reading a book of the Bible. The proposal is now 10 shelves and 50 active Themes, with 8 on Faith and Spirituality. Bible quotation handling (World English Bible) stays, but only as quotation support inside Bible-based titles. The sections below are updated to match.
+
 ## Summary
 
 Blinkist browses by 31 main categories. It has no formal subcategories. Each category page instead lists topic tags, and the same tag can sit under several categories. Shortform, Headway and Audible use fewer, broader groups, and they agree on a common core: business and career, leadership, money, health and wellbeing, communication, productivity, relationships and personal growth.
 
 Akana already covers most of that core. Its 7 seeded shelves and 17 Themes cover 5 Blinkist categories fully and 13 partly, and leave 13 uncovered. The largest gaps are faith, health and the body, creativity, communication, marketing, debt and investing, and narrative non-fiction such as history and science.
 
-The proposal is 10 shelves and 51 Themes. It keeps all 7 shelves and 17 Themes and their ids. It adds 3 shelves (Health and Body, Faith and Spirituality, Creativity and Making) and 34 Themes. Ten shelves is the top of the naming board's limit of six to ten, so there is a fallback in section 4. Every new name is pending clearance. None has had a register search.
+The proposal is 10 shelves and 51 Themes (50 active since Reading Scripture was retired on 7 October). It keeps all 7 shelves and 17 Themes and their ids. It adds 3 shelves (Health and Body, Faith and Spirituality, Creativity and Making) and 34 Themes. Ten shelves is the top of the naming board's limit of six to ten, so there is a fallback in section 4. Every new name is pending clearance. None has had a register search.
 
 The changes needed are additive. Shelves, areas and Themes are seed data. A group flag and a new `faith` genre would be additive under the freeze. Two existing checks would fail and must be updated in the same change: the 0002 test that expects 11 genres, and the genre CHECK constraint in migration 0002.
 
@@ -154,11 +156,11 @@ Safety tier follows the schema: none, standard (Help now on every screen, health
 
 ### Faith and Spirituality
 
-The shelf starts with Christian, Bible-based Themes. Their scope follows BISAC Christian Living and Biblical Studies, and Blinkist's own Christianity, Bible Study and Christian Leadership topics. Quiet Contemplation is a holding Theme for other traditions. When a second tradition has three titles, give it its own Theme rather than mixing traditions in one. No genre in the current 11 is a natural home, so each Theme carries the nearest one. Section 5 sets out an optional `faith` genre.
+The shelf starts with Christian, Bible-based Themes. Their scope follows BISAC Christian Living and Blinkist's own Christianity and Christian Leadership topics. Bible study itself (BISAC Biblical Studies, Blinkist's Bible Study topic) is out of scope for now, by Crent's decision of 7 October 2026. Quiet Contemplation is a holding Theme for other traditions. When a second tradition has three titles, give it its own Theme rather than mixing traditions in one. No genre in the current 11 is a natural home, so each Theme carries the nearest one. Section 5 sets out an optional `faith` genre.
 
 ### Akana Business (teams, churches, small groups)
 
-Strongest fit: all of Work and Career, Faith and Spirituality (Serving Together, Reading Scripture and Rhythms of Prayer for church small groups), Money (employee money wellbeing), Health and Body (workplace wellbeing), and Learning and Skills (Guiding Learners for schools). Some Mind and Mood Themes fit workplace wellbeing (Noticing More, Even Pace, Renewing Energy), because the architecture already limits team admins to aggregate uptake counts. The higher tier Mind and Mood Themes and New Chapters are not for groups.
+Strongest fit: all of Work and Career, Faith and Spirituality (Serving Together and Rhythms of Prayer for church small groups), Money (employee money wellbeing), Health and Body (workplace wellbeing), and Learning and Skills (Guiding Learners for schools). Some Mind and Mood Themes fit workplace wellbeing (Noticing More, Even Pace, Renewing Energy), because the architecture already limits team admins to aggregate uptake counts. The higher tier Mind and Mood Themes and New Chapters are not for groups.
 
 ### Shelf count and fallback
 
@@ -267,11 +269,10 @@ Guided workbooks for study, teaching and practical skills. Status: proposed shel
 
 ### 9. Faith and Spirituality (`faith-and-spirituality`)
 
-Guided workbooks for Bible study, prayer and growing in faith. Status: new shelf. Suits groups: Yes.
+Guided workbooks for prayer, devotion and growing in faith. Status: new shelf. Suits groups: Yes. (The line said "Bible study" until 7 October 2026.)
 
 | Theme | Slug | Line | Hidden topics | Genre | Safety | Groups | Status |
 |---|---|---|---|---|---|---|---|
-| Reading Scripture | `reading-scripture` | Guided workbooks for reading and studying the Bible week by week. | Bible study, Bible reading plan, Gospels, Psalms, Proverbs, Old Testament, New Testament, Paul's letters, inductive study | education | none | Yes | new |
 | Rhythms of Prayer | `rhythms-of-prayer` | Guided workbooks for building a steady habit of prayer. | prayer, quiet time, Lord's Prayer, praying the Psalms, intercession, fasting, prayer journal | personal_development | none | Yes | new |
 | Growing in Faith | `growing-in-faith` | Guided workbooks for discipleship and the Christian life. | discipleship, spiritual growth, Christian living, new Christian, baptism preparation, confirmation, fruit of the Spirit, spiritual disciplines | personal_development | none | Yes | new |
 | Faith at Home | `faith-at-home` | Guided workbooks for marriage, parenting and family life shaped by faith. | Christian marriage, Christian parenting, family devotions, marriage preparation, family prayer, raising children in faith | relationships | none | Yes | new |
@@ -280,6 +281,8 @@ Guided workbooks for Bible study, prayer and growing in faith. Status: new shelf
 | Mercy and Comfort | `mercy-and-comfort` | Guided workbooks for forgiveness, grief and hope in hard seasons. | forgiveness, grief, bereavement, lament, suffering, doubt, hope, loss | personal_development | standard | Yes | new |
 | Serving Together | `serving-together` | Guided workbooks for small group leaders, volunteers and church teams. | small group leaders, church leadership, volunteers, ministry teams, pastoral care, youth work, eldership, welcome teams | leadership | none | Yes | new |
 | Quiet Contemplation | `quiet-contemplation` | Guided workbooks for contemplative practice across faith traditions. | contemplation, meditation, Christian mysticism, silence, Buddhism, Judaism, Islam, interfaith | personal_development | none | Yes | new |
+
+Retired on 7 October 2026: Reading Scripture (`reading-scripture`), "Guided workbooks for reading and studying the Bible week by week." Bible study is out of scope for now. The slug is kept, never reused, and listed under `retired_subcategories` in `taxonomy.json`.
 
 ### 10. Creativity and Making (`creativity-and-making`)
 
@@ -308,7 +311,7 @@ Every seeded Theme has an area, so new Themes should too. Area names are interna
 | Money | Spending and Saving (existing) | Paying It Down |
 | Money | Long-Term Money (`long-term-money`) | Patient Investing |
 | Learning and Skills | Study and Know-How (existing) | Digital Ease, Guiding Learners, Curious Reading |
-| Faith and Spirituality | Scripture and Prayer (`scripture-and-prayer`) | Reading Scripture, Rhythms of Prayer, Quiet Contemplation |
+| Faith and Spirituality | Scripture and Prayer (`scripture-and-prayer`) | Rhythms of Prayer, Quiet Contemplation (Reading Scripture retired 7 October 2026) |
 | Faith and Spirituality | Faith in Daily Life (`faith-in-daily-life`) | Growing in Faith, Faith at Home, Work as Calling, Generous Living, Mercy and Comfort |
 | Faith and Spirituality | Church and Groups (`church-and-groups`) | Serving Together |
 | Creativity and Making | Writing and Making (`writing-and-making`) | Steady Writing, Life Stories, Creative Habits |
@@ -326,7 +329,7 @@ Every seeded Theme has an area, so new Themes should too. Area names are interna
 ### Additive schema changes (allowed by the freeze)
 
 6. **Group flag.** Nothing in the schema or database records whether a Theme suits groups. The registry JSON can carry `group_suitable` with no migration. If the app should filter by it, add a new migration (0011 or later) with `alter table public.themes add column group_suitable boolean not null default false`. That is additive. A workbook-level flag would be a new optional field in v3, which the freeze allows. It must stay optional.
-7. **Optional `faith` genre.** The 11 genres have no natural home for Bible study and prayer. The proposal maps each faith Theme to the nearest existing genre, so it works without this change. A `faith` genre is worth adding if faith titles need their own rules: no healing or answered-prayer claims, a signpost to pastoral care, and a scripture licence check. Adding a genre value is additive under the freeze. It touches:
+7. **Optional `faith` genre.** The 11 genres have no natural home for prayer and devotional titles. The proposal maps each faith Theme to the nearest existing genre, so it works without this change. A `faith` genre is worth adding if faith titles need their own rules: no healing or answered-prayer claims, a signpost to pastoral care, and a scripture licence check. Adding a genre value is additive under the freeze. It touches:
    - `GENRES` in `packages/schema/src/v3.ts` (append only, never reorder or rename).
    - `content/registry/genres.json` and the genre profile in `@akana/validate`.
    - The genres table. Migration 0002 has a CHECK constraint listing the 11 ids. A new migration must drop and recreate that constraint with 12 ids, then insert the row. Do not edit 0002. Dropping and recreating a CHECK with a larger list removes no allowed value, so the effect is additive.
@@ -347,9 +350,9 @@ Every seeded Theme has an area, so new Themes should too. Area names are interna
 
 ### Other flags
 
-14. **Bible text rights [check with lawyer].** In the UK the King James Version is not in the public domain. It is held under Crown letters patent. Modern translations such as the NIV and ESV are licensed, with publisher quotation limits. A public-domain text such as the World English Bible avoids both. Reading Scripture workbooks need a translation decision before the first one is built.
+14. **Bible text rights [check with lawyer].** In the UK the King James Version is not in the public domain. It is held under Crown letters patent. Modern translations such as the NIV and ESV are licensed, with publisher quotation limits. A public-domain text such as the World English Bible avoids both. It is used only for quotations inside Bible-based titles; Bible study workbooks are out of scope for now (7 October 2026).
 15. **Hidden topic leaks and crisis words.** The new hidden topics include condition words (depression, OCD, PTSD, debt, divorce). The existing build check that fails on any topic word in public metadata must cover the new Themes. Several higher tier topics overlap the crisis word list, so those searches should show the Help now card above results, as the feature list already says.
-16. **Three-book rule.** No new Theme shows as a shelf until it holds three workbooks. The three new shelves start empty. Faith and Spirituality alone needs 27 titles to fill all nine Themes, so start with Reading Scripture, Rhythms of Prayer and Growing in Faith.
+16. **Three-book rule.** No new Theme shows as a shelf until it holds three workbooks. The three new shelves start empty. Faith and Spirituality alone needs 24 titles to fill its eight active Themes, so start with Rhythms of Prayer and Growing in Faith.
 17. **Health limits.** Keep weight loss promises, medical treatment and eating disorder terms out of Nourishing Meals and Everyday Movement. Women's health and fertility are not proposed at launch for the same reason.
 
 ## Sources

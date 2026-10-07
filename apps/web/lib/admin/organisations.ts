@@ -11,6 +11,11 @@ export const ORG_KIND_LABELS: Record<string, string> = {
   publisher: "Publisher",
   author_company: "Author company",
   individual: "Individual author",
+  // Customer organisations (0024). Created from /admin/business.
+  business: "Business (customer)",
+  church: "Church (customer)",
+  charity: "Charity (customer)",
+  community_group: "Community group (customer)",
 };
 
 export const ORG_STATUS_LABELS: Record<string, string> = {

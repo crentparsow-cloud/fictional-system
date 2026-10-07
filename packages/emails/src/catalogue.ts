@@ -40,8 +40,10 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
 export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = {
   invite: "Invites an author to publish with an organisation.",
   submission_received: "Confirms a workbook was submitted for review.",
+  submission_accepted: "Staff accepted the submission into review.",
   changes_requested: "Review notes: changes to make before the workbook can go on.",
   ready_for_sign_off: "The workbook is ready for the author to sign off.",
+  approved: "Every sign-off is in and staff approved the workbook. Not on sale yet.",
   live: "The workbook is live.",
   paused: "The workbook has been paused.",
   payout_action_needed: "Something is needed before a payout can be made.",

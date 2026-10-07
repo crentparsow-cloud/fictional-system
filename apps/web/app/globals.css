@@ -791,3 +791,145 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 @media (max-width: 40rem) {
   .studio-nav { order: 3; inline-size: 100%; margin: 0; }
 }
+
+/* ---------- checkout consent and currency note (F-096, F-097, F-094) ---------- */
+.paywall-consent { display: grid; gap: 0.5rem; margin: 0.25rem 0 0; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); min-inline-size: 0; }
+.paywall-consent legend { padding: 0 0.25rem; font-weight: 600; }
+.paywall-consent-item { display: grid; gap: 0.25rem; }
+.paywall-check { display: flex; align-items: flex-start; gap: 0.6rem; min-block-size: 44px; padding-block: 0.35rem; font-weight: 400; cursor: pointer; }
+.paywall-check input { inline-size: 22px; block-size: 22px; margin: 0.1rem 0 0; accent-color: var(--brand); flex: none; }
+.paywall-consent-error { margin: 0; color: var(--rose); font-weight: 600; }
+.paywall-currency { margin: 0; }
+
+/* ---------- author release: preview, sign-off, price, JSON editor (F-038, F-039, F-040, F-086) ---------- */
+:root[data-preview-text="200"] { --fs: 34px; }
+.preview { display: grid; gap: 1rem; }
+.preview-bar { position: sticky; inset-block-start: 0; z-index: 5; display: grid; gap: 0.5rem; padding: 0.75rem 1rem; background: var(--marigold); color: var(--marigold-ink); border-radius: var(--radius-sm); }
+.preview-flag { margin: 0; }
+.preview-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.preview-group { display: inline-flex; gap: 0.25rem; border: 0; padding: 0; margin: 0; }
+.preview-controls .btn { min-block-size: 44px; }
+.preview-controls .btn[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.preview-stage { position: relative; background: var(--canvas); border: 2px dashed var(--marigold); border-radius: var(--radius); padding: var(--gutter); margin-inline: auto; inline-size: 100%; }
+.preview-stage.is-phone { max-inline-size: 390px; }
+.preview-stage.is-desktop { max-inline-size: 72rem; }
+.preview-stage::before { content: attr(data-watermark); position: absolute; inset-block-start: 0.4rem; inset-inline-end: 0.6rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--marigold-ink); background: var(--marigold); padding: 0.1rem 0.5rem; border-radius: 999px; pointer-events: none; }
+.studio-facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0.75rem 0; }
+.studio-facts dt { font-weight: 600; }
+.studio-facts dd { margin: 0; }
+@media (max-width: 40rem) {
+  .studio-facts { grid-template-columns: 1fr; }
+  .studio-facts dd { margin-block-end: 0.5rem; }
+}
+.json-editor { display: grid; gap: 1rem; }
+.json-editor-text { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.85rem; line-height: 1.45; inline-size: 100%; min-block-size: 28rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); padding: 0.75rem; tab-size: 2; white-space: pre; overflow: auto; }
+.json-editor-status { min-block-size: 2.5rem; }
+.json-editor-hints summary { cursor: pointer; min-block-size: 44px; display: flex; align-items: center; font-weight: 600; }
+.json-editor-keys { columns: 2 14rem; padding-inline-start: 1.25rem; }
+
+/* ---------------------------------------------------------------------------
+   White-label tenant sites (F-067, F-068, F-069, F-074) and the admin pages
+   for them (F-045). Tenant colours arrive through the brand tokens from
+   /tenant.css; the locked block below uses house tokens only.
+   --------------------------------------------------------------------------- */
+.tenant-shell { min-block-size: 100vh; display: flex; flex-direction: column; }
+.tenant-demo-banner { margin: 0; padding: 0.6rem var(--gutter); background: var(--surface-2); color: var(--ink); border-block-end: 1px solid var(--line); font-size: 0.95rem; text-align: center; }
+.tenant-header { background: var(--hero-bg); color: var(--hero-ink); }
+.tenant-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-block-size: 4.5rem; }
+.tenant-brand { display: inline-flex; align-items: center; gap: 0.75rem; min-block-size: 44px; color: inherit; text-decoration: none; font-family: var(--f-display); font-weight: 700; font-size: 1.2rem; }
+.tenant-brand:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.tenant-logo { block-size: 40px; inline-size: auto; max-inline-size: 10rem; }
+.tenant-main { flex: 1; padding-block: 2rem 3rem; }
+.tenant-hero { padding-block: 1rem 1.5rem; }
+.tenant-hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--brand); }
+.tenant-section { margin-block-start: 2rem; }
+.tenant-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.tenant-card { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+.tenant-card-cover { inline-size: 80px; block-size: auto; }
+.tenant-card .wb-card-title a { color: var(--brand); display: inline-block; min-block-size: 44px; padding-block: 0.4rem; }
+.tenant-crumbs { font-size: 0.95rem; color: var(--ink-soft); }
+.tenant-crumbs a { color: var(--brand); display: inline-block; min-block-size: 44px; padding-block: 0.6rem; }
+.tenant-workbook-head { display: grid; gap: 1.5rem; grid-template-columns: auto 1fr; align-items: start; margin-block-end: 1.5rem; }
+.tenant-workbook-head .cover { inline-size: min(180px, 30vw); block-size: auto; }
+.tenant-workbook-head h1 { margin-block: 0.5rem; }
+.tenant-price { font-weight: 600; }
+.tenant-footer { margin-block-start: auto; background: var(--surface); }
+.tenant-locked { display: grid; gap: 0.25rem; padding-block-end: 1rem; border-block-end: 1px solid var(--line); color: var(--ink); }
+.tenant-locked p { margin: 0 0 0.25rem; }
+.tenant-links { display: flex; flex-wrap: wrap; gap: 0 1.25rem; list-style: none; padding: 0; margin: 0.5rem 0 0; }
+.tenant-links a { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--brand); }
+.tenant-locked .tenant-links a { color: var(--ink); text-decoration: underline; }
+.tenant-own-links { padding-block: 0.5rem; }
+.tenant-powered { margin-block: 1rem 0; }
+@media (max-width: 34rem) {
+  .tenant-workbook-head { grid-template-columns: 1fr; }
+  .tenant-header-inner { flex-wrap: wrap; padding-block: 0.5rem; }
+}
+.contrast-table td.pass { color: var(--ink); }
+.contrast-table td.fail { color: var(--rose); font-weight: 600; }
+
+/* ---------- earnings, dashboards, roll-up, account lookup and takedown (0022: F-041, F-042, F-058, F-087, F-123) ---------- */
+.dash-lead { font-size: 1.05rem; max-inline-size: var(--measure); }
+.dash-range { display: flex; flex-wrap: wrap; align-items: end; gap: 0.75rem 1rem; margin-block: 1rem; }
+.dash-range-field { display: grid; gap: 0.25rem; }
+.dash-range-field label { font-weight: 600; }
+.dash-range-field input, .dash-range-field select {
+  font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm); padding: 0.5rem 0.65rem; min-block-size: 44px;
+}
+.dash-range .btn { min-block-size: 44px; }
+.dash-month { margin-block: 1.5rem 0.25rem; font-size: 1.1rem; }
+.dash-month-block { margin-block-end: 1rem; }
+.dash-table th[scope="row"] { font-weight: 500; }
+.dash-num { text-align: end; font-variant-numeric: tabular-nums; }
+.admin-table th.dash-num, .admin-table td.dash-num { text-align: end; }
+.dash-hidden { color: var(--ink-soft); font-style: italic; }
+.dash-csv { margin-block: 0.75rem; }
+.dash-csv .btn { min-block-size: 44px; display: inline-flex; align-items: center; }
+.dash-method { margin-block: 1rem 1.5rem; }
+.dash-takedowns { margin-block: 1rem 1.5rem; border-inline-start: 4px solid var(--rose); }
+.dash-td-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.dash-td-list a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.dash-td-list summary { min-block-size: 44px; display: flex; align-items: center; cursor: pointer; }
+.dash-statement { white-space: pre-wrap; overflow-wrap: anywhere; font-family: inherit; background: var(--surface-2); padding: 0.75rem; border-radius: var(--radius-sm); margin: 0.5rem 0 0; }
+.lookup-form { margin-block: 1rem 1.5rem; }
+.lookup-result { display: grid; gap: 0.5rem; margin-block-start: 1rem; }
+.lookup-result h3 { margin-block: 1rem 0.25rem; }
+.lookup-dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem; margin: 0.5rem 0 0; }
+.lookup-dl dt { font-weight: 600; }
+.lookup-dl dd { margin: 0; overflow-wrap: anywhere; }
+.lookup-list { margin: 0; padding-inline-start: 1.25rem; display: grid; gap: 0.25rem; }
+.td-repeat { background: var(--rose-soft); color: var(--rose); margin-inline-start: 0.5rem; }
+.td-text { white-space: pre-wrap; }
+.td-actions { display: grid; gap: 1.25rem; margin-block: 1rem; }
+.td-form { border-block-start: 1px solid var(--line); padding-block-start: 1rem; max-inline-size: 40rem; }
+.td-form h3 { margin: 0; }
+.td-form textarea { font: inherit; inline-size: 100%; }
+.notice-form .contact-field input[type="tel"], .notice-form .contact-field textarea {
+  font: inherit; min-block-size: 44px; padding: 0.6rem 0.75rem; inline-size: 100%;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink);
+}
+.notice-fieldset { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 1rem; margin: 0; display: grid; gap: 1rem; }
+.notice-fieldset legend { font-weight: 700; padding-inline: 0.25rem; }
+@media (max-width: 34rem) {
+  .lookup-dl { grid-template-columns: 1fr; }
+  .dash-range { align-items: stretch; }
+}
+
+/* ---------- money: ledger, refunds, payouts, statements (M6, F-100 to F-103) ---------- */
+.money-nav { margin-block: 0.5rem 1rem; }
+.money-banner { margin-block: 0.75rem; }
+.money-page section { margin-block: 1.5rem; }
+.money-provisional { margin-inline-start: 0.4rem; background: var(--stage-2-t); color: var(--stage-2-i); }
+.money-decision-pay { background: var(--stage-1-t); color: var(--stage-1-i); }
+.money-decision-approve { background: var(--stage-2-t); color: var(--stage-2-i); }
+.money-decision-skip { background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); }
+.money-refund { margin-block: 1rem; }
+.money-refund h2 { margin-block-start: 0; }
+.money-radio { display: flex; align-items: center; gap: 0.5rem; min-block-size: 44px; font-weight: 400; }
+.money-radio input { min-block-size: 0; padding: 0; inline-size: 1.25rem; block-size: 1.25rem; }
+.money-config { margin-block: 1rem; }
+.money-config summary { cursor: pointer; min-block-size: 44px; display: flex; align-items: center; font-weight: 600; }
+.money-pair { display: grid; gap: 0.5rem; }
+.money-item p { margin-block: 0.25rem; }
+.money-files a { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 0.25rem; }

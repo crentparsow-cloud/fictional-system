@@ -166,3 +166,56 @@
 .ak-pacer-actions .ak-btn { align-self: auto; }
 @media (prefers-reduced-motion: reduce) { .ak-pacer-ring { transition: none; } }
 @media print { .ak-no-print, .ak-player-nav, .ak-milestone { display: none !important; } }
+
+/* ------------------------------------------------------------------
+   F-113: number, currency, table and decision matrix fields.
+   Tokens only, so dark mode follows globals.css. Every control 44px+.
+   ------------------------------------------------------------------ */
+.ak-num { display: flex; align-items: stretch; gap: 0.4rem; max-inline-size: 20rem; }
+.ak-num-affix { display: inline-flex; align-items: center; padding-inline: 0.15rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.ak-input-num { font-variant-numeric: tabular-nums; text-align: end; min-inline-size: 0; }
+.ak-input-num[aria-invalid="true"] { border-color: var(--rose); }
+.ak-field-problem { margin: 0; color: var(--rose); font-weight: 600; }
+
+.ak-table-wrap { inline-size: 100%; }
+.ak-table { inline-size: 100%; border-collapse: separate; border-spacing: 0 0.4rem; }
+.ak-table th { text-align: start; font-size: 0.9rem; font-weight: 700; color: var(--ink-soft); padding: 0 0.4rem 0.1rem 0; vertical-align: bottom; }
+.ak-table td { padding: 0 0.4rem 0 0; vertical-align: top; }
+.ak-table .ak-num-col { text-align: end; }
+.ak-table .ak-num { max-inline-size: none; }
+.ak-table th.ak-table-rowhead { color: var(--ink); vertical-align: middle; font-size: 1rem; }
+.ak-table tfoot th, .ak-table tfoot td { border-block-start: 2px solid var(--line-strong); padding-block-start: 0.6rem; color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.ak-table tfoot output { display: block; min-block-size: 44px; line-height: 44px; padding-inline: 0.9rem; }
+.ak-table-celllabel { display: none; }
+.ak-table-act { inline-size: 1%; white-space: nowrap; }
+.ak-btn-icon { padding-inline: 0.75em; }
+.ak-table-act-text { display: none; }
+
+@media (max-width: 560px) {
+  .ak-table, .ak-table tbody, .ak-table tfoot, .ak-table tr, .ak-table td, .ak-table th { display: block; inline-size: 100%; }
+  .ak-table thead { display: none; }
+  .ak-table tbody tr { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.75rem; margin-block-end: 0.6rem; background: var(--surface); }
+  .ak-table td, .ak-table td.ak-num-col { padding: 0 0 0.6rem; text-align: start; }
+  .ak-table-celllabel { display: block; font-size: 0.9rem; font-weight: 700; color: var(--ink-soft); margin-block-end: 0.2rem; }
+  .ak-table th.ak-table-rowhead { padding-block-end: 0.5rem; }
+  .ak-table tfoot tr { padding: 0.5rem 0.75rem; }
+  .ak-table tfoot output { padding-inline: 0; text-align: start; }
+  .ak-table-act { inline-size: 100%; }
+  .ak-table-act-text { display: inline; }
+}
+
+.ak-matrix { display: flex; flex-direction: column; gap: 0.75rem; }
+.ak-matrix-card { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 0.9rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.6rem; min-inline-size: 0; }
+.ak-matrix-weights { background: var(--surface-2); border-color: transparent; }
+.ak-matrix-legend { display: block; float: inline-start; inline-size: 100%; font-weight: 700; line-height: 1.35; padding: 0; margin-block-end: 0.3rem; }
+.ak-matrix-legend + * { clear: both; }
+.ak-matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.6rem; }
+.ak-matrix-cell { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.95rem; }
+.ak-matrix-cell label { font-weight: 600; line-height: 1.3; }
+.ak-matrix-score { margin: 0; font-variant-numeric: tabular-nums; }
+.ak-select:disabled { opacity: 0.8; }
+@media print {
+  .ak-table-act, .ak-field-table .ak-btn, .ak-field-decision_matrix .ak-btn { display: none; }
+  .ak-table tr, .ak-matrix-card { break-inside: avoid; }
+  .ak-input-num, .ak-select { border-color: var(--line); }
+}

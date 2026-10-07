@@ -4,7 +4,7 @@ import type { WorkbookV3 } from "@akana/schema";
 import { useEffect, useState } from "react";
 import { FieldRenderer } from "../FieldRenderer";
 import { answerText } from "../progress";
-import { isAnswered, resolveField, type AnswerStore } from "../types";
+import { isAnswered, resolveField, type AnswerStore, type FieldValue } from "../types";
 import { Card, Eyebrow, FigurePlaceholder, Steps, minutesWord } from "./parts";
 
 export type Exercise = WorkbookV3["exercises"][number];
@@ -33,7 +33,7 @@ export interface ExerciseScreenProps {
    * each such field the reader has not answered; a returned value is written
    * to the store once, and is then the reader's to change.
    */
-  prefill?: (field: Exercise["fields"][number]) => string | undefined;
+  prefill?: (field: Exercise["fields"][number]) => FieldValue | undefined;
   /** Already marked done, so the screen can say so. */
   done?: boolean;
   /** For a repeat: where the first answers sit, shown side by side as "Then and now". */
@@ -89,7 +89,7 @@ export function ExerciseScreen({
     for (const f of e.fields) {
       if (!f.prefill_from || store.get(scope, f.id) !== undefined) continue;
       const v = prefill(f);
-      if (v) store.set(scope, f.id, v);
+      if (v !== undefined && v !== null && v !== "") store.set(scope, f.id, v);
     }
     // Runs when the exercise or its scope changes, not on every keystroke.
     // eslint-disable-next-line react-hooks/exhaustive-deps

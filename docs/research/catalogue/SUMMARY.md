@@ -1,8 +1,10 @@
 # Catalogue research: summary and merge plan
 
-Prepared Wednesday 7 October 2026. This file sums up the five catalogue files in this folder: `mind-health`, `growth-love-family`, `work-money`, `learning-creativity` and `faith`, each as `.json` and `.md`. It reads them against `docs/planning/AK_Demo_Catalogue.json` (version 1, 50 workbooks), `content/catalog/catalog.json` (the 20 Maya Vaughn titles) and the draft taxonomy in `docs/research/taxonomy.json` (10 shelves, 51 Themes). It changes none of them.
+Prepared Wednesday 7 October 2026. This file sums up the five catalogue files in this folder: `mind-health`, `growth-love-family`, `work-money`, `learning-creativity` and `faith`, each as `.json` and `.md`. It reads them against `docs/planning/AK_Demo_Catalogue.json` (version 1, 50 workbooks), `content/catalog/catalog.json` (the 20 Maya Vaughn titles) and the draft taxonomy in `docs/research/taxonomy.json` (10 shelves, 51 Themes, 50 of them active since 7 October). It changes none of them.
 
 Counts were taken from the `coverage` and `workbooks_new` arrays in each JSON file on 7 October 2026. Title checks were still being added to the five files while this was written, so `title_check` values are not summarised here.
+
+**Recount, 7 October 2026 (later).** Crent put Bible study out of scope for now. The Reading Scripture Theme (`reading-scripture`) is retired and its four demo titles carry `"status": "removed_bible_study"` in `faith.json`. They are left out of every count below. Faith and Spirituality drops from 51 to 47 new titles, new titles from 124 to 120 and the grand total from 194 to 190. The taxonomy now has 50 active Themes.
 
 ## The numbers
 
@@ -10,10 +12,11 @@ Counts were taken from the `coverage` and `workbooks_new` arrays in each JSON fi
 |---|---|
 | Existing titles placed in a Theme | 68 (45 demo, 5 public-domain classics, 18 Maya Vaughn) |
 | Existing titles with no Theme in the draft taxonomy | 2 (Maya Vaughn: Finding Your People, Wired Differently) |
-| New titles proposed | 124 (74 demo, 50 public-domain classics) |
-| **Grand total if every proposal is accepted** | **194** (119 demo, 55 public-domain classics, 20 Maya Vaughn) |
+| New titles proposed | 120 (70 demo, 50 public-domain classics) |
+| Removed on 7 October (Bible study) | 4 demo, not counted |
+| **Grand total if every proposal is accepted** | **190** (115 demo, 55 public-domain classics, 20 Maya Vaughn) |
 
-All 51 Themes would hold at least three workbooks, which is the shelf rule (`SHELF_MIN_COUNT`, default 3). Every new AK- and AU- code is provisional.
+All 50 active Themes would hold at least three workbooks, which is the shelf rule (`SHELF_MIN_COUNT`, default 3). Every new AK- and AU- code is provisional.
 
 "Public domain" means a real public-domain text with a new Akana workbook around it. "Demo" means an invented author and title, labelled Demo and never buyable (B4). Maya Vaughn titles are real, licensed and neither of those, so they have their own column.
 
@@ -31,13 +34,13 @@ A check run for this summary found no clash between any two groups, or between a
 | Work and Career | 18 | 9 | 27 | 3 | 24 | 0 |
 | Money | 6 | 7 | 13 | 3 | 10 | 0 |
 | Learning and Skills | 6 | 10 | 16 | 5 | 11 | 0 |
-| Faith and Spirituality | 0 | 51 | 51 | 29 | 22 | 0 |
+| Faith and Spirituality | 0 | 47 | 47 | 29 | 18 | 0 |
 | Creativity and Making | 0 | 9 | 9 | 2 | 7 | 0 |
-| **Placed in a Theme** | **68** | **124** | **192** | **55** | **119** | **18** |
+| **Placed in a Theme** | **68** | **120** | **188** | **55** | **115** | **18** |
 | Not placed (Maya Vaughn) | 2 | 0 | 2 | 0 | 0 | 2 |
-| **Grand total** | **70** | **124** | **194** | **55** | **119** | **20** |
+| **Grand total** | **70** | **120** | **190** | **55** | **115** | **20** |
 
-Faith and Spirituality is the largest shelf by some way. Growing in Faith alone holds 16 classics. Four faith Themes (Reading Scripture, Faith at Home, Generous Living, Mercy and Comfort) hold demo titles only.
+Faith and Spirituality is the largest shelf by some way. Growing in Faith alone holds 16 classics. Three faith Themes (Faith at Home, Generous Living, Mercy and Comfort) hold demo titles only. Reading Scripture is retired.
 
 ## Counts by Theme
 
@@ -150,7 +153,6 @@ Source file: `faith.json`.
 
 | Theme | Existing | New | Total | Public domain | Demo | Maya Vaughn |
 |---|---|---|---|---|---|---|
-| Reading Scripture (`reading-scripture`) | 0 | 4 | 4 | 0 | 4 | 0 |
 | Rhythms of Prayer (`rhythms-of-prayer`) | 0 | 7 | 7 | 6 | 1 | 0 |
 | Growing in Faith (`growing-in-faith`) | 0 | 16 | 16 | 16 | 0 | 0 |
 | Faith at Home (`faith-at-home`) | 0 | 4 | 4 | 0 | 4 | 0 |
@@ -159,7 +161,9 @@ Source file: `faith.json`.
 | Mercy and Comfort (`mercy-and-comfort`) | 0 | 4 | 4 | 0 | 4 | 0 |
 | Serving Together (`serving-together`) | 0 | 4 | 4 | 1 | 3 | 0 |
 | Quiet Contemplation (`quiet-contemplation`) | 0 | 5 | 5 | 5 | 0 | 0 |
-| **Shelf total** | **0** | **51** | **51** | **29** | **22** | **0** |
+| **Shelf total** | **0** | **47** | **47** | **29** | **18** | **0** |
+
+Reading Scripture (`reading-scripture`) is retired. Its four demo titles (Slow Through Mark, Proverbs for Ordinary Mondays, Letters to Small Churches, Gospels of the Great Feasts) are removed and none moved.
 
 ### 10. Creativity and Making (`creativity-and-making`)
 
@@ -245,14 +249,14 @@ The catalogue gives each workbook one `theme_id`. Cross-listing would need a new
 
 The target is a new file, `docs/planning/AK_Demo_Catalogue_v2.json`. It is not created yet. It waits for Crent's approval of the taxonomy and the open questions in `AK_Questions_for_Crent.md` (section dated 7 October 2026). Version 1 stays as it is until v2 replaces it in the seed.
 
-1. **Gates.** Crent approves the 10 shelves, 51 Themes and 7 new areas, and answers the faith genre, sixth shelf, tier mismatch, cross-listing and Tier B questions. The title-check pass on the five files is finished, and any title or name that failed is replaced.
+1. **Gates.** Crent approves the 10 shelves, 50 active Themes and 7 new areas, and answers the faith genre, sixth shelf, tier mismatch, cross-listing and Tier B questions. The title-check pass on the five files is finished, and any title or name that failed is replaced.
 2. **Freeze the inputs.** Take the five JSON files as they stand after the title checks, record a content hash for each, and make no further edits to them.
 3. **Shape.** Keep version 1's top-level keys (`code_rule`, `price_tiers`, `publishers`, `authors`, `workbooks`, `maya_vaughn`). Replace `shelves_proposed`, `areas_proposed`, `themes_new` and `themes_existing_used` with full `shelves`, `areas` and `themes` lists from `taxonomy.json`. Add `support_signposts` for the five new groups.
 4. **Authors.** Take the union by code. Keep one record each for Thoreau and Cicero. Keep the version 1 records for Franklin, Bennett, Smiles and the reused demo authors, with bio lines added only where Crent agrees.
-5. **Workbooks.** Copy the 124 new records. Normalise `genre`, `safety_profile`, `advice_guardrail`, `area_id` and `depth` as in the table above. Leave the 50 version 1 records unchanged, except for moves Crent approves (Meditations to Wisdom for Living, any Maya Vaughn placements).
+5. **Workbooks.** Copy the 120 new records. Skip any record with `status` `removed_bible_study`. Normalise `genre`, `safety_profile`, `advice_guardrail`, `area_id` and `depth` as in the table above. Leave the 50 version 1 records unchanged, except for moves Crent approves (Meditations to Wisdom for Living, any Maya Vaughn placements).
 6. **Codes.** Re-run the code rule collision check across every workbook, author and imprint, then mark codes final.
-7. **Checks.** Run the registry check (claims, style, first words, app words) on all new lines, the hidden-topic leak test with the 34 new Themes, the v3 validator on any first-week content, and the seed builder twice to confirm it is deterministic.
+7. **Checks.** Run the registry check (claims, style, first words, app words) on all new lines, the hidden-topic leak test with the 33 new active Themes, the v3 validator on any first-week content, and the seed builder twice to confirm it is deterministic.
 8. **Load.** Demo titles go live with the Demo badge, as now. New classics load as draft and stay there until their house record is signed, as the first five did. Tier B classics stay in draft at launch. Faith titles load only after the faith genre decision, and release only after theological review. Maya Vaughn titles stay in review.
-9. **What shows on day one.** A Theme shows only once it holds three live titles (`SHELF_MIN_COUNT`, default 3). If v2 loads with demo titles live and new classics in draft, 26 of the 51 Themes reach three: the ones filled by demo titles and the live version 1 titles. The other 25 rely on new classics or on Maya Vaughn titles still in review, so they stay hidden until those are released. They are Rhythms of Prayer, Growing in Faith, Quiet Contemplation, Wisdom for Living, Curious Reading, Even Pace, Everyday Movement, Brighter Days (none or one live title), Settled Mind and Gentle Mending (all four titles are Maya Vaughn), plus 15 Themes that reach two: Quiet Confidence, Clearer Choices, Living With Purpose, Guiding Learners, Steady Writing, Creative Habits, Noticing More, Softer Nights, Seeing Yourself Fairly, Renewing Energy, Nourishing Meals, Ageing Well, Words That Land, Wider Reach and Patient Investing. Signing the house records for the classics in those Themes is what opens them, so the first batch of records should follow that list.
+9. **What shows on day one.** A Theme shows only once it holds three live titles (`SHELF_MIN_COUNT`, default 3). If v2 loads with demo titles live and new classics in draft, 25 of the 50 active Themes reach three: the ones filled by demo titles and the live version 1 titles (26 of 51 before Reading Scripture was retired). The other 25 rely on new classics or on Maya Vaughn titles still in review, so they stay hidden until those are released. They are Rhythms of Prayer, Growing in Faith, Quiet Contemplation, Wisdom for Living, Curious Reading, Even Pace, Everyday Movement, Brighter Days (none or one live title), Settled Mind and Gentle Mending (all four titles are Maya Vaughn), plus 15 Themes that reach two: Quiet Confidence, Clearer Choices, Living With Purpose, Guiding Learners, Steady Writing, Creative Habits, Noticing More, Softer Nights, Seeing Yourself Fairly, Renewing Energy, Nourishing Meals, Ageing Well, Words That Land, Wider Reach and Patient Investing. Signing the house records for the classics in those Themes is what opens them, so the first batch of records should follow that list.
 
 The build work for this is F-148 (taxonomy seed), F-152 (house records), F-153 (v2 seeding) and F-154 (signposts) in `AK_Feature_List.json`, scheduled in `AK_3_Week_Plan.md`.

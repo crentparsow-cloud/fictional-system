@@ -137,3 +137,82 @@ describe("validateWorkbook", () => {
     expect(r.ok).toBe(false);
   });
 });
+
+describe("v3 field settings (F-113)", () => {
+  type Fields = WorkbookV3Input["exercises"][number]["fields"];
+  const withFields = (fields: Fields) => {
+    const wb = financeWorkbook();
+    return { ...wb, exercises: wb.exercises.map((e, i) => (i === 0 ? { ...e, fields } : e)) };
+  };
+  const messages = (fields: Fields) => {
+    const r = validateWorkbook(withFields(fields));
+    return { errors: r.errors.map((e) => e.message), warnings: r.warnings.map((w) => w.message) };
+  };
+
+  it("passes well-formed number, currency, table and decision matrix fields", () => {
+    const r = validateWorkbook(
+      withFields([
+        { id: "takings", type: "currency", label: "Money in today", unit: "NGN", min: 0 },
+        { id: "hours", type: "number", label: "Hours open", unit: "hours", min: 0, max: 24, step: 1 },
+        { id: "costs", type: "table", label: "Costs", columns: ["Item", "Amount"], computed: "sum", unit: "NGN", min_items: 2, max_items: 10 },
+        { id: "pick", type: "decision_matrix", label: "Which stall", columns: ["Footfall", "Rent", "Safety"], computed: "weighted_sum", min_items: 2, max_items: 4 },
+      ]),
+    );
+    expect(r.errors).toEqual([]);
+  });
+
+  it("needs a real currency code on a currency field", () => {
+    expect(messages([{ id: "takings", type: "currency", label: "Money in" }]).errors.join()).toContain("three-letter currency code");
+    expect(messages([{ id: "takings", type: "currency", label: "Money in", unit: "naira" }]).errors.join()).toContain("three-letter currency code");
+  });
+
+  it("rejects min above max", () => {
+    expect(messages([{ id: "takings", type: "currency", label: "Money in", unit: "GBP", min: 10, max: 5 }]).errors.join()).toContain("min 10 is above max 5");
+  });
+
+  it("checks table columns, row bounds and computed", () => {
+    const { errors } = messages([
+      { id: "takings", type: "currency", label: "Money in", unit: "GBP" },
+      { id: "t1", type: "table", label: "No columns" },
+      { id: "t2", type: "table", label: "Weighted", columns: ["A", "B"], computed: "weighted_sum" },
+      { id: "t3", type: "table", label: "Too many", columns: ["A", "B"], max_items: 50 },
+      { id: "t4", type: "table", label: "Upside down", columns: ["A", "B"], min_items: 4, max_items: 2 },
+    ]);
+    expect(errors).toEqual(
+      expect.arrayContaining([
+        "a table needs columns (2 to 6 headings)",
+        "weighted_sum is for decision matrices; a table can use sum or mean",
+        "max_items on a table must be 20 or fewer",
+        "min_items is above max_items",
+      ]),
+    );
+  });
+
+  it("checks decision matrix criteria, options and scale", () => {
+    const { errors } = messages([
+      { id: "takings", type: "currency", label: "Money in", unit: "GBP" },
+      { id: "m1", type: "decision_matrix", label: "No criteria", options: ["A", "B"] },
+      { id: "m2", type: "decision_matrix", label: "One option", columns: ["X", "Y"], options: ["A"] },
+      { id: "m3", type: "decision_matrix", label: "Bad scale", columns: ["X", "Y"], min: 3, max: 3 },
+    ]);
+    expect(errors).toEqual(
+      expect.arrayContaining([
+        "a decision matrix needs columns, one per criterion (2 to 6)",
+        "a decision matrix compares 2 to 8 options, got 1",
+        "a decision matrix scale needs whole numbers with 0 <= min < max <= 10",
+      ]),
+    );
+  });
+
+  it("warns when a figure is prefilled from something that is not a figure", () => {
+    const wb = financeWorkbook();
+    const patched = {
+      ...wb,
+      exercises: wb.exercises.map((e) =>
+        e.id === "weekly_count" ? { ...e, fields: [{ id: "total", type: "number" as const, label: "Week total", prefill_from: "note" }] } : e,
+      ),
+    };
+    const r = validateWorkbook(patched);
+    expect(r.warnings.some((w) => w.category === "refs" && w.message.includes("prefill_from note"))).toBe(true);
+  });
+});

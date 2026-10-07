@@ -1,3 +1,5 @@
+import { FIELD_TYPES } from "@akana/schema";
+import { printableValue, type FieldDef, type Printable } from "@akana/engine/values";
 import { splitFieldKey } from "@/lib/answer-fields";
 
 /**
@@ -26,7 +28,13 @@ import { splitFieldKey } from "@/lib/answer-fields";
  *             "field_id": "what",
  *             "field_label": "..." | null,
  *             "value": <the reader's value, as saved>,
- *             "updated_at": "..."
+ *             "updated_at": "...",
+ *             "field_type": "currency" | null,      // added 7 Oct 2026 (F-113)
+ *             "display": null | {                   // added 7 Oct 2026 (F-113), number, currency,
+ *               "kind": "lines", "lines": ["£1,250.00"]  // table and decision_matrix only
+ *             } | {
+ *               "kind": "table", "head": [...], "rows": [[...]], "foot": [...] | null, "caption": "..." | null
+ *             }
  *           }
  *         ],
  *         "unreadable": 0                    // rows that would not unseal, left out
@@ -44,7 +52,12 @@ export interface ExerciseLabels {
   title: string | null;
   unit: number | null;
   fields: Record<string, string>;
+  /** Field settings by id, present only when the section gives field types. Used to format figures and grids. */
+  defs?: Record<string, FieldDef>;
 }
+
+/** Field types whose saved value is not readable on its own: a bare number or a grid. */
+const FORMATTED_TYPES = new Set(["number", "currency", "table", "decision_matrix"]);
 
 /** Exercise id to labels, built from the unit sections the reader can read. */
 export type LabelIndex = Record<string, ExerciseLabels>;
@@ -74,6 +87,10 @@ export interface ExportAnswer {
   field_label: string | null;
   value: unknown;
   updated_at: string;
+  /** The field's type when the labels know it. Added in F-113. */
+  field_type: string | null;
+  /** A ready-to-read view of a figure, table or decision matrix, with currency and totals. Added in F-113. */
+  display: Printable | null;
 }
 
 export interface ExportWorkbook {
@@ -111,20 +128,52 @@ export function labelsFromUnitSections(sections: { unit_number: number | null; b
       const id = str(ex.id);
       if (!id || out[id]) continue;
       const fields: Record<string, string> = {};
+      const defs: Record<string, FieldDef> = {};
       for (const f of Array.isArray(ex.fields) ? ex.fields : []) {
         if (!isRecord(f)) continue;
         const fid = str(f.id);
         const label = str(f.label);
         if (fid && label) fields[fid] = label;
+        const def = fieldDef(f);
+        if (fid && def) defs[fid] = def;
       }
-      out[id] = { title: str(ex.title), unit, fields };
+      out[id] = Object.keys(defs).length ? { title: str(ex.title), unit, fields, defs } : { title: str(ex.title), unit, fields };
     }
   }
   return out;
 }
 
+const strings = (v: unknown): string[] | undefined => (Array.isArray(v) && v.every((x) => typeof x === "string") ? (v as string[]) : undefined);
+const num = (v: unknown): number | undefined => (typeof v === "number" && Number.isFinite(v) ? v : undefined);
+
+/** The settings that shape how a value prints, read defensively from a stored section. */
+function fieldDef(f: Record<string, unknown>): FieldDef | null {
+  const type = typeof f.type === "string" && (FIELD_TYPES as readonly string[]).includes(f.type) ? (f.type as FieldDef["type"]) : null;
+  if (!type) return null;
+  const computed = f.computed === "sum" || f.computed === "mean" || f.computed === "weighted_sum" ? f.computed : undefined;
+  const def: FieldDef = { type, label: typeof f.label === "string" ? f.label : "" };
+  const columns = strings(f.columns);
+  const rows = strings(f.rows);
+  const options = strings(f.options);
+  if (columns) def.columns = columns;
+  if (rows) def.rows = rows;
+  if (options) def.options = options;
+  for (const k of ["min", "max", "step", "min_items", "max_items"] as const) {
+    const n = num(f[k]);
+    if (n !== undefined) def[k] = n;
+  }
+  if (typeof f.unit === "string") def.unit = f.unit;
+  if (computed) def.computed = computed;
+  return def;
+}
+
+function describeValue(def: FieldDef | undefined, value: unknown): Pick<ExportAnswer, "field_type" | "display"> {
+  if (!def) return { field_type: null, display: null };
+  return { field_type: def.type, display: FORMATTED_TYPES.has(def.type) ? printableValue(def, value) : null };
+}
+
 /** Where an answer sits: unit, exercise and labels, resolved as far as the labels allow. */
-export function placeAnswer(field: string, labels: LabelIndex): Omit<ExportAnswer, "value" | "updated_at"> {
+export function placeAnswer(field: string, labels: LabelIndex): Omit<ExportAnswer, "value" | "updated_at" | "field_type" | "display"> {
   const parts = splitFieldKey(field);
   if (!parts) {
     return { unit: null, exercise_id: null, exercise_title: null, scope: field, field_id: field, field_label: null };
@@ -168,7 +217,11 @@ export function buildExport(
   const workbooks: ExportWorkbook[] = enrolments.map((e) => {
     const rows = answers
       .filter((a) => a.enrolmentId === e.id)
-      .map((a) => ({ ...placeAnswer(a.field, e.labels), value: a.value, updated_at: a.updatedAt }))
+      .map((a) => {
+        const place = placeAnswer(a.field, e.labels);
+        const def = place.exercise_id ? e.labels[place.exercise_id]?.defs?.[place.field_id] : undefined;
+        return { ...place, value: a.value, updated_at: a.updatedAt, ...describeValue(def, a.value) };
+      })
       .sort(byPlace);
     return {
       workbook_code: e.workbookCode,
@@ -247,6 +300,16 @@ function scopeHeading(a: ExportAnswer): string {
   return a.scope;
 }
 
+/** A figure grid as a real table, so it reads in order and prints with its headings. */
+function printableTableHtml(p: Extract<Printable, { kind: "table" }>): string {
+  const e = escapeHtml;
+  const head = `<thead><tr>${p.head.map((h) => `<th scope="col">${e(h)}</th>`).join("")}</tr></thead>`;
+  const body = `<tbody>${p.rows.map((r) => `<tr>${r.map((c, i) => (i === 0 ? `<th scope="row">${e(c)}</th>` : `<td>${e(c)}</td>`)).join("")}</tr>`).join("")}</tbody>`;
+  const foot = p.foot ? `<tfoot><tr>${p.foot.map((c, i) => (i === 0 ? `<th scope="row">${e(c)}</th>` : `<td>${e(c)}</td>`)).join("")}</tr></tfoot>` : "";
+  const caption = p.caption ? `<p class="caption">${e(p.caption)}</p>` : "";
+  return `<table>${head}${body}${foot}</table>${caption}`;
+}
+
 /** A plain page that prints well. No scripts, no outside requests. */
 export function renderExportHtml(doc: ExportDocument, opts: HtmlOptions): string {
   const e = escapeHtml;
@@ -266,7 +329,10 @@ export function renderExportHtml(doc: ExportDocument, opts: HtmlOptions): string
           lastUnit = g.unit;
           const fields = g.rows
             .map((a) => {
-              const lines = valueLines(a.value);
+              if (a.display?.kind === "table") {
+                return `<div class="field"><p class="label">${e(a.field_label ?? a.field_id)}</p>${printableTableHtml(a.display)}</div>`;
+              }
+              const lines = a.display ? a.display.lines : valueLines(a.value);
               const text = lines.length ? lines.map((l) => e(l).replace(/\n/g, "<br>")).join("<br>") : "<span class=\"empty\">No answer</span>";
               return `<div class="field"><p class="label">${e(a.field_label ?? a.field_id)}</p><p>${text}</p></div>`;
             })
@@ -297,6 +363,9 @@ h4{font-size:1rem;margin:1.25rem 0 .5rem}
 .label{font-weight:700;font-size:.9rem;margin:.75rem 0 .1rem}.field p{margin:0}
 .meta,.note,.empty,.lead{color:#556}.empty{font-style:italic}
 article{break-inside:auto}section{break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:.35rem 0;font-size:.95rem}th,td{border:1px solid #ccd;padding:.3rem .5rem;text-align:left;vertical-align:top}
+thead th{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;background:#f3f4f7}td{font-variant-numeric:tabular-nums}tfoot th,tfoot td{font-weight:700;border-top:2px solid #889}
+.caption{font-style:italic;color:#445}tr{break-inside:avoid}
 @media print{body{margin:0;max-width:none}h2{break-after:avoid}}
 </style>
 </head>
