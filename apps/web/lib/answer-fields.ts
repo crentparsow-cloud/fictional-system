@@ -10,6 +10,20 @@
  * the same way everywhere: "exercise:plan_first_step.what", "checkin:3.mood".
  */
 
+/*
+ * Value shapes. Every answer is one JSON value per field path, sealed whole.
+ * The v3 figure types (F-113) add three shapes, defined with their helpers in
+ * packages/engine/src/values.ts:
+ *
+ *   number, currency  number | null (money in major units, rounded to pence)
+ *   table             (string | number | null)[][], one array per row
+ *   decision_matrix   { options: string[], weights: (number | null)[], scores: (number | null)[][] }
+ *
+ * PUT /api/answers takes any of these as they are; it never needs the field
+ * type. Cell and name lengths are capped in the engine so the fullest table
+ * (20 rows of 6 columns) stays under MAX_ANSWER_BYTES.
+ */
+
 export const FIELD_PATTERN = /^[a-z][a-z0-9_:~.-]{0,199}$/;
 
 const SCREEN_SCOPES = new Set(["start", "keep_going"]);
