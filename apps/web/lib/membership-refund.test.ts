@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cancelInCoolingOff, COOLING_OFF_DAYS, inCoolingOff, proRataRefund, refundCoolingOff } from "@/lib/membership-refund";
+import { cancelInCoolingOff, COOLING_OFF_DAYS, inCoolingOff, proRataRefund, refundCoolingOff, refundStateOf } from "@/lib/membership-refund";
 import { FakeStripeBilling } from "@/lib/testing/fake-stripe-billing";
 
 /**
@@ -69,7 +69,7 @@ describe("refundCoolingOff", () => {
   it("refunds on the payment intent, tagged with the invoice, with an idempotency key per invoice", async () => {
     const f = billing();
     const out = await refundCoolingOff(f.api(), "sub_a", { now: NOW, reason: "cooling_off_cancel" });
-    expect(out).toEqual({ status: "refunded", amountMinor: 719, currency: "GBP" });
+    expect(out).toEqual({ status: "refunded", amountMinor: 719, currency: "GBP", refundState: "pending" });
     expect(f.refunds).toMatchObject([
       { payment_intent: "pi_a1", amount: 719, metadata: { akana_reason: "cooling_off_cancel", akana_refund_invoice: "in_a1" }, idempotencyKey: "akana-cooling-off-refund-in_a1" },
     ]);
@@ -78,7 +78,8 @@ describe("refundCoolingOff", () => {
   it("refunds once per invoice, whichever path asks", async () => {
     const f = billing();
     await refundCoolingOff(f.api(), "sub_a", { now: NOW, reason: "cooling_off_cancel" });
-    expect(await refundCoolingOff(f.api(), "sub_a", { now: NOW, reason: "account_deletion" })).toEqual({ status: "already_refunded" });
+    // The earlier refund's amount comes back, for the cancellation email on a retry.
+    expect(await refundCoolingOff(f.api(), "sub_a", { now: NOW, reason: "account_deletion" })).toEqual({ status: "already_refunded", amountMinor: 719, currency: "GBP", refundState: "pending" });
     expect(f.refunds).toHaveLength(1);
   });
 
@@ -118,6 +119,7 @@ describe("refundCoolingOff", () => {
       status: "refunded",
       amountMinor: Math.floor((6999 * 363) / 365),
       currency: "GBP",
+      refundState: "pending",
     });
   });
 });
@@ -128,7 +130,7 @@ describe("cancelInCoolingOff (portal cancel)", () => {
   it("refunds the unused days, then ends the membership now", async () => {
     const f = billing(3);
     const out = await cancelInCoolingOff(f.api(), "sub_a", { now: NOW, requestedAt: asked });
-    expect(out).toEqual({ status: "cancelled", refund: { status: "refunded", amountMinor: 719, currency: "GBP" } });
+    expect(out).toEqual({ status: "cancelled", refund: { status: "refunded", amountMinor: 719, currency: "GBP", refundState: "pending" } });
     expect(f.cancelled).toEqual(["sub_a"]);
     expect(f.subs.get("sub_a")?.status).toBe("canceled");
   });
@@ -161,7 +163,7 @@ describe("cancelInCoolingOff (portal cancel)", () => {
     expect(f.refunds).toHaveLength(1);
     f.failCancel = false;
     const retry = await cancelInCoolingOff(f.api(), "sub_a", { now: NOW, requestedAt: asked });
-    expect(retry).toEqual({ status: "cancelled", refund: { status: "already_refunded" } });
+    expect(retry).toEqual({ status: "cancelled", refund: { status: "already_refunded", amountMinor: 719, currency: "GBP", refundState: "pending" } });
     expect(await cancelInCoolingOff(f.api(), "sub_a", { now: NOW, requestedAt: asked })).toEqual({ status: "already_ended" });
     expect(f.refunds).toHaveLength(1);
     expect(f.cancelled).toEqual(["sub_a"]);
@@ -175,5 +177,16 @@ describe("cancelInCoolingOff (portal cancel)", () => {
     f.failRefund = false;
     expect((await cancelInCoolingOff(f.api(), "sub_a", { now: NOW, requestedAt: asked })).status).toBe("cancelled");
     expect(f.refunds).toHaveLength(1);
+  });
+});
+
+describe("refundStateOf", () => {
+  it("maps Stripe's refund status to the words the cancellation email uses", () => {
+    expect(refundStateOf("succeeded")).toBe("succeeded");
+    expect(refundStateOf("pending")).toBe("pending");
+    expect(refundStateOf("requires_action")).toBe("pending");
+    expect(refundStateOf(undefined)).toBe("pending");
+    expect(refundStateOf("failed")).toBe("failed");
+    expect(refundStateOf("canceled")).toBe("failed");
   });
 });

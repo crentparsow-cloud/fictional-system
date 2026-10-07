@@ -1,0 +1,968 @@
+{
+  "categories": [
+    {
+      "name": "Mind and Mood",
+      "slug": "mind-and-mood",
+      "line": "Guided workbooks for calmer days, steadier moods and kinder thoughts.",
+      "group_suitable": false,
+      "subcategories": [
+        {
+          "name": "Noticing More",
+          "slug": "noticing-more",
+          "line": "Guided workbooks for slowing down and paying attention to the moment.",
+          "topics": [
+            "mindfulness",
+            "meditation",
+            "breathing",
+            "attention",
+            "present moment",
+            "pausing",
+            "grounding"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Softer Nights",
+          "slug": "softer-nights",
+          "line": "Guided workbooks for gentler evenings and better rest.",
+          "topics": [
+            "sleep",
+            "insomnia",
+            "bedtime routine",
+            "wind-down",
+            "night waking",
+            "screens at night",
+            "tiredness"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": false
+        },
+        {
+          "name": "Even Pace",
+          "slug": "even-pace",
+          "line": "Guided workbooks for a steadier pace through busy weeks.",
+          "topics": [
+            "stress",
+            "overload",
+            "pressure",
+            "breaks",
+            "workload",
+            "overwhelm",
+            "slowing down"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Seeing Yourself Fairly",
+          "slug": "seeing-yourself-fairly",
+          "line": "Guided workbooks for kinder self-talk and fairer self-judgement.",
+          "topics": [
+            "self-esteem",
+            "self-criticism",
+            "self-compassion",
+            "inner critic",
+            "perfectionism",
+            "shame",
+            "self-worth"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": false
+        },
+        {
+          "name": "Renewing Energy",
+          "slug": "renewing-energy",
+          "line": "Guided workbooks for making room, resting and getting your energy back.",
+          "topics": [
+            "burnout",
+            "exhaustion",
+            "fatigue",
+            "overcommitment",
+            "rest",
+            "saying no",
+            "recovery"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Settled Mind",
+          "slug": "settled-mind",
+          "line": "Guided workbooks for meeting worry and fear with steadier steps.",
+          "topics": [
+            "worry",
+            "anxiety",
+            "panic attacks",
+            "social anxiety",
+            "OCD",
+            "intrusive thoughts",
+            "health anxiety",
+            "fear"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "higher",
+          "group_suitable": false
+        },
+        {
+          "name": "Brighter Days",
+          "slug": "brighter-days",
+          "line": "Guided workbooks for lifting low days and keeping mood steady.",
+          "topics": [
+            "low mood",
+            "depression",
+            "sadness",
+            "motivation",
+            "mood swings",
+            "bipolar",
+            "winter blues"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "higher",
+          "group_suitable": false
+        },
+        {
+          "name": "Gentle Mending",
+          "slug": "gentle-mending",
+          "line": "Guided workbooks for living with loss and rebuilding after hard times.",
+          "topics": [
+            "grief",
+            "bereavement",
+            "trauma",
+            "PTSD",
+            "childhood trauma",
+            "addiction recovery",
+            "drinking less",
+            "loss"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "higher",
+          "group_suitable": false
+        }
+      ]
+    },
+    {
+      "name": "Health and Body",
+      "slug": "health-and-body",
+      "line": "Guided workbooks for moving, eating well and looking after your body.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Everyday Movement",
+          "slug": "everyday-movement",
+          "line": "Guided workbooks for moving more in ways that fit your week.",
+          "topics": [
+            "exercise",
+            "walking",
+            "fitness",
+            "strength",
+            "stretching",
+            "running",
+            "active habits",
+            "movement and mood"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Nourishing Meals",
+          "slug": "nourishing-meals",
+          "line": "Guided workbooks for planning, cooking and enjoying everyday food.",
+          "topics": [
+            "healthy eating",
+            "nutrition",
+            "meal planning",
+            "cooking at home",
+            "food and mood",
+            "sugar",
+            "hydration"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Ageing Well",
+          "slug": "ageing-well",
+          "line": "Guided workbooks for staying active, curious and connected in later life.",
+          "topics": [
+            "ageing",
+            "later life",
+            "menopause",
+            "memory",
+            "balance",
+            "retirement",
+            "staying active"
+          ],
+          "genre": "wellbeing",
+          "safety_tier": "standard",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Personal Growth",
+      "slug": "personal-growth",
+      "line": "Guided workbooks for habits, confidence, purpose and good decisions.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Chosen Habits",
+          "slug": "chosen-habits",
+          "line": "Guided workbooks for habits, values and character, old and new.",
+          "topics": [
+            "habits",
+            "routines",
+            "values",
+            "self-improvement",
+            "discipline",
+            "minimalism",
+            "morning routine"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Quiet Confidence",
+          "slug": "quiet-confidence",
+          "line": "Guided workbooks for speaking up, setting limits and trusting yourself.",
+          "topics": [
+            "confidence",
+            "assertiveness",
+            "shyness",
+            "imposter syndrome",
+            "boundaries",
+            "self-belief",
+            "people pleasing"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Clearer Choices",
+          "slug": "clearer-choices",
+          "line": "Guided workbooks for setting goals and making good decisions.",
+          "topics": [
+            "decision-making",
+            "goals",
+            "goal setting",
+            "problem solving",
+            "critical thinking",
+            "priorities",
+            "life planning"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Living With Purpose",
+          "slug": "living-with-purpose",
+          "line": "Guided workbooks for finding what matters and shaping life around it.",
+          "topics": [
+            "purpose",
+            "meaning of life",
+            "midlife",
+            "finding yourself",
+            "identity",
+            "life lessons",
+            "new chapter",
+            "legacy"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Wisdom for Living",
+          "slug": "wisdom-for-living",
+          "line": "Guided workbooks that turn old philosophy into daily habits.",
+          "topics": [
+            "stoicism",
+            "philosophy",
+            "ethics",
+            "virtue",
+            "Marcus Aurelius",
+            "Seneca",
+            "Epictetus",
+            "existentialism"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Love and Relationships",
+      "slug": "love-and-relationships",
+      "line": "Guided workbooks for couples, friends and honest conversations.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Partners in Step",
+          "slug": "partners-in-step",
+          "line": "Guided workbooks for couples sharing a life and a home.",
+          "topics": [
+            "couples",
+            "marriage",
+            "household chores",
+            "shared calendar",
+            "newlyweds",
+            "couple communication",
+            "marriage preparation"
+          ],
+          "genre": "relationships",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Companionable Days",
+          "slug": "companionable-days",
+          "line": "Guided workbooks for friendship, family talk and honest conversations.",
+          "topics": [
+            "friendship",
+            "making friends",
+            "moving city",
+            "difficult conversations",
+            "resolving conflict",
+            "listening",
+            "etiquette"
+          ],
+          "genre": "relationships",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "New Chapters",
+          "slug": "new-chapters",
+          "line": "Guided workbooks for dating, separating and starting again.",
+          "topics": [
+            "dating",
+            "breakup",
+            "divorce",
+            "separation",
+            "single life",
+            "starting again",
+            "heartbreak"
+          ],
+          "genre": "relationships",
+          "safety_tier": "standard",
+          "group_suitable": false
+        }
+      ]
+    },
+    {
+      "name": "Family and Parenting",
+      "slug": "family-and-parenting",
+      "line": "Guided workbooks for raising children and caring for family.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Raising With Care",
+          "slug": "raising-with-care",
+          "line": "Guided workbooks for family routines, children and teenagers.",
+          "topics": [
+            "parenting",
+            "family routines",
+            "teenagers",
+            "screens",
+            "homework",
+            "toddlers",
+            "behaviour",
+            "siblings"
+          ],
+          "genre": "parenting",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Early Days",
+          "slug": "early-days",
+          "line": "Guided workbooks for pregnancy, a new baby and the first year.",
+          "topics": [
+            "pregnancy",
+            "new baby",
+            "new parents",
+            "first year",
+            "fatherhood",
+            "motherhood",
+            "baby sleep",
+            "postnatal"
+          ],
+          "genre": "parenting",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Changing Families",
+          "slug": "changing-families",
+          "line": "Guided workbooks for step-families, adoption and new family shapes.",
+          "topics": [
+            "step-parenting",
+            "blended families",
+            "adoption",
+            "fostering",
+            "co-parenting",
+            "grandparenting",
+            "kinship care"
+          ],
+          "genre": "parenting",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Caring Hands",
+          "slug": "caring-hands",
+          "line": "Guided workbooks for people who look after a relative or friend.",
+          "topics": [
+            "carers",
+            "caring for parents",
+            "dementia",
+            "elderly parent",
+            "respite",
+            "sandwich generation",
+            "young carers"
+          ],
+          "genre": "life_skills",
+          "safety_tier": "standard",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Work and Career",
+      "slug": "work-and-career",
+      "line": "Guided workbooks for careers, teams and small businesses.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Work Worth Choosing",
+          "slug": "work-worth-choosing",
+          "line": "Guided workbooks for changing jobs, growing a career and talking about your work.",
+          "topics": [
+            "career change",
+            "job search",
+            "interviews",
+            "pay conversations",
+            "mentoring",
+            "promotion",
+            "CV"
+          ],
+          "genre": "career",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Purposeful Time",
+          "slug": "purposeful-time",
+          "line": "Guided workbooks for planning your days, meetings and focused hours.",
+          "topics": [
+            "productivity",
+            "time management",
+            "planning",
+            "meetings",
+            "focus",
+            "procrastination",
+            "deep work"
+          ],
+          "genre": "productivity",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Words That Land",
+          "slug": "words-that-land",
+          "line": "Guided workbooks for speaking, writing and negotiating at work.",
+          "topics": [
+            "public speaking",
+            "presentations",
+            "negotiation",
+            "persuasion",
+            "storytelling",
+            "pitching",
+            "business writing",
+            "networking"
+          ],
+          "genre": "career",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Shared Direction",
+          "slug": "shared-direction",
+          "line": "Guided workbooks for managing people and leading teams.",
+          "topics": [
+            "leadership",
+            "management",
+            "delegation",
+            "feedback",
+            "teams",
+            "coaching",
+            "strategy",
+            "project management"
+          ],
+          "genre": "leadership",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Welcoming Workplaces",
+          "slug": "welcoming-workplaces",
+          "line": "Guided workbooks for team culture, hiring and fair ways of working.",
+          "topics": [
+            "work culture",
+            "inclusion",
+            "hiring",
+            "onboarding",
+            "remote work",
+            "hybrid working",
+            "psychological safety",
+            "business ethics"
+          ],
+          "genre": "leadership",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Ventures Taking Shape",
+          "slug": "ventures-taking-shape",
+          "line": "Guided workbooks for starting and running a small business.",
+          "topics": [
+            "small business",
+            "trading",
+            "customers",
+            "bookkeeping",
+            "hiring",
+            "start-up",
+            "business plan"
+          ],
+          "genre": "business",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Wider Reach",
+          "slug": "wider-reach",
+          "line": "Guided workbooks for marketing, selling and finding customers.",
+          "topics": [
+            "marketing",
+            "sales",
+            "branding",
+            "social media marketing",
+            "copywriting",
+            "pricing",
+            "newsletters"
+          ],
+          "genre": "business",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Money",
+      "slug": "money",
+      "line": "Guided workbooks for everyday money, saving and planning ahead.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Considered Spending",
+          "slug": "considered-spending",
+          "line": "Guided workbooks for budgets, bills and everyday money choices.",
+          "topics": [
+            "budgeting",
+            "spending",
+            "bills",
+            "household money",
+            "cost of living",
+            "shopping habits"
+          ],
+          "genre": "finance",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Money for Later",
+          "slug": "money-for-later",
+          "line": "Guided workbooks for saving, irregular income and planning ahead.",
+          "topics": [
+            "saving",
+            "savings groups",
+            "freelance income",
+            "emergency fund",
+            "sinking funds",
+            "irregular pay"
+          ],
+          "genre": "finance",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Paying It Down",
+          "slug": "paying-it-down",
+          "line": "Guided workbooks for clearing what you owe, one step at a time.",
+          "topics": [
+            "debt",
+            "credit cards",
+            "loans",
+            "overdraft",
+            "arrears",
+            "money worries",
+            "credit score"
+          ],
+          "genre": "finance",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Patient Investing",
+          "slug": "patient-investing",
+          "line": "Guided workbooks for pensions, long-term saving and learning how investing works.",
+          "topics": [
+            "investing",
+            "index funds",
+            "pensions",
+            "ISA",
+            "retirement planning",
+            "compound interest",
+            "risk"
+          ],
+          "genre": "finance",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Learning and Skills",
+      "slug": "learning-and-skills",
+      "line": "Guided workbooks for study, teaching and practical skills.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Unrushed Learning",
+          "slug": "unrushed-learning",
+          "line": "Guided workbooks for study, exams and returning to learning.",
+          "topics": [
+            "study skills",
+            "exams",
+            "note-taking",
+            "adult learning",
+            "revision",
+            "memory techniques",
+            "languages"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Practical Know-How",
+          "slug": "practical-know-how",
+          "line": "Guided workbooks for running a home and looking after yourself.",
+          "topics": [
+            "life skills",
+            "first home",
+            "cooking",
+            "bills",
+            "repairs",
+            "cleaning",
+            "renting"
+          ],
+          "genre": "life_skills",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Digital Ease",
+          "slug": "digital-ease",
+          "line": "Guided workbooks for everyday tech, online safety and screen habits.",
+          "topics": [
+            "screen time",
+            "digital habits",
+            "phone use",
+            "online safety",
+            "scams",
+            "AI tools",
+            "spreadsheets"
+          ],
+          "genre": "life_skills",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Guiding Learners",
+          "slug": "guiding-learners",
+          "line": "Guided workbooks for teachers, tutors and home educators.",
+          "topics": [
+            "teaching",
+            "homeschooling",
+            "tutoring",
+            "lesson planning",
+            "classroom",
+            "home education",
+            "Sunday school"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Curious Reading",
+          "slug": "curious-reading",
+          "line": "Guided study companions for big books on history, science and society.",
+          "topics": [
+            "history",
+            "science",
+            "economics",
+            "society",
+            "technology",
+            "nature",
+            "biography",
+            "study guide",
+            "book club"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Faith and Spirituality",
+      "slug": "faith-and-spirituality",
+      "line": "Guided workbooks for Bible study, prayer and growing in faith.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Reading Scripture",
+          "slug": "reading-scripture",
+          "line": "Guided workbooks for reading and studying the Bible week by week.",
+          "topics": [
+            "Bible study",
+            "Bible reading plan",
+            "Gospels",
+            "Psalms",
+            "Proverbs",
+            "Old Testament",
+            "New Testament",
+            "Paul's letters",
+            "inductive study"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Rhythms of Prayer",
+          "slug": "rhythms-of-prayer",
+          "line": "Guided workbooks for building a steady habit of prayer.",
+          "topics": [
+            "prayer",
+            "quiet time",
+            "Lord's Prayer",
+            "praying the Psalms",
+            "intercession",
+            "fasting",
+            "prayer journal"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Growing in Faith",
+          "slug": "growing-in-faith",
+          "line": "Guided workbooks for discipleship and the Christian life.",
+          "topics": [
+            "discipleship",
+            "spiritual growth",
+            "Christian living",
+            "new Christian",
+            "baptism preparation",
+            "confirmation",
+            "fruit of the Spirit",
+            "spiritual disciplines"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Faith at Home",
+          "slug": "faith-at-home",
+          "line": "Guided workbooks for marriage, parenting and family life shaped by faith.",
+          "topics": [
+            "Christian marriage",
+            "Christian parenting",
+            "family devotions",
+            "marriage preparation",
+            "family prayer",
+            "raising children in faith"
+          ],
+          "genre": "relationships",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Work as Calling",
+          "slug": "work-as-calling",
+          "line": "Guided workbooks for faith, vocation and rest in working life.",
+          "topics": [
+            "calling",
+            "vocation",
+            "faith and work",
+            "Sabbath",
+            "integrity at work",
+            "Christian leadership",
+            "rest"
+          ],
+          "genre": "career",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Generous Living",
+          "slug": "generous-living",
+          "line": "Guided workbooks for giving, stewardship and contentment.",
+          "topics": [
+            "stewardship",
+            "giving",
+            "tithing",
+            "generosity",
+            "contentment",
+            "simplicity",
+            "money and faith"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Mercy and Comfort",
+          "slug": "mercy-and-comfort",
+          "line": "Guided workbooks for forgiveness, grief and hope in hard seasons.",
+          "topics": [
+            "forgiveness",
+            "grief",
+            "bereavement",
+            "lament",
+            "suffering",
+            "doubt",
+            "hope",
+            "loss"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "standard",
+          "group_suitable": true
+        },
+        {
+          "name": "Serving Together",
+          "slug": "serving-together",
+          "line": "Guided workbooks for small group leaders, volunteers and church teams.",
+          "topics": [
+            "small group leaders",
+            "church leadership",
+            "volunteers",
+            "ministry teams",
+            "pastoral care",
+            "youth work",
+            "eldership",
+            "welcome teams"
+          ],
+          "genre": "leadership",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Quiet Contemplation",
+          "slug": "quiet-contemplation",
+          "line": "Guided workbooks for contemplative practice across faith traditions.",
+          "topics": [
+            "contemplation",
+            "meditation",
+            "Christian mysticism",
+            "silence",
+            "Buddhism",
+            "Judaism",
+            "Islam",
+            "interfaith"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    },
+    {
+      "name": "Creativity and Making",
+      "slug": "creativity-and-making",
+      "line": "Guided workbooks for writing, making and creative practice.",
+      "group_suitable": true,
+      "subcategories": [
+        {
+          "name": "Steady Writing",
+          "slug": "steady-writing",
+          "line": "Guided workbooks for a steady writing habit and better stories.",
+          "topics": [
+            "creative writing",
+            "journaling",
+            "poetry",
+            "fiction writing",
+            "novel",
+            "short stories",
+            "writer's block",
+            "writing habit"
+          ],
+          "genre": "education",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Life Stories",
+          "slug": "life-stories",
+          "line": "Guided workbooks for writing your memories and family history.",
+          "topics": [
+            "memoir",
+            "life story",
+            "family history",
+            "legacy letters",
+            "reminiscence",
+            "ancestry",
+            "autobiography"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        },
+        {
+          "name": "Creative Habits",
+          "slug": "creative-habits",
+          "line": "Guided workbooks for making time to draw, play and create.",
+          "topics": [
+            "creativity",
+            "creative block",
+            "drawing",
+            "art",
+            "music practice",
+            "crafts",
+            "photography",
+            "design thinking"
+          ],
+          "genre": "personal_development",
+          "safety_tier": "none",
+          "group_suitable": true
+        }
+      ]
+    }
+  ]
+}
