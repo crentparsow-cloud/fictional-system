@@ -46,7 +46,7 @@ export default async function BookPage({ params, searchParams }: { params: Param
     supabase.from("licences").select("id, ref, status, method, text_version, signed_at, ends_at").eq("book_id", id).order("signed_at", { ascending: false }),
     supabase
       .from("workbook_submissions")
-      .select("id, route, status, status_reason, submitted_at, quote_minor, deposit_minor, quote_currency, payment_url, workbooks(code, title)")
+      .select("id, route, status, status_reason, submitted_at, quote_minor, deposit_minor, quote_currency, payment_url, workbooks(id, code, title)")
       .eq("book_id", id)
       .order("submitted_at", { ascending: false }),
     supabase.from("submission_files").select("id, submission_id, kind, file_name, storage_path, created_at").eq("org_id", ctx.org.id),
@@ -71,7 +71,7 @@ export default async function BookPage({ params, searchParams }: { params: Param
     deposit_minor: number | null;
     quote_currency: string | null;
     payment_url: string | null;
-    workbooks: { code: string; title: string } | null;
+    workbooks: { id: string; code: string; title: string } | null;
   }[];
   const fileRows = (files.data ?? []) as { id: string; submission_id: string; kind: keyof typeof SUBMISSION_FILE_KINDS; file_name: string; storage_path: string; created_at: string }[];
   const active = licenceRows.find((l) => l.status === "active");
@@ -123,7 +123,7 @@ export default async function BookPage({ params, searchParams }: { params: Param
           return (
             <article key={s.id} className="studio-sub">
               <h3>
-                {s.workbooks?.title ?? "Workbook"} {s.workbooks ? <code>{s.workbooks.code}</code> : null}
+                {s.workbooks ? <Link href={q(`/studio/workbooks/${s.workbooks.id}`)}>{s.workbooks.title}</Link> : "Workbook"} {s.workbooks ? <code>{s.workbooks.code}</code> : null}
               </h3>
               <p>
                 {SUBMISSION_ROUTES[s.route]?.label ?? s.route}. <strong>{SUBMISSION_STATUS_LABELS[s.status] ?? s.status}</strong>. Sent {date(s.submitted_at)}.
