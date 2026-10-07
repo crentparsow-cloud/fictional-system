@@ -5,6 +5,7 @@ import { originFrom } from "@/lib/partner";
 import { sendStageUpdate } from "@/lib/partner-flow";
 import { createPartnerMail, mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countFunnelEvent } from "@/lib/funnel";
 
 /**
  * Progress events (F-020): ids and timestamps only, never an answer or a
@@ -59,6 +60,34 @@ export async function POST(request: NextRequest) {
     .from("progress_events")
     .insert({ enrolment_id: check.enrolment.id, kind: parsed.data.kind, ref: parsed.data.ref ?? null });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
+
+  // F-141: daily counts with ids only. The first opening of unit 1 starts the
+  // free week; the first check-in on a unit completes a week. Skipped when the
+  // reader has opted out.
+  try {
+    const funnelEvent = parsed.data.kind === "checkin_done" ? "week_completed" : parsed.data.kind === "unit_opened" && parsed.data.ref === "1" ? "free_week_started" : null;
+    const firstTime =
+      funnelEvent &&
+      parsed.data.ref &&
+      (
+        await check.supabase
+          .from("progress_events")
+          .select("id", { count: "exact", head: true })
+          .eq("enrolment_id", check.enrolment.id)
+          .eq("kind", parsed.data.kind)
+          .eq("ref", parsed.data.ref)
+      ).count === 1;
+    if (funnelEvent && firstTime) {
+      await countFunnelEvent(check.supabase, funnelEvent, {
+        tenantId: check.enrolment.tenant_id,
+        workbookId: check.enrolment.workbook_id,
+        headers: request.headers,
+        cookies: request.cookies,
+      });
+    }
+  } catch {
+    console.error("funnel_progress_failed");
+  }
 
   if (parsed.data.kind === "step_done" || parsed.data.kind === "checkin_done") {
     const enrolmentId = check.enrolment.id;

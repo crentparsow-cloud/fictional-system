@@ -12,6 +12,9 @@ import {
   type PurchaseRepo,
 } from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countFunnelEvent } from "@/lib/funnel";
+import { reportOps } from "@/lib/ops-alerts";
+import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
 
 /**
  * Stripe platform webhook (F-096). POST /api/stripe/webhook
@@ -63,9 +66,19 @@ export async function POST(request: NextRequest) {
   try {
     event = getStripe().webhooks.constructEvent(raw, signature, getWebhookSecret());
   } catch (err) {
-    console.warn("stripe webhook: signature rejected", { reason: err instanceof Error ? err.name : "unknown" });
-    return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
+    // Connect events (F-099) may come from a Connect endpoint with its own secret.
+    const connectSecret = process.env.STRIPE_CONNECT_WEBHOOK_SECRET;
+    try {
+      if (!connectSecret) throw err;
+      event = getStripe().webhooks.constructEvent(raw, signature, connectSecret);
+    } catch {
+      console.warn("stripe webhook: signature rejected", { reason: err instanceof Error ? err.name : "unknown" });
+      return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
+    }
   }
+
+  // Connected account events (account.updated, payout bank changes) go to lib/payouts.
+  if (isConnectEvent(event)) return handleConnectWebhook(event, siteOrigin(request));
 
   try {
     const admin = createAdminClient();
@@ -73,9 +86,16 @@ export async function POST(request: NextRequest) {
     const { notify, ...logged } = outcome;
     console.info("stripe webhook", logged);
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
+    if (outcome.action === "granted") await countPurchase(admin, event);
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
+    // F-142: one alert email when this opens an alert. Never throws.
+    try {
+      await reportOps(createAdminClient(), "webhook_failure", "api/stripe/webhook", "handler_failed");
+    } catch {
+      console.error("stripe webhook: ops report unavailable");
+    }
     return NextResponse.json({ error: "handler_failed" }, { status: 500 });
   }
 }
@@ -224,4 +244,16 @@ function siteOrigin(request: NextRequest): string {
   const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
   const proto = host.startsWith("localhost") ? "http" : "https";
   return `${proto}://${host}`;
+}
+
+/**
+ * F-141: count a completed purchase. Server to server, so there is no
+ * visitor opt-out to read; the count carries the tenant and workbook ids
+ * from the session metadata and nothing about the buyer. Best effort.
+ */
+async function countPurchase(admin: Admin, event: Stripe.Event): Promise<void> {
+  const obj = event.data.object as { metadata?: Record<string, string> | null };
+  const tenantId = obj.metadata?.tenant_id;
+  if (!tenantId) return;
+  await countFunnelEvent(admin, "purchase", { tenantId, workbookId: obj.metadata?.workbook_id ?? null, headers: null });
 }

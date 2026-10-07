@@ -3,6 +3,7 @@ import { cronAuthorised } from "@/lib/cron-auth";
 import { sendTermsReminder } from "@/lib/membership-email";
 import { runTermsReminders, type DueTermsReminder } from "@/lib/membership-reminders";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { reportOps } from "@/lib/ops-alerts";
 
 /**
  * The six-monthly terms reminder for monthly members (UK DMCC Act
@@ -97,9 +98,11 @@ async function run(request: NextRequest) {
       log: (code, detail) => console.error(code, detail ?? ""),
     });
     if (result.failed || result.stamp_failed) console.error("terms_reminder_counts", result.failed, result.stamp_failed);
+    if (result.failed) await reportOps(admin, "email_failure", "api/membership/reminders", "send_failed");
     return NextResponse.json(result, { headers: NO_STORE });
   } catch (err) {
     console.error("due_terms_reminders_failed", err instanceof SqlError ? err.code : "unknown");
+    await reportOps(admin, "cron_failure", "api/membership/reminders", err instanceof SqlError ? err.code : "unknown");
     return NextResponse.json({ error: "sql_failed" }, { status: 500, headers: NO_STORE });
   }
 }
