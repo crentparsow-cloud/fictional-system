@@ -1,12 +1,15 @@
 "use client";
 
 import type { WorkbookV3 } from "@akana/schema";
-import { useEffect, useReducer, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useReducer, useRef, useState, type ReactNode } from "react";
+import { dailyScope, earnedMilestones, localDay, milestoneText, progressFacts, selfcheckScope, type CurrentStep, type ProgressEvent } from "./progress";
 import { START_SCOPE } from "./store";
 import { CheckInScreen } from "./screens/CheckIn";
 import { DailyCheckScreen, emptyDailyCheck, type DailyCheckValue } from "./screens/DailyCheck";
 import { FinishScreen } from "./screens/Finish";
 import { KeepGoingScreen } from "./screens/KeepGoing";
+import { PlanScreen } from "./screens/Plan";
+import { ProgressScreen } from "./screens/Progress";
 import { SelfCheckScreen, type SelfCheckAnswers } from "./screens/SelfCheck";
 import { StartScreen } from "./screens/Start";
 import { ToolkitScreen } from "./screens/Toolkit";
@@ -17,10 +20,12 @@ import type { AnswerStore } from "./types";
 export type PlayerView =
   | { kind: "start" }
   | { kind: "unit"; number: number }
-  | { kind: "toolkit" }
+  | { kind: "toolkit"; focus?: string }
   | { kind: "daily" }
   | { kind: "checkin"; number: number }
   | { kind: "selfcheck"; number: number | null }
+  | { kind: "plan" }
+  | { kind: "progress" }
   | { kind: "finish" }
   | { kind: "keep_going" };
 
@@ -53,6 +58,18 @@ export interface PlayerProps {
    * or the tags. When set, the daily check screen shows its Save button.
    */
   onDailyCheckDone?: () => void;
+  /** Called when the reader presses "I used it" on a tool, with the tool id. When set, the buttons show. */
+  onToolUsed?: (toolId: string) => void;
+  /** Called when the reader marks the workbook finished. When set, the Finish screen offers it. */
+  onFinished?: () => void;
+  /**
+   * Progress events already stored for this enrolment (ids and timestamps
+   * only). The Player adds its own as the reader works, to show progress
+   * and milestones without a reload. Nothing here counts days in a row.
+   */
+  events?: readonly ProgressEvent[];
+  /** The /go/ link for the book, shown on the Finish screen. */
+  buyHref?: string;
   /**
    * Higher-tier workbooks (F-022): the reader must press "I have read this"
    * on the Start screen before any unit opens. While unacknowledged the
@@ -68,8 +85,8 @@ export interface PlayerProps {
 /**
  * A simple controller for a v3 workbook: the Start screen, then one unit at a
  * time with its exercises, plus the Toolkit, daily check, check-in,
- * self-check, Finish and Keep going. Progress, sealing and unlocking are the
- * app's job. Nothing here counts streaks or missed days.
+ * self-check, My plan, Progress, Finish and Keep going. Sealing and
+ * unlocking are the app's job. Nothing here counts streaks or missed days.
  */
 export function Player({
   workbook: doc,
@@ -83,6 +100,10 @@ export function Player({
   onExerciseDone,
   onCheckInDone,
   onDailyCheckDone,
+  onToolUsed,
+  onFinished,
+  events: initialEvents,
+  buyHref,
   requireAcknowledge,
   acknowledged,
   onAcknowledge,
@@ -98,10 +119,11 @@ export function Player({
     // The app records views, not every render: only the view identity matters here.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view.kind, "number" in view ? view.number : null]);
-  const [, bump] = useReducer((n: number) => n + 1, 0);
+  const [tick, bump] = useReducer((n: number) => n + 1, 0);
   const [daily, setDaily] = useState<DailyCheckValue>(emptyDailyCheck);
   const [dailySaved, setDailySaved] = useState(false);
-  const [selfcheck, setSelfcheck] = useState<Record<string, SelfCheckAnswers>>({});
+  const [events, setEvents] = useState<ProgressEvent[]>(() => [...(initialEvents ?? [])]);
+  const [notice, setNotice] = useState<string | null>(null);
 
   // Writes go straight to the store. The Player re-renders so the screens read the new value.
   const liveStore: AnswerStore = {
@@ -112,6 +134,43 @@ export function Player({
     },
   };
 
+  // Progress and milestones are worked out from events and answers, never stored.
+  const facts = useMemo(
+    () => progressFacts(doc, events, store),
+    // tick changes whenever an answer does.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [doc, events, store, tick],
+  );
+  const earnedIds = useRef<Set<string> | null>(null);
+  if (earnedIds.current === null) earnedIds.current = new Set(earnedMilestones(doc, facts).map((m) => m.id));
+
+  // A welcome back after a break, once per open. Never a reproach, never a count.
+  useEffect(() => {
+    const welcome = doc.milestones.find((m) => m.trigger === "return_after_gap");
+    if (!welcome || !initialEvents?.length) return;
+    const last = [...initialEvents].sort((a, b) => b.at.localeCompare(a.at))[0];
+    if (last && Date.now() - Date.parse(last.at) >= 7 * 86_400_000) setNotice(milestoneText(doc, welcome, facts));
+    // Once, on open.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /** Record an event locally, then show the first milestone it newly earns. */
+  const note = (kind: ProgressEvent["kind"], ref: string | null) => {
+    const next = [...events, { kind, ref, at: new Date().toISOString() }];
+    setEvents(next);
+    announce(next);
+  };
+  const announce = (evts: readonly ProgressEvent[]) => {
+    const f = progressFacts(doc, evts, store);
+    const now = earnedMilestones(doc, f);
+    const seen = earnedIds.current ?? new Set<string>();
+    // return_after_gap is only ever the welcome on open.
+    const fresh = now.find((m) => !seen.has(m.id) && m.trigger !== "return_after_gap");
+    for (const m of now) seen.add(m.id);
+    earnedIds.current = seen;
+    if (fresh) setNotice(milestoneText(doc, fresh, f));
+  };
+
   const units = [...doc.units].sort((a, b) => a.number - b.number);
   const current = view.kind === "unit" ? units.find((u) => u.number === view.number) : undefined;
   const currentLocked = current !== undefined && (lockedUnits ?? []).includes(current.number);
@@ -120,13 +179,33 @@ export function Player({
   const toolkitTitles = doc.toolkit.map((t) => t.title);
   const unitWord = { week: "Week", day: "Day", module: "Module", chapter: "Chapter" }[doc.structure.unit];
 
+  const go = (target: PlayerView) => {
+    setNotice(null);
+    setView(target);
+  };
   const navButton = (label: string, target: PlayerView, active: boolean) => (
-    <button type="button" className="ak-nav-btn" aria-pressed={active} onClick={() => setView(target)}>
+    <button type="button" className="ak-nav-btn" aria-pressed={active} onClick={() => go(target)}>
       {label}
     </button>
   );
-
   const isActive = (kind: PlayerView["kind"]) => view.kind === kind;
+
+  const selfcheckAnswers = (n: number | null): SelfCheckAnswers => {
+    const scope = selfcheckScope(n ?? 0);
+    const out: SelfCheckAnswers = {};
+    for (const i of doc.selfcheck?.items ?? []) {
+      const v = store.get(scope, i.id);
+      if (typeof v === "number") out[i.id] = v;
+    }
+    return out;
+  };
+
+  const openStep = (step: CurrentStep) => {
+    if (step.kind === "exercise" || step.kind === "locked") go({ kind: "unit", number: step.unit });
+    else if (step.kind === "checkin") go({ kind: "checkin", number: step.unit });
+    else if (step.kind === "selfcheck") go({ kind: "selfcheck", number: step.unit });
+    else go({ kind: "finish" });
+  };
 
   return (
     <div className="ak-player" data-safety-tier={doc.safety_tier}>
@@ -145,6 +224,8 @@ export function Player({
             {doc.toolkit.length ? navButton("Toolkit", { kind: "toolkit" }, isActive("toolkit")) : null}
             {doc.daily_check ? navButton("Daily check", { kind: "daily" }, isActive("daily")) : null}
             {doc.selfcheck ? navButton("Self-check", { kind: "selfcheck", number: null }, isActive("selfcheck")) : null}
+            {doc.plan_sections.length ? navButton("My plan", { kind: "plan" }, isActive("plan")) : null}
+            {navButton("Progress", { kind: "progress" }, isActive("progress"))}
             {navButton("Finish", { kind: "finish" }, isActive("finish"))}
             {doc.keep_going ? navButton("Keep going", { kind: "keep_going" }, isActive("keep_going")) : null}
             {navButton("Start", { kind: "start" }, false)}
@@ -158,17 +239,27 @@ export function Player({
                 id="ak-unit-select"
                 className="ak-select"
                 value={view.number}
-                onChange={(e) => setView({ kind: "unit", number: Number(e.target.value) })}
+                onChange={(e) => go({ kind: "unit", number: Number(e.target.value) })}
               >
                 {units.map((u) => (
                   <option key={u.number} value={u.number}>
                     {unitLabel(doc, u.number)}: {u.focus}
+                    {facts.done.size && u.exercise_ids.length && u.exercise_ids.every((id) => facts.done.has(id)) ? " (done)" : ""}
                   </option>
                 ))}
               </select>
             </div>
           ) : null}
         </nav>
+      ) : null}
+
+      {notice ? (
+        <div className="ak-milestone" aria-live="polite">
+          <p>{notice}</p>
+          <button type="button" className="ak-btn ak-btn-quiet" onClick={() => setNotice(null)}>
+            Close
+          </button>
+        </div>
       ) : null}
 
       <main className="ak-player-body">
@@ -178,10 +269,12 @@ export function Player({
             why={why}
             readOnly={readOnly}
             onWhyChange={(w) => liveStore.set(START_SCOPE, "why", w)}
+            showFirstTool={doc.toolkit.length > 0}
+            onOpenSelfCheck={!gated && doc.selfcheck && !facts.selfchecks.has(0) ? () => go({ kind: "selfcheck", number: null }) : undefined}
             onAcknowledge={() => {
               setAcked(true);
               onAcknowledge?.();
-              setView({ kind: "unit", number: units[0]?.number ?? 1 });
+              go({ kind: "unit", number: units[0]?.number ?? 1 });
             }}
           />
         ) : null}
@@ -202,14 +295,32 @@ export function Player({
             unit={current}
             store={liveStore}
             readOnly={readOnly}
-            onExerciseDone={onExerciseDone ?? (() => undefined)}
-            onOpenCheckIn={doc.checkin ? () => setView({ kind: "checkin", number: current.number }) : undefined}
-            onOpenSelfCheck={doc.selfcheck ? () => setView({ kind: "selfcheck", number: current.number }) : undefined}
+            done={facts.done}
+            onExerciseDone={(id, scope) => {
+              onExerciseDone?.(id, scope);
+              note("step_done", scope);
+            }}
+            onOpenCheckIn={doc.checkin ? () => go({ kind: "checkin", number: current.number }) : undefined}
+            onOpenSelfCheck={doc.selfcheck ? () => go({ kind: "selfcheck", number: current.number }) : undefined}
+            onOpenTool={doc.toolkit.length ? (toolId) => go({ kind: "toolkit", focus: toolId }) : undefined}
           />
         ) : null}
         {view.kind === "unit" && !current ? <p className="ak-muted">That {unitWord.toLowerCase()} is not in this workbook.</p> : null}
 
-        {view.kind === "toolkit" ? <ToolkitScreen toolkit={doc.toolkit} /> : null}
+        {view.kind === "toolkit" ? (
+          <ToolkitScreen
+            toolkit={doc.toolkit}
+            focusId={view.focus}
+            onUse={
+              onToolUsed && !readOnly
+                ? (id) => {
+                    onToolUsed(id);
+                    note("toolkit_used", id);
+                  }
+                : undefined
+            }
+          />
+        ) : null}
 
         {view.kind === "daily" && doc.daily_check ? (
           <DailyCheckScreen
@@ -223,10 +334,18 @@ export function Player({
             onSave={
               onDailyCheckDone
                 ? () => {
+                    // The score and what helped are the reader's own answer, saved
+                    // sealed like any other, one per day (a second save that day
+                    // replaces the first, as in the legacy app). The event that
+                    // follows carries neither.
+                    const scope = dailyScope(localDay(new Date()));
+                    liveStore.set(scope, "score", daily.score);
+                    liveStore.set(scope, "tags", daily.tags.map((i) => doc.daily_check?.tags[i]).filter((t): t is string => typeof t === "string"));
                     // Clearing the value disables Save again, so one press is one event.
                     setDaily(emptyDailyCheck());
                     setDailySaved(true);
                     onDailyCheckDone();
+                    note("daily_check_done", null);
                   }
                 : undefined
             }
@@ -248,6 +367,7 @@ export function Player({
             readOnly={readOnly}
             onSave={() => {
               onCheckInDone?.(view.number);
+              note("checkin_done", String(view.number));
               setView({ kind: "unit", number: view.number });
             }}
           />
@@ -257,15 +377,47 @@ export function Player({
           <SelfCheckScreen
             selfcheck={doc.selfcheck}
             eyebrow={view.number === null ? "Your starting self-check" : `${unitLabel(doc, view.number)} self-check`}
-            answers={selfcheck[String(view.number)] ?? {}}
-            onChange={(a) => setSelfcheck({ ...selfcheck, [String(view.number)]: a })}
+            answers={selfcheckAnswers(view.number)}
+            onChange={(a) => {
+              // Each item is saved as the reader's own answer, sealed like any other.
+              const scope = selfcheckScope(view.number ?? 0);
+              for (const i of doc.selfcheck?.items ?? []) {
+                const next = a[i.id];
+                const prev = store.get(scope, i.id);
+                const value = typeof next === "number" ? next : null;
+                if ((typeof prev === "number" ? prev : null) !== value) liveStore.set(scope, i.id, value);
+              }
+            }}
             readOnly={readOnly}
-            onFinish={() => setView(view.number === null ? { kind: "unit", number: units[0]?.number ?? 1 } : { kind: "unit", number: view.number })}
+            onFinish={() => {
+              announce(events);
+              setView(view.number === null ? { kind: "unit", number: units[0]?.number ?? 1 } : { kind: "unit", number: view.number });
+            }}
           />
         ) : null}
 
+        {view.kind === "plan" ? <PlanScreen workbook={doc} store={liveStore} readOnly={readOnly} /> : null}
+
+        {view.kind === "progress" ? (
+          <ProgressScreen workbook={doc} facts={facts} events={events} store={store} onOpenStep={openStep} onOpenPlan={doc.plan_sections.length ? () => go({ kind: "plan" }) : undefined} />
+        ) : null}
+
         {view.kind === "finish" ? (
-          <FinishScreen workbook={doc} onOpenKeepGoing={doc.keep_going ? () => setView({ kind: "keep_going" }) : undefined} />
+          <FinishScreen
+            workbook={doc}
+            buyHref={buyHref}
+            finished={facts.finished}
+            onFinished={
+              onFinished && !readOnly
+                ? () => {
+                    onFinished();
+                    note("finished", null);
+                  }
+                : undefined
+            }
+            onOpenPlan={doc.plan_sections.length ? () => go({ kind: "plan" }) : undefined}
+            onOpenKeepGoing={doc.keep_going ? () => go({ kind: "keep_going" }) : undefined}
+          />
         ) : null}
 
         {view.kind === "keep_going" ? (
@@ -275,7 +427,7 @@ export function Player({
             readOnly={readOnly}
             onOpenExercise={(id) => {
               const u = units.find((x) => x.exercise_ids.includes(id));
-              if (u) setView({ kind: "unit", number: u.number });
+              if (u) go({ kind: "unit", number: u.number });
             }}
           />
         ) : null}
