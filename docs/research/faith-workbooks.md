@@ -2,6 +2,12 @@
 
 Prepared 7 October 2026. The machine-readable list is `faith-titles.json` in this folder. Facts come from the sources listed under each section. Anything not established is marked [check] or [confirm]. Nothing here is a legal opinion. The Legal Lead signs off each title through the usual public-domain record in `docs/public-domain/`.
 
+## Scope decision, 7 October 2026
+
+Crent decided that nothing directly about studying the Bible goes in for now. Faith titles stay Bible-based. Devotional, prayer, character, practical and Christian-living titles that draw on biblical teaching are in. Titles whose main purpose is studying or reading through Scripture are out, for example a Bible commentary such as Matthew Henry's, or a guide built around reading one book of the Bible. The Reading Scripture subcategory (`reading-scripture`) is retired.
+
+None of the 27 verified classics below is a Bible study title, so all 27 stay. Matthew Henry is on the list for A Method for Prayer, a prayer manual, not for his commentary. Section 2 still applies, but only as quotation support inside Bible-based titles. It is not a study feature.
+
 ## Summary
 
 27 Christian classics are verified as public domain in both the UK and the US on the evidence below. 26 meet Research 4's Tier A test. In His Steps is Tier B, because Sheldon died in 1946. Four well-known authors are excluded or held back: Oswald Chambers, A. W. Tozer, Dietrich Bonhoeffer and the later Amy Carmichael books.
@@ -127,6 +133,8 @@ These are notes for the theological reviewer (section 4). None is a reason to dr
 | Hannah Whitall Smith | The God of All Comfort | Not counted. The first publication year was not found in a source this session [check]. | CCEL listing |
 
 ## 2. Bible text for quotations inside workbooks
+
+Scope since 7 October 2026: this section covers quotations inside Bible-based titles only. Bible study workbooks are out of scope for now.
 
 A workbook will quote Scripture often. Many short quotations add up quickly, and Akana is a commercial, digital product. Free-quotation allowances from modern publishers have conditions that need care.
 
