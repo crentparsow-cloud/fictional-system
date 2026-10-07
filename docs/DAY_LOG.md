@@ -246,3 +246,48 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - The deletion job does not yet stop a Stripe subscription. That must exist before membership launches.
 
 **Next:** membership checkout (F-097), the audit and organisation migrations above once agreed, the signed-in smoke test once a staging test reader exists, Theme and author pages (F-006, F-007), and on-device search with Help now first (F-008).
+
+## Day 6: Wednesday 7 October 2026
+
+**Asked by Crent:** copy approved (later changes reviewed separately). Yes to all five decisions. Hide the Stripe account ID, audit each pause and resume, let staff create organisations. Then build membership checkout, Theme and author pages, and on-device search with Help now first. Four agents built this in parallel.
+
+**Merchant of record.** Stripe Managed Payments is a merchant of record service and covers UK digital books and courses. It does not support Connect, marketplaces or selling through a platform. Akana pays authors through Connect, so Akana stays the seller (A1) with Stripe Tax. A split, with Managed Payments for Akana's own titles and memberships only, is on the accountant review list.
+
+**Live now:** the code is pushed (remote head b9cbc9b) and deploying. Migrations 0008 and 0009 are applied to staging. Production waits for Crent's go-ahead.
+
+**Landed in the repo** (75 files)
+
+- **Migration 0008, admin controls.**
+  - Anon and readers can no longer read `tenants.stripe_account_id` or `plan`.
+  - `set_workbook_paused` writes an audit row for every pause and resume, with a required reason. Owners and editors only.
+  - `create_organisation` lets owners and editors add organisations from `/admin/organisations`, with codes and an audit row.
+  - The Toolkit is free before purchase. Published workbooks are updated too.
+  - `resolve_tenant` looks up verified hosts. It is still behind `TENANT_DB_LOOKUP=1`.
+- **Decisions built.** A new consent version asks readers again. Schema v3 has an optional `sensitive` field marker, so the hardest-answer card can work. Public-domain pages are indexable. The home approval badge is gone.
+- **Membership checkout (F-097), migration 0009.**
+  - Monthly and yearly membership checkout with Stripe Tax.
+  - A customer portal, reached from You, Manage membership.
+  - The subscription webhooks are handled, and payment-failed emails never name a title.
+  - The deletion job cancels any live subscription first.
+  - A membership opens titles marked as in the membership. Past-due members keep access for a grace period, a placeholder of 7 days.
+- **Theme and author pages (F-006, F-007).** `/themes`, `/themes/<slug>`, `/authors`, `/authors/<slug>` and `/publishers/<slug>`. `/t/<slug>` redirects to the Theme page. Workbook cards and pages link to them. Demo authors are labelled and kept out of search engines.
+- **On-device search (F-008).** At `/search` and on the library. What the reader types never leaves the device. A conservative list of crisis phrases puts Help now first, above any workbook. The list is interim until clinician sign-off (C1) and lives in `apps/web/lib/search-safety.ts`.
+
+**Checks:** typecheck and lint are clean. 486 unit tests pass (web 390). Database tests 0001 to 0009 pass. 43 smoke tests pass, and 5 that need live data are skipped. The CSP, validator and id checks are clean.
+
+**Needs Crent (new this batch)**
+
+1. Say "apply 0008 and 0009 to production". The reader page needs 0009.
+2. In Vercel, add `SUPABASE_SERVICE_ROLE_KEY` for Preview from akana-staging. The tabs are open.
+3. In the Stripe webhook, add 5 events: `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.paid` and `invoice.payment_failed`. I can do this in Chrome if you ask.
+4. Membership decisions:
+   - the grace period (placeholder 7 days)
+   - whether demo titles are in the membership
+   - membership prices (D1 to D4), then `STRIPE_PRICE_MEMBERSHIP_MONTHLY` and `STRIPE_PRICE_MEMBERSHIP_YEARLY`
+   - whether cancelling at deletion refunds unused time
+   - the Stripe customer portal settings
+5. Email templates still say "pass". They should say "membership". Confirm and I will change them.
+6. Search indexes hidden topic terms, which can be read in the page source. Keep or drop?
+7. Still open: who signs the public-domain records, the tenant apex domain (A7), and the schema freeze sign-off.
+
+**Next:** production migrations once agreed, Stripe webhook events, email wording, then the rest of week 2.
