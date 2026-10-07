@@ -52,12 +52,31 @@ export async function getAuthorBySlug(slug: string): Promise<AuthorProfile | nul
   };
 }
 
-type ThemeRow = { id: string; name: string; line: string | null; shelf_id: string | null; clearance_status: string; shelves: { name: string } | null };
+type ThemeRow = {
+  id: string;
+  name: string;
+  line: string | null;
+  shelf_id: string | null;
+  clearance_status: string;
+  min_books: number | null;
+  hidden_until_min_books: boolean | null;
+  shelves: { name: string; hidden_until_min_books: boolean | null } | null;
+};
 
-const THEME_COLUMNS = "id, name, line, shelf_id, clearance_status, shelves(name)";
+// hidden_until_min_books comes from migration 0015 (F-148).
+const THEME_COLUMNS = "id, name, line, shelf_id, clearance_status, min_books, hidden_until_min_books, shelves(name, hidden_until_min_books)";
 
 function toTheme(row: ThemeRow): ThemeInput {
-  return { id: row.id, name: row.name, line: row.line, shelfId: row.shelf_id, shelfName: row.shelves?.name ?? null };
+  return {
+    id: row.id,
+    name: row.name,
+    line: row.line,
+    shelfId: row.shelf_id,
+    shelfName: row.shelves?.name ?? null,
+    held: row.hidden_until_min_books === true,
+    minBooks: row.min_books,
+    shelfHeld: row.shelves?.hidden_until_min_books === true,
+  };
 }
 
 /** One Theme by id, or null. A Theme whose name failed clearance is never shown. */

@@ -65,6 +65,12 @@ export interface ThemeInput {
   line: string | null;
   shelfId: string | null;
   shelfName: string | null;
+  /** themes.hidden_until_min_books (0015, F-148). See lib/theme-visibility.ts. */
+  held?: boolean;
+  /** themes.min_books. */
+  minBooks?: number | null;
+  /** shelves.hidden_until_min_books for the Theme's shelf. */
+  shelfHeld?: boolean;
 }
 
 export interface ThemeSummary extends ThemeInput {
