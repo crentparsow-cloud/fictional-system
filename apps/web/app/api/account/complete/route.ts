@@ -1,5 +1,5 @@
-import { timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
+import { cronAuthorised } from "@/lib/cron-auth";
 import { runDeletionJob, stripeCanceller, stripeSettlement, type DueSubscription } from "@/lib/account-complete";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -41,18 +41,10 @@ export const runtime = "nodejs";
 
 const NO_STORE = { "Cache-Control": "no-store" } as const;
 
-function authorised(request: NextRequest, secret: string): boolean {
-  const header = request.headers.get("authorization") ?? "";
-  const given = header.startsWith("Bearer ") ? header.slice(7) : (request.headers.get("x-cron-secret") ?? "");
-  const a = Buffer.from(given);
-  const b = Buffer.from(secret);
-  return a.length === b.length && timingSafeEqual(a, b);
-}
-
 async function run(request: NextRequest) {
   const secret = process.env.CRON_SECRET;
   if (!secret) return NextResponse.json({ error: "not_configured" }, { status: 503, headers: NO_STORE });
-  if (!authorised(request, secret)) return NextResponse.json({ error: "unauthorised" }, { status: 401, headers: NO_STORE });
+  if (!cronAuthorised(request.headers, secret)) return NextResponse.json({ error: "unauthorised" }, { status: 401, headers: NO_STORE });
 
   let admin: ReturnType<typeof createAdminClient>;
   try {
