@@ -175,3 +175,113 @@ export function regionFromAcceptLanguage(header: string | null | undefined, allo
   }
   return null;
 }
+
+// ---------- signposts (F-154) ----------
+
+/**
+ * Signpost groups named by a title (for example a debt or grief workbook)
+ * and shown beside Help now on that title. They are not crisis lines and do
+ * not appear in the Help now hub's own list. Carried from the signposts block
+ * in content/catalog/support_lines.json. Signposts only: Akana claims no
+ * endorsement or partnership.
+ *
+ * GB only for now. Each number and its hours were read on the organisation's
+ * own website on SIGNPOSTS_CHECKED. Every other market is null until it has
+ * been checked; a null market shows no signpost rather than a guess.
+ */
+export type SignpostId =
+  | "money_worries_lines"
+  | "eating_support_lines"
+  | "bereavement_support_lines"
+  | "new_parent_support_lines"
+  | "carer_support_lines";
+
+export const SIGNPOSTS_CHECKED = "2026-10-07";
+
+export interface SignpostLine {
+  /** The service name as it appears on its own site. */
+  name: string;
+  /** A phone number, a domain for a website-only service, or null when not yet verified [check]. */
+  number: string | null;
+  how: string;
+  hours: string | null;
+  url: string;
+  verified: boolean;
+  /** YYYY-MM-DD. */
+  verifiedOn: string;
+}
+
+export const SIGNPOST_GROUPS: readonly { id: SignpostId; title: string }[] = [
+  { id: "money_worries_lines", title: "Money worries" },
+  { id: "eating_support_lines", title: "Food and eating" },
+  { id: "bereavement_support_lines", title: "Bereavement" },
+  { id: "new_parent_support_lines", title: "New parents" },
+  { id: "carer_support_lines", title: "Carers" },
+];
+
+/** Shown under any signpost list. */
+export const SIGNPOST_NOTE = "These are independent services. Akana is not connected to them.";
+
+const c = SIGNPOSTS_CHECKED;
+const BEAT = "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/";
+
+export const SIGNPOST_LINES: Readonly<Record<SignpostId, Partial<Record<MarketCode, readonly SignpostLine[] | null>>>> = {
+  money_worries_lines: {
+    GB: [
+      { name: "MoneyHelper", number: "0800 011 3797", how: "Call", hours: "Mon to Fri 9am to 5pm", url: "https://www.moneyhelper.org.uk/en/contact-us", verified: true, verifiedOn: c },
+      { name: "StepChange Debt Charity", number: "0800 138 1111", how: "Call", hours: "Mon to Fri 8am to 8pm; Sat 9am to 2pm", url: "https://www.stepchange.org/contact-us.aspx", verified: true, verifiedOn: c },
+      { name: "National Debtline", number: "0808 808 4000", how: "Call", hours: "Mon to Fri 9am to 8pm; Sat 9:30am to 1pm", url: "https://nationaldebtline.org/contact-us/", verified: true, verifiedOn: c },
+      { name: "Citizens Advice Adviceline (England)", number: "0800 144 8848", how: "Call", hours: "Mon to Fri 9am to 5pm", url: "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/", verified: true, verifiedOn: c },
+      { name: "Citizens Advice Advicelink (Wales)", number: "0800 702 2020", how: "Call", hours: "Mon to Fri 8am to 7pm; Sat 9am to 1pm", url: "https://www.citizensadvice.org.uk/wales/about-us/contact-us/contact-us/contact-us/", verified: true, verifiedOn: c },
+    ],
+  },
+  eating_support_lines: {
+    GB: [
+      { name: "Beat Helpline (England)", number: "0808 801 0677", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
+      { name: "Beat Helpline (Scotland)", number: "0808 801 0432", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
+      { name: "Beat Helpline (Wales)", number: "0808 801 0433", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
+      { name: "Beat Helpline (Northern Ireland)", number: "0808 801 0434", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
+    ],
+  },
+  bereavement_support_lines: {
+    GB: [
+      { name: "Cruse Bereavement Support", number: "0808 808 1677", how: "Call", hours: "Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm", url: "https://www.cruse.org.uk/get-support/helpline/", verified: true, verifiedOn: c },
+    ],
+  },
+  new_parent_support_lines: {
+    GB: [
+      { name: "Family Lives (England and Wales)", number: "0808 800 2222", how: "Call", hours: "Mon to Fri 9am to 9pm; weekends 10am to 3pm", url: "https://www.familylives.org.uk/how-we-can-help/confidential-helpline/", verified: true, verifiedOn: c },
+      { name: "PANDAS Foundation (perinatal mental health)", number: "pandasfoundation.org.uk", how: "Website", hours: null, url: "https://pandasfoundation.org.uk/", verified: true, verifiedOn: c },
+    ],
+  },
+  carer_support_lines: {
+    GB: [
+      { name: "Carers UK Helpline", number: "0808 808 7777", how: "Call", hours: "Mon to Fri 9am to 6pm", url: "https://www.carersuk.org/help-and-advice/helpline-and-other-support/", verified: true, verifiedOn: c },
+    ],
+  },
+};
+
+const SIGNPOST_IDS = new Set<string>(SIGNPOST_GROUPS.map((g) => g.id));
+
+export function isSignpostId(value: string | null | undefined): value is SignpostId {
+  return typeof value === "string" && SIGNPOST_IDS.has(value);
+}
+
+/**
+ * The signpost a title names, for the reader's market, or null when the id
+ * is unknown or the market has not been checked. Never falls back to another
+ * market's numbers.
+ */
+export function signpostFor(id: string | null | undefined, market: MarketCode): { id: SignpostId; title: string; lines: readonly SignpostLine[] } | null {
+  if (!isSignpostId(id)) return null;
+  const lines = SIGNPOST_LINES[id][market] ?? null;
+  if (!lines || lines.length === 0) return null;
+  const title = SIGNPOST_GROUPS.find((g) => g.id === id)!.title;
+  return { id, title, lines };
+}
+
+/** The href for a signpost line: as contactHref, or the website when no number is verified. */
+export function signpostHref(line: SignpostLine): string {
+  if (line.number === null) return line.url;
+  return contactHref({ number: line.number, how: line.how, url: line.url });
+}
