@@ -133,4 +133,25 @@ describe("SupabaseAnswerStore", () => {
     expect(store.get("start", "why")).toBe("because");
     expect(String((fetchFn as unknown as ReturnType<typeof vi.fn>).mock.calls[0]![0])).toBe("/api/answers?enrolment=e1");
   });
+  it("reports each confirmed save by field key only (hardest answer card hook)", async () => {
+    const saved: unknown[][] = [];
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fakeFetch([200]).fn, onSaved: (...a) => saved.push(a) });
+    store.set("ex_one", "f_one", "private words");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    expect(saved).toEqual([["exercise:ex_one.f_one"]]);
+  });
+
+  it("shows the consent state when the route refuses for missing consent", async () => {
+    const states: SaveState[] = [];
+    const fn = vi.fn(async () => new Response(JSON.stringify({ error: "consent_required", message: "m" }), { status: 403 }));
+    const saved: string[] = [];
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fn as unknown as typeof fetch, onStatus: (s) => states.push(s), onSaved: (f) => saved.push(f) });
+    store.set("ex_one", "f_one", "x");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    expect(states.at(-1)).toBe("consent");
+    expect(saved).toEqual([]);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
 });

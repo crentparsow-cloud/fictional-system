@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import "@akana/engine/engine.css";
 import { getReaderSession } from "@/lib/auth";
+import { consentGate, consentHref } from "@/lib/consent";
+import { marketFor } from "@/lib/markets";
+import { PRICE_LADDER, priceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
 import { rebuildWorkbook, type SectionRow } from "@/lib/rebuild-workbook";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
@@ -16,6 +19,14 @@ import { ReadClient } from "./ReadClient";
  * enrolment is created on first open, pinned to the current version, and
  * last_opened_at is touched on every open. The page never reads answers;
  * the client loads them from /api/answers once it mounts.
+ *
+ * Gates, in order, before any enrolment is created:
+ *   consent  a wellbeing workbook (tier standard or higher) sends a reader
+ *            with no health data consent to /consent first (F-026). Tier
+ *            none never asks.
+ * Then, inside the Player:
+ *   higher   the Start screen and its "I have read this" before unit 1 (F-022)
+ *   paywall  a unit the entitlement does not cover shows the calm card (F-019)
  */
 export const dynamic = "force-dynamic";
 
@@ -34,8 +45,20 @@ interface WorkbookRow {
   slug: string;
   title: string;
   safety_tier: "none" | "standard" | "higher";
+  is_demo: boolean;
+  price_point_id: string | null;
   current_version_id: string | null;
 }
+
+interface PricePointRow {
+  id: string;
+  kind: string;
+  amounts: unknown;
+  stripe_price_id: string | null;
+  active: boolean;
+}
+
+const MEMBERSHIP_POINT: PricePointId = "member_month";
 
 interface EnrolmentRow {
   id: string;
@@ -54,11 +77,21 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
 
   const { data: wb } = await supabase
     .from("workbooks")
-    .select("id, slug, title, safety_tier, current_version_id")
+    .select("id, slug, title, safety_tier, is_demo, price_point_id, current_version_id")
     .eq("slug", slug)
     .maybeSingle();
   const workbook = wb as WorkbookRow | null;
   if (!workbook || !workbook.current_version_id) notFound();
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("health_consent_at, country")
+    .eq("user_id", session.userId)
+    .maybeSingle();
+  if (consentGate(workbook.safety_tier, { consentAt: (profile?.health_consent_at as string | null | undefined) ?? null }) === "consent") {
+    redirect(consentHref(`/read/${workbook.slug}`));
+  }
+  const market = marketFor((profile?.country as string | null | undefined) ?? null);
 
   // One enrolment per reader, tenant and workbook. Create on first open.
   const { data: existing } = await supabase
@@ -90,6 +123,22 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
   const rebuilt = rebuildWorkbook((sectionRows ?? []) as SectionRow[]);
   if (!rebuilt) notFound();
 
+  // Prices for the calm paywall, only when something is locked. The
+  // database row wins, as at checkout; the config ladder is the fallback.
+  let workbookPrice: Price | null = null;
+  let membershipPrice: Price | null = null;
+  if (rebuilt.lockedUnits.length && !workbook.is_demo) {
+    const ids = [MEMBERSHIP_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
+    const { data: points } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").in("id", ids);
+    const ladder: Partial<Record<PricePointId, PricePoint>> = { ...PRICE_LADDER };
+    for (const row of (points ?? []) as PricePointRow[]) {
+      const point = pricePointFromRow(row);
+      if (point) ladder[point.id] = point.active ? point : { ...point, amounts: {} };
+    }
+    workbookPrice = priceFor({ pricePointId: workbook.price_point_id, isDemo: workbook.is_demo }, market, ladder);
+    membershipPrice = priceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
+  }
+
   return (
     <ReadClient
       workbook={rebuilt.workbook}
@@ -97,6 +146,8 @@ export default async function ReadPage({ params }: { params: Promise<Params> }) 
       lockedUnits={rebuilt.lockedUnits}
       missing={rebuilt.missing}
       slug={workbook.slug}
+      market={market.code}
+      paywall={{ demo: workbook.is_demo, workbookPrice, membershipPrice }}
     />
   );
 }

@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { FIELD_PATTERN } from "@/lib/answer-fields";
 import { MAX_ANSWER_BYTES, seal, unseal } from "@/lib/answers";
+import { answerWriteDecision } from "@/lib/consent";
 import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -10,6 +11,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *
  *   GET /api/answers?enrolment=<id>  -> { answers: { [field]: value } }
  *   PUT /api/answers { enrolment, field, value } -> { updated_at }
+ *       403 { error: "consent_required", message } for a wellbeing
+ *       workbook when the reader has no health data consent (F-026)
  *
  * Why the admin client is acceptable on the write path. Clients have no
  * insert or update grant on public.answers at all, so a write has to come
@@ -76,6 +79,21 @@ export async function PUT(request: NextRequest) {
   const check = await requireOwnedEnrolment(enrolmentId);
   if (!check.ok) return check.response;
   const { enrolment, tenantId } = check;
+
+  // Health data consent (F-026). A wellbeing workbook takes no new answers
+  // while the reader has no consent in place, for example after withdrawal.
+  // Both reads go through the reader's own client; a tier that cannot be
+  // read fails closed.
+  const [{ data: wbTier }, { data: profile }] = await Promise.all([
+    check.supabase.from("workbooks").select("safety_tier").eq("id", enrolment.workbook_id).maybeSingle(),
+    check.supabase.from("profiles").select("health_consent_at").eq("user_id", enrolment.user_id).maybeSingle(),
+  ]);
+  const decision = answerWriteDecision((wbTier?.safety_tier as string | null | undefined) ?? null, {
+    consentAt: (profile?.health_consent_at as string | null | undefined) ?? null,
+  });
+  if (!decision.ok) {
+    return NextResponse.json({ error: decision.error, message: decision.message }, { status: decision.status, headers: NO_STORE });
+  }
 
   let sealed: { sealed: string; keyId: string };
   try {

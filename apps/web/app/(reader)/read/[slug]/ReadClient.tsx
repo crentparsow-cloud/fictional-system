@@ -1,11 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { WorkbookV3 } from "@akana/schema";
 import { Player, type PlayerView } from "@akana/engine";
+import { HelpNowButton } from "@/components/HelpNowButton";
 import { SupabaseAnswerStore, type SaveState } from "@/components/reader/AnswerStore";
+import { HardestAnswerCard } from "@/components/reader/HardestAnswerCard";
+import { hardestCardKey, sensitiveFieldKeys, shouldShowHardestCard } from "@/components/reader/hardest-answer";
+import { PaywallCard } from "@/components/reader/PaywallCard";
+import { paywallState, unitCountPhrase } from "@/components/reader/paywall";
 import { SaveStatus } from "@/components/reader/SaveStatus";
+import type { Price } from "@/lib/pricing";
 
 interface Props {
   workbook: WorkbookV3;
@@ -13,6 +18,32 @@ interface Props {
   lockedUnits: number[];
   missing: Array<"toolkit" | "finish" | "keep_going">;
   slug: string;
+  /** The reader's market code, for Help now. "XX" means everywhere else. */
+  market: string;
+  paywall: { demo: boolean; workbookPrice: Price | null; membershipPrice: Price | null };
+}
+
+/**
+ * The higher-tier "I have read this" is kept on this device per enrolment.
+ * No progress event kind in 0003 fits it, and the Player shows Start first on
+ * every open anyway, so losing it only means reading the note again.
+ */
+const ackKey = (enrolmentId: string) => `ak:ack:${enrolmentId}`;
+
+function readLocal(key: string): string | null {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeLocal(key: string, value: string): void {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // storage blocked: the card or the note may simply show again
+  }
 }
 
 /**
@@ -23,17 +54,40 @@ interface Props {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Props) {
+export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [acknowledged, setAcknowledged] = useState(false);
+  const [hardest, setHardest] = useState(false);
   const lastUnit = useRef<number | null>(null);
+  const higher = workbook.safety_tier === "higher";
+  const wellbeing = workbook.safety_tier !== "none";
+  const helpMarket = market === "XX" ? null : market;
+
+  // The hardest answer card: at most weekly, on this device, never sent anywhere.
+  const sensitive = useMemo(() => sensitiveFieldKeys(workbook), [workbook]);
+  const onSaved = useCallback(
+    (field: string) => {
+      if (!wellbeing || !sensitive.size) return;
+      const key = hardestCardKey(enrolmentId);
+      const last = Number(readLocal(key));
+      const now = Date.now();
+      if (shouldShowHardestCard({ field, sensitive, lastShownAt: last > 0 ? last : null, now })) {
+        writeLocal(key, String(now));
+        setHardest(true);
+      }
+    },
+    [enrolmentId, sensitive, wellbeing],
+  );
 
   useEffect(() => {
     let cancelled = false;
-    SupabaseAnswerStore.load({ enrolmentId, onStatus: setSaveState })
+    SupabaseAnswerStore.load({ enrolmentId, onStatus: setSaveState, onSaved })
       .then((s) => {
-        if (!cancelled) setStore(s);
+        if (cancelled) return;
+        if (higher && readLocal(ackKey(enrolmentId))) setAcknowledged(true);
+        setStore(s);
       })
       .catch(() => {
         if (!cancelled) setLoadError(true);
@@ -41,7 +95,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
     return () => {
       cancelled = true;
     };
-  }, [enrolmentId]);
+  }, [enrolmentId, higher, onSaved]);
 
   // Send anything owed when the tab goes away.
   useEffect(() => {
@@ -77,22 +131,25 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
   const onCheckInDone = useCallback((unitNumber: number) => record("checkin_done", String(unitNumber)), [record]);
   const onDailyCheckDone = useCallback(() => record("daily_check_done"), [record]);
 
-  const helpSlot =
-    workbook.safety_tier !== "none" ? (
-      <Link href="/help-now" className="btn help">
-        Help now
-      </Link>
-    ) : null;
+  const onAcknowledge = useCallback(() => {
+    writeLocal(ackKey(enrolmentId), new Date().toISOString());
+    setAcknowledged(true);
+  }, [enrolmentId]);
 
-  const lockedNotice = (
-    <div className="read-locked" role="note">
-      <p>This {unitWord(workbook)} opens with the full workbook.</p>
-      <p className="muted">Your free {unitWord(workbook)} and your answers stay here whatever you decide.</p>
-      <Link href="/library" className="btn secondary">
-        Back to your library
-      </Link>
-    </div>
-  );
+  // Help now, one tap away on every screen of a wellbeing workbook (F-021).
+  const helpSlot = wellbeing ? <HelpNowButton market={helpMarket} /> : null;
+
+  // The calm paywall (F-019). A locked unit is one the entitlement does not cover.
+  const offer = paywallState({ entitled: false, ...paywall });
+  const lockedNotice =
+    offer.kind === "open" ? null : (
+      <PaywallCard
+        state={offer}
+        slug={slug}
+        unitWord={unitWord(workbook)}
+        fullLength={unitCountPhrase(workbook.structure.count, workbook.structure.unit)}
+      />
+    );
 
   if (loadError) {
     return (
@@ -116,6 +173,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
         <SaveStatus state={saveState} />
         {missing.length ? <span className="muted" style={{ fontSize: "0.85rem" }}>Some parts open with the full workbook.</span> : null}
       </div>
+      {hardest ? <HardestAnswerCard market={helpMarket} onClose={() => setHardest(false)} /> : null}
       <Player
         workbook={workbook}
         store={store}
@@ -126,6 +184,9 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing }: Prop
         onExerciseDone={onExerciseDone}
         onCheckInDone={onCheckInDone}
         onDailyCheckDone={onDailyCheckDone}
+        requireAcknowledge={higher}
+        acknowledged={acknowledged}
+        onAcknowledge={onAcknowledge}
       />
     </section>
   );
