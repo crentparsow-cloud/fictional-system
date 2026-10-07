@@ -20,7 +20,10 @@
  * miss or a fallback. No Node APIs, no next/* imports.
  */
 import {
+  DEMO_TENANT_ID,
+  DEMO_TENANT_SLUG,
   MARKETPLACE_TENANT_ID,
+  isDemoTenantHost,
   isLocalOrPreviewHost,
   isMarketplaceApex,
   normaliseHost,
@@ -64,11 +67,12 @@ export interface ResolveDeps {
   publishableKey?: string;
 }
 
-/** The config map, with the marketplace uuid filled in. */
+/** The config map, with the fixed uuids filled in: the marketplace (0001) and the demo tenant (0023). */
 export function resolveFromConfig(host: string, source: HostTenant["source"] = "config"): HostTenant | null {
   const t = resolveTenant(host);
   if (!t) return null;
-  return { id: t.kind === "marketplace" ? MARKETPLACE_TENANT_ID : null, slug: t.slug, kind: t.kind, source };
+  const id = t.kind === "marketplace" ? MARKETPLACE_TENANT_ID : t.slug === DEMO_TENANT_SLUG ? DEMO_TENANT_ID : null;
+  return { id, slug: t.slug, kind: t.kind, source };
 }
 
 /**
@@ -79,6 +83,10 @@ export async function resolveTenantFromDb(rawHost: string, deps: ResolveDeps = {
   const host = normaliseHost(rawHost);
   if (!host) return null;
 
+  // The demo site's config hosts need no lookup either (F-074): no domain is registered for them.
+  if (isDemoTenantHost(host)) {
+    return { id: DEMO_TENANT_ID, slug: DEMO_TENANT_SLUG, kind: "white_label", source: "config" };
+  }
   // The marketplace hosts need no lookup. Its id is fixed by migration 0001.
   if (isLocalOrPreviewHost(host) || isMarketplaceApex(host)) {
     return { id: MARKETPLACE_TENANT_ID, slug: "akana", kind: "marketplace", source: "config" };
@@ -170,9 +178,9 @@ export async function resolveRequestTenant(rawHost: string, deps: ResolveDeps = 
   return resolveFromConfig(normaliseHost(rawHost));
 }
 
-const STAFF_ONLY = /^\/(admin|studio|console|payouts|files)(\/|$)/;
+const STAFF_ONLY = /^\/(admin|studio|console|payouts|files|org)(\/|$)/;
 
-/** Admin, studio, console, payouts (F-099) and private files (F-135) exist only on the Akana apex. */
+/** Admin, studio, console, payouts (F-099), private files (F-135) and the organisation console (F-204) exist only on the Akana apex. */
 export function isStaffOnlyPath(path: string): boolean {
   return STAFF_ONLY.test(path);
 }
@@ -185,4 +193,35 @@ export function routeDecision(tenant: HostTenant | null, path: string): "serve" 
   if (!tenant) return "not_found";
   if (isStaffOnlyPath(path) && tenant.kind !== "marketplace") return "not_found";
   return "serve";
+}
+
+/**
+ * What a white-label host serves (F-068, F-069). A tenant site is the tenant
+ * home and workbook pages, drawn by app/site in tenant branding, plus Akana's
+ * locked pages, which the tenant cannot change: Help now, the offline help
+ * page and the legal pages (privacy notice, reader terms). Everything else,
+ * the marketplace's own pages included, is a 404 on a tenant host. Reading
+ * and sign-in on tenant hosts wait for shared identity (F-133).
+ *
+ *   /            -> rewrite to /site
+ *   /w/<slug>    -> rewrite to /site/w/<slug>
+ *   locked pages -> served as they are, in Akana's own look
+ *   anything else, /site itself included -> 404
+ */
+export type TenantSiteRoute = { action: "rewrite"; to: string } | { action: "serve" } | { action: "not_found" };
+
+const TENANT_WORKBOOK = /^\/w\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/;
+const TENANT_LOCKED = /^\/(help-now|help-offline|tenant\.css|api\/health)\/?$|^\/(legal|covers|brand)\/.+$/;
+
+export function tenantSiteRoute(path: string): TenantSiteRoute {
+  if (path === "/") return { action: "rewrite", to: "/site" };
+  const w = TENANT_WORKBOOK.exec(path);
+  if (w) return { action: "rewrite", to: `/site/w/${w[1]}` };
+  if (TENANT_LOCKED.test(path)) return { action: "serve" };
+  return { action: "not_found" };
+}
+
+/** /site is drawn only through the rewrite on a tenant host; on the marketplace it does not exist. */
+export function isTenantSiteInternalPath(path: string): boolean {
+  return /^\/site(\/|$)/.test(path);
 }
