@@ -1,0 +1,79 @@
+{
+  "code": "AK-B9XEG",
+  "workbookId": "home-education",
+  "slug": "home-education-b9xeg",
+  "title": "Home Education",
+  "author": "Charlotte M. Mason",
+  "people": [
+    {
+      "name": "Charlotte M. Mason",
+      "role": "author",
+      "died": 1923,
+      "diedSource": "Project Gutenberg catalogue page, as recorded in docs/planning/AK_Demo_Catalogue_Plan.md section 7 and the public_domain block in docs/planning/AK_Demo_Catalogue.json. Not yet checked against a second source [to confirm]."
+    }
+  ],
+  "firstPublished": "1886. The Gutenberg text is from the 1906 Kegan Paul edition",
+  "edition": {
+    "name": "Project Gutenberg eBook #71087 (Kegan Paul, Trench, Trübner, 1906)",
+    "url": "https://www.gutenberg.org/ebooks/71087",
+    "status": "A transcription of a 1906 printing. Any preface or notes by another hand in that edition are not recorded in the repo [to confirm against the file]. The workbook uses selected chapters only (outdoor life, habit and narration), and says so."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author and translator died before 1946 (docs/planning/AK_Demo_Catalogue_Plan.md section 7).",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Charlotte M. Mason died 1923. The term ran to the end of 1993. Holds once the death year is confirmed."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1931 (Research 4 Tier A test).",
+      "conclusion": "clear",
+      "basis": "First published 1886. The edition used was printed in 1906. Both are before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a death year of 1923 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a death year of 1923 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a death year of 1923 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Charlotte M. Mason died 1923. The term ran to the end of 1993. Holds once the death year is confirmed."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm Mason's death year (1923) against a second source.",
+    "Check the 1906 Kegan Paul file for any preface or notes by another hand.",
+    "Clinical Safety and Editorial to agree the chapter selection.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/planning/AK_Demo_Catalogue_Plan.md section 7",
+    "docs/planning/AK_Demo_Catalogue.json (workbook home-education, public_domain block)",
+    "https://www.gutenberg.org/ebooks/71087"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

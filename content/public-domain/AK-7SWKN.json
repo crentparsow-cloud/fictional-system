@@ -1,0 +1,78 @@
+{
+  "code": "AK-7SWKN",
+  "workbookId": "self-help",
+  "slug": "self-help-7swkn",
+  "title": "Self-Help",
+  "author": "Samuel Smiles",
+  "people": [
+    {
+      "name": "Samuel Smiles",
+      "role": "author",
+      "died": 1904,
+      "diedSource": "Project Gutenberg catalogue page, as recorded in docs/planning/AK_Demo_Catalogue_Plan.md section 7 and the public_domain block in docs/planning/AK_Demo_Catalogue.json. Not yet checked against a second source [to confirm]."
+    }
+  ],
+  "firstPublished": "1859 (John Murray, London)",
+  "edition": {
+    "name": "'Self Help; with Illustrations of Conduct and Perseverance', Project Gutenberg eBook #935",
+    "url": "https://www.gutenberg.org/ebooks/935",
+    "status": "The edition year of the printing behind the Gutenberg file is [to confirm]. No later editor or notes are recorded in the repo [to confirm against the file]."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author and translator died before 1946 (docs/planning/AK_Demo_Catalogue_Plan.md section 7).",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Samuel Smiles died 1904. The term ran to the end of 1974. Holds once the death year is confirmed."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1931 (Research 4 Tier A test).",
+      "conclusion": "clear",
+      "basis": "First published 1859, before 1931. The year of the edition used is [to confirm]; the conclusion assumes it is also before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a death year of 1904 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a death year of 1904 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a death year of 1904 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Samuel Smiles died 1904. The term ran to the end of 1974. Holds once the death year is confirmed."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm Smiles's death year (1904) against a second source.",
+    "Confirm the edition year behind Gutenberg eBook #935.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/planning/AK_Demo_Catalogue_Plan.md section 7",
+    "docs/planning/AK_Demo_Catalogue.json (workbook self-help, public_domain block)",
+    "https://www.gutenberg.org/ebooks/935"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}
