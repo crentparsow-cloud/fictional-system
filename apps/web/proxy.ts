@@ -1,37 +1,36 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { resolveTenant } from "@/lib/tenant";
+import { resolveRequestTenant, routeDecision } from "@/lib/tenant-resolve";
 import { refreshSession } from "@/lib/supabase/proxy";
 
 /**
- * Host to tenant resolution (F-066, first cut) and session refresh (F-132).
+ * Host to tenant resolution (F-066) and session refresh (F-132).
  *
  * Reads the request host, works out which tenant it belongs to and passes
- * that down as a header. Admin, studio and console routes are only ever
+ * that down as headers. Admin, studio and console routes are only ever
  * served on the Akana apex. Then the Supabase session is refreshed so Server
  * Components always see a live user, with the cookies kept __Host- scoped.
  *
- * Tenant lookup is a config read today. Edge Config and the tenant_domains
- * table replace it in week 2. Sign-in and the adults-only gate are decided in
- * the (reader) layout, which can read the profile; the proxy only refreshes.
+ * The lookup is the config map by default and tenant_domains when
+ * TENANT_DB_LOOKUP=1 (lib/tenant-resolve.ts, docs/TENANT_RESOLUTION.md).
+ * Sign-in and the adults-only gate are decided in the (reader) layout, which
+ * can read the profile; the proxy only refreshes.
  */
 export async function proxy(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
-  const tenant = resolveTenant(host);
+  const tenant = await resolveRequestTenant(host);
   const path = request.nextUrl.pathname;
 
-  if (!tenant) {
-    // Unknown host: never fall through to the marketplace.
-    return new NextResponse("Not found", { status: 404 });
-  }
-
-  const staffOnlyOnApex = /^\/(admin|studio|console)(\/|$)/.test(path);
-  if (staffOnlyOnApex && tenant.kind !== "marketplace") {
+  // Unknown host: never fall through to the marketplace. Staff paths on a tenant host: 404.
+  if (routeDecision(tenant, path) === "not_found" || !tenant) {
     return new NextResponse("Not found", { status: 404 });
   }
 
   const headers = new Headers(request.headers);
   headers.set("x-akana-tenant", tenant.slug);
   headers.set("x-akana-tenant-kind", tenant.kind);
+  // Only the proxy may set the tenant id. A value sent by the client is dropped.
+  if (tenant.id) headers.set("x-akana-tenant-id", tenant.id);
+  else headers.delete("x-akana-tenant-id");
   // The path, so a layout can send a reader back where they were heading after a gate.
   headers.set("x-akana-path", path + request.nextUrl.search);
 
