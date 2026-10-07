@@ -204,3 +204,45 @@ Schema v3 freeze summary for your approval. Publish with Akana enquiry form writ
 **Friday 9 October (Day 5)**
 
 Close the week 1 features or carry them with a written reason. First end-to-end smoke run: sign in, open a workbook, answer, reload, Help now on a wellbeing title. Stripe test-mode products with generic names. The `/admin/leads` page.
+
+## Friday 9 October 2026 (Day 5, built Wednesday)
+
+**Asked by Crent:** keep building what can be built without him, with more agents where useful. Six agents built this batch in parallel.
+
+**Live now:** akana-one.vercel.app runs the batch. CI run 75 is green on the final commit. The new home page shows real library cards from production. Migrations 0006 (consent) and 0007 (account rights) are applied to production and staging from the committed files. Both projects have all seven migrations, and the security advisor reports no issues.
+
+**Landed in the repo** (6 commits, about 85 files)
+
+- **Calm paywall (F-019).** A locked unit shows a calm card: what the full workbook includes, that answers carry over, and Buy and Membership buttons. While prices are placeholders the buttons are disabled with "Price to be confirmed". Demo titles show no buttons. No countdowns or pressure.
+- **Health data consent (F-026).** Before a reader opens any wellbeing workbook (standard or higher tier), they see a plain consent screen. It is recorded with a version (`health-2026-10`). Withdrawing it in You stops new saves for those workbooks. Workbooks with a tier of none never ask.
+- **Higher-tier gate (F-022).** A higher-tier workbook stays on Start until the reader presses "I have read this". The hardest-answer card is built, but it cannot show yet. Schema v3 has no field-level "sensitive" marker, and the old app never had this card.
+- **Export of the reader's own work (F-023).** You, Download my work, as JSON or a printable page. Values are unsealed on the server for the reader only.
+- **Account deletion with a 7-day undo (F-025).** "Delete my account" with a confirmation step and a visible "Cancel deletion" for 7 days. A daily job (03:17 UTC, set in `apps/web/vercel.json`) removes the reader's answers, progress, enrolments, entitlements and profile details, then the sign-in. Purchases are kept as tax records. The job does nothing until `CRON_SECRET` is set.
+- **Admin pages (F-083, F-082, F-001).** `/admin/leads` (list, detail, status), `/admin/workbooks` (search, Pause and Resume as the kill switch, with a reason and a confirm step) and `/admin/organisations` (list). Owners and editors can act; support reads.
+- **Marketing home (F-002).** A proposition line marked for your approval, four trust points that say only what the code enforces, how it works, up to 8 live cards with covers, and a strip for authors and publishers.
+- **Public-domain records (F-118).** One record per classic, in `docs/public-domain/`, with a page at `/public-domain/<code>` linked from each classic. The GB, US and IE conclusions rest on facts in the repo. The CA, AU and NZ rules and some edition details are marked "[to confirm]". Each record waits for a reviewer's name.
+- **Tenant resolution by hostname (F-066).** The design is in `docs/TENANT_RESOLUTION.md`. The database lookup is built with caching and timeouts, but it sits behind `TENANT_DB_LOOKUP=1`, because the anon role cannot read `tenant_domains` today. The config map stays in charge, and production is unchanged.
+- **Smoke tests.** A Playwright suite in `apps/web/e2e` covers public pages, redirects, security headers, no third-party requests, Help now links, unknown hosts and an axe accessibility scan. 26 tests pass locally. It found one contrast defect on the home page, now fixed. How to run it is in `docs/TESTING.md`.
+
+**Checks:** typecheck and lint clean. 314 unit tests pass (web 221, engine 29, emails 23, validate 17, seed 10, schema 9, seal 5). Database tests 0001 to 0007 pass. 26 smoke tests pass. The validator and the id check are clean. The CSP and client bundle checks are clean.
+
+**Needs Crent (new this batch)**
+
+1. **Copy to approve:** the home page line and lead, the four trust points, the consent wording (version `health-2026-10`) and the paywall wording.
+2. **`CRON_SECRET`** in Vercel as a Secret, Production only (16 or more random characters; the same PowerShell line works). Deletion requests then complete after 7 days.
+3. **Decisions:**
+   - (a) Should the Toolkit be free before purchase? It is not today.
+   - (b) Should a new consent version ask readers again?
+   - (c) Add a "sensitive field" marker to the schema so the hardest-answer card can work, or drop the card.
+   - (d) Should the public-domain record pages be public? They are now, marked noindex.
+   - (e) Who signs each public-domain record?
+   - (f) For tenants, use a narrow column grant or a function so tenant hosts can be looked up (see `docs/TENANT_RESOLUTION.md`), and choose the tenant apex domain (A7).
+4. **Two small migrations I can write next, if you agree:** a public `set_workbook_paused` function so each pause and resume writes an audit row (today they go to the server log), and an insert policy so staff can create organisations from `/admin/organisations`.
+
+**Found along the way**
+
+- The `tenants` table lets anyone read every column, including `stripe_account_id`. It should be narrowed with a view. I have not changed it yet.
+- The membership button stays disabled until membership checkout (F-097) is built.
+- The deletion job does not yet stop a Stripe subscription. That must exist before membership launches.
+
+**Next:** membership checkout (F-097), the audit and organisation migrations above once agreed, the signed-in smoke test once a staging test reader exists, Theme and author pages (F-006, F-007), and on-device search with Help now first (F-008).
