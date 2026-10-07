@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { brand } from "@/lib/brand";
 import { LAUNCH_MARKETS, MARKETS, type MarketCode, helpNowFor, isLaunchMarket } from "@/lib/markets";
 import { SUPPORT_CHECKED, contactHref, emergencyFor, regionFromAcceptLanguage, supportLinesFor } from "@/lib/support-lines";
@@ -135,6 +136,7 @@ export default async function HelpNowPage({ searchParams }: { searchParams: Prom
           <Link href="/">Back to {brand.name}</Link>
         </p>
       </div>
+      <ServiceWorkerRegister />
     </main>
   );
 }
