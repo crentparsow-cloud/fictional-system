@@ -33,16 +33,16 @@ export type ReaderBase = {
 
 type Stage = { stageLabels: string[]; stageIndex: number };
 type Partner = { readerName: string; partnerName?: string; shareLevel: 1 | 2 | 3 };
-type Pass = { price: string; periodWords: string; nextDate: string };
+type MembershipTerms = { price: string; periodWords: string; nextDate: string };
 
 export type ReaderProps = {
   welcome: ReaderBase & { firstUnitLabel?: string };
   first_unit_finished: ReaderBase & { firstUnitLabel?: string };
   purchase_lifetime: ReaderBase & { offerName: string; price: string };
-  purchase_pass: ReaderBase & Pass;
+  purchase_membership: ReaderBase & MembershipTerms;
   renewal_notice: ReaderBase & { renewDate: string; price: string };
-  pass_terms_reminder: ReaderBase & Pass;
-  pass_away: ReaderBase & { price: string; nextDate: string };
+  membership_terms_reminder: ReaderBase & MembershipTerms;
+  membership_away: ReaderBase & { price: string; nextDate: string };
   payment_failed: ReaderBase & { price?: string };
   cancellation: ReaderBase & { cancelMode: "immediate" | "period_end"; endDate?: string; refundAmount?: string; refundStatus?: "pending" | "succeeded" | "failed" };
   account_deleted: ReaderBase & { deletionDate?: string; undoUrl?: string; refundAmount?: string; refundStatus?: "pending" | "succeeded" | "failed" };
@@ -75,11 +75,14 @@ const offerLabel = (s: string) => {
   const t = s.replace(/^(a|an|the)\s+/i, "");
   return t ? t[0]!.toUpperCase() + t.slice(1) : "Your purchase";
 };
-const passLabel = (periodWords: string) => (/year/.test(periodWords) ? "Annual all-access pass" : "Monthly all-access pass");
+const membershipLabel = (periodWords: string) => (/year/.test(periodWords) ? "Annual membership" : "Monthly membership");
+
+/** Where a reader cancels, in the words the app uses: the You page, then the Manage membership button. */
+export const CANCEL_PATH = "go to You, then Manage membership, then Cancel";
 
 const HOW_TO_CANCEL: Panel = {
   title: "How to cancel",
-  lines: ["Go to Settings, then Your pass, then Cancel. It takes two taps and asks no questions. You keep access until the end of the period you have paid for."],
+  lines: [`To cancel, ${CANCEL_PATH}. No questions asked. You keep access until the end of the period you have paid for.`],
   tone: "tint",
 };
 
@@ -206,19 +209,19 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     footer: "service",
   }),
 
-  purchase_pass: (x) => ({
-    subject: "Your pass is confirmed",
-    preheader: "Your pass terms, and how to cancel.",
+  purchase_membership: (x) => ({
+    subject: "Your membership is confirmed",
+    preheader: "Your membership terms, and how to cancel.",
     hero: "service",
-    eyebrow: "Purchase confirmed",
-    headline: "Your all-access pass is active",
+    eyebrow: "Membership confirmed",
+    headline: "Your membership is active",
     greeting: hi(x.name),
-    paragraphs: ["Thank you. Every workbook is open in your account now."],
+    paragraphs: ["Thank you. Every workbook in the membership is open in your account now."],
     panels: [
       {
-        title: "Your pass",
+        title: "Your membership",
         rows: [
-          ["Plan", passLabel(x.periodWords)],
+          ["Plan", membershipLabel(x.periodWords)],
           ["Price", `${x.price} ${x.periodWords}`.trim()],
           ["Renews", "Automatically, until you cancel"],
           ["Next payment", x.nextDate],
@@ -229,7 +232,7 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
         title: "What you agreed at checkout",
         lines: [
           "You asked for access to start right away. If you cancel within 14 days, you get a refund for the time you have not used.",
-          "You also agreed that the pass renews automatically until you cancel.",
+          "You also agreed that the membership renews automatically until you cancel.",
         ],
         tone: "terms",
       },
@@ -238,44 +241,46 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     after: ["Your receipt comes in a separate email from our payment provider."],
     buttons: [
       { label: "Open your workbooks", url: x.appUrl },
-      { label: "Manage your pass", url: x.settingsUrl },
+      { label: "Manage membership", url: x.settingsUrl },
     ],
     footer: "service",
   }),
 
+  // The reminder before an annual renewal. It names no title, and says the
+  // date, the amount and how to cancel.
   renewal_notice: (x) => ({
-    subject: `Your pass renews on ${x.renewDate}`,
+    subject: `Your membership renews on ${x.renewDate}`,
     preheader: "Nothing to do if you want to keep it.",
     hero: "service",
-    eyebrow: "Renewal notice",
-    headline: "Your pass renews soon",
+    eyebrow: "Renewal reminder",
+    headline: "Your membership renews soon",
     greeting: hi(x.name),
-    paragraphs: ["Your annual all-access pass renews automatically. Here's when, and what it costs."],
-    panels: [{ title: "Renews on", big: x.renewDate, rows: [["Price", x.price]], tone: "service" }],
+    paragraphs: ["Your annual membership renews automatically. Here is when, and what it costs."],
+    panels: [{ title: "Renews on", big: x.renewDate, rows: [["Amount", x.price]], tone: "service" }],
     after: [
       "If you want to keep it, you do not need to do anything.",
-      "If you want to cancel, go to Settings, then Your pass, then Cancel. You keep access until the renewal date.",
+      `If you want to cancel, ${CANCEL_PATH} before ${x.renewDate}. You will not be charged again, and you keep access until that date.`,
     ],
     buttons: [
-      { label: "Keep my pass", url: x.appUrl },
-      { label: "Cancel my pass", url: x.settingsUrl },
+      { label: "Keep my membership", url: x.appUrl },
+      { label: "Manage membership", url: x.settingsUrl },
     ],
     equalButtons: true,
     footer: "service",
   }),
 
-  pass_terms_reminder: (x) => ({
-    subject: "A reminder of your pass terms",
+  membership_terms_reminder: (x) => ({
+    subject: "A reminder of your membership terms",
     preheader: "What you pay, when, and how to cancel.",
     hero: "service",
-    eyebrow: "Your pass",
-    headline: "Your pass terms, in one place",
+    eyebrow: "Your membership",
+    headline: "Your membership terms, in one place",
     greeting: hi(x.name),
-    paragraphs: ["Here's a short reminder of how your pass works."],
+    paragraphs: ["Here is a short reminder of how your membership works."],
     panels: [
       {
         rows: [
-          ["Plan", passLabel(x.periodWords)],
+          ["Plan", membershipLabel(x.periodWords)],
           ["Price", `${x.price} ${x.periodWords}`.trim()],
           ["Renews", "Automatically, until you cancel"],
           ["Next payment", x.nextDate],
@@ -284,18 +289,18 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       },
       HOW_TO_CANCEL,
     ],
-    buttons: [{ label: "Manage your pass", url: x.settingsUrl }],
+    buttons: [{ label: "Manage membership", url: x.settingsUrl }],
     footer: "service",
   }),
 
-  pass_away: (x) => ({
-    subject: "Your pass while you're away",
-    preheader: "Your pass is still active while you take a break.",
+  membership_away: (x) => ({
+    subject: "Your membership while you're away",
+    preheader: "Your membership is still active while you take a break.",
     hero: "service",
-    eyebrow: "Your pass",
-    headline: "Your pass is still active",
+    eyebrow: "Your membership",
+    headline: "Your membership is still active",
     greeting: hi(x.name),
-    paragraphs: ["Your pass is still active while you take a break, so here's a quick note on what that means."],
+    paragraphs: ["Your membership is still active while you take a break, so here is a quick note on what that means."],
     panels: [
       {
         rows: [
@@ -306,10 +311,10 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       },
     ],
     after: [
-      "If you're taking a longer break, you can cancel in Settings and keep access until then. Everything you wrote stays in your account.",
+      `If you're taking a longer break, ${CANCEL_PATH}. You keep access until then, and everything you wrote stays in your account.`,
       "If you plan to come back soon, there's nothing to do.",
     ],
-    buttons: [{ label: "Manage your pass", url: x.settingsUrl }],
+    buttons: [{ label: "Manage membership", url: x.settingsUrl }],
     footer: "service",
   }),
 
@@ -317,12 +322,13 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     subject: "Your payment didn't go through",
     preheader: "A quick check of your payment details should fix it.",
     hero: "service",
-    eyebrow: "Your pass",
+    eyebrow: "Your membership",
     headline: "Your payment didn't go through",
     greeting: hi(x.name),
     paragraphs: [
-      `The latest payment for your all-access pass${x.price ? ` (${x.price})` : ""} did not go through. This often happens when a card expires or a bank declines a payment.`,
-      "Please check your payment details in Settings so your pass can carry on.",
+      `The latest payment for your membership${x.price ? ` (${x.price})` : ""} did not go through. This often happens when a card expires or a bank declines a payment.`,
+      "Please check your payment details. Go to You, then Manage membership. Your membership carries on while we try the payment again over the next two weeks.",
+      "If it still does not go through by then, your membership ends. Everything you wrote stays in your account.",
     ],
     buttons: [{ label: "Update payment details", url: x.settingsUrl }],
     footer: "service",
@@ -333,20 +339,20 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     const refund = refundPanel(x.refundAmount, x.refundStatus);
     const endDate = v(x.endDate, "the end of your period");
     return {
-      subject: "Your pass is cancelled",
-      preheader: now ? (refund.length ? "Your pass has ended, and your refund is on its way." : "Your pass has ended.") : `You keep access until ${endDate}.`,
+      subject: "Your membership is cancelled",
+      preheader: now ? (refund.length ? "Your membership has ended, and your refund is on its way." : "Your membership has ended.") : `You keep access until ${endDate}.`,
       hero: "service",
       eyebrow: "Cancellation confirmed",
-      headline: "Your pass is cancelled",
+      headline: "Your membership is cancelled",
       greeting: hi(x.name),
       paragraphs: now
-        ? ["Your pass has ended today, and no further payments will be taken.", ...(refund.length ? ["You cancelled within 14 days of starting, so the time you have not used is refunded."] : [])]
-        : ["Your pass will not renew, and no further payments will be taken."],
+        ? ["Your membership has ended today, and no further payments will be taken.", ...(refund.length ? ["You cancelled within 14 days of your membership starting, so the time you have not used is refunded."] : [])]
+        : ["Your membership will not renew, and no further payments will be taken."],
       panels: now ? refund : [{ title: "Access until", big: endDate, tone: "service" }, ...refund],
       after: [
         now
-          ? "Everything you wrote stays in your account. You can still read all of it, and download it anytime from Settings."
-          : "Everything you wrote stays in your account. You can download it anytime from Settings.",
+          ? "Everything you wrote stays in your account. You can still read all of it, and download it anytime from the You page."
+          : "Everything you wrote stays in your account. You can download it anytime from the You page.",
       ],
       buttons: [
         { label: "Open your workbooks", url: x.appUrl },
@@ -369,7 +375,7 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
         paragraphs: [
           `Your ${BRAND} account and everything you wrote in it have been deleted. This cannot be undone.`,
           "Only what the law requires is kept: a record of any purchase and of the consents you gave, for six years.",
-          "If you had a pass, it has been cancelled and will not renew.",
+          "If you had a membership, it has been cancelled and will not renew.",
         ],
         after: [`If you did not ask for this, contact support at ${x.supportEmail} right away.`],
         footer: "deleted",
@@ -384,12 +390,12 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       greeting: hi(x.name),
       paragraphs: [
         `You asked to delete your ${BRAND} account. On the date below, your account and everything you wrote in it will be deleted.`,
-        "Until then, your account is read-only. If you had a pass, it has been cancelled and billing has stopped.",
+        "Until then, your account is read-only. If you had a membership, it will be cancelled on that date and billing will stop. If that date is within 14 days of your membership starting, or of an annual renewal, the time you have not used is refunded.",
       ],
       panels: [{ title: "Deletion date", big: x.deletionDate, tone: "service" }, ...refundPanel(x.refundAmount, x.refundStatus)],
       after: [
-        "Changed your mind? Undo it before that date and your account and answers will stay. A cancelled pass stays cancelled. You can buy again anytime from the Library.",
-        "If you would like a copy of your answers, download it from Settings before that date.",
+        "Changed your mind? Undo it before that date and your account and answers will stay.",
+        "If you would like a copy of your answers, download it from the You page before that date.",
         "After that date, the deletion cannot be undone. Only what the law requires is kept: a record of any purchase and of the consents you gave, for six years.",
         `If you did not ask for this, undo it now and contact support at ${x.supportEmail}.`,
       ],
@@ -567,7 +573,7 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
         rows: [
           ["One workbook", "Yours for life"],
           ["A set", "Workbooks that belong together"],
-          ["Everything", "The whole library, with a pass"],
+          ["Everything", "The whole library, with a membership"],
         ],
         tone: "tint",
       },
