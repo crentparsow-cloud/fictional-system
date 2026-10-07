@@ -340,3 +340,14 @@ Each classic still needs a house record in `docs/public-domain/` and a signed re
 - https://africa.espn.com/football/player/bio/_/id/415651/niamh-corrigan
 
 Internal: docs/research/taxonomy.json, docs/planning/AK_Demo_Catalogue.json and its plan, content/catalog/catalog.json, supabase/seed/seed.sql, content/registry/genres.json, content/catalog/support_lines.json, docs/SCHEMA_V3_FREEZE.md.
+
+## Title checks, 7 October
+
+Exact-phrase web searches for the demo titles that were pending, not searched or inconclusive. One search per title, two where the first was inconclusive. Each result is recorded under `title_check` in `mind-health.json`.
+
+| Title | Result | Notes |
+| --- | --- | --- |
+| Out the Door by Ten | clear | Second search. Results were again unlabelled library catalogue records with no visible title. No matching book seen; confirm by ISBN search before public use. |
+| The Shopping List on the Fridge | clear | Results were fridge planners and shopping list products. |
+| After the Last Shift | clear | Nearest: 'The Last Shifter' (fantasy) and 'Third Shift' (Hugh Howey). |
+| Still Curious at Seventy | close: At Seventy: A Journal, author and year not shown | Also nearby: 'The Book of Seventy' (Pitt Poetry Series). |
