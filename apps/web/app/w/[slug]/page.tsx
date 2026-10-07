@@ -10,6 +10,7 @@ import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalo
 import { getT } from "@/lib/i18n";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
+import { countView } from "@/lib/funnel-server";
 
 /**
  * The public workbook page (F-005) at /w/{slug}. Server rendered for anyone,
@@ -42,6 +43,7 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
   const { slug } = await params;
   const [detail, session, { t }] = await Promise.all([getWorkbookBySlug(slug), getReaderSession(), getT()]);
   if (!detail) notFound();
+  await countView("page_view", detail.card.id); // F-141, ids only, opt-out respected
 
   const { card, listing, start } = detail;
   const wellbeing = card.safetyTier !== "none";

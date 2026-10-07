@@ -6,9 +6,11 @@ import { listThemes } from "@/lib/author-theme-queries";
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 
 /**
  * Every Theme with at least one live workbook (F-007), grouped by shelf.
+ * Themes and shelves added after launch need three live titles first (F-148).
  * Themes are the shared shelves across authors, so this is the plainest way
  * in for someone who knows what they want help with but not which book.
  */
@@ -22,7 +24,9 @@ export const metadata: Metadata = {
 
 export default async function ThemesPage() {
   const [themes, cards, { t }] = await Promise.all([listThemes(), listLibrary({}), getT()]);
-  const shelves = themeIndex(themes, cards);
+  // F-148: a Theme or shelf added after launch stays hidden until it holds
+  // its minimum of live titles. Launch Themes show from their first title.
+  const shelves = themeIndex(themes, maskHiddenThemes(cards, hiddenThemeIds(themes, cards)));
 
   return (
     <main className="wb-page browse-page">

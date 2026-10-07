@@ -9,6 +9,7 @@ import { getTheme } from "@/lib/author-theme-queries";
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { themeShown } from "@/lib/theme-visibility";
 
 /**
  * A Theme page (F-007) at /themes/{slug}: the Theme's plain line and every
@@ -24,6 +25,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const theme = await getTheme(slug);
   if (!theme) return { title: "Theme" };
+  // A held Theme below its minimum is not named anywhere, the tab title included.
+  if (theme.held && !themeShown(theme, cardsByTheme(await listLibrary({ theme: theme.id }), theme.id).length)) return { title: "Theme" };
   return {
     title: theme.name,
     description: theme.line ?? `Guided workbooks on ${theme.name}, from every author on ${brand.name}.`,
@@ -36,6 +39,9 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
   const [theme, { t }] = await Promise.all([getTheme(slug), getT()]);
   if (!theme) notFound();
   const cards = cardsByTheme(await listLibrary({ theme: theme.id }), theme.id);
+  // F-148: a Theme added after launch has no page until it holds its minimum
+  // of live titles. Launch Themes keep rendering when empty, for emails.
+  if (!themeShown(theme, cards.length)) notFound();
   const wellbeing = cards.some((c) => c.safetyTier !== "none");
 
   return (
