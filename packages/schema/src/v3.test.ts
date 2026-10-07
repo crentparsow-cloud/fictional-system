@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { AdviceGuardrailInput } from "./v3";
+import { AdviceGuardrailInput, Field } from "./v3";
 
 describe("advice_guardrail", () => {
   it("accepts the four canonical values unchanged", () => {
@@ -14,5 +14,25 @@ describe("advice_guardrail", () => {
 
   it("rejects anything else", () => {
     expect(AdviceGuardrailInput.safeParse("not_advice").success).toBe(false);
+  });
+});
+
+describe("Field.sensitive (additive, 7 Oct 2026)", () => {
+  const base = { id: "f_one", type: "long_text", label: "What happened?" };
+
+  it("is optional, so fields without it still parse unchanged", () => {
+    const parsed = Field.parse(base);
+    expect(parsed).toEqual(base);
+    expect("sensitive" in parsed).toBe(false);
+  });
+
+  it("accepts true and false", () => {
+    expect(Field.parse({ ...base, sensitive: true }).sensitive).toBe(true);
+    expect(Field.parse({ ...base, sensitive: false }).sensitive).toBe(false);
+  });
+
+  it("rejects anything that is not a boolean", () => {
+    expect(Field.safeParse({ ...base, sensitive: "yes" }).success).toBe(false);
+    expect(Field.safeParse({ ...base, sensitive: 1 }).success).toBe(false);
   });
 });

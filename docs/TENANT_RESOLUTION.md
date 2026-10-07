@@ -10,15 +10,15 @@ The normalised host then goes through these rules, in order.
 
 1. **Localhost and previews.** `localhost`, `127.0.0.1`, `[::1]` and any `*.vercel.app` host are the marketplace. No lookup.
 2. **The marketplace apex.** `AKANA_HOST` and `www.` in front of it are the marketplace. No lookup. The marketplace id is fixed by migration 0001 (`00000000-0000-0000-0000-00000000000a`).
-3. **Everything else.** With `TENANT_DB_LOOKUP=1`, an exact match on `tenant_domains.host`, verified rows only (`verified_at is not null`), joined to `tenants`. Only `id`, `slug`, `kind` and `status` are read. A tenant whose status is not `active` is treated as unknown. Without the flag, the config map in `lib/tenant.ts` decides: a single-label subdomain of `TENANT_APEX` becomes a white-label tenant with that slug and no id.
+3. **Everything else.** With `TENANT_DB_LOOKUP=1`, the `public.resolve_tenant` function from migration 0008: an exact match on `tenant_domains.host`, verified rows only (`verified_at is not null`), joined to `tenants`. It returns only `tenant_id`, `slug`, `kind` and `status`. A tenant whose status is not `active` is treated as unknown. Without the flag, the config map in `lib/tenant.ts` decides: a single-label subdomain of `TENANT_APEX` becomes a white-label tenant with that slug and no id.
 
 There is no wildcard and no suffix matching on the database path. A host is a tenant only if that exact host is in `tenant_domains` and verified. Hosts should be stored lower case with no trailing dot, matching what the proxy sends.
 
-The lookup is a plain `fetch` to the Supabase REST endpoint with the publishable key in the `apikey` header:
+The lookup is a plain `fetch` to the Supabase REST RPC endpoint with the publishable key in the `apikey` header:
 
 ```
-GET /rest/v1/tenants?select=id,slug,kind,status,tenant_domains!inner(host)
-    &tenant_domains.host=eq.<host>&tenant_domains.verified_at=not.is.null&limit=1
+POST /rest/v1/rpc/resolve_tenant
+{"p_host": "<host>"}
 ```
 
 It never uses supabase-js or the session cookies. The proxy may run on the edge runtime, and a tenant lookup must not depend on who is signed in.
@@ -63,26 +63,18 @@ The lookup has a 1.5-second timeout. On a timeout, a network error, a non-2xx an
 
 The auth cookie is `__Host-akana-auth`: `Secure`, `HttpOnly`, `SameSite=Lax`, `Path=/`, and no `Domain` attribute (the `__Host-` prefix forbids one). The browser binds it to the exact host that set it. A tenant host therefore never receives the marketplace session, and one tenant never receives another's, even before the tenant apex is on the Public Suffix List. Server actions also check `Origin`.
 
-## 7. Why the database path is behind a flag
+## 7. The database lookup (built)
 
-Migration 0001 lets `anon` select every row of `tenants`, but grants `anon` nothing on `tenant_domains`. Its policy lets only staff and org members read domain rows. The proxy calls as `anon`, so today the join returns 401 or no rows, and every lookup would fall back. The config map therefore stays primary, and the database path waits behind `TENANT_DB_LOOKUP=1`.
+Built in migration 0008 (7 October 2026). `public.resolve_tenant(p_host text)` is a `security definer` function with an empty `search_path`, granted to `anon`, `authenticated` and `service_role`. It returns at most one row (`tenant_id`, `slug`, `kind`, `status`) for an exact, verified host. The comparison is case-insensitive through `citext`. `anon` still has no select on `tenant_domains`, so the list of hosts cannot be read; only a host the caller already knows resolves. `lib/tenant-resolve.ts` calls it.
 
-No policy was changed. The narrowest change that would make the path work is a column grant and a policy limited to verified rows:
+The path stays behind `TENANT_DB_LOOKUP=1`, so nothing changes until the flag is set for a deployment. Set it once the migration is applied and the first verified domain is in `tenant_domains`.
 
-```sql
-grant select (host, tenant_id, verified_at) on public.tenant_domains to anon;
-create policy tenant_domains_public_verified on public.tenant_domains
-  for select to anon using (verified_at is not null);
-```
-
-This exposes the list of verified tenant hosts. Those are public through DNS anyway. If Crent would rather not allow listing, the alternative is a `security definer` function, for example `app.tenant_for_host(p_host citext) returns table (id uuid, slug text, kind text, status text)`, granted to `anon`, that returns at most one row for an exact verified host. The resolver would then call `/rest/v1/rpc/tenant_for_host`. That is a one-line change in `lib/tenant-resolve.ts`.
-
-Separately, `tenants_read` lets `anon` read every column of `tenants`, including `stripe_account_id`, `plan` and `org_id`. The migration comment says a view will narrow this later. The resolver selects only four columns, but the policy does not enforce that. Worth closing when the view lands.
+The same migration closes the `tenants` column gap. `anon` and `authenticated` now have a column-level select that leaves out `stripe_account_id` and `plan`. The row policy is unchanged. Clients must name their columns, as with `authors.legal_name`; `select *` on `tenants` now fails for those roles. Server code on the service role still reads every column.
 
 ## 8. Open questions for Crent
 
 1. **Tenant apex (A7).** Which domain hosts tenant subdomains? Until `TENANT_APEX` is set, only custom domains in `tenant_domains` (with the flag on) can serve a white-label site.
-2. **Policy choice.** Column grant with a verified-only policy, or the `security definer` function? Either unblocks `TENANT_DB_LOOKUP=1`.
+2. **Policy choice.** Settled: the `security definer` function (`public.resolve_tenant`, migration 0008). Hosts cannot be listed.
 3. **Suspended tenants.** Today a suspended or closed tenant is a 404. Should it show a plain "this site is unavailable" page instead?
 4. **Public Suffix List.** Submit the tenant apex once it is bought. Cookie rules already hold without it, but inclusion takes weeks.
 5. **Sign-in on tenant hosts.** With one shared reader identity (F-133), does a tenant reader sign in on the tenant host (its own `__Host-` cookie) or hop to the Akana apex and back?

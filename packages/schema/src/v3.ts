@@ -109,6 +109,10 @@ export const Field = z
     computed: z.enum(["sum", "mean", "weighted_sum"]).optional(),
     // Carry an answer from an earlier field into this one as a starting value.
     prefill_from: Id.optional(),
+    // The answer may be hard to write (F-022). After a save in a wellbeing
+    // workbook the reader sees a quiet Help now card, at most once a week.
+    // Optional and additive (7 Oct 2026); absent means false.
+    sensitive: z.boolean().optional(),
   })
   .strict();
 export type Field = z.infer<typeof Field>;

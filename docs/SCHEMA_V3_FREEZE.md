@@ -40,6 +40,10 @@ A new check now enforces this. It compares each workbook with its last committed
 - How the 4 week 3 field types draw on screen. Their shape is fixed now. Their renderers land in week 3.
 - Any wording the lawyer changes in safety copy. That changes content, not the schema, and triggers `SAFETY_CHANGED` and a fresh sign-off.
 
+## Change log
+
+- 7 Oct 2026: added an optional `sensitive` setting (true or false) to field definitions, marking an answer that may be hard to write. Additive only.
+
 ## Questions for Crent
 
 1. **Finance advice note.** Is "not financial advice" right for the 6 finance demo titles, or do you want separate "money guidance, not advice" wording? Separate wording is an additive change, but the Start screen needs one more line of copy.
