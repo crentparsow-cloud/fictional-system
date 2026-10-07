@@ -60,10 +60,13 @@ export function proRataRefund(i: ProRataInput): ProRata {
   return { due: true, amountMinor, unusedDays, periodDays };
 }
 
+/** Where a refund stands, in the words the cancellation email uses. */
+export type RefundState = "pending" | "succeeded" | "failed";
+
 /** What a refund attempt did. Ids are never part of it. */
 export type RefundOutcome =
-  | { status: "refunded"; amountMinor: number; currency: string }
-  | { status: "already_refunded" }
+  | { status: "refunded"; amountMinor: number; currency: string; refundState?: RefundState }
+  | { status: "already_refunded"; amountMinor?: number; currency?: string; refundState?: RefundState }
   | { status: "not_due"; reason: "no_paid_invoice" | "outside_cooling_off" | "nothing_unused" | "no_payment" };
 
 /** The slice of the Stripe client the refund uses, so a fake can stand in for it. */
@@ -133,11 +136,15 @@ export async function refundCoolingOff(
 
   // Once per invoice, whichever path got there first.
   const existing = await api.refunds.list({ ...target, limit: 100 });
-  if (existing.data.some((x) => x.metadata?.akana_refund_invoice === invoice.id && x.status !== "failed" && x.status !== "canceled")) {
-    return { status: "already_refunded" };
+  const earlier = existing.data.find((x) => x.metadata?.akana_refund_invoice === invoice.id && x.status !== "failed" && x.status !== "canceled");
+  if (earlier) {
+    // The amount and state go to the cancellation email when a retry gets here.
+    return typeof earlier.amount === "number"
+      ? { status: "already_refunded", amountMinor: earlier.amount, currency: (earlier.currency ?? invoice.currency).toUpperCase(), refundState: refundStateOf(earlier.status) }
+      : { status: "already_refunded" };
   }
 
-  await api.refunds.create(
+  const created = await api.refunds.create(
     {
       ...target,
       amount: r.amountMinor,
@@ -146,7 +153,14 @@ export async function refundCoolingOff(
     },
     { idempotencyKey: `akana-cooling-off-refund-${invoice.id}` },
   );
-  return { status: "refunded", amountMinor: r.amountMinor, currency: invoice.currency.toUpperCase() };
+  return { status: "refunded", amountMinor: r.amountMinor, currency: invoice.currency.toUpperCase(), refundState: refundStateOf(created?.status) };
+}
+
+/** Stripe's refund status as pending, succeeded or failed. */
+export function refundStateOf(status: string | null | undefined): RefundState {
+  if (status === "succeeded") return "succeeded";
+  if (status === "failed" || status === "canceled") return "failed";
+  return "pending";
 }
 
 export type CoolingOffCancelResult =
