@@ -170,9 +170,9 @@ export async function resolveRequestTenant(rawHost: string, deps: ResolveDeps = 
   return resolveFromConfig(normaliseHost(rawHost));
 }
 
-const STAFF_ONLY = /^\/(admin|studio|console)(\/|$)/;
+const STAFF_ONLY = /^\/(admin|studio|console|payouts|files)(\/|$)/;
 
-/** Admin, studio and console exist only on the Akana apex. */
+/** Admin, studio, console, payouts (F-099) and private files (F-135) exist only on the Akana apex. */
 export function isStaffOnlyPath(path: string): boolean {
   return STAFF_ONLY.test(path);
 }
