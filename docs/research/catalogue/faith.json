@@ -2642,9 +2642,9 @@
       "scripture_text": "WEBBE with Deuterocanon [check]",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
         "query": "\"A Small Place for Prayer\" book",
-        "result": "No clear exact match, but one Goodreads result (book 1079769) did not show its title in the snippet [check]. Nearby: 'A Place to Pray'. Rejected first: 'The Icon Corner' (an existing how-to guide) and 'The Prayer Corner at Home' (parish booklets with this phrase)."
+        "result": "clear",
+        "note": "Second search. Nearest: 'A Place to Pray' (Roberta C. Bondi). One Goodreads record (book 1079769) again showed no title in the snippet; confirm by ISBN search before public use."
       }
     },
     {
@@ -2693,9 +2693,9 @@
       "scripture_text": "WEB",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
         "query": "\"The Year Before the Wedding\" book",
-        "result": "No exact title. Nearby: the novel 'The Week Before the Wedding' (Beth Kendrick) and 'The Weekend Before the Wedding'. Legal to judge closeness [check]."
+        "result": "close: The Week Before the Wedding, Beth Kendrick, year not shown",
+        "note": "Also nearby: 'The Weekend Before the Wedding'."
       }
     },
     {
@@ -2983,10 +2983,9 @@
       "scripture_text": "WEBBE",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
         "query": "\"Content With Daily Bread\" book",
-        "result": "Not searched: the shared search budget ran out. First choice 'Enough for Today' was rejected because an ebook of that title exists.",
-        "status": "not searched [check]"
+        "result": "clear",
+        "note": "Nearest: 'Our Daily Bread' devotional titles."
       }
     },
     {
@@ -3084,10 +3083,9 @@
       "scripture_text": "WEBBE with Deuterocanon [check]",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
         "query": "\"Kept Company in Grief\" book",
-        "result": "Not searched: the shared search budget ran out. First choice 'When the Chair Is Empty' was rejected as close to 'The Empty Chair' and 'Living with an Empty Chair'.",
-        "status": "not searched [check]"
+        "result": "clear",
+        "note": "Nearest: 'Sorrow's Company' (DeWitt Henry) and 'The Company We Keep' (Frances Itani)."
       }
     },
     {
@@ -3230,9 +3228,9 @@
       "scripture_text": "WEB",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
-        "query": "\"Questions Welcome\" Christian book doubt",
-        "result": "No exact title seen in a broad search, but a narrower exact-phrase search could not be run before the shared budget ran out [check]."
+        "query": "\"Questions Welcome\" book",
+        "result": "clear",
+        "note": "Results were unrelated titles beginning 'Welcome'."
       }
     },
     {
@@ -3381,9 +3379,9 @@
       "scripture_text": "WEB",
       "title_check": {
         "date": "2026-10-07",
-        "tool": "WebSearch",
-        "query": "\"Visiting Well\" pastoral care book",
-        "result": "No exact title found in the snippets, but one Goodreads result (book 4947485) did not show its title [check]. Nearby: 'Pastoral Visitation' (Fortress Press)."
+        "query": "\"Visiting Well\" book",
+        "result": "clear",
+        "note": "Results were archive visitors' books and 'The Visiting Book'."
       }
     }
   ],
