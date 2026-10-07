@@ -132,3 +132,37 @@
 @media (prefers-reduced-motion: reduce) {
   .ak-player *, .ak-player *::before, .ak-player *::after { transition: none !important; animation: none !important; }
 }
+
+/* F-015 parity, F-017 My plan, F-018 Progress (Day 6 evening) */
+.ak-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; }
+.ak-visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ak-milestone { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; border-radius: var(--radius); padding: 1rem 1.1rem; background: var(--brand-wash); color: var(--ink); }
+.ak-milestone p { margin: 0; flex: 1 1 16rem; font-weight: 600; }
+.ak-done-mark { color: var(--ink-soft); margin: 0; }
+.ak-two-up { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 0.75rem; }
+.ak-two-up p { margin: 0; }
+.ak-then-now + .ak-then-now { border-block-start: 1px solid var(--line); padding-block-start: 0.6rem; }
+.ak-plan-lines { gap: 0.9rem; }
+.ak-plan-line { display: flex; flex-direction: column; gap: 0.2rem; }
+.ak-plan-text { margin: 0; white-space: pre-wrap; }
+.ak-unit-list li, .ak-daily-days li { display: flex; gap: 0.6rem; align-items: baseline; min-block-size: 1.6rem; }
+.ak-daily-days li { justify-content: space-between; border-block-end: 1px solid var(--line); padding-block: 0.25rem; }
+.ak-unit-mark { inline-size: 1.2rem; flex: none; color: var(--brand); font-weight: 700; }
+.ak-finish-book { margin: 0; }
+
+/* Breathing pacer: sizes and timings by class, no inline styles (CSP). */
+.ak-pacer { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; padding-block: 0.5rem; }
+.ak-pacer-orb { inline-size: 9rem; block-size: 9rem; display: grid; place-items: center; }
+.ak-pacer-ring { display: block; inline-size: 100%; block-size: 100%; border-radius: 50%; background: var(--brand-wash); border: 3px solid var(--brand); transform: scale(0.55); transition-property: transform; transition-timing-function: ease-in-out; }
+.ak-pacer-ring.is-big { transform: scale(1); }
+.ak-pacer-ring.is-small { transform: scale(0.55); }
+.ak-dur-1 { transition-duration: 1s; } .ak-dur-2 { transition-duration: 2s; } .ak-dur-3 { transition-duration: 3s; }
+.ak-dur-4 { transition-duration: 4s; } .ak-dur-5 { transition-duration: 5s; } .ak-dur-6 { transition-duration: 6s; }
+.ak-dur-7 { transition-duration: 7s; } .ak-dur-8 { transition-duration: 8s; } .ak-dur-9 { transition-duration: 9s; }
+.ak-dur-10 { transition-duration: 10s; }
+.ak-pacer-word { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; margin: 0; text-align: center; }
+.ak-pacer-word b { font-size: 1.25rem; }
+.ak-pacer-actions { display: flex; gap: 0.5rem; }
+.ak-pacer-actions .ak-btn { align-self: auto; }
+@media (prefers-reduced-motion: reduce) { .ak-pacer-ring { transition: none; } }
+@media print { .ak-no-print, .ak-player-nav, .ak-milestone { display: none !important; } }

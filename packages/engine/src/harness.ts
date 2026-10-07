@@ -6,6 +6,9 @@ import { DailyCheckScreen, emptyDailyCheck } from "./screens/DailyCheck";
 import { ExerciseScreen } from "./screens/Exercise";
 import { FinishScreen } from "./screens/Finish";
 import { KeepGoingScreen } from "./screens/KeepGoing";
+import { PlanScreen } from "./screens/Plan";
+import { ProgressScreen } from "./screens/Progress";
+import { progressFacts } from "./progress";
 import { SelfCheckScreen } from "./screens/SelfCheck";
 import { StartScreen } from "./screens/Start";
 import { ToolkitScreen } from "./screens/Toolkit";
@@ -95,7 +98,9 @@ export function renderAll(workbooks: WorkbookV3[]): HarnessResult {
       attempt(name, "selfcheck", () => createElement(SelfCheckScreen, { selfcheck: sc, answers: {}, onChange: noop, onFinish: noop }));
     }
 
-    attempt(name, "finish", () => createElement(FinishScreen, { workbook: doc, onOpenKeepGoing: noop }));
+    attempt(name, "plan", () => createElement(PlanScreen, { workbook: doc, store }));
+    attempt(name, "progress", () => createElement(ProgressScreen, { workbook: doc, facts: progressFacts(doc, [], store), events: [], onOpenStep: noop, onOpenPlan: noop }));
+    attempt(name, "finish", () => createElement(FinishScreen, { workbook: doc, onOpenKeepGoing: noop, onOpenPlan: noop, onFinished: noop, buyHref: "/go/x" }));
     attempt(name, "keep_going", () => createElement(KeepGoingScreen, { workbook: doc, store, onOpenExercise: noop }));
   }
 
