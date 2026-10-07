@@ -51,7 +51,7 @@ describe("buildHomeSections (F-002)", () => {
 
   it("makes no outcome claims and uses no em dashes in its copy", () => {
     const text = JSON.stringify(buildHomeSections({ ...base, cards: [] }));
-    expect(text).not.toMatch(/\\u2014/);
+    expect(text).not.toMatch(/\u2014/);
     expect(text).not.toMatch(/\b(proven|guarantee|transform|results|improve|cure|heal)\w*/i);
   });
 });
