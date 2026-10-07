@@ -23,13 +23,18 @@ import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
 import { Notice } from "../../_components/Notice";
+import { PRICE_CHOICE_LABELS } from "@/lib/author-release";
+import { PRICE_LADDER, isPricePointId } from "@/lib/pricing";
+import Link from "next/link";
 import {
   addReviewNote,
   approveOverride,
+  askAuthorSignoff,
   assignReview,
   recordSignoff,
   releaseVersion,
   requestOverride,
+  reviewPrice,
   sendBack,
   setLicenceRecord,
 } from "../actions";
@@ -58,6 +63,8 @@ interface WorkbookRow {
   safety_tier: string;
   genre_id: string;
   licence_ref: string | null;
+  price_point_id: string | null;
+  in_membership: boolean;
 }
 
 interface SignoffRow {
@@ -121,8 +128,8 @@ export default async function ReviewVersionPage({
   if (!vData) notFound();
   const v = vData as VersionRow;
 
-  const [wbRes, reqRes, signRes, noteRes, ovrRes, assignRes, staffRes] = await Promise.all([
-    supabase.from("workbooks").select("id, code, title, status, safety_tier, genre_id, licence_ref").eq("id", v.workbook_id).maybeSingle(),
+  const [wbRes, reqRes, signRes, noteRes, ovrRes, assignRes, staffRes, priceRes, subRes] = await Promise.all([
+    supabase.from("workbooks").select("id, code, title, status, safety_tier, genre_id, licence_ref, price_point_id, in_membership").eq("id", v.workbook_id).maybeSingle(),
     supabase.rpc("release_requirements", { p_version: v.id }),
     supabase
       .from("release_signoffs")
@@ -137,6 +144,8 @@ export default async function ReviewVersionPage({
       .order("requested_at", { ascending: false }),
     supabase.from("review_assignments").select("assignee, assigned_at").eq("version_id", v.id).maybeSingle(),
     supabase.rpc("review_staff"),
+    supabase.from("workbook_price_choices").select("price_point_id, in_membership, status, review_reason, chosen_at").eq("workbook_id", v.workbook_id).maybeSingle(),
+    supabase.from("workbook_submissions").select("id, status").eq("workbook_id", v.workbook_id).maybeSingle(),
   ]);
   for (const [tag, r] of [
     ["workbook", wbRes],
@@ -146,6 +155,8 @@ export default async function ReviewVersionPage({
     ["overrides", ovrRes],
     ["assignment", assignRes],
     ["staff", staffRes],
+    ["price", priceRes],
+    ["submission", subRes],
   ] as const) {
     if (r.error) console.error(`admin_review_${tag}_failed`, r.error.code ?? "");
   }
@@ -182,6 +193,10 @@ export default async function ReviewVersionPage({
   );
   const pendingOverrides = overrides.filter((o) => !o.approved_by && !o.used_at && o.content_hash === v.content_hash);
   const isLive = w.status === "live";
+  const priceChoice = priceRes.data as { price_point_id: string; in_membership: boolean; status: string; review_reason: string | null; chosen_at: string } | null;
+  const submission = subRes.data as { id: string; status: string } | null;
+  const pointLabel = (id: string | null | undefined) => (id && isPricePointId(id) ? PRICE_LADDER[id].label : (id ?? ""));
+  const authorSigned = requirements.some((r) => r.requirement === "author_or_publisher" && r.met);
 
   return (
     <div className="admin-page">
@@ -195,6 +210,21 @@ export default async function ReviewVersionPage({
         {v.published_at ? " This version is published." : ""}
       </p>
       <Notice code={sp.notice} />
+      <p className="admin-actions">
+        <Link className="btn secondary" href={`/admin/review/${v.id}/preview`}>
+          Preview in the reader
+        </Link>
+        {can.releaseVersions ? (
+          <Link className="btn secondary" href={`/admin/review/${v.id}/edit`}>
+            Edit JSON
+          </Link>
+        ) : null}
+        {submission ? (
+          <Link className="btn secondary" href={`/admin/review/submissions/${submission.id}`}>
+            Submission ({submission.status.replace(/_/g, " ")})
+          </Link>
+        ) : null}
+      </p>
 
       <section aria-labelledby="gate-h" className="card review-gate">
         <h2 id="gate-h">Release gate</h2>
@@ -340,6 +370,49 @@ export default async function ReviewVersionPage({
                 Record sign-off
               </button>
             </div>
+          </form>
+        ) : null}
+      </section>
+
+      {can.releaseVersions && !authorSigned && !v.published_at ? (
+        <form action={askAuthorSignoff} className="admin-actions">
+          <input type="hidden" name="version" value={v.id} />
+          <button type="submit" className="btn secondary">
+            Ask the author to preview and sign off
+          </button>
+        </form>
+      ) : null}
+
+      <section aria-labelledby="price-h">
+        <h2 id="price-h">Price</h2>
+        <p>
+          On the workbook: {w.price_point_id ? <strong>{pointLabel(w.price_point_id)}</strong> : <span className="muted">no price yet</span>}
+          {w.price_point_id ? (w.in_membership ? ", in the membership." : ", not in the membership.") : "."}
+        </p>
+        {priceChoice ? (
+          <p>
+            Author&apos;s choice: {pointLabel(priceChoice.price_point_id)}
+            {priceChoice.in_membership ? ", in the membership" : ", sold on its own"}. {PRICE_CHOICE_LABELS[priceChoice.status] ?? priceChoice.status}, {formatAdminDate(priceChoice.chosen_at)}.
+            {priceChoice.review_reason ? <span className="muted"> {priceChoice.review_reason}</span> : null}
+          </p>
+        ) : (
+          <p className="muted">The author has not chosen a price.</p>
+        )}
+        {can.releaseVersions && priceChoice?.status === "pending" ? (
+          <form action={reviewPrice} className="admin-form review-form">
+            <input type="hidden" name="version" value={v.id} />
+            <input type="hidden" name="workbook" value={w.id} />
+            <label htmlFor="pr-reason">Reason (needed to decline; the author sees it)</label>
+            <input id="pr-reason" name="reason" type="text" maxLength={500} />
+            <div className="admin-actions">
+              <button type="submit" name="decision" value="approve" className="btn secondary">
+                Approve the price
+              </button>
+              <button type="submit" name="decision" value="decline" className="btn help">
+                Decline
+              </button>
+            </div>
+            <p className="muted small">The ladder figures are placeholders until Crent sets them. Approving records the point; nothing sells at a placeholder.</p>
           </form>
         ) : null}
       </section>
