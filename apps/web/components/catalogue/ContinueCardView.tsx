@@ -8,11 +8,13 @@ import type { Translate } from "@/lib/locale";
  * One continue card (F-016): title, badge, one line of status, open link.
  * The status never counts days in a row or days missed (F-018).
  */
-export function ContinueCardView({ card, t, now }: { card: ContinueCard; t: Translate; now?: Date }) {
+export function ContinueCardView({ card, t, now, finished }: { card: ContinueCard; t: Translate; now?: Date; finished?: boolean }) {
   const status = continueStatus(card, now);
   const unitWord = card.unitLabel === "unit" ? "Unit" : UNIT_WORDS[card.unitLabel];
-  const line =
-    status.kind === "startedToday"
+  // A finished workbook stays here in Keep going mode (F-017). No count of anything.
+  const line = finished
+    ? "Finished. Keep going whenever you like."
+    : status.kind === "startedToday"
       ? t("status.startedToday")
       : status.kind === "unit"
         ? t("status.unitOf", { unit: unitWord, n: status.unit, count: status.count })

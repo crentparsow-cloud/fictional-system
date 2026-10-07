@@ -48,7 +48,7 @@ describe("buildHomeSections (F-002)", () => {
     const s = buildHomeSections({ ...base, cards: [] });
     expect(s.footer.legal).toEqual(LEGAL_LINKS);
     expect(s.footer.legal.map((l) => l.href)).toEqual(["/legal/terms", "/legal/privacy", "/legal/cookies", "/legal/refunds"]);
-    expect(s.footer.other.map((l) => l.href)).toEqual(["/help-now", "/publish"]);
+    expect(s.footer.other.map((l) => l.href)).toEqual(["/help-now", "/publish", "/help", "/trust", "/pricing"]);
   });
 
   it("makes no outcome claims and uses no em dashes in its copy", () => {
