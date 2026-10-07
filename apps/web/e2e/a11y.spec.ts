@@ -38,14 +38,3 @@ for (const path of PAGES) {
     expect(found, `axe violations on ${path}`).toEqual([]);
   });
 }
-
-// Regression check: the approval note on the home hero once inherited the
-// hero's white ink on marigold (1.79:1). Fixed 7 October 2026 by scoping the
-// rule as `.hero .home-approval`, which gives --marigold-ink at 7.72:1.
-test("/ approval note meets colour contrast", async ({ page }) => {
-  await page.goto("/");
-  const note = page.locator(".home-approval");
-  test.skip((await note.count()) === 0, "no approval note on this build");
-  const found = await blockingViolations(page, ".home-approval");
-  expect(found).toEqual([]);
-});

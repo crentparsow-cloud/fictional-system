@@ -13,6 +13,7 @@ import { adminAbilities, ORGANISATION_INSERT_ALLOWED } from "./permissions";
 import {
   filterWorkbooks,
   killSwitchAction,
+  killSwitchErrorNotice,
   killSwitchTarget,
   parsePauseReason,
   parseWorkbookCode,
@@ -63,8 +64,8 @@ describe("adminAbilities", () => {
     expect(adminAbilities(["finance", "editor"]).pauseWorkbooks).toBe(true);
   });
 
-  it("records that organisation inserts are not allowed by the database yet", () => {
-    expect(ORGANISATION_INSERT_ALLOWED).toBe(false);
+  it("records that the database lets staff create organisations (0008)", () => {
+    expect(ORGANISATION_INSERT_ALLOWED).toBe(true);
   });
 });
 
@@ -128,11 +129,21 @@ describe("kill switch helpers", () => {
     expect(killSwitchTarget("pause", "draft")).toBeNull();
   });
 
-  it("needs a reason to pause but not to resume", () => {
+  it("needs a reason to pause and to resume", () => {
     expect(parsePauseReason("pause", "  Licence dispute ")).toEqual({ ok: true, reason: "Licence dispute" });
     expect(parsePauseReason("pause", "   ")).toEqual({ ok: false });
     expect(parsePauseReason("pause", "x".repeat(501))).toEqual({ ok: false });
-    expect(parsePauseReason("resume", "")).toEqual({ ok: true, reason: null });
+    expect(parsePauseReason("resume", "")).toEqual({ ok: false });
+    expect(parsePauseReason("resume", null)).toEqual({ ok: false });
+    expect(parsePauseReason("resume", " Licence agreed ")).toEqual({ ok: true, reason: "Licence agreed" });
+  });
+
+  it("maps database refusals to admin notices", () => {
+    expect(killSwitchErrorNotice("42501")).toBe("denied");
+    expect(killSwitchErrorNotice("55000")).toBe("stale");
+    expect(killSwitchErrorNotice("23514")).toBe("reason");
+    expect(killSwitchErrorNotice("P0002")).toBe("invalid");
+    expect(killSwitchErrorNotice(undefined)).toBe("failed");
   });
 
   it("normalises AK codes and refuses anything else", () => {
