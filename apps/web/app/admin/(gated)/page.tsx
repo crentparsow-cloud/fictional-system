@@ -31,13 +31,30 @@ export default async function AdminHomePage() {
     return count ?? 0;
   };
 
-  const [newLeads, liveWorkbooks, organisations] = await Promise.all([
+  const [newLeads, liveWorkbooks, organisations, inReview, openAlerts, newSupport] = await Promise.all([
     can.readLeads
       ? countOf(supabase.from("leads").select("id", { count: "exact", head: true }).eq("status", "new"), "leads")
       : Promise.resolve(null),
     countOf(supabase.from("workbooks").select("id", { count: "exact", head: true }).eq("status", "live"), "workbooks"),
     countOf(supabase.from("organisations").select("id", { count: "exact", head: true }), "organisations"),
+    // 0016: the queue is every status that is not draft, live, paused or retired.
+    can.readReviewQueue
+      ? countOf(
+          supabase.from("workbooks").select("id", { count: "exact", head: true }).not("status", "in", "(draft,live,paused,retired)"),
+          "review",
+        )
+      : Promise.resolve(null),
+    countOf(supabase.from("ops_alerts").select("id", { count: "exact", head: true }).is("acknowledged_at", null), "ops"),
+    can.readSupport
+      ? countOf(supabase.from("support_messages").select("id", { count: "exact", head: true }).eq("status", "new"), "support")
+      : Promise.resolve(null),
   ]);
+
+  // Signed licence copies waiting for a staff check (0013).
+  const licenceChecks = await countOf(
+    supabase.from("licences").select("id", { count: "exact", head: true }).eq("status", "pending_verification"),
+    "licences",
+  );
 
   const cards = [
     {
@@ -63,6 +80,47 @@ export default async function AdminHomePage() {
       count: organisations,
       unit: "in total",
       closed: false,
+    },
+    {
+      href: "/admin/authors",
+      title: "Authors",
+      line: "Invite authors and publishers, approve bios, check signed licences.",
+      count: licenceChecks,
+      unit: "licences to check",
+      closed: false,
+    },
+    {
+      href: "/admin/review",
+      title: "Review queue",
+      line: "Versions waiting for review, with validator results and the release gate.",
+      count: inReview,
+      unit: "waiting",
+      closed: !can.readReviewQueue,
+    },
+    {
+      href: "/admin/support",
+      title: "Support inbox",
+      line: "Messages from the contact form, with saved replies.",
+      count: newSupport,
+      unit: "new",
+      closed: !can.readSupport,
+    },
+    {
+      href: "/admin/ops",
+      title: "Alerts",
+      line: "Webhook, scheduled job and email failures, and error spikes.",
+      count: openAlerts,
+      unit: "open",
+      closed: false,
+    },
+    {
+      href: "/admin/funnel",
+      title: "Funnel",
+      line: "Daily counts from views to purchases. No people, no answers.",
+      count: null,
+      unit: "",
+      closed: !can.readFunnel,
+      noCount: true,
     },
   ];
 
@@ -95,7 +153,9 @@ export default async function AdminHomePage() {
                 <h2>{c.title}</h2>
                 <p className="muted">{c.line}</p>
                 <p className="admin-card-count">
-                  {c.count === null ? (
+                  {"noCount" in c && c.noCount ? (
+                    <span className="muted">Open the counts</span>
+                  ) : c.count === null ? (
                     <span className="muted">Count unavailable</span>
                   ) : (
                     <>
