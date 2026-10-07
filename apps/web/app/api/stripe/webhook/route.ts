@@ -15,6 +15,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { countFunnelEvent } from "@/lib/funnel";
 import { reportOps } from "@/lib/ops-alerts";
 import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
+import { ledgerRepo } from "@/lib/money/ledger-repo";
 
 /**
  * Stripe platform webhook (F-096). POST /api/stripe/webhook
@@ -47,6 +48,10 @@ import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-rout
  * follows, with the refund, once per subscription. An ordinary cancel at
  * period end sends the cancellation email with the end date, once. A cancel
  * made by account deletion sends none: account_deleted covers it.
+ *
+ * Royalty ledger (F-100, migration 0021): paid purchases and invoices,
+ * refunds and disputes (charge.dispute.created and .closed) write ledger
+ * rows through lib/money/ledger-repo.ts.
  *
  * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
@@ -82,7 +87,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const admin = createAdminClient();
-    const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin));
+    const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin), ledgerRepo(admin, getStripe()));
     const { notify, ...logged } = outcome;
     console.info("stripe webhook", logged);
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
