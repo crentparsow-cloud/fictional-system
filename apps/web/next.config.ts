@@ -16,7 +16,8 @@ const csp = [
   "frame-src https://js.stripe.com https://checkout.stripe.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
-  "form-action 'self' https://checkout.stripe.com",
+  // connect.stripe.com: Connect Express onboarding and dashboard links (F-099).
+  "form-action 'self' https://checkout.stripe.com https://connect.stripe.com",
   "object-src 'none'",
   "upgrade-insecure-requests",
 ].join("; ");
@@ -47,6 +48,12 @@ const nextConfig: NextConfig = {
       // and the token in the path never leaves in a Referer header.
       { source: "/respond/:path*", headers: partnerLinkHeaders },
       { source: "/api/partner/:path*", headers: partnerLinkHeaders },
+      // Studio invitation links (F-033): the token in the path never leaves in a Referer.
+      { source: "/studio/join/:path*", headers: partnerLinkHeaders },
+      // Private file links (F-135): the same rules, so a storage path never leaks.
+      { source: "/files/:path*", headers: partnerLinkHeaders },
+      // Allowlist service worker (F-140): always revalidated, so a fix ships at once.
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, max-age=0" }] },
     ];
   },
 };
