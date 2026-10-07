@@ -220,3 +220,16 @@ Reused authors. Wanjiru Kamau-Otieno writes Content With Daily Bread, which fits
 - https://en.wikisource.org/wiki/Index:Sacred_Books_of_the_East_-_Volume_10.djvu
 - https://www.gutenberg.org/ebooks/2388 (The Song Celestial, Arnold)
 - WebSearch results for each name and title, recorded in `faith.json` under `name_check` and `title_check`.
+
+## Title checks, 7 October
+
+Exact-phrase web searches for the demo titles that were pending, not searched or inconclusive. One search per title, two where the first was inconclusive. Each result is recorded under `title_check` in `faith.json`.
+
+| Title | Result | Notes |
+| --- | --- | --- |
+| A Small Place for Prayer | clear | Second search. Nearest: 'A Place to Pray' (Roberta C. Bondi). One Goodreads record (book 1079769) again showed no title in the snippet; confirm by ISBN search before public use. |
+| The Year Before the Wedding | close: The Week Before the Wedding, Beth Kendrick, year not shown | Also nearby: 'The Weekend Before the Wedding'. |
+| Content With Daily Bread | clear | Nearest: 'Our Daily Bread' devotional titles. |
+| Kept Company in Grief | clear | Nearest: 'Sorrow's Company' (DeWitt Henry) and 'The Company We Keep' (Frances Itani). |
+| Questions Welcome | clear | Results were unrelated titles beginning 'Welcome'. |
+| Visiting Well | clear | Results were archive visitors' books and 'The Visiting Book'. |
