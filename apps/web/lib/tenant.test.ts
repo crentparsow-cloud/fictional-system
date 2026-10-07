@@ -72,7 +72,7 @@ function okRows(rows: unknown[]) {
   return vi.fn(async () => new Response(JSON.stringify(rows), { status: 200 }));
 }
 
-const tenantRow = { id: TENANT_ID, slug: "penguin", kind: "white_label", status: "active", tenant_domains: [{ host: "books.penguin.example" }] };
+const tenantRow = { tenant_id: TENANT_ID, slug: "penguin", kind: "white_label", status: "active" };
 
 describe("resolveTenantFromDb", () => {
   beforeEach(() => {
@@ -92,15 +92,18 @@ describe("resolveTenantFromDb", () => {
     expect(f).not.toHaveBeenCalled();
   });
 
-  it("queries verified domains by exact normalised host with the publishable key", async () => {
+  it("calls resolve_tenant with the exact normalised host and the publishable key", async () => {
     const f = okRows([tenantRow]);
     const t = await resolveTenantFromDb("Books.Penguin.Example.:443", { ...DEPS, fetchImpl: f });
     expect(t).toEqual({ id: TENANT_ID, slug: "penguin", kind: "white_label", source: "db" });
     const [url, init] = f.mock.calls[0] as unknown as [string, RequestInit];
-    expect(url).toContain("/rest/v1/tenants?select=id,slug,kind,status,tenant_domains!inner(host)");
-    expect(url).toContain("tenant_domains.host=eq.books.penguin.example");
-    expect(url).toContain("tenant_domains.verified_at=not.is.null");
-    expect((init.headers as Record<string, string>).apikey).toBe("sb_publishable_test");
+    expect(url).toBe("https://example.supabase.co/rest/v1/rpc/resolve_tenant");
+    expect(init.method).toBe("POST");
+    expect(JSON.parse(String(init.body))).toEqual({ p_host: "books.penguin.example" });
+    const headers = init.headers as Record<string, string>;
+    expect(headers.apikey).toBe("sb_publishable_test");
+    expect(headers["content-type"]).toBe("application/json");
+    expect(headers.authorization).toBeUndefined();
   });
 
   it("serves a hit from cache and looks up again after the TTL", async () => {
@@ -127,7 +130,9 @@ describe("resolveTenantFromDb", () => {
 
   it("treats suspended tenants and malformed rows as unknown", async () => {
     expect(await resolveTenantFromDb("a.example", { ...DEPS, fetchImpl: okRows([{ ...tenantRow, status: "suspended" }]) })).toBeNull();
-    expect(await resolveTenantFromDb("b.example", { ...DEPS, fetchImpl: okRows([{ ...tenantRow, id: "not-a-uuid" }]) })).toBeNull();
+    expect(await resolveTenantFromDb("b.example", { ...DEPS, fetchImpl: okRows([{ ...tenantRow, tenant_id: "not-a-uuid" }]) })).toBeNull();
+    // The old embedded-join shape (id, not tenant_id) is not accepted.
+    expect(await resolveTenantFromDb("c.example", { ...DEPS, fetchImpl: okRows([{ ...tenantRow, tenant_id: undefined, id: TENANT_ID }]) })).toBeNull();
   });
 
   it("falls back to the config map when the lookup times out, and logs it", async () => {

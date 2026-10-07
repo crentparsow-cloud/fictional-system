@@ -6,14 +6,15 @@
  * - Config (default). lib/tenant.ts maps localhost, previews, the Akana apex
  *   and TENANT_APEX subdomains to a tenant. Only the marketplace has a known
  *   uuid on this path.
- * - Database (TENANT_DB_LOOKUP=1). An exact host match in tenant_domains,
- *   verified rows only, joined to tenants for id, slug, kind and status. Read
- *   through the Supabase REST endpoint with the publishable key and a plain
- *   fetch, so it runs on any proxy runtime and never touches session cookies.
+ * - Database (TENANT_DB_LOOKUP=1). public.resolve_tenant(p_host) from
+ *   migration 0008: an exact match on a verified tenant_domains host,
+ *   returning tenant_id, slug, kind and status, at most one row. Called
+ *   through the Supabase REST RPC endpoint with the publishable key and a
+ *   plain fetch, so it runs on any proxy runtime and never touches session
+ *   cookies. anon still cannot list tenant_domains.
  *
- * The database path sits behind the flag because migration 0001 gives anon no
- * select on tenant_domains. Until a policy or function allows it, every call
- * would fail and fall back. docs/TENANT_RESOLUTION.md has the exact grant.
+ * The database path stays behind the flag so behaviour does not change until
+ * it is switched on per deployment. docs/TENANT_RESOLUTION.md has the detail.
  *
  * Caching is in memory, per instance: 60 seconds for a hit, 30 seconds for a
  * miss or a fallback. No Node APIs, no next/* imports.
@@ -103,19 +104,16 @@ async function lookup(host: string, deps: ResolveDeps): Promise<HostTenant | nul
 
   if (!url || !key) return fallback(host, "Supabase is not configured");
 
-  const query =
-    `${url.replace(/\/$/, "")}/rest/v1/tenants` +
-    `?select=id,slug,kind,status,tenant_domains!inner(host)` +
-    `&tenant_domains.host=eq.${encodeURIComponent(host)}` +
-    `&tenant_domains.verified_at=not.is.null&limit=1`;
+  const endpoint = `${url.replace(/\/$/, "")}/rest/v1/rpc/resolve_tenant`;
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), LOOKUP_TIMEOUT_MS);
   let rows: unknown;
   try {
-    const res = await doFetch(query, {
-      method: "GET",
-      headers: { apikey: key, accept: "application/json" },
+    const res = await doFetch(endpoint, {
+      method: "POST",
+      headers: { apikey: key, accept: "application/json", "content-type": "application/json" },
+      body: JSON.stringify({ p_host: host }),
       signal: controller.signal,
       cache: "no-store",
     });
@@ -137,12 +135,12 @@ async function lookup(host: string, deps: ResolveDeps): Promise<HostTenant | nul
 function parseRow(row: unknown): HostTenant | null {
   if (!row || typeof row !== "object") return null;
   const r = row as Record<string, unknown>;
-  if (typeof r.id !== "string" || !UUID.test(r.id)) return null;
+  if (typeof r.tenant_id !== "string" || !UUID.test(r.tenant_id)) return null;
   if (typeof r.slug !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(r.slug)) return null;
   if (r.kind !== "marketplace" && r.kind !== "white_label") return null;
   // Suspended and closed tenants are not served.
   if (r.status !== "active") return null;
-  return { id: r.id.toLowerCase(), slug: r.slug, kind: r.kind, source: "db" };
+  return { id: r.tenant_id.toLowerCase(), slug: r.slug, kind: r.kind, source: "db" };
 }
 
 function fallback(host: string, reason: string): HostTenant | null {
