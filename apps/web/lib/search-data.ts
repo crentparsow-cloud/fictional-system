@@ -1,6 +1,6 @@
 import "server-only";
 import type { LibraryCard } from "@/lib/catalogue-types";
-import { cleanTopics, entryFromCard, type SearchEntry } from "@/lib/search";
+import { cleanTopics, entryFromCard, topicHashes, type SearchEntry } from "@/lib/search";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -8,18 +8,20 @@ import { createUserClient } from "@/lib/supabase/server";
  * read. One extra query adds the two things the cards do not carry: the
  * book's publisher and the Theme's hidden topic terms.
  *
- * Topics are read here and nowhere else. They go to the browser only inside
- * the search index and are never displayed (the cards and the result list do
- * not render them). This is the on-device form of the search vector in the
- * architecture note (section 11): the index ships with the page, so the
- * query never has to leave the device.
+ * Topics are read here and nowhere else, and they never reach the browser
+ * as words: each one is turned into short hashes of its normalised words
+ * (topicHashes in lib/search.ts) before the index is built. The device
+ * hashes the reader's query words the same way and compares. This is the
+ * on-device form of the search vector in the architecture note (section
+ * 11): the index ships with the page, so the query never has to leave the
+ * device, and the hidden topics stay out of the page source.
  *
  * Any failure falls back to the cards alone, so search still works on
  * titles, authors, Themes and codes.
  */
 export async function searchEntriesFor(cards: readonly LibraryCard[]): Promise<SearchEntry[]> {
   const ids = cards.map((c) => c.id);
-  const extras = new Map<string, { topics: string[]; publisher: string | null }>();
+  const extras = new Map<string, { topicHashes: string[]; publisher: string | null }>();
   if (ids.length) {
     try {
       const supabase = await createUserClient();
@@ -27,7 +29,7 @@ export async function searchEntriesFor(cards: readonly LibraryCard[]): Promise<S
       if (!error) {
         type Row = { id: string; themes: { topics: string[] | null } | null; books: { publisher: string | null } | null };
         for (const row of (data ?? []) as unknown as Row[]) {
-          extras.set(row.id, { topics: cleanTopics(row.themes?.topics), publisher: row.books?.publisher ?? null });
+          extras.set(row.id, { topicHashes: await topicHashes(cleanTopics(row.themes?.topics)), publisher: row.books?.publisher ?? null });
         }
       }
     } catch {

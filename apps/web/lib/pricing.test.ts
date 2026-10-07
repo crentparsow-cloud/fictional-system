@@ -24,15 +24,25 @@ const setPoint: PricePoint = {
 };
 
 describe("the ladder", () => {
-  it("mirrors the eight price_points rows and every one is a placeholder", () => {
+  it("mirrors the eight price_points rows and every workbook point is a placeholder", () => {
     expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year"]);
     for (const id of PRICE_POINT_IDS) {
+      expect(PRICE_LADDER[id].stripePriceId).toBeNull();
+      if (PRICE_LADDER[id].kind !== "workbook") continue;
       expect(isPlaceholder(PRICE_LADDER[id])).toBe(true);
       expect(PRICE_LADDER[id].active).toBe(false);
-      expect(PRICE_LADDER[id].stripePriceId).toBeNull();
     }
     expect(PRICE_LADDER.member_month.kind).toBe("membership");
     expect(PRICE_LADDER.p1.kind).toBe("workbook");
+  });
+
+  it("carries the interim membership prices from migration 0010: GBP only, in pence", () => {
+    expect(PRICE_LADDER.member_month).toMatchObject({ active: true, amounts: { GBP: 799 } });
+    expect(PRICE_LADDER.member_year).toMatchObject({ active: true, amounts: { GBP: 6999 } });
+    expect(priceFor({ pricePointId: "member_month" }, MARKETS.GB)?.formatted).toBe("£7.99");
+    expect(priceFor({ pricePointId: "member_year" }, MARKETS.GB)?.formatted).toBe("£69.99");
+    // No fallback to GBP for a reader in another market (F-094).
+    expect(priceFor({ pricePointId: "member_month" }, MARKETS.IE)).toBeNull();
   });
 
   it("knows its ids", () => {

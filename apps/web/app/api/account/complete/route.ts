@@ -1,6 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
-import { runDeletionJob, stripeCanceller, type DueSubscription } from "@/lib/account-complete";
+import { runDeletionJob, stripeCanceller, stripeSettlement, type DueSubscription } from "@/lib/account-complete";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -9,14 +9,19 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *
  *   GET or POST /api/account/complete
  *   Authorization: Bearer <CRON_SECRET>   (Vercel Cron sends this itself)
- *   -> { processed, auth_removed, auth_failed, subscriptions_cancelled, subscriptions_failed }
+ *   -> { processed, auth_removed, auth_failed, subscriptions_cancelled, subscriptions_failed,
+ *        refunds_issued, refunds_failed, customers_redacted, redactions_failed }
  *
  * Step 0, membership (F-097, migration 0009): any live Stripe subscription
  * of a reader whose deletion is due is cancelled in Stripe at once and
  * recorded as cancelled. If one cannot be cancelled, nothing is deleted this
  * run (502) and the next run tries again; the database refuses to complete
- * a deletion while a live subscription remains. The order and the fakes
- * that test it are in lib/account-complete.ts.
+ * a deletion while a live subscription remains. Straight after a cancel,
+ * the cooling-off refund runs (lib/membership-refund.ts). Then every Stripe
+ * customer linked to a due reader is redacted: name, email, phone, address
+ * and metadata cleared, except akana_deleted=true. A refund or redaction
+ * error is logged with a code and counted, and never stops the deletion. The order and the fakes that test it are in
+ * lib/account-complete.ts.
  *
  * Step 1, in SQL: public.complete_due_deletions() deletes the reader's
  * answers, progress, enrolments, entitlements and memberships and clears
@@ -62,6 +67,8 @@ async function run(request: NextRequest) {
     canceller ??= stripeCanceller(getStripe().subscriptions);
     return canceller(id);
   };
+  let settlement: ReturnType<typeof stripeSettlement> | null = null;
+  const settle = () => (settlement ??= stripeSettlement(getStripe()));
 
   let result;
   try {
@@ -72,6 +79,14 @@ async function run(request: NextRequest) {
         return (data ?? []) as DueSubscription[];
       },
       cancelSubscription,
+      refundUnused: (id) => settle().refundUnused(id),
+      async dueCustomers() {
+        const { data, error } = await admin.rpc("due_deletion_customers");
+        if (error) throw new SqlError(error.code);
+        return ((data ?? []) as { stripe_customer_id: string }[]).map((r) => r.stripe_customer_id);
+      },
+      redactCustomer: (id) => settle().redactCustomer(id),
+      log: (code, reason) => console.error(code, reason),
       async markSubscriptionCancelled(id) {
         const { error } = await admin.rpc("mark_subscription_cancelled", { p_subscription: id });
         if (error) throw new SqlError(error.code);
@@ -103,6 +118,8 @@ async function run(request: NextRequest) {
     return NextResponse.json({ error: "stripe_cancel_failed", ...counts }, { status: 502, headers: NO_STORE });
   }
   if (counts.auth_failed) console.error("account_auth_removal_failed", counts.auth_failed);
+  if (counts.refunds_failed) console.error("account_refund_failed_count", counts.refunds_failed);
+  if (counts.redactions_failed) console.error("account_redaction_failed_count", counts.redactions_failed);
   return NextResponse.json(counts, { headers: NO_STORE });
 }
 

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useMemo, useState } from "react";
 import { BADGE_LABELS } from "@/lib/catalogue-guard";
-import { buildSearchIndex, search, searchStatus, type SearchEntry } from "@/lib/search";
+import { buildSearchIndex, queryWordHashes, search, searchStatus, type QueryHashes, type SearchEntry } from "@/lib/search";
 
 /**
  * On-device search with Help now first (F-008).
@@ -16,7 +16,13 @@ import { buildSearchIndex, search, searchStatus, type SearchEntry } from "@/lib/
  * the text either.
  *
  * A query that matches the crisis list shows the Help now card first, above
- * any workbook, and keeps it there when nothing else matches.
+ * any workbook, and keeps it there when nothing else matches. That check is
+ * synchronous: it runs on every keystroke and never waits for anything.
+ *
+ * Hidden topics arrive as short hashes (lib/search.ts). The query words are
+ * hashed here with Web Crypto, which is async, so a topic match can land a
+ * moment after the rest of the results. The hashes stay in this component's
+ * state like the query itself.
  */
 export interface SearchLabels {
   label: string;
@@ -42,7 +48,20 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
   const helpHeadingId = `${id}-help`;
   const index = useMemo(() => buildSearchIndex(entries), [entries]);
   const [query, setQuery] = useState("");
-  const outcome = useMemo(() => search(index, query), [index, query]);
+  // Word to hash for the latest query. Looked up by word, so while a new
+  // keystroke is being hashed the words already known keep matching.
+  const [hashes, setHashes] = useState<QueryHashes | undefined>(undefined);
+  useEffect(() => {
+    let live = true;
+    if (!query.trim()) return;
+    void queryWordHashes(query).then((h) => {
+      if (live) setHashes(h);
+    });
+    return () => {
+      live = false;
+    };
+  }, [query]);
+  const outcome = useMemo(() => search(index, query, undefined, hashes), [index, query, hashes]);
 
   // The polite status waits for a pause in typing, so a screen reader is not
   // read a new count on every key.
