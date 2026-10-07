@@ -1,10 +1,45 @@
 # Akana three-week build plan
 
-Version 1, Monday 5 October 2026. Written by the Managing Director with the Product Lead and the Technical Architect.
+Version 1, Monday 5 October 2026. Written by the Managing Director with the Product Lead and the Technical Architect. Revised Wednesday 7 October 2026; the revision section below says what changed.
 
 Inputs: AK_Feature_List.md and .json (147 features, 100 committed), AK_Architecture.md, AK_Demo_Catalogue_Plan.md and .json, AK_Handover_2026-10-05.md, the four research notes in this folder, WB_Decisions.md and WB_Board_Decisions_2026-10-02.md. No figure in this plan is invented. Prices, shares and thresholds are left for Crent. Points we could not confirm are marked [check].
 
 Window: Monday 5 October to Friday 23 October 2026. Fifteen working days.
+
+## Revision, 7 October 2026
+
+**Why this revision.** Research landed on Wednesday 7 October: the category study (`docs/research/categories.md`, `taxonomy.json`), the faith workbook study (`faith-workbooks.md`, `faith-titles.json`), the Akana Business study (`akana-business.md`) and five catalogue files with their summary (`docs/research/catalogue/SUMMARY.md`). Together they propose 10 shelves and 51 Themes in place of 7 and 17, an optional `faith` genre, 124 new catalogue titles (74 demo, 50 public-domain classics) and an organisations offer. This revision adds that work to weeks 2 and 3 and to an after-launch list. Everything else in the plan stands.
+
+**Built on Day 6 and not in version 1 of this plan.**
+- Six-monthly terms reminders for monthly members: migration 0011 and a daily cron at `/api/membership/reminders`. This was the follow-up logged for the DMCC Act subscription rules.
+- Cancellation emails after a cooling-off refund or a period-end cancel.
+- An email template catalogue in `packages/emails/src/catalogue.ts`.
+- F-030, renamed Check-in partner: migration 0012, `/respond/[token]` and a section on the You page. Partners never see answers, titles or stage names. It was an after-launch feature. It now carries the Week 1 tag in the feature list, which adds 2.5 points of finished work to week 1.
+
+**New feature entries.** `AK_Feature_List.json` now holds 177 entries. F-148 to F-155 cover the taxonomy seed, the faith genre, faith consent, Bible text, house records for the new classics, Demo Catalogue v2 seeding, new support signposts and the theological reviewer workflow. F-201 to F-228 are the Akana Business features exactly as `akana-business.md` proposes them. Sizes use the scale already implied by this plan: S = 1, M = 2.5, L = 5, XL = 8.
+
+**Load, before and after.**
+
+| | Version 1 | After this revision, by feature-list tag | Planned build |
+|---|---|---|---|
+| Week 1 | 25 features, 51.5 points | 26 features, 54.0 points | F-030 is already built |
+| Week 2 | 39 features, 58 points | 44 features, 64.5 points | 64.5 on the existing streams, plus 10.5 on a new stream T13 for F-201 to F-206 |
+| Week 3 | 36 features, 53.5 points | 45 features, 68.5 points | 58.0 on the existing streams if T13 builds F-201 to F-206 in week 2. 68.5 if it does not |
+| Committed | 100 features, 163 points | 115 features, 187 points | |
+
+F-201 to F-206 carry the Week 3 tag because `akana-business.md` proposes them as the launch MVP. The same note recommends they start in week 2 on their own stream, so they are planned there. The research quotes the pilot as "about 12 points" in one place and "about 10.5" in another; the sizes it gives add up to 10.5. Its later phases add up to 13 points (phase 2) and 20.5 (phase 3) on the same scale, against the "about 14.5" and "about 30" in its text.
+
+**Capacity.** Version 1 already said 53.5 points in week 3 left no room for three protected test days, and that about 11 streams is an assumption, not a measured figure [check]. This revision adds 4.5 points to week 3 on the existing streams even with T13, and T13 is one more stream than version 1 planned. No figure exists for whether that stream is available. Whether to run T13 is Crent's call (question N1).
+
+**If capacity is short.** Crent decides what moves. The recommended order, before the version 1 cut order in section 1:
+1. The Akana Business pilot, F-201 to F-206 (10.5 points), moves after launch. C10's manual invoice plus an admin access grant still serves a first organisation.
+2. Bible text handling and the theological reviewer workflow, F-151 and F-155 (2 points), move after launch if no faith title will be ready to release by Friday 23 October. Faith titles then stay in review.
+3. Demo Catalogue v2 seeding, F-153 (2.5 points), shrinks to the Themes that reach three live titles, or moves after launch with version 1 left in place.
+4. Then the version 1 order: F-042, F-113, F-066 to F-069 and F-074, then F-017.
+
+In week 2 the new items are small and additive. If week 2 runs late, the first batch of house records (F-152) shrinks first.
+
+**Migration numbers.** 0011 and 0012 are taken. The taxonomy and faith genre migrations take the next free numbers, so the 0013 to 0022 numbers in `akana-business.md` move up by however many land first.
 
 ## 1. The plan on one page
 
@@ -36,19 +71,20 @@ Each team is a parallel workflow with one owner surface, its own branch per feat
 | Team | Owns | Main features |
 |---|---|---|
 | T1 Platform and security | Repo, CI, database, RLS, auth, sealing, flags, logs | F-128, F-129, F-130, F-131, F-132, F-134, F-135, F-136, F-125, F-080, F-081, F-141, F-142, F-143 |
-| T2 Content engine | Schema v3, validator, catalogue tables, versioning, migration | F-107, F-108, F-109, F-110, F-111, F-112, F-114, F-113 |
+| T2 Content engine | Schema v3, validator, catalogue tables, versioning, migration, taxonomy and faith genre | F-107, F-108, F-109, F-110, F-111, F-112, F-114, F-113, F-148, F-149, F-151 |
 | T3 Player | The ported reader engine and everything a reader does inside a workbook | F-015, F-016, F-017, F-018, F-019, F-020, F-022, F-023, F-024, F-140 |
 | T4 Store and marketing | App shell, library, workbook, author and Theme pages, search, marketing pages | F-001 to F-011, F-014, F-138, F-139 |
 | T5 Commerce | Stripe platform, prices, entitlements, checkout, membership, receipts | F-092 to F-098 |
 | T6 Payouts and ledger | Connect onboarding, ledger, statements, refunds, payout holds | F-099 to F-103, F-041 |
 | T7 Studio and console | Author portal and publisher console | F-033 to F-040, F-042 to F-045, F-055, F-056, F-058 |
-| T8 Admin and review | Organisations, kill switch, review queue, release gate, JSON editor, account lookup, support inbox, takedown | F-082 to F-087, F-090, F-123 |
-| T9 Demo catalogue | Seed data, writing, covers, public-domain file, demo logins | F-115, F-116, F-117, F-118, seeds for F-045 and F-074 |
-| T10 Safety, trust and legal drafting | Help now, health data consent, legal pages, terms acceptance, DPIA, email guards, drafts for the lawyer | F-021, F-025, F-026, F-121, F-122, F-126, F-127, F-137 |
+| T8 Admin and review | Organisations, kill switch, review queue, release gate, JSON editor, account lookup, support inbox, takedown, theological sign-off | F-082 to F-087, F-090, F-123, F-155 |
+| T9 Demo catalogue | Seed data, writing, covers, public-domain file, demo logins, Demo Catalogue v2 | F-115, F-116, F-117, F-118, F-152 (with T10), F-153, seeds for F-045 and F-074 |
+| T10 Safety, trust and legal drafting | Help now, health data and faith consent, signposts, legal pages, terms acceptance, DPIA, email guards, drafts for the lawyer | F-021, F-025, F-026, F-121, F-122, F-126, F-127, F-137, F-150, F-154 |
 | T11 White-label | Tenant routing, branding, locked standards, tenant catalogue, demo tenant | F-066, F-067, F-068, F-069, F-074 |
 | T12 QA, accessibility and red team | End-to-end tests, isolation checks, axe, manual accessibility pass, launch checklist | F-144, F-145, review of F-131 |
+| T13 Akana Business (added 7 October, if Crent agrees) | Customer organisations, seats, invitations, minimal console, organisation terms and page | F-201 to F-206 |
 
-T6 and T11 start in week 2. In week 1 about ten teams run at once.
+T6 and T11 start in week 2. T13 starts in week 2 only if Crent agrees to the extra stream (question N1). In week 1 about ten teams run at once.
 
 ## 4. Week 1, day by day: foundations and content
 
@@ -151,17 +187,18 @@ Each milestone has a date, the teams, what Crent must do, and what he can see.
 
 ### Week 2, 12 to 16 October: a reader can buy and use a workbook
 
-Week 2 commits 39 features and 58 points, plus early starts on F-100 and F-084 from week 3.
+Week 2 commits 39 features and 58 points, plus early starts on F-100 and F-084 from week 3. The 7 October revision adds 5 features and 6.5 points on the existing streams (F-148, F-149, F-150, F-152, F-154), and the Akana Business pilot (10.5 points) on T13 if Crent agrees.
 
 **M1. Player at parity. Tuesday 13 October.**
-- Built: F-015 player at parity with the old app (T3, two streams). Help now and safety hub by market (F-021, T10). Safety tier gating and the hardest answer card (F-022). Today and Home across several workbooks with a genre-aware daily check (F-016).
+- Built: F-015 player at parity with the old app (T3, two streams). Help now and safety hub by market (F-021, T10). Safety tier gating and the hardest answer card (F-022). Today and Home across several workbooks with a genre-aware daily check (F-016). Added 7 October: the five new signpost groups in `support_lines.json`, checked by market, or left null where not yet checked (F-154, T10).
 - Crent: test the player on his own phone for 30 minutes and list anything that feels different from the current app.
 - Demo: every one of the 70 workbooks opens and renders in the new player. The old Cloudflare app stays live until Crent accepts parity.
 
 **M2. The store is browsable. Wednesday 14 October.**
 - Built: marketing home (F-002), library with genre shelves and Themes (F-003), badges and demo labels on every surface (F-004), public workbook pages on slug URLs (F-005), generated covers (F-117), public-domain file for the five classics (F-118), price ladder in Stripe (F-093) and local currency display (F-094). Teams T4, T9, T5.
-- Crent: approve the home page line and trust points. Decide the launch countries and currencies (C5).
-- Demo: a public library and workbook pages with covers, outlines, a readable first exercise and local prices.
+- Added 7 October: the expanded taxonomy in the registry and seed, 10 shelves, 51 Themes and 7 new areas, all pending clearance (F-148, T2). The optional `faith` genre as an additive migration that recreates the genres CHECK, with the 0002 test changed from 11 genres to 12 in the same pull request (F-149, T2, only if Crent says yes). The first batch of house records for the new classics, led by the classics that open a hidden Theme (F-152, T9 with T10).
+- Crent: approve the home page line and trust points. Decide the launch countries and currencies (C5). Pick the first faith titles and say whether faith classics are sold (N6, N7).
+- Demo: a public library and workbook pages with covers, outlines, a readable first exercise and local prices. New shelves stay hidden until three of their titles are live.
 
 **M3. A reader can pay, in test mode. Thursday 15 October.**
 - Built: entitlements engine (F-095), single workbook checkout and webhook (F-096), membership with the customer portal (F-097), receipts that never name a title in email (F-098), free first week and calm paywall (F-019), completed-step capture (F-020), first-party funnel events (F-141), operational alerts (F-142). T6 starts the royalty ledger tables (F-100) so week 3 is lighter. Teams T5, T3, T1, T6.
@@ -170,19 +207,25 @@ Week 2 commits 39 features and 58 points, plus early starts on F-100 and F-084 f
 
 **M4. Authors and publishers are in the door. Friday 16 October.**
 - Built: invite-only onboarding (F-033), author profile (F-034), book records (F-035), licence capture by clickwrap or signed upload (F-036), submission routes (F-037), organisation console and roster (F-055, F-056), staff create and approve organisations (F-082), Connect Express onboarding in test mode (F-099), private storage (F-135), payee sign-in hardening (F-143), kill switch (F-083), support inbox (F-090), legal and trust pages (F-121), versioned terms acceptance (F-122), account and data rights (F-025), health data consent (F-026), DPIA draft (F-126), tenant resolution by hostname (F-066). T8 starts the review queue statuses (F-084). Teams T7, T8, T6, T10, T11, T1.
-- Crent: receive the lawyer's first text, or accept that the licence and terms stay marked draft and no real author signs until they arrive. Name the reviewers (E5). Week review.
-- Demo: Crent invites a test author, who signs in, adds a book, accepts the draft licence, completes Stripe test onboarding and submits. Crent pauses a workbook with the kill switch and watches it leave sale.
+- Added 7 October: the faith consent screen, built like the health one, versioned and withdrawable, keyed on the faith genre or on the Faith and Spirituality shelf if Crent declines the genre (F-150, T10). Its wording goes to the lawyer with the other drafts.
+- Crent: receive the lawyer's first text, or accept that the licence and terms stay marked draft and no real author signs until they arrive. Name the reviewers (E5) and the Theological Reviewer (N5). Week review.
+- Demo: Crent invites a test author, who signs in, adds a book, accepts the draft licence, completes Stripe test onboarding and submits. Crent pauses a workbook with the kill switch and watches it leave sale. A test reader opens a faith demo title and sees the faith consent screen first.
 
-**Demo team in week 2 (T9).** Wave 2 writing continues (13 full workbooks). If Crent confirms B1, the scale-up to 15 listings per invented author starts: title checks, listing, card line, cover and outline only, generated in batches through the validator.
+**Akana Business pilot in week 2 (T13, added 7 October, only if Crent agrees).** The manual-sales pilot from `akana-business.md`: customer organisation kinds and profile (F-201), licences and seats with the `team_seat` entitlement (F-202), invitations and seat claim on the check-in partner token pattern (F-203), a minimal organisation console for seats and invitations (F-204), organisation terms, DPA and privacy notice drafts for the lawyer (F-205), and the Akana for organisations page saying "talk to us" (F-206). About 10.5 points. No groups, no organisation billing in Stripe, no branding. F-202 replaces `app.has_entitlement`, so T12 reviews it with the money, sealing and RLS merges. Any tail finishes in week 3 before the freeze. No organisation goes live until the lawyer approves F-205 and Crent sets prices (N2). If T13 is not staffed, these six features move after launch.
+
+**Demo team in week 2 (T9).** Wave 2 writing continues (13 full workbooks). If Crent confirms B1, the scale-up to 15 listings per invented author starts: title checks, listing, card line, cover and outline only, generated in batches through the validator. Added 7 October: once Crent answers the catalogue questions (N8 to N13), T9 prepares the Demo Catalogue v2 merge from the five research files, as `docs/research/catalogue/SUMMARY.md` sets out. The v2 file is written only after Crent approves.
 
 ### Week 3, 19 to 23 October: authors, money and launch
 
 Week 3 commits 36 features and 53.5 points, less what started in week 2. Feature freeze at the end of Wednesday 21 October.
 
+The 7 October revision adds 3 features and 4.5 points on the existing streams (F-151, F-153, F-155), which takes week 3 to 58.0 points before the early starts are taken off. F-201 to F-206 also carry the Week 3 tag (10.5 points), but they are planned on T13 in week 2. If they slip into week 3 on the existing streams, week 3 is 68.5 points. The cut order in the revision section applies.
+
 **M5. Review, release and author sign-off. Monday 19 October.**
 - Built: review queue with validator results (F-084), release gate with sign-off records and the two-person override (F-085), staff JSON editor with live validation (F-086), preview in the real engine (F-038), author review and sign-off against a content hash (F-039), pricing from the ladder (F-040), author status emails (F-043), author help pages (F-044). Teams T8, T7.
+- Added 7 October: the Theological Reviewer sign-off kind in the release gate. A faith-genre workbook cannot be approved without it, and the reviewer approves the tradition label (F-155, T8).
 - Crent: take one demo workbook from submitted to live himself, acting as editor and safety reviewer.
-- Demo: the full release path, with the gate refusing a workbook that lacks a licence record or a safety sign-off.
+- Demo: the full release path, with the gate refusing a workbook that lacks a licence record or a safety sign-off, and refusing a faith title that lacks a theological sign-off.
 
 **M6. Money out. Tuesday 20 October.**
 - Built: royalty ledger on net receipts with daily reconciliation (F-100), monthly statements as PDF and CSV (F-101), refunds from the console with transfer reversal (F-102), payout holds and fraud controls (F-103), earnings view (F-041), privacy-safe dashboard (F-042), publisher roll-up (F-058), account lookup console (F-087), notice and takedown (F-123). Teams T6, T7, T8.
@@ -196,13 +239,26 @@ Week 3 commits 36 features and 53.5 points, less what started in week 2. Feature
 
 **M8. Feature complete. Wednesday 21 October, end of day.**
 - Built: author and publisher pages (F-006), Theme pages (F-007), on-device search with Help now first (F-008), publisher, white-label and pricing pages saying 'talk to us' until plans are set (F-009), help centre (F-010), sitemap and hreflang (F-011), My plan prefill and finish (F-017), progress without streaks (F-018), export of the reader's own work (F-023), calendar reminder (F-024), offline Help now page and allowlist service worker (F-140), three new field types (F-113). Teams T4, T3, T2.
+- Added 7 October: Demo Catalogue v2 seeding of the titles Crent has approved, with demo titles live under the Demo badge and new classics in draft until their house record is signed (F-153, T9). World English Bible handling and attribution, with WEBBE for en-GB and WEB for en-US (F-151, T2). Outside the code, the Theological Reviewer reviews the first faith titles Crent picked (N6). Those titles release only with that sign-off, a signed house record and Crent's yes to selling them (N7).
 - Crent: confirm the cut list if anything is late. Anything not merged by the end of the day moves after launch.
-- Demo: the whole site, end to end, on the preview.
+- Demo: the whole site, end to end, on the preview, including the new shelves that have reached three live titles.
 
 **M9. Tested and launch-ready. Thursday 22 and Friday 23 October.**
 - Built: no new features. T12 runs the WCAG 2.2 AA manual pass with keyboard, VoiceOver and TalkBack (F-144), end-to-end tests for buy, membership, refund and deletion, a test-mode load test on checkout and webhook, backups confirmed, rollback plan and the go-live checklist (F-145). All teams fix only.
 - Crent, Friday 23 October at 15:00: go or no-go meeting. He decides the live switch-on date against the gate table in section 7, and whether demo titles are visible on the live site (B4).
 - Demo: the launch checklist with every line marked done, waiting or blocked, and a full run-through of reader, author and admin journeys.
+
+### After launch (added 7 October)
+
+These come from the 7 October research. None is committed for Friday 23 October. Points use the plan's scale.
+
+- **Groups (Akana Business phase 2, about 13 points):** groups with leaders (F-210), group schedule and soft pace (F-211), facilitator guides (F-212), fixed-choice group check-ins with no free text (F-213), aggregate organisation reports above the suppression threshold (F-214), faith consent for church groups (F-215, reduced if F-150 ships), report a concern (F-216). The research targets two to three weeks after launch.
+- **Pace:** held pace, where units open when the group reaches them (F-224). It changes `app.has_entitlement`, so it needs a full RLS pass.
+- **Organisation billing and money (phase 3, about 20.5 points):** organisation billing on Stripe with seat quantities, church bands and invoices (F-220), pool and ledger lines for organisation income (F-222), self-serve sign-up for Group and small Teams plans (F-226), join links and CSV invites (F-225), offboarding and export (F-228).
+- **Branding and SSO:** private organisation tenants with branding (F-223), which waits on A7 and the tenant sign-in decision. SAML SSO for organisation members (F-227).
+- **Faith content:** the first licensed Christian titles and publisher outreach (F-221). The church offer waits on it. The house records not done in week 2 (F-152) continue as content work.
+- **Other traditions:** Buddhist, Hindu, Jewish, Muslim, Sikh and Taoist texts, each with its own reviewer, labels and house record. The Dhammapada and The Song Celestial wait for reviewers (N15).
+- **Cross-listing:** a join table so one workbook can sit in two Themes, if Crent wants it (N9).
 
 ## 6. Crent's decision deadlines
 
@@ -214,6 +270,9 @@ Week 3 commits 36 features and 53.5 points, less what started in week 2. Feature
 | Wed 14 Oct | C5 launch countries, A2 to A6 | Tax set-up, currencies, Help now markets, tenant scope |
 | Fri 16 Oct | C6 refunds, D6 to D9, E5 reviewers | Refunds, payouts and release gate are built in week 3 |
 | Fri 23 Oct | Live switch-on date, B4 demo visibility | Go or no-go |
+| Fri 9 Oct (added 7 Oct) | N1 Akana Business pilot and T13, N3 faith genre, N4 Bible default, N13 sixth shelf | Week 2 starts the taxonomy seed, the faith migration and T13 on Monday 12 October |
+| Wed 14 Oct (added 7 Oct) | N6 first faith titles, N7 faith classics sold or free, N11 Tier B classics | The first batch of house records and the v2 merge depend on them |
+| Fri 16 Oct (added 7 Oct) | N2 Akana Business prices, N5 Theological Reviewer, N8 tier mismatch, N9 cross-listing, N10 Carnegie, N12 new areas, N14 free text in groups, N16 new catalogue values | The v2 merge, the release gate and the organisation terms are built in week 3 |
 
 The full list with recommended answers is in AK_Questions_for_Crent.md.
 
@@ -242,6 +301,8 @@ A sellable product needs these. Agents prepare drafts and checklists. The owner 
 | O17 | Paid plans: Vercel Pro (commercial use) and Supabase paid plan if staging or branching needs it [check current terms] | Crent | None | Mon 5 Oct for Vercel, per E1 for Supabase | Production hosting |
 | O18 | Apple developer account, only if Sign in with Apple is wanted at launch | Crent | None | Wed 14 Oct | Apple sign-in |
 | O19 | Author outreach: the Publish with Akana page is live on Thursday 8 October, but real approaches wait for the licence text and revenue share | Crent | Pitch pack, enquiry handling | After O10 and D2 | First real authors |
+| O20 | Theological Reviewer, ideally a small panel: at least one Protestant (evangelical), one Catholic, and one Orthodox or Anglican reader (added 7 October) | Crent | Review pack per title, with the sensitivities listed in faith-workbooks.md | Fri 16 Oct, so the first faith titles can be reviewed in week 3 | Any faith title leaving review |
+| O21 | Lawyer scope widened (added 7 October): faith consent wording, organisation terms, DPA, privacy notice section for organisations, licence grant for group use and facilitator guides, the Online Safety Act view on group features and the check-in partner note, KJV wording inside classics | Lawyer, engaged by Crent | Drafts from F-150 and F-205 | With O10 | Faith titles, any organisation going live |
 
 ## 8. What cannot be finished by agents alone
 
@@ -270,6 +331,9 @@ Agents can build, test and draft everything in the code track. They cannot do th
 | AKANA fails clearance | Rename | Brand in one config file; domain bought only after the knock-out |
 | Crent is the only reviewer | Release gate override cannot work; queue caps real titles | Question E5 |
 | Week 3 overload | Feature freeze missed | Cut order from section 1, decided at the Wednesday 21 October check |
+| The 7 October additions push week 3 from 53.5 to 58.0 points, or 68.5 without T13 | Freeze missed, test days squeezed | Cut order in the revision section, decided by Crent |
+| No Theological Reviewer named | No faith title can release | Faith titles stay in review; F-151 and F-155 can move after launch |
+| Akana Business groups bring shared free text | Online Safety Act user-to-user scope | No shared free text at launch; fixed-choice check-ins only (N14) |
 
 ## Sources
 
