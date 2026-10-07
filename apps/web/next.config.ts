@@ -50,6 +50,9 @@ const nextConfig: NextConfig = {
       { source: "/api/partner/:path*", headers: partnerLinkHeaders },
       // Studio invitation links (F-033): the token in the path never leaves in a Referer.
       { source: "/studio/join/:path*", headers: partnerLinkHeaders },
+      // Organisation seat and owner invitation links (F-203): the same rules.
+      { source: "/org/join/:path*", headers: partnerLinkHeaders },
+      { source: "/org/admin-join/:path*", headers: partnerLinkHeaders },
       // Private file links (F-135): the same rules, so a storage path never leaks.
       { source: "/files/:path*", headers: partnerLinkHeaders },
       // Allowlist service worker (F-140): always revalidated, so a fix ships at once.
