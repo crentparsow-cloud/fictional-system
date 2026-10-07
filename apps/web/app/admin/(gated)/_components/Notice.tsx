@@ -31,8 +31,28 @@ const MESSAGES: Record<string, { tone: "ok" | "error"; text: string }> = {
   review_invalid: { tone: "error", text: "Check the form. A name, reason or tradition is missing or does not fit." },
   licence_inactive: { tone: "error", text: "The book has no active licence yet, so the workbook cannot go live." },
   tradition_match: { tone: "error", text: "A title labelled for one tradition needs a reviewer from that tradition." },
+  // Author release (0020)
+  version_saved: { tone: "ok", text: "Saved as a new version. Sign-offs on the old content do not carry over." },
+  author_mailed: { tone: "ok", text: "Done. The author has been emailed." },
+  author_not_mailed: { tone: "ok", text: "Done. The email to the author did not send, or there is nobody to send it to." },
+  price_approved: { tone: "ok", text: "Price approved. The workbook now carries it." },
+  price_declined: { tone: "ok", text: "Price choice declined with your reason." },
   // Ops and support (0016)
   acknowledged: { tone: "ok", text: "Alert acknowledged. The next failure opens a new one." },
+  // White-label sites and the demo (0023)
+  brand_saved: { tone: "ok", text: "Brand saved. The site shows it within a minute." },
+  brand_invalid: { tone: "error", text: "The brand was not saved. Check the contrast table and the fields: every colour pair needs 4.5 to 1." },
+  listing_saved: { tone: "ok", text: "Listing saved." },
+  listing_added: { tone: "ok", text: "Workbook added to the site. It shows once it is live." },
+  listing_removed: { tone: "ok", text: "Workbook removed from the site." },
+  listing_refused: { tone: "error", text: "That workbook cannot go on this site. A tenant lists its own workbooks, and a demo site lists demo workbooks only." },
+  listing_price: { tone: "error", text: "Pick a workbook point from the ladder." },
+  listing_exists: { tone: "error", text: "That workbook is already on the site." },
+  listing_unknown: { tone: "error", text: "No workbook has that AK code." },
+  demo_reset: { tone: "ok", text: "Demo reset. The publisher, its site and its logins are back to the start." },
+  demo_login_added: { tone: "ok", text: "Demo login registered. Reset the demo to give it its place." },
+  demo_login_removed: { tone: "ok", text: "Demo login removed." },
+  demo_login_refused: { tone: "error", text: "That account cannot be a demo login. It must already exist, must not be staff and must not belong to a real organisation." },
 };
 
 export function Notice({ code }: { code: string | string[] | undefined }) {

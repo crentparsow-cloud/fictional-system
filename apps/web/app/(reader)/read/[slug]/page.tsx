@@ -5,7 +5,7 @@ import { getReaderSession } from "@/lib/auth";
 import { consentGate, consentHref, faithConsentGate, faithConsentHref } from "@/lib/consent";
 import { marketFor } from "@/lib/markets";
 import { membershipPlansOpen } from "@/lib/membership";
-import { PRICE_LADDER, priceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
+import { PRICE_LADDER, marketPriceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
 import { rebuildWorkbook, type SectionRow } from "@/lib/rebuild-workbook";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
@@ -155,6 +155,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
 
   // Prices for the calm paywall, only when something is locked. The
   // database row wins, as at checkout; the config ladder is the fallback.
+  // F-094: the market currency where a figure exists, otherwise GBP with a note.
   let workbookPrice: Price | null = null;
   let membershipPrice: Price | null = null;
   let membershipYearlyPrice: Price | null = null;
@@ -166,9 +167,9 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
       const point = pricePointFromRow(row);
       if (point) ladder[point.id] = point.active ? point : { ...point, amounts: {} };
     }
-    workbookPrice = priceFor({ pricePointId: workbook.price_point_id, isDemo: workbook.is_demo }, market, ladder);
-    membershipPrice = priceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
-    membershipYearlyPrice = priceFor({ pricePointId: MEMBERSHIP_YEARLY_POINT }, market, ladder);
+    workbookPrice = marketPriceFor({ pricePointId: workbook.price_point_id, isDemo: workbook.is_demo }, market, ladder);
+    membershipPrice = marketPriceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
+    membershipYearlyPrice = marketPriceFor({ pricePointId: MEMBERSHIP_YEARLY_POINT }, market, ladder);
   }
   // Progress events for this enrolment: ids and timestamps only (F-020).
   // The Player works out progress and milestones from them (F-018).
