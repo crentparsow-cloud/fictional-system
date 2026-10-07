@@ -1,11 +1,14 @@
-// Every email a reader (or their support partner) can receive.
+// Every email a reader (or their check-in partner) can receive.
 //
 // Invariants, each enforced here and in reader.test.ts:
 //  - No workbook or book title. Props accept a themeName and never a title.
 //    Keys that look like a title are refused at runtime as well as by the type.
 //  - Nothing identifying in subjects: a subject never carries the theme, an
 //    email address or any workbook wording. Subjects are fixed strings, with
-//    a date or a support partner's first name as the only variable parts.
+//    a date or a check-in partner's first name as the only variable parts.
+//  - Mail to a check-in partner names no workbook, no theme and no stage:
+//    the stage goes out as a number only ("stage 2 of 4"). partner.test.ts
+//    renders every partner template against every title and theme.
 //  - Nothing assumes a programme length. Stage names and unit labels come in
 //    as props because workbook schema v3 leaves them free.
 
@@ -33,6 +36,8 @@ export type ReaderBase = {
 
 type Stage = { stageLabels: string[]; stageIndex: number };
 type Partner = { readerName: string; partnerName?: string; shareLevel: 1 | 2 | 3 };
+/** Where a reader is, as numbers only. Stage labels are accepted for the older shape but never rendered to a partner. */
+type StagePosition = Stage | { stageNumber: number; stageCount: number };
 type MembershipTerms = { price: string; periodWords: string; nextDate: string };
 
 export type ReaderProps = {
@@ -47,7 +52,7 @@ export type ReaderProps = {
   cancellation: ReaderBase & { cancelMode: "immediate" | "period_end"; endDate?: string; refundAmount?: string; refundStatus?: "pending" | "succeeded" | "failed" };
   account_deleted: ReaderBase & { deletionDate?: string; undoUrl?: string; refundAmount?: string; refundStatus?: "pending" | "succeeded" | "failed" };
   export_code: ReaderBase & { code: string; expiresMinutes?: number };
-  partner_accepted: ReaderBase & { partnerName?: string };
+  partner_accepted: ReaderBase & { partnerName?: string; shareLevel?: 1 | 2 | 3 };
   passkey_added: ReaderBase & { when: string; device: string };
   password_changed: ReaderBase & { when: string; device: string };
   email_changed: ReaderBase & { when: string; device: string; newEmail?: string };
@@ -61,8 +66,8 @@ export type ReaderProps = {
   crosssell_personal: ReaderBase & { suggestions: { themeName: string; line: string }[]; storeUrl?: string };
   new_workbook_available: ReaderBase & { themeName: string; line?: string; storeUrl?: string };
   partner_invite: ReaderBase & Partner & { acceptUrl: string; declineUrl: string };
-  partner_update: ReaderBase & Partner & Stage & { note?: string };
-  partner_stopped: ReaderBase & Omit<Partner, "shareLevel">;
+  partner_update: ReaderBase & Partner & StagePosition & { note?: string; replyUrl?: string };
+  partner_stopped: ReaderBase & Omit<Partner, "shareLevel"> & { stoppedBy?: "reader" | "partner" };
 };
 export type ReaderTemplateName = keyof ReaderProps;
 
@@ -132,6 +137,12 @@ const strip = (s: Stage): StageStrip => ({ labels: s.stageLabels, upTo: s.stageI
 const stageLabel = (s: Stage) => s.stageLabels[s.stageIndex] ?? "this";
 const isLastStage = (s: Stage) => s.stageIndex >= s.stageLabels.length - 1;
 const nextStageLabel = (s: Stage) => s.stageLabels[s.stageIndex + 1];
+/** Stage number (from 1) and count, from either shape. Never a label. */
+const stagePosition = (s: StagePosition): { number: number; count: number } => {
+  const raw = "stageNumber" in s ? { number: s.stageNumber, count: s.stageCount } : { number: s.stageIndex + 1, count: s.stageLabels.length };
+  const count = Math.max(1, Math.floor(Number(raw.count) || 1));
+  return { number: Math.min(count, Math.max(1, Math.floor(Number(raw.number) || 1))), count };
+};
 
 export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[K]) => Email } = {
   // ---------- account and service ----------
@@ -269,29 +280,39 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     footer: "service",
   }),
 
-  membership_terms_reminder: (x) => ({
-    subject: "A reminder of your membership terms",
-    preheader: "What you pay, when, and how to cancel.",
-    hero: "service",
-    eyebrow: "Your membership",
-    headline: "Your membership terms, in one place",
-    greeting: hi(x.name),
-    paragraphs: ["Here is a short reminder of how your membership works."],
-    panels: [
-      {
-        rows: [
-          ["Plan", membershipLabel(x.periodWords)],
-          ["Price", `${x.price} ${x.periodWords}`.trim()],
-          ["Renews", "Automatically, until you cancel"],
-          ["Next payment", x.nextDate],
-        ],
-        tone: "tint",
-      },
-      HOW_TO_CANCEL,
-    ],
-    buttons: [{ label: "Manage membership", url: x.settingsUrl }],
-    footer: "service",
-  }),
+  // The six-monthly reminder for a monthly member (DMCC subscription regime).
+  // It names no title, and says the price, how often they pay, the next
+  // payment date and how to cancel.
+  membership_terms_reminder: (x) => {
+    const often = /year/.test(x.periodWords) ? "Every year" : "Every month";
+    return {
+      subject: "A reminder of your membership terms",
+      preheader: "What you pay, how often, and how to cancel.",
+      hero: "service",
+      eyebrow: "Your membership",
+      headline: "Your membership terms, in one place",
+      greeting: hi(x.name),
+      paragraphs: [
+        `Your membership renews automatically until you cancel. You pay ${`${x.price} ${x.periodWords}`.trim()}. Your next payment is on ${x.nextDate}.`,
+        "We send this reminder every six months, so you always know what you pay and how to stop.",
+      ],
+      panels: [
+        {
+          rows: [
+            ["Plan", membershipLabel(x.periodWords)],
+            ["Price", `${x.price} ${x.periodWords}`.trim()],
+            ["How often", `${often}, automatically, until you cancel`],
+            ["Next payment", x.nextDate],
+          ],
+          tone: "tint",
+        },
+        HOW_TO_CANCEL,
+      ],
+      after: [`If you cancel before ${x.nextDate}, you will not be charged again. If you want to keep your membership, there is nothing to do.`],
+      buttons: [{ label: "Manage membership", url: x.settingsUrl }],
+      footer: "service",
+    };
+  },
 
   membership_away: (x) => ({
     subject: "Your membership while you're away",
@@ -421,25 +442,30 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
   }),
 
   partner_accepted: (x) => {
-    const who = v(x.partnerName, "Your support partner");
+    const who = v(x.partnerName, "Your check-in partner");
+    const level = Number(x.shareLevel ?? 1);
     return {
-      subject: "Your support partner said yes",
-      preheader: "They'll get a short note when you finish a stage.",
+      subject: "Your check-in partner said yes",
+      preheader: "They'll get a short note when you reach a new stage.",
       hero: "partner",
-      eyebrow: "Your support partner",
+      eyebrow: "Your check-in partner",
       headline: `${who} said yes`,
       greeting: hi(x.name),
-      paragraphs: [`${who} will get a short note when you finish a stage, and never more than once a week.`],
+      paragraphs: [`${who} will get a short note when you reach a new stage, and never more than once a week.`],
       panels: [
         {
           title: "What they see",
-          items: ["That you finished a stage.", "One question they could ask you, if they want to."],
-          lines: ["They never see your answers or your scores."],
+          items: [
+            "That you reached a new stage.",
+            ...(level >= 2 ? ["A gentle question they could ask you."] : []),
+            ...(level >= 3 ? ["Your short note, if you write one."] : []),
+          ],
+          lines: ["They never see your answers, what you write, or which workbook you're using."],
           tone: "tint",
         },
       ],
-      after: ["You can pause or remove them anytime in Settings."],
-      buttons: [{ label: "Support partner settings", url: x.settingsUrl }],
+      after: ["You can change what they see, or stop sharing, at any time on the You page."],
+      buttons: [{ label: "Check-in partner settings", url: x.settingsUrl }],
       footer: "service",
     };
   },
@@ -613,41 +639,46 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     footer: "marketing",
   }),
 
-  // ---------- support partner ----------
+  // ---------- check-in partner ----------
+  // Nothing here reads themeName, a stage label or anything else from the
+  // reader's work. Only first names, numbers and the reader's own short note.
   partner_invite: (x) => {
     const reader = v(x.readerName, "A friend");
     const level = Number(x.shareLevel);
     return {
-      subject: `${reader} would like your support`,
+      subject: `${reader} would like you as their check-in partner`,
       preheader: "Short updates, only if you say yes.",
       hero: "partner",
       eyebrow: `From ${reader}`,
-      headline: `${reader} would like your support`,
+      headline: `${reader} would like you as their check-in partner`,
       greeting: hi(x.partnerName),
       paragraphs: [
-        `${reader} is working through a guided workbook on ${BRAND}, an app of workbooks built from books. They chose you as their support partner, and they'd like to send you short updates.`,
+        `${reader} is working through a guided workbook on ${BRAND}, one small step at a time. They'd like you to be their check-in partner. That means a short email now and then, so you can cheer them on.`,
       ],
       panels: [
         {
           title: "What you'd get",
           items: [
-            "A short email when they finish a stage, never more than once a week.",
-            ...(level >= 2 ? ["The theme of the workbook they're using."] : []),
+            "A short email when they reach a new stage, never more than once a week.",
+            ...(level >= 2 ? ["A gentle question you could ask them, if you want to."] : []),
             ...(level >= 3 ? ["Now and then, a short note from them."] : []),
-            "One question you could ask them, if you want to.",
+            "A way to send a few kind words back.",
           ],
           tone: "partner",
         },
         {
-          title: "What you're not being asked to do",
+          title: "What you won't see",
           lines: [
-            "You won't see their answers or any scores, and you're not being asked to check on them.",
+            "You won't see their answers, what they write, or which workbook they're using. You're not being asked to check on them.",
             `${BRAND} is a self-guided workbook, not a medical service. You are not being asked to act as an emergency contact.`,
           ],
           tone: "tint",
         },
       ],
-      after: [`You'll never get marketing from ${BRAND}. If you say no, or do nothing, you won't hear from ${BRAND} again.`],
+      after: [
+        "This invitation lasts 14 days.",
+        `You'll never get marketing from ${BRAND}. If you say no, or do nothing, you won't hear from us about this again.`,
+      ],
       buttons: [{ label: "Yes, send me updates", url: x.acceptUrl }],
       quietLink: { label: "No, thank you", url: x.declineUrl },
       footer: "partner_invite",
@@ -657,40 +688,46 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
   partner_update: (x) => {
     const reader = v(x.readerName, "Your friend");
     const level = Number(x.shareLevel);
-    const last = isLastStage(x);
-    const label = stageLabel(x);
-    // Level 1 shares only that a stage is done, so its lines say nothing about what the workbook covers.
-    const wb = level >= 2 && x.themeName ? `their ${x.themeName} workbook` : "their workbook";
+    const { number, count } = stagePosition(x);
+    const last = number >= count;
     const note = level >= 3 && x.note ? x.note : "";
-    const line = level >= 2 ? `They've been working through it one small step at a time.` : "They chose to share this with you.";
-    const ask = level >= 2 ? "What's been most useful so far?" : "What's been going well for you lately?";
+    const ask = last ? "What will you keep doing from here?" : "What's been helping lately?";
+    const said = count > 1 ? `${reader} has reached stage ${number} of ${count}.` : `${reader} has reached the end of their workbook.`;
     return {
       subject: `An update from ${reader}`, // fixed: the subject never hints at progress or topic
-      preheader: "Plus one question you could ask them.",
+      preheader: level >= 2 ? "Plus one question you could ask them." : "They chose to share this with you.",
       hero: "partner",
-      eyebrow: "Support partner update",
-      headline: last ? `${reader} finished the whole workbook` : `${reader} finished a stage`,
+      eyebrow: "Check-in partner update",
+      headline: last ? `${reader} reached the end` : `${reader} reached a new stage`,
       greeting: hi(x.partnerName),
-      paragraphs: [`${reader} has finished the ${label} stage of ${wb}. ${line}`],
+      paragraphs: [last && count > 1 ? `${reader} has finished the last stage of their workbook. They chose to share this with you.` : `${said} They chose to share this with you.`],
       panels: [
         ...(note ? [{ title: `A note from ${reader}`, quote: note, tone: "tint" as const }] : []),
-        { title: "One question you could ask", lines: [ask], tone: "partner" },
+        ...(level >= 2 ? [{ title: "A question you could ask", lines: [ask], tone: "partner" as const }] : []),
       ],
       after: ["Only if you want to. There's no need to reply to this email.", `Thank you for being there for ${reader}.`],
+      ...(x.replyUrl ? { buttons: [{ label: "Send a few kind words", url: x.replyUrl }] } : {}),
       footer: "partner",
     };
   },
 
   partner_stopped: (x) => {
     const reader = v(x.readerName, "your friend");
+    const byReader = x.stoppedBy === "reader";
     return {
-      subject: "Your updates are stopped",
+      subject: "Your updates have stopped",
       preheader: "Thank you for being there.",
       hero: "partner",
-      eyebrow: "Support partner",
-      headline: "Your updates are stopped",
+      eyebrow: "Check-in partner",
+      headline: "Your updates have stopped",
       greeting: hi(x.partnerName),
-      paragraphs: [`You won't get any more updates about ${reader}. They can see in the app that updates have stopped.`, `Thank you for being there for ${reader}.`],
+      paragraphs: byReader
+        ? [
+            `${reader} has stopped sharing updates, so you won't get any more. This happens for all sorts of reasons, and it isn't something you did.`,
+            "The links in earlier emails no longer work.",
+            `Thank you for being there for ${reader}.`,
+          ]
+        : [`You won't get any more updates about ${reader}. They can see in the app that updates have stopped.`, `Thank you for being there for ${reader}.`],
       footer: "partner_stopped",
     };
   },
