@@ -26,6 +26,12 @@ export interface PaywallInput {
    * to send a reader, so the button stays disabled even with a price.
    */
   membershipCheckoutReady?: boolean;
+  /** The annual membership price, or null while it is a placeholder (F-097). */
+  membershipYearlyPrice?: Price | null;
+  /** Whether the annual plan has a Stripe price configured. */
+  membershipYearlyReady?: boolean;
+  /** Whether this workbook is in the membership catalogue (0009). Defaults to true. */
+  inMembership?: boolean;
 }
 
 export interface PaywallButton {
@@ -35,13 +41,19 @@ export interface PaywallButton {
   note: string;
 }
 
+/** The quiet second way to join, under the membership button. Shown only when it can be used. */
+export interface PaywallYearly {
+  label: string;
+}
+
 export type PaywallState =
   | { kind: "open" }
   | { kind: "demo"; message: string }
-  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton };
+  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton; yearly?: PaywallYearly };
 
 export const DEMO_NOT_FOR_SALE = "This is a demo title. Demo titles cannot be bought.";
 export const MEMBERSHIP_NOT_OPEN = "Membership is not open yet";
+export const NOT_IN_MEMBERSHIP = "Not included in the membership";
 
 export function paywallState(input: PaywallInput): PaywallState {
   if (input.entitled) return { kind: "open" };
@@ -51,11 +63,16 @@ export function paywallState(input: PaywallInput): PaywallState {
     ? { enabled: true, label: "Buy this workbook", note: input.workbookPrice.formatted }
     : { enabled: false, label: "Buy this workbook", note: PRICE_TO_BE_CONFIRMED };
 
+  const included = input.inMembership !== false;
   let membership: PaywallButton;
-  if (!input.membershipPrice) membership = { enabled: false, label: "Join the membership", note: PRICE_TO_BE_CONFIRMED };
+  if (!included) membership = { enabled: false, label: "Join the membership", note: NOT_IN_MEMBERSHIP };
+  else if (!input.membershipPrice) membership = { enabled: false, label: "Join the membership", note: PRICE_TO_BE_CONFIRMED };
   else if (!input.membershipCheckoutReady) membership = { enabled: false, label: "Join the membership", note: MEMBERSHIP_NOT_OPEN };
   else membership = { enabled: true, label: "Join the membership", note: `${input.membershipPrice.formatted} a month` };
 
+  if (included && input.membershipYearlyPrice && input.membershipYearlyReady) {
+    return { kind: "offer", buy, membership, yearly: { label: `Or pay ${input.membershipYearlyPrice.formatted} a year` } };
+  }
   return { kind: "offer", buy, membership };
 }
 

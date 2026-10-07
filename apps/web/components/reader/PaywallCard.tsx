@@ -21,14 +21,15 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
-  async function buy() {
+  // One path for both checkouts: the single workbook and the membership (F-097).
+  async function start(url: string, payload: Record<string, string>) {
     setBusy(true);
     setMessage(null);
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ workbook: slug }),
+        body: JSON.stringify(payload),
       });
       const body = (await res.json().catch(() => ({}))) as { url?: string; error?: string };
       if (res.ok && body.url) {
@@ -41,6 +42,9 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
     }
     setBusy(false);
   }
+
+  const buy = () => start("/api/checkout", { workbook: slug });
+  const join = (plan: "monthly" | "yearly") => start("/api/checkout/membership", { plan, workbook: slug });
 
   return (
     <div className="paywall-card" role="note" aria-labelledby="paywall-title">
@@ -58,11 +62,23 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
               <span>{state.buy.label}</span>
               <span className="paywall-note">{state.buy.note}</span>
             </button>
-            <button type="button" className="btn secondary" disabled={!state.membership.enabled}>
+            <button
+              type="button"
+              className="btn secondary"
+              disabled={!state.membership.enabled || busy}
+              onClick={state.membership.enabled ? () => join("monthly") : undefined}
+            >
               <span>{state.membership.label}</span>
               <span className="paywall-note">{state.membership.note}</span>
             </button>
           </div>
+          {state.yearly ? (
+            <p className="small">
+              <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
+                {state.yearly.label}
+              </button>
+            </p>
+          ) : null}
           {message ? (
             <p className="muted" role="status">
               {message}

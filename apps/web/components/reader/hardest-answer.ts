@@ -1,4 +1,5 @@
 import type { WorkbookV3 } from "@akana/schema";
+import { fieldKey } from "@/lib/answer-fields";
 
 /**
  * The hardest answer card (F-022): after a reader saves an answer in a field
@@ -6,17 +7,21 @@ import type { WorkbookV3 } from "@akana/schema";
  * most once a week per enrolment on this device, and it never tells or
  * alerts anyone. Nothing about the answer leaves the reader's session.
  *
- * Content marker: none yet. Schema v3 (packages/schema/src/v3.ts) has no
- * field-level sensitive flag, and the legacy app had no such card. The
- * nearest markers are exercise and toolkit `safety_link` (a line linking to
- * Safety and support under the steps) and self-check `safety_item`, and
- * neither says "this field is sensitive". Rather than invent one, the set
- * below is empty, so the card is built and wired but cannot show until the
- * schema gains a marker and this function reads it.
+ * Content marker: the optional `sensitive: true` on a schema v3 field
+ * (added 7 Oct 2026). Keys are the stored answer paths from fieldKey(), for
+ * the exercise itself and for its repeat scope ("<exercise>~r"), so a save in
+ * either matches. Fields without the marker are never sensitive.
  */
 export function sensitiveFieldKeys(doc: Pick<WorkbookV3, "exercises">): ReadonlySet<string> {
-  void doc;
-  return new Set<string>();
+  const keys = new Set<string>();
+  for (const exercise of doc.exercises ?? []) {
+    for (const field of exercise.fields ?? []) {
+      if (field.sensitive !== true) continue;
+      keys.add(fieldKey(exercise.id, field.id));
+      keys.add(fieldKey(`${exercise.id}~r`, field.id));
+    }
+  }
+  return keys;
 }
 
 export const HARDEST_CARD_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;

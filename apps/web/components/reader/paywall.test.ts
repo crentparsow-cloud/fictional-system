@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { MARKETS } from "@/lib/markets";
 import { PRICE_LADDER, PRICE_TO_BE_CONFIRMED, priceFor, type Price, type PricePoint } from "@/lib/pricing";
-import { DEMO_NOT_FOR_SALE, MEMBERSHIP_NOT_OPEN, paywallState, unitCountPhrase } from "./paywall";
+import { DEMO_NOT_FOR_SALE, MEMBERSHIP_NOT_OPEN, NOT_IN_MEMBERSHIP, paywallState, unitCountPhrase } from "./paywall";
 
 const gbp: Price = { pointId: "p3", currency: "GBP", amountMinor: 1200, formatted: "£12.00" };
 const member: Price = { pointId: "member_month", currency: "GBP", amountMinor: 800, formatted: "£8.00" };
@@ -66,5 +66,62 @@ describe("paywallState (F-019)", () => {
   it("says the unit count in plain words", () => {
     expect(unitCountPhrase(8, "week")).toBe("8 weeks");
     expect(unitCountPhrase(1, "module")).toBe("1 module");
+  });
+});
+
+describe("paywallState membership options (F-097)", () => {
+  const yearly: Price = { pointId: "member_year", currency: "GBP", amountMinor: 8000, formatted: "£80.00" };
+
+  it("offers the annual plan quietly under the monthly button once it is open", () => {
+    const s = paywallState({
+      entitled: false,
+      demo: false,
+      workbookPrice: gbp,
+      membershipPrice: member,
+      membershipCheckoutReady: true,
+      membershipYearlyPrice: yearly,
+      membershipYearlyReady: true,
+    });
+    expect(s.kind === "offer" && s.yearly).toEqual({ label: "Or pay £80.00 a year" });
+  });
+
+  it("leaves the annual line out while its price or its checkout is missing", () => {
+    const noPrice = paywallState({ entitled: false, demo: false, workbookPrice: gbp, membershipPrice: member, membershipYearlyReady: true });
+    const notReady = paywallState({ entitled: false, demo: false, workbookPrice: gbp, membershipPrice: member, membershipYearlyPrice: yearly });
+    expect(noPrice.kind === "offer" && "yearly" in noPrice).toBe(false);
+    expect(notReady.kind === "offer" && "yearly" in notReady).toBe(false);
+  });
+
+  it("says plainly when a title is not in the membership, and offers no annual line", () => {
+    const s = paywallState({
+      entitled: false,
+      demo: false,
+      workbookPrice: gbp,
+      membershipPrice: member,
+      membershipCheckoutReady: true,
+      membershipYearlyPrice: yearly,
+      membershipYearlyReady: true,
+      inMembership: false,
+    });
+    expect(s).toEqual({
+      kind: "offer",
+      buy: { enabled: true, label: "Buy this workbook", note: "£12.00" },
+      membership: { enabled: false, label: "Join the membership", note: NOT_IN_MEMBERSHIP },
+    });
+  });
+
+  it("keeps the new lines free of em dashes and pressure words", () => {
+    const s = paywallState({
+      entitled: false,
+      demo: false,
+      workbookPrice: gbp,
+      membershipPrice: member,
+      membershipCheckoutReady: true,
+      membershipYearlyPrice: yearly,
+      membershipYearlyReady: true,
+    });
+    const text = JSON.stringify([s, NOT_IN_MEMBERSHIP]);
+    expect(text).not.toMatch(/—|–/);
+    for (const w of ["only today", "hurry", "last chance", "limited"]) expect(text.toLowerCase()).not.toContain(w);
   });
 });
