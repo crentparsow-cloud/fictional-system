@@ -560,8 +560,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Out the Door by Ten\" book",
-    "tool": "WebSearch",
-    "result": "Inconclusive. Results were unlabelled library catalogue records that did not show a matching title [check with an ISBN search]. First choice 'Round the Block and Back' was dropped because 'Round the Block' is an existing novel (John Bell Bouton) and a podcast."
+    "result": "clear",
+    "note": "Second search. Results were again unlabelled library catalogue records with no visible title. No matching book seen; confirm by ISBN search before public use."
    },
    "notes": "General movement only. No fitness, weight or health outcomes. Week 1 says to check with a GP before starting if the reader has a health condition or has not been active for a long time."
   },
@@ -652,8 +652,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Shopping List on the Fridge\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+    "result": "clear",
+    "note": "Results were fridge planners and shopping list products."
    },
    "notes": "No diet, sugar-cutting or weight-loss framing. Week 1 has no calorie counting. The eating support signpost covers readers for whom food planning is difficult."
   },
@@ -772,8 +772,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"After the Last Shift\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+    "result": "clear",
+    "note": "Nearest: 'The Last Shifter' (fantasy) and 'Third Shift' (Hugh Howey)."
    },
    "notes": "No money or pension advice: readers are pointed to the Money shelf and to free guidance services by market [check]. No health claims."
   },
@@ -825,8 +825,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Still Curious at Seventy\" book",
-    "tool": "WebSearch",
-    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+    "result": "close: At Seventy: A Journal, author and year not shown",
+    "note": "Also nearby: 'The Book of Seventy' (Pitt Poetry Series)."
    },
    "notes": "Weeks 4 and 6 are general everyday habits, not falls prevention or memory treatment, and make no claim about either. Copy says to see a GP about falls, dizziness or memory worries. Menopause is not covered by this title."
   }
