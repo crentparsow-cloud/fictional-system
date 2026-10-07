@@ -14,6 +14,11 @@ import { knownRoles, type PlatformRole } from "@/lib/staff-access";
  *   organisations   0001 organisations_read: any staff
  *   org create      0008 public.create_organisation: owner, editor (no table insert grant)
  *   kill switch     0008 public.set_workbook_paused: owner, editor
+ *   review queue    0016 app.is_reviewer: owner, editor, safety_reviewer
+ *   assign, release 0016 review_assign, release_version, overrides: owner, editor
+ *   funnel counts   0016 funnel_summary: owner, editor, finance
+ *   ops alerts      0016 ops_alerts_read: any staff; acknowledge: owner, editor, support
+ *   support inbox   0016 support_messages_staff_read / _update: owner, editor, support
  */
 export interface AdminAbilities {
   readLeads: boolean;
@@ -23,11 +28,23 @@ export interface AdminAbilities {
   readOrganisations: boolean;
   /** The role may create organisations (public.create_organisation, 0008). */
   createOrganisations: boolean;
+  /** Review queue and validator results (0016). */
+  readReviewQueue: boolean;
+  /** Assign reviews, record licences, ask for and approve overrides, release (0016). */
+  releaseVersions: boolean;
+  readFunnel: boolean;
+  readOps: boolean;
+  acknowledgeOps: boolean;
+  readSupport: boolean;
+  updateSupport: boolean;
 }
 
 const LEAD_ROLES: readonly PlatformRole[] = ["owner", "editor", "support"];
 const WORKBOOK_WRITE_ROLES: readonly PlatformRole[] = ["owner", "editor"];
 const ORG_CREATE_ROLES: readonly PlatformRole[] = ["owner", "editor"];
+const REVIEW_ROLES: readonly PlatformRole[] = ["owner", "editor", "safety_reviewer"];
+const FUNNEL_ROLES: readonly PlatformRole[] = ["owner", "editor", "finance"];
+const SUPPORT_ROLES: readonly PlatformRole[] = ["owner", "editor", "support"];
 
 function hasAny(roles: readonly PlatformRole[], wanted: readonly PlatformRole[]): boolean {
   return roles.some((r) => wanted.includes(r));
@@ -43,6 +60,13 @@ export function adminAbilities(rawRoles: readonly unknown[] | null | undefined):
     pauseWorkbooks: hasAny(roles, WORKBOOK_WRITE_ROLES),
     readOrganisations: staff,
     createOrganisations: hasAny(roles, ORG_CREATE_ROLES),
+    readReviewQueue: hasAny(roles, REVIEW_ROLES),
+    releaseVersions: hasAny(roles, WORKBOOK_WRITE_ROLES),
+    readFunnel: hasAny(roles, FUNNEL_ROLES),
+    readOps: staff,
+    acknowledgeOps: hasAny(roles, SUPPORT_ROLES),
+    readSupport: hasAny(roles, SUPPORT_ROLES),
+    updateSupport: hasAny(roles, SUPPORT_ROLES),
   };
 }
 
