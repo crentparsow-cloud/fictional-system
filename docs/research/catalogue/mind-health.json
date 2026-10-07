@@ -1,0 +1,1034 @@
+{
+ "group": "mind-health",
+ "prepared": "2026-10-07",
+ "_note": "Mind and Mood plus Health and Body. All new AK- and AU- codes are provisional, minted with code_rule using the key 'mind-health:<kind>:<slug>' and checked against every code in the repo at the time of writing. Existing ids in coverage carry their code; Maya Vaughn ids are her workbook slugs from supabase/seed/seed.sql. Not counted anywhere here: finding-your-people (AK-WNQSH, loneliness) and wired-differently (AK-EE7WH, focus), whose themes sit outside these 11 subcategories. support_signpost 'eating_support_lines' is a proposed new group that support_lines.json does not yet hold [check].",
+ "authors_new": [
+  {
+   "id": "AU-XJ20B",
+   "code_provisional": true,
+   "slug": "harnoor-dhaliwal-fournier",
+   "name": "Harnoor Dhaliwal-Fournier",
+   "country": "CA",
+   "genre": "wellbeing",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "spelling": "en-GB",
+   "bio": "Worked nights in a Winnipeg bakery for many years and now keeps ordinary hours. Writes about slower evenings and a less crowded diary. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Harnoor Dhaliwal-Fournier\"",
+    "tool": "WebSearch",
+    "result": "No person with this full name found. Results were the Dhaliwal and Fournier surname pages and an unrelated singer called Harnoor. First choices Amrit Dhaliwal-Fournier (a real UK business speaker is Amrit Dhaliwal), Simran Dhaliwal-Fournier (a published author is Simran Dhaliwal) and Kiranjit Bhullar-Fournier (first name strongly linked to Kiranjit Ahluwalia, a public figure) were dropped."
+   }
+  },
+  {
+   "id": "AU-XKWYA",
+   "code_provisional": true,
+   "slug": "delphine-arceneaux-lim",
+   "name": "Delphine Arceneaux-Lim",
+   "country": "US",
+   "genre": "wellbeing",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "spelling": "en-GB",
+   "bio": "A branch librarian in Baton Rouge. Writes about small, doable steps for days that feel heavy. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Delphine Arceneaux-Lim\"",
+    "tool": "WebSearch",
+    "result": "No person with this name found. First choice Delphine Arceneaux-Park was dropped because Arceneaux Park is a real park in Broussard, Louisiana, and the name read as a place."
+   }
+  },
+  {
+   "id": "AU-3C6MR",
+   "code_provisional": true,
+   "slug": "gwenllian-pryce-adeyemi",
+   "name": "Gwenllian Pryce-Adeyemi",
+   "country": "GB",
+   "genre": "wellbeing",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "spelling": "en-GB",
+   "bio": "Walked a postal round in Swansea for twenty years. Writes about fitting more movement into ordinary weeks. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Gwenllian Pryce-Adeyemi\"",
+    "tool": "WebSearch",
+    "result": "No person with this name found. Results were about the historical Princess Gwenllian of Wales."
+   }
+  },
+  {
+   "id": "AU-4W407",
+   "code_provisional": true,
+   "slug": "niamh-corrigan-oduya",
+   "name": "Niamh Corrigan-Oduya",
+   "country": "IE",
+   "genre": "wellbeing",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "spelling": "en-GB",
+   "bio": "Cooked for a large family in Cork for many years. Writes about plain, low-cost cooking for the week ahead. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Niamh Corrigan-Oduya\"",
+    "tool": "WebSearch",
+    "result": "No person with this full name found. A footballer called Niamh Corrigan exists; the double-barrelled name was not found, so kept [Legal to confirm the closeness is acceptable]."
+   }
+  },
+  {
+   "id": "AU-Q03MF",
+   "code_provisional": true,
+   "slug": "desmond-kalantzis-webb",
+   "name": "Desmond Kalantzis-Webb",
+   "country": "AU",
+   "genre": "wellbeing",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "spelling": "en-GB",
+   "bio": "Drove buses in Adelaide for thirty years before he retired. Writes about the shape of the days after full-time work. This author is invented for the Akana demo.",
+   "is_demo": true,
+   "is_public_domain": false,
+   "name_check": {
+    "date": "2026-10-07",
+    "query": "\"Desmond Kalantzis-Webb\"",
+    "tool": "WebSearch",
+    "result": "No person with this name found. Nearby: Mary Kalantzis, a real Australian academic, shares one surname only."
+   }
+  },
+  {
+   "id": "AU-48E8W",
+   "code_provisional": true,
+   "slug": "marcus-tullius-cicero",
+   "name": "Marcus Tullius Cicero",
+   "country": "Roman Republic",
+   "life": "106 BCE to 43 BCE",
+   "translator": "Evelyn S. Shuckburgh (1843 to 1906), translator",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "Marcus Tullius Cicero (106 BCE to 43 BCE). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true
+  },
+  {
+   "id": "AU-F4SW6",
+   "code_provisional": true,
+   "slug": "henry-david-thoreau",
+   "name": "Henry David Thoreau",
+   "country": "US",
+   "life": "1817 to 1862",
+   "translator": null,
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "Henry David Thoreau (1817 to 1862). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true
+  },
+  {
+   "id": "AU-WF4D7",
+   "code_provisional": true,
+   "slug": "william-james",
+   "name": "William James",
+   "country": "US",
+   "life": "1842 to 1910",
+   "translator": null,
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "spelling": "en-GB",
+   "bio": "William James (1842 to 1910). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
+   "is_demo": false,
+   "is_public_domain": true
+  }
+ ],
+ "publishers_new": [],
+ "workbooks_new": [
+  {
+   "id": "the-window-seat-notebook",
+   "code": "AK-PT68M",
+   "code_provisional": true,
+   "url_slug": "the-window-seat-notebook-pt68m",
+   "title": "The Window Seat Notebook",
+   "subtitle": "Noticing Small Things from Where You Sit",
+   "author_id": "AU-PZ9DF",
+   "author": "Haruka Tanabe-Ellis",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "self",
+   "theme_id": "noticing-more",
+   "theme": "Noticing More",
+   "card_line": "Sit by one window each day and write down three things you notice.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: choosing a window, a time and a notebook.",
+    "Week 2: noticing light and weather for five minutes a day.",
+    "Week 3: noticing sound, and the pause before you reach for a phone.",
+    "Week 4: noticing people and movement without judging them.",
+    "Week 5: taking the noticing habit to a bus, a queue or a desk.",
+    "Week 6: looking back through the notebook and choosing what to keep."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The Window Seat Notebook\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Nearby: 'The Window Seat' (Austin Macauley, 2021), 'Window Seat' (Julieanne Kost; Gregory Dicum)."
+   }
+  },
+  {
+   "id": "the-lamp-low-hour",
+   "code": "AK-RPRB8",
+   "code_provisional": true,
+   "url_slug": "the-lamp-low-hour-rprb8",
+   "title": "The Lamp-Low Hour",
+   "subtitle": "Slower Evenings, One Week at a Time",
+   "author_id": "AU-XJ20B",
+   "author": "Harnoor Dhaliwal-Fournier",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "self",
+   "theme_id": "softer-nights",
+   "theme": "Softer Nights",
+   "card_line": "Choose the last hour of your evening and make it quieter, one change at a time.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: writing down what your evenings look like now, without changing anything.",
+    "Week 2: lowering the lights and the noise for the last hour.",
+    "Week 3: a place for the phone that is not your pillow.",
+    "Week 4: a short, repeatable wind-down you actually like.",
+    "Week 5: evenings after late shifts, visitors or travel.",
+    "Week 6: keeping the hour that suits you and letting the rest go."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": false,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The Lamp-Low Hour\" OR \"Lamp Low Hour\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Results were 'The Lamp' journal volumes and 'The Lamplighter'."
+   },
+   "notes": "Clinical Safety: copy must not mention insomnia or promise better sleep, as with Evenings With Less Light."
+  },
+  {
+   "id": "the-gospel-of-relaxation",
+   "code": "AK-KN241",
+   "code_provisional": true,
+   "url_slug": "the-gospel-of-relaxation-kn241",
+   "title": "The Gospel of Relaxation",
+   "subtitle": "A Workbook on William James's Talk to Students",
+   "author_id": "AU-WF4D7",
+   "author": "William James",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "stress",
+   "theme_id": "even-pace",
+   "theme": "Even Pace",
+   "card_line": "Read James's 1899 talk on working with ease and test one idea from it each week.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: reading the talk and noticing where you rush or brace yourself.",
+    "Week 2: James on acting the way you want to feel, tried in small daily moments.",
+    "Week 3: putting down the worry about results while you do the task in front of you.",
+    "Week 4: what still holds up from 1899, what does not, and what you will keep."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Talks to Teachers on Psychology: and to Students on Some of Life's Ideals' (Henry Holt and Company, New York, 1925 printing; copyright 1899, 1900), Project Gutenberg eBook #16287. The Gospel of Relaxation is the first of the three Talks to Students.",
+    "uk_status": "clear: William James died 1910, so the UK term (life plus 70) ended at the end of 1980. The Gutenberg front matter shows only James's own 1899 preface, no later hand.",
+    "us_status": "clear: first published 1899 and the edition used is a 1925 printing, both before 1931. Gutenberg marks it public domain in the USA.",
+    "sources": [
+     "https://www.gutenberg.org/ebooks/16287",
+     "https://gutenberg.org/files/16287/16287-h/16287-h.htm"
+    ]
+   },
+   "public_domain": {
+    "edition": "'Talks to Teachers on Psychology: and to Students on Some of Life's Ideals' (Henry Holt and Company, New York, 1925 printing; copyright 1899, 1900), Project Gutenberg eBook #16287. The Gospel of Relaxation is the first of the three Talks to Students.",
+    "people": [
+     {
+      "name": "William James",
+      "died": 1910,
+      "role": "author"
+     }
+    ],
+    "tier": "A"
+   },
+   "notes": "James writes as a psychologist of his day and makes period claims about nerves and national habits. The workbook treats them as period views to test, not health advice, and makes no claim about stress or anxiety."
+  },
+  {
+   "id": "drafts-not-verdicts",
+   "code": "AK-ZA3PC",
+   "code_provisional": true,
+   "url_slug": "drafts-not-verdicts-za3pc",
+   "title": "Drafts, Not Verdicts",
+   "subtitle": "Looking Fairly at Your Own Mistakes",
+   "author_id": "AU-7WKXG",
+   "author": "Nadia Farouk-Hassan",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "self",
+   "theme_id": "seeing-yourself-fairly",
+   "theme": "Seeing Yourself Fairly",
+   "card_line": "Treat a bad day as a first draft and write a fairer account of it.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: noticing the words you use about yourself after a mistake.",
+    "Week 2: writing what happened as plain facts, with no verdict.",
+    "Week 3: asking what a fair friend would say about the same day.",
+    "Week 4: high standards that help and standards that only punish.",
+    "Week 5: an honest list of what went well this week.",
+    "Week 6: making one repair after a real mistake, then letting it rest.",
+    "Week 7: hearing praise and feedback without dismissing either.",
+    "Week 8: a fairer way of looking at yourself to carry into busy weeks."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": false,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Drafts, Not Verdicts\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Results were legal drafting books and judgment-writing guides."
+   },
+   "notes": "Clinical Safety: copy must not name self-esteem as a condition or promise confidence. Week 4 covers perfectionism in everyday terms only."
+  },
+  {
+   "id": "room-in-the-diary",
+   "code": "AK-Y8A4V",
+   "code_provisional": true,
+   "url_slug": "room-in-the-diary-y8a4v",
+   "title": "Room in the Diary",
+   "subtitle": "Making Space for Rest in a Crowded Month",
+   "author_id": "AU-XJ20B",
+   "author": "Harnoor Dhaliwal-Fournier",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "stress",
+   "theme_id": "renewing-energy",
+   "theme": "Renewing Energy",
+   "card_line": "Find one free hour a week, protect it, and decide what rest means to you.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: putting the whole month on one page and finding the gaps.",
+    "Week 2: one commitment to hand back or turn down, and the words to do it.",
+    "Week 3: booking a rest hour and keeping it like any other appointment.",
+    "Week 4: noticing what kind of rest helped and planning next month."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Room in the Diary\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Results were historical diaries and unrelated fiction."
+   },
+   "notes": "No claims about burnout recovery. If tiredness lasts or worsens, copy points to a GP in plain words, as Help now already does."
+  },
+  {
+   "id": "one-window-open",
+   "code": "AK-0P891",
+   "code_provisional": true,
+   "url_slug": "one-window-open-0p891",
+   "title": "One Window Open",
+   "subtitle": "Small Steps for Heavy Days",
+   "author_id": "AU-XKWYA",
+   "author": "Delphine Arceneaux-Lim",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "mind-and-mood",
+   "shelf": "Mind and Mood",
+   "area_id": "mood",
+   "theme_id": "brighter-days",
+   "theme": "Brighter Days",
+   "card_line": "Choose one very small thing to do on a heavy day, and notice what it was like.",
+   "price_tier": "programme",
+   "weeks": 12,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: how to use this workbook gently, and where Help now is.",
+    "Week 2: a short daily note on how the day felt, in your own words.",
+    "Week 3: one very small task a day, chosen the night before.",
+    "Week 4: daylight, fresh air and a few minutes outside.",
+    "Week 5: food, water and simple routines that hold the day together.",
+    "Week 6: one message or call to someone you trust.",
+    "Week 7: noticing the thoughts that make a heavy day heavier.",
+    "Week 8: small things you used to enjoy, tried again without pressure.",
+    "Week 9: when the week goes badly, and how to start again on any day.",
+    "Week 10: telling a GP or another professional how things have been.",
+    "Week 11: what helps on darker days, written down while you feel steadier.",
+    "Week 12: a short plan of what to keep, and who to call."
+   ],
+   "safety_profile": "wellbeing_higher",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": false,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"One Window Open\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Nearby: 'Do the Windows Open?' (Julie Hecht), 'A Window Opens' (Elisabeth Egan)."
+   },
+   "notes": "Higher tier: Help now on every screen, crisis lines in week 1, no scored mood checks, no claim about depression or its treatment. Week 10 encourages professional help and must be signed off by the Clinical Safety Lead."
+  },
+  {
+   "id": "walking",
+   "code": "AK-17BKX",
+   "code_provisional": true,
+   "url_slug": "walking-17bkx",
+   "title": "Walking",
+   "subtitle": "A Workbook on Henry David Thoreau's Essay",
+   "author_id": "AU-F4SW6",
+   "author": "Henry David Thoreau",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "everyday-movement",
+   "theme": "Everyday Movement",
+   "card_line": "Read Thoreau's essay in four parts and take one unhurried walk a week to test it.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: Thoreau on sauntering, and one walk with no destination.",
+    "Week 2: walking where you live, and finding a route with something wild in it.",
+    "Week 3: walking alone and walking with someone, noticing the difference.",
+    "Week 4: what Thoreau gets right and wrong, and a walking habit to keep."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Walking' by Henry David Thoreau, Project Gutenberg eBook #1022. A lecture first given in 1851 and published as an essay in 1862 (The Atlantic Monthly, June 1862 [to confirm]).",
+    "uk_status": "clear: Thoreau died 1862, so the UK term (life plus 70) ended at the end of 1932.",
+    "us_status": "clear: published 1862, before 1931. Gutenberg marks it public domain in the USA.",
+    "sources": [
+     "https://www.gutenberg.org/ebooks/1022"
+    ]
+   },
+   "public_domain": {
+    "edition": "'Walking' by Henry David Thoreau, Project Gutenberg eBook #1022. A lecture first given in 1851 and published as an essay in 1862 (The Atlantic Monthly, June 1862 [to confirm]).",
+    "people": [
+     {
+      "name": "Henry David Thoreau",
+      "died": 1862,
+      "role": "author"
+     }
+    ],
+    "tier": "A"
+   },
+   "notes": "The essay contains period passages on westward expansion and race that would not be published today. The workbook names them plainly in week 4 and does not build exercises on them. General movement only: no fitness or health claims."
+  },
+  {
+   "id": "out-the-door-by-ten",
+   "code": "AK-P5TN9",
+   "code_provisional": true,
+   "url_slug": "out-the-door-by-ten-p5tn9",
+   "title": "Out the Door by Ten",
+   "subtitle": "Moving More in an Ordinary Week",
+   "author_id": "AU-3C6MR",
+   "author": "Gwenllian Pryce-Adeyemi",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "everyday-movement",
+   "theme": "Everyday Movement",
+   "card_line": "Get outside and moving before ten each day, at whatever pace suits you.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: noticing how much you move now, with no targets.",
+    "Week 2: a ten-minute walk at the same time each day.",
+    "Week 3: stairs, errands and other movement already in your week.",
+    "Week 4: gentle stretching at the start and end of the day.",
+    "Week 5: moving with someone else, or joining a local group.",
+    "Week 6: wet days, dark mornings and moving indoors.",
+    "Week 7: trying one new kind of movement just to see if you like it.",
+    "Week 8: a weekly plan that fits your body and your diary."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Out the Door by Ten\" book",
+    "tool": "WebSearch",
+    "result": "Inconclusive. Results were unlabelled library catalogue records that did not show a matching title [check with an ISBN search]. First choice 'Round the Block and Back' was dropped because 'Round the Block' is an existing novel (John Bell Bouton) and a podcast."
+   },
+   "notes": "General movement only. No fitness, weight or health outcomes. Week 1 says to check with a GP before starting if the reader has a health condition or has not been active for a long time."
+  },
+  {
+   "id": "a-pot-on-the-hob",
+   "code": "AK-XKQ58",
+   "code_provisional": true,
+   "url_slug": "a-pot-on-the-hob-xkq58",
+   "title": "A Pot on the Hob",
+   "subtitle": "Four Weeks of Simple Cooking Ahead",
+   "author_id": "AU-4W407",
+   "author": "Niamh Corrigan-Oduya",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "nourishing-meals",
+   "theme": "Nourishing Meals",
+   "card_line": "Cook one big pot on Sunday and plan how it feeds you through the week.",
+   "price_tier": "short",
+   "weeks": 4,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: one soup or stew from what is already in the cupboard.",
+    "Week 2: cooking once and eating it three ways.",
+    "Week 3: storing, cooling and reheating safely.",
+    "Week 4: a short list of pots you like and a weekly cooking slot."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": "eating_support_lines",
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"A Pot on the Hob\" book",
+    "tool": "WebSearch",
+    "result": "No exact title. Results were 'The Book of Hob Stories' (William Mayne) and Andre Norton's 'Hob's Pot'. First choice 'Soup on Sunday' was dropped as too close to 'Sunday Soup' (Betty Rosbottom) and 'Soup Sundays'."
+   },
+   "notes": "Everyday cooking only. No nutrition, diet or weight claims. Food safety in week 3 follows plain general guidance and links to the national food safety body by market [check]."
+  },
+  {
+   "id": "the-shopping-list-on-the-fridge",
+   "code": "AK-5X1C5",
+   "code_provisional": true,
+   "url_slug": "the-shopping-list-on-the-fridge-5x1c5",
+   "title": "The Shopping List on the Fridge",
+   "subtitle": "Planning a Week of Everyday Meals",
+   "author_id": "AU-4W407",
+   "author": "Niamh Corrigan-Oduya",
+   "publisher_id": "PB-F5VRD",
+   "publisher": "Kettlebrook Editions",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "nourishing-meals",
+   "theme": "Nourishing Meals",
+   "card_line": "Plan the week's meals on one page, shop once and waste less.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: writing down what you ate last week, with no judgement.",
+    "Week 2: a one-page plan for five evening meals.",
+    "Week 3: a shopping list built from the plan and the cupboard.",
+    "Week 4: lunches and breakfasts that take five minutes.",
+    "Week 5: water, fruit and vegetables added in small, easy ways.",
+    "Week 6: a rotating list of meals your household likes."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": "eating_support_lines",
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"The Shopping List on the Fridge\" book",
+    "tool": "WebSearch",
+    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+   },
+   "notes": "No diet, sugar-cutting or weight-loss framing. Week 1 has no calorie counting. The eating support signpost covers readers for whom food planning is difficult."
+  },
+  {
+   "id": "on-old-age",
+   "code": "AK-DAA18",
+   "code_provisional": true,
+   "url_slug": "on-old-age-daa18",
+   "title": "On Old Age",
+   "subtitle": "A Workbook on Cicero, in E. S. Shuckburgh's Translation",
+   "author_id": "AU-48E8W",
+   "author": "Marcus Tullius Cicero",
+   "publisher_id": null,
+   "publisher": "Akana Classics (public-domain text, workbook by Akana)",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "ageing-well",
+   "theme": "Ageing Well",
+   "card_line": "Read Cicero's dialogue on later life and plan the work, company and pleasures of your own.",
+   "price_tier": "standard",
+   "weeks": 6,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: meeting Cato, and writing your own view of later life now.",
+    "Week 2: the first complaint, that age takes us from active work, and what work you still want.",
+    "Week 3: the second complaint, about the body, and staying as active as suits you.",
+    "Week 4: the third complaint, about pleasures, and the ones that grow with time.",
+    "Week 5: the fourth complaint, about death, read slowly and at your own pace.",
+    "Week 6: what you take from Cicero, and a plan for the next season of your life."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": false,
+   "badge": "Classic text, Akana workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "result": "Real public-domain title; no clearance needed for the title. The workbook title is the book title plus author, per the title-first rule."
+   },
+   "pd_record": {
+    "edition": "'Treatises on Friendship and Old Age', tr. Evelyn S. Shuckburgh, Project Gutenberg eBook #2808. The same translation is in The Harvard Classics vol. 9 (P. F. Collier, New York, c1909).",
+    "uk_status": "clear: Cicero died 43 BCE; the translator Shuckburgh died 1906, so the translation's UK term (life plus 70) ended at the end of 1976.",
+    "us_status": "clear: the translation was in print by c1909 (HathiTrust record for the Collier edition), before 1931. Gutenberg marks it public domain in the USA. Year of Shuckburgh's first printing of the translation [to confirm].",
+    "sources": [
+     "https://www.gutenberg.org/ebooks/2808",
+     "https://catalog.hathitrust.org/Record/001381079",
+     "https://en.wikipedia.org/wiki/On_Old_Age"
+    ]
+   },
+   "public_domain": {
+    "edition": "'Treatises on Friendship and Old Age', tr. Evelyn S. Shuckburgh, Project Gutenberg eBook #2808. The same translation is in The Harvard Classics vol. 9 (P. F. Collier, New York, c1909).",
+    "people": [
+     {
+      "name": "Marcus Tullius Cicero",
+      "died": -43,
+      "role": "author"
+     },
+     {
+      "name": "Evelyn S. Shuckburgh",
+      "died": 1906,
+      "role": "translator"
+     }
+    ],
+    "tier": "A"
+   },
+   "notes": "Week 5 discusses death. It stays standard tier because it is philosophical reflection, but Help now and the grief lines are one tap away, and the week can be skipped. Gutenberg file to be checked for any later-hand introduction [to confirm]. The id 'on-old-age' must not clash with any other group's use of the same Gutenberg file."
+  },
+  {
+   "id": "after-the-last-shift",
+   "code": "AK-PBTZG",
+   "code_provisional": true,
+   "url_slug": "after-the-last-shift-pbtzg",
+   "title": "After the Last Shift",
+   "subtitle": "Shaping the First Year of Retirement",
+   "author_id": "AU-Q03MF",
+   "author": "Desmond Kalantzis-Webb",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "ageing-well",
+   "theme": "Ageing Well",
+   "card_line": "Give your weeks a shape after full-time work, with time for people, purpose and rest.",
+   "price_tier": "extended",
+   "weeks": 8,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: what you will miss about work and what you will not.",
+    "Week 2: a simple weekly shape with fixed points in it.",
+    "Week 3: people you saw every day at work, and keeping in touch.",
+    "Week 4: something useful to do for others each week.",
+    "Week 5: moving every day in ways you enjoy.",
+    "Week 6: sharing a home with someone who is now around more.",
+    "Week 7: one thing to learn or try that work never left time for.",
+    "Week 8: a plan for the rest of the first year."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"After the Last Shift\" book",
+    "tool": "WebSearch",
+    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+   },
+   "notes": "No money or pension advice: readers are pointed to the Money shelf and to free guidance services by market [check]. No health claims."
+  },
+  {
+   "id": "still-curious-at-seventy",
+   "code": "AK-PYE8Y",
+   "code_provisional": true,
+   "url_slug": "still-curious-at-seventy-pye8y",
+   "title": "Still Curious at Seventy",
+   "subtitle": "Learning, Moving and Keeping Company in Later Life",
+   "author_id": "AU-Q03MF",
+   "author": "Desmond Kalantzis-Webb",
+   "publisher_id": null,
+   "publisher": "Independent (self-published)",
+   "genre": "wellbeing",
+   "shelf_id": "health-and-body",
+   "shelf": "Health and Body",
+   "area_id": null,
+   "theme_id": "ageing-well",
+   "theme": "Ageing Well",
+   "card_line": "One new thing to learn, one way to move and one person to see, every week for twelve weeks.",
+   "price_tier": "programme",
+   "weeks": 12,
+   "depth": "first_week",
+   "fully_written": false,
+   "outline": [
+    "Week 1: what a good week looks like for you at this age.",
+    "Week 2: choosing one subject you have always been curious about.",
+    "Week 3: a daily walk or gentle movement that suits your body.",
+    "Week 4: balance and steadiness in everyday tasks around the home.",
+    "Week 5: a club, class or group nearby, and going once.",
+    "Week 6: memory habits such as lists, routines and a weekly diary.",
+    "Week 7: talking with younger relatives or neighbours about your life.",
+    "Week 8: technology that helps you keep in touch, at your own pace.",
+    "Week 9: volunteering or sharing a skill you already have.",
+    "Week 10: days when energy is low, and what still counts as a good day.",
+    "Week 11: writing down what matters to you for the years ahead.",
+    "Week 12: a weekly pattern of learning, moving and company to keep."
+   ],
+   "safety_profile": "wellbeing_standard",
+   "help_now": true,
+   "advice_guardrail": null,
+   "support_signpost": null,
+   "is_demo": true,
+   "badge": "Demo workbook",
+   "language": "en",
+   "spelling": "en-GB",
+   "group_suitable": true,
+   "title_check": {
+    "date": "2026-10-07",
+    "query": "\"Still Curious at Seventy\" book",
+    "tool": "WebSearch",
+    "result": "Not searched. The shared web search budget for this run ran out before this title was reached [check before any public use]."
+   },
+   "notes": "Weeks 4 and 6 are general everyday habits, not falls prevention or memory treatment, and make no claim about either. Copy says to see a GP about falls, dizziness or memory worries. Menopause is not covered by this title."
+  }
+ ],
+ "coverage": [
+  {
+   "subcategory": "noticing-more",
+   "existing_ids": [
+    "the-ten-minute-pause",
+    "being-here"
+   ],
+   "existing_detail": [
+    "the-ten-minute-pause (AK-Z9KWR)",
+    "being-here (AK-EM7F9, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "the-window-seat-notebook"
+   ],
+   "new_codes": [
+    "AK-PT68M"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "softer-nights",
+   "existing_ids": [
+    "evenings-with-less-light",
+    "rest-to-reset"
+   ],
+   "existing_detail": [
+    "evenings-with-less-light (AK-T7QC9)",
+    "rest-to-reset (AK-F536B, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "the-lamp-low-hour"
+   ],
+   "new_codes": [
+    "AK-RPRB8"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "even-pace",
+   "existing_ids": [
+    "tea-walks-and-other-breaks",
+    "bearing-it-better",
+    "bending-not-breaking"
+   ],
+   "existing_detail": [
+    "tea-walks-and-other-breaks (AK-5HQVZ)",
+    "bearing-it-better (AK-ZMPGK, Maya Vaughn)",
+    "bending-not-breaking (AK-6AJZ6, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "the-gospel-of-relaxation"
+   ],
+   "new_codes": [
+    "AK-KN241"
+   ],
+   "total": 4
+  },
+  {
+   "subcategory": "seeing-yourself-fairly",
+   "existing_ids": [
+    "a-friendlier-voice-inside",
+    "enough"
+   ],
+   "existing_detail": [
+    "a-friendlier-voice-inside (AK-PS66T)",
+    "enough (AK-TXFA9, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "drafts-not-verdicts"
+   ],
+   "new_codes": [
+    "AK-ZA3PC"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "renewing-energy",
+   "existing_ids": [
+    "the-overfull-week",
+    "rebuilding-from-empty"
+   ],
+   "existing_detail": [
+    "the-overfull-week (AK-KWZPG)",
+    "rebuilding-from-empty (AK-VSQQV, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "room-in-the-diary"
+   ],
+   "new_codes": [
+    "AK-Y8A4V"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "settled-mind",
+   "existing_ids": [
+    "quieting-the-noise",
+    "loosening-the-grip",
+    "still-standing",
+    "facing-the-room"
+   ],
+   "existing_detail": [
+    "quieting-the-noise (AK-VQ6SF, Maya Vaughn)",
+    "loosening-the-grip (AK-Z6NF4, Maya Vaughn)",
+    "still-standing (AK-NXD2Q, Maya Vaughn)",
+    "facing-the-room (AK-M1AAC, Maya Vaughn)"
+   ],
+   "new_ids": [],
+   "new_codes": [],
+   "total": 4
+  },
+  {
+   "subcategory": "brighter-days",
+   "existing_ids": [
+    "finding-your-way-back",
+    "steady-ground"
+   ],
+   "existing_detail": [
+    "finding-your-way-back (AK-5J1Q7, Maya Vaughn)",
+    "steady-ground (AK-583T5, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "one-window-open"
+   ],
+   "new_codes": [
+    "AK-0P891"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "gentle-mending",
+   "existing_ids": [
+    "after-the-storm",
+    "when-everything-changes",
+    "the-long-way-home",
+    "safe-ground"
+   ],
+   "existing_detail": [
+    "after-the-storm (AK-XGZC2, Maya Vaughn)",
+    "when-everything-changes (AK-8AQWW, Maya Vaughn)",
+    "the-long-way-home (AK-SMZ6R, Maya Vaughn)",
+    "safe-ground (AK-3DDX9, Maya Vaughn)"
+   ],
+   "new_ids": [],
+   "new_codes": [],
+   "total": 4
+  },
+  {
+   "subcategory": "everyday-movement",
+   "existing_ids": [
+    "moving-through-it"
+   ],
+   "existing_detail": [
+    "moving-through-it (AK-DDF36, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "walking",
+    "out-the-door-by-ten"
+   ],
+   "new_codes": [
+    "AK-17BKX",
+    "AK-P5TN9"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "nourishing-meals",
+   "existing_ids": [
+    "nourished"
+   ],
+   "existing_detail": [
+    "nourished (AK-AEVGM, Maya Vaughn)"
+   ],
+   "new_ids": [
+    "a-pot-on-the-hob",
+    "the-shopping-list-on-the-fridge"
+   ],
+   "new_codes": [
+    "AK-XKQ58",
+    "AK-5X1C5"
+   ],
+   "total": 3
+  },
+  {
+   "subcategory": "ageing-well",
+   "existing_ids": [],
+   "existing_detail": [],
+   "new_ids": [
+    "on-old-age",
+    "after-the-last-shift",
+    "still-curious-at-seventy"
+   ],
+   "new_codes": [
+    "AK-DAA18",
+    "AK-PBTZG",
+    "AK-PYE8Y"
+   ],
+   "total": 3
+  }
+ ]
+}

@@ -30,12 +30,24 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
 ];
 
+const partnerLinkHeaders = [
+  { key: "Cache-Control", value: "no-store, max-age=0" },
+  { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+  { key: "Referrer-Policy", value: "no-referrer" },
+];
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   transpilePackages: ["@akana/schema", "@akana/validate", "@akana/seal", "@akana/engine", "@akana/emails"],
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      // Check-in partner token links (F-030): never cached, never indexed,
+      // and the token in the path never leaves in a Referer header.
+      { source: "/respond/:path*", headers: partnerLinkHeaders },
+      { source: "/api/partner/:path*", headers: partnerLinkHeaders },
+    ];
   },
 };
 
