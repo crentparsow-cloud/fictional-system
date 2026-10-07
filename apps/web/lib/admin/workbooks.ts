@@ -3,7 +3,9 @@
  *
  * Pause moves a live workbook to paused. app.workbook_is_public needs status
  * live, so a paused workbook leaves sale and the public library at once.
- * Resume moves it back to live. No other status changes happen here.
+ * Resume moves it back to live. No other status changes happen here. Both go
+ * through public.set_workbook_paused (migration 0008), which writes the
+ * audit row.
  */
 
 export type WorkbookStatus = "draft" | "in_review" | "approved" | "live" | "paused" | "retired";
@@ -56,14 +58,36 @@ export function parseWorkbookCode(raw: unknown): string | null {
   return CODE.test(v) ? v : null;
 }
 
+/** Matches the limit in public.set_workbook_paused (0008). */
 export const PAUSE_REASON_MAX = 500;
 
-/** A pause needs a reason (F-083). Resume does not. Returns the trimmed reason, or an error. */
-export function parsePauseReason(action: KillSwitchAction, raw: unknown): { ok: true; reason: string | null } | { ok: false } {
+/**
+ * Pause and resume both need a reason (F-083). It goes into the audit log
+ * with the change. Returns the trimmed reason, or an error. The action is
+ * kept in the signature so callers read the same either way.
+ */
+export function parsePauseReason(action: KillSwitchAction, raw: unknown): { ok: true; reason: string } | { ok: false } {
+  void action;
   const v = typeof raw === "string" ? raw.trim() : "";
-  if (action === "resume") return { ok: true, reason: v ? v.slice(0, PAUSE_REASON_MAX) : null };
   if (!v || v.length > PAUSE_REASON_MAX) return { ok: false };
   return { ok: true, reason: v };
+}
+
+/** How a refusal from public.set_workbook_paused maps to an admin notice. */
+export function killSwitchErrorNotice(code: string | null | undefined): "denied" | "stale" | "reason" | "invalid" | "failed" {
+  switch (code) {
+    case "42501": // insufficient_privilege
+      return "denied";
+    case "55000": // object_not_in_prerequisite_state: not live or not paused any more
+      return "stale";
+    case "23514": // check_violation: reason missing or too long
+      return "reason";
+    case "P0002": // no_data_found
+    case "22023": // invalid_parameter_value
+      return "invalid";
+    default:
+      return "failed";
+  }
 }
 
 export interface WorkbookRow {

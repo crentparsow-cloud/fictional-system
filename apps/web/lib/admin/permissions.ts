@@ -12,7 +12,8 @@ import { knownRoles, type PlatformRole } from "@/lib/staff-access";
  *   workbooks read  0002 workbooks_read: any staff (app.is_staff)
  *   workbooks write 0002 workbooks_update and guard_workbook_status: owner, editor
  *   organisations   0001 organisations_read: any staff
- *   org insert      0001 has no insert grant or policy, so nobody creates one from a client yet
+ *   org create      0008 public.create_organisation: owner, editor (no table insert grant)
+ *   kill switch     0008 public.set_workbook_paused: owner, editor
  */
 export interface AdminAbilities {
   readLeads: boolean;
@@ -20,7 +21,7 @@ export interface AdminAbilities {
   readWorkbooks: boolean;
   pauseWorkbooks: boolean;
   readOrganisations: boolean;
-  /** The role may create organisations once the database allows it. */
+  /** The role may create organisations (public.create_organisation, 0008). */
   createOrganisations: boolean;
 }
 
@@ -46,8 +47,8 @@ export function adminAbilities(rawRoles: readonly unknown[] | null | undefined):
 }
 
 /**
- * Whether the database lets a client insert an organisation. Migration 0001
- * grants select and update on public.organisations to authenticated, but no
- * insert and no insert policy. Flip this when a migration adds both.
+ * Whether the database lets staff create an organisation from a client.
+ * Migration 0008 adds public.create_organisation for platform owners and
+ * editors. There is still no insert grant on the table itself.
  */
-export const ORGANISATION_INSERT_ALLOWED = false;
+export const ORGANISATION_INSERT_ALLOWED: boolean = true;
