@@ -116,6 +116,16 @@ export default async function ReviewQueuePage({ searchParams }: { searchParams: 
 
   const now = new Date();
 
+  // Open author submissions (0013), so a new one is seen before it has a version (F-086 starts it).
+  const { data: subData, error: subError } = await supabase
+    .from("workbook_submissions")
+    .select("id, status, submitted_at, workbooks(code, title)")
+    .in("status", ["submitted", "accepted", "quoted", "deposit_paid", "changes_requested"])
+    .order("submitted_at", { ascending: true })
+    .limit(100);
+  if (subError) console.error("admin_review_submissions_failed", subError.code ?? "");
+  const submissions = (subData ?? []) as unknown as { id: string; status: string; submitted_at: string; workbooks: { code: string; title: string } | null }[];
+
   return (
     <div className="admin-page">
       <AdminBack />
@@ -192,6 +202,23 @@ export default async function ReviewQueuePage({ searchParams }: { searchParams: 
           </table>
         </div>
       )}
+      <section aria-labelledby="subs-h">
+        <h2 id="subs-h">Open submissions</h2>
+        {submissions.length === 0 ? (
+          <p className="muted">No open submissions.</p>
+        ) : (
+          <ul className="review-list">
+            {submissions.map((x) => (
+              <li key={x.id}>
+                <Link href={`/admin/review/submissions/${x.id}`}>{x.workbooks ? <code>{x.workbooks.code}</code> : "Submission"}</Link> {x.workbooks?.title}.{" "}
+                <span className="muted">
+                  {x.status.replace(/_/g, " ")}, sent {formatAdminDate(x.submitted_at)}.
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
       {versionIds.length > VALIDATE_CAP ? (
         <p className="admin-note">The validator ran on the first {VALIDATE_CAP} versions. Open a row to run it on the rest.</p>
       ) : null}
