@@ -370,3 +370,59 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 **Plan updated:** `AK_3_Week_Plan.md` has a dated revision covering the new work in weeks 2 and 3 and an after-launch list. `AK_Feature_List.json` now has 177 features, and F-030 is marked built. `AK_Questions_for_Crent.md` has new questions N1 to N16. Week 3 rises from 53.5 to 58.0 points if the business pilot runs as an extra stream in week 2, or 68.5 if not. That choice is Crent's (N1).
 
 **Checks:** typecheck and lint are clean. 501 web unit tests pass, along with all package tests. Database tests 0001 to 0012 pass. The smoke tests pass: 49 passed and 5 skipped. The build and the CSP check are clean.
+
+## Day 6 evening: next build batch (pulled forward from weeks 2 and 3)
+
+**Asked by Crent:** apply 0011 and 0012 to production (done), then carry on with the build plan. Six build agents and one title-check agent ran in parallel.
+
+**Built** (migrations 0013 to 0016 and 0018; 0017 was not needed)
+
+- **Author and publisher onboarding (M4: F-033 to F-037, F-055, F-056; migration 0013).**
+  - Staff invite authors from `/admin/authors`. The invitation link is single-use, lasts 14 days and works only for the invited email.
+  - `/studio` covers the author profile (bios approved by staff), books with ISBN checks, the licence and submission.
+  - The licence is clickwrap or a signed PDF, against the draft licence text in `docs/legal/author-licence.md`.
+  - A real organisation cannot sign a draft licence, and no third-party title can go live without an active licence. Demo, Akana house and public-domain titles are exempt.
+  - `/console` lets publishers manage their members and author roster.
+- **Payouts and private files (F-099, F-135, F-143 partly; migration 0014).**
+  - Stripe Connect Express onboarding in test mode at `/payouts`. Changing payout or tax details needs a fresh authenticator code.
+  - A title only goes live once its organisation's payouts are verified.
+  - A private `org-files` bucket holds manuscripts and signed licences. Downloads use short signed links, and each download is audited.
+  - The migration also closes a hole: organisation owners could have edited their own payout status.
+- **Taxonomy, faith consent and signposts (F-148, F-150, F-154; migration 0015).**
+  - 10 shelves, 19 areas and 51 Themes. New Themes and shelves stay hidden until they have 3 live titles.
+  - Faith consent works like health consent. It is keyed on the Faith and Spirituality shelf, because the faith genre is still Crent's call (N3).
+  - UK numbers for the five new signpost groups were checked on each organisation's own site.
+- **Review and operations (F-084, F-085 with F-155, F-141, F-142, F-090; migration 0016).**
+  - A review queue runs the validator.
+  - A release gate requires sign-offs held against the content hash: editor, author or publisher, safety, clinician, and theological for faith titles. Overriding it needs two people.
+  - Privacy-safe daily visit counts with an opt-out at `/counting`.
+  - Operational alerts at `/admin/ops`.
+  - A contact form and support inbox at `/contact`, which opens with "We are not a crisis service".
+- **Reader (F-015 gaps, F-016, F-017, F-018, F-024, F-140).**
+  - The breathing pacer and milestones.
+  - Self-check and daily check answers are now kept, sealed.
+  - My plan, built from earlier answers with prefill.
+  - A Progress view with no streaks.
+  - A calendar reminder file made on the device.
+  - An offline Help now page, kept by a service worker that stores nothing else.
+  - A `/go/` link to buy the book.
+- **Public pages and terms (F-009, F-010, F-011, F-121, F-122; migration 0018).**
+  - `/pricing`, `/white-label` and `/organisations`, which say "talk to us".
+  - A help centre at `/help` and a trust page at `/trust`.
+  - A sitemap and robots file with en-GB and en-US alternates.
+  - Versioned terms acceptance at sign-up and checkout, asked again when the terms change.
+- **Title checks.**
+  - Of the 39 pending demo titles, 26 are clear, 12 are close to an existing book and 1 clashes.
+  - The clash is Letters to Open Later. The proposed replacement is Letters Left in the Drawer.
+
+**Checks:** typecheck and lint are clean. 641 web unit tests pass, along with all package tests (engine 46, emails 40). Database tests 0001 to 0018 pass. The smoke tests pass: 89 passed and 5 skipped. The build and the CSP check are clean.
+
+**Found and must fix before the first live payment:** single-workbook checkout never asks the reader to agree that access starts at once and that this ends the 14-day right to cancel. Membership checkout does not ask for the 14-day refund consent the refund policy quotes either.
+
+**Needs Crent (new)**
+
+- Add a second Stripe webhook endpoint for connected accounts: `account.updated` and the `account.external_account.*` events. I can do it in Chrome if you ask.
+- The lawyer needs to review the author licence text, the faith consent wording and a privacy notice line about religious belief.
+- Decide whether daily ratings and self-check answers should be kept sealed, as the old app did. This is now built.
+- Decide the order of the new shelves.
+- Choose `OPS_ALERT_TO`.
