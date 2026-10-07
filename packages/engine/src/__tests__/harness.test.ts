@@ -3,6 +3,7 @@ import { join, resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { WorkbookV3, stripInternal } from "@akana/schema";
 import { renderAll } from "../harness";
+import { financeDemo } from "./fixtures/finance-demo";
 
 const dir = resolve(__dirname, "../../../../content/workbooks/v3");
 
@@ -24,7 +25,7 @@ describe("parity harness", () => {
     expect(r.pending).toBe(0);
   });
 
-  it("counts week 3 placeholders as pending, not failures, and names unknown types", () => {
+  it("renders the F-113 field types with no failures and nothing pending, and names unknown types", () => {
     const base = loadAll()[0];
     if (!base) throw new Error("no workbooks");
     const first = base.exercises[0];
@@ -38,8 +39,8 @@ describe("parity harness", () => {
     };
     const r = renderAll([patched]);
     expect(r.failures).toEqual([]);
-    // Full and short unit renders plus the exercise alone in full: the short version does not include f_num.
-    expect(r.pending).toBeGreaterThanOrEqual(2);
+    // Since F-113 the number field has a real renderer, so nothing counts as pending.
+    expect(r.pending).toBe(0);
 
     const broken = {
       ...base,
@@ -52,5 +53,13 @@ describe("parity harness", () => {
     expect(b.failures.length).toBeGreaterThan(0);
     expect(b.failures[0]?.field).toBe("f_bad");
     expect(b.failures[0]?.error).toContain("hologram");
+  });
+
+  it("renders every screen of the finance demo fixture (F-113)", () => {
+    const r = renderAll([financeDemo]);
+    if (r.failures.length) console.error(r.failures);
+    expect(r.failures).toEqual([]);
+    expect(r.pending).toBe(0);
+    expect(r.rendered).toBeGreaterThan(4);
   });
 });

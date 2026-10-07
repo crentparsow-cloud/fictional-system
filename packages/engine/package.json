@@ -8,7 +8,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./engine.css": "./src/engine.css",
-    "./harness": "./src/harness.ts"
+    "./harness": "./src/harness.ts",
+    "./values": "./src/values.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

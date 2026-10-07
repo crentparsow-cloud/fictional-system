@@ -8,5 +8,8 @@ export { RankedList } from "./RankedList";
 export { TwoColumn } from "./TwoColumn";
 export { RatingGrid } from "./RatingGrid";
 export { WeeklyGrid } from "./WeeklyGrid";
+export { NumberField, CurrencyField, NumberBox } from "./NumberField";
+export { Table } from "./Table";
+export { DecisionMatrix } from "./DecisionMatrix";
 export { PendingField } from "./Pending";
 export { Chip, FieldHead, FieldShell } from "./common";
