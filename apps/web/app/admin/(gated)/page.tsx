@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { dashAbilities } from "@/lib/account-lookup";
 import { adminAbilities } from "@/lib/admin/permissions";
+import { moneyAbilities } from "@/lib/money/permissions";
 import { ROLE_LABELS } from "@/lib/staff-access";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
@@ -50,10 +52,22 @@ export default async function AdminHomePage() {
       : Promise.resolve(null),
   ]);
 
+  // Notice and takedown (0022): open notices, for roles that read them.
+  const dash = dashAbilities(staff.roles);
+  const openNotices = dash.readTakedowns
+    ? await countOf(supabase.from("takedown_notices").select("id", { count: "exact", head: true }).in("status", ["received", "reviewing"]), "takedowns")
+    : null;
+
   // Signed licence copies waiting for a staff check (0013).
   const licenceChecks = await countOf(
     supabase.from("licences").select("id", { count: "exact", head: true }).eq("status", "pending_verification"),
     "licences",
+  );
+
+  // Customer organisations (0024).
+  const customers = await countOf(
+    supabase.from("organisations").select("id", { count: "exact", head: true }).in("kind", ["business", "church", "charity", "community_group"]),
+    "customers",
   );
 
   const cards = [
@@ -78,6 +92,14 @@ export default async function AdminHomePage() {
       title: "Organisations",
       line: "Publishers, author companies and sole authors.",
       count: organisations,
+      unit: "in total",
+      closed: false,
+    },
+    {
+      href: "/admin/business",
+      title: "Customers",
+      line: "Businesses, churches, charities and groups: licences, seats and the person who runs each one.",
+      count: customers,
       unit: "in total",
       closed: false,
     },
@@ -114,6 +136,24 @@ export default async function AdminHomePage() {
       closed: false,
     },
     {
+      href: "/admin/white-label",
+      title: "White-label and demo",
+      line: "Tenant brands with a contrast check, tenant catalogues, the demo site and its logins.",
+      count: null,
+      unit: "",
+      closed: false,
+      noCount: true,
+    },
+    {
+      href: "/admin/money",
+      title: "Money",
+      line: "Royalty ledger, refunds, payouts, holds and statements.",
+      count: null,
+      unit: "",
+      closed: !moneyAbilities(staff.roles).read,
+      noCount: true,
+    },
+    {
       href: "/admin/funnel",
       title: "Funnel",
       line: "Daily counts from views to purchases. No people, no answers.",
@@ -121,6 +161,23 @@ export default async function AdminHomePage() {
       unit: "",
       closed: !can.readFunnel,
       noCount: true,
+    },
+    {
+      href: "/admin/lookup",
+      title: "Account lookup",
+      line: "Find a reader by email for a support case. Every lookup is logged with a reason.",
+      count: null,
+      unit: "",
+      closed: !dash.lookupAccounts,
+      noCount: true,
+    },
+    {
+      href: "/admin/takedowns",
+      title: "Notices and takedowns",
+      line: "Copyright and other notices, counter-notices and takedowns.",
+      count: openNotices,
+      unit: "open",
+      closed: !dash.readTakedowns,
     },
   ];
 
@@ -154,7 +211,7 @@ export default async function AdminHomePage() {
                 <p className="muted">{c.line}</p>
                 <p className="admin-card-count">
                   {"noCount" in c && c.noCount ? (
-                    <span className="muted">Open the counts</span>
+                    <span className="muted">{c.href === "/admin/lookup" ? "Open the lookup" : c.href === "/admin/money" ? "Open the ledger" : "Open the counts"}</span>
                   ) : c.count === null ? (
                     <span className="muted">Count unavailable</span>
                   ) : (
