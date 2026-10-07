@@ -40,7 +40,10 @@ import { createAdminClient } from "@/lib/supabase/admin";
  * A portal cancel within 14 days of the membership starting ends it now and
  * refunds the unused days pro rata (refund policy section 2,
  * lib/membership-refund.ts). A Stripe error there is a 500, so Stripe
- * retries; the refund is guarded once per invoice.
+ * retries; the refund is guarded once per invoice. The cancellation email
+ * follows, with the refund, once per subscription. An ordinary cancel at
+ * period end sends the cancellation email with the end date, once. A cancel
+ * made by account deletion sends none: account_deleted covers it.
  *
  * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
@@ -180,7 +183,8 @@ function membershipRepo(admin: Admin): MembershipRepo {
 }
 
 /**
- * The membership emails (F-097): payment_failed and renewal_notice. Best
+ * The membership emails (F-097): payment_failed, renewal_notice and
+ * cancellation. Best
  * effort: a send failure is logged and never turns into a webhook retry.
  * The templates carry the amount and the account link only, never a title
  * (F-098). The dedupe key is claimed in public.email_claims before the send

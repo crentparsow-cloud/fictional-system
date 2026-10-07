@@ -1,6 +1,6 @@
 import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
-import { inCoolingOff, type CoolingOffCancelResult } from "@/lib/membership-refund";
+import { inCoolingOff, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
 import type { MembershipPricePointId } from "@/lib/pricing";
 
 /**
@@ -35,8 +35,9 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * id and the renewal date. The route's mailer claims that key in
  * public.email_claims (migration 0010) before it sends, so a repeated or
  * replayed event sends nothing new, and releases it if the send fails so a
- * retry can go out. Monthly memberships get no reminder yet (see the TODO
- * in the invoice.upcoming branch).
+ * retry can go out. Monthly memberships get the six-monthly
+ * membership_terms_reminder from a daily job instead
+ * (lib/membership-reminders.ts, migration 0011), not from this webhook.
  *
  * Cooling-off cancel (docs/legal/refund-policy.md section 2): when
  * customer.subscription.updated shows a member asked to cancel (through the
@@ -47,6 +48,16 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * nothing extra happens: it simply stops renewing. A Stripe error throws, so
  * the route answers 500 and Stripe retries; the retry reads the
  * subscription fresh, so nothing is refunded or cancelled twice.
+ *
+ * Cancellation emails: the cooling-off cancel asks the route to send
+ * `cancellation` with cancelMode immediate and the refund, once per
+ * subscription. An ordinary cancel at period end (or a cancel_at date) asks
+ * for `cancellation` with cancelMode period_end and the end date, once per
+ * subscription and end date. Both are claimed in public.email_claims. Only
+ * customer.subscription.updated on a subscription that is still running
+ * does this. Account deletion cancels in Stripe at once, which arrives as
+ * customer.subscription.deleted on an ended subscription, so it never sends
+ * a cancellation email: account_deleted already says the membership ended.
  */
 
 export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
@@ -145,6 +156,25 @@ export interface PaymentFailedNotice {
   dedupeKey: string;
 }
 
+/**
+ * Confirms a cancel. Never carries a title. immediate: the cooling-off cancel
+ * ended it today, with the refund when one was made. period_end: it stops
+ * renewing and access runs to endsAt.
+ */
+export interface CancellationNotice {
+  template: "cancellation";
+  to: string;
+  subscriptionId: string;
+  cancelMode: "immediate" | "period_end";
+  /** ISO timestamp access ends, for period_end. */
+  endsAt: string | null;
+  refundAmountMinor: number | null;
+  refundCurrency: string | null;
+  refundState: RefundState | null;
+  /** cancellation:<sub id>:immediate, or cancellation:<sub id>:period_end:<yyyy-mm-dd>. */
+  dedupeKey: string;
+}
+
 /** The reminder before an annual renewal. Never carries a title. */
 export interface RenewalNotice {
   template: "renewal_notice";
@@ -158,7 +188,7 @@ export interface RenewalNotice {
   dedupeKey: string;
 }
 
-export type MembershipNotice = PaymentFailedNotice | RenewalNotice;
+export type MembershipNotice = PaymentFailedNotice | RenewalNotice | CancellationNotice;
 
 export interface WebhookOutcome {
   eventId: string;
@@ -224,9 +254,19 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
       if (event.type === "customer.subscription.updated" && fresh && membership.cancelInCoolingOff && cancelRequestedInCoolingOff(fresh.sub, event)) {
         const requestedAt = new Date((fresh.sub.canceled_at ?? event.created) * 1000);
         const done = await membership.cancelInCoolingOff(sub.id, requestedAt);
-        if (done.status === "cancelled") return { ...base, action: "cooling_off_cancelled", purchaseId: null, subscriptionId: sub.id };
+        if (done.status === "cancelled") {
+          const outcome: WebhookOutcome = { ...base, action: "cooling_off_cancelled", purchaseId: null, subscriptionId: sub.id };
+          const to = await subscriberEmail(fresh.sub, membership);
+          if (to) outcome.notify = immediateCancellation(sub.id, to, done.refund);
+          return outcome;
+        }
       }
-      return { ...base, action: fresh ? `subscription_${fresh.result}` : "ignored", purchaseId: null, subscriptionId: sub.id };
+      const outcome: WebhookOutcome = { ...base, action: fresh ? `subscription_${fresh.result}` : "ignored", purchaseId: null, subscriptionId: sub.id };
+      if (event.type === "customer.subscription.updated" && fresh && cancelAtPeriodEndRequested(fresh.sub)) {
+        const to = await subscriberEmail(fresh.sub, membership);
+        if (to) outcome.notify = periodEndCancellation(sub.id, to, fresh.state.cancelAt ?? fresh.state.currentPeriodEnd);
+      }
+      return outcome;
     }
 
     case "invoice.paid":
@@ -276,14 +316,9 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
       const outcome = { ...base, purchaseId: null, subscriptionId };
 
       const plan = state?.plan ?? planFromInvoiceLines(invoice);
-      if (plan !== "member_year") {
-        // TODO(follow-up, DMCC subscription regime): monthly memberships need
-        // a reminder too, but at most once every six months, not before each
-        // renewal. Build a six-monthly reminder for monthly plans (for
-        // example a scheduled job over public.subscriptions keyed on the
-        // subscription id and the six-month window) before the regime starts.
-        return { ...outcome, action: "renewal_reminder_not_needed" };
-      }
+      // Monthly members get the six-monthly terms reminder from the daily
+      // job (lib/membership-reminders.ts), not a notice before each renewal.
+      if (plan !== "member_year") return { ...outcome, action: "renewal_reminder_not_needed" };
       // Nothing will renew: the reader has already cancelled, or the
       // subscription is not in good standing.
       if (state && (state.cancelAtPeriodEnd || !(state.status === "active" || state.status === "trialing"))) {
@@ -327,6 +362,55 @@ export function cancelRequestedInCoolingOff(sub: Stripe.Subscription, event: Pic
   if (!sub.cancel_at_period_end && !sub.cancel_at) return false;
   if (typeof sub.start_date !== "number") return false;
   return inCoolingOff(new Date(sub.start_date * 1000), new Date((sub.canceled_at ?? event.created) * 1000));
+}
+
+/**
+ * True when a subscription that is still running is set to stop: cancel at
+ * period end, or a cancel_at date. An ended subscription (a cooling-off
+ * cancel or account deletion) is false.
+ */
+export function cancelAtPeriodEndRequested(sub: Pick<Stripe.Subscription, "status" | "cancel_at_period_end" | "cancel_at">): boolean {
+  if (sub.status !== "active" && sub.status !== "trialing" && sub.status !== "past_due") return false;
+  return Boolean(sub.cancel_at_period_end || sub.cancel_at);
+}
+
+/** The cancellation email for a cooling-off cancel, once per subscription. */
+export function immediateCancellation(subscriptionId: string, to: string, refund: RefundOutcome): CancellationNotice {
+  const made = (refund.status === "refunded" || refund.status === "already_refunded") && typeof refund.amountMinor === "number" && refund.amountMinor > 0;
+  return {
+    template: "cancellation",
+    to,
+    subscriptionId,
+    cancelMode: "immediate",
+    endsAt: null,
+    refundAmountMinor: made ? refund.amountMinor! : null,
+    refundCurrency: made ? (refund.currency ?? null) : null,
+    refundState: made ? (refund.refundState ?? "pending") : null,
+    dedupeKey: `cancellation:${subscriptionId}:immediate`,
+  };
+}
+
+/** The cancellation email for a cancel at period end, once per subscription and end date. */
+export function periodEndCancellation(subscriptionId: string, to: string, endsAt: string | null): CancellationNotice {
+  return {
+    template: "cancellation",
+    to,
+    subscriptionId,
+    cancelMode: "period_end",
+    endsAt,
+    refundAmountMinor: null,
+    refundCurrency: null,
+    refundState: null,
+    dedupeKey: `cancellation:${subscriptionId}:period_end:${endsAt ? endsAt.slice(0, 10) : "open"}`,
+  };
+}
+
+/** The address to tell: the customer's email from Stripe, when the repo can read it. */
+async function subscriberEmail(sub: Stripe.Subscription, membership: MembershipRepo): Promise<string | null> {
+  const customer = sub.customer as string | { id: string; email?: string | null; deleted?: boolean } | null;
+  if (customer && typeof customer === "object" && !customer.deleted && customer.email) return customer.email;
+  const id = idOf(customer);
+  return id && membership.customerEmail ? membership.customerEmail(id) : null;
 }
 
 /** The dedupe key for one renewal reminder: the subscription and the renewal day (UTC). */
