@@ -1,9 +1,12 @@
 import { createMailer, type MailerOptions, type ReaderProps, type SendResult } from "@akana/emails";
+import type { TermsReminder } from "@/lib/membership-reminders";
 import type { MembershipNotice } from "@/lib/stripe-webhook";
 
 /**
- * Sends the membership emails the webhook asks for (F-097): payment_failed
- * and the annual renewal_notice. Neither template takes a title (F-098).
+ * Sends the membership emails the webhook asks for (F-097): payment_failed,
+ * the annual renewal_notice and the cancellation confirmation; and the
+ * six-monthly membership_terms_reminder the daily job sends to monthly
+ * members (lib/membership-reminders.ts). No template takes a title (F-098).
  *
  * Each notice carries a dedupe key. The mailer claims it before it sends and
  * releases it if the send fails, so a repeated Stripe delivery sends nothing
@@ -41,8 +44,8 @@ export function renewalDateWords(iso: string): string {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(iso));
 }
 
-export async function sendMembershipNotice(notice: MembershipNotice, origin: string, deps: MembershipEmailDeps): Promise<SendResult> {
-  const mailer = createMailer({
+function mailerFor(deps: MembershipEmailDeps) {
+  return createMailer({
     env: deps.env,
     isSuppressed: () => false,
     log: deps.log,
@@ -50,12 +53,47 @@ export async function sendMembershipNotice(notice: MembershipNotice, origin: str
     release: deps.release,
     ...(deps.transport ? { transport: deps.transport } : {}),
   });
-  const price = notice.amountMinor !== null && notice.currency ? formatMinor(notice.amountMinor, notice.currency) : undefined;
+}
+
+export async function sendMembershipNotice(notice: MembershipNotice, origin: string, deps: MembershipEmailDeps): Promise<SendResult> {
+  const mailer = mailerFor(deps);
   const base = { appUrl: origin, settingsUrl: membershipSettingsUrl(origin), supportEmail: deps.env.EMAIL_REPLY_TO ?? "" };
 
+  if (notice.template === "cancellation") {
+    const refundAmount =
+      notice.refundAmountMinor !== null && notice.refundCurrency ? formatMinor(notice.refundAmountMinor, notice.refundCurrency) : undefined;
+    const props: ReaderProps["cancellation"] = {
+      ...base,
+      cancelMode: notice.cancelMode,
+      ...(notice.cancelMode === "period_end" && notice.endsAt ? { endDate: renewalDateWords(notice.endsAt) } : {}),
+      ...(refundAmount ? { refundAmount, refundStatus: notice.refundState ?? "pending" } : {}),
+    };
+    return mailer.sendReader("cancellation", props, { to: notice.to, dedupeKey: notice.dedupeKey });
+  }
+
+  const price = notice.amountMinor !== null && notice.currency ? formatMinor(notice.amountMinor, notice.currency) : undefined;
   if (notice.template === "renewal_notice") {
     const props: ReaderProps["renewal_notice"] = { ...base, renewDate: renewalDateWords(notice.renewsAt), price: price ?? "As shown in your account" };
     return mailer.sendReader("renewal_notice", props, { to: notice.to, dedupeKey: notice.dedupeKey });
   }
   return mailer.sendReader("payment_failed", { ...base, price }, { to: notice.to, dedupeKey: notice.dedupeKey });
+}
+
+/**
+ * The six-monthly terms reminder for a monthly member: the price, how often
+ * they pay, the next payment date and how to cancel. Claims the reminder's
+ * dedupe key before it sends and releases it if the send fails.
+ */
+export async function sendTermsReminder(reminder: TermsReminder, origin: string, deps: MembershipEmailDeps): Promise<SendResult> {
+  const price = formatMinor(reminder.amountMinor, reminder.currency);
+  if (!price) throw new Error("unknown currency");
+  const props: ReaderProps["membership_terms_reminder"] = {
+    appUrl: origin,
+    settingsUrl: membershipSettingsUrl(origin),
+    supportEmail: deps.env.EMAIL_REPLY_TO ?? "",
+    price,
+    periodWords: "a month",
+    nextDate: renewalDateWords(reminder.nextPaymentAt),
+  };
+  return mailerFor(deps).sendReader("membership_terms_reminder", props, { to: reminder.to, dedupeKey: reminder.dedupeKey });
 }
