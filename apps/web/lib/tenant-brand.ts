@@ -65,8 +65,8 @@ const HEX = /^#[0-9a-f]{6}$/;
 const ASSET =
   /^(\/brand\/[a-z0-9]+(-[a-z0-9]+)*\/[a-z0-9][a-z0-9._-]{0,80}\.(svg|png|webp)|https:\/\/[a-z0-9-]+\.supabase\.co\/storage\/v1\/object\/public\/[A-Za-z0-9/._-]{1,200}\.(svg|png|webp))$/;
 const HTTPS = /^https:\/\/[A-Za-z0-9.-]+(:[0-9]+)?(\/[^\s<>"'\\]*)?$/;
-const NOT_PLAIN = /[<>\u005cu0000-\u005cu001f\u005cu007f]/;
-const NOT_SENDER = /[<>@"\u005cu0000-\u005cu001f\u005cu007f]/;
+const NOT_PLAIN = /[<>\u0000-\u001f\u007f]/;
+const NOT_SENDER = /[<>@"\u0000-\u001f\u007f]/;
 
 // ---------------------------------------------------------------------------
 // Contrast
