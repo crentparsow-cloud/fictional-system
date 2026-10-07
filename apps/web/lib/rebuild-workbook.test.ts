@@ -10,6 +10,8 @@ const listing = {
 const start = { start: { welcome: "Hi", how_it_works: ["a", "b"], why_prompt: "Why" }, plan_sections: [], milestones: [] };
 const ex = (id: string) => ({ id, title: id, purpose: "p", why: "w", source: { chapter: "1" }, minutes: 5, steps: [{ text: "Do" }], fields: [{ id: "f", type: "short_text", label: "L" }], done_when: "Done" });
 
+const toolkitCard = { id: "tk", title: "Card", when_to_use: "w", steps: ["a", "b"], minutes: 3, source: { chapter: "1" } };
+
 const rows: SectionRow[] = [
   { kind: "listing", unit_number: null, body: listing, free: true },
   { kind: "start", unit_number: null, body: start, free: true },
@@ -18,7 +20,7 @@ const rows: SectionRow[] = [
 ];
 
 describe("rebuildWorkbook", () => {
-  it("rebuilds the free view and marks paid units locked", () => {
+  it("rebuilds the free view and marks paid units locked (no toolkit row returned)", () => {
     const out = rebuildWorkbook(rows);
     expect(out).not.toBeNull();
     const { workbook, lockedUnits, missing } = out!;
@@ -38,7 +40,7 @@ describe("rebuildWorkbook", () => {
       ...rows,
       { kind: "unit", unit_number: 2, body: { number: 2, focus: "Two", exercise_ids: ["ex_three", "ex_two"], exercises: [ex("ex_three"), ex("ex_two")] }, free: false },
       { kind: "unit", unit_number: 3, body: { number: 3, focus: "Three", exercise_ids: ["ex_three"], exercises: [ex("ex_three")] }, free: false },
-      { kind: "toolkit", unit_number: null, body: { cards: [{ id: "tk", title: "Card", when_to_use: "w", steps: ["a", "b"], minutes: 3, source: { chapter: "1" } }] }, free: false },
+      { kind: "toolkit", unit_number: null, body: { cards: [toolkitCard] }, free: true },
       { kind: "finish", unit_number: null, body: { summary: "Done", book_bridge: "Back" }, free: false },
       { kind: "keep_going", unit_number: null, body: { monthly_questions: ["Still?"], refresher_ids: ["ex_one"] }, free: false },
     ];
@@ -49,6 +51,14 @@ describe("rebuildWorkbook", () => {
     expect(out.workbook.toolkit).toHaveLength(1);
     expect(out.workbook.finish.summary).toBe("Done");
     expect(out.workbook.keep_going?.monthly_questions).toEqual(["Still?"]);
+  });
+
+  it("loads the toolkit before purchase now that it is free (0008)", () => {
+    const freeView: SectionRow[] = [...rows, { kind: "toolkit", unit_number: null, body: { cards: [toolkitCard] }, free: true }];
+    const out = rebuildWorkbook(freeView)!;
+    expect(out.workbook.toolkit).toHaveLength(1);
+    expect(out.lockedUnits).toEqual([2, 3]);
+    expect(out.missing).toEqual(["finish", "keep_going"]);
   });
 
   it("returns null without a listing and start", () => {
