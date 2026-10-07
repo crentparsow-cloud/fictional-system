@@ -360,8 +360,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Five Minutes at the Front of the Room\" book",
-    "tool": "WebSearch",
-    "result": "No exact title found. Nearby: 'Training from the Back of the Room' (Bowman) and 'Standing at the Front of the Room' (teacher education). Legal to rule on closeness [check]"
+    "result": "close: Training from the Back of the Room!, Bowman, year not shown",
+    "note": "Also nearby: 'Standing at the Front of the Room' (teacher education) and 'The 5-Minute Teacher'."
    }
   },
   {
@@ -535,8 +535,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Meetings Where Everyone Speaks\" book",
-    "tool": "WebSearch",
-    "result": "No exact title found. Nearby: a 1940s book 'Everybody Speaks' and a blog post 'Better Meetings: How to Give Everyone a Chance to Speak and Be Heard' [check]"
+    "result": "close: Everybody Speaks, 1940s public speaking book, author not shown",
+    "note": "Also nearby: a Goodreads blog post 'Better Meetings: How to Give Everyone a Chance to Speak and Be Heard'."
    }
   },
   {
@@ -960,8 +960,7 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Long View on Saving\" book",
-    "tool": "WebSearch",
-    "result": "No exact title found. Nearby: 'The Long View' (Richard Fisher, 2023, on long-term thinking) and 'The Decline in Saving'. Legal to rule on closeness [check]"
+    "result": "close: The Long View, Richard Fisher, year not shown"
    }
   },
   {
