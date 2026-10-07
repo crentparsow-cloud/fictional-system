@@ -15,8 +15,11 @@ import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
  * one route, and never sees a key. Sealing is the server's job.
  */
 
-/** failed: the server refused the value (a 4xx), so no retry will help. */
-export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed";
+/**
+ * failed: the server refused the value (a 4xx), so no retry will help.
+ * consent: refused because health data consent is not in place (F-026).
+ */
+export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent";
 
 export interface SupabaseAnswerStoreOptions {
   enrolmentId: string;
@@ -27,6 +30,8 @@ export interface SupabaseAnswerStoreOptions {
   /** Backoff after a failed save, in ms, by attempt. The last entry repeats. */
   retryDelaysMs?: readonly number[];
   endpoint?: string;
+  /** Called with the field key after the server confirms a save. Never with the value. */
+  onSaved?: (field: string) => void;
 }
 
 interface Pending {
@@ -47,6 +52,7 @@ export class SupabaseAnswerStore implements AnswerStore {
   private readonly debounceMs: number;
   private readonly retryDelays: readonly number[];
   private readonly endpoint: string;
+  private readonly onSaved: (field: string) => void;
   private state: SaveState = "idle";
 
   constructor(opts: SupabaseAnswerStoreOptions) {
@@ -56,6 +62,7 @@ export class SupabaseAnswerStore implements AnswerStore {
     this.debounceMs = opts.debounceMs ?? 600;
     this.retryDelays = opts.retryDelaysMs ?? DEFAULT_RETRY;
     this.endpoint = opts.endpoint ?? "/api/answers";
+    this.onSaved = opts.onSaved ?? (() => undefined);
     for (const [field, value] of Object.entries(opts.initial ?? {})) {
       this.values.set(field, value as FieldValue);
     }
@@ -149,7 +156,7 @@ export class SupabaseAnswerStore implements AnswerStore {
       if (!ok && res.status >= 400 && res.status < 500 && res.status !== 429 && res.status !== 408) {
         p.inFlight = false;
         this.pending.delete(field);
-        this.setState("failed");
+        this.setState(res.status === 403 && (await consentRefusal(res)) ? "consent" : "failed");
         return;
       }
     } catch {
@@ -159,6 +166,7 @@ export class SupabaseAnswerStore implements AnswerStore {
 
     if (ok) {
       p.attempt = 0;
+      this.onSaved(field);
       if (p.dirty) {
         this.schedule(field, this.debounceMs);
       } else {
@@ -180,5 +188,14 @@ export class SupabaseAnswerStore implements AnswerStore {
     if (this.state === next) return;
     this.state = next;
     this.onStatus(next);
+  }
+}
+
+async function consentRefusal(res: Response): Promise<boolean> {
+  try {
+    const body = (await res.json()) as { error?: unknown };
+    return body?.error === "consent_required";
+  } catch {
+    return false;
   }
 }

@@ -8,6 +8,7 @@ const COPY: Record<SaveState, string> = {
   saved: "Saved",
   retrying: "Could not save, will retry",
   failed: "Could not save this answer",
+  consent: "Not saved. Consent to store your answers is not in place.",
 };
 
 /**
