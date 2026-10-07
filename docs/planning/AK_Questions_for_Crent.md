@@ -226,7 +226,7 @@ These come from the research landed on 7 October: `docs/research/categories.md` 
 | N1 | Run the Akana Business manual-sales pilot (F-201 to F-206, about 10.5 points) as an extra stream, T13, from week 2? | Only if a stream can be added without taking from T1 to T12. Otherwise move it after launch and use C10 (manual invoice plus admin grant) for any early organisation | Fri 9 Oct |
 | N2 | Akana Business prices? | Pilot free for one group cycle (up to 12 weeks) for the first three organisations. Set paid figures before the first invoice. The research proposals are listed below | Fri 16 Oct |
 | N3 | Add an optional `faith` genre? | Yes. It is additive under the freeze. The 0002 test that expects 11 genres changes in the same pull request | Fri 9 Oct |
-| N4 | World English Bible as the default Bible text? | Yes. WEBBE for en-GB, WEB for en-US, WEBBE with the Deuterocanon for Catholic and Orthodox titles | Fri 9 Oct |
+| N4 | World English Bible as the default Bible text? | Yes. WEBBE for en-GB, WEB for en-US, WEBBE with the Deuterocanon for Catholic and Orthodox titles. Since 7 October: for quotations inside Bible-based titles only, not Bible study | Fri 9 Oct |
 | N5 | Who is the Theological Reviewer? | Name one person before any faith title leaves review. Aim for a small panel: Protestant (evangelical), Catholic, and Orthodox or Anglican | Fri 16 Oct |
 | N6 | Which faith titles go first? | Four short titles for church groups: The Greatest Thing in the World, Absolute Surrender, Power Through Prayer, How to Pray | Wed 14 Oct |
 | N7 | Are the faith classics sold, or free? | Sold, on the same rule as the five classics (B5), once each house record is signed. Tier A only at launch | Wed 14 Oct |
@@ -253,10 +253,11 @@ Changes: T13, week 2 and 3 load, `app.has_entitlement`.
 Also open: whether Teams opens the whole membership catalogue (recommended) or a list, whether organisations can buy higher-tier wellbeing titles (recommended no, while O15 is open), and whether the church plan is open to non-church charities (recommended no).
 Changes: price points, the organisation page, F-220 later.
 
-**N3. A `faith` genre.** None of the 11 genres fits Bible study and prayer. The taxonomy can map faith Themes onto existing genres, mostly personal development, so this is not forced. A genre lets faith titles carry their own rules: no healing or answered-prayer claims, a pastoral signpost beside Help now, and a scripture licence check. It also gives the consent screen and the release gate something to key on. The migration recreates the genres CHECK with 12 ids and never edits 0002. `supabase/tests/0002_catalogue.sql` asserts 11 genres and must change with it.
+**N3. A `faith` genre.** None of the 11 genres fits prayer and devotional titles. The taxonomy can map faith Themes onto existing genres, mostly personal development, so this is not forced. A genre lets faith titles carry their own rules: no healing or answered-prayer claims, a pastoral signpost beside Help now, and a scripture licence check. It also gives the consent screen and the release gate something to key on. The migration recreates the genres CHECK with 12 ids and never edits 0002. `supabase/tests/0002_catalogue.sql` asserts 11 genres and must change with it.
 Changes: F-149, F-150, F-155.
 
 **N4. Bible text.** The King James Version is under Crown rights in the UK, and Cambridge University Press grants permission for commercial use. The NIV, ESV, NLT, NRSV and CSB carry verse and percentage limits, and Biblica says commercial and AI uses need an explicit licence. The World English Bible is public domain with no limit. Its wording must never be edited, because a changed text cannot carry the name. KJV wording that appears inside a public-domain classic is a separate question for the lawyer [check legal].
+Scope since 7 October 2026: quotation support inside Bible-based titles only. Bible study is out of scope for now (see the section below).
 Changes: F-151.
 
 **N5. Theological Reviewer.** The role signs off each faith workbook before it is approved, checks that the author is represented fairly and that Akana's own material adds no doctrine the author did not hold, and approves the tradition label. It does not sign off safety copy. A title labelled for one tradition needs a reviewer from that tradition.
@@ -293,3 +294,24 @@ Changes: F-213, F-030 level 3.
 - Five new signposts (money worries, eating, bereavement, new parents, carers). Recommended: seed each only once its lines are checked by market; otherwise null.
 - Price tier for the 8-day Ignatius retreat.
 - Bio lines for Tama Rāwiri-Hughes and Wanjiru Kamau-Otieno saying they also write for church groups, which needs a version 1 edit.
+
+## Answered Wednesday 7 October 2026 (evening)
+
+Crent's answers on the questions raised in the Day 6 evening log (`docs/DAY_LOG.md`) and on faith scope. Items left for after the build are gathered in `AK_Post_Build_List.md`.
+
+| # | Question | Answer | Status |
+|---|---|---|---|
+| N17 | Does the faith consent wording need the lawyer's review before launch? | No, not now | Answered, closed |
+| N18 | Does the privacy notice line about religious belief need the lawyer's review? | No, not now | Answered, closed |
+| N19 | Keep daily ratings and self-check answers, sealed, as the old app did? | Yes. Kept, sealed, readable only by the reader. Already built | Answered, decided |
+| N20 | What is `OPS_ALERT_TO`, the staff alerts address? | Stays a placeholder for now | Answered, deferred to the post-build list |
+| N21 | Does the author licence text need the lawyer now? | Lawyer review after the build | Answered, deferred to the post-build list |
+| N22 | Bible study titles in scope? | No, not for now. See below | Answered, decided |
+
+**N22. Bible study out of scope.** Nothing directly about studying the Bible goes in for now. Faith titles stay Bible-based: devotional, prayer, character, practical and Christian-living titles that draw on biblical teaching. Titles whose main purpose is studying or reading through Scripture are out, such as a Bible commentary or a guide to reading one book of the Bible.
+- The Reading Scripture Theme (`reading-scripture`) is retired. Its id is kept and never reused. Migration 0025 marks it retired and stops any workbook joining it.
+- Its four demo titles are removed: Slow Through Mark, Proverbs for Ordinary Mondays, Letters to Small Churches and Gospels of the Great Feasts. None moved to another Theme.
+- All 27 verified classics stay. Matthew Henry stays for A Method for Prayer, a prayer manual.
+- The World English Bible default (N4, F-151) stays, for quotations only.
+- The catalogue proposal is now 120 new titles (70 demo, 50 classics), 190 in all, across 50 active Themes.
+Changes: F-148 note, F-151, F-153, `taxonomy.json`, `categories.md`, `catalogue/faith.json` and `faith.md`, `catalogue/SUMMARY.md`.
