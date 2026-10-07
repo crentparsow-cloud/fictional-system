@@ -186,6 +186,10 @@ export default function PublishPage() {
             Publishers can run their list on a site under their own name and domain, built and hosted by {brand.name}.
             Same reader experience, same house rules, your brand. Talk to us.
           </p>
+          <p className="small">
+            <Link href="/white-label">About branded sites</Link> · <Link href="/pricing">Pricing</Link> ·{" "}
+            <Link href="/organisations">{brand.name} for organisations</Link>
+          </p>
         </section>
 
         <section id="enquiry" style={{ marginBlockStart: "2.5rem" }}>
