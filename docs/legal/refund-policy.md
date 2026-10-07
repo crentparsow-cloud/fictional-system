@@ -32,7 +32,7 @@ We record which wording you agreed to, and when.
 
 ## 3. How to ask
 
-Membership cancellation is self-service. Go to your account, choose your membership and cancel. Two taps, no questions. If you are within 14 days the refund is issued automatically.
+Membership cancellation is self-service. Go to You, then Manage membership, then Cancel. No questions asked. If you are within 14 days the refund is issued automatically.
 
 For anything else, email [support email] from the email address on your account. Tell us which purchase it is about and what went wrong. We aim to reply within [support response time] and to decide on a refund within [refund decision time].
 

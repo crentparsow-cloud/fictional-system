@@ -57,6 +57,15 @@ describe("membershipCheckoutParams", () => {
     expect("managed_payments" in p).toBe(false);
   });
 
+  it("starts no free trial: the free first unit is the trial (0010)", () => {
+    for (const plan of ["monthly", "yearly"] as const) {
+      const p = membershipCheckoutParams({ ...base, plan });
+      expect(p.subscription_data?.trial_period_days).toBeUndefined();
+      expect(p.subscription_data?.trial_end).toBeUndefined();
+      expect(JSON.stringify(p)).not.toMatch(/trial/);
+    }
+  });
+
   it("puts the reader and tenant on the subscription so later events can be tied back", () => {
     const p = membershipCheckoutParams(base);
     expect(p.subscription_data?.metadata).toEqual({ user_id: USER, tenant_id: TENANT, plan: "member_month" });
@@ -76,6 +85,7 @@ describe("membershipCheckoutParams", () => {
     expect(p.custom_text?.submit).toEqual({ message: autoRenewNotice("yearly") });
     expect(autoRenewNotice("yearly")).toContain("renews automatically each year until you cancel");
     expect(autoRenewNotice("monthly")).toContain("each month");
+    expect(autoRenewNotice("monthly")).toContain("on the You page, under Manage membership");
     for (const plan of ["monthly", "yearly"] as const) expect(autoRenewNotice(plan)).not.toMatch(/—|–/);
     expect(JSON.stringify(p)).not.toMatch(/title/i);
   });

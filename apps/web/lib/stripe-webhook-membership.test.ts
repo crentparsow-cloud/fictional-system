@@ -1,8 +1,11 @@
 import type Stripe from "stripe";
 import { describe, expect, it } from "vitest";
 import type { SubscriptionState } from "@/lib/membership";
+import type { OutboundMessage } from "@akana/emails";
+import { sendMembershipNotice } from "@/lib/membership-email";
 import {
   handleStripeEvent,
+  renewalDedupeKey,
   type GrantDetails,
   type InvoiceRecord,
   type InvoiceRecordResult,
@@ -48,6 +51,8 @@ class FakeMembership implements MembershipRepo {
   upserts = 0;
   fresh = new Map<string, Stripe.Subscription>();
   retrieveSubscription?: (id: string) => Promise<Stripe.Subscription | null>;
+  customerEmail?: (id: string) => Promise<string | null>;
+  cancelInCoolingOff?: MembershipRepo["cancelInCoolingOff"];
 
   withStripe() {
     this.retrieveSubscription = async (id) => this.fresh.get(id) ?? null;
@@ -252,7 +257,7 @@ describe("invoice.paid and invoice.payment_failed", () => {
     const m = await seeded();
     const out = await handleStripeEvent(event("invoice.payment_failed", invoice({ amount_paid: 0 }), "evt_f1"), new FakePurchases(), m);
     expect(out.action).toBe("invoice_recorded");
-    expect(out.notify).toEqual({ template: "payment_failed", to: "reader@example.com", invoiceId: "in_1", amountMinor: 800, currency: "GBP" });
+    expect(out.notify).toEqual({ template: "payment_failed", to: "reader@example.com", invoiceId: "in_1", amountMinor: 800, currency: "GBP", dedupeKey: "payment_failed:in_1" });
     expect(JSON.stringify(out.notify)).not.toMatch(/title/i);
     const retry = await handleStripeEvent(event("invoice.payment_failed", invoice({ amount_paid: 0 }), "evt_f2"), new FakePurchases(), m);
     expect(retry.action).toBe("invoice_unchanged");
@@ -287,5 +292,206 @@ describe("invoice.paid and invoice.payment_failed", () => {
     const m = new FakeMembership();
     const out = await handleStripeEvent(event("invoice.paid", invoice()), new FakePurchases(), m);
     expect(out.action).toBe("invoice_unlinked");
+  });
+});
+
+describe("invoice.upcoming: renewal reminders (DMCC subscription regime)", () => {
+  const RENEWS = 1_831_507_200; // 2028-01-15T00:00:00Z
+  const yearly = (over: Record<string, unknown> = {}) =>
+    subscription({
+      metadata: { user_id: USER, tenant_id: TENANT, plan: "member_year" },
+      items: { data: [{ id: "si_1", current_period_end: RENEWS, price: { id: "price_1Year", recurring: { interval: "year" } } }] },
+      ...over,
+    });
+  const upcoming = (over: Record<string, unknown> = {}) =>
+    invoice({
+      id: undefined,
+      amount_due: 6999,
+      amount_paid: 0,
+      billing_reason: "upcoming",
+      customer: "cus_1",
+      lines: { data: [{ period: { start: RENEWS, end: RENEWS + 366 * 86_400 } }] },
+      ...over,
+    });
+
+  function membershipWith(sub: Record<string, unknown> | null) {
+    const m = new FakeMembership().withStripe();
+    if (sub) m.fresh.set("sub_1", sub as unknown as Stripe.Subscription);
+    return m;
+  }
+
+  it("asks for renewal_notice on a yearly membership, with the date and amount and no title", async () => {
+    const m = membershipWith(yearly());
+    const out = await handleStripeEvent(event("invoice.upcoming", upcoming(), "evt_up1"), new FakePurchases(), m);
+    expect(out.action).toBe("renewal_reminder");
+    expect(out.notify).toEqual({
+      template: "renewal_notice",
+      to: "reader@example.com",
+      subscriptionId: "sub_1",
+      renewsAt: "2028-01-15T00:00:00.000Z",
+      amountMinor: 6999,
+      currency: "GBP",
+      dedupeKey: "renewal_notice:sub_1:2028-01-15",
+    });
+    expect(JSON.stringify(out.notify)).not.toMatch(/title/i);
+    // The subscription mirror is refreshed on the way.
+    expect(m.subs.get("sub_1")?.plan).toBe("member_year");
+  });
+
+  it("does nothing for a monthly membership (six-monthly reminder is a follow-up)", async () => {
+    const m = membershipWith(subscription());
+    const out = await handleStripeEvent(
+      event("invoice.upcoming", upcoming({ amount_due: 799, lines: { data: [{ period: { start: RENEWS, end: RENEWS + 31 * 86_400 } }] } })),
+      new FakePurchases(),
+      m,
+    );
+    expect(out.action).toBe("renewal_reminder_not_needed");
+    expect(out.notify).toBeUndefined();
+  });
+
+  it("falls back to the invoice's own period when Stripe cannot be read", async () => {
+    const yearOut = await handleStripeEvent(event("invoice.upcoming", upcoming()), new FakePurchases(), new FakeMembership());
+    expect(yearOut.notify).toMatchObject({ template: "renewal_notice", renewsAt: "2028-01-15T00:00:00.000Z" });
+    const monthOut = await handleStripeEvent(
+      event("invoice.upcoming", upcoming({ lines: { data: [{ period: { start: RENEWS, end: RENEWS + 30 * 86_400 } }] } })),
+      new FakePurchases(),
+      new FakeMembership(),
+    );
+    expect(monthOut.action).toBe("renewal_reminder_not_needed");
+  });
+
+  it("sends nothing when the member has already cancelled or is not in good standing", async () => {
+    for (const sub of [yearly({ cancel_at_period_end: true }), yearly({ status: "past_due" }), yearly({ status: "canceled" })]) {
+      const out = await handleStripeEvent(event("invoice.upcoming", upcoming()), new FakePurchases(), membershipWith(sub));
+      expect(out.action).toBe("renewal_reminder_not_needed");
+      expect(out.notify).toBeUndefined();
+    }
+  });
+
+  it("looks up the customer's email when the upcoming invoice has none", async () => {
+    const m = membershipWith(yearly());
+    m.customerEmail = async (id) => (id === "cus_1" ? "found@example.com" : null);
+    const out = await handleStripeEvent(event("invoice.upcoming", upcoming({ customer_email: null })), new FakePurchases(), m);
+    expect(out.notify?.to).toBe("found@example.com");
+    const none = await handleStripeEvent(event("invoice.upcoming", upcoming({ customer_email: null })), new FakePurchases(), membershipWith(yearly()));
+    expect(none.action).toBe("renewal_reminder_no_address");
+  });
+
+  it("ignores an upcoming invoice that is not for a subscription, or with no membership repo", async () => {
+    expect((await handleStripeEvent(event("invoice.upcoming", upcoming({ parent: null })), new FakePurchases(), membershipWith(yearly()))).action).toBe("ignored");
+    expect((await handleStripeEvent(event("invoice.upcoming", upcoming()), new FakePurchases())).action).toBe("ignored");
+  });
+
+  it("gives the same dedupe key for repeated deliveries of one renewal, and a new one next year", async () => {
+    const a = await handleStripeEvent(event("invoice.upcoming", upcoming(), "evt_a"), new FakePurchases(), membershipWith(yearly()));
+    const b = await handleStripeEvent(event("invoice.upcoming", upcoming(), "evt_b", 1_800_000_900), new FakePurchases(), membershipWith(yearly()));
+    expect(a.notify?.dedupeKey).toBe(b.notify?.dedupeKey);
+    const nextYear = RENEWS + 366 * 86_400;
+    expect(renewalDedupeKey("sub_1", new Date(nextYear * 1000).toISOString())).not.toBe(a.notify?.dedupeKey);
+  });
+
+  it("sends the email once per renewal through the mailer's claim, and retries after a failed send", async () => {
+    const claimed = new Set<string>();
+    const sent: OutboundMessage[] = [];
+    let fail = true;
+    const deps = {
+      env: { EMAIL_MODE: "live", EMAIL_FROM: "Akana <hello@akana.test>", POSTAL_ADDRESS: "Akana Ltd, 1 Example Street, Edinburgh" },
+      claim: (k: string) => (claimed.has(k) ? false : (claimed.add(k), true)),
+      release: (k: string) => void claimed.delete(k),
+      log: () => {},
+      transport: async (msg: OutboundMessage) => {
+        if (fail) return { ok: false as const, error: "down" };
+        sent.push(msg);
+        return { ok: true as const, id: `re_${sent.length}` };
+      },
+    };
+    const out = await handleStripeEvent(event("invoice.upcoming", upcoming()), new FakePurchases(), membershipWith(yearly()));
+    const notice = out.notify!;
+
+    expect((await sendMembershipNotice(notice, "https://akana.test", deps)).status).toBe("failed");
+    expect(claimed.size).toBe(0);
+    fail = false;
+    expect((await sendMembershipNotice(notice, "https://akana.test", deps)).status).toBe("sent");
+    expect((await sendMembershipNotice(notice, "https://akana.test", deps)).status).toBe("skipped");
+    expect(sent).toHaveLength(1);
+
+    const msg = sent[0]!;
+    expect(msg.to).toBe("reader@example.com");
+    expect(msg.subject).toBe("Your membership renews on 15 January 2028");
+    expect(msg.text).toContain("£69.99");
+    expect(msg.text).toContain("go to You, then Manage membership, then Cancel before 15 January 2028");
+    expect(msg.text).toContain("https://akana.test/you#membership");
+    expect(msg.text).not.toMatch(/\bpass\b/i);
+  });
+
+});
+
+describe("customer.subscription.updated: a portal cancel inside the cooling-off window", () => {
+  const CREATED = 1_800_000_000;
+  const portalCancel = (startedDaysAgo: number, over: Record<string, unknown> = {}) =>
+    subscription({ start_date: CREATED - startedDaysAgo * 86_400, cancel_at_period_end: true, canceled_at: CREATED, ...over });
+
+  function repo(sub: Record<string, unknown>) {
+    const m = new FakeMembership().withStripe();
+    m.fresh.set("sub_1", sub as unknown as Stripe.Subscription);
+    const calls: [string, string][] = [];
+    m.cancelInCoolingOff = async (id, requestedAt) => {
+      calls.push([id, requestedAt.toISOString()]);
+      return { status: "cancelled", refund: { status: "refunded", amountMinor: 719, currency: "GBP" } };
+    };
+    return { m, calls };
+  }
+
+  it("ends the membership now with a refund when the cancel comes within 14 days of the start", async () => {
+    const { m, calls } = repo(portalCancel(3));
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_c1", CREATED), new FakePurchases(), m);
+    expect(out).toMatchObject({ action: "cooling_off_cancelled", subscriptionId: "sub_1" });
+    expect(calls).toEqual([["sub_1", new Date(CREATED * 1000).toISOString()]]);
+    // The mirror still records what Stripe said first; customer.subscription.deleted follows.
+    expect(m.subs.get("sub_1")?.cancelAtPeriodEnd).toBe(true);
+  });
+
+  it("acts on a cancel_at date too, and counts day 14 as inside", async () => {
+    const { m, calls } = repo(portalCancel(14, { cancel_at_period_end: false, cancel_at: CREATED + 20 * 86_400 }));
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(14), "evt_c2", CREATED), new FakePurchases(), m);
+    expect(out.action).toBe("cooling_off_cancelled");
+    expect(calls).toHaveLength(1);
+  });
+
+  it("does nothing extra after 14 days: the membership just stops renewing", async () => {
+    const { m, calls } = repo(portalCancel(15));
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(15), "evt_c3", CREATED), new FakePurchases(), m);
+    expect(out.action).toBe("subscription_applied");
+    expect(calls).toEqual([]);
+  });
+
+  it("does nothing for an update with no cancel request, or once the subscription has ended", async () => {
+    for (const sub of [portalCancel(3, { cancel_at_period_end: false }), portalCancel(3, { status: "canceled", ended_at: CREATED })]) {
+      const { m, calls } = repo(sub);
+      await handleStripeEvent(event("customer.subscription.updated", sub, "evt_c4", CREATED), new FakePurchases(), m);
+      expect(calls).toEqual([]);
+    }
+  });
+
+  it("judges the window by the subscription read fresh, so a replay after the cancel does nothing", async () => {
+    const { m, calls } = repo(portalCancel(3, { status: "canceled", ended_at: CREATED + 60 }));
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_c1", CREATED), new FakePurchases(), m);
+    expect(out.action).not.toBe("cooling_off_cancelled");
+    expect(calls).toEqual([]);
+  });
+
+  it("lets a Stripe error through so the webhook answers 500 and Stripe retries", async () => {
+    const { m } = repo(portalCancel(3));
+    m.cancelInCoolingOff = async () => {
+      throw Object.assign(new Error("api_connection_error"), { type: "StripeConnectionError" });
+    };
+    await expect(handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_c5", CREATED), new FakePurchases(), m)).rejects.toThrow();
+  });
+
+  it("only stops renewal when no cooling-off repo is given", async () => {
+    const m = new FakeMembership().withStripe();
+    m.fresh.set("sub_1", portalCancel(3) as unknown as Stripe.Subscription);
+    const out = await handleStripeEvent(event("customer.subscription.updated", portalCancel(3), "evt_c6", CREATED), new FakePurchases(), m);
+    expect(out.action).toBe("subscription_applied");
   });
 });
