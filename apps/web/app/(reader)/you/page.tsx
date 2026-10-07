@@ -4,7 +4,9 @@ import { signOut } from "@/app/(auth)/sign-out/action";
 import { deletionState, longDate, noticeText, type DeletionRow } from "@/lib/account";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { CheckInPartner, type PartnerReply } from "@/components/you/CheckInPartner";
 import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
+import { partnerNoticeText, type PartnerRow } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
 import { cancelDeletion, requestDeletion, withdrawHealthConsent } from "./actions";
 
@@ -55,6 +57,23 @@ export default async function YouPage({ searchParams }: Props) {
   const membership = membershipSummary(subRows as SubscriptionRow[] | null);
   const canManageMembership = portalCustomerId(subRows as SubscriptionRow[] | null) !== null;
   const membershipMessage = membershipNotice(params.membership);
+
+  // Check-in partner (F-030): the reader's own row and the kind words their
+  // partner sent, under RLS (0012). Left out if they cannot be read.
+  const { data: partnerRow, error: partnerError } = session
+    ? await supabase
+        .from("partners")
+        .select(
+          "partner_name, partner_email, reader_name, share_level, include_wellbeing, note, note_sent_at, status, stopped_by, invited_at, invite_expires_at, responded_at, stopped_at",
+        )
+        .eq("user_id", session.userId)
+        .maybeSingle()
+    : { data: null, error: null };
+  const { data: replyRows } =
+    session && partnerRow
+      ? await supabase.from("partner_replies").select("body, created_at").order("created_at", { ascending: false }).limit(5)
+      : { data: null };
+  const showPartner = Boolean(session) && !partnerError;
 
   return (
     <section className="tab-page you-page">
@@ -126,6 +145,15 @@ export default async function YouPage({ searchParams }: Props) {
             </form>
           ) : null}
         </section>
+      ) : null}
+
+      {showPartner ? (
+        <CheckInPartner
+          row={(partnerRow as PartnerRow | null) ?? null}
+          replies={(replyRows as PartnerReply[] | null) ?? []}
+          notice={partnerNoticeText(params.partner)}
+          now={new Date()}
+        />
       ) : null}
 
       <section className="you-section" aria-labelledby="you-work">
