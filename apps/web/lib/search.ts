@@ -4,13 +4,23 @@ import { isCrisisQuery, normaliseQuery } from "@/lib/search-safety";
 
 /**
  * On-device search (F-008). The page ships a small index of what the reader
- * can already see (titles, authors, publisher, Theme, shelf, code, card line
- * and the Theme's hidden topic terms) and this module searches it in the
- * browser. The query is never sent, stored or logged: no fetch, no URL
- * parameter, no analytics. Pure functions, so they are unit tested.
+ * can already see (titles, authors, publisher, Theme, shelf, code and card
+ * line) and this module searches it in the browser. The query is never
+ * sent, stored or logged: no fetch, no URL parameter, no analytics. Pure
+ * functions, so they are unit tested.
+ *
+ * Hidden Theme topics are searchable but never shipped as words. The spec
+ * says they must never appear in page text or metadata, so the server sends
+ * a list of short hashes instead: the first 8 hex characters of the SHA-256
+ * of each normalised topic word (topicHashes, run on the server). On the
+ * device each normalised query word is hashed the same way (Web Crypto,
+ * async) and a word whose hash is in the list counts as a whole-word topic
+ * match. This keeps the words out of the page source. It is not secrecy: a
+ * determined reader could hash a dictionary and compare.
  *
  * Help now first: a query that matches the crisis list (lib/search-safety.ts)
  * puts the Help now card above every result, even when nothing else matches.
+ * That decision is synchronous and never waits on hashing.
  */
 
 export type SearchKind = "workbook" | "unit" | "tool";
@@ -28,14 +38,17 @@ export interface SearchEntry {
   genreName?: string | null;
   code?: string | null;
   line?: string | null;
-  /** Hidden Theme topic terms. Searched, never displayed. */
-  topics?: string[];
+  /**
+   * Hidden Theme topics as short hashes of their normalised words (see
+   * topicHashes). Searched, never displayed, never shipped as words.
+   */
+  topicHashes?: string[];
   badge?: Badge;
   isDemo?: boolean;
 }
 
-/** Fields in order of weight. A match on the title outranks one in the topics. */
-const FIELDS = ["title", "shortTitle", "authors", "themeName", "code", "genreName", "publisher", "line", "topics"] as const;
+/** Plain-text fields in order of weight. A match on the title outranks one in the topics. */
+const FIELDS = ["title", "shortTitle", "authors", "themeName", "code", "genreName", "publisher", "line"] as const;
 type Field = (typeof FIELDS)[number];
 
 const WEIGHT: Record<Field, number> = {
@@ -47,13 +60,62 @@ const WEIGHT: Record<Field, number> = {
   genreName: 5,
   publisher: 4,
   line: 3,
-  topics: 3,
 };
+
+/** A hashed topic word matches whole words only, weighted like the card line. */
+const TOPIC_WEIGHT = 3;
 
 export interface IndexedEntry {
   entry: SearchEntry;
   /** Each field normalised and padded with spaces, ready for word matching. */
   fields: Record<Field, string>;
+  /** The entry's topic word hashes. */
+  topicHashes: ReadonlySet<string>;
+}
+
+// ---------------------------------------------------------------------------
+// Topic hashes
+// ---------------------------------------------------------------------------
+
+/** Hex characters kept from each SHA-256. 8 is 32 bits: collisions are rare in a catalogue's few thousand words. */
+export const TOPIC_HASH_LENGTH = 8;
+const TOPIC_HASH = new RegExp(`^[0-9a-f]{${TOPIC_HASH_LENGTH}}$`);
+
+const encoder = new TextEncoder();
+
+/** The short hash of one already-normalised word. Web Crypto, so the server and the browser agree. */
+export async function hashTopicWord(word: string): Promise<string> {
+  const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", encoder.encode(word)));
+  return Array.from(digest.slice(0, TOPIC_HASH_LENGTH / 2), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/** The words of a list of topics, normalised as queries are, without repeats. */
+export function topicWords(topics: readonly string[]): string[] {
+  const words = new Set<string>();
+  for (const t of topics) for (const w of normaliseQuery(t).split(" ")) if (w) words.add(w);
+  return [...words];
+}
+
+/** Server side: topic terms to the sorted hash list that ships with the page. */
+export async function topicHashes(topics: readonly string[]): Promise<string[]> {
+  const hashes = await Promise.all(topicWords(topics).map(hashTopicWord));
+  return [...new Set(hashes)].sort();
+}
+
+/**
+ * Device side: each word of a normalised query with its hash, for search().
+ * Resolves to an empty map when Web Crypto is missing (an insecure origin),
+ * so topics simply stop matching and nothing else changes.
+ */
+export async function queryWordHashes(query: string): Promise<Map<string, string>> {
+  const out = new Map<string, string>();
+  if (typeof crypto === "undefined" || !crypto.subtle) return out;
+  try {
+    for (const w of normaliseQuery(query).split(" ")) if (w && !out.has(w)) out.set(w, await hashTopicWord(w));
+  } catch {
+    out.clear();
+  }
+  return out;
 }
 
 export type SearchIndex = readonly IndexedEntry[];
@@ -73,7 +135,8 @@ export function buildSearchIndex(entries: readonly SearchEntry[]): SearchIndex {
     seen.add(key);
     const fields = {} as Record<Field, string>;
     for (const f of FIELDS) fields[f] = ` ${norm(entry[f])} `;
-    out.push({ entry, fields });
+    const topicHashes = new Set((entry.topicHashes ?? []).filter((h) => TOPIC_HASH.test(h)));
+    out.push({ entry, fields, topicHashes });
   }
   return out;
 }
@@ -91,12 +154,16 @@ export function wordScore(word: string, field: string): number {
   return 0;
 }
 
+/** Each normalised query word with its topic hash. Missing words simply do not match a topic. */
+export type QueryHashes = ReadonlyMap<string, string>;
+
 /**
  * Scores an entry for a normalised query. Every word must match some field
- * (AND), or the entry scores 0. Each word takes its best field. A title that
- * starts with the whole query, or equals it, gets a bonus.
+ * (AND), or the entry scores 0. Each word takes its best field. A topic
+ * counts when the word's hash is in the entry's list, which is a whole-word
+ * match. A title that starts with the whole query, or equals it, gets a bonus.
  */
-export function scoreEntry(item: IndexedEntry, query: string): number {
+export function scoreEntry(item: IndexedEntry, query: string, hashes?: QueryHashes): number {
   const words = query.split(" ").filter(Boolean);
   if (!words.length) return 0;
   let total = 0;
@@ -106,6 +173,8 @@ export function scoreEntry(item: IndexedEntry, query: string): number {
       const s = wordScore(word, item.fields[f]);
       if (s) best = Math.max(best, s * WEIGHT[f]);
     }
+    const h = hashes?.get(word);
+    if (h && item.topicHashes.has(h)) best = Math.max(best, 3 * TOPIC_WEIGHT);
     if (!best) return 0;
     total += best;
   }
@@ -128,15 +197,17 @@ export const MAX_RESULTS = 50;
 
 /**
  * Runs a query against the index. Help now is decided from the raw query
- * before any matching, and does not depend on there being results.
+ * before any matching, and does not depend on there being results or on
+ * the topic hashes. Pass the hashes from queryWordHashes() once they are
+ * ready; until then topics do not match and everything else does.
  */
-export function search(index: SearchIndex, raw: string, limit = MAX_RESULTS): SearchOutcome {
+export function search(index: SearchIndex, raw: string, limit = MAX_RESULTS, hashes?: QueryHashes): SearchOutcome {
   const query = normaliseQuery(raw);
   const helpNow = isCrisisQuery(raw);
   if (!query) return { helpNow, results: [], active: helpNow };
   const scored: { entry: SearchEntry; score: number }[] = [];
   for (const item of index) {
-    const score = scoreEntry(item, query);
+    const score = scoreEntry(item, query, hashes);
     if (score > 0) scored.push({ entry: item.entry, score });
   }
   scored.sort((a, b) => b.score - a.score || KIND_ORDER[a.entry.kind] - KIND_ORDER[b.entry.kind] || a.entry.title.localeCompare(b.entry.title));
@@ -145,8 +216,8 @@ export function search(index: SearchIndex, raw: string, limit = MAX_RESULTS): Se
 
 const KIND_ORDER: Record<SearchKind, number> = { workbook: 0, tool: 1, unit: 2 };
 
-/** A library card as a search entry. Topics and publisher come from the extras the server adds. */
-export function entryFromCard(card: LibraryCard, extras: { topics?: string[]; publisher?: string | null } = {}): SearchEntry {
+/** A library card as a search entry. Topic hashes and publisher come from the extras the server adds. */
+export function entryFromCard(card: LibraryCard, extras: { topicHashes?: string[]; publisher?: string | null } = {}): SearchEntry {
   return {
     id: card.id,
     kind: "workbook",
@@ -159,7 +230,7 @@ export function entryFromCard(card: LibraryCard, extras: { topics?: string[]; pu
     genreName: card.genreName,
     code: card.code,
     line: card.cardLine,
-    topics: extras.topics ?? [],
+    topicHashes: extras.topicHashes ?? [],
     badge: card.badge,
     isDemo: card.isDemo,
   };

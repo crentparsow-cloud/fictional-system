@@ -203,7 +203,7 @@ do $$ declare r text; e public.entitlements; s public.subscriptions; begin
   if s.past_due_since is null then raise exception 'past_due_since not set'; end if;
   select * into e from public.entitlements
    where user_id = '55555555-5555-5555-5555-555555555555' and source = 'membership' and workbook_id is null;
-  if e.status <> 'active' or e.ends_at is distinct from s.past_due_since + interval '7 days' then
+  if e.status <> 'active' or e.ends_at is distinct from s.past_due_since + interval '14 days' then
     raise exception 'past_due entitlement wrong: % % (since %)', e.status, e.ends_at, s.past_due_since; end if;
   if not app.has_entitlement('55555555-5555-5555-5555-555555555555', '00000000-0000-0000-0000-00000000000a', 'cdcdcdcd-0000-0000-0000-0000000000c1', 2) then
     raise exception 'past_due member inside grace lost access'; end if;
@@ -213,8 +213,8 @@ do $$ declare r text; e public.entitlements; s public.subscriptions; begin
     raise exception 'past_due_since moved on a repeat'; end if;
 end $$;
 reset role;
--- Wind the clock: grace ran out eight days ago.
-update public.subscriptions set past_due_since = now() - interval '8 days' where stripe_subscription_id = 'sub_testA1';
+-- Wind the clock: the 14-day grace (0010) ran out a day ago.
+update public.subscriptions set past_due_since = now() - interval '15 days' where stripe_subscription_id = 'sub_testA1';
 update public.entitlements set ends_at = now() - interval '1 day'
  where user_id = '55555555-5555-5555-5555-555555555555' and source = 'membership';
 do $$ begin
