@@ -25,6 +25,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: `Public domain: ${record.title}`,
     description: `How ${brand.name} checked that ${record.title} by ${record.author} is in the public domain.`,
+    // The root layout is noindex until launch. These evidence pages are meant
+    // to be found, so they opt back in.
+    robots: { index: true, follow: true },
   };
 }
 
