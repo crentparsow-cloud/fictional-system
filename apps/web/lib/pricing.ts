@@ -121,6 +121,11 @@ export interface Price {
   amountMinor: number;
   /** "£12.00", in the market's locale. Tax-inclusive where that is the rule. */
   formatted: string;
+  /**
+   * True when the market's own currency has no figure and the price is shown
+   * (and charged) in GBP instead (F-094). Pages then show GBP_PRICE_NOTE.
+   */
+  inGbp?: boolean;
 }
 
 /** Money in the market's currency and locale. Thin wrapper so pages import one module. */
@@ -163,3 +168,54 @@ export function priceFor(
 
 /** What a page shows when priceFor() is null. */
 export const PRICE_TO_BE_CONFIRMED = "Price to be confirmed";
+
+// ---------------------------------------------------------------------------
+// Local currency display (F-094)
+// ---------------------------------------------------------------------------
+
+/**
+ * The currency Akana charges in when the market's own currency has no
+ * figure. GBP is the only charged currency for now; a market currency is
+ * used only where public.price_points holds a figure for it.
+ */
+export const FALLBACK_CHARGE_CURRENCY: PriceCurrency = "GBP";
+
+/** Shown under a price that is in GBP for a reader whose market uses another currency. */
+export const GBP_PRICE_NOTE = "Prices are in pounds sterling (GBP). Your card provider may convert the amount.";
+
+/** Money in a given currency, formatted in the market's locale ("£7.99" in en-US too). */
+export function formatPriceIn(minor: number, currency: PriceCurrency, market: Market): string {
+  return new Intl.NumberFormat(market.dateLocale, { style: "currency", currency }).format(minor / 100);
+}
+
+/**
+ * The price a reader in a market is shown, and charged (F-094):
+ *
+ *   1. the figure in the market's own currency, where price_points has one;
+ *   2. otherwise the GBP figure, formatted in the reader's locale and marked
+ *      inGbp so the page says the price is in pounds sterling;
+ *   3. otherwise null, and the page shows "Price to be confirmed".
+ *
+ * Nothing is ever converted. The checkout routes use this same function so
+ * the price shown is the price charged. Demo titles never carry a price.
+ */
+export function marketPriceFor(
+  workbook: { pricePointId: string | null | undefined; isDemo?: boolean },
+  market: Market,
+  ladder: Readonly<Partial<Record<PricePointId, PricePoint>>> = PRICE_LADDER,
+): Price | null {
+  const local = priceFor(workbook, market, ladder);
+  if (local) return local;
+  if (workbook.isDemo || !isPricePointId(workbook.pricePointId)) return null;
+  const point = ladder[workbook.pricePointId];
+  if (!point || isPlaceholder(point)) return null;
+  const gbp = point.amounts[FALLBACK_CHARGE_CURRENCY];
+  if (!isValidMinor(gbp)) return null;
+  return {
+    pointId: point.id,
+    currency: FALLBACK_CHARGE_CURRENCY,
+    amountMinor: gbp,
+    formatted: formatPriceIn(gbp, FALLBACK_CHARGE_CURRENCY, market),
+    inGbp: true,
+  };
+}
