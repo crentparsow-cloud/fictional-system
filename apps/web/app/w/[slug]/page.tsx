@@ -8,6 +8,7 @@ import { brand } from "@/lib/brand";
 import { getWorkbookBySlug } from "@/lib/catalogue";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
 import { getT } from "@/lib/i18n";
+import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 
 /**
@@ -52,6 +53,7 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
   const outline = listing?.outline ?? [];
   const language = listing?.language ?? detail.bookLanguage;
   const minutes = structure?.minutes_per_day;
+  const publisher = publisherForCode(card.code);
 
   return (
     <main className="wb-page">
@@ -62,11 +64,30 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
           </nav>
           <div className="wb-card-top">
             <span className={`badge${card.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[card.badge]}</span>
-            {card.themeName ? <span className="chip">{card.themeName}</span> : null}
+            {card.themeName && card.themeId ? (
+              <Link className="chip" href={`/themes/${card.themeId}`}>
+                {card.themeName}
+              </Link>
+            ) : card.themeName ? (
+              <span className="chip">{card.themeName}</span>
+            ) : null}
             <span className="chip">{card.genreName}</span>
           </div>
           <h1>{card.title}</h1>
-          {card.authors.length ? <p className="wb-author">{card.authors.join(", ")}</p> : null}
+          {card.authorRefs?.length ? (
+            <p className="wb-author">
+              {card.authorRefs.map((a, i) => (
+                <span key={a.slug}>
+                  {i > 0 ? ", " : null}
+                  <Link className="author-link" href={`/authors/${a.slug}`}>
+                    {a.name}
+                  </Link>
+                </span>
+              ))}
+            </p>
+          ) : card.authors.length ? (
+            <p className="wb-author">{card.authors.join(", ")}</p>
+          ) : null}
           <p className="wb-line">{card.cardLine}</p>
           <p className="muted small">{card.code}</p>
           {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
@@ -121,6 +142,14 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
               <div>
                 <dt>Language</dt>
                 <dd>{languageName(language)}</dd>
+              </div>
+            ) : null}
+            {publisher ? (
+              <div>
+                <dt>Imprint</dt>
+                <dd>
+                  <Link href={`/publishers/${publisher.slug}`}>{publisher.name}</Link>
+                </dd>
               </div>
             ) : null}
             {detail.bookTitle ? (

@@ -13,7 +13,6 @@ export function HomeView({ s, outlineOnlyLabel, openLabel }: { s: HomeSections; 
     <main className="home">
       <section className="hero home-hero" aria-labelledby="home-line">
         <div className="wrap">
-          {s.hero.approvalNote ? <p className="home-approval badge">{s.hero.approvalNote}</p> : null}
           <h1 id="home-line">{s.hero.line}</h1>
           <p className="home-lead">{s.hero.lead}</p>
           <p className="home-ctas">

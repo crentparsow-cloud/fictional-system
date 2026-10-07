@@ -10,9 +10,6 @@ import type { LibraryCard } from "@/lib/catalogue-types";
 /** Up to this many live cards show in "From the library". */
 export const HOME_CARD_LIMIT = 8;
 
-/** Shown in a small badge beside the hero line until Crent approves the wording. */
-export const HERO_APPROVAL_NOTE = "[Home page line: for Crent to approve]";
-
 export interface HomeLink {
   href: string;
   label: string;
@@ -33,7 +30,7 @@ export type LibrarySection =
   | { kind: "empty"; title: string; message: string; more: HomeLink };
 
 export interface HomeSections {
-  hero: { line: string; approvalNote: string | null; lead: string; primary: HomeLink; secondary: HomeLink };
+  hero: { line: string; lead: string; primary: HomeLink; secondary: HomeLink };
   trust: { title: string; points: TrustPoint[] };
   steps: { title: string; items: HomeStep[] };
   library: LibrarySection;
@@ -45,8 +42,6 @@ export interface HomeInput {
   brandName: string;
   line: string;
   wellnessNotice: string;
-  /** False until Crent signs off the hero line; the note badge shows meanwhile. */
-  lineApproved?: boolean;
   cards: readonly LibraryCard[];
 }
 
@@ -84,7 +79,6 @@ export function buildHomeSections(input: HomeInput): HomeSections {
   return {
     hero: {
       line: input.line,
-      approvalNote: input.lineApproved ? null : HERO_APPROVAL_NOTE,
       lead: "Guided workbooks built from published books. Read a week, try the exercises and keep your answers private.",
       primary: { href: "/library", label: "Browse the library" },
       secondary: { href: "/publish", label: `Publish with ${brandName}` },

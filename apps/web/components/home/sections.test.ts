@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { LibraryCard } from "@/lib/catalogue-types";
-import { buildHomeSections, HERO_APPROVAL_NOTE, HOME_CARD_LIMIT, LEGAL_LINKS, pickHomeCards } from "@/components/home/sections";
+import { buildHomeSections, HOME_CARD_LIMIT, LEGAL_LINKS, pickHomeCards } from "@/components/home/sections";
 
 const base = { brandName: "Akana", line: "The place where books become practical.", wellnessNotice: "Not treatment." };
 
@@ -37,9 +37,11 @@ describe("buildHomeSections (F-002)", () => {
     expect(pickHomeCards([card(1, true), card(2)]).map((c) => c.id)).toEqual(["id-2", "id-1"]);
   });
 
-  it("keeps the approval note visible until the line is approved", () => {
-    expect(buildHomeSections({ ...base, cards: [] }).hero.approvalNote).toBe(HERO_APPROVAL_NOTE);
-    expect(buildHomeSections({ ...base, cards: [], lineApproved: true }).hero.approvalNote).toBeNull();
+  it("shows the approved hero line with no approval note", () => {
+    const hero = buildHomeSections({ ...base, cards: [] }).hero;
+    expect(hero.line).toBe(base.line);
+    expect(hero).not.toHaveProperty("approvalNote");
+    expect(JSON.stringify(hero)).not.toMatch(/approve/i);
   });
 
   it("links the four legal pages, Help now and Publish in the footer", () => {
@@ -51,7 +53,7 @@ describe("buildHomeSections (F-002)", () => {
 
   it("makes no outcome claims and uses no em dashes in its copy", () => {
     const text = JSON.stringify(buildHomeSections({ ...base, cards: [] }));
-    expect(text).not.toMatch(/\u2014/);
+    expect(text).not.toMatch(/\\u005cu2014/);
     expect(text).not.toMatch(/\b(proven|guarantee|transform|results|improve|cure|heal)\w*/i);
   });
 });
