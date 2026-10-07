@@ -608,3 +608,186 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .respond-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .respond-form { display: grid; gap: 0.5rem; }
 .respond-form .btn { justify-self: start; }
+
+/* ------------------------------------------------------------------------
+   Payouts and private files (F-099, F-135, F-143)
+   ------------------------------------------------------------------------ */
+.payouts-page { padding-block: 2rem 3rem; display: grid; gap: 1.25rem; max-inline-size: 48rem; }
+.payouts-page h1 { margin-block-end: 0; }
+.payouts-notice { padding: 1rem 1.25rem; margin: 0; }
+.payouts-org { padding: 1.25rem; display: grid; gap: 0.75rem; }
+.payouts-org h2 { margin: 0; }
+.payouts-actions { display: grid; gap: 0.5rem; justify-items: start; }
+.payout-connect-form { margin: 0; }
+.payout-connect-form .btn, .payouts-tax .btn { min-block-size: 44px; }
+.payout-status { display: grid; gap: 0.35rem; justify-items: start; }
+.payout-badge { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+.payout-badge-verified { background: var(--stage-1-t); color: var(--stage-1-i); border-color: transparent; }
+.payout-badge-pending { background: var(--stage-4-t); color: var(--stage-4-i); border-color: transparent; }
+.payout-badge-action-needed { background: var(--stage-3-t); color: var(--stage-3-i); border-color: transparent; }
+.payout-badge-held { background: var(--rose-soft); color: var(--ink); border-color: var(--rose); }
+.payouts-tax { border-block-start: 1px solid var(--line); padding-block-start: 0.75rem; }
+.payouts-tax h3 { margin-block-end: 0.25rem; }
+.payouts-tax-form { display: grid; gap: 0.6rem; justify-items: start; }
+.payouts-tax-form label { font-weight: 600; }
+.payouts-tax-form input[type="text"] { inline-size: 5rem; min-block-size: 44px; padding: 0.5rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); text-transform: uppercase; font: inherit; }
+.payouts-tax-form fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 0.25rem; }
+.payouts-tax-form legend { font-weight: 600; margin-block-end: 0.25rem; }
+.payouts-choice { display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 44px; font-weight: 400; }
+.payouts-choice input { inline-size: 1.25rem; block-size: 1.25rem; }
+.payouts-security { padding-block-start: 0.5rem; }
+.private-upload { display: grid; gap: 0.35rem; }
+.private-upload label { font-weight: 600; }
+.private-upload input[type="file"] { min-block-size: 44px; max-inline-size: 100%; }
+.private-upload p { margin: 0; }
+
+/* ---------- help, trust, legal and plans pages (F-009, F-010, F-121, F-122) ---------- */
+.info-page { padding-block: 2.5rem; }
+.info-head { margin-block-end: 1.5rem; }
+.info-head .eyebrow { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-block-end: 0.5rem; }
+.info-lead { font-size: 1.1rem; max-inline-size: var(--measure); }
+.info-draft { margin-block-end: 1.5rem; }
+.info-section { margin-block-start: 2.5rem; }
+.info-section > p, .info-section > ol, .info-section > ul { max-inline-size: var(--measure); }
+.info-crisis {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; padding: 1rem 1.1rem;
+  background: var(--rose-soft); color: var(--ink); border-radius: var(--radius-sm); margin-block-end: 1.5rem;
+}
+.info-crisis p { margin: 0; flex: 1 1 18rem; }
+.info-help-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin-block: 0.5rem 1.25rem; }
+.info-help-row p { margin: 0; }
+.info-topics, .info-claims { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.info-topic { display: grid; gap: 0.35rem; min-block-size: 44px; color: inherit; text-decoration: none; block-size: 100%; }
+.info-topic:hover .info-topic-title, .info-topic:focus-visible .info-topic-title { text-decoration: underline; }
+.info-topic-title { font-weight: 600; color: var(--brand); }
+.info-claims h2, .info-claims h3 { font-size: 1.05rem; margin-block: 0 0.35rem; }
+.info-claims p { margin: 0; }
+.info-plans { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.info-plan { display: grid; gap: 0.5rem; align-content: start; }
+.info-plan > * { margin: 0; }
+.info-plan h2, .info-plan h3 { font-size: 1.15rem; }
+.info-plan ul { padding-inline-start: 1.2rem; }
+.info-plan .btn { justify-self: start; }
+.info-price { font-family: var(--f-display); font-size: 1.25rem; font-weight: 700; }
+.info-privacy { margin-block-start: 1.5rem; }
+.info-privacy p { margin: 0; font-size: 1.1rem; max-inline-size: var(--measure); }
+.info-ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.info-footer { margin-block-start: 2.5rem; }
+.info-footer-links { list-style: none; margin: 0 0 1rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.info-footer-links a { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--ink-soft); }
+.legal-doc { max-inline-size: var(--measure); }
+.legal-doc h1 { margin-block: 0 1rem; }
+.legal-doc h2 { font-size: 1.25rem; margin-block: 2rem 0.5rem; }
+.legal-doc h3 { font-size: 1.05rem; margin-block: 1.5rem 0.4rem; }
+.legal-doc ul, .legal-doc ol { padding-inline-start: 1.2rem; }
+.legal-doc li { margin-block-end: 0.35rem; }
+.legal-doc table { inline-size: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
+.legal-doc th, .legal-doc td { border: 1px solid var(--line); padding: 0.45rem 0.6rem; text-align: start; vertical-align: top; }
+.terms-doc-links a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.terms-doc-links { padding-inline-start: 1.2rem; margin-block: 0.5rem 1rem; }
+.terms-links { margin-block: 0 1rem; }
+
+/* ---------- T3 reader: Today reminder, Toolkit tab, night note (F-016, F-024, F-015). Day 6 evening. ---------- */
+.night-note { margin: 0 0 1rem; padding: 0.75rem 1rem; border-radius: var(--radius-sm); background: var(--surface-2); color: var(--ink-soft); }
+.reminder-card { display: grid; gap: 0.75rem; margin-block-start: 1.5rem; }
+.reminder-card h2 { margin: 0; }
+.reminder-card p { margin: 0; }
+.reminder-card .field { display: grid; gap: 0.3rem; justify-items: start; }
+.reminder-card label { font-weight: 600; }
+.reminder-card .input { font: inherit; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm); padding: 0.5rem 0.7rem; min-block-size: 44px; inline-size: min(100%, 22rem); }
+.reminder-card .reminder-time { inline-size: auto; }
+.reminder-words { border: 0; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.reminder-words legend { font-weight: 600; margin-block-end: 0.3rem; padding: 0; }
+.reminder-words .check-row { display: flex; align-items: center; gap: 0.6rem; min-block-size: 44px; font-weight: 400; }
+.reminder-words .check-row input { inline-size: 22px; block-size: 22px; margin: 0; accent-color: var(--brand); flex: none; }
+.reminder-card .btn { justify-self: start; }
+.toolkit-groups { display: grid; gap: 1rem; margin-block-start: 1rem; }
+.toolkit-group summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-block-size: 44px; cursor: pointer; font-weight: 700; }
+.toolkit-group[open] summary { margin-block-end: 0.75rem; }
+.toolkit-cards { display: grid; gap: 1rem; }
+
+/* ---------- review queue, release gate, alerts, funnel, support and contact (0016: F-084, F-085, F-141, F-142, F-090) ---------- */
+.review-pass { background: var(--stage-1-t); color: var(--stage-1-i); }
+.review-fail { background: var(--rose-soft); color: var(--rose); }
+.review-gate { margin-block: 1.5rem; }
+.review-reqs { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.4rem; }
+.review-reqs li { display: flex; gap: 0.6rem; align-items: baseline; }
+.review-req-mark { flex: none; min-inline-size: 4.5rem; font-size: 0.85rem; font-weight: 600; border-radius: 999px; padding: 0.1rem 0.6rem; text-align: center; }
+.review-reqs .is-met .review-req-mark { background: var(--stage-1-t); color: var(--stage-1-i); }
+.review-reqs .is-unmet .review-req-mark { background: var(--rose-soft); color: var(--rose); }
+.review-findings { margin-block: 0.75rem; }
+.review-findings summary { cursor: pointer; min-block-size: 44px; display: flex; align-items: center; font-weight: 600; }
+.review-findings ul { display: grid; gap: 0.4rem; padding-inline-start: 1.1rem; }
+.review-findings code, .review-list code { overflow-wrap: anywhere; }
+.review-list { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 0.6rem; }
+.review-list .is-stale { color: var(--ink-soft); }
+.review-form { margin-block: 1rem 1.5rem; display: grid; gap: 0.5rem; max-inline-size: 40rem; }
+.review-form h3 { margin: 0; }
+.review-form label, .review-fieldset legend { font-weight: 600; }
+.review-form input[type="text"], .review-form select, .review-form textarea {
+  font: inherit; min-block-size: 44px; padding: 0.5em 0.75em; inline-size: 100%;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink);
+}
+.review-fieldset { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.75rem; display: grid; gap: 0.5rem; }
+.ops-alert h3 { margin-block-end: 0.25rem; }
+.ops-alert form { margin-block-start: 0.5rem; }
+.funnel-totals { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); }
+.funnel-totals li { display: grid; gap: 0.25rem; }
+.funnel-n { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; }
+.support-worried { background: var(--rose-soft); color: var(--rose); }
+.contact-page, .counting-page { padding-block: 2rem 3rem; max-inline-size: 44rem; }
+.contact-crisis { margin-block: 1rem 1.5rem; border-inline-start: 4px solid var(--rose); }
+.contact-form { display: grid; gap: 1rem; margin-block-start: 1.5rem; }
+.contact-field { display: grid; gap: 0.35rem; }
+.contact-field label { font-weight: 600; }
+.contact-field input[type="text"], .contact-field input[type="email"], .contact-field select, .contact-field textarea {
+  font: inherit; min-block-size: 44px; padding: 0.6rem 0.75rem; inline-size: 100%;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink);
+}
+.contact-field [aria-invalid="true"] { border-color: var(--rose); }
+.contact-check { grid-template-columns: auto 1fr; align-items: center; column-gap: 0.6rem; }
+.contact-check input { inline-size: 24px; block-size: 24px; margin: 10px; }
+.contact-check .form-error { grid-column: 1 / -1; }
+.contact-hp { position: absolute; inset-inline-start: -10000px; inline-size: 1px; block-size: 1px; overflow: hidden; }
+.contact-done { margin-block-start: 1.5rem; }
+.contact-form .btn { justify-self: start; }
+
+/* ---------- author Studio and organisation console (0013: F-033 to F-037, F-055, F-056) ---------- */
+.studio-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-inline-start: auto; margin-inline-end: 1rem; }
+.studio-nav a { color: inherit; display: inline-flex; align-items: center; min-block-size: 44px; }
+.studio-org { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-block: 0 0.5rem; }
+.studio-org ul { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+.studio-org a { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 0.75rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink); text-decoration: none; }
+.studio-org a.is-active { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.studio-draft { margin-block: 1rem; padding: 0.75rem 1rem; border-radius: var(--radius-sm); background: var(--rose-soft); color: var(--rose); border-inline-start: 4px solid var(--rose); }
+.studio-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.studio-step { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: start; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+.studio-step h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.studio-step h3 a { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--brand); }
+.studio-step p { margin: 0; }
+.studio-step-mark { display: grid; place-items: center; inline-size: 2rem; block-size: 2rem; border-radius: 50%; border: 2px solid var(--line-strong); color: var(--ink); font-weight: 700; }
+.studio-step.is-done .studio-step-mark { background: var(--stage-1-t); border-color: var(--stage-1-i); color: var(--stage-1-i); }
+.studio-step.is-waiting .studio-step-mark { border-style: dashed; }
+.studio-list { list-style: none; margin: 1rem 0; padding: 0; display: grid; gap: 0.75rem; }
+.studio-list h2 { margin: 0; font-size: 1.1rem; }
+.studio-list h2 a { color: var(--brand); }
+.studio-plain { margin-block: 0.5rem; padding-inline-start: 1.25rem; }
+.studio-plain li { margin-block: 0.25rem; }
+.studio-sub { border-block-start: 1px solid var(--line); padding-block: 0.75rem; }
+.studio-sub:first-of-type { border-block-start: 0; }
+.studio-sub h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+.studio-sub-actions, .studio-row-actions { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: end; }
+.studio-inline { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-inline-start: 0.5rem; }
+.studio-inline select { font: inherit; min-block-size: 44px; color: var(--ink); background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); }
+.studio-inline-form { max-inline-size: 28rem; margin-block-start: 0.5rem; }
+.studio-radios { display: grid; gap: 0.25rem; border: 0; padding: 0; margin: 0.5rem 0; }
+.studio-radios legend { font-weight: 600; margin-block-end: 0.25rem; }
+.studio-radios .check { min-block-size: 44px; align-items: center; }
+.studio-wide { max-inline-size: 40rem; }
+.studio-licence { margin-block: 1rem; max-block-size: 32rem; overflow: auto; }
+.studio-bio { white-space: pre-line; }
+.studio-join { margin-block: 2rem; }
+.studio-shell .admin-row-btn { min-block-size: 44px; }
+@media (max-width: 40rem) {
+  .studio-nav { order: 3; inline-size: 100%; margin: 0; }
+}
