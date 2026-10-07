@@ -2,6 +2,7 @@ import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
 import { inCoolingOff, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
 import type { MembershipPricePointId } from "@/lib/pricing";
+import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
 
 /**
  * What the Stripe webhook does with an event, as a pure function over a
@@ -58,6 +59,13 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * does this. Account deletion cancels in Stripe at once, which arrives as
  * customer.subscription.deleted on an ended subscription, so it never sends
  * a cancellation email: account_deleted already says the membership ended.
+ *
+ * Royalty ledger (F-100, migration 0021), when the route passes a ledger
+ * repo: a paid single purchase writes its receipt and sale line, a paid
+ * membership invoice writes its pool receipt, charge.refunded records every
+ * refund Stripe holds for the payment (so a console refund and a dashboard
+ * refund both land once), and charge.dispute.created and .closed (won)
+ * reverse and restore the author's share. All idempotent in SQL.
  */
 
 export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
@@ -105,6 +113,7 @@ export type WebhookAction =
   | "renewal_reminder_not_needed"
   | "renewal_reminder_no_address"
   | "cooling_off_cancelled"
+  | "dispute_recorded"
   | "ignored";
 
 export type SubscriptionUpsertResult = "applied" | "unchanged" | "stale" | "unlinked";
@@ -201,7 +210,12 @@ export interface WebhookOutcome {
   notify?: MembershipNotice;
 }
 
-export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo, membership?: MembershipRepo): Promise<WebhookOutcome> {
+export async function handleStripeEvent(
+  event: Stripe.Event,
+  repo: PurchaseRepo,
+  membership?: MembershipRepo,
+  ledger?: LedgerRepo,
+): Promise<WebhookOutcome> {
   const base = { eventId: event.id, type: event.type };
 
   switch (event.type) {
@@ -219,6 +233,9 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
       // A membership: bring the subscription mirror and the entitlement into
       // line now, so the reader is not waiting on customer.subscription.created.
       if (session.mode === "subscription" && membership) await settleMembershipCheckout(session, event, membership);
+      // F-100: the sale's receipt and royalty line. Memberships reach the
+      // ledger through invoice.paid instead.
+      if (ledger && session.mode === "payment") await ledger.recordSale(purchase.id, idOf(session.payment_intent), event.livemode);
       return { ...base, action: already ? "already_paid" : "granted", purchaseId: purchase.id };
     }
 
@@ -235,6 +252,9 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
       const charge = event.data.object;
       const pi = idOf(charge.payment_intent);
       if (!pi) return { ...base, action: "purchase_not_found", purchaseId: null };
+      // F-100: record every refund on this payment in the ledger first,
+      // purchase or membership, whoever started it.
+      if (ledger) await ledger.syncRefunds(pi, event.livemode);
       const purchase = await repo.findByPaymentIntentId(pi);
       if (!purchase) return { ...base, action: "purchase_not_found", purchaseId: null };
       if (purchase.status === "refunded") return { ...base, action: "already_refunded", purchaseId: purchase.id };
@@ -290,6 +310,8 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
         periodEnd: isoOf(invoice.period_end),
         at: new Date(event.created * 1000).toISOString(),
       });
+      // F-100: membership money waits in the pool month.
+      if (ledger && !failed && recorded !== "unlinked") await ledger.recordMembership(invoice.id, event.livemode);
       const outcome: WebhookOutcome = { ...base, action: `invoice_${recorded}`, purchaseId: null, subscriptionId };
       // One email per failed invoice. The first payment fails on Stripe's own
       // page during checkout, so there is nothing to tell the reader by email.
@@ -345,6 +367,17 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
           dedupeKey: renewalDedupeKey(subscriptionId, renewsAt),
         },
       };
+    }
+
+    case "charge.dispute.created":
+    case "charge.dispute.closed": {
+      if (!ledger) return { ...base, action: "ignored", purchaseId: null };
+      const dispute = event.data.object;
+      const info = disputeInfo(dispute);
+      if (!info) return { ...base, action: "ignored", purchaseId: null };
+      if (event.type === "charge.dispute.closed" && dispute.status !== "won") return { ...base, action: "ignored", purchaseId: null };
+      await ledger.recordDispute(event.type === "charge.dispute.created" ? "dispute" : "dispute_reversal", info, event.livemode);
+      return { ...base, action: "dispute_recorded", purchaseId: null };
     }
 
     default:
