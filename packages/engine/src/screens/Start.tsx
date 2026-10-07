@@ -2,6 +2,7 @@
 
 import type { WorkbookV3 } from "@akana/schema";
 import { Card, Eyebrow } from "./parts";
+import { ToolkitCardView } from "./Toolkit";
 
 export interface StartScreenProps {
   workbook: WorkbookV3;
@@ -11,6 +12,10 @@ export interface StartScreenProps {
   /** Called when the reader presses "I have read this". */
   onAcknowledge?: () => void;
   readOnly?: boolean;
+  /** Offers the starting self-check, as the legacy Start flow did. */
+  onOpenSelfCheck?: () => void;
+  /** Shows the first Toolkit tool, "for tonight", as the legacy Start flow did. */
+  showFirstTool?: boolean;
 }
 
 /**
@@ -18,7 +23,8 @@ export interface StartScreenProps {
  * prompt. Ends with one button. The self-check that the legacy app ran here
  * is its own screen now.
  */
-export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly }: StartScreenProps) {
+export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly, onOpenSelfCheck, showFirstTool }: StartScreenProps) {
+  const firstTool = showFirstTool ? doc.toolkit[0] : undefined;
   const wellbeing = doc.safety_tier !== "none";
   return (
     <section className="ak-screen ak-start">
@@ -94,6 +100,24 @@ export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, re
         />
         <p className="ak-muted ak-small">This goes at the top of your plan.</p>
       </div>
+
+      {onOpenSelfCheck && doc.selfcheck ? (
+        <Card flat>
+          <Eyebrow>Your starting self-check</Eyebrow>
+          <p>{doc.selfcheck.intro}</p>
+          <button type="button" className="ak-btn ak-btn-secondary" onClick={onOpenSelfCheck}>
+            Take the self-check
+          </button>
+        </Card>
+      ) : null}
+
+      {firstTool ? (
+        <div className="ak-stack">
+          <Eyebrow>Your first tool, for tonight</Eyebrow>
+          <ToolkitCardView tool={firstTool} />
+          <p className="ak-small ak-muted">It stays in your Toolkit, ready anytime.</p>
+        </div>
+      ) : null}
 
       {onAcknowledge ? (
         <button type="button" className="ak-btn" onClick={onAcknowledge}>

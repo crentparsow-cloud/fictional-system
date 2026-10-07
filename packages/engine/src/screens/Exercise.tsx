@@ -1,8 +1,9 @@
 "use client";
 
 import type { WorkbookV3 } from "@akana/schema";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldRenderer } from "../FieldRenderer";
+import { answerText } from "../progress";
 import { isAnswered, resolveField, type AnswerStore } from "../types";
 import { Card, Eyebrow, FigurePlaceholder, Steps, minutesWord } from "./parts";
 
@@ -27,6 +28,19 @@ export interface ExerciseScreenProps {
   onDone?: () => void;
   /** Marks this as a repeat of an earlier unit's exercise. */
   isRepeat?: boolean;
+  /**
+   * Starting values for fields that carry prefill_from (F-017). Called for
+   * each such field the reader has not answered; a returned value is written
+   * to the store once, and is then the reader's to change.
+   */
+  prefill?: (field: Exercise["fields"][number]) => string | undefined;
+  /** Already marked done, so the screen can say so. */
+  done?: boolean;
+  /** For a repeat: where the first answers sit, shown side by side as "Then and now". */
+  earlier?: { label: string; scope: string };
+  /** The exercise's toolkit_link, when that tool is in the Toolkit. */
+  relatedTool?: { id: string; title: string };
+  onOpenTool?: (toolId: string) => void;
 }
 
 /**
@@ -47,6 +61,11 @@ export function ExerciseScreen({
   readOnly,
   onDone,
   isRepeat,
+  prefill,
+  done,
+  earlier,
+  relatedTool,
+  onOpenTool,
 }: ExerciseScreenProps) {
   const [modeState, setModeState] = useState<ExerciseMode>(defaultMode);
   const sv = e.short_version;
@@ -63,6 +82,28 @@ export function ExerciseScreen({
   const ready = resolved.every((f) => isAnswered(f, store.get(scope, f.id)));
   const reflectValue = store.get(scope, "reflect");
   const firstFigure = e.steps[0]?.figure;
+
+  // prefill_from: carry an earlier answer in as a starting value, once.
+  useEffect(() => {
+    if (!prefill || readOnly) return;
+    for (const f of e.fields) {
+      if (!f.prefill_from || store.get(scope, f.id) !== undefined) continue;
+      const v = prefill(f);
+      if (v) store.set(scope, f.id, v);
+    }
+    // Runs when the exercise or its scope changes, not on every keystroke.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [e.id, scope]);
+
+  const thenAndNow =
+    isRepeat && earlier && sv
+      ? e.fields
+          .filter((f) => sv.field_ids.includes(f.id))
+          .map((f) => {
+            const rf = resolveField(f, toolkitTitles);
+            return { id: f.id, label: f.label, then: answerText(rf, store.get(earlier.scope, f.id), toolkitTitles), now: answerText(rf, store.get(scope, f.id), toolkitTitles) };
+          })
+      : [];
 
   return (
     <article className="ak-screen ak-exercise" data-exercise={e.id} data-mode={mode}>
@@ -144,12 +185,45 @@ export function ExerciseScreen({
         </span>
       </section>
 
+      {thenAndNow.length ? (
+        <Card>
+          <h3 className="ak-h3">Then and now</h3>
+          {thenAndNow.map((r) => (
+            <div key={r.id} className="ak-then-now">
+              <p className="ak-small">
+                <b>{r.label}</b>
+              </p>
+              <div className="ak-two-up">
+                <div>
+                  <Eyebrow>{earlier?.label}</Eyebrow>
+                  <p className="ak-small">{r.then || "Not filled in"}</p>
+                </div>
+                <div>
+                  <Eyebrow>Now</Eyebrow>
+                  <p className="ak-small">{r.now || "Not filled in"}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Card>
+      ) : null}
+
       <Card flat>
         <Eyebrow>Done when</Eyebrow>
         <p className="ak-done-when">{e.done_when}</p>
-        {onDone && !readOnly ? (
+        {done ? (
+          <p className="ak-small ak-done-mark" role="status">
+            Marked done. You can still change your answers.
+          </p>
+        ) : null}
+        {onDone && !readOnly && !done ? (
           <button type="button" className="ak-btn" disabled={!ready} onClick={onDone}>
             Done
+          </button>
+        ) : null}
+        {relatedTool && onOpenTool ? (
+          <button type="button" className="ak-btn ak-btn-quiet" onClick={() => onOpenTool(relatedTool.id)}>
+            Related tool: {relatedTool.title}
           </button>
         ) : null}
       </Card>
