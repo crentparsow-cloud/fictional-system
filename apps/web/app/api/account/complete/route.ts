@@ -3,6 +3,7 @@ import { cronAuthorised } from "@/lib/cron-auth";
 import { runDeletionJob, stripeCanceller, stripeSettlement, type DueSubscription } from "@/lib/account-complete";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { reportOps } from "@/lib/ops-alerts";
 
 /**
  * Finishes account deletions whose 7-day undo has passed (F-025).
@@ -101,12 +102,14 @@ async function run(request: NextRequest) {
     });
   } catch (err) {
     console.error("complete_due_deletions_failed", err instanceof SqlError ? err.code : "unknown");
+    await reportOps(admin, "cron_failure", "api/account/complete", err instanceof SqlError ? err.code : "unknown");
     return NextResponse.json({ error: "sql_failed" }, { status: 500, headers: NO_STORE });
   }
 
   const { status, ...counts } = result;
   if (status === "blocked") {
     console.error("account_subscription_cancel_failed", counts.subscriptions_failed);
+    await reportOps(admin, "cron_failure", "api/account/complete", "stripe_cancel_failed");
     return NextResponse.json({ error: "stripe_cancel_failed", ...counts }, { status: 502, headers: NO_STORE });
   }
   if (counts.auth_failed) console.error("account_auth_removal_failed", counts.auth_failed);

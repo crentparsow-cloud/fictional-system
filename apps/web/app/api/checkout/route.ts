@@ -7,7 +7,10 @@ import { priceFor, pricePointFromRow } from "@/lib/pricing";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
+import { countFunnelEvent } from "@/lib/funnel";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { checkoutTermsDecision } from "@/lib/terms";
+import { acceptReaderTerms } from "@/lib/terms-server";
 
 /**
  * Single workbook checkout (F-096). POST /api/checkout { workbook: slug }
@@ -16,6 +19,11 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  * Refuses (409, plain message) a demo title (F-114), a workbook with no
  * price point or a placeholder price (D1 to D4 open), and a title the reader
  * already holds. 401 without a session, 404 for an unknown slug or tenant.
+ *
+ * The body carries the reader terms version shown by the pay button. A
+ * missing or out of date version is refused (409, code terms_required or
+ * terms_changed), and the acceptance is recorded before Stripe is called
+ * (F-122).
  *
  * Stripe never sees a title. The line item is "Akana workbook" with the AK
  * code as its description, so statements and receipts carry the code only
@@ -31,7 +39,8 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const Body = z.object({ workbook: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/) }).strict();
+// terms: the reader terms version shown next to the pay button (F-122).
+const Body = z.object({ workbook: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/), terms: z.string().max(40).optional() }).strict();
 
 interface WorkbookRow {
   id: string;
@@ -71,6 +80,8 @@ export async function POST(request: NextRequest) {
   }
   const parsed = Body.safeParse(raw);
   if (!parsed.success) return refuse("Invalid request.", 400);
+  const terms = checkoutTermsDecision(parsed.data.terms);
+  if (!terms.ok) return NextResponse.json({ error: terms.error, code: terms.code }, { status: terms.status, headers: NO_STORE });
 
   const supabase = await createUserClient();
   const { data: wb, error: wbErr } = await supabase
@@ -118,6 +129,9 @@ export async function POST(request: NextRequest) {
     (e) => (!e.ends_at || Date.parse(e.ends_at) > now) && (e.source !== "membership" || workbook.in_membership),
   );
   if (covers) return refuse("You already have this workbook.");
+
+  // F-122: the acceptance is recorded before payment starts. No record, no checkout.
+  if (!(await acceptReaderTerms("checkout", tenantId))) return refuse("Could not start checkout.", 500);
 
   const origin = siteOrigin(request);
   let stripe;
@@ -174,6 +188,8 @@ export async function POST(request: NextRequest) {
   }
 
   if (!checkout.url) return refuse("Could not start checkout.", 500);
+  // F-141: a daily count, ids only, unless the visitor has opted out.
+  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: workbook.id, headers: request.headers, cookies: request.cookies });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
 }
 

@@ -16,7 +16,10 @@ import { priceCurrencyFor } from "@/lib/pricing";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
+import { countFunnelEvent } from "@/lib/funnel";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { checkoutTermsDecision } from "@/lib/terms";
+import { acceptReaderTerms } from "@/lib/terms-server";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
@@ -28,6 +31,10 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  * shown above the pay button. The price is a Stripe price id from
  * STRIPE_PRICE_MEMBERSHIP_MONTHLY or _YEARLY. While that is unset the route
  * answers 409 with "Membership is not open yet" and nothing else happens.
+ *
+ * The body carries the reader terms version shown by the pay button; a
+ * missing or out of date one is refused (409), and the acceptance is
+ * recorded before Stripe is called (F-122).
  *
  * Refuses (409) a reader who already has a live membership on this tenant.
  * 401 without a session, 404 for an unknown tenant.
@@ -50,6 +57,8 @@ const Body = z
       .string()
       .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/)
       .optional(),
+    // The reader terms version shown by the pay button (F-122).
+    terms: z.string().max(40).optional(),
   })
   .strict();
 
@@ -73,6 +82,8 @@ export async function POST(request: NextRequest) {
   const parsed = Body.safeParse(raw);
   if (!parsed.success) return refuse("Invalid request.", 400);
   const { plan, workbook } = parsed.data;
+  const terms = checkoutTermsDecision(parsed.data.terms);
+  if (!terms.ok) return NextResponse.json({ error: terms.error, code: terms.code }, { status: terms.status, headers: NO_STORE });
 
   // PLACEHOLDER until Crent sets the membership prices (C4, D1 to D4).
   const priceId = membershipPriceId(plan);
@@ -100,6 +111,9 @@ export async function POST(request: NextRequest) {
   } catch {
     return refuse(MEMBERSHIP_NOT_OPEN_MESSAGE, 503);
   }
+
+  // F-122: the acceptance is recorded before payment starts. No record, no checkout.
+  if (!(await acceptReaderTerms("checkout", tenantId))) return refuse("Could not start checkout.", 500);
 
   const origin = siteOrigin(request);
   const successUrl = workbook ? `${origin}/read/${workbook}?member=1&session_id={CHECKOUT_SESSION_ID}` : `${origin}/you?membership=welcome#membership`;
@@ -148,6 +162,8 @@ export async function POST(request: NextRequest) {
   }
 
   if (!checkout.url) return refuse("Could not start checkout.", 500);
+  // F-141: a daily count, ids only, unless the visitor has opted out.
+  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
 }
 
