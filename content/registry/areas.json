@@ -1,5 +1,5 @@
 {
- "_note": "Area registry (F-112). The five Mind and Mood areas are the v1 topic sets from content/catalog/catalog.json. The other seven are areas_proposed in AK_Demo_Catalogue.json. The demo catalogue places its wellbeing titles under 'self-and-connection' and 'pace-and-balance'; those map here to 'self' and 'stress' (the areas that already hold the matching Maya Vaughn workbooks) [check]. The 'heal' area is renamed from the v1 'Healing and Loss' because the claims rules bar 'healing'; the v1 name is kept in v1_name.",
+ "_note": "Area registry (F-112). The five Mind and Mood areas are the v1 topic sets from content/catalog/catalog.json. The other seven are areas_proposed in AK_Demo_Catalogue.json. The demo catalogue places its wellbeing titles under 'self-and-connection' and 'pace-and-balance'; those map here to 'self' and 'stress' (the areas that already hold the matching Maya Vaughn workbooks) [check]. The 'heal' area is renamed from the v1 'Healing and Loss' because the claims rules bar 'healing'; the v1 name is kept in v1_name. F-148 adds seven areas from docs/research/categories.md section 4 as internal labels (question N12).",
  "areas": [
   {
    "id": "worry",
@@ -62,6 +62,55 @@
    "id": "study-and-know-how",
    "shelf_id": "learning-and-skills",
    "name": "Study and Know-How"
+  },
+  {
+   "id": "everyday-health",
+   "shelf_id": "health-and-body",
+   "name": "Everyday Health",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "direction-and-meaning",
+   "shelf_id": "personal-growth",
+   "name": "Direction and Meaning",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "long-term-money",
+   "shelf_id": "money",
+   "name": "Long-Term Money",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "scripture-and-prayer",
+   "shelf_id": "faith-and-spirituality",
+   "name": "Scripture and Prayer",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "faith-in-daily-life",
+   "shelf_id": "faith-and-spirituality",
+   "name": "Faith in Daily Life",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "church-and-groups",
+   "shelf_id": "faith-and-spirituality",
+   "name": "Church and Groups",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
+  },
+  {
+   "id": "writing-and-making",
+   "shelf_id": "creativity-and-making",
+   "name": "Writing and Making",
+   "status": "proposed",
+   "note": "F-148. Internal label, pending Crent's approval (question N12)."
   }
  ]
 }

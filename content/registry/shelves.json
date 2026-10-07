@@ -1,47 +1,95 @@
 {
- "_note": "Shelf registry (F-112). Mind and Mood is the existing wellbeing shelf (status active). Work and Career, Money, Family and Parenting and Love and Relationships are the board's fixed shelves that AK_Demo_Catalogue.json refers to by id. Personal Growth and Learning and Skills are proposed in the demo catalogue plan and need Crent's approval (question B3).",
+ "_note": "Shelf registry (F-112). Mind and Mood is the existing wellbeing shelf (status active). Work and Career, Money, Family and Parenting and Love and Relationships are the board's fixed shelves that AK_Demo_Catalogue.json refers to by id. Personal Growth and Learning and Skills are proposed in the demo catalogue plan and need Crent's approval (question B3). F-148 (7 October 2026) adds Health and Body, Faith and Spirituality and Creativity and Making from docs/research/taxonomy.json as proposed shelves at sort 8 to 10; existing sort values are unchanged. hidden_until_min_books marks a shelf added after launch: it stays hidden from readers until it holds min_books live titles. line and group_suitable are registry metadata from the taxonomy.",
  "shelves": [
   {
    "id": "mind-and-mood",
    "name": "Mind and Mood",
    "status": "active",
-   "sort": 1
+   "sort": 1,
+   "line": "Guided workbooks for calmer days, steadier moods and kinder thoughts.",
+   "group_suitable": false,
+   "hidden_until_min_books": false
   },
   {
    "id": "work-and-career",
    "name": "Work and Career",
    "status": "active",
-   "sort": 2
+   "sort": 2,
+   "line": "Guided workbooks for careers, teams and small businesses.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
   },
   {
    "id": "money",
    "name": "Money",
    "status": "active",
-   "sort": 3
+   "sort": 3,
+   "line": "Guided workbooks for everyday money, saving and planning ahead.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
   },
   {
    "id": "family-and-parenting",
    "name": "Family and Parenting",
    "status": "active",
-   "sort": 4
+   "sort": 4,
+   "line": "Guided workbooks for raising children and caring for family.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
   },
   {
    "id": "love-and-relationships",
    "name": "Love and Relationships",
    "status": "active",
-   "sort": 5
+   "sort": 5,
+   "line": "Guided workbooks for couples, friends and honest conversations.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
   },
   {
    "id": "personal-growth",
    "name": "Personal Growth",
    "status": "proposed",
-   "sort": 6
+   "sort": 6,
+   "line": "Guided workbooks for habits, confidence, purpose and good decisions.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
   },
   {
    "id": "learning-and-skills",
    "name": "Learning and Skills",
    "status": "proposed",
-   "sort": 7
+   "sort": 7,
+   "line": "Guided workbooks for study, teaching and practical skills.",
+   "group_suitable": true,
+   "hidden_until_min_books": false
+  },
+  {
+   "id": "health-and-body",
+   "name": "Health and Body",
+   "status": "proposed",
+   "sort": 8,
+   "hidden_until_min_books": true,
+   "line": "Guided workbooks for moving, eating well and looking after your body.",
+   "group_suitable": true
+  },
+  {
+   "id": "faith-and-spirituality",
+   "name": "Faith and Spirituality",
+   "status": "proposed",
+   "sort": 9,
+   "hidden_until_min_books": true,
+   "line": "Guided workbooks for Bible study, prayer and growing in faith.",
+   "group_suitable": true
+  },
+  {
+   "id": "creativity-and-making",
+   "name": "Creativity and Making",
+   "status": "proposed",
+   "sort": 10,
+   "hidden_until_min_books": true,
+   "line": "Guided workbooks for writing, making and creative practice.",
+   "group_suitable": true
   }
  ]
 }
