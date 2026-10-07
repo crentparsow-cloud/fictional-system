@@ -8,3 +8,6 @@ export { SelfCheckScreen, type SelfCheckScreenProps, type SelfCheckAnswers, type
 export { FinishScreen, type FinishScreenProps } from "./Finish";
 export { KeepGoingScreen, type KeepGoingScreenProps } from "./KeepGoing";
 export { FigurePlaceholder, Steps, unitLabel } from "./parts";
+export { PlanScreen, type PlanScreenProps } from "./Plan";
+export { ProgressScreen, type ProgressScreenProps } from "./Progress";
+export { BreathingPacer, breathes, paceOf, paceSequence, PACER_ROUNDS, type Pace } from "./BreathingPacer";

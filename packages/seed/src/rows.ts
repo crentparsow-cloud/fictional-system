@@ -25,6 +25,8 @@ export interface ShelfRow {
   name: string;
   status: string;
   sort: number;
+  /** Added after launch: hidden from readers until min_books live titles (0015, F-148). */
+  hidden_until_min_books: boolean;
 }
 
 export interface AreaRow {
@@ -42,6 +44,10 @@ export interface ThemeRow {
   topics: string[];
   clearance_status: string;
   min_books: number;
+  /** Suits a team, church or small group (0015, F-148). */
+  group_suitable: boolean;
+  /** Added after launch: hidden from readers until min_books live titles (0015, F-148). */
+  hidden_until_min_books: boolean;
 }
 
 export interface OrganisationRow {

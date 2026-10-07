@@ -75,13 +75,25 @@ describe("buildSeed", () => {
 
   it("only uses theme ids that exist in the registry", () => {
     const themeIds = new Set(seed.themes.map((t) => t.id));
-    expect(themeIds.size).toBe(17);
+    // 17 launch Themes plus the 34 from the expanded taxonomy (F-148).
+    expect(themeIds.size).toBe(51);
     for (const w of seed.workbooks) {
       if (w.theme_id !== null) expect(themeIds.has(w.theme_id)).toBe(true);
     }
-    // Every registry theme that the catalogue uses is referenced at least once.
+    // The catalogue uses exactly the 17 launch Themes; the 34 new ones hold
+    // no title yet, and every one of them is held back from readers.
     const used = new Set(seed.workbooks.map((w) => w.theme_id).filter(Boolean));
     expect(used.size).toBe(17);
+    for (const t of seed.themes) expect(t.hidden_until_min_books).toBe(!used.has(t.id));
+    expect(seed.shelves).toHaveLength(10);
+    expect(seed.shelves.filter((s) => s.hidden_until_min_books).map((s) => s.id).sort()).toEqual([
+      "creativity-and-making",
+      "faith-and-spirituality",
+      "health-and-body",
+    ]);
+    // stoicism moved from Chosen Habits to Wisdom for Living.
+    expect(seed.themes.find((t) => t.id === "chosen-habits")?.topics).not.toContain("stoicism");
+    expect(seed.themes.find((t) => t.id === "wisdom-for-living")?.topics).toContain("stoicism");
     // Themes sit in areas that sit on shelves.
     const shelfIds = new Set(seed.shelves.map((s) => s.id));
     const areaIds = new Set(seed.areas.map((a) => a.id));

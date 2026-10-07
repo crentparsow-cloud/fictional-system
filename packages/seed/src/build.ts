@@ -37,7 +37,13 @@ const RegistryGenre = z.object({
   default_safety_tier: z.enum(["none", "standard", "higher"]),
   guardrails: z.record(z.unknown()),
 });
-const RegistryShelf = z.object({ id: z.string(), name: z.string(), status: z.string(), sort: z.number().int() });
+const RegistryShelf = z.object({
+  id: z.string(),
+  name: z.string(),
+  status: z.string(),
+  sort: z.number().int(),
+  hidden_until_min_books: z.boolean().default(false),
+});
 const RegistryArea = z.object({ id: z.string(), shelf_id: z.string(), name: z.string() });
 const RegistryTheme = z.object({
   id: z.string(),
@@ -48,6 +54,8 @@ const RegistryTheme = z.object({
   topics: z.array(z.string()),
   clearance_status: z.string(),
   min_books: z.number().int(),
+  group_suitable: z.boolean().default(false),
+  hidden_until_min_books: z.boolean().default(false),
 });
 
 const CataloguePublisher = z.object({
@@ -156,7 +164,10 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
     .object({ genres: z.array(RegistryGenre) })
     .parse(readJson(join(registryDir, "genres.json")))
     .genres.map((g) => ({ id: g.id, name: g.name, default_safety_tier: g.default_safety_tier, guardrails: g.guardrails as Json }));
-  const shelves: ShelfRow[] = z.object({ shelves: z.array(RegistryShelf) }).parse(readJson(join(registryDir, "shelves.json"))).shelves;
+  const shelves: ShelfRow[] = z
+    .object({ shelves: z.array(RegistryShelf) })
+    .parse(readJson(join(registryDir, "shelves.json")))
+    .shelves.map((s) => ({ id: s.id, name: s.name, status: s.status, sort: s.sort, hidden_until_min_books: s.hidden_until_min_books }));
   const areas: AreaRow[] = z.object({ areas: z.array(RegistryArea) }).parse(readJson(join(registryDir, "areas.json"))).areas;
   const themes: ThemeRow[] = z
     .object({ themes: z.array(RegistryTheme) })
@@ -170,6 +181,8 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
       topics: t.topics,
       clearance_status: t.clearance_status,
       min_books: t.min_books,
+      group_suitable: t.group_suitable,
+      hidden_until_min_books: t.hidden_until_min_books,
     }));
 
   const catalogue = Catalogue.parse(readJson(join(root, "docs", "planning", "AK_Demo_Catalogue.json")));
