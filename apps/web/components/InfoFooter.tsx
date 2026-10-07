@@ -14,6 +14,7 @@ export const INFO_FOOTER_LINKS = [
   { href: "/legal/privacy", label: "Privacy notice" },
   { href: "/legal/cookies", label: "Cookie statement" },
   { href: "/legal/refunds", label: "Refund policy" },
+  { href: "/takedown", label: "Report content" },
 ] as const;
 
 export function InfoFooter() {
