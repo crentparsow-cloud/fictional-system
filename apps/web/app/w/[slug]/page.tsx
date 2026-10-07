@@ -8,6 +8,7 @@ import { brand } from "@/lib/brand";
 import { getWorkbookBySlug } from "@/lib/catalogue";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
 import { getT } from "@/lib/i18n";
+import { hasPublicDomainRecord } from "@/lib/public-domain";
 
 /**
  * The public workbook page (F-005) at /w/{slug}. Server rendered for anyone,
@@ -68,6 +69,11 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
           {card.authors.length ? <p className="wb-author">{card.authors.join(", ")}</p> : null}
           <p className="wb-line">{card.cardLine}</p>
           <p className="muted small">{card.code}</p>
+          {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
+            <p className="small pd-link">
+              <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
+            </p>
+          ) : null}
           <div className="wb-actions">
             {canOpen ? (
               <Link className="btn" href={openHref}>
