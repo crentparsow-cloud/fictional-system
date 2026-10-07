@@ -253,7 +253,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 
 **Merchant of record.** Stripe Managed Payments is a merchant of record service and covers UK digital books and courses. It does not support Connect, marketplaces or selling through a platform. Akana pays authors through Connect, so Akana stays the seller (A1) with Stripe Tax. A split, with Managed Payments for Akana's own titles and memberships only, is on the accountant review list.
 
-**Live now:** the code is pushed (remote head b9cbc9b) and deploying. Migrations 0008 and 0009 are applied to staging. Production waits for Crent's go-ahead.
+**Live now:** the code is pushed and deployed. Migrations 0008 and 0009 are applied to staging and, on Crent's go-ahead, to production.
 
 **Landed in the repo** (75 files)
 
@@ -291,3 +291,39 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 7. Still open: who signs the public-domain records, the tenant apex domain (A7), and the schema freeze sign-off.
 
 **Next:** production migrations once agreed, Stripe webhook events, email wording, then the rest of week 2.
+
+### Day 6, second batch
+
+**Asked by Crent:** apply 0008 and 0009 to production (done). Do anything that can be done in Chrome. Call the paid plan "membership" everywhere. Decide the search question and the membership questions after research. `SUPABASE_SERVICE_ROLE_KEY` is now in Vercel for Preview.
+
+**Decisions made, with reasons**
+
+- **Grace period: 14 days.** Stripe recommends Smart Retries with 8 tries within 2 weeks. The sandbox already uses that and cancels the subscription when the retries run out, so access and billing end together.
+- **Demo titles are not in the membership.** Demo titles cannot be bought, so a membership must not sell them. A trigger keeps every demo title out.
+- **Interim prices: £7.99 a month, £69.99 a year, VAT included, no free trial.** Each workbook already has a free first unit, so a trial adds little and brings extra trial rules. For comparison, Blinkist lists $99.99 a year and Headway $19.99 for 4 weeks (USD, from review sites, July and September 2026). Crent sets the real prices.
+- **Renewal reminders for yearly members, 15 days before renewal.** The UK DMCC Act subscription rules are expected in January 2027 (TLT, August 2026). They need reminders before renewal and a 14-day cooling-off after a yearly renewal. Stripe now sends the upcoming renewal event 15 days ahead, and Akana sends the email. Monthly members will need a reminder every six months. That is logged as a follow-up.
+- **Refunds.** The refund policy already promised a pro rata refund within 14 days, so the code now keeps that promise. Cancelling in the portal within 14 days of starting, or of a yearly renewal, ends the membership at once and refunds the unused days. Deleting an account does the same.
+- **Deletion clears Stripe details.** Name, email, phone and address are cleared on every Stripe customer linked to the reader. Payment records stay for tax.
+- **Search topic words (question 5).** The feature list says hidden topics must never appear in page text or metadata, and that search should still use them. Topics now reach the browser only as short hashes, and the query is hashed on the device to match. The words are hidden from the page source. A determined person could still guess them by hashing a word list, which is acceptable for search terms.
+
+**Built:** migration 0010 (14-day grace, demo titles out, interim prices, a once-only email record). The renewal reminder. Cooling-off refunds from both the portal and deletion. Full Stripe redaction on deletion. Hashed topics in search. "Membership" wording in every email, the legal drafts and checkout.
+
+**Set up in Stripe (sandbox):**
+
+- An "Akana membership" product with the two interim prices.
+- The old "All-access pass" products archived.
+- 6 webhook events added: the 5 membership events plus `invoice.upcoming`.
+- The customer portal: cancel at period end, card update, invoice history, and switching between monthly and yearly.
+- Upcoming renewal events set to 15 days.
+- Smart Retries checked at 8 tries in 2 weeks, then cancel.
+
+**Set up in Vercel:** `STRIPE_PRICE_MEMBERSHIP_MONTHLY` and `STRIPE_PRICE_MEMBERSHIP_YEARLY` for Production.
+
+**Checks:** typecheck and lint are clean. 442 web unit tests pass, along with all package tests. Database tests 0001 to 0010 pass. The smoke tests pass: 43 passed and 5 skipped.
+
+**Follow-ups:**
+
+- A six-monthly reminder for monthly members, before January 2027.
+- Send the cancellation email after a cooling-off cancel.
+- Retry a failed Stripe redaction on a later run.
+- Crent to confirm the prices and the VAT treatment with the accountant. The Stripe tax code is SaaS for personal use, matching the earlier products.
