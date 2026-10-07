@@ -1,0 +1,616 @@
+{
+  "_note": "Faith workbook research, 7 October 2026. Companion to docs/research/faith-workbooks.md. Verified means the author, translator and editor death years and the first publication year were found in at least one source listed. Every title still needs the house public-domain record (docs/public-domain/) and a signed review before use.",
+  "prepared": "2026-10-07",
+  "rules": {
+    "GB": "life plus 70 years from the end of the year of death of the last author, translator or editor",
+    "IE": "life plus 70 years from the end of the year of death of the last author, translator or editor (EU rule)",
+    "US": "published before 1 January 1931 (true for 2026)",
+    "tier_A": "published before 1931 and every author, translator and editor died before 1946 (Research 4)",
+    "CA_AU_NZ": "not recorded in the repo; to confirm by the Legal Lead"
+  },
+  "field_values": {
+    "safety_tier": [
+      "none",
+      "standard",
+      "higher"
+    ],
+    "tradition": [
+      "protestant",
+      "catholic",
+      "orthodox",
+      "general_christian"
+    ],
+    "subcategory": "slugs from the Faith and Spirituality category in docs/research/taxonomy.json (draft)"
+  },
+  "verified_count": 27,
+  "titles": [
+    {
+      "author": "Brother Lawrence (Nicolas Herman)",
+      "author_dates": "1611 to 1691",
+      "title": "The Practice of the Presence of God",
+      "first_published": "1692 (French, as Maximes spirituelles, compiled by Joseph de Beaufort)",
+      "pd_edition": "'The Practice of the Presence of God the Best Rule of a Holy Life', Fleming H. Revell, New York, anonymous translation, Project Gutenberg eBook #13871. Do NOT use eBook #5657: it is the 2002 Lightheart edition and is marked copyrighted.",
+      "uk_status": "clear: author died 1691; the Revell translation is anonymous, so the UK term runs 70 years from publication, long expired [confirm the Revell printing year]",
+      "us_status": "clear: Gutenberg #13871 is marked public domain in the USA; printed by Revell well before 1931 [confirm year]",
+      "angle": "6 weeks. Weeks 1 to 2 the four conversations; weeks 3 to 6 the letters. Each week one practice of turning to God in ordinary work, with a short daily noticing log.",
+      "units": 6,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "catholic",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/13871",
+        "https://www.gutenberg.org/ebooks/5657",
+        "https://en.wikipedia.org/wiki/The_Practice_of_the_Presence_of_God"
+      ]
+    },
+    {
+      "author": "Thomas a Kempis",
+      "author_dates": "1380 to 1471",
+      "title": "The Imitation of Christ",
+      "first_published": "Latin, composed about 1418 to 1427",
+      "pd_edition": "Translation by William Benham (1831 to 1910), Project Gutenberg eBook #1653 (also #26222)",
+      "uk_status": "clear: author died 1471; translator Benham died 1910, so the translation term ended at the end of 1980",
+      "us_status": "clear: Gutenberg marks it public domain in the USA; Benham died 1910, so a translation he made appeared before 1931 unless issued long after his death [confirm the translation year]",
+      "angle": "12 weeks. Books 1 and 2 over weeks 1 to 5, Book 3 over weeks 6 to 10, Book 4 (the Eucharist) over weeks 11 to 12 or offered as optional for non-Catholic groups. One short chapter a day with a reflection line.",
+      "units": 12,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "catholic",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/1653",
+        "https://www.gutenberg.org/ebooks/26222"
+      ]
+    },
+    {
+      "author": "John Bunyan",
+      "author_dates": "1628 to 1688",
+      "title": "The Pilgrim's Progress",
+      "first_published": "Part I 1678; Part II 1684",
+      "pd_edition": "Project Gutenberg eBook #131 (17th-century text, no modern editor credited)",
+      "uk_status": "clear: author died 1688",
+      "us_status": "clear: first published 1678; Gutenberg marks it public domain in the USA",
+      "angle": "12 weeks on Part I, one stage of the journey a week (Wicket Gate, Interpreter's House, Vanity Fair, Doubting Castle and so on), with a map of the reader's own journey. Part II could be a later 8-week sequel.",
+      "units": 12,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/131",
+        "https://en.wikipedia.org/wiki/The_Pilgrim%27s_Progress"
+      ]
+    },
+    {
+      "author": "Andrew Murray",
+      "author_dates": "1828 to 1917",
+      "title": "Abide in Christ",
+      "first_published": "1880 (J. Nisbet, per the Online Books Page listing); Wikipedia gives 1882 [confirm]",
+      "pd_edition": "1880 Nisbet or 1895 Revell edition, page images at HathiTrust via the Online Books Page",
+      "uk_status": "clear: author died 1917",
+      "us_status": "clear: published 1880 or 1882, before 1931",
+      "angle": "6 weeks over the 31 short chapters, about five a week, each with one verse to carry through the day and a short abiding prayer.",
+      "units": 6,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Murray%2C%20Andrew%2C%201828-1917",
+        "https://en.wikipedia.org/wiki/Andrew_Murray_(minister)"
+      ]
+    },
+    {
+      "author": "Andrew Murray",
+      "author_dates": "1828 to 1917",
+      "title": "With Christ in the School of Prayer",
+      "first_published": "1885",
+      "pd_edition": "1885 Revell or 1887 Nisbet edition (HathiTrust); HTML at CCEL [check CCEL terms of use]",
+      "uk_status": "clear: author died 1917",
+      "us_status": "clear: published 1885",
+      "angle": "6 weeks over the 31 lessons, about five a week, each ending with Murray's own prayer and a reader's prayer journal entry.",
+      "units": 6,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Murray%2C%20Andrew%2C%201828-1917",
+        "https://en.wikipedia.org/wiki/Andrew_Murray_(minister)"
+      ]
+    },
+    {
+      "author": "Andrew Murray",
+      "author_dates": "1828 to 1917",
+      "title": "Humility: The Beauty of Holiness",
+      "first_published": "1895",
+      "pd_edition": "Project Gutenberg eBook #57121",
+      "uk_status": "clear: author died 1917",
+      "us_status": "clear: published 1895; Gutenberg marks it public domain in the USA",
+      "angle": "6 weeks, two of the twelve chapters a week, with a weekly practice of noticing pride and serving someone unseen.",
+      "units": 6,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/57121",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Murray%2C%20Andrew%2C%201828-1917"
+      ]
+    },
+    {
+      "author": "Andrew Murray",
+      "author_dates": "1828 to 1917",
+      "title": "Absolute Surrender and Other Addresses",
+      "first_published": "1895",
+      "pd_edition": "Project Gutenberg eBook #19572",
+      "uk_status": "clear: author died 1917",
+      "us_status": "clear: published 1895; Gutenberg marks it public domain in the USA",
+      "angle": "4 weeks, two or three addresses a week, each with one honest question and one small act of trust.",
+      "units": 4,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/19572",
+        "https://en.wikipedia.org/wiki/Andrew_Murray_(minister)"
+      ]
+    },
+    {
+      "author": "C. H. Spurgeon",
+      "author_dates": "1834 to 1892",
+      "title": "Morning and Evening",
+      "first_published": "Morning by Morning 1865; Evening by Evening 1868",
+      "pd_edition": "19th-century text as hosted at CCEL [confirm CCEL source edition and terms]. Avoid modern revised editions with updated Bible text.",
+      "uk_status": "clear: author died 1892",
+      "us_status": "clear: published 1865 and 1868",
+      "angle": "12 weeks (one season), using the daily readings as the daily check and a weekly review. The schema allows up to 52 units, so a full-year edition of 52 weeks is possible later.",
+      "units": 12,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Spurgeon%2C%20C.%20H.%20%28Charles%20Haddon%29%2C%201834-1892",
+        "https://www.ccel.org/s/spurgeon/morn_eve/morn_eve.html"
+      ]
+    },
+    {
+      "author": "C. H. Spurgeon",
+      "author_dates": "1834 to 1892",
+      "title": "All of Grace",
+      "first_published": "1886",
+      "pd_edition": "1886 London or R. Carter (New York) edition; text at spurgeon.org and CCEL [confirm source edition]",
+      "uk_status": "clear: author died 1892",
+      "us_status": "clear: published 1886",
+      "angle": "6 weeks for enquirers and new Christians: grace, faith, repentance and assurance, about three short chapters a week.",
+      "units": 6,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Spurgeon%2C%20C.%20H.%20%28Charles%20Haddon%29%2C%201834-1892"
+      ]
+    },
+    {
+      "author": "E. M. Bounds",
+      "author_dates": "1835 to 1913",
+      "title": "Power Through Prayer",
+      "first_published": "1907, as Preacher and Prayer; later republished as Power Through Prayer",
+      "pd_edition": "Marshall Brothers, London, twelfth edition, Project Gutenberg eBook #65115 [confirm printing year]",
+      "uk_status": "clear: author died 1913; this title was published in his lifetime, so no later editor applies",
+      "us_status": "clear: first published 1907; Gutenberg marks it public domain in the USA",
+      "angle": "4 weeks for preachers, small group leaders and church teams: five short chapters a week, with a leader's prayer plan.",
+      "units": 4,
+      "subcategory": "serving-together",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/65115",
+        "https://en.wikipedia.org/wiki/E._M._Bounds"
+      ]
+    },
+    {
+      "author": "Augustine of Hippo",
+      "author_dates": "354 to 430",
+      "title": "Confessions",
+      "first_published": "Latin, written AD 397 to 400",
+      "pd_edition": "Translation by E. B. Pusey (1800 to 1882), first published 1838, Project Gutenberg eBook #3296. Do not use Outler (1955), Pine-Coffin (1961) or Chadwick (2008), which are later and in copyright in the UK.",
+      "uk_status": "clear: Pusey died 1882, so the translation term ended at the end of 1952",
+      "us_status": "clear: Pusey translation published 1838; Gutenberg marks it public domain in the USA",
+      "angle": "12 weeks. Books 1 to 9 (the life) over weeks 1 to 9; Books 10 to 13 (memory, time, creation) over weeks 10 to 12 as a guided study.",
+      "units": 12,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "general_christian",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/3296",
+        "https://en.wikipedia.org/wiki/Confessions_(Augustine)"
+      ]
+    },
+    {
+      "author": "Hannah Whitall Smith",
+      "author_dates": "1832 to 1911",
+      "title": "The Christian's Secret of a Happy Life",
+      "first_published": "1875 (Willard Tract Repository)",
+      "pd_edition": "1875 Willard or 1883 Revell edition (HathiTrust); HTML at CCEL [confirm source]. Avoid modern abridged or 'unabridged' reissues with new apparatus.",
+      "uk_status": "clear: author died 1911",
+      "us_status": "clear: published 1875",
+      "angle": "8 weeks on trust, surrender, doubts, temptation and failure, about three chapters a week, framed as a devotional, never as a route to happiness.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/who/Smith%2c%20Hannah%20Whitall%2c%201832%2d1911"
+      ]
+    },
+    {
+      "author": "Charles M. Sheldon",
+      "author_dates": "1857 to 1946",
+      "title": "In His Steps",
+      "first_published": "1896",
+      "pd_edition": "Project Gutenberg eBook #4540",
+      "uk_status": "clear: author died 1946, so the UK term ended at the end of 2016. Research 4 Tier B, not Tier A, because the death year is not before 1946.",
+      "us_status": "clear: published 1896; Gutenberg marks it public domain in the USA",
+      "angle": "6 weeks as a book group: about five chapters a week, each week asking 'What would Jesus do?' about one real decision at work, at home or with money.",
+      "units": 6,
+      "subcategory": "work-as-calling",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/4540",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Sheldon%2C%20Charles%20Monroe%2C%201857-1946"
+      ]
+    },
+    {
+      "author": "Francis de Sales",
+      "author_dates": "1567 to 1622",
+      "title": "Introduction to the Devout Life",
+      "first_published": "French, 1609 (final edition 1619)",
+      "pd_edition": "An Introduction to the Devout Life, M. H. Gill and Son, Dublin, 1885, anonymous translation 'carefully revised and compared with the latest French edition' (scan at wesleyscholar.com; HathiTrust holds 1873 to 1906 editions). Avoid Ryan (1950s onward) and Ross (1924) unless cleared.",
+      "uk_status": "clear: author died 1622; the 1885 translation is anonymous, so the term ran 70 years from publication and has expired [confirm no named translator]",
+      "us_status": "clear: 1885 edition, before 1931",
+      "angle": "8 weeks following the five parts: the call to devotion, prayer, virtues in daily life, temptations, and renewal. Written for lay people with ordinary jobs and families.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "catholic",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Francis%2C%20de%20Sales%2C%20Saint%2C%201567-1622",
+        "https://wesleyscholar.com/wp-content/uploads/2019/01/De-Sales-Introduction-to-Devout-Life-1885.pdf",
+        "https://en.wikipedia.org/wiki/Introduction_to_the_Devout_Life"
+      ]
+    },
+    {
+      "author": "William Law",
+      "author_dates": "1686 to 1761",
+      "title": "A Serious Call to a Devout and Holy Life",
+      "first_published": "1729 (William Innys)",
+      "pd_edition": "1729 Innys or a 19th-century reprint (HathiTrust); CCEL text [confirm source]. Do not reproduce the Charles Bigg introductions (1899 onward) without checking Bigg's dates.",
+      "uk_status": "clear: author died 1761",
+      "us_status": "clear: published 1729",
+      "angle": "8 weeks, three chapters a week, using Law's character sketches (Calidus, Flavia, Miranda) as prompts to audit how the reader spends time and money.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Law%2C%20William%2C%201686-1761"
+      ]
+    },
+    {
+      "author": "Jonathan Edwards",
+      "author_dates": "1703 to 1758",
+      "title": "A Treatise Concerning Religious Affections",
+      "first_published": "1746 (Boston, S. Kneeland and T. Green)",
+      "pd_edition": "1746 Boston text (Evans TCP) or 1821 Philadelphia edition (HathiTrust)",
+      "uk_status": "clear: author died 1758",
+      "us_status": "clear: published 1746",
+      "angle": "12 weeks as a study group: weeks 1 to 2 Parts I and II, then one of Edwards' twelve signs of genuine faith each week in Part III, read in short selections.",
+      "units": 12,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Edwards%2C%20Jonathan%2C%201703-1758"
+      ]
+    },
+    {
+      "author": "J. C. Ryle",
+      "author_dates": "1816 to 1900",
+      "title": "Holiness: Its Nature, Hindrances, Difficulties and Roots",
+      "first_published": "1877; enlarged 1879",
+      "pd_edition": "1879 enlarged edition (page images via HathiTrust or archive.org); HTML at anglicanlibrary.org [confirm source]. Avoid modern editions with forewords.",
+      "uk_status": "clear: author died 1900",
+      "us_status": "clear: published 1877 and 1879",
+      "angle": "8 weeks, two or three papers a week, on sin, sanctification, the fight, cost and growth.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://en.wikipedia.org/wiki/J._C._Ryle",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Ryle%2C%20J.%20C.%20%28John%20Charles%29%2C%201816-1900"
+      ]
+    },
+    {
+      "author": "J. C. Ryle",
+      "author_dates": "1816 to 1900",
+      "title": "Practical Religion",
+      "first_published": "1878",
+      "pd_edition": "Project Gutenberg eBook #38162",
+      "uk_status": "clear: author died 1900",
+      "us_status": "clear: published 1878; Gutenberg marks it public domain in the USA",
+      "angle": "8 weeks on the daily duties of the Christian life (self-inquiry, prayer, Bible reading, charity, family, money), about three papers a week. The paper on sickness needs Help now.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/38162",
+        "https://en.wikipedia.org/wiki/J._C._Ryle"
+      ]
+    },
+    {
+      "author": "George Müller",
+      "author_dates": "1805 to 1898",
+      "title": "A Narrative of Some of the Lord's Dealings with George Müller",
+      "first_published": "In parts during Müller's lifetime [confirm year of Part 1]",
+      "pd_edition": "Project Gutenberg eBooks #20379 (Part 1), #22034 (Part 2), #22148 (Part 3), #20245 (Part 4)",
+      "uk_status": "clear: author died 1898",
+      "us_status": "clear: Gutenberg marks it public domain in the USA; the parts were issued during his lifetime [confirm each part's year]",
+      "angle": "6 weeks of selected passages on prayer, trust and the Bristol orphan houses, with a weekly prayer record. Not a money workbook.",
+      "units": 6,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/20379",
+        "https://gutenberg.org/cache/epub/22034/pg22034-images.html"
+      ]
+    },
+    {
+      "author": "Julian of Norwich",
+      "author_dates": "about 1343 to after 1416",
+      "title": "Revelations of Divine Love",
+      "first_published": "Late 14th to early 15th century manuscript; Warrack edition 1901",
+      "pd_edition": "Edited by Grace Warrack (1855 to 1932), Methuen, London, 1901, Project Gutenberg eBook #52958",
+      "uk_status": "clear: Warrack died 1932, so her editorial term ended at the end of 2002",
+      "us_status": "clear: published 1901; Gutenberg marks it public domain in the USA",
+      "angle": "8 weeks, two of the sixteen showings a week, with slow reading and a short contemplative exercise.",
+      "units": 8,
+      "subcategory": "quiet-contemplation",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "general_christian",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/52958",
+        "https://gutenberg.org/cache/epub/52958/pg52958-images.html",
+        "https://en.wikipedia.org/wiki/Grace_Warrack"
+      ]
+    },
+    {
+      "author": "Henry Drummond",
+      "author_dates": "1851 to 1897",
+      "title": "The Greatest Thing in the World",
+      "first_published": "1890 (Hodder and Stoughton; J. Pott)",
+      "pd_edition": "Project Gutenberg eBook #16739 (with other addresses)",
+      "uk_status": "clear: author died 1897",
+      "us_status": "clear: published 1890; Gutenberg marks it public domain in the USA",
+      "angle": "4 weeks on 1 Corinthians 13: Drummond's nine 'ingredients' of love (patience, kindness, generosity and so on), one practised each few days.",
+      "units": 4,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/16739",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Drummond%2C%20Henry%2C%201851-1897"
+      ]
+    },
+    {
+      "author": "G. K. Chesterton",
+      "author_dates": "1874 to 1936",
+      "title": "Orthodoxy",
+      "first_published": "1908",
+      "pd_edition": "Project Gutenberg eBook #130",
+      "uk_status": "clear: author died 1936, so the UK term ended at the end of 2006",
+      "us_status": "clear: published 1908; Gutenberg marks it public domain in the USA",
+      "angle": "8 weeks as a discussion group on reasons for faith, roughly one chapter a week.",
+      "units": 8,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "general_christian",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/130",
+        "https://en.wikipedia.org/wiki/Orthodoxy_(book)",
+        "https://www.firstthings.com/article/2008/11/orthodoxy-at-a-hundred"
+      ]
+    },
+    {
+      "author": "R. A. Torrey",
+      "author_dates": "1856 to 1928",
+      "title": "How to Pray",
+      "first_published": "1900 (Fleming H. Revell)",
+      "pd_edition": "1900 Revell edition (HathiTrust); CCEL text [confirm source]",
+      "uk_status": "clear: author died 1928",
+      "us_status": "clear: published 1900",
+      "angle": "4 weeks, two chapters a week, building a simple daily prayer pattern.",
+      "units": 4,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/who/Torrey%2c%20R%2e%20A%2e%20%28Reuben%20Archer%29%2c%201856%2d1928"
+      ]
+    },
+    {
+      "author": "Evelyn Underhill",
+      "author_dates": "1875 to 1941",
+      "title": "Practical Mysticism: A Little Book for Normal People",
+      "first_published": "1914",
+      "pd_edition": "Project Gutenberg eBook #21774",
+      "uk_status": "clear: author died 1941, so the UK term ended at the end of 2011",
+      "us_status": "clear: published 1914; Gutenberg marks it public domain in the USA",
+      "angle": "6 weeks on attention, recollection and contemplation, with short guided practices. Framed as prayer, not as a wellbeing technique.",
+      "units": 6,
+      "subcategory": "quiet-contemplation",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "general_christian",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/21774",
+        "https://en.wikipedia.org/wiki/Evelyn_Underhill"
+      ]
+    },
+    {
+      "author": "George MacDonald",
+      "author_dates": "1824 to 1905",
+      "title": "Unspoken Sermons (Series I, II and III)",
+      "first_published": "Series I 1867 (A. Strahan, as Epea aptera: unspoken sermons); later series [confirm years]",
+      "pd_edition": "Project Gutenberg eBook #9057",
+      "uk_status": "clear: author died 1905",
+      "us_status": "clear: Series I 1867; Gutenberg marks the three series public domain in the USA [confirm Series II and III years]",
+      "angle": "12 weeks of selected sermons, one a week, with a close-reading guide and discussion questions.",
+      "units": 12,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/9057",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=MacDonald%2C%20George%2C%201824-1905"
+      ]
+    },
+    {
+      "author": "Ignatius of Loyola, adapted by Charles Coppens",
+      "author_dates": "Ignatius 1491 to 1556; Coppens 1835 to 1920",
+      "title": "The Spiritual Exercises of St. Ignatius, adapted to an eight days retreat",
+      "first_published": "Exercises composed about 1522 to 1524; Coppens adaptation B. Herder, 1916",
+      "pd_edition": "Coppens adaptation, B. Herder, 1916, Project Gutenberg eBook #70790",
+      "uk_status": "clear: Coppens died 1920, so his term ended at the end of 1990",
+      "us_status": "clear: published 1916; Gutenberg marks it public domain in the USA",
+      "angle": "8 days (unit: day) as a retreat at home, one day of meditations each, with a companion or group leader guide. Coppens wrote for Jesuits, so the lay framing is new Akana material.",
+      "units": 8,
+      "subcategory": "quiet-contemplation",
+      "safety_tier": "standard",
+      "group_suitable": true,
+      "tradition": "catholic",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/70790"
+      ]
+    },
+    {
+      "author": "Matthew Henry",
+      "author_dates": "1662 to 1714",
+      "title": "A Method for Prayer",
+      "first_published": "1710",
+      "pd_edition": "1710 edition (HathiTrust, Google Books) or 1834 Glasgow edition (archive.org). Do not use the 2013 modernised edition at mrmatthewhenry.com, which has new editorial work.",
+      "uk_status": "clear: author died 1714",
+      "us_status": "clear: published 1710",
+      "angle": "6 weeks following Henry's parts: adoration, confession, petition, thanksgiving, intercession and a week on putting it together, praying Scripture's own words.",
+      "units": 6,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Henry%2C%20Matthew%2C%201662-1714"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "author": "Oswald Chambers (compiled by Gertrude 'Biddy' Chambers)",
+      "author_dates": "Oswald 1874 to 1917; Biddy Chambers died 1966",
+      "title": "My Utmost for His Highest",
+      "first_published": "Self-published about 1924; Simpkin and Marshall 1927; US (Dodd, Mead) 1935",
+      "pd_edition": "none",
+      "uk_status": "not clear: the text was compiled by his widow from her own shorthand notes of his talks. Under Walter v Lane (1900) a verbatim reporter can hold copyright in the report, so her term may run to the end of 2036. Treat as in copyright [Legal Lead to rule].",
+      "us_status": "not clear: US edition 1935, copyright renewed in 1963, so protected until the end of 2030",
+      "angle": "Excluded. Approach the rights holder if wanted.",
+      "units": 0,
+      "subcategory": "rhythms-of-prayer",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://en.wikipedia.org/wiki/My_Utmost_for_His_Highest",
+        "https://en.wikipedia.org/wiki/Walter_v_Lane"
+      ]
+    },
+    {
+      "author": "A. W. Tozer",
+      "author_dates": "1897 to 1963",
+      "title": "The Pursuit of God",
+      "first_published": "1948",
+      "pd_edition": "Project Gutenberg eBook #25141 (US only)",
+      "uk_status": "not clear: author died 1963, so in copyright in the UK and EU until the end of 2033",
+      "us_status": "Gutenberg marks it public domain in the USA",
+      "angle": "Excluded. US-only title; Akana sells in the UK first. Revisit in 2034.",
+      "units": 0,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://www.gutenberg.org/ebooks/25141",
+        "https://en.wikipedia.org/wiki/A._W._Tozer"
+      ]
+    },
+    {
+      "author": "Dietrich Bonhoeffer",
+      "author_dates": "1906 to 1945",
+      "title": "The Cost of Discipleship (Nachfolge) and Life Together (Gemeinsames Leben)",
+      "first_published": "Nachfolge 1937; Gemeinsames Leben 1939; English translations 1948 (R. H. Fuller) and 1954",
+      "pd_edition": "German originals only, in the UK and EU",
+      "uk_status": "German text clear: author died 1945, so the term ended at the end of 2015. The English translations are later and in copyright. A new Akana translation would be possible.",
+      "us_status": "not clear: German texts first published 1937 and 1939, after 1930, so not public domain in the US yet [confirm the US term for foreign works]",
+      "angle": "Excluded for now. Possible UK-only new translation later.",
+      "units": 0,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Dietrich_Bonhoeffer",
+        "https://en.wikipedia.org/wiki/The_Cost_of_Discipleship"
+      ]
+    },
+    {
+      "author": "Amy Carmichael",
+      "author_dates": "1867 to 1951",
+      "title": "If (and later devotional books)",
+      "first_published": "If 1938; Gold by Moonlight 1935; Edges of His Ways 1955",
+      "pd_edition": "none for the devotional books in the US",
+      "uk_status": "clear: author died 1951, so the UK term ended at the end of 2021",
+      "us_status": "not clear: these were published after 1930; renewal not checked. Her pre-1931 books (Things as They Are 1903, Lotus Buds 1909, Made in the Pans 1918) are clear in the US but are mission narratives and verse, not devotional workbooks.",
+      "angle": "Excluded for now. UK-only option for If; check US renewal.",
+      "units": 0,
+      "subcategory": "growing-in-faith",
+      "safety_tier": "none",
+      "group_suitable": true,
+      "tradition": "protestant",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Amy_Carmichael",
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Carmichael%2C%20Amy%2C%201867-1951"
+      ]
+    }
+  ]
+}
