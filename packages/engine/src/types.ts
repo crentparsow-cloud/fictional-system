@@ -1,4 +1,17 @@
 import type { Field, FieldType } from "@akana/schema";
+import {
+  coerceMatrix,
+  coerceTable,
+  defaultMatrix,
+  defaultTable,
+  matrixAnswered,
+  tableAnswered,
+  type DecisionMatrixValue,
+  type NumberValue,
+  type TableValue,
+} from "./values";
+
+export type { DecisionMatrixValue, NumberValue, TableCell, TableValue } from "./values";
 
 /**
  * Answer shapes, one per field type. These mirror what the legacy engine kept
@@ -18,7 +31,7 @@ export type RatingGridValue = (number | null)[];
  * With rows: seven days, each a list of ratings per row (1 to 5 or null).
  */
 export type WeeklyGridValue = boolean[] | (number | null)[][];
-/** Week 3 field types carry no answer yet. */
+/** Kept for callers that named it. No field type is pending since F-113. */
 export type PendingValue = null;
 
 export type FieldValue =
@@ -30,6 +43,9 @@ export type FieldValue =
   | TwoColumnValue
   | RatingGridValue
   | WeeklyGridValue
+  | NumberValue
+  | TableValue
+  | DecisionMatrixValue
   | PendingValue;
 
 export type FieldValueOf<T extends FieldType> = T extends "short_text" | "long_text" | "time_of_day"
@@ -48,11 +64,21 @@ export type FieldValueOf<T extends FieldType> = T extends "short_text" | "long_t
               ? RatingGridValue
               : T extends "weekly_grid"
                 ? WeeklyGridValue
-                : PendingValue;
+                : T extends "number" | "currency"
+                  ? NumberValue
+                  : T extends "table"
+                    ? TableValue
+                    : T extends "decision_matrix"
+                      ? DecisionMatrixValue
+                      : PendingValue;
 
-/** The four v3 field types whose renderers arrive in week 3. */
-export const PENDING_FIELD_TYPES = ["number", "currency", "table", "decision_matrix"] as const satisfies readonly FieldType[];
-export type PendingFieldType = (typeof PENDING_FIELD_TYPES)[number];
+/**
+ * Field types that render as a labelled placeholder. Empty since F-113 gave
+ * number, currency, table and decision_matrix their renderers. Kept so the
+ * harness keeps a slot for any future declared-but-unbuilt type.
+ */
+export const PENDING_FIELD_TYPES: readonly FieldType[] = [];
+export type PendingFieldType = FieldType;
 
 export function isPendingFieldType(type: string): type is PendingFieldType {
   return (PENDING_FIELD_TYPES as readonly string[]).includes(type);
@@ -124,9 +150,11 @@ export function defaultValue(field: Field): FieldValue {
         : Array.from({ length: 7 }, () => false);
     case "number":
     case "currency":
-    case "table":
-    case "decision_matrix":
       return null;
+    case "table":
+      return defaultTable(field);
+    case "decision_matrix":
+      return defaultMatrix(field);
     default:
       return null;
   }
@@ -183,6 +211,13 @@ export function coerceValue(field: Field, stored: FieldValue | undefined): Field
       if (!stored.every((x) => typeof x === "boolean")) return fallback;
       return Array.from({ length: 7 }, (_, d) => (stored as boolean[])[d] ?? false);
     }
+    case "number":
+    case "currency":
+      return typeof stored === "number" && Number.isFinite(stored) ? stored : null;
+    case "table":
+      return coerceTable(field, stored);
+    case "decision_matrix":
+      return coerceMatrix(field, stored);
     default:
       return null;
   }
@@ -216,8 +251,14 @@ export function isAnswered(field: Field, stored: FieldValue | undefined): boolea
     case "weekly_grid":
       if (field.rows) return (v as (number | null)[][]).some((d) => d.some((x) => x !== null));
       return (v as boolean[]).some(Boolean);
+    case "number":
+    case "currency":
+      return v !== null;
+    case "table":
+      return tableAnswered(field, v as TableValue);
+    case "decision_matrix":
+      return matrixAnswered(field, v as DecisionMatrixValue);
     default:
-      // Week 3 types cannot be answered yet, so they never block a screen.
       return true;
   }
 }
