@@ -173,3 +173,18 @@ Dorothea Brande's Becoming a Writer was dropped. It is clear in the UK, because 
 - Pause Before You Click needs current reporting routes for each market at build time.
 - Chapter and letter groupings in the classic outlines were set from the contents as recalled and checked only where noted. Confirm them against each file before writing.
 - The new area `writing-and-making` and the six new Themes follow docs/research/categories.md. None has had a register search.
+
+## Title checks, 7 October
+
+Exact-phrase web searches for the demo titles that were pending, not searched or inconclusive. One search per title, two where the first was inconclusive. Each result is recorded under `title_check` in `learning-creativity.json`.
+
+| Title | Result | Notes |
+| --- | --- | --- |
+| One Learner at a Time | close: One Kid at a Time, Eliot Levine, year not shown | Also nearby: 'Improving Student Learning One Teacher at a Time' (ASCD). A Gale ebook record (ISBN 9781416629702) showed no title; the second search did not find the exact title. |
+| Twenty Minutes at the Table | clear | Results were cookbooks such as 'Twenty-Minute Menus' (Marian Burros). |
+| The Short Story Season | clear | Nearest: 'The Haunting Season' (anthology) and 'Season of Stories' (Penguin serial). |
+| Stories Told Out Loud | clear | Nearest: 'Tales for Telling' and read-aloud anthologies. |
+| Before the Names Are Lost | close: The Book of Lost Names, author and year not shown | Also nearby: 'The Names of the Lost' (Liza Wieland). Both are novels. |
+| Letters to Open Later | clash: Letters to Open When... (Chronicle Books letter-writing book) | Same idea and near-identical title. First search also showed an unlabelled Deseret Book record. Proposed replacement: 'Letters Left in the Drawer' (searched once, clear). |
+| Something Made Each Week | clear | Nearest: 'The 52 Week Project' and 'Weekend Handmade' (Kelly Wilkinson). |
+| The Walk With a Camera | clear | Nearest: 'Walking with Leica' and 'The Walk Book' (Janet Cardiff). |
