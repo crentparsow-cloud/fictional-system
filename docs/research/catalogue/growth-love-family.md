@@ -275,3 +275,28 @@ Each classic meets Research 4's Tier A test: published before 1931, and every au
 - https://www.gutenberg.org/ebooks/2944
 - https://www.gutenberg.org/ebooks/45109
 - https://www.gutenberg.org/ebooks/64576
+
+## Title checks, 7 October
+
+Exact-phrase web searches for the demo titles that were pending, not searched or inconclusive. One search per title, two where the first was inconclusive. Each result is recorded under `title_check` in `growth-love-family.json`.
+
+| Title | Result | Notes |
+| --- | --- | --- |
+| Saying It Once, Clearly | clear | Nearest: 'Say It Right the First Time' and 'It's the Way You Say It'. |
+| A Polite No | close: The Power of a Polite No, audiobook, author and year not shown |  |
+| The Kitchen-Table Decision | clear | Nearest: 'The Kitchen Table Book' and 'The Decision Book' (Krogerus). |
+| Three Goals on the Fridge | clear | Only a blog post titled 'Three goals on my fridge'; no book. |
+| Letters to the Next Ten Years | clear | Nearest: 'Letters to the Next President' and student 'letters to the future' archives. |
+| The Small Legacy | clear | Nearest: 'The Small Family Legacy' (family history, author John, surname not shown). |
+| Starting Over in a Smaller Flat | clear | Nearest: many books titled 'Starting Over'. |
+| Coffee, Not Fireworks | clear | Results were unrelated coffeehouse mysteries. |
+| Telling the People Who Matter | clear | Nearest: 'Mattering' (Jennifer Breheny Wallace). |
+| The First Year, Written Down | clear | Nearest: 'What to Expect the First Year' (Heidi Murkoff) and baby books titled 'The First Year'. |
+| The Monday After Leave | clear | Results were unrelated 'Monday' and 'Leave' titles. |
+| Shoulder to Shoulder at Home | close: Shoulder to Shoulder, Men's Sheds book, author and year not shown |  |
+| Making Room for Everyone | close: Room for Everyone, Naaz Khan, year not shown | Also nearby: 'A Home for Eli: Making Space for Everyone' (pre-order listing). |
+| When the Grandchildren Came to Stay | close: When Granny Came to Stay, Alice Pung, year not shown | Children's picture book; different audience. |
+| The Grandparent Days | clear | Nearest: 'The Grandparent Book' (Amy Krouse Rosenthal) and 'Grandpa Day'. |
+| Keeping Track of Dad's Care | clear | Nearest: 'A Comprehensive Guide to Navigating Mom and Dad's Care'. |
+| An Afternoon to Yourself | clear | Nearest: 'One Minute for Yourself' and 'The Fringe Hours'. |
+| Visits With My Mother | close: Visits with Mom: A Journey Through Time and Beyond, Lori Szepelak, year not shown | Also nearby: 'Last Visit to My Mother'. |
