@@ -456,8 +456,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Saying It Once, Clearly\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'Say It Right the First Time' and 'It's the Way You Say It'."
    }
   },
   {
@@ -500,8 +500,7 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"A Polite No\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "close: The Power of a Polite No, audiobook, author and year not shown"
    },
    "notes": "Card and outline avoid clinical words such as people pleasing or anxiety. If a reader is not safe to say no at home, the signpost applies."
   },
@@ -612,8 +611,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Kitchen-Table Decision\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'The Kitchen Table Book' and 'The Decision Book' (Krogerus)."
    }
   },
   {
@@ -656,8 +655,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Three Goals on the Fridge\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Only a blog post titled 'Three goals on my fridge'; no book."
    }
   },
   {
@@ -773,8 +772,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Letters to the Next Ten Years\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'Letters to the Next President' and student 'letters to the future' archives."
    }
   },
   {
@@ -819,8 +818,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Small Legacy\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'The Small Family Legacy' (family history, author John, surname not shown)."
    },
    "notes": "No wills, money or end-of-life planning. If a reader raises those, the workbook points them to a solicitor or advice service."
   },
@@ -1070,8 +1069,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Starting Over in a Smaller Flat\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: many books titled 'Starting Over'."
    },
    "notes": "Help now on every screen. Week 1 says that separation can be a risky time and shows the domestic abuse lines by market. No legal steps are explained; the workbook names advice services only."
   },
@@ -1117,8 +1116,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Coffee, Not Fireworks\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Results were unrelated coffeehouse mysteries."
    },
    "notes": "No sex content. Week 2 covers meeting safely. Help now on every screen."
   },
@@ -1162,8 +1161,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Telling the People Who Matter\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'Mattering' (Jennifer Breheny Wallace)."
    },
    "notes": "Reuses Clodagh Ní Fhaoláin-Burke (AU-PVT1E), a community mediator in her demo bio. The bio is not a professional licence and the workbook does not offer mediation. Talking to children points to family support lines."
   },
@@ -1215,8 +1214,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The First Year, Written Down\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'What to Expect the First Year' (Heidi Murkoff) and baby books titled 'The First Year'."
    },
    "notes": "No feeding, sleep or development advice; health questions go to a health visitor, midwife or doctor. Help now on every screen covers low mood after birth. Week 8 asks how the parent is and shows the support lines."
   },
@@ -1260,8 +1259,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Monday After Leave\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Results were unrelated 'Monday' and 'Leave' titles."
    },
    "notes": "Employment rights differ by country; the workbook points to official guidance and does not explain them."
   },
@@ -1307,8 +1306,7 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Shoulder to Shoulder at Home\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "close: Shoulder to Shoulder, Men's Sheds book, author and year not shown"
    },
    "notes": "Written for any second parent. Help now on every screen; low mood in fathers is named only in the support lines, not in titles."
   },
@@ -1356,8 +1354,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Making Room for Everyone\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "close: Room for Everyone, Naaz Khan, year not shown",
+    "note": "Also nearby: 'A Home for Eli: Making Space for Everyone' (pre-order listing)."
    },
    "notes": "Reuses Sofia Hedlund-Ahl (AU-ARMK7), a family support worker in her demo bio. Week 6 notes that contact arrangements are a legal matter in some cases and points to advice services."
   },
@@ -1403,8 +1401,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"When the Grandchildren Came to Stay\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "close: When Granny Came to Stay, Alice Pung, year not shown",
+    "note": "Children's picture book; different audience."
    },
    "notes": "Kinship care often follows hard events. The workbook does not ask about the reasons, keeps safeguarding to the support lines and gives no legal or benefits advice."
   },
@@ -1448,8 +1446,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"The Grandparent Days\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'The Grandparent Book' (Amy Krouse Rosenthal) and 'Grandpa Day'."
    }
   },
   {
@@ -1500,8 +1498,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Keeping Track of Dad's Care\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'A Comprehensive Guide to Navigating Mom and Dad's Care'."
    },
    "notes": "Power of attorney, benefits and care funding differ by country; the workbook names them and points to official services only. Help now on every screen."
   },
@@ -1545,8 +1543,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"An Afternoon to Yourself\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "clear",
+    "note": "Nearest: 'One Minute for Yourself' and 'The Fringe Hours'."
    }
   },
   {
@@ -1591,8 +1589,8 @@
    "title_check": {
     "date": "2026-10-07",
     "query": "\"Visits With My Mother\" book",
-    "tool": "WebSearch",
-    "result": "Not run. The shared web search limit for this session was reached before title checks. Run an exact-phrase search before use [check]."
+    "result": "close: Visits with Mom: A Journey Through Time and Beyond, Lori Szepelak, year not shown",
+    "note": "Also nearby: 'Last Visit to My Mother'."
    },
    "notes": "No medical content about dementia; changes in health go to the doctor or care team. Help now on every screen."
   }
@@ -1718,7 +1716,8 @@
   },
   {
    "subcategory": "caring-hands",
-   "existing_ids": [],
+   "existing_ids": [
+    ],
    "new_ids": [
     "keeping-track-of-dads-care",
     "an-afternoon-to-yourself",
