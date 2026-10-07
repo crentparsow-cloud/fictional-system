@@ -41,12 +41,13 @@ insert into public.workbook_sections (version_id, kind, unit_number, body, free)
   ('dddddddd-0000-0000-0000-0000000000d6', 'unit',    3,    '{"number": 3}'::jsonb, false),
   ('dddddddd-0000-0000-0000-0000000000d6', 'toolkit', null, '{"cards": []}'::jsonb, false);
 
--- The ladder is seeded with empty amounts and nothing active (D1 to D4 open).
+-- The workbook ladder is seeded with empty amounts and nothing active (D1 to
+-- D4 open). The two membership points carry interim figures from 0010.
 do $$ declare n int; begin
   select count(*) into n from public.price_points;
   if n <> 8 then raise exception 'expected 8 price points, saw %', n; end if;
-  select count(*) into n from public.price_points where amounts <> '{}'::jsonb or active;
-  if n <> 0 then raise exception 'a price point has figures or is active before Crent set them'; end if;
+  select count(*) into n from public.price_points where kind = 'workbook' and (amounts <> '{}'::jsonb or active);
+  if n <> 0 then raise exception 'a workbook price point has figures or is active before Crent set them'; end if;
   begin
     update public.price_points set active = true where id = 'p1';
     raise exception 'a price point went active with no amounts';
