@@ -22,6 +22,12 @@ export type AuthorProps = {
   payout_action_needed: AuthorBase & { actionUrl: string; what: string };
   statement_ready: AuthorBase & { period: string; statementUrl: string };
   /**
+   * Security notice to an organisation's owners and finance contacts when
+   * payout details change (F-143): the payout bank account in Stripe, or
+   * the tax residence and treaty declaration. Names no workbook.
+   */
+  payout_details_changed: Omit<AuthorBase, "workbookTitle"> & { organisationName: string; what: string; changedAt: string; payoutsUrl: string };
+  /**
    * To the Akana team when someone sends the enquiry form on /publish (F-001).
    * studioUrl is where staff open leads. The subject is fixed: it never carries
    * the book title, the sender's name or their message.
@@ -39,6 +45,16 @@ export type AuthorProps = {
     interest?: string;
     message?: string;
   };
+  /**
+   * To the Akana reviewer a version was assigned to (F-084). Names the AK
+   * code only, never the title. studioUrl is the review page.
+   */
+  review_assigned: Omit<AuthorBase, "workbookTitle"> & { code: string; assignedBy?: string };
+  /**
+   * To the Akana operator when an operational alert opens (F-142). Carries
+   * the kind, the route and a short code only. studioUrl is /admin/ops.
+   */
+  ops_alert: Omit<AuthorBase, "workbookTitle"> & { kind: string; source: string; code?: string; at: string };
 };
 export type AuthorTemplateName = keyof AuthorProps;
 
@@ -156,6 +172,23 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
     footer: "author",
   }),
 
+  payout_details_changed: (x) => ({
+    subject: "Your payout details changed",
+    preheader: "A security notice about where your earnings are paid.",
+    hero: "author",
+    eyebrow: "Security notice",
+    headline: "Your payout details changed",
+    greeting: hi(x.name),
+    paragraphs: [`The payout details for ${x.organisationName} changed on ${x.changedAt}.`],
+    panels: [{ title: "What changed", lines: [x.what], tone: "tint" }],
+    after: [
+      "If this was you or your team, there is nothing more to do.",
+      `If you do not recognise it, contact ${x.supportEmail || "Akana support"} straight away. We will hold payouts while we check.`,
+    ],
+    buttons: [{ label: "Check your payouts", url: x.payoutsUrl }],
+    footer: "author",
+  }),
+
   lead_received: (x) => ({
     subject: LEAD_SUBJECT,
     preheader: "Someone has sent the Publish with Akana form.",
@@ -170,6 +203,45 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
     ],
     after: ["Reply from the team inbox, not a personal address. Do not add them to any mailing list."],
     buttons: [{ label: "Open leads", url: x.studioUrl }],
+    footer: "author",
+  }),
+
+  review_assigned: (x) => ({
+    subject: "A workbook is ready for your review",
+    preheader: `${x.code} is in your review queue.`,
+    hero: "author",
+    eyebrow: "Review",
+    headline: "A workbook is waiting for you",
+    greeting: hi(x.name),
+    paragraphs: [
+      x.assignedBy ? `${x.assignedBy} has asked you to review ${x.code}.` : `You have been asked to review ${x.code}.`,
+      "The validator results and the sign-offs it still needs are on the review page.",
+    ],
+    buttons: [{ label: "Open the review", url: x.studioUrl }],
+    footer: "author",
+  }),
+
+  ops_alert: (x) => ({
+    subject: "Akana alert: something needs a look",
+    preheader: `${x.kind} on ${x.source}.`,
+    hero: "author",
+    eyebrow: "Alert",
+    headline: x.kind,
+    greeting: "Hello,",
+    paragraphs: ["An operational alert has opened. Further failures of the same kind are counted on the alert, with no more email until it is acknowledged."],
+    panels: [
+      {
+        title: "The alert",
+        rows: [
+          ["What", x.kind],
+          ["Where", x.source],
+          ...(x.code ? ([["Code", x.code]] as [string, string][]) : []),
+          ["When", x.at],
+        ],
+        tone: "tint",
+      },
+    ],
+    buttons: [{ label: "Open alerts", url: x.studioUrl }],
     footer: "author",
   }),
 };

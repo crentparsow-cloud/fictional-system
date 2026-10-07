@@ -326,3 +326,13 @@ Patient Investing sits in a new area, Long-Term Money (`long-term-money`), as pr
 - https://en.wikipedia.org/wiki/George_Samuel_Clason
 - https://www.citizensinformationboard.ie/en/services/mabs/ (MABS)
 - https://www.stepchange.org/debt-info/free-and-face-to-face-debt-advice/national-debtline.aspx
+
+## Title checks, 7 October
+
+Exact-phrase web searches for the demo titles that were pending, not searched or inconclusive. One search per title, two where the first was inconclusive. Each result is recorded under `title_check` in `work-money.json`.
+
+| Title | Result | Notes |
+| --- | --- | --- |
+| Five Minutes at the Front of the Room | close: Training from the Back of the Room!, Bowman, year not shown | Also nearby: 'Standing at the Front of the Room' (teacher education) and 'The 5-Minute Teacher'. |
+| Meetings Where Everyone Speaks | close: Everybody Speaks, 1940s public speaking book, author not shown | Also nearby: a Goodreads blog post 'Better Meetings: How to Give Everyone a Chance to Speak and Be Heard'. |
+| The Long View on Saving | close: The Long View, Richard Fisher, year not shown |  |
