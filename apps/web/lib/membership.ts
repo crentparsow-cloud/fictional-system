@@ -53,7 +53,7 @@ export function membershipPlansOpen(env: Env = process.env): Record<MembershipPl
 /** The line shown on Stripe's page above the pay button: the auto-renewal consent (F-097). */
 export function autoRenewNotice(plan: MembershipPlan): string {
   const period = plan === "monthly" ? "month" : "year";
-  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time in your account. You keep access until the end of the period you have paid for.`;
+  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time on the You page, under Manage membership. You keep access until the end of the period you have paid for.`;
 }
 
 export interface MembershipCheckoutInput {

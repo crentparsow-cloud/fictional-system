@@ -1,12 +1,13 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
-import { createMailer } from "@akana/emails";
+import { sendMembershipNotice } from "@/lib/membership-email";
+import { cancelInCoolingOff } from "@/lib/membership-refund";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
   handleStripeEvent,
   type GrantDetails,
+  type MembershipNotice,
   type MembershipRepo,
-  type PaymentFailedNotice,
   type PurchaseRef,
   type PurchaseRepo,
 } from "@/lib/stripe-webhook";
@@ -31,7 +32,15 @@ import { createAdminClient } from "@/lib/supabase/admin";
  * the membership entitlement in step; invoice.paid and
  * invoice.payment_failed record the invoice through
  * app.record_subscription_invoice. A failed renewal sends the payment_failed
- * email, best effort, with no title in it (F-098).
+ * email, best effort, with no title in it (F-098). invoice.upcoming for an
+ * annual membership sends the renewal_notice reminder (DMCC subscription
+ * regime), once per subscription and renewal date: the dedupe key is claimed
+ * in public.email_claims (migration 0010) before the send.
+ *
+ * A portal cancel within 14 days of the membership starting ends it now and
+ * refunds the unused days pro rata (refund policy section 2,
+ * lib/membership-refund.ts). A Stripe error there is a 500, so Stripe
+ * retries; the refund is guarded once per invoice.
  *
  * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
@@ -60,7 +69,7 @@ export async function POST(request: NextRequest) {
     const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin));
     const { notify, ...logged } = outcome;
     console.info("stripe webhook", logged);
-    if (notify) await sendPaymentFailed(notify, siteOrigin(request));
+    if (notify) await sendNotice(admin, notify, siteOrigin(request));
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
@@ -156,19 +165,32 @@ function membershipRepo(admin: Admin): MembershipRepo {
         return null;
       }
     },
+    async cancelInCoolingOff(id, requestedAt) {
+      return cancelInCoolingOff(getStripe(), id, { now: new Date(), requestedAt });
+    },
+    async customerEmail(id) {
+      try {
+        const c = await getStripe().customers.retrieve(id);
+        return "deleted" in c && c.deleted ? null : (c.email ?? null);
+      } catch {
+        return null;
+      }
+    },
   };
 }
 
 /**
- * The failed-payment email (F-097). Best effort: a send failure is logged and
- * never turns into a webhook retry. The template carries the amount and the
- * account link only, never a title (F-098). Without RESEND_API_KEY the
- * mailer records the send in its dev transport and nothing leaves.
+ * The membership emails (F-097): payment_failed and renewal_notice. Best
+ * effort: a send failure is logged and never turns into a webhook retry.
+ * The templates carry the amount and the account link only, never a title
+ * (F-098). The dedupe key is claimed in public.email_claims before the send
+ * and released if it fails. Without RESEND_API_KEY the mailer records the
+ * send in its dev transport and nothing leaves.
  */
-async function sendPaymentFailed(n: PaymentFailedNotice, origin: string): Promise<void> {
+async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Promise<void> {
   try {
     const env = process.env;
-    const mailer = createMailer({
+    await sendMembershipNotice(n, origin, {
       env: {
         RESEND_API_KEY: env.RESEND_API_KEY,
         EMAIL_FROM: env.EMAIL_FROM,
@@ -177,25 +199,19 @@ async function sendPaymentFailed(n: PaymentFailedNotice, origin: string): Promis
         EMAIL_MODE: env.EMAIL_MODE,
         TEST_RECIPIENT: env.TEST_RECIPIENT,
       },
-      isSuppressed: () => false,
+      async claim(key) {
+        const { data, error } = await admin.rpc("claim_email", { p_key: key });
+        if (error) throw new Error(`claim_email failed: ${error.code ?? error.message}`);
+        return data === true;
+      },
+      async release(key) {
+        const { error } = await admin.rpc("release_email", { p_key: key });
+        if (error) console.error("membership_email_release_failed", { code: error.code ?? "unknown" });
+      },
       log: (e) => console.info("membership_email", e.template, e.status, e.reason ?? ""),
     });
-    const price = n.amountMinor !== null && n.currency ? formatMinor(n.amountMinor, n.currency) : undefined;
-    await mailer.sendReader(
-      "payment_failed",
-      { appUrl: origin, settingsUrl: `${origin}/you#membership`, supportEmail: env.EMAIL_REPLY_TO ?? "", price },
-      { to: n.to, dedupeKey: `payment_failed:${n.invoiceId}` },
-    );
   } catch (err) {
-    console.error("membership_email_failed", { reason: err instanceof Error ? err.name : "unknown" });
-  }
-}
-
-function formatMinor(minor: number, currency: string): string | undefined {
-  try {
-    return new Intl.NumberFormat("en-GB", { style: "currency", currency }).format(minor / 100);
-  } catch {
-    return undefined;
+    console.error("membership_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
   }
 }
 

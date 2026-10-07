@@ -1,5 +1,7 @@
 import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
+import { inCoolingOff, type CoolingOffCancelResult } from "@/lib/membership-refund";
+import type { MembershipPricePointId } from "@/lib/pricing";
 
 /**
  * What the Stripe webhook does with an event, as a pure function over a
@@ -25,6 +27,26 @@ import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership"
  * repeated or late event changes nothing. Invoices are recorded by id with
  * amounts only. A failed renewal asks the route to send the payment_failed
  * email, which never names a title (F-098).
+ *
+ * Renewal reminders (UK DMCC Act subscription regime, expected January
+ * 2027): invoice.upcoming for an annual membership asks the route to send
+ * renewal_notice, with the renewal date, the amount and how to cancel, and
+ * never a title. Each reminder carries a dedupe key made of the subscription
+ * id and the renewal date. The route's mailer claims that key in
+ * public.email_claims (migration 0010) before it sends, so a repeated or
+ * replayed event sends nothing new, and releases it if the send fails so a
+ * retry can go out. Monthly memberships get no reminder yet (see the TODO
+ * in the invoice.upcoming branch).
+ *
+ * Cooling-off cancel (docs/legal/refund-policy.md section 2): when
+ * customer.subscription.updated shows a member asked to cancel (through the
+ * portal: cancel_at_period_end turned true, or a cancel_at set) within 14
+ * days of the membership starting, the repo ends the subscription now and
+ * refunds the unused days pro rata, once per invoice
+ * (lib/membership-refund.ts, shared with the deletion job). After 14 days
+ * nothing extra happens: it simply stops renewing. A Stripe error throws, so
+ * the route answers 500 and Stripe retries; the retry reads the
+ * subscription fresh, so nothing is refunded or cancelled twice.
  */
 
 export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
@@ -68,6 +90,10 @@ export type WebhookAction =
   | "invoice_recorded"
   | "invoice_unchanged"
   | "invoice_unlinked"
+  | "renewal_reminder"
+  | "renewal_reminder_not_needed"
+  | "renewal_reminder_no_address"
+  | "cooling_off_cancelled"
   | "ignored";
 
 export type SubscriptionUpsertResult = "applied" | "unchanged" | "stale" | "unlinked";
@@ -98,6 +124,14 @@ export interface MembershipRepo {
    * Optional: without it the event's own copy is used, dated by event.created.
    */
   retrieveSubscription?(subscriptionId: string): Promise<Stripe.Subscription | null>;
+  /** The customer's email from Stripe, for an upcoming invoice that does not carry one. Optional. */
+  customerEmail?(customerId: string): Promise<string | null>;
+  /**
+   * End a membership now and refund the unused days, for a cancel asked
+   * within 14 days of the start (lib/membership-refund.ts). Optional: without
+   * it a portal cancel only stops the renewal. Throws on a Stripe error.
+   */
+  cancelInCoolingOff?(subscriptionId: string, requestedAt: Date): Promise<CoolingOffCancelResult>;
 }
 
 /** An email the route should send. Never carries a title; the template has no title prop (F-098). */
@@ -107,7 +141,24 @@ export interface PaymentFailedNotice {
   invoiceId: string;
   amountMinor: number | null;
   currency: string | null;
+  /** One email per failed invoice. */
+  dedupeKey: string;
 }
+
+/** The reminder before an annual renewal. Never carries a title. */
+export interface RenewalNotice {
+  template: "renewal_notice";
+  to: string;
+  subscriptionId: string;
+  /** ISO timestamp of the renewal. */
+  renewsAt: string;
+  amountMinor: number | null;
+  currency: string | null;
+  /** One reminder per subscription and renewal date: renewal_notice:<sub id>:<yyyy-mm-dd>. */
+  dedupeKey: string;
+}
+
+export type MembershipNotice = PaymentFailedNotice | RenewalNotice;
 
 export interface WebhookOutcome {
   eventId: string;
@@ -117,7 +168,7 @@ export interface WebhookOutcome {
   /** Set for subscription and invoice events. */
   subscriptionId?: string | null;
   /** Set when the route should send an email. */
-  notify?: PaymentFailedNotice;
+  notify?: MembershipNotice;
 }
 
 export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo, membership?: MembershipRepo): Promise<WebhookOutcome> {
@@ -169,8 +220,13 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
     case "customer.subscription.deleted": {
       if (!membership) return { ...base, action: "ignored", purchaseId: null };
       const sub = event.data.object;
-      const result = await upsertFresh(sub.id, sub, event, membership);
-      return { ...base, action: result ? `subscription_${result}` : "ignored", purchaseId: null, subscriptionId: sub.id };
+      const fresh = await upsertFresh(sub.id, sub, event, membership);
+      if (event.type === "customer.subscription.updated" && fresh && membership.cancelInCoolingOff && cancelRequestedInCoolingOff(fresh.sub, event)) {
+        const requestedAt = new Date((fresh.sub.canceled_at ?? event.created) * 1000);
+        const done = await membership.cancelInCoolingOff(sub.id, requestedAt);
+        if (done.status === "cancelled") return { ...base, action: "cooling_off_cancelled", purchaseId: null, subscriptionId: sub.id };
+      }
+      return { ...base, action: fresh ? `subscription_${fresh.result}` : "ignored", purchaseId: null, subscriptionId: sub.id };
     }
 
     case "invoice.paid":
@@ -204,14 +260,99 @@ export async function handleStripeEvent(event: Stripe.Event, repo: PurchaseRepo,
           invoiceId: invoice.id,
           amountMinor: invoice.amount_due ?? null,
           currency: invoice.currency ? invoice.currency.toUpperCase() : null,
+          dedupeKey: `payment_failed:${invoice.id}`,
         };
       }
       return outcome;
     }
 
+    case "invoice.upcoming": {
+      if (!membership) return { ...base, action: "ignored", purchaseId: null };
+      const invoice = event.data.object;
+      const subscriptionId = invoiceSubscriptionId(invoice);
+      if (!subscriptionId) return { ...base, action: "ignored", purchaseId: null };
+      const fresh = await upsertFresh(subscriptionId, null, event, membership);
+      const state = fresh?.state ?? null;
+      const outcome = { ...base, purchaseId: null, subscriptionId };
+
+      const plan = state?.plan ?? planFromInvoiceLines(invoice);
+      if (plan !== "member_year") {
+        // TODO(follow-up, DMCC subscription regime): monthly memberships need
+        // a reminder too, but at most once every six months, not before each
+        // renewal. Build a six-monthly reminder for monthly plans (for
+        // example a scheduled job over public.subscriptions keyed on the
+        // subscription id and the six-month window) before the regime starts.
+        return { ...outcome, action: "renewal_reminder_not_needed" };
+      }
+      // Nothing will renew: the reader has already cancelled, or the
+      // subscription is not in good standing.
+      if (state && (state.cancelAtPeriodEnd || !(state.status === "active" || state.status === "trialing"))) {
+        return { ...outcome, action: "renewal_reminder_not_needed" };
+      }
+      const renewsAt = renewalDateOf(invoice, state);
+      if (!renewsAt) return { ...outcome, action: "ignored" };
+
+      const customerId = idOf(invoice.customer as string | { id: string } | null);
+      let to = invoice.customer_email ?? null;
+      if (!to && customerId && membership.customerEmail) to = await membership.customerEmail(customerId);
+      if (!to) return { ...outcome, action: "renewal_reminder_no_address" };
+
+      return {
+        ...outcome,
+        action: "renewal_reminder",
+        notify: {
+          template: "renewal_notice",
+          to,
+          subscriptionId,
+          renewsAt,
+          amountMinor: typeof invoice.amount_due === "number" ? invoice.amount_due : null,
+          currency: invoice.currency ? invoice.currency.toUpperCase() : null,
+          dedupeKey: renewalDedupeKey(subscriptionId, renewsAt),
+        },
+      };
+    }
+
     default:
       return { ...base, action: "ignored", purchaseId: null };
   }
+}
+
+/**
+ * True when a live subscription carries a cancel request made within 14
+ * days of the membership starting. The request time is canceled_at, which
+ * Stripe sets when the cancel is asked for, else the event's own time.
+ */
+export function cancelRequestedInCoolingOff(sub: Stripe.Subscription, event: Pick<Stripe.Event, "created">): boolean {
+  if (sub.status !== "active" && sub.status !== "trialing") return false;
+  if (!sub.cancel_at_period_end && !sub.cancel_at) return false;
+  if (typeof sub.start_date !== "number") return false;
+  return inCoolingOff(new Date(sub.start_date * 1000), new Date((sub.canceled_at ?? event.created) * 1000));
+}
+
+/** The dedupe key for one renewal reminder: the subscription and the renewal day (UTC). */
+export function renewalDedupeKey(subscriptionId: string, renewsAt: string): string {
+  return `renewal_notice:${subscriptionId}:${renewsAt.slice(0, 10)}`;
+}
+
+/**
+ * When the upcoming invoice renews the membership. The subscription's
+ * current period end is the renewal; without it, the start of the first
+ * line's period, then Stripe's next payment attempt.
+ */
+function renewalDateOf(invoice: Stripe.Invoice, state: SubscriptionState | null): string | null {
+  if (state?.currentPeriodEnd) return state.currentPeriodEnd;
+  const line = invoice.lines?.data?.find((l) => l.period?.start);
+  return isoOf(line?.period?.start) ?? isoOf(invoice.next_payment_attempt);
+}
+
+/** The plan from the length of the first line's period, when the subscription could not be read. */
+function planFromInvoiceLines(invoice: Stripe.Invoice): MembershipPricePointId | null {
+  const period = invoice.lines?.data?.find((l) => l.period?.start && l.period?.end)?.period;
+  if (!period) return null;
+  const days = (period.end - period.start) / 86_400;
+  if (days >= 300) return "member_year";
+  if (days >= 25 && days <= 35) return "member_month";
+  return null;
 }
 
 /**
@@ -224,7 +365,7 @@ async function upsertFresh(
   event: Stripe.Event,
   membership: MembershipRepo,
   fallbackMeta?: { user_id?: string | null; tenant_id?: string | null } | null,
-): Promise<SubscriptionUpsertResult | null> {
+): Promise<{ result: SubscriptionUpsertResult; state: SubscriptionState; sub: Stripe.Subscription } | null> {
   let sub: Stripe.Subscription | null = null;
   let observedAt = new Date(event.created * 1000);
   if (membership.retrieveSubscription) {
@@ -238,7 +379,7 @@ async function upsertFresh(
   if (!sub) return null;
   const state = subscriptionStateFrom(sub, observedAt, fallbackMeta);
   if (!state) return null;
-  return membership.upsertSubscription(state);
+  return { result: await membership.upsertSubscription(state), state, sub };
 }
 
 async function settleMembershipCheckout(session: Stripe.Checkout.Session, event: Stripe.Event, membership: MembershipRepo): Promise<void> {
