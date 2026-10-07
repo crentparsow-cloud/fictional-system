@@ -426,3 +426,70 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - Decide whether daily ratings and self-check answers should be kept sealed, as the old app did. This is now built.
 - Decide the order of the new shelves.
 - Choose `OPS_ALERT_TO`.
+
+## Day 6 night: build block while Crent was away
+
+**Asked by Crent:**
+- Apply 0013 to 0018 to production (done) and add the second Stripe webhook (done).
+- Keep the daily ratings sealed (decided).
+- Make `OPS_ALERT_TO` a placeholder and move it and the author licence to the post-build list.
+- Remove anything that is directly Bible study, keeping titles Bible-based.
+- Drop the faith consent wording and privacy line from lawyer review.
+- Keep building until he returns.
+
+**Done in Stripe (sandbox):**
+- New destination `akana-connect-payouts` for connected-account events: `account.updated` and the three `account.external_account.*` events, sent to `/api/stripe/webhook`.
+- The platform webhook now has 12 events, adding `charge.dispute.created` and `charge.dispute.closed`.
+- Creating the connected-accounts destination registered the sandbox as a Connect platform, as Stripe's dialog said it would.
+- Crent still has to copy the new signing secret into Vercel as `STRIPE_CONNECT_WEBHOOK_SECRET`.
+
+**Built** (migrations 0019 to 0025; 0017 was never used)
+
+- **Checkout consent (0019), the must-fix.**
+  - Before paying for a workbook, the reader ticks that access starts now and that this ends the 14-day right to cancel.
+  - Membership checkout records the 14-day pro rata refund wording.
+  - The wording, version and Stripe session are recorded server side. Checkout is refused without them.
+- **Local currency (F-094).** The reader's own currency shows where a price exists, otherwise GBP with a note. Nothing is converted.
+- **Author release path (0020: F-038, F-039, F-040, F-043, F-044, F-086).**
+  - A preview in the real player that saves nothing.
+  - Author or publisher sign-off tied to the exact version they saw.
+  - The author picks a price tier and staff approve it. The figures are still placeholders.
+  - Author status emails.
+  - Author help pages in the Studio.
+  - A staff JSON editor that validates as you type.
+  - An open submissions list for staff.
+- **Royalty ledger and money out (0021: F-100 to F-103).**
+  - An append-only ledger on net receipts.
+  - Daily reconciliation with Stripe.
+  - The membership pool split by each member's completed steps.
+  - Monthly statements as PDF and CSV.
+  - Refunds from the console, with the author's share reversed.
+  - Payout holds, and a payout run locked to test mode.
+  - Every rate is a marked placeholder until D1 to D5 are answered.
+- **Dashboards, lookup and takedown (0022: F-041, F-042, F-058, F-087, F-123).**
+  - An earnings view and a reader-count dashboard for authors, with counts under 10 hidden.
+  - A publisher roll-up across its authors.
+  - An audited staff account lookup that never shows answers.
+  - A public notice and takedown form, with a staff queue. Buyers keep access by default (D9 flag).
+- **White-label demo (0023: F-067, F-068, F-069, F-074, F-045 partly).**
+  - Tenant branding with a contrast check.
+  - Locked safety standards: Help now and the notices cannot be removed by a tenant.
+  - Each tenant chooses its own catalogue and prices, as settings only.
+  - Quillmoor Demo Press, an invented publisher, appears after "Reset the demo" in `/admin/demo`.
+  - The demo sign-in accounts are for Crent to create.
+  - Also fixed: a tenant owner could change their own tenant's plan and status.
+- **New field types (F-113).** Number, currency, table and decision matrix now draw, save sealed and export.
+- **Akana Business pilot (0024: F-201 to F-205).**
+  - Customer organisations: business, church, charity and community group.
+  - Seat licences that staff record by hand.
+  - Email invitations and seat claim, for adults only.
+  - A console at `/org` showing counts only.
+  - Organisation terms, DPA and privacy drafts for the lawyer.
+  - `has_entitlement` now covers seats. Purchase and membership behaviour is unchanged, and the 0004 and 0009 tests still pass.
+- **Bible study removed (0025).**
+  - The Reading Scripture Theme is retired, and its 4 demo titles are marked removed.
+  - All other faith titles stay. The catalogue is now 190 titles across 50 active Themes.
+  - Bible text handling is now quotation support only.
+- **Post-build list.** `docs/planning/AK_Post_Build_List.md` holds 75 items, grouped by owner, 42 of them only Crent can do.
+
+**Checks:** typecheck and lint are clean. 809 web unit tests pass, along with all package tests (engine 70, emails 55, validate 23). Database tests 0001 to 0025 pass. The smoke tests pass: 123 passed and 5 skipped, after one white-label fix. That fix means a tenant site that cannot reach the database now shows a safe page with Help now instead of an error. The build and the CSP check are clean.
