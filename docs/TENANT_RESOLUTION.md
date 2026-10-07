@@ -71,6 +71,12 @@ The path stays behind `TENANT_DB_LOOKUP=1`, so nothing changes until the flag is
 
 The same migration closes the `tenants` column gap. `anon` and `authenticated` now have a column-level select that leaves out `stripe_account_id` and `plan`. The row policy is unchanged. Clients must name their columns, as with `authors.legal_name`; `select *` on `tenants` now fails for those roles. Server code on the service role still reads every column.
 
+## 7a. Demo tenant and tenant site routes (0023, M7)
+
+The demo tenant (slug `demo`, id `00000000-0000-0000-0000-0000000000d1`) resolves from config on `demo.localhost`, on each host in `DEMO_TENANT_HOSTS` and on `demo.<TENANT_APEX>`. Those hosts are checked before the preview rule, so a listed `*.vercel.app` alias becomes the demo site. No `tenant_domains` row is needed.
+
+On any white-label host the proxy serves only the tenant site (`/` and `/w/<slug>`, rewritten to `app/site`) and Akana's locked pages (`/help-now`, `/help-offline`, `/legal/*`), plus `/tenant.css`, `/covers/*` and `/brand/*`. Everything else is a 404, sign-in included, and no session is refreshed on a tenant host. `/site` is a 404 on the marketplace. See `docs/WHITE_LABEL_DEMO.md`.
+
 ## 8. Open questions for Crent
 
 1. **Tenant apex (A7).** Which domain hosts tenant subdomains? Until `TENANT_APEX` is set, only custom domains in `tenant_domains` (with the flag on) can serve a white-label site.
