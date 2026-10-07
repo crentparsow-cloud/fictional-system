@@ -1,6 +1,12 @@
 {
   "_note": "Faith workbook research, 7 October 2026. Companion to docs/research/faith-workbooks.md. Verified means the author, translator and editor death years and the first publication year were found in at least one source listed. Every title still needs the house public-domain record (docs/public-domain/) and a signed review before use.",
   "prepared": "2026-10-07",
+  "scope_decision": {
+    "date": "2026-10-07",
+    "decision": "Bible study is out of scope for now (Crent). Faith titles stay Bible-based: devotional, prayer, character, practical and Christian-living titles that draw on biblical teaching. Titles whose main purpose is studying or reading through Scripture, such as a Bible commentary or a guide to reading one book of the Bible, are not taken forward. The Reading Scripture subcategory (reading-scripture) is retired.",
+    "effect_on_this_list": "None of the 27 verified titles is a Bible study title, so all 27 stay. Matthew Henry appears through A Method for Prayer, a prayer manual; his Bible commentary is not on this list and is out of scope.",
+    "bible_text": "The World English Bible default stays for quotations inside Bible-based titles only. It is not a study feature."
+  },
   "rules": {
     "GB": "life plus 70 years from the end of the year of death of the last author, translator or editor",
     "IE": "life plus 70 years from the end of the year of death of the last author, translator or editor (EU rule)",
@@ -20,7 +26,7 @@
       "orthodox",
       "general_christian"
     ],
-    "subcategory": "slugs from the Faith and Spirituality category in docs/research/taxonomy.json (draft)"
+    "subcategory": "slugs from the Faith and Spirituality category in docs/research/taxonomy.json (draft); reading-scripture is retired (7 October 2026) and must not be used"
   },
   "verified_count": 27,
   "titles": [
