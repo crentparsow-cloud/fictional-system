@@ -327,3 +327,46 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - Send the cancellation email after a cooling-off cancel.
 - Retry a failed Stripe redaction on a later run.
 - Crent to confirm the prices and the VAT treatment with the accountant. The Stripe tax code is SaaS for personal use, matching the earlier products.
+
+### Day 6, third batch
+
+**Asked by Crent:** add the six-monthly reminder and the refund cancellation email. Compare Akana's categories with Blinkist's. Research Akana Business for companies, churches and small groups. Research Bible-based books. Check whether the accountability partner is in. Create real and fictional authors so every category has at least 3 workbooks. Fold all of this into the build plan, using as many agents as needed. Twelve agents worked on this batch.
+
+**Built**
+
+- **Six-monthly terms reminder (migration 0011).** A daily job at 08:41 UTC emails monthly members every six months. The email gives the price, how often they pay, the next payment date and how to cancel. It is sent once only, and it skips anyone with an account deletion in progress.
+- **Cancellation emails.** One goes out after a cooling-off refund, showing the refund amount. Another goes out when a membership is set to end at the end of the period. Neither is sent when an account is deleted.
+- **Email catalogue.** `packages/emails/src/catalogue.ts` lists every template in one line each. A test keeps the list complete.
+- **Check-in partner (F-030, migration 0012).** This is the accountability partner feature, renamed.
+  - The reader invites someone by email and chooses what they share: the stage reached, a gentle check-in question, or a short note.
+  - A partner never sees answers, titles, Theme names or stage names.
+  - Links are single-purpose, stored hashed, expire and are never cached.
+  - Wellbeing titles are shared only if the reader ticks a box.
+  - Invitations, updates and replies are rate-limited.
+  - The reader can stop sharing at any time.
+
+**Research** (all in `docs/research/`)
+
+- **Categories (categories.md, taxonomy.json).**
+  - Blinkist has 31 main categories with topic tags, and no formal subcategories.
+  - Against Akana's 7 shelves and 17 Themes, 5 of those categories are covered, 13 partly covered and 13 not covered.
+  - Proposed: 10 shelves and 51 Themes. The new shelves are Health and Body, Faith and Spirituality, and Creativity and Making. Every change is additive.
+- **Akana Business (akana-business.md).**
+  - Comparables are priced per seat or by church size.
+  - The selling point: no employer or church ever sees a member's answers.
+  - About a third of what is needed already exists.
+  - Recommended launch pilot: manual sales, seats and invitations, a minimal console, organisation terms and a "talk to us" page (F-201 to F-206, 10.5 points).
+  - Groups, facilitator guides, group check-ins and reports come after launch.
+  - Group check-ins must be fixed choices. Free text shared inside groups could make Akana a user-to-user service under the Online Safety Act.
+- **Faith (faith-workbooks.md, faith-titles.json).**
+  - 27 public-domain Christian classics are verified for the UK and US, with edition traps noted.
+  - The KJV is under Crown rights in the UK, so the default text is the World English Bible (British Edition for en-GB).
+  - A theological reviewer step and tradition labels are proposed.
+- **Catalogue (catalogue/*.json, SUMMARY.md).**
+  - 124 new workbooks: 50 public-domain classics and 74 demo titles.
+  - Every one of the 51 Themes reaches at least 3 workbooks, for a total of 194.
+  - 39 demo titles still need a check for clashes with existing book titles, because the shared search limit ran out.
+
+**Plan updated:** `AK_3_Week_Plan.md` has a dated revision covering the new work in weeks 2 and 3 and an after-launch list. `AK_Feature_List.json` now has 177 features, and F-030 is marked built. `AK_Questions_for_Crent.md` has new questions N1 to N16. Week 3 rises from 53.5 to 58.0 points if the business pilot runs as an extra stream in week 2, or 68.5 if not. That choice is Crent's (N1).
+
+**Checks:** typecheck and lint are clean. 501 web unit tests pass, along with all package tests. Database tests 0001 to 0012 pass. The smoke tests pass: 49 passed and 5 skipped. The build and the CSP check are clean.
