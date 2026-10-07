@@ -41,6 +41,7 @@ interface WorkbookRow {
   is_demo: boolean;
   status: string;
   price_point_id: string | null;
+  in_membership: boolean;
 }
 
 interface PricePointRow {
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
   const supabase = await createUserClient();
   const { data: wb, error: wbErr } = await supabase
     .from("workbooks")
-    .select("id, code, slug, tenant_id, is_demo, status, price_point_id")
+    .select("id, code, slug, tenant_id, is_demo, status, price_point_id, in_membership")
     .eq("slug", parsed.data.workbook)
     .maybeSingle();
   if (wbErr) return refuse("Could not load the workbook.", 500);
@@ -105,12 +106,18 @@ export async function POST(request: NextRequest) {
 
   const { data: owned } = await supabase
     .from("entitlements")
-    .select("id")
+    .select("id, source, ends_at")
+    .eq("user_id", session.userId)
     .eq("tenant_id", tenantId)
     .eq("status", "active")
-    .or(`workbook_id.eq.${workbook.id},workbook_id.is.null`)
-    .limit(1);
-  if (owned && owned.length > 0) return refuse("You already have this workbook.");
+    .or(`workbook_id.eq.${workbook.id},workbook_id.is.null`);
+  // A membership row covers only titles in the membership (migration 0009),
+  // so a member may still buy a title outside it.
+  const now = Date.now();
+  const covers = ((owned ?? []) as { source: string; ends_at: string | null }[]).some(
+    (e) => (!e.ends_at || Date.parse(e.ends_at) > now) && (e.source !== "membership" || workbook.in_membership),
+  );
+  if (covers) return refuse("You already have this workbook.");
 
   const origin = siteOrigin(request);
   let stripe;

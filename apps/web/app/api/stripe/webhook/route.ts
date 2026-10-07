@@ -1,7 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
+import { createMailer } from "@akana/emails";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
-import { handleStripeEvent, type GrantDetails, type PurchaseRef, type PurchaseRepo } from "@/lib/stripe-webhook";
+import {
+  handleStripeEvent,
+  type GrantDetails,
+  type MembershipRepo,
+  type PaymentFailedNotice,
+  type PurchaseRef,
+  type PurchaseRepo,
+} from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
@@ -16,7 +24,16 @@ import { createAdminClient } from "@/lib/supabase/admin";
  * entitlement through app.grant_purchase_entitlement (rpc, admin client);
  * async_payment_failed marks the purchase failed; charge.refunded marks it
  * refunded and revokes through app.revoke_purchase_entitlement. Everything
- * else is acknowledged and ignored. Always 200 once the signature is good,
+ * else is acknowledged and ignored.
+ *
+ * Membership (F-097): customer.subscription.created, .updated and .deleted
+ * upsert public.subscriptions through app.upsert_subscription, which keeps
+ * the membership entitlement in step; invoice.paid and
+ * invoice.payment_failed record the invoice through
+ * app.record_subscription_invoice. A failed renewal sends the payment_failed
+ * email, best effort, with no title in it (F-098).
+ *
+ * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
  * is a 500 so Stripe does retry.
  *
@@ -39,8 +56,11 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const outcome = await handleStripeEvent(event, supabaseRepo());
-    console.info("stripe webhook", outcome);
+    const admin = createAdminClient();
+    const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin));
+    const { notify, ...logged } = outcome;
+    console.info("stripe webhook", logged);
+    if (notify) await sendPaymentFailed(notify, siteOrigin(request));
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
@@ -53,8 +73,9 @@ export async function POST(request: NextRequest) {
  * on purchases or entitlements; the SQL functions check that the caller is
  * the service role before they change anything.
  */
-function supabaseRepo(): PurchaseRepo {
-  const admin = createAdminClient();
+type Admin = ReturnType<typeof createAdminClient>;
+
+function supabaseRepo(admin: Admin): PurchaseRepo {
   const find = async (column: string, value: string): Promise<PurchaseRef | null> => {
     const { data, error } = await admin.from("purchases").select("id, status").eq(column, value).maybeSingle();
     if (error) throw new Error(`purchases lookup failed: ${error.code ?? error.message}`);
@@ -83,4 +104,104 @@ function supabaseRepo(): PurchaseRepo {
       if (error) throw new Error(`mark failed failed: ${error.code ?? error.message}`);
     },
   };
+}
+
+/** The membership side over the same service role client (migration 0009). */
+function membershipRepo(admin: Admin): MembershipRepo {
+  return {
+    async upsertSubscription(st) {
+      const { data, error } = await admin.rpc("upsert_subscription", {
+        p_subscription: st.subscriptionId,
+        p_customer: st.customerId,
+        p_user: st.userId,
+        p_tenant: st.tenantId,
+        p_status: st.status,
+        p_plan: st.plan,
+        p_price: st.priceId,
+        p_current_period_end: st.currentPeriodEnd,
+        p_cancel_at_period_end: st.cancelAtPeriodEnd,
+        p_cancel_at: st.cancelAt,
+        p_canceled_at: st.canceledAt,
+        p_ended_at: st.endedAt,
+        p_observed_at: st.observedAt,
+      });
+      if (error) throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
+      return data as "applied" | "unchanged" | "stale" | "unlinked";
+    },
+    async syncMembership(userId, tenantId) {
+      const { error } = await admin.rpc("sync_membership_entitlement", { p_user: userId, p_tenant: tenantId });
+      if (error) throw new Error(`sync_membership_entitlement failed: ${error.code ?? error.message}`);
+    },
+    async recordInvoice(r) {
+      const { data, error } = await admin.rpc("record_subscription_invoice", {
+        p_invoice: r.invoiceId,
+        p_subscription: r.subscriptionId,
+        p_status: r.status,
+        p_currency: r.currency,
+        p_amount_minor: r.amountMinor,
+        p_tax_minor: r.taxMinor,
+        p_billing_reason: r.billingReason,
+        p_period_start: r.periodStart,
+        p_period_end: r.periodEnd,
+        p_at: r.at,
+      });
+      if (error) throw new Error(`record_subscription_invoice failed: ${error.code ?? error.message}`);
+      return data as "recorded" | "unchanged" | "unlinked";
+    },
+    async retrieveSubscription(id) {
+      try {
+        return await getStripe().subscriptions.retrieve(id);
+      } catch {
+        // fall back to the event's own copy
+        return null;
+      }
+    },
+  };
+}
+
+/**
+ * The failed-payment email (F-097). Best effort: a send failure is logged and
+ * never turns into a webhook retry. The template carries the amount and the
+ * account link only, never a title (F-098). Without RESEND_API_KEY the
+ * mailer records the send in its dev transport and nothing leaves.
+ */
+async function sendPaymentFailed(n: PaymentFailedNotice, origin: string): Promise<void> {
+  try {
+    const env = process.env;
+    const mailer = createMailer({
+      env: {
+        RESEND_API_KEY: env.RESEND_API_KEY,
+        EMAIL_FROM: env.EMAIL_FROM,
+        EMAIL_REPLY_TO: env.EMAIL_REPLY_TO,
+        POSTAL_ADDRESS: env.POSTAL_ADDRESS,
+        EMAIL_MODE: env.EMAIL_MODE,
+        TEST_RECIPIENT: env.TEST_RECIPIENT,
+      },
+      isSuppressed: () => false,
+      log: (e) => console.info("membership_email", e.template, e.status, e.reason ?? ""),
+    });
+    const price = n.amountMinor !== null && n.currency ? formatMinor(n.amountMinor, n.currency) : undefined;
+    await mailer.sendReader(
+      "payment_failed",
+      { appUrl: origin, settingsUrl: `${origin}/you#membership`, supportEmail: env.EMAIL_REPLY_TO ?? "", price },
+      { to: n.to, dedupeKey: `payment_failed:${n.invoiceId}` },
+    );
+  } catch (err) {
+    console.error("membership_email_failed", { reason: err instanceof Error ? err.name : "unknown" });
+  }
+}
+
+function formatMinor(minor: number, currency: string): string | undefined {
+  try {
+    return new Intl.NumberFormat("en-GB", { style: "currency", currency }).format(minor / 100);
+  } catch {
+    return undefined;
+  }
+}
+
+/** The public origin for links in the email, from the proxy's headers. */
+function siteOrigin(request: NextRequest): string {
+  const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
+  const proto = host.startsWith("localhost") ? "http" : "https";
+  return `${proto}://${host}`;
 }

@@ -86,10 +86,11 @@ export async function PUT(request: NextRequest) {
   // read fails closed.
   const [{ data: wbTier }, { data: profile }] = await Promise.all([
     check.supabase.from("workbooks").select("safety_tier").eq("id", enrolment.workbook_id).maybeSingle(),
-    check.supabase.from("profiles").select("health_consent_at").eq("user_id", enrolment.user_id).maybeSingle(),
+    check.supabase.from("profiles").select("health_consent_at, health_consent_version").eq("user_id", enrolment.user_id).maybeSingle(),
   ]);
   const decision = answerWriteDecision((wbTier?.safety_tier as string | null | undefined) ?? null, {
     consentAt: (profile?.health_consent_at as string | null | undefined) ?? null,
+    consentVersion: (profile?.health_consent_version as string | null | undefined) ?? null,
   });
   if (!decision.ok) {
     return NextResponse.json({ error: decision.error, message: decision.message }, { status: decision.status, headers: NO_STORE });
