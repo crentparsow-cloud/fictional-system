@@ -24,7 +24,15 @@ From Vercel's documentation (Instant Rollback, checked 8 October 2026):
 
 - **New pushes stop going live.** After a rollback Vercel turns off automatic assignment of the production domain. Merging to `main` builds a deployment but does not put it live. This is on purpose, so a fix is not pushed live by accident.
 - **Environment variables are not rolled back.** The old build keeps the variable values it was built with. A variable changed in project settings since then is not picked up. If the fault was a wrong variable, fix the variable and redeploy instead of rolling back.
-- **Cron jobs go back too.** The six crons in `apps/web/vercel.json` revert to the schedule in the rolled-back build.
+- **Cron jobs go back too.** The crons in `apps/web/vercel.json` revert to the list and schedules in the rolled-back build. A cron added since then stops running until you go forward again. Today there are eight, all daily and on UTC:
+  - `/api/ops/demo-reset` at `37 2 * * *` (02:37)
+  - `/api/account/complete` at `17 3 * * *` (03:17)
+  - `/api/ops/sweep` at `23 4 * * *` (04:23)
+  - `/api/money/daily` at `13 5 * * *` (05:13)
+  - `/api/ops/domain-check` at `29 6 * * *` (06:29)
+  - `/api/membership/reminders` at `41 8 * * *` (08:41)
+  - `/api/org/billing-mail` at `53 8 * * *` (08:53)
+  - `/api/money/payout-run` at `47 9 * * *` (09:47)
 - **The database does not move.** If the bad deployment shipped with a migration, the old code now runs against the newer schema. Migrations here only add, so the old code normally still works. Check before you roll back: if the new migration removed or renamed anything the old code reads, read section 2 first.
 
 ### Going forward again

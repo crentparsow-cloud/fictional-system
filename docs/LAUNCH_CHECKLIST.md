@@ -144,7 +144,7 @@ A full checkout under load (a real test-mode Checkout Session for each request) 
 |---|---|---|---|---|
 | T1 | `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`; sending domain verified; Supabase Auth templates pasted | Crent | A magic link arrives from Akana's own address | |
 | T2 | `LEAD_HASH_SALT` in Vercel | Crent | The enquiry form on `/publish` accepts a test enquiry | |
-| T3 | `CRON_SECRET` in Vercel | Crent | Vercel cron logs show the six crons returning 200 | |
+| T3 | `CRON_SECRET` in Vercel | Crent | Vercel cron logs show all eight crons (listed below) returning 200 | |
 | T4 | `ANSWERS_KEYS` in Vercel, and a safe copy kept apart from backups | Crent | An answer saves and reads back on the preview | |
 | T5 | DMCC six-month reminder rule rechecked when final regulations are published (expected January 2027) | Agent | Note in `DAY_LOG.md` | After launch |
 | T6 | Scotland and Northern Ireland signposts | Agent, checked on each provider's own site | New lines in `apps/web/lib/support-lines.ts` with their source | |
@@ -154,6 +154,19 @@ A full checkout under load (a real test-mode Checkout Session for each request) 
 | T11 | Tenant host lookup on (`TENANT_DB_LOOKUP=1`) once the tenant apex exists | Agent | A tenant host resolves from the database | After C5 |
 | T12 | Crisis phrase list in `apps/web/lib/search-safety.ts` stays interim until clinician sign-off | Clinician | Signed list replaces the interim one | Interim |
 | T13 | External penetration test before the first paying white-label tenant | Crent books | Report received and findings closed | After launch |
+
+The eight crons in `apps/web/vercel.json`. Vercel runs them on UTC, once a day each.
+
+| Path | Schedule | Time (UTC) | What it does |
+|---|---|---|---|
+| `/api/ops/demo-reset` | `37 2 * * *` | 02:37 | Puts the demo publisher, its site and logins back to the start |
+| `/api/account/complete` | `17 3 * * *` | 03:17 | Finishes account deletions whose 7-day undo has passed |
+| `/api/ops/sweep` | `23 4 * * *` | 04:23 | Retention sweep and organisation offboarding |
+| `/api/money/daily` | `13 5 * * *` | 05:13 | Stripe reconciliation, then closes pool and statement months |
+| `/api/ops/domain-check` | `29 6 * * *` | 06:29 | Checks each white-label host's verification record |
+| `/api/membership/reminders` | `41 8 * * *` | 08:41 | Six-monthly terms reminder for monthly members |
+| `/api/org/billing-mail` | `53 8 * * *` | 08:53 | Organisation billing emails and consumer terms reminders |
+| `/api/money/payout-run` | `47 9 * * *` | 09:47 | Payout run; acts only on the payout day (test mode only) |
 
 ## 6. The go or no-go call
 

@@ -369,7 +369,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 
 **Plan updated:** `AK_3_Week_Plan.md` has a dated revision covering the new work in weeks 2 and 3 and an after-launch list. `AK_Feature_List.json` now has 177 features, and F-030 is marked built. `AK_Questions_for_Crent.md` has new questions N1 to N16. Week 3 rises from 53.5 to 58.0 points if the business pilot runs as an extra stream in week 2, or 68.5 if not. That choice is Crent's (N1).
 
-**Checks:** typecheck and lint are clean. 501 web unit tests pass, along with all package tests. Database tests 0001 to 0012 pass. The smoke tests pass: 49 passed and 5 skipped. The build and the CSP check are clean.
+**Checks:** typecheck and lint are clean. 501 web unit tests pass, along with all package tests. Database tests 0001 to 0012 pass. The smoke tests pass: 49 passed and 5 skipped. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
 
 ## Day 6 evening: next build batch (pulled forward from weeks 2 and 3)
 
@@ -415,7 +415,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
   - Of the 39 pending demo titles, 26 are clear, 12 are close to an existing book and 1 clashes.
   - The clash is Letters to Open Later. The proposed replacement is Letters Left in the Drawer.
 
-**Checks:** typecheck and lint are clean. 641 web unit tests pass, along with all package tests (engine 46, emails 40). Database tests 0001 to 0018 pass. The smoke tests pass: 89 passed and 5 skipped. The build and the CSP check are clean.
+**Checks:** typecheck and lint are clean. 641 web unit tests pass, along with all package tests (engine 46, emails 40). Database tests 0001 to 0018 pass. The smoke tests pass: 89 passed and 5 skipped. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
 
 **Found and must fix before the first live payment:** single-workbook checkout never asks the reader to agree that access starts at once and that this ends the 14-day right to cancel. Membership checkout does not ask for the 14-day refund consent the refund policy quotes either.
 
@@ -492,7 +492,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
   - Bible text handling is now quotation support only.
 - **Post-build list.** `docs/planning/AK_Post_Build_List.md` holds 75 items, grouped by owner, 42 of them only Crent can do.
 
-**Checks:** typecheck and lint are clean. 809 web unit tests pass, along with all package tests (engine 70, emails 55, validate 23). Database tests 0001 to 0025 pass. The smoke tests pass: 123 passed and 5 skipped, after one white-label fix. That fix means a tenant site that cannot reach the database now shows a safe page with Help now instead of an error. The build and the CSP check are clean.
+**Checks:** typecheck and lint are clean. 809 web unit tests pass, along with all package tests (engine 70, emails 55, validate 23). Database tests 0001 to 0025 pass. The smoke tests pass: 123 passed and 5 skipped, after one white-label fix. That fix means a tenant site that cannot reach the database now shows a safe page with Help now instead of an error. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
 
 ## Day 7: Thursday 8 October 2026 (early hours)
 
@@ -550,6 +550,38 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Signposts.** The five signpost groups now cover Scotland, Northern Ireland, the US, Ireland, Canada, Australia and New Zealand. Help now adds Lifeline (Northern Ireland) and domestic abuse lines for Wales and Northern Ireland. Every number was read on the organisation's own site.
 - **Demo Catalogue v2 prepared, not applied.** 190 workbooks are in `docs/planning/AK_Demo_Catalogue_v2.json`, with a guarded `supabase/seed/seed_v2_preview.sql` and notes. Applying it waits for Crent's approval.
 
-**Checks:** typecheck and lint are clean. 910 web unit tests pass, along with all package tests (seed 35, engine 75, emails 59, validate 29). Database tests 0001 to 0030 pass. The smoke tests pass: 318 passed and 17 skipped. The build and the CSP check are clean.
+**Checks:** typecheck and lint are clean. 910 web unit tests pass, along with all package tests (seed 35, engine 75, emails 59, validate 29). Database tests 0001 to 0030 pass. The smoke tests pass: 318 passed and 17 skipped. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
 
 **Biggest flag:** production may have no database backups. The Supabase organisation looks to be on the Free plan. See `docs/BACKUPS.md`.
+
+### Day 7, second block (early hours, Thursday 8 October)
+
+**Pushed and staged.**
+- Branch `day7` holds the first Day 7 block, opened as pull request #2. It is not merged, so Crent can review and deploy.
+- Migrations 0026 to 0030 are applied to staging.
+- Text files that kept tripping content checks in the push tool now go up through the GitHub web upload page. This is faster and sends the exact bytes. The steps are in the README.
+- The platform Stripe webhook now has 18 events.
+
+**Built** (migrations 0031 to 0034, not yet on staging or production)
+
+- **Organisation billing gaps (0031).** Consumer duties under the DMCC Act for self-serve Group buyers:
+  - reminder notices before renewals;
+  - a 14-day cooling-off with a pro rata refund, at the start and after each yearly renewal;
+  - an open "Cancel your plan" section.
+
+  Also in 0031:
+  - Six billing emails, to owners and finance only, each sent once.
+  - A daily billing-mail job.
+  - Church band changes with proration.
+  - An optional organiser seat at self-serve sign-up.
+  - Buyer type (consumer or business) on each organisation, which staff can correct.
+- **Second factor for owners and finance (0032, 0034; F-143).** Money and membership changes in `/console`, `/org` and `/studio` now need an authenticator-verified session. The database enforces this as well, so the API cannot get round it. A setup page is at `/verify`. Passkeys as a second factor are built behind a flag that is off; Supabase marks them experimental. The support recovery steps are in `docs/SUPPORT_MFA_RECOVERY.md`.
+- **Tenant custom domains (0033).** Staff add a host and get the TXT and CNAME records to set. A Verify button and a daily check use DNS-over-HTTPS at Cloudflare. A host stops resolving after three failed checks in a row and comes back once a check passes. Adding the host in Vercel stays a manual step for Crent (`docs/TENANT_RESOLUTION.md`, section 9).
+- **Docs.**
+  - Every feature in the feature list now has a status: 100 built, 29 partly built and 48 not started.
+  - The architecture doc has an "As built" section.
+  - Six new help topics.
+  - A developer README.
+  - The launch and rollback docs list all eight crons.
+
+**Checks:** typecheck and lint are clean. 946 web unit tests pass, along with all package tests (emails 81). Database tests 0001 to 0034 pass. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
