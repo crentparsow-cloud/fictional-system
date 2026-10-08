@@ -53,10 +53,14 @@ const nextConfig: NextConfig = {
       // Organisation seat and owner invitation links (F-203): the same rules.
       { source: "/org/join/:path*", headers: partnerLinkHeaders },
       { source: "/org/admin-join/:path*", headers: partnerLinkHeaders },
+      // Organisation join links (F-225, 0030): the same rules.
+      { source: "/org/link/:path*", headers: partnerLinkHeaders },
       // Private file links (F-135): the same rules, so a storage path never leaks.
       { source: "/files/:path*", headers: partnerLinkHeaders },
       // Allowlist service worker (F-140): always revalidated, so a fix ships at once.
       { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, max-age=0" }] },
+      // Self-hosted fonts: names are not hashed, so a week's cache, not immutable.
+      { source: "/fonts/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }] },
     ];
   },
 };
