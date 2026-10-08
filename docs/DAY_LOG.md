@@ -493,3 +493,63 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Post-build list.** `docs/planning/AK_Post_Build_List.md` holds 75 items, grouped by owner, 42 of them only Crent can do.
 
 **Checks:** typecheck and lint are clean. 809 web unit tests pass, along with all package tests (engine 70, emails 55, validate 23). Database tests 0001 to 0025 pass. The smoke tests pass: 123 passed and 5 skipped, after one white-label fix. That fix means a tenant site that cannot reach the database now shows a safe page with Help now instead of an error. The build and the CSP check are clean.
+
+## Day 7: Thursday 8 October 2026 (early hours)
+
+**Asked by Crent:**
+- Apply 0019 to 0025 to production (done) and merge the night block.
+- Keep building and leave only what he alone can do. He will deal with outstanding items and the deploy later today.
+
+**Done:**
+- Migrations 0019 to 0025 applied to production.
+- Pull request #1 (`day6-night`) merged into main, at merge commit a1d1e16.
+- The platform Stripe webhook now has 18 events. The six invoice events added are needed for organisation billing: finalized, sent, updated, voided, marked_uncollectible and overdue.
+
+**Built** (migrations 0026 to 0030, staging only, not yet production)
+
+- **Reader polish (0026).**
+  - Exercises page one step at a time, as in the old app.
+  - "Not today", and a 0 to 10 daily quick tap on Today.
+  - The account goes read only while a deletion is pending.
+  - Appearance settings: text size, font, dim at night and reduced motion.
+  - "I have read this" for higher-tier titles is now saved on the server.
+  - Check-in partner details are in the reader's export.
+  - A "Your organisation" line on Home for seat holders.
+  - Sample views are counted.
+  - Sign-out clears the offline cache.
+- **Support and ops (0027).**
+  - Staff can act from the account lookup: refund, resend a confirmation, restore access, or cancel a deletion.
+  - Emails for refunds and declined submissions.
+  - A comment thread between author and staff on each workbook.
+  - Ops alerts from every mailer, payout runs, the validator and the Connect webhook.
+  - Rate limits on sign-in, checkout, export and partner links.
+- **Akana Business groups (0028).**
+  - Groups with leaders, a soft-paced schedule, and facilitator guides that staff write and approve.
+  - Check-ins with fixed choices and no free text. Leaders see counts only, hidden under 5.
+  - Monthly reports, also counts only.
+  - Faith consent for church groups.
+  - Members can report a concern straight to Akana's support inbox, not to the leader.
+- **Demo money and retired Themes (0029).**
+  - The demo publisher now shows test-mode sales, statements and dashboards. These sit in separate demo tables that can never reach real statements or payouts.
+  - Retired Themes are hidden everywhere, and the seed builder carries their status.
+- **Organisation billing (0030), Stripe test mode, prices as placeholders.**
+  - Seat-based subscriptions paid by invoice on 30-day terms, with Bacs.
+  - Organisation income goes into the royalty pool.
+  - Join links and CSV invites.
+  - Self-serve sign-up, behind a flag that is off.
+  - Offboarding with exports, and a 30-day clean-up.
+- **Confirmation emails.** Purchase and membership confirmations are now sent after payment. They had never been wired up. Refunds made in the Stripe dashboard also send the refund email, once.
+- **Group calendar file.** Members can download the group's unit dates as a calendar file.
+- **Previews.** Author previews now page exercises like the reader does.
+- **Fonts.** Atkinson Hyperlegible Next, Lexend and Bricolage Grotesque are self-hosted, about 187 KB in total and 75 KB on a typical page. No third-party font requests.
+- **Accessibility and launch readiness.**
+  - An axe sweep on every public page, in light and dark, at phone and desktop widths. It found two real issues, both fixed: wide tables could not be scrolled by keyboard, and the 404 page had no main landmark.
+  - `docs/ACCESSIBILITY.md` (the manual pass), `LAUNCH_CHECKLIST.md`, `ROLLBACK.md` and `BACKUPS.md`.
+  - A load test script that refuses to run against production.
+- **Public-domain house records (F-152).** 50 records, 33 ready for a signer and 17 needing a check. Each has a JSON copy staged for when its workbook is seeded.
+- **Signposts.** The five signpost groups now cover Scotland, Northern Ireland, the US, Ireland, Canada, Australia and New Zealand. Help now adds Lifeline (Northern Ireland) and domestic abuse lines for Wales and Northern Ireland. Every number was read on the organisation's own site.
+- **Demo Catalogue v2 prepared, not applied.** 190 workbooks are in `docs/planning/AK_Demo_Catalogue_v2.json`, with a guarded `supabase/seed/seed_v2_preview.sql` and notes. Applying it waits for Crent's approval.
+
+**Checks:** typecheck and lint are clean. 910 web unit tests pass, along with all package tests (seed 35, engine 75, emails 59, validate 29). Database tests 0001 to 0030 pass. The smoke tests pass: 318 passed and 17 skipped. The build and the CSP check are clean.
+
+**Biggest flag:** production may have no database backups. The Supabase organisation looks to be on the Free plan. See `docs/BACKUPS.md`.
