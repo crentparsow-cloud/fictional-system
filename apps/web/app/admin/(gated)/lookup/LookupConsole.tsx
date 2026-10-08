@@ -1,8 +1,10 @@
 "use client";
 
 import { useActionState } from "react";
-import { DOC_LABELS, LOOKUP_REASON_MAX, PLAN_LABELS, accountStatusLine, type LookupResult } from "@/lib/account-lookup";
+import { ACTION_LABELS, DOC_LABELS, LOOKUP_REASON_MAX, PLAN_LABELS, accountStatusLine, type LookupResult } from "@/lib/account-lookup";
+import type { SupportAbilities } from "@/lib/support-actions";
 import { lookupAccount, type LookupState } from "./actions";
+import { CancelDeletion, GiveAccess, MembershipActions, PurchaseActions, RestoreRow } from "./LookupActions";
 
 const INITIAL: LookupState = { status: "idle", attempt: 0 };
 
@@ -18,7 +20,7 @@ const money = (minor: number, currency: string) => {
 };
 
 /** The lookup form and its result. No client storage; the result lives in memory until the page is left. */
-export function LookupConsole() {
+export function LookupConsole({ can }: { can: SupportAbilities }) {
   const [state, action, pending] = useActionState(lookupAccount, INITIAL);
   const email = state.status === "idle" ? "" : state.email;
   const reason = state.status === "idle" ? "" : state.reason;
@@ -54,12 +56,12 @@ export function LookupConsole() {
         </button>
       </form>
 
-      {state.status === "done" ? <LookupView result={state.result} /> : null}
+      {state.status === "done" ? <LookupView key={state.attempt} result={state.result} can={can} /> : null}
     </>
   );
 }
 
-function LookupView({ result: r }: { result: LookupResult }) {
+function LookupView({ result: r, can }: { result: LookupResult; can: SupportAbilities }) {
   if (!r.found || !r.user) {
     return (
       <section className="card lookup-result" aria-live="polite">
@@ -96,13 +98,16 @@ function LookupView({ result: r }: { result: LookupResult }) {
 
       <h3>Deletion</h3>
       {r.deletion ? (
-        <p>
-          {r.deletion.state === "pending"
-            ? `Requested ${when(r.deletion.requestedAt)}. Completes after ${when(r.deletion.cancelBefore)} unless the reader cancels.`
-            : r.deletion.state === "cancelled"
-              ? `Requested ${when(r.deletion.requestedAt)}, cancelled ${when(r.deletion.cancelledAt)}.`
-              : `Completed ${when(r.deletion.completedAt)}.`}
-        </p>
+        <>
+          <p>
+            {r.deletion.state === "pending"
+              ? `Requested ${when(r.deletion.requestedAt)}. Completes after ${when(r.deletion.cancelBefore)} unless the reader cancels.`
+              : r.deletion.state === "cancelled"
+                ? `Requested ${when(r.deletion.requestedAt)}, cancelled ${when(r.deletion.cancelledAt)}.`
+                : `Completed ${when(r.deletion.completedAt)}.`}
+          </p>
+          {r.deletion.state === "pending" && r.deletion.canCancel ? <CancelDeletion userId={r.user.id} can={can} /> : null}
+        </>
       ) : (
         <p className="muted">No deletion request.</p>
       )}
@@ -121,6 +126,7 @@ function LookupView({ result: r }: { result: LookupResult }) {
                 <th scope="col">Period ends</th>
                 <th scope="col">Ends at period end</th>
                 <th scope="col">Stripe</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -135,6 +141,9 @@ function LookupView({ result: r }: { result: LookupResult }) {
                   <td>{s.cancelAtPeriodEnd ? "Yes" : "No"}</td>
                   <td>
                     <code>{s.subscriptionId}</code>
+                  </td>
+                  <td>
+                    <MembershipActions userId={r.user!.id} sub={s} can={can} />
                   </td>
                 </tr>
               ))}
@@ -157,6 +166,7 @@ function LookupView({ result: r }: { result: LookupResult }) {
                 <th scope="col">Amount</th>
                 <th scope="col">Status</th>
                 <th scope="col">Stripe payment</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -173,6 +183,9 @@ function LookupView({ result: r }: { result: LookupResult }) {
                     {p.refundedAt ? ` ${when(p.refundedAt)}` : p.paidAt ? ` ${when(p.paidAt)}` : ""}
                   </td>
                   <td>{p.paymentIntent ? <code>{p.paymentIntent}</code> : null}</td>
+                  <td>
+                    <PurchaseActions userId={r.user!.id} purchase={p} can={can} />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -194,22 +207,28 @@ function LookupView({ result: r }: { result: LookupResult }) {
                 <th scope="col">Status</th>
                 <th scope="col">Started</th>
                 <th scope="col">Ends</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
               {r.entitlements.map((e, i) => (
-                <tr key={i}>
+                <tr key={e.id ?? i}>
                   <td>{e.workbookCode ? <code>{e.workbookCode}</code> : "Whole library"}</td>
                   <td>{e.source}</td>
                   <td>{e.status}</td>
                   <td>{when(e.startsAt)}</td>
                   <td>{e.endsAt ? when(e.endsAt) : "No end"}</td>
+                  <td>
+                    <RestoreRow userId={r.user!.id} row={e} can={can} />
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
+
+      <GiveAccess userId={r.user.id} can={can} />
 
       <h3>Consents and terms</h3>
       <ul className="lookup-list">
@@ -226,6 +245,19 @@ function LookupView({ result: r }: { result: LookupResult }) {
         {r.terms.length === 0 ? <li>No terms accepted yet.</li> : null}
       </ul>
 
+      <h3>Staff actions on this account</h3>
+      {r.actions.length === 0 ? (
+        <p className="muted">None yet.</p>
+      ) : (
+        <ul className="lookup-list">
+          {r.actions.map((a, i) => (
+            <li key={i}>
+              {when(a.at)}, {a.actorRole || "staff"}: {ACTION_LABELS[a.action] ?? a.action}. {a.reason}
+            </li>
+          ))}
+        </ul>
+      )}
+
       <h3>Recent lookups of this account</h3>
       <ul className="lookup-list">
         {r.lookups.map((l, i) => (
@@ -234,7 +266,10 @@ function LookupView({ result: r }: { result: LookupResult }) {
           </li>
         ))}
       </ul>
-      <p className="admin-note">Answers, check-ins and progress are not available to staff. Refunds and access changes are made from their own pages.</p>
+      <p className="admin-note">
+        Answers, check-ins and progress are not available to staff. Each action here needs a reason and is kept in the audit log with your name. Look the reader up
+        again to see the result.
+      </p>
     </section>
   );
 }

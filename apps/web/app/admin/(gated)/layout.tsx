@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
-import { signOut } from "@/app/(auth)/sign-out/action";
+import { SignOutButton } from "@/components/SignOutButton";
 import { safeNextPath } from "@/lib/auth";
 import { getStaffSession } from "@/lib/staff";
 
@@ -29,11 +29,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <Link href="/admin" className="admin-brand">
             Akana admin
           </Link>
-          <form action={signOut}>
-            <button type="submit" className="btn secondary admin-signout">
-              Sign out
-            </button>
-          </form>
+          <SignOutButton label="Sign out" className="btn secondary admin-signout" />
         </div>
       </header>
       <main id="main" className="wrap admin-main">
