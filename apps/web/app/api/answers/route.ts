@@ -3,6 +3,7 @@ import { z } from "zod";
 import { FIELD_PATTERN } from "@/lib/answer-fields";
 import { MAX_ANSWER_BYTES, seal, unseal } from "@/lib/answers";
 import { answerWriteDecision, faithAnswerWriteDecision } from "@/lib/consent";
+import { readerDeletion } from "@/lib/account-server";
 import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -14,6 +15,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *       403 { error: "consent_required", message } for a wellbeing
  *       workbook when the reader has no health data consent (F-026),
  *       and for a faith workbook with no faith consent (F-150)
+ *       403 { error: "read_only", message } while an account deletion
+ *       is pending (F-025): the work can be read, not added to
  *
  * Why the admin client is acceptable on the write path. Clients have no
  * insert or update grant on public.answers at all, so a write has to come
@@ -80,6 +83,16 @@ export async function PUT(request: NextRequest) {
   const check = await requireOwnedEnrolment(enrolmentId);
   if (!check.ok) return check.response;
   const { enrolment, tenantId } = check;
+
+  // F-025: read only while a deletion is pending. Checked before consent so
+  // the reader is told the real reason.
+  const deletion = await readerDeletion(check.supabase, enrolment.user_id);
+  if (deletion.readOnly) {
+    return NextResponse.json(
+      { error: "read_only", message: "Your account is read only while its deletion is pending." },
+      { status: 403, headers: NO_STORE },
+    );
+  }
 
   // Health data consent (F-026). A wellbeing workbook takes no new answers
   // while the reader has no consent in place, for example after withdrawal.

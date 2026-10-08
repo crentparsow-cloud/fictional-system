@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { formatAdminDate } from "@/lib/admin/leads";
 import { adminAbilities } from "@/lib/admin/permissions";
-import { SUPPORT_STATUSES, SUPPORT_STATUS_LABELS, SUPPORT_TOPIC_LABELS, parseSupportFilter } from "@/lib/admin/support";
+import { SUPPORT_STATUSES, SUPPORT_STATUS_LABELS, SUPPORT_TOPIC_LABELS, parseSupportFilter, GROUP_CONCERN_TOPIC } from "@/lib/admin/support";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack, FilterLink, labelFor } from "../_components/Bits";
@@ -89,7 +89,13 @@ export default async function SupportInboxPage({ searchParams }: { searchParams:
                     <Link href={`/admin/support/${r.id}`}>{r.name}</Link>
                   </td>
                   <td>
-                    {r.topic === "worried" ? <span className="badge support-worried">Worried about someone</span> : labelFor(SUPPORT_TOPIC_LABELS, r.topic)}
+                    {r.topic === "worried" ? (
+                      <span className="badge support-worried">Worried about someone</span>
+                    ) : r.topic === GROUP_CONCERN_TOPIC ? (
+                      <span className="badge support-worried">Group concern</span>
+                    ) : (
+                      labelFor(SUPPORT_TOPIC_LABELS, r.topic)
+                    )}
                   </td>
                   <td>
                     <span className={`badge admin-status admin-status-${r.status}`}>{labelFor(SUPPORT_STATUS_LABELS, r.status)}</span>

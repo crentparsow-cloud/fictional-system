@@ -13,6 +13,8 @@ const TENANT = "00000000-0000-0000-0000-00000000000a";
 
 const fake = {
   rpcs: [] as { name: string; args: Record<string, unknown> }[],
+  limits: [] as string[],
+  limited: false,
   recordFails: false,
   linkFails: false,
   purchases: [] as Record<string, unknown>[],
@@ -20,6 +22,8 @@ const fake = {
   expired: [] as string[],
   reset() {
     this.rpcs = [];
+    this.limits = [];
+    this.limited = false;
     this.recordFails = false;
     this.linkFails = false;
     this.purchases = [];
@@ -27,6 +31,11 @@ const fake = {
     this.expired = [];
   },
   rpc(name: string, args: Record<string, unknown>) {
+    // F-143 (0027): the per-reader checkout limit, kept apart from the consent calls.
+    if (name === "rate_limit_self") {
+      this.limits.push(String(args.p_bucket));
+      return { data: !this.limited, error: null };
+    }
     this.rpcs.push({ name, args });
     if (name === "record_checkout_consent") return this.recordFails ? { data: null, error: { code: "AKC29" } } : { data: 91, error: null };
     if (name === "link_checkout_consent") return this.linkFails ? { data: null, error: { code: "AKC01" } } : { data: true, error: null };
@@ -144,6 +153,16 @@ describe("POST /api/checkout/membership: pro rata refund consent", () => {
     expect(params.metadata).toMatchObject({ ...meta, plan: "member_year", user_id: "user-1" });
     expect(params.subscription_data.metadata).toMatchObject({ ...meta, plan: "member_year", tenant_id: TENANT });
     expect(fake.purchases).toHaveLength(1);
+  });
+
+  it("refuses with 429 after the reader's hourly checkout limit (F-143), before recording anything", async () => {
+    fake.limited = true;
+    const res = await post(good);
+    expect(res.status).toBe(429);
+    expect(((await res.json()) as { code?: string }).code).toBe("rate_limited");
+    expect(fake.limits).toEqual(["checkout_user"]);
+    expect(fake.rpcs).toEqual([]);
+    expect(fake.created).toEqual([]);
   });
 
   it("does not open Stripe when the consent cannot be recorded", async () => {
