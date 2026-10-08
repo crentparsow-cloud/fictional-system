@@ -123,10 +123,19 @@ export default async function OrgStartPage({ searchParams }: { searchParams: Sea
             <label htmlFor="org-adult">Everyone taking part, including me, is 18 or over</label>
           </div>
           <div className="check">
+            <input id="org-auto-seat" name="auto_seat" type="checkbox" value="yes" />
+            <label htmlFor="org-auto-seat">Give me one of the places too, so I can use the workbooks myself</label>
+          </div>
+          <p className="muted small">Leave this unticked if you are only organising. You can take a place later with a join link.</p>
+          <div className="check">
             <input id="org-renews" name="renews" type="checkbox" value="yes" required />
             <label htmlFor="org-renews">I understand this renews each period until I cancel, and I can cancel from the Billing page</label>
           </div>
           <p className="muted small">You pay on the next page, run by Stripe. You see the price there before you pay. You become the owner of the account.</p>
+          <p className="muted small">
+            If you are paying for a group yourself, you can cancel within 14 days of starting and get back the days you have not used. We remind you of the
+            price and how to cancel before renewals. Cancel any time from Billing.
+          </p>
           <button type="submit" className="btn">
             Continue to payment
           </button>
