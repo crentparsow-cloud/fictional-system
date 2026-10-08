@@ -5,11 +5,13 @@ import { revalidatePath } from "next/cache";
 import { isUuid, parsePriceChoice, parseStudioSignoff, releaseErrorNotice, type ReleaseNotice } from "@/lib/author-release";
 import { withOrg } from "@/lib/studio";
 import { requireStudio } from "@/lib/studio-server";
+import { postComment } from "@/lib/workbook-comments-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Studio workbook actions: sign off a version against its content hash
- * (F-039) and choose a price from the ladder (F-040). Each runs as the
+ * (F-039), post on the workbook's comment thread (F-039, 0027) and choose a
+ * price from the ladder (F-040). Each runs as the
  * signed-in person through the 0020 functions, which check the role, the
  * hash and the licence again and write the audit row. Redirects carry a
  * fixed notice code only.
@@ -67,4 +69,16 @@ export async function choosePrice(fd: FormData): Promise<void> {
   }
   revalidatePath(`/studio/workbooks/${c.workbookId}`);
   back(c.workbookId, "price-sent", org);
+}
+
+/** Post on the workbook's comment thread (F-039). public.workbook_comment_post checks the role and audits. */
+export async function postWorkbookComment(fd: FormData): Promise<void> {
+  const workbookId = fd.get("workbook");
+  if (!isUuid(workbookId)) redirect("/studio/workbooks");
+  const org = orgOf(fd);
+  await requireStudio(`/studio/workbooks/${workbookId}`, org);
+  const notice = await postComment(workbookId, fd.get("body"));
+  revalidatePath(`/studio/workbooks/${workbookId}`);
+  const p = withOrg(`/studio/workbooks/${workbookId}`, org, Boolean(org));
+  redirect(`${p}${p.includes("?") ? "&" : "?"}thread=${notice}#thread-h`);
 }
