@@ -6,9 +6,11 @@
   "crons": [
     { "path": "/api/account/complete", "schedule": "17 3 * * *" },
     { "path": "/api/membership/reminders", "schedule": "41 8 * * *" },
+    { "path": "/api/org/billing-mail", "schedule": "53 8 * * *" },
     { "path": "/api/ops/sweep", "schedule": "23 4 * * *" },
     { "path": "/api/ops/demo-reset", "schedule": "37 2 * * *" },
     { "path": "/api/money/daily", "schedule": "13 5 * * *" },
-    { "path": "/api/money/payout-run", "schedule": "47 9 * * *" }
+    { "path": "/api/money/payout-run", "schedule": "47 9 * * *" },
+    { "path": "/api/ops/domain-check", "schedule": "29 6 * * *" }
   ]
 }
