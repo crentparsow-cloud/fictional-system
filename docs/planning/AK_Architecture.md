@@ -8,6 +8,112 @@ Inputs: the business summary, the four research notes in this folder, the handov
 
 No commercial figures are set here. Every rate, price, cap and threshold is a column that Crent fills in. Points not yet confirmed are marked [check]. Points that need Crent are marked [Crent].
 
+## As built, 8 October 2026
+
+This section records what the repository holds at the end of Day 7, taken from `docs/DAY_LOG.md`, `supabase/migrations`, `apps/web/app`, `apps/web/vercel.json` and `.env.example`. Sections 1 to 15 below are the original design of 5 October and are left as written. Where the two disagree, this section describes the code.
+
+### Migrations
+
+Migrations 0001 to 0025 are applied to production (`akana-saas`). Migrations 0026 to 0030 are applied to staging (`akana-staging`) only, per the Day 7 log. Number 0017 was never used. Each migration has a matching test file in `supabase/tests`.
+
+| No. | File | What it adds |
+|---|---|---|
+| 0001 | `tenancy_and_identity` | Organisations, tenants, tenant domains, profiles, fixed org roles and a permissions table, staff roles, feature flags, config, the append-only audit log and the RLS helpers. |
+| 0002 | `catalogue` | Genres, shelves, areas, Themes, authors, books, contributors, workbooks, immutable versions, sections and tenant listings, with `app.publish_version()` and the free start, safety hub and unit 1. |
+| 0003 | `answers` | Enrolments, sealed answers (no plaintext column, no client write grant) and progress events holding ids and times only. |
+| 0004 | `commerce` | Price points with empty amounts, purchases, entitlements and `app.has_entitlement` in the sections policy. Demo titles cannot be bought. |
+| 0005 | `leads` | The leads table for the Publish with Akana form, written only through a checked, rate-limited function with hashed IP. |
+| 0006 | `consent` | Versioned health data consent on the reader's profile, given and withdrawn through two functions. |
+| 0007 | `account_rights` | Account deletion requests with the 7-day undo, readable by the reader and by owner and support staff. |
+| 0008 | `admin_controls` | Column grants that hide `tenants.stripe_account_id` and `plan`, the audited `set_workbook_paused`, `create_organisation`, a free Toolkit and `resolve_tenant`. |
+| 0009 | `memberships` | The Stripe subscription mirror, the membership catalogue and the membership entitlement, with a grace period after failed payment. |
+| 0010 | `membership_settings` | A 14-day grace period, demo titles kept out of the membership, interim membership prices and a once-only email record. |
+| 0011 | `membership_reminders` | The six-monthly terms reminder for monthly members, sent once per period. |
+| 0012 | `checkin_partners` | One check-in partner per reader, acting only through hashed single-purpose token links, with rate limits. |
+| 0013 | `author_onboarding` | Organisation invitations, the Studio profile, books with ISBN checks, licences by clickwrap or signed PDF, and workbook submissions. |
+| 0014 | `payouts_storage` | Stripe Connect Express payee status, the private `org-files` bucket with audited downloads, and step-up checks for payout changes. |
+| 0015 | `taxonomy_faith_consent` | 3 new shelves, 7 new areas and 34 new Themes (51 in all), `themes.group_suitable`, and versioned faith consent. |
+| 0016 | `review_ops` | The review queue, release gate with sign-offs against the content hash and a two-person override, funnel counts, ops alerts and the support inbox. |
+| 0018 | `terms_acceptance` | The terms register for every party and versioned acceptance, with 15 days' notice enforced for business documents. |
+| 0019 | `checkout_consent` | Immediate-access consent for single purchases and the refund wording for membership, recorded against the Stripe session. |
+| 0020 | `author_release` | Author sign-off against the content hash, price tier choice with staff approval, author email recipients and the staff JSON editor's save. |
+| 0021 | `royalty_ledger` | The append-only ledger on net receipts, reconciliation, the membership pool, monthly statements, refunds, payout holds and test-mode payout runs. |
+| 0022 | `dashboards_takedown` | Author earnings and privacy-safe dashboards (counts under 10 hidden), the publisher roll-up, staff account lookup and notice and takedown. |
+| 0023 | `whitelabel_demo` | Tenant branding with a contrast check, locked standards, tenant catalogue and prices as settings, Quillmoor Demo Press and demo logins. |
+| 0024 | `org_pilot` | Customer organisation kinds and profiles, licences and seats with the `team_seat` entitlement, seat invitations and console counts. |
+| 0025 | `retire_reading_scripture` | Retires the Reading Scripture Theme. Additive and idempotent. |
+| 0026 | `reader_polish` | "I have read this" kept on the server for higher-tier titles, read-only accounts during deletion, and sample view counts. |
+| 0027 | `support_ops` | Account lookup actions (refund, resend, restore access, cancel deletion), the workbook comment thread and database rate limits. |
+| 0028 | `org_groups` | Groups with leaders, soft-paced schedules, facilitator guides, fixed-choice check-ins, monthly reports, faith consent for church groups and report a concern. |
+| 0029 | `demo_money` | Separate demo tables for test-mode sales, statements and dashboards for the demo publisher, walled off from real money. Retired Themes hidden. |
+| 0030 | `org_billing` | Organisation subscriptions and invoices in Stripe test mode, organisation income in the pool, join links and CSV invites, self-serve sign-up behind a flag, offboarding and export. |
+
+### Route groups
+
+All routes live in one Next.js 16 project in `apps/web/app`.
+
+| Group | Routes | Notes |
+|---|---|---|
+| Reader | `(reader)`: `/home`, `/today`, `/toolkit`, `/library`, `/you`, `/read/[slug]`, `/consent`, `/consent/faith`, `/groups`, `/groups/concern`; `(auth)`: `/sign-in`, `/welcome`, `/terms`; `/respond/[token]` for check-in partners | The layout sends a visitor without a session to sign-in and one without the adult confirmation to `/welcome`. |
+| Studio | `/studio`, `/studio/profile`, `/studio/books/[id]` (licence, submit), `/studio/workbooks/[id]` (preview), `/studio/dashboard`, `/studio/earnings`, `/studio/help/[topic]`, `/studio/join/[token]`; `/payouts` with `return`, `refresh` and `verify` | Authors and publisher staff. CSV routes under dashboard and earnings. |
+| Console | `/console`, `/console/authors`, `/console/rollup` (with CSV) | Publisher members, author roster and the roll-up across authors. |
+| Org | `/org`, `/org/invite`, `/org/billing`, `/org/groups/[id]`, `/org/reports` (with CSV), `/org/lead/[id]` and its guide, `/org/join/[token]`, `/org/link/[token]`, `/org/admin-join/[token]`, `/org/start`, `/org/export` | Customer organisations (Akana Business): seats, billing, groups, leader view, reports. |
+| Admin | `/admin/mfa`, then `(gated)`: authors, business, demo, funnel, guides, leads, lookup, money (payouts, refunds, statements), ops, organisations, review (edit, preview, submissions), support, takedowns, white-label, workbooks | Akana host only. Staff role plus a TOTP code. |
+| Public | `/`, `/library` filters and shelves, `/w/[slug]`, `/themes`, `/authors`, `/publishers`, `/t/[slug]` (redirect), `/search`, `/help`, `/help/[topic]`, `/help-now`, `/help-offline`, `/legal/[doc]`, `/publish`, `/pricing`, `/organisations`, `/white-label`, `/trust`, `/contact`, `/counting`, `/takedown`, `/public-domain/[code]`, `/covers/[code]`, `/go/[slug]`, `/tenant.css`, `/site` and `/site/w/[slug]` (tenant rewrite target) | `/site` is a 404 when asked for directly. |
+| API | `/api/answers`, `/api/progress`, `/api/export`, `/api/checkout`, `/api/checkout/membership`, `/api/billing/portal`, `/api/stripe/webhook`, `/api/partner`, `/api/partner/respond`, `/api/statements/[id]`, `/api/health`, `/auth/callback`, `/files/open` | One Stripe webhook route serves the platform and Connect endpoints. |
+
+Cron jobs, from `apps/web/vercel.json` (times are UTC, region `lhr1`). Each needs `CRON_SECRET` and does nothing without it.
+
+| Path | Schedule | Job |
+|---|---|---|
+| `/api/ops/demo-reset` | `37 2 * * *`, 02:37 daily | Puts the demo publisher, its site, logins and demo money back. |
+| `/api/account/complete` | `17 3 * * *`, 03:17 daily | Completes account deletions after the 7-day undo. |
+| `/api/ops/sweep` | `23 4 * * *`, 04:23 daily | Retention sweep: funnel counts over 13 months, ops events over 90 days and rate counts over a day are deleted, and organisations whose licences all ended 30 days ago are offboarded. |
+| `/api/money/daily` | `13 5 * * *`, 05:13 daily | Reconciles with Stripe balance transactions and closes due pool months and statements. |
+| `/api/membership/reminders` | `41 8 * * *`, 08:41 daily | Six-monthly terms reminders for monthly members. |
+| `/api/money/payout-run` | `47 9 * * *`, 09:47 daily | Acts only on the payout day set in `royalty_config`, and only with a Stripe test key. |
+
+Two more crons were being added on 8 October with migrations 0031 to 0033, still uncommitted when this was written: `/api/org/billing-mail` at `53 8 * * *` and `/api/ops/domain-check` at `29 6 * * *`. Check `apps/web/vercel.json` for the current list.
+
+### Environment variables
+
+From `.env.example`. Copy it to `apps/web/.env.local`. Production values are set in Vercel by Crent.
+
+| Area | Variables |
+|---|---|
+| Supabase | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SERVICE_ROLE_KEY` |
+| Sealing | `ANSWERS_KEYS` (key ring, `v2.<key_id>.<base64>`, comma separated) |
+| Stripe | `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_CONNECT_WEBHOOK_SECRET` |
+| Membership prices | `STRIPE_PRICE_MEMBERSHIP_MONTHLY`, `STRIPE_PRICE_MEMBERSHIP_YEARLY` |
+| Organisation prices | `STRIPE_PRICE_ORG_SEAT_MONTHLY`, `STRIPE_PRICE_ORG_SEAT_YEARLY`, `STRIPE_PRICE_ORG_GROUP_MEMBER_MONTHLY`, `STRIPE_PRICE_ORG_CHURCH_BAND_1`, `STRIPE_PRICE_ORG_CHURCH_BAND_2`, `STRIPE_PRICE_ORG_CHURCH_BAND_3` |
+| Cron | `CRON_SECRET` |
+| Email | `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_REPLY_TO`, `EMAIL_MODE`, `TEST_RECIPIENT`, `POSTAL_ADDRESS` |
+| Notifications | `LEADS_NOTIFY_TO`, `OPS_ALERT_TO`, `REVIEW_NOTIFY_TO` |
+| Forms | `LEAD_HASH_SALT` |
+| Library | `SHELF_MIN_COUNT` |
+| Hosts | `AKANA_HOST`, `NEXT_PUBLIC_SITE_URL`, `TENANT_APEX`, `DEMO_TENANT_HOSTS`, `TENANT_CNAME_TARGET` (added with 0033) |
+
+The code also reads a few variables that `.env.example` does not list: `TENANT_DB_LOOKUP` (turns on the database tenant lookup), `NEXT_PUBLIC_BRAND_NAME`, `SUPABASE_URL` (seed script), and the end-to-end switches `E2E_BASE_URL`, `E2E_SKIP_BUILD`, `E2E_CHROMIUM_PATH`, `E2E_WORKBOOK_SLUG` and `VERCEL_AUTOMATION_BYPASS_SECRET`.
+
+### Where the build differs from the design below
+
+1. **Schema.** The workbook schema is v3 in Zod (`packages/schema`), not "2.0". Faith is not a genre yet (Crent's call, N3); faith consent is keyed on the Faith and Spirituality shelf.
+2. **Routes.** There are no `(marketing)`, `(library)` or `account` groups. Public pages sit at the root, the workbook page is `/w/[slug]`, Theme pages are `/themes/[slug]` with `/t/[slug]` redirecting, and the reader player is `/read/[slug]`, keyed on slug, not AK code. The account lives in the You tab. The tenant rewrite target is `/site`, not `/t/[tenant]`.
+3. **New surfaces.** `/org` for customer organisations (Akana Business, F-201 to F-228) is not in the original design. Nor are `/payouts`, `/help`, `/trust`, `/contact`, `/counting`, `/takedown` and `/respond/[token]`.
+4. **Tenancy.** There is no Edge Config. Hosts resolve from a config map; the database lookup (`resolve_tenant`, 0008) sits behind `TENANT_DB_LOOKUP=1`. Tenant hosts serve the catalogue, workbook pages and Akana's locked pages only: no sign-in, reading or checkout until shared identity (F-133). No custom domains through the Vercel API, no Connect Standard, no direct charges.
+5. **Sign-in.** Magic link only. Google waits for an OAuth client; passkeys and Apple are not built. Staff use a TOTP second factor, not Google on a company domain. Payout changes need a fresh TOTP code.
+6. **Jobs.** There is no `jobs` table or `SKIP LOCKED` queue. Six Vercel crons call route handlers directly, and the Stripe webhook does its work in the request through idempotent database functions.
+7. **Search.** On-device search over a catalogue index, not Postgres full-text search. What the reader types never leaves the device. Hidden Theme topics reach the browser only as short hashes.
+8. **Email.** `packages/emails` is a plain TypeScript renderer, not React Email. Bounce and complaint suppression is a mailer hook that every caller currently stubs. Without `RESEND_API_KEY` nothing is sent.
+9. **Export.** JSON and a printable HTML page that the reader prints or saves as PDF in the browser. No server-side watermarked PDF and no export job.
+10. **Deletion.** A 7-day undo, then the daily job, not the 30-day rule in section 9.
+11. **Rate limits.** Postgres counters (`rate_hits`, 0027) and audit-log counts inside the database functions. No Vercel Firewall rules.
+12. **Storage.** One private bucket, `org-files`, for manuscripts and signed licences. Covers are generated on request at `/covers/[code]`, not stored.
+13. **Packages.** There is no `packages/db` or `packages/money`; the money code is in `apps/web/lib/money`. `packages/seed` was added. Playwright lives in `apps/web/e2e`.
+14. **Money.** Separate charges and transfers, as section 8 proposed. The membership pool is built inside the ledger (0021), split by completed steps. Organisation billing on Stripe invoices (0030) is new. All rates, prices and thresholds are placeholders, and payout runs and organisation billing refuse anything but a Stripe test key.
+15. **Interface strings.** Typed message files in `apps/web/messages` (en-GB, en-US) read through `lib/locale.ts`, not next-intl.
+16. **Environments and CI.** Local development and Vercel previews point at `akana-staging`, not `supabase start`. Database tests run on plain Postgres 16 through `scripts/db-test.sh` with `supabase/tests/_shim.sql`, as plain SQL test scripts rather than pgTAP. CI (`.github/workflows/ci.yml`) runs checks, the build with the client bundle and CSP guards, and the database tests. The Playwright suite is run by hand, locally or against a deployed URL, not in CI. Migrations are applied by pasting the committed file into the Supabase SQL editor (`docs/ROLLBACK.md`), not with the Supabase CLI.
+
 ## 1. Principles
 
 1. **One codebase, one database, many tenants.** The Akana marketplace is itself a tenant. A white-label publisher site is another tenant. Every row that belongs to a tenant carries `tenant_id`.

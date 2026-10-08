@@ -11,7 +11,8 @@
     "depends_on": [
       "F-014"
     ],
-    "risk": "Publishing terms or rates before they are decided. Page stays on process."
+    "risk": "Publishing terms or rates before they are decided. Page stays on process.",
+    "status": "built"
   },
   {
     "id": "F-002",
@@ -27,7 +28,8 @@
       "F-094",
       "F-003"
     ],
-    "risk": "Copy drifting into outcome claims. Runs through the claims check."
+    "risk": "Copy drifting into outcome claims. Runs through the claims check.",
+    "status": "built"
   },
   {
     "id": "F-003",
@@ -43,7 +45,8 @@
       "F-014",
       "F-115"
     ],
-    "risk": "Wellbeing and finance Themes side by side read oddly. Group Themes under genre."
+    "risk": "Wellbeing and finance Themes side by side read oddly. Group Themes under genre.",
+    "status": "built"
   },
   {
     "id": "F-004",
@@ -58,7 +61,8 @@
       "F-003",
       "F-114"
     ],
-    "risk": "A demo title slipping into live paid listings. Build check and checkout both refuse."
+    "risk": "A demo title slipping into live paid listings. Build check and checkout both refuse.",
+    "status": "built"
   },
   {
     "id": "F-005",
@@ -74,7 +78,9 @@
       "F-004",
       "F-094"
     ],
-    "risk": "Hidden topics leaking into metadata. A build check fails on any topic word."
+    "risk": "Hidden topics leaking into metadata. A build check fails on any topic word.",
+    "status": "partly built",
+    "status_note": "The /w/[slug] page, outline, sample and schema.org data are built; there is no 301 on retitle and no price or buy buttons until prices are set."
   },
   {
     "id": "F-006",
@@ -88,7 +94,8 @@
     "depends_on": [
       "F-005"
     ],
-    "risk": "Invented authors that look real. Demo label on page and in metadata."
+    "risk": "Invented authors that look real. Demo label on page and in metadata.",
+    "status": "built"
   },
   {
     "id": "F-007",
@@ -102,7 +109,8 @@
     "depends_on": [
       "F-003"
     ],
-    "risk": "Theme names not trademark cleared (gate T1). Renameable through the registry."
+    "risk": "Theme names not trademark cleared (gate T1). Renameable through the registry.",
+    "status": "built"
   },
   {
     "id": "F-008",
@@ -117,7 +125,8 @@
       "F-003",
       "F-021"
     ],
-    "risk": "Crisis word list awaits clinician sign-off (gate C1). Ship the interim list. A server search later would break the promise; the privacy notice must cover both cases."
+    "risk": "Crisis word list awaits clinician sign-off (gate C1). Ship the interim list. A server search later would break the promise; the privacy notice must cover both cases.",
+    "status": "built"
   },
   {
     "id": "F-009",
@@ -131,7 +140,8 @@
     "depends_on": [
       "F-002"
     ],
-    "risk": "Quoting plan prices before they exist."
+    "risk": "Quoting plan prices before they exist.",
+    "status": "built"
   },
   {
     "id": "F-010",
@@ -146,7 +156,8 @@
       "F-002",
       "F-090"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-011",
@@ -161,7 +172,9 @@
       "F-005",
       "F-139"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "partly built",
+    "status_note": "Sitemap, robots, canonical links and en-GB and en-US alternates are built; no Open Graph share images exist."
   },
   {
     "id": "F-012",
@@ -175,7 +188,8 @@
     "depends_on": [
       "F-005"
     ],
-    "risk": "Not planned. Needs Crent's decision and a lawyer's view."
+    "risk": "Not planned. Needs Crent's decision and a lawyer's view.",
+    "status": "not started"
   },
   {
     "id": "F-013",
@@ -189,7 +203,8 @@
     "depends_on": [
       "F-002"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-014",
@@ -204,7 +219,8 @@
       "F-128",
       "F-129"
     ],
-    "risk": "Creep into a full design system. Tokens plus the components ported from the current app only."
+    "risk": "Creep into a full design system. Tokens plus the components ported from the current app only.",
+    "status": "built"
   },
   {
     "id": "F-015",
@@ -220,7 +236,8 @@
       "F-134",
       "F-014"
     ],
-    "risk": "Largest single item; starts day 1 and is due end of Week 2. Field types first, Maya Vaughn 20 through the harness daily. Fallback if it slips past day 10: mount the old engine as a client island and port screen by screen after launch."
+    "risk": "Largest single item; starts day 1 and is due end of Week 2. Field types first, Maya Vaughn 20 through the harness daily. Fallback if it slips past day 10: mount the old engine as a client island and port screen by screen after launch.",
+    "status": "built"
   },
   {
     "id": "F-016",
@@ -235,7 +252,8 @@
       "F-015",
       "F-095"
     ],
-    "risk": "Clutter. Cap shown cards."
+    "risk": "Clutter. Cap shown cards.",
+    "status": "built"
   },
   {
     "id": "F-017",
@@ -249,7 +267,8 @@
     "depends_on": [
       "F-015"
     ],
-    "risk": "A prefilled line the reader no longer agrees with. Every line editable."
+    "risk": "A prefilled line the reader no longer agrees with. Every line editable.",
+    "status": "built"
   },
   {
     "id": "F-018",
@@ -263,7 +282,8 @@
     "depends_on": [
       "F-015"
     ],
-    "risk": "Commercial pressure to add streaks. The rule stands."
+    "risk": "Commercial pressure to add streaks. The rule stands.",
+    "status": "built"
   },
   {
     "id": "F-019",
@@ -278,7 +298,8 @@
       "F-095",
       "F-015"
     ],
-    "risk": "Free weeks across 50 titles add up. Crent may cap free weeks per reader."
+    "risk": "Free weeks across 50 titles add up. Crent may cap free weeks per reader.",
+    "status": "built"
   },
   {
     "id": "F-020",
@@ -293,7 +314,8 @@
       "F-015",
       "F-141"
     ],
-    "risk": "An event carrying an answer or a feeling. Ids and timestamps only."
+    "risk": "An event carrying an answer or a feeling. Ids and timestamps only.",
+    "status": "built"
   },
   {
     "id": "F-021",
@@ -308,7 +330,8 @@
       "F-015",
       "F-107"
     ],
-    "risk": "A stale number. Rebuilt from JSON every deploy; weekly link checker kept."
+    "risk": "A stale number. Rebuilt from JSON every deploy; weekly link checker kept.",
+    "status": "built"
   },
   {
     "id": "F-022",
@@ -323,7 +346,8 @@
       "F-107",
       "F-015"
     ],
-    "risk": "A parenting or relationships title touching abuse or self-harm tagged non-wellbeing. Akana sets tier at review, never the author."
+    "risk": "A parenting or relationships title touching abuse or self-harm tagged non-wellbeing. Akana sets tier at review, never the author.",
+    "status": "built"
   },
   {
     "id": "F-023",
@@ -338,7 +362,9 @@
       "F-015",
       "F-134"
     ],
-    "risk": "Server-side PDF on Vercel needs fonts and a print layout per field type. Fallback is print-to-PDF from the browser."
+    "risk": "Server-side PDF on Vercel needs fonts and a print layout per field type. Fallback is print-to-PDF from the browser.",
+    "status": "partly built",
+    "status_note": "JSON and printable exports with the plain header are built; the emailed code gate is not."
   },
   {
     "id": "F-024",
@@ -352,7 +378,8 @@
     "depends_on": [
       "F-015"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-025",
@@ -367,7 +394,9 @@
       "F-132",
       "F-097"
     ],
-    "risk": "Deleting tax records that must be kept. Financial records held apart and named in the privacy notice."
+    "risk": "Deleting tax records that must be kept. Financial records held apart and named in the privacy notice.",
+    "status": "partly built",
+    "status_note": "Membership, appearance, export, consents and deletion with the 7-day undo are on You; no My library list, region or currency choice, email preferences or receipts."
   },
   {
     "id": "F-026",
@@ -382,7 +411,8 @@
       "F-025",
       "F-122"
     ],
-    "risk": "Consent text not reviewed. Reuse the reviewed version from the current build."
+    "risk": "Consent text not reviewed. Reuse the reviewed version from the current build.",
+    "status": "built"
   },
   {
     "id": "F-027",
@@ -396,7 +426,8 @@
     "depends_on": [
       "F-025"
     ],
-    "risk": "Readers reading 'discreet' as 'secure'."
+    "risk": "Readers reading 'discreet' as 'secure'.",
+    "status": "not started"
   },
   {
     "id": "F-028",
@@ -411,7 +442,8 @@
       "F-027",
       "F-132"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-029",
@@ -426,7 +458,8 @@
       "F-015",
       "F-134"
     ],
-    "risk": "Wellbeing answers left in a shared browser."
+    "risk": "Wellbeing answers left in a shared browser.",
+    "status": "not started"
   },
   {
     "id": "F-030",
@@ -441,7 +474,8 @@
       "F-015",
       "F-140"
     ],
-    "risk": "Partner mail naming a workbook or a stage. The email render test applies. The level 3 note is reader-written text sent to another person; the lawyer should confirm it stays outside the Online Safety Act user-to-user scope [check legal]."
+    "risk": "Partner mail naming a workbook or a stage. The email render test applies. The level 3 note is reader-written text sent to another person; the lawyer should confirm it stays outside the Online Safety Act user-to-user scope [check legal].",
+    "status": "built"
   },
   {
     "id": "F-031",
@@ -455,7 +489,9 @@
     "depends_on": [
       "F-015"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "partly built",
+    "status_note": "The Toolkit tab gathers tools from every open workbook; hard-day mode and read aloud are not built."
   },
   {
     "id": "F-032",
@@ -469,7 +505,8 @@
     "depends_on": [
       "F-015"
     ],
-    "risk": "Not planned."
+    "risk": "Not planned.",
+    "status": "not started"
   },
   {
     "id": "F-033",
@@ -484,7 +521,8 @@
       "F-130",
       "F-082"
     ],
-    "risk": "Manual invites do not scale past a few dozen. Fine for launch."
+    "risk": "Manual invites do not scale past a few dozen. Fine for launch.",
+    "status": "built"
   },
   {
     "id": "F-034",
@@ -499,7 +537,8 @@
       "F-033",
       "F-108"
     ],
-    "risk": "False positives. Show the flagged phrase; staff override with a logged reason."
+    "risk": "False positives. Show the flagged phrase; staff override with a logged reason.",
+    "status": "built"
   },
   {
     "id": "F-035",
@@ -514,7 +553,8 @@
       "F-109",
       "F-033"
     ],
-    "risk": "Duplicate book records. ISBN uniqueness check; merge tool after launch."
+    "risk": "Duplicate book records. ISBN uniqueness check; merge tool after launch.",
+    "status": "built"
   },
   {
     "id": "F-036",
@@ -529,7 +569,8 @@
       "F-035",
       "F-122"
     ],
-    "risk": "The licence text is the blocker, not the code (gate L3). Code ships with placeholder text marked draft; no real author signs until L3 clears."
+    "risk": "The licence text is the blocker, not the code (gate L3). Code ships with placeholder text marked draft; no real author signs until L3 clears.",
+    "status": "built"
   },
   {
     "id": "F-037",
@@ -545,7 +586,8 @@
       "F-036",
       "F-135"
     ],
-    "risk": "Editor capacity becomes the bottleneck [check team size]. Manuscripts are unpublished IP: private bucket, no public URLs, never used for training."
+    "risk": "Editor capacity becomes the bottleneck [check team size]. Manuscripts are unpublished IP: private bucket, no public URLs, never used for training.",
+    "status": "built"
   },
   {
     "id": "F-038",
@@ -560,7 +602,8 @@
       "F-015",
       "F-110"
     ],
-    "risk": "Preview drifting from live. One renderer."
+    "risk": "Preview drifting from live. One renderer.",
+    "status": "built"
   },
   {
     "id": "F-039",
@@ -575,7 +618,8 @@
       "F-038",
       "F-084"
     ],
-    "risk": "Reviewers re-read whole workbooks without diffs. Fine at launch volumes."
+    "risk": "Reviewers re-read whole workbooks without diffs. Fine at launch volumes.",
+    "status": "built"
   },
   {
     "id": "F-040",
@@ -590,7 +634,8 @@
       "F-093",
       "F-036"
     ],
-    "risk": "Ladder and share figures not set. Built as config with placeholders marked as such."
+    "risk": "Ladder and share figures not set. Built as config with placeholders marked as such.",
+    "status": "built"
   },
   {
     "id": "F-041",
@@ -605,7 +650,8 @@
       "F-100",
       "F-101"
     ],
-    "risk": "Net receipts definition must match the licence exactly."
+    "risk": "Net receipts definition must match the licence exactly.",
+    "status": "built"
   },
   {
     "id": "F-042",
@@ -620,7 +666,8 @@
       "F-141",
       "F-100"
     ],
-    "risk": "Exact earnings can back out small counts. Crent to decide whether earnings are thresholded."
+    "risk": "Exact earnings can back out small counts. Crent to decide whether earnings are thresholded.",
+    "status": "built"
   },
   {
     "id": "F-043",
@@ -634,7 +681,8 @@
     "depends_on": [
       "F-137"
     ],
-    "risk": "Confusion with the reader rule. Separate set keeps the reader render test intact."
+    "risk": "Confusion with the reader rule. Separate set keeps the reader render test intact.",
+    "status": "built"
   },
   {
     "id": "F-044",
@@ -648,7 +696,8 @@
     "depends_on": [
       "F-039"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-045",
@@ -664,7 +713,8 @@
       "F-042",
       "F-101"
     ],
-    "risk": "Demo figures confused with real results. Test mode only and labelled everywhere."
+    "risk": "Demo figures confused with real results. Test mode only and labelled everywhere.",
+    "status": "built"
   },
   {
     "id": "F-046",
@@ -678,7 +728,8 @@
     "depends_on": [
       "F-096"
     ],
-    "risk": "Attribution disputes. Publish the window rule."
+    "risk": "Attribution disputes. Publish the window rule.",
+    "status": "not started"
   },
   {
     "id": "F-047",
@@ -694,7 +745,8 @@
       "F-039",
       "F-110"
     ],
-    "risk": "Author-built content moves Akana toward a marketplace model with different Online Safety Act, DSA and P2B position. Legal view first."
+    "risk": "Author-built content moves Akana toward a marketplace model with different Online Safety Act, DSA and P2B position. Legal view first.",
+    "status": "not started"
   },
   {
     "id": "F-048",
@@ -709,7 +761,8 @@
       "F-037",
       "F-108"
     ],
-    "risk": "Invented content. Citation rule and validator guard."
+    "risk": "Invented content. Citation rule and validator guard.",
+    "status": "not started"
   },
   {
     "id": "F-049",
@@ -723,7 +776,8 @@
     "depends_on": [
       "F-048"
     ],
-    "risk": "Invented content. Needs licence cover for adaptation."
+    "risk": "Invented content. Needs licence cover for adaptation.",
+    "status": "not started"
   },
   {
     "id": "F-050",
@@ -738,7 +792,8 @@
       "F-040",
       "F-096"
     ],
-    "risk": "Leaks to deal sites. Caps and expiry by default."
+    "risk": "Leaks to deal sites. Caps and expiry by default.",
+    "status": "not started"
   },
   {
     "id": "F-051",
@@ -752,7 +807,8 @@
     "depends_on": [
       "F-100"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-052",
@@ -766,7 +822,8 @@
     "depends_on": [
       "F-110"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-053",
@@ -780,7 +837,8 @@
     "depends_on": [
       "F-107"
     ],
-    "risk": "Authors will ask. The answer is the dashboard and the referral link."
+    "risk": "Authors will ask. The answer is the dashboard and the referral link.",
+    "status": "not started"
   },
   {
     "id": "F-054",
@@ -794,7 +852,8 @@
     "depends_on": [
       "F-130"
     ],
-    "risk": "A named prospect may require it to sign [check]."
+    "risk": "A named prospect may require it to sign [check].",
+    "status": "not started"
   },
   {
     "id": "F-055",
@@ -808,7 +867,8 @@
     "depends_on": [
       "F-130"
     ],
-    "risk": "Last owner leaves. Database rule."
+    "risk": "Last owner leaves. Database rule.",
+    "status": "built"
   },
   {
     "id": "F-056",
@@ -822,7 +882,8 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-057",
@@ -836,7 +897,8 @@
     "depends_on": [
       "F-035"
     ],
-    "risk": "Bad cover URLs and rights mismatches. Draft-only."
+    "risk": "Bad cover URLs and rights mismatches. Draft-only.",
+    "status": "not started"
   },
   {
     "id": "F-058",
@@ -851,7 +913,8 @@
       "F-101",
       "F-042"
     ],
-    "risk": "Pool rule undecided, so subscription lines show as pending."
+    "risk": "Pool rule undecided, so subscription lines show as pending.",
+    "status": "built"
   },
   {
     "id": "F-059",
@@ -865,7 +928,8 @@
     "depends_on": [
       "F-081"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-060",
@@ -879,7 +943,8 @@
     "depends_on": [
       "F-057"
     ],
-    "risk": "Bulk publish must respect each title's review gate."
+    "risk": "Bulk publish must respect each title's review gate.",
+    "status": "not started"
   },
   {
     "id": "F-061",
@@ -893,7 +958,8 @@
     "depends_on": [
       "F-057"
     ],
-    "risk": "Each language needs its own clinical and legal review."
+    "risk": "Each language needs its own clinical and legal review.",
+    "status": "not started"
   },
   {
     "id": "F-062",
@@ -907,7 +973,8 @@
     "depends_on": [
       "F-057"
     ],
-    "risk": "Must never show invented figures."
+    "risk": "Must never show invented figures.",
+    "status": "not started"
   },
   {
     "id": "F-063",
@@ -921,7 +988,8 @@
     "depends_on": [
       "F-101"
     ],
-    "risk": "More Connect accounts and fees."
+    "risk": "More Connect accounts and fees.",
+    "status": "not started"
   },
   {
     "id": "F-064",
@@ -935,7 +1003,8 @@
     "depends_on": [
       "F-100"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-065",
@@ -950,7 +1019,8 @@
       "F-101",
       "F-099"
     ],
-    "risk": "Easy to miss until a finance team asks."
+    "risk": "Easy to miss until a finance team asks.",
+    "status": "not started"
   },
   {
     "id": "F-066",
@@ -965,7 +1035,9 @@
       "F-129",
       "F-014"
     ],
-    "risk": "Public Suffix List inclusion takes time [check]. Cookie rules must hold on their own until then."
+    "risk": "Public Suffix List inclusion takes time [check]. Cookie rules must hold on their own until then.",
+    "status": "partly built",
+    "status_note": "Host resolution from a config map is live; the database lookup sits behind TENANT_DB_LOOKUP=1, with no Edge Config cache and no tenant apex chosen (A7)."
   },
   {
     "id": "F-067",
@@ -979,7 +1051,8 @@
     "depends_on": [
       "F-066"
     ],
-    "risk": "A tenant wanting full CSS. No at launch."
+    "risk": "A tenant wanting full CSS. No at launch.",
+    "status": "built"
   },
   {
     "id": "F-068",
@@ -994,7 +1067,8 @@
       "F-067",
       "F-125"
     ],
-    "risk": "Tenants asking for analytics. Offer aggregate exports."
+    "risk": "Tenants asking for analytics. Offer aggregate exports.",
+    "status": "built"
   },
   {
     "id": "F-069",
@@ -1010,7 +1084,9 @@
       "F-005",
       "F-093"
     ],
-    "risk": "Tenant subscriptions need their own pool. Single sales only on tenants at launch."
+    "risk": "Tenant subscriptions need their own pool. Single sales only on tenants at launch.",
+    "status": "partly built",
+    "status_note": "Tenant catalogue and prices are stored as settings; tenant hosts cannot sign in, read or buy until shared identity (F-133) and tenant checkout (F-070)."
   },
   {
     "id": "F-070",
@@ -1026,7 +1102,8 @@
       "F-099",
       "F-069"
     ],
-    "risk": "With destination charges Akana is seller of record and owes VAT on tenant sales. Depends on Crent's merchant-of-record answer. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+    "risk": "With destination charges Akana is seller of record and owes VAT on tenant sales. Depends on Crent's merchant-of-record answer. Cut from the three weeks: target is the first signed tenant, about two weeks after launch.",
+    "status": "not started"
   },
   {
     "id": "F-071",
@@ -1041,7 +1118,8 @@
       "F-066",
       "F-080"
     ],
-    "risk": "DNS support. Clear status screen. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+    "risk": "DNS support. Clear status screen. Cut from the three weeks: target is the first signed tenant, about two weeks after launch.",
+    "status": "not started"
   },
   {
     "id": "F-072",
@@ -1057,7 +1135,8 @@
       "F-067",
       "F-069"
     ],
-    "risk": "Scope creep. This list only. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+    "risk": "Scope creep. This list only. Cut from the three weeks: target is the first signed tenant, about two weeks after launch.",
+    "status": "not started"
   },
   {
     "id": "F-073",
@@ -1073,7 +1152,8 @@
       "F-129",
       "F-136"
     ],
-    "risk": "Prices not set. Plan flags let prices change without code. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+    "risk": "Prices not set. Plan flags let prices change without code. Cut from the three weeks: target is the first signed tenant, about two weeks after launch.",
+    "status": "not started"
   },
   {
     "id": "F-074",
@@ -1088,7 +1168,8 @@
       "F-115",
       "F-067"
     ],
-    "risk": "Demo data in real statements. Flagged and excluded from every ledger."
+    "risk": "Demo data in real statements. Flagged and excluded from every ledger.",
+    "status": "built"
   },
   {
     "id": "F-075",
@@ -1102,7 +1183,8 @@
     "depends_on": [
       "F-070"
     ],
-    "risk": "Splits refund, tax and entitlement logic into two paths."
+    "risk": "Splits refund, tax and entitlement logic into two paths.",
+    "status": "not started"
   },
   {
     "id": "F-076",
@@ -1117,7 +1199,8 @@
       "F-073",
       "F-071"
     ],
-    "risk": "Unvetted tenants publishing unsafe wellbeing content. Review gate stays."
+    "risk": "Unvetted tenants publishing unsafe wellbeing content. Review gate stays.",
+    "status": "not started"
   },
   {
     "id": "F-077",
@@ -1132,7 +1215,8 @@
       "F-070",
       "F-133"
     ],
-    "risk": "Consent scope must be clear."
+    "risk": "Consent scope must be clear.",
+    "status": "not started"
   },
   {
     "id": "F-078",
@@ -1147,7 +1231,8 @@
       "F-069",
       "F-101"
     ],
-    "risk": "Channel conflict."
+    "risk": "Channel conflict.",
+    "status": "not started"
   },
   {
     "id": "F-079",
@@ -1161,7 +1246,8 @@
     "depends_on": [
       "F-067"
     ],
-    "risk": "Service worker scope per host needs testing."
+    "risk": "Service worker scope per host needs testing.",
+    "status": "not started"
   },
   {
     "id": "F-080",
@@ -1176,7 +1262,8 @@
       "F-132",
       "F-129"
     ],
-    "risk": "A staff account takeover. MFA and short sessions; answers out of reach."
+    "risk": "A staff account takeover. MFA and short sessions; answers out of reach.",
+    "status": "built"
   },
   {
     "id": "F-081",
@@ -1190,7 +1277,8 @@
     "depends_on": [
       "F-080"
     ],
-    "risk": "Must never log answers or health data."
+    "risk": "Must never log answers or health data.",
+    "status": "built"
   },
   {
     "id": "F-082",
@@ -1205,7 +1293,8 @@
       "F-080",
       "F-130"
     ],
-    "risk": "Admin bottleneck past a few dozen orgs."
+    "risk": "Admin bottleneck past a few dozen orgs.",
+    "status": "built"
   },
   {
     "id": "F-083",
@@ -1220,7 +1309,9 @@
       "F-136",
       "F-081"
     ],
-    "risk": "Pool maths across pause windows. Ledger records them."
+    "risk": "Pool maths across pause windows. Ledger records them.",
+    "status": "partly built",
+    "status_note": "Pause and resume work per workbook with an audited reason (0008); pausing one exercise, an author's catalogue or a tenant is not built."
   },
   {
     "id": "F-084",
@@ -1236,7 +1327,8 @@
       "F-110",
       "F-080"
     ],
-    "risk": "Crent as sole reviewer becomes the bottleneck. Simple enough for a second editor on day one."
+    "risk": "Crent as sole reviewer becomes the bottleneck. Simple enough for a second editor on day one.",
+    "status": "built"
   },
   {
     "id": "F-085",
@@ -1252,7 +1344,8 @@
       "F-036",
       "F-118"
     ],
-    "risk": "Without a clinician (gate C1) higher-tier titles cannot launch. Intended, not a bug."
+    "risk": "Without a clinician (gate C1) higher-tier titles cannot launch. Intended, not a bug.",
+    "status": "built"
   },
   {
     "id": "F-086",
@@ -1267,7 +1360,8 @@
       "F-108",
       "F-110"
     ],
-    "risk": "Hand-edited JSON errors. Validator blocks save on errors."
+    "risk": "Hand-edited JSON errors. Validator blocks save on errors.",
+    "status": "built"
   },
   {
     "id": "F-087",
@@ -1282,7 +1376,8 @@
       "F-081",
       "F-100"
     ],
-    "risk": "Creep into an edit-anything admin. Four actions only."
+    "risk": "Creep into an edit-anything admin. Four actions only.",
+    "status": "built"
   },
   {
     "id": "F-088",
@@ -1298,7 +1393,9 @@
       "F-100",
       "F-114"
     ],
-    "risk": "Demo or test orders in the numbers."
+    "risk": "Demo or test orders in the numbers.",
+    "status": "partly built",
+    "status_note": "/admin/funnel shows counts by workbook and /admin/money shows ledger balances; no revenue, VAT, fee or royalty views by author or genre."
   },
   {
     "id": "F-089",
@@ -1312,7 +1409,8 @@
     "depends_on": [
       "F-080"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-090",
@@ -1326,7 +1424,8 @@
     "depends_on": [
       "F-137"
     ],
-    "risk": "Provider holds messages with health information. DPA needed, no tracking."
+    "risk": "Provider holds messages with health information. DPA needed, no tracking.",
+    "status": "built"
   },
   {
     "id": "F-091",
@@ -1340,7 +1439,9 @@
     "depends_on": [
       "F-025"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "partly built",
+    "status_note": "Staff can read deletion requests in the database (0007) and see deletion state in the account lookup; there is no request list with statutory due dates."
   },
   {
     "id": "F-092",
@@ -1352,7 +1453,9 @@
     "priority": "Week 1",
     "size": "S",
     "depends_on": [],
-    "risk": "Connect platform review time [check]. Submit on day one."
+    "risk": "Connect platform review time [check]. Submit on day one.",
+    "status": "partly built",
+    "status_note": "Stripe sandbox has the webhooks, Connect platform and products; Stripe Tax is off, no live account is set up and Radar rules are defaults."
   },
   {
     "id": "F-093",
@@ -1366,7 +1469,9 @@
     "depends_on": [
       "F-092"
     ],
-    "risk": "Figures not set by Crent. Placeholders marked."
+    "risk": "Figures not set by Crent. Placeholders marked.",
+    "status": "partly built",
+    "status_note": "Ladder rows exist with empty amounts and membership has interim prices; Crent has not set the figures (D1 to D4)."
   },
   {
     "id": "F-094",
@@ -1381,7 +1486,9 @@
       "F-093",
       "F-138"
     ],
-    "risk": "Shown price differing from checkout. Same ids."
+    "risk": "Shown price differing from checkout. Same ids.",
+    "status": "partly built",
+    "status_note": "Shows the reader's own currency where a price exists, otherwise GBP with a note; no manual currency switch."
   },
   {
     "id": "F-095",
@@ -1396,7 +1503,8 @@
       "F-129",
       "F-109"
     ],
-    "risk": "The old 'whole library for life' tier may not survive a multi-author store. Crent to decide."
+    "risk": "The old 'whole library for life' tier may not survive a multi-author store. Crent to decide.",
+    "status": "built"
   },
   {
     "id": "F-096",
@@ -1413,7 +1521,9 @@
       "F-099",
       "F-132"
     ],
-    "risk": "Webhook failure leaving a paid reader locked out. Reconcile on the success page; alert on failures."
+    "risk": "Webhook failure leaving a paid reader locked out. Reconcile on the success page; alert on failures.",
+    "status": "partly built",
+    "status_note": "Checkout, consent and webhook are built in test mode and refuse until prices exist; the author share is paid by later transfers, not a destination charge."
   },
   {
     "id": "F-097",
@@ -1427,7 +1537,8 @@
     "depends_on": [
       "F-096"
     ],
-    "risk": "Membership on sale before authors know how the pool pays. Reader side ships; pool rule must be in the licence before outreach."
+    "risk": "Membership on sale before authors know how the pool pays. Reader side ships; pool rule must be in the licence before outreach.",
+    "status": "built"
   },
   {
     "id": "F-098",
@@ -1442,7 +1553,9 @@
       "F-096",
       "F-137"
     ],
-    "risk": "A code-only email may not be a valid VAT invoice [check accountant]."
+    "risk": "A code-only email may not be a valid VAT invoice [check accountant].",
+    "status": "partly built",
+    "status_note": "Emails carry the plan or AK code only; there is no full receipt with VAT number in the account or as a PDF."
   },
   {
     "id": "F-099",
@@ -1457,7 +1570,8 @@
       "F-092",
       "F-130"
     ],
-    "risk": "From a UK platform, self-serve payouts reach the US, UK, EEA, Canada and Switzerland only (research_money). Authors in India, Nigeria, Brazil and elsewhere need Global Payouts or Stripe sales."
+    "risk": "From a UK platform, self-serve payouts reach the US, UK, EEA, Canada and Switzerland only (research_money). Authors in India, Nigeria, Brazil and elsewhere need Global Payouts or Stripe sales.",
+    "status": "built"
   },
   {
     "id": "F-100",
@@ -1472,7 +1586,8 @@
       "F-096",
       "F-099"
     ],
-    "risk": "Refund after transfer leaves negative balances. Carried forward; tested before launch."
+    "risk": "Refund after transfer leaves negative balances. Carried forward; tested before launch.",
+    "status": "built"
   },
   {
     "id": "F-101",
@@ -1486,7 +1601,8 @@
     "depends_on": [
       "F-100"
     ],
-    "risk": "Rounding and FX drift. Minor units and FX rate stored per line."
+    "risk": "Rounding and FX drift. Minor units and FX rate stored per line.",
+    "status": "built"
   },
   {
     "id": "F-102",
@@ -1501,7 +1617,8 @@
       "F-087",
       "F-100"
     ],
-    "risk": "Refund after payout. First payouts held past the refund window."
+    "risk": "Refund after payout. First payouts held past the refund window.",
+    "status": "built"
   },
   {
     "id": "F-103",
@@ -1516,7 +1633,9 @@
       "F-100",
       "F-099"
     ],
-    "risk": "Thresholds not set."
+    "risk": "Thresholds not set.",
+    "status": "partly built",
+    "status_note": "Payout holds, thresholds, approvals and rate limits are built, with placeholder figures; no custom Radar rules."
   },
   {
     "id": "F-104",
@@ -1531,7 +1650,8 @@
       "F-100",
       "F-020"
     ],
-    "risk": "Must be ready before the first month-end after launch (late November 2026 if launch is 26 October). Rule must be in the licence before outreach."
+    "risk": "Must be ready before the first month-end after launch (late November 2026 if launch is 26 October). Rule must be in the licence before outreach.",
+    "status": "built"
   },
   {
     "id": "F-105",
@@ -1546,7 +1666,8 @@
       "F-099",
       "F-100"
     ],
-    "risk": "Needs gate F1 before the first overseas payout."
+    "risk": "Needs gate F1 before the first overseas payout.",
+    "status": "not started"
   },
   {
     "id": "F-106",
@@ -1561,7 +1682,9 @@
       "F-096",
       "F-095"
     ],
-    "risk": "Employer reporting becoming staff health data. Suppression only."
+    "risk": "Employer reporting becoming staff health data. Suppression only.",
+    "status": "partly built",
+    "status_note": "Team seats exist through organisation licences (F-202) and staff can grant a gift entitlement; reader gifts and bundles are not built."
   },
   {
     "id": "F-107",
@@ -1573,7 +1696,8 @@
     "priority": "Week 1",
     "size": "L",
     "depends_on": [],
-    "risk": "Changing it after demo content exists means rewriting 50 files. Freeze by day 4."
+    "risk": "Changing it after demo content exists means rewriting 50 files. Freeze by day 4.",
+    "status": "built"
   },
   {
     "id": "F-108",
@@ -1587,7 +1711,8 @@
     "depends_on": [
       "F-107"
     ],
-    "risk": "False positives in business genres. Allow lists owned by Editorial."
+    "risk": "False positives in business genres. Allow lists owned by Editorial.",
+    "status": "built"
   },
   {
     "id": "F-109",
@@ -1602,7 +1727,8 @@
       "F-129",
       "F-107"
     ],
-    "risk": "Badge honesty. Made with the author set only by the author's own sign-off."
+    "risk": "Badge honesty. Made with the author set only by the author's own sign-off.",
+    "status": "built"
   },
   {
     "id": "F-110",
@@ -1617,7 +1743,8 @@
       "F-109",
       "F-134"
     ],
-    "risk": "Migration bugs losing answers. Never delete answer rows; only remap."
+    "risk": "Migration bugs losing answers. Never delete answer rows; only remap.",
+    "status": "built"
   },
   {
     "id": "F-111",
@@ -1633,7 +1760,8 @@
       "F-108",
       "F-109"
     ],
-    "risk": "Breaking existing answers. Ids stable; tests before and after."
+    "risk": "Breaking existing answers. Ids stable; tests before and after.",
+    "status": "built"
   },
   {
     "id": "F-112",
@@ -1647,7 +1775,8 @@
     "depends_on": [
       "F-109"
     ],
-    "risk": "Theme names not trademark cleared (gate T1). In-app only, renameable."
+    "risk": "Theme names not trademark cleared (gate T1). In-app only, renameable.",
+    "status": "built"
   },
   {
     "id": "F-113",
@@ -1662,7 +1791,8 @@
       "F-015",
       "F-107"
     ],
-    "risk": "Scope creep. Capped at three. Unscored knowledge check needs Crent's view."
+    "risk": "Scope creep. Capped at three. Unscored knowledge check needs Crent's view.",
+    "status": "built"
   },
   {
     "id": "F-114",
@@ -1676,7 +1806,8 @@
     "depends_on": [
       "F-109"
     ],
-    "risk": "Demo left live after real launch. Launch checklist item."
+    "risk": "Demo left live after real launch. Launch checklist item.",
+    "status": "built"
   },
   {
     "id": "F-115",
@@ -1693,7 +1824,9 @@
       "F-114",
       "F-112"
     ],
-    "risk": "Thin or invented-sounding content on wellbeing titles. Wellbeing demo titles stay standard tier and pass the claims check."
+    "risk": "Thin or invented-sounding content on wellbeing titles. Wellbeing demo titles stay standard tier and pass the claims check.",
+    "status": "partly built",
+    "status_note": "50 listings are live (45 demo, 5 classics) with covers and outlines; the demo titles have no written first week yet."
   },
   {
     "id": "F-116",
@@ -1708,7 +1841,8 @@
       "F-115",
       "F-117"
     ],
-    "risk": "Volume of thin listings makes the store look padded. Library shows depth badges."
+    "risk": "Volume of thin listings makes the store look padded. Library shows depth badges.",
+    "status": "not started"
   },
   {
     "id": "F-117",
@@ -1722,7 +1856,8 @@
     "depends_on": [
       "F-115"
     ],
-    "risk": "Covers that imitate a real publisher's design. Plain typographic style only."
+    "risk": "Covers that imitate a real publisher's design. Plain typographic style only.",
+    "status": "built"
   },
   {
     "id": "F-118",
@@ -1736,7 +1871,9 @@
     "depends_on": [
       "F-035"
     ],
-    "risk": "Death years in research mostly marked [check]. Each verified and sourced before going live."
+    "risk": "Death years in research mostly marked [check]. Each verified and sourced before going live.",
+    "status": "partly built",
+    "status_note": "Records and pages exist for the 5 classics; CA, AU and NZ points are marked to confirm and no reviewer has signed."
   },
   {
     "id": "F-119",
@@ -1751,7 +1888,8 @@
       "F-107",
       "F-135"
     ],
-    "risk": "Audio rights held separately."
+    "risk": "Audio rights held separately.",
+    "status": "not started"
   },
   {
     "id": "F-120",
@@ -1766,7 +1904,8 @@
       "F-113",
       "F-110"
     ],
-    "risk": "Add only with tests."
+    "risk": "Add only with tests.",
+    "status": "not started"
   },
   {
     "id": "F-121",
@@ -1780,7 +1919,9 @@
     "depends_on": [
       "F-002"
     ],
-    "risk": "Company details still placeholders; mailer refuses marketing mail until the postal address is real."
+    "risk": "Company details still placeholders; mailer refuses marketing mail until the postal address is real.",
+    "status": "partly built",
+    "status_note": "Terms, privacy, cookies, refunds and the trust page are live as lawyer drafts; the accessibility statement and company details are not written."
   },
   {
     "id": "F-122",
@@ -1794,7 +1935,8 @@
     "depends_on": [
       "F-132"
     ],
-    "risk": "Templates need a lawyer (gate L3). Mechanism ships with draft text; nobody signs drafts."
+    "risk": "Templates need a lawyer (gate L3). Mechanism ships with draft text; nobody signs drafts.",
+    "status": "built"
   },
   {
     "id": "F-123",
@@ -1809,7 +1951,8 @@
       "F-083",
       "F-081"
     ],
-    "risk": "A curated store taking a revenue share may not get DMCA safe harbour. Lawyer to confirm. Designated agent registration is a Crent task."
+    "risk": "A curated store taking a revenue share may not get DMCA safe harbour. Lawyer to confirm. Designated agent registration is a Crent task.",
+    "status": "built"
   },
   {
     "id": "F-124",
@@ -1823,7 +1966,8 @@
     "depends_on": [
       "F-122"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "not started"
   },
   {
     "id": "F-125",
@@ -1837,7 +1981,8 @@
     "depends_on": [
       "F-128"
     ],
-    "risk": "A marketing tool added later breaking the What we never collect page."
+    "risk": "A marketing tool added later breaking the What we never collect page.",
+    "status": "built"
   },
   {
     "id": "F-126",
@@ -1851,7 +1996,8 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "Needs a privacy lawyer's read [check]."
+    "risk": "Needs a privacy lawyer's read [check].",
+    "status": "not started"
   },
   {
     "id": "F-127",
@@ -1865,7 +2011,8 @@
     "depends_on": [
       "F-132"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-128",
@@ -1877,7 +2024,8 @@
     "priority": "Week 1",
     "size": "S",
     "depends_on": [],
-    "risk": "Vercel Pro and Supabase Pro plans needed [check costs]."
+    "risk": "Vercel Pro and Supabase Pro plans needed [check costs].",
+    "status": "built"
   },
   {
     "id": "F-129",
@@ -1891,7 +2039,8 @@
     "depends_on": [
       "F-128"
     ],
-    "risk": "A missed policy leaks one publisher's sales or one reader's answers."
+    "risk": "A missed policy leaks one publisher's sales or one reader's answers.",
+    "status": "built"
   },
   {
     "id": "F-130",
@@ -1905,7 +2054,8 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "Role sprawl. Fixed list."
+    "risk": "Role sprawl. Fixed list.",
+    "status": "built"
   },
   {
     "id": "F-131",
@@ -1920,7 +2070,8 @@
       "F-129",
       "F-130"
     ],
-    "risk": "Tests only cover what they name. A test per new table."
+    "risk": "Tests only cover what they name. A test per new table.",
+    "status": "built"
   },
   {
     "id": "F-132",
@@ -1935,7 +2086,9 @@
       "F-128",
       "F-137"
     ],
-    "risk": "Magic links in spam on a new domain. SPF, DKIM, DMARC and warm-up before launch."
+    "risk": "Magic links in spam on a new domain. SPF, DKIM, DMARC and warm-up before launch.",
+    "status": "partly built",
+    "status_note": "Magic link only; Google waits for an OAuth client and passkeys are not built."
   },
   {
     "id": "F-133",
@@ -1950,7 +2103,8 @@
       "F-132",
       "F-066"
     ],
-    "risk": "A publisher insisting on fully separate accounts. Cut from the three weeks: target is the first signed tenant, about two weeks after launch."
+    "risk": "A publisher insisting on fully separate accounts. Cut from the three weeks: target is the first signed tenant, about two weeks after launch.",
+    "status": "not started"
   },
   {
     "id": "F-134",
@@ -1965,7 +2119,8 @@
       "F-129",
       "F-132"
     ],
-    "risk": "A leaked service key or missing policy exposes health data. RLS tests and advisors before launch."
+    "risk": "A leaked service key or missing policy exposes health data. RLS tests and advisors before launch.",
+    "status": "built"
   },
   {
     "id": "F-135",
@@ -1979,7 +2134,9 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "A bucket left public. Advisor check."
+    "risk": "A bucket left public. Advisor check.",
+    "status": "partly built",
+    "status_note": "One private org-files bucket for manuscripts and signed licences with signed links; covers are generated, not stored, and exports are streamed."
   },
   {
     "id": "F-136",
@@ -1993,7 +2150,8 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-137",
@@ -2007,7 +2165,9 @@
     "depends_on": [
       "F-128"
     ],
-    "risk": "No sending domain (gate T2) or postal address blocks most mail. Decide in Week 1."
+    "risk": "No sending domain (gate T2) or postal address blocks most mail. Decide in Week 1.",
+    "status": "partly built",
+    "status_note": "Guards, send log and one-click unsubscribe are built; bounce and complaint suppression is a hook every caller stubs, and nothing sends until Resend is set up."
   },
   {
     "id": "F-138",
@@ -2021,7 +2181,8 @@
     "depends_on": [
       "F-128"
     ],
-    "risk": "Low."
+    "risk": "Low.",
+    "status": "built"
   },
   {
     "id": "F-139",
@@ -2035,7 +2196,8 @@
     "depends_on": [
       "F-014"
     ],
-    "risk": "A foreign-language wellbeing title with English-only Help now. Not live until helplines and safety review exist for that language."
+    "risk": "A foreign-language wellbeing title with English-only Help now. Not live until helplines and safety review exist for that language.",
+    "status": "built"
   },
   {
     "id": "F-140",
@@ -2050,7 +2212,8 @@
       "F-014",
       "F-021"
     ],
-    "risk": "Safari sign-out clearing. Test it."
+    "risk": "Safari sign-out clearing. Test it.",
+    "status": "built"
   },
   {
     "id": "F-141",
@@ -2064,7 +2227,8 @@
     "depends_on": [
       "F-129"
     ],
-    "risk": "An event carrying an answer. Schema forbids free text."
+    "risk": "An event carrying an answer. Schema forbids free text.",
+    "status": "built"
   },
   {
     "id": "F-142",
@@ -2078,7 +2242,8 @@
     "depends_on": [
       "F-096"
     ],
-    "risk": "An error tracker capturing form values. Off reader screens."
+    "risk": "An error tracker capturing form values. Off reader screens.",
+    "status": "built"
   },
   {
     "id": "F-143",
@@ -2093,7 +2258,8 @@
       "F-130",
       "F-132"
     ],
-    "risk": "Locked-out staff. Recovery route."
+    "risk": "Locked-out staff. Recovery route.",
+    "status": "built"
   },
   {
     "id": "F-144",
@@ -2108,7 +2274,9 @@
       "F-015",
       "F-128"
     ],
-    "risk": "Treating an automated pass as enough. A day of manual testing is budgeted."
+    "risk": "Treating an automated pass as enough. A day of manual testing is budgeted.",
+    "status": "partly built",
+    "status_note": "Automated axe sweep on public pages in both themes and widths; the manual keyboard, VoiceOver and TalkBack pass in docs/ACCESSIBILITY.md has not been run."
   },
   {
     "id": "F-145",
@@ -2125,7 +2293,9 @@
       "F-102",
       "F-144"
     ],
-    "risk": "Squeezed by slippage. Protected time in the last three days."
+    "risk": "Squeezed by slippage. Protected time in the last three days.",
+    "status": "partly built",
+    "status_note": "Checklist, rollback and backups docs and a load test script exist; live-mode switch, backups and DNS and email warm-up are not done."
   },
   {
     "id": "F-146",
@@ -2140,7 +2310,8 @@
       "F-140",
       "F-134"
     ],
-    "risk": "Two-device conflicts."
+    "risk": "Two-device conflicts.",
+    "status": "not started"
   },
   {
     "id": "F-147",
@@ -2154,7 +2325,8 @@
     "depends_on": [
       "F-140"
     ],
-    "risk": "iOS supports web push only for home-screen apps [check]."
+    "risk": "iOS supports web push only for home-screen apps [check].",
+    "status": "not started"
   },
   {
     "id": "F-148",
@@ -2169,7 +2341,8 @@
       "F-112",
       "F-109"
     ],
-    "risk": "None of the 34 new names has had a register search (gate T1); they stay in-app and renameable. The hidden-topic leak test must cover the new condition words (depression, OCD, PTSD, debt, divorce). Migration number is the next free one at merge, which shifts the 0013 to 0022 numbers in akana-business.md. Update 7 October 2026: Reading Scripture (reading-scripture) is retired because Bible study is out of scope for now; migration 0025 adds themes.status and marks it retired, and the id is never reused. 50 Themes are active."
+    "risk": "None of the 34 new names has had a register search (gate T1); they stay in-app and renameable. The hidden-topic leak test must cover the new condition words (depression, OCD, PTSD, debt, divorce). Migration number is the next free one at merge, which shifts the 0013 to 0022 numbers in akana-business.md. Update 7 October 2026: Reading Scripture (reading-scripture) is retired because Bible study is out of scope for now; migration 0025 adds themes.status and marks it retired, and the id is never reused. 50 Themes are active.",
+    "status": "built"
   },
   {
     "id": "F-149",
@@ -2185,7 +2358,8 @@
       "F-109",
       "F-148"
     ],
-    "risk": "supabase/tests/0002_catalogue.sql asserts exactly 11 genres (line 109) and fails once a 12th is seeded. It must change in the same pull request. F-221 covers faith titles and licences after launch; this entry is only the code change."
+    "risk": "supabase/tests/0002_catalogue.sql asserts exactly 11 genres (line 109) and fails once a 12th is seeded. It must change in the same pull request. F-221 covers faith titles and licences after launch; this entry is only the code change.",
+    "status": "not started"
   },
   {
     "id": "F-150",
@@ -2201,7 +2375,8 @@
       "F-122",
       "F-149"
     ],
-    "risk": "Consent wording and the privacy notice line about religious belief do not need lawyer review now (Crent, 7 October 2026): closed. If Crent declines the faith genre, the trigger must key on the Faith and Spirituality shelf instead. F-215 extends the same consent to church-run groups after launch."
+    "risk": "Consent wording and the privacy notice line about religious belief do not need lawyer review now (Crent, 7 October 2026): closed. If Crent declines the faith genre, the trigger must key on the Faith and Spirituality shelf instead. F-215 extends the same consent to church-run groups after launch.",
+    "status": "built"
   },
   {
     "id": "F-151",
@@ -2216,7 +2391,8 @@
       "F-107",
       "F-149"
     ],
-    "risk": "KJV wording quoted inside a public-domain classic (Bunyan, Spurgeon, Ryle) may still need Cambridge's permission in the UK [check legal]. en-AU, en-CA and en-NZ editions are not settled [check]. 'World English Bible' is a trade mark, so a changed text cannot carry the name."
+    "risk": "KJV wording quoted inside a public-domain classic (Bunyan, Spurgeon, Ryle) may still need Cambridge's permission in the UK [check legal]. en-AU, en-CA and en-NZ editions are not settled [check]. 'World English Bible' is a trade mark, so a changed text cannot carry the name.",
+    "status": "not started"
   },
   {
     "id": "F-152",
@@ -2230,7 +2406,9 @@
     "depends_on": [
       "F-118"
     ],
-    "risk": "Canada, Australia and New Zealand terms are still [to confirm]. Three classics are Tier B (In His Steps, How We Think, The Elements of Style) and stay off sale at launch. Scientific Advertising has no Gutenberg text and needs a transcription from a 1923 scan. Each record waits for a named reviewer."
+    "risk": "Canada, Australia and New Zealand terms are still [to confirm]. Three classics are Tier B (In His Steps, How We Think, The Elements of Style) and stay off sale at launch. Scientific Advertising has no Gutenberg text and needs a transcription from a 1923 scan. Each record waits for a named reviewer.",
+    "status": "partly built",
+    "status_note": "50 records are drafted (33 ready for a signer, 17 need a check); none is signed and their workbooks are not seeded."
   },
   {
     "id": "F-153",
@@ -2248,7 +2426,9 @@
       "F-115",
       "F-117"
     ],
-    "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 50 active Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script."
+    "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 50 active Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script.",
+    "status": "partly built",
+    "status_note": "Demo Catalogue v2 and a guarded seed_v2_preview.sql are prepared; not applied until Crent approves."
   },
   {
     "id": "F-154",
@@ -2262,7 +2442,8 @@
     "depends_on": [
       "F-021"
     ],
-    "risk": "Only money_worries_lines has draft entries, for GB (MoneyHelper, StepChange, National Debtline, Citizens Advice) and IE (MABS), and their numbers and hours are not yet verified. Any group not checked by market is set to null before seeding."
+    "risk": "Only money_worries_lines has draft entries, for GB (MoneyHelper, StepChange, National Debtline, Citizens Advice) and IE (MABS), and their numbers and hours are not yet verified. Any group not checked by market is set to null before seeding.",
+    "status": "built"
   },
   {
     "id": "F-155",
@@ -2278,7 +2459,8 @@
       "F-085",
       "F-149"
     ],
-    "risk": "No reviewer is named. Without one, no faith title can release. Buddhist and Hindu classics need their own reviewers."
+    "risk": "No reviewer is named. Without one, no faith title can release. Buddhist and Hindu classics need their own reviewers.",
+    "status": "built"
   },
   {
     "id": "F-201",
@@ -2293,7 +2475,8 @@
       "F-129",
       "F-082"
     ],
-    "risk": "Part of the manual-sales pilot (F-201 to F-206), which only fits if it runs as an extra stream from week 2. Crent's call."
+    "risk": "Part of the manual-sales pilot (F-201 to F-206), which only fits if it runs as an extra stream from week 2. Crent's call.",
+    "status": "built"
   },
   {
     "id": "F-202",
@@ -2308,7 +2491,8 @@
       "F-095",
       "F-201"
     ],
-    "risk": "Replaces app.has_entitlement, the most important access function. Needs a full RLS test pass."
+    "risk": "Replaces app.has_entitlement, the most important access function. Needs a full RLS test pass.",
+    "status": "built"
   },
   {
     "id": "F-203",
@@ -2324,7 +2508,8 @@
       "F-137",
       "F-030"
     ],
-    "risk": "An invite email naming a wellbeing title would disclose health data. The render test applies."
+    "risk": "An invite email naming a wellbeing title would disclose health data. The render test applies.",
+    "status": "built"
   },
   {
     "id": "F-204",
@@ -2339,7 +2524,8 @@
       "F-055",
       "F-203"
     ],
-    "risk": "Small groups make counts identifying. Suppression under suppression_threshold_owner (5) applies."
+    "risk": "Small groups make counts identifying. Suppression under suppression_threshold_owner (5) applies.",
+    "status": "built"
   },
   {
     "id": "F-205",
@@ -2354,7 +2540,8 @@
       "F-122",
       "F-126"
     ],
-    "risk": "No organisation goes live until the lawyer approves the text (O10)."
+    "risk": "No organisation goes live until the lawyer approves the text (O10).",
+    "status": "built"
   },
   {
     "id": "F-206",
@@ -2368,7 +2555,8 @@
     "depends_on": [
       "F-009"
     ],
-    "risk": "Copy promising church content before any faith title is released."
+    "risk": "Copy promising church content before any faith title is released.",
+    "status": "built"
   },
   {
     "id": "F-210",
@@ -2382,7 +2570,8 @@
     "depends_on": [
       "F-204"
     ],
-    "risk": "A group name such as 'Anxiety support, Finance team' puts health data in the roster."
+    "risk": "A group name such as 'Anxiety support, Finance team' puts health data in the roster.",
+    "status": "built"
   },
   {
     "id": "F-211",
@@ -2397,7 +2586,8 @@
       "F-210",
       "F-016"
     ],
-    "risk": "Drifting into streaks or 'behind' labels. The 0003 rule (no streak or missed-day derivation) applies to groups."
+    "risk": "Drifting into streaks or 'behind' labels. The 0003 rule (no streak or missed-day derivation) applies to groups.",
+    "status": "built"
   },
   {
     "id": "F-212",
@@ -2412,7 +2602,8 @@
       "F-210",
       "F-084"
     ],
-    "risk": "The licence must allow guides as derived material. Who writes them is Crent's call."
+    "risk": "The licence must allow guides as derived material. Who writes them is Crent's call.",
+    "status": "built"
   },
   {
     "id": "F-213",
@@ -2427,7 +2618,8 @@
       "F-210",
       "F-030"
     ],
-    "risk": "Shared free text between members would likely bring Akana into Online Safety Act user-to-user scope [check legal]."
+    "risk": "Shared free text between members would likely bring Akana into Online Safety Act user-to-user scope [check legal].",
+    "status": "built"
   },
   {
     "id": "F-214",
@@ -2443,7 +2635,8 @@
       "F-210",
       "F-141"
     ],
-    "risk": "Counts per wellbeing title can reveal health data. Shown only above the threshold."
+    "risk": "Counts per wellbeing title can reveal health data. Shown only above the threshold.",
+    "status": "built"
   },
   {
     "id": "F-215",
@@ -2457,7 +2650,8 @@
     "depends_on": [
       "F-026"
     ],
-    "risk": "Overlaps F-150, which brings the faith-title consent forward to week 2. If F-150 ships, this entry reduces to extending it to church-run groups."
+    "risk": "Overlaps F-150, which brings the faith-title consent forward to week 2. If F-150 ships, this entry reduces to extending it to church-run groups.",
+    "status": "built"
   },
   {
     "id": "F-216",
@@ -2471,7 +2665,8 @@
     "depends_on": [
       "F-090"
     ],
-    "risk": "Akana support is not a safeguarding service. The prompt must send people to their church's safeguarding lead."
+    "risk": "Akana support is not a safeguarding service. The prompt must send people to their church's safeguarding lead.",
+    "status": "built"
   },
   {
     "id": "F-220",
@@ -2486,7 +2681,9 @@
       "F-202",
       "F-092"
     ],
-    "risk": "VAT on overseas churches and charities that are not in business [check accountant]."
+    "risk": "VAT on overseas churches and charities that are not in business [check accountant].",
+    "status": "partly built",
+    "status_note": "Seat subscriptions, invoices on 30-day terms and Bacs are built in Stripe test mode only; organisation prices are unset (N2)."
   },
   {
     "id": "F-221",
@@ -2501,7 +2698,8 @@
       "F-112",
       "F-036"
     ],
-    "risk": "Overlaps F-149, which brings the genre code change forward to week 2. If F-149 ships, this entry is the licensing and content work only."
+    "risk": "Overlaps F-149, which brings the genre code change forward to week 2. If F-149 ships, this entry is the licensing and content work only.",
+    "status": "not started"
   },
   {
     "id": "F-222",
@@ -2516,7 +2714,8 @@
       "F-104",
       "F-220"
     ],
-    "risk": "An author learning that a named employer runs a wellbeing title [check legal]."
+    "risk": "An author learning that a named employer runs a wellbeing title [check legal].",
+    "status": "built"
   },
   {
     "id": "F-223",
@@ -2532,7 +2731,8 @@
       "F-067",
       "F-133"
     ],
-    "risk": "Sealing binds answers to the tenant, so work on the marketplace cannot move to a branded tenant later. Decide the tenant when the organisation starts."
+    "risk": "Sealing binds answers to the tenant, so work on the marketplace cannot move to a branded tenant later. Decide the tenant when the organisation starts.",
+    "status": "not started"
   },
   {
     "id": "F-224",
@@ -2546,7 +2746,8 @@
     "depends_on": [
       "F-211"
     ],
-    "risk": "A small, risky change to the most important access function."
+    "risk": "A small, risky change to the most important access function.",
+    "status": "not started"
   },
   {
     "id": "F-225",
@@ -2560,7 +2761,8 @@
     "depends_on": [
       "F-203"
     ],
-    "risk": "A leaked join code admitting people outside the organisation. Domain restriction and seat caps limit it."
+    "risk": "A leaked join code admitting people outside the organisation. Domain restriction and seat caps limit it.",
+    "status": "built"
   },
   {
     "id": "F-226",
@@ -2574,7 +2776,9 @@
     "depends_on": [
       "F-220"
     ],
-    "risk": "Group organisers are usually consumers, so DMCC Act subscription rules apply [check legal]."
+    "risk": "Group organisers are usually consumers, so DMCC Act subscription rules apply [check legal].",
+    "status": "partly built",
+    "status_note": "Built behind the org_self_serve flag, which is off until organisation prices are set."
   },
   {
     "id": "F-227",
@@ -2588,7 +2792,8 @@
     "depends_on": [
       "F-054"
     ],
-    "risk": "Built for one prospect's identity provider and hard to generalise."
+    "risk": "Built for one prospect's identity provider and hard to generalise.",
+    "status": "not started"
   },
   {
     "id": "F-228",
@@ -2602,6 +2807,7 @@
     "depends_on": [
       "F-077"
     ],
-    "risk": "An export path that reaches answers. None may exist."
+    "risk": "An export path that reaches answers. None may exist.",
+    "status": "built"
   }
 ]
