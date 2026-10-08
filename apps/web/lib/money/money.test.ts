@@ -6,7 +6,7 @@ import { executePayouts, isPayoutDay, runPayouts, stripeErrorCode, type PayoutSt
 import { moneyAbilities } from "@/lib/money/permissions";
 import { isTestKey, reconcile, reconciliationWindow, type ReceiptRow, type StripeTxn } from "@/lib/money/reconcile";
 import { classifyPurchaseQuery, parseRefundForm, reclaimAmount, refundableMinor, stripeRefundReason } from "@/lib/money/refund";
-import { buildStatementModel, csvCell, statementCsv, statementFileName, statementPdf, wrap, type StatementLine, type StatementRow } from "@/lib/money/statement";
+import { buildStatementModel, csvCell, statementCsv, statementFileName, statementPdf, statementPdfLines, wrap, type StatementLine, type StatementRow } from "@/lib/money/statement";
 
 describe("format", () => {
   it("formats minor units with the currency", () => {
@@ -367,6 +367,21 @@ describe("statements", () => {
     expect(text).toContain("Akana royalty statement");
     expect(text).toContain("PROVISIONAL");
     expect(text).not.toMatch(/reader@|user_id/);
+  });
+
+  it("marks a demo statement (0029) as demo on every surface, and a real one never", () => {
+    const real = buildStatementModel(st, lines, titles, "Ledger One");
+    expect(real.demo).toBe(false);
+    expect(real.method.join(" ")).not.toMatch(/DEMO/);
+    expect(statementCsv(real)).not.toContain("meta,,,demo");
+    const m = buildStatementModel({ ...st, is_demo: true }, lines, titles, "Quillmoor Demo Press");
+    expect(m.demo).toBe(true);
+    expect(m.method[0]).toMatch(/^DEMO: invented figures/);
+    expect(statementCsv(m)).toContain("meta,,,demo,,,,,,,,");
+    expect(statementPdfLines(m)[0]?.text).toBe("Akana royalty statement (DEMO)");
+    const pdf = Buffer.from(statementPdf(m)).toString("latin1");
+    expect(pdf).toContain("Not a real statement");
+    expect(statementFileName("PB-DEM00", m, "pdf")).toBe("akana-statement-pb-dem00-2026-08-gbp-test-demo.pdf");
   });
 
   it("escapes PDF strings and maps the pound sign", () => {
