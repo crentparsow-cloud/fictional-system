@@ -163,7 +163,7 @@ const CatalogueV2 = z.object({
 });
 type CatalogueV2Workbook = z.infer<typeof CatalogueWorkbookV2>;
 
-/** Which demo catalogue file the seed reads. v1 is the default and the one supabase/seed/seed.sql is built from. */
+/** Which demo catalogue file the seed reads. v2 is the default and the one supabase/seed/seed.sql is built from (approved by Crent, 8 October 2026). v1 stays readable for comparison. */
 export type CatalogueVersion = "v1" | "v2";
 export const CATALOGUE_PATHS: Record<CatalogueVersion, string[]> = {
   v1: ["docs", "planning", "AK_Demo_Catalogue.json"],
@@ -211,8 +211,8 @@ export interface BuildOptions {
   /** Repository root. Defaults to three levels above this file. */
   root?: string;
   /**
-   * Demo catalogue to read. Defaults to v1. v2 is a preview until Crent
-   * approves the titles (F-153); see buildSeedV2.
+   * Demo catalogue to read. Defaults to v2, approved by Crent on
+   * 8 October 2026 (F-153). v1 stays readable for comparison.
    */
   catalogue?: CatalogueVersion;
 }
@@ -253,7 +253,7 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
       ...themeStatus(t),
     }));
 
-  const version: CatalogueVersion = opts.catalogue ?? "v1";
+  const version: CatalogueVersion = opts.catalogue ?? "v2";
   const rawCatalogue = readJson(join(root, ...CATALOGUE_PATHS[version]));
   const catalogue = version === "v2" ? CatalogueV2.parse(rawCatalogue) : Catalogue.parse(rawCatalogue);
   const v2 = version === "v2" ? (catalogue as z.infer<typeof CatalogueV2>) : null;
@@ -478,11 +478,7 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
   return seed;
 }
 
-/**
- * Build from Demo Catalogue v2 (F-153). A preview until Crent approves the
- * titles: the output goes to supabase/seed/seed_v2_preview.sql, never to
- * seed.sql, and there is no apply path for it.
- */
+/** Build from Demo Catalogue v2 (F-153). The same as buildSeed() now v2 is the default. */
 export function buildSeedV2(opts: Omit<BuildOptions, "catalogue"> = {}): Seed {
   return buildSeed({ ...opts, catalogue: "v2" });
 }
