@@ -313,12 +313,13 @@
       "role": "author"
      }
     ],
-    "tier": "A",
+    "tier": "B (published before 1931; Strunk died 1946, so not Tier A under Research 4. The UK term ended at the end of 2016. Corrected 7 October 2026, F-152)",
     "uk_status": "clear: Strunk died 1946, so the UK term (life plus 70) ended on 31 December 2016. The Gutenberg text has no later editor. E. B. White's 1959 revisions are excluded.",
     "us_status": "clear: published 1918 and 1920, both before 1931. Gutenberg marks the eBook public domain in the USA.",
     "sources": [
      "https://www.gutenberg.org/ebooks/37134"
-    ]
+    ],
+    "house_record": "house record written at docs/public-domain/AK-WXE4R.md on 7 October 2026 (F-152), not yet signed"
    }
   },
   {
@@ -596,7 +597,8 @@
      "https://en.wikipedia.org/wiki/Claude_C._Hopkins",
      "https://en.wikipedia.org/wiki/Scientific_Advertising",
      "https://www.holloway.com/g/scientific-advertising"
-    ]
+    ],
+    "house_record": "house record written at docs/public-domain/AK-01AZG.md on 7 October 2026 (F-152), not yet signed"
    }
   },
   {
@@ -874,7 +876,8 @@
     "us_status": "clear: published 1841 and 1852, before 1931. Gutenberg marks the eBook public domain in the USA.",
     "sources": [
      "https://www.gutenberg.org/ebooks/24518"
-    ]
+    ],
+    "house_record": "house record written at docs/public-domain/AK-4HBJN.md on 7 October 2026 (F-152), not yet signed"
    }
   },
   {
@@ -1019,7 +1022,8 @@
     "us_status": "clear: published 1875, before 1931. Gutenberg marks the eBook public domain in the USA.",
     "sources": [
      "https://gutenberg.org/ebooks/14418"
-    ]
+    ],
+    "house_record": "house record written at docs/public-domain/AK-097A5.md on 7 October 2026 (F-152), not yet signed"
    }
   }
  ],
