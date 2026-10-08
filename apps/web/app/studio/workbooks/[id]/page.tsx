@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ReleaseNoticeLine } from "@/components/studio/ReleaseBits";
+import { CommentThread } from "@/components/workbook-thread/CommentThread";
 import { versionUnderReview, type QueueVersion } from "@/lib/admin/review";
 import {
   PRICE_CHOICE_LABELS,
@@ -19,7 +20,8 @@ import { pricePointFromRow, type PricePoint } from "@/lib/pricing";
 import { roleCan, withOrg } from "@/lib/studio";
 import { requireStudio } from "@/lib/studio-server";
 import { createUserClient } from "@/lib/supabase/server";
-import { choosePrice, signOffVersion } from "../actions";
+import { loadThread } from "@/lib/workbook-comments-server";
+import { choosePrice, postWorkbookComment, signOffVersion } from "../actions";
 
 export const metadata: Metadata = { title: "Workbook", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -59,7 +61,7 @@ interface SignoffRow {
 
 /**
  * One workbook in the Studio (F-038, F-039, F-040): where it stands, the
- * reviewer's notes sent back to you, a preview of the version under review
+ * reviewer's notes sent back to you, the comment thread with the Akana team, a preview of the version under review
  * in the real reader, the sign-off against that version's exact content
  * hash, and the price from the ladder. Everything is read through the
  * signed-in person's client, so row level security decides.
@@ -83,7 +85,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
   const q = (p: string) => withOrg(p, ctx.org.id, ctx.multi);
   const date = (s: string) => new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/London" }).format(new Date(s));
 
-  const [versionsRes, submissionRes, choiceRes, pointsRes, profileRes, allowsRes] = await Promise.all([
+  const [versionsRes, submissionRes, choiceRes, pointsRes, profileRes, allowsRes, comments] = await Promise.all([
     supabase
       .from("workbook_versions")
       .select("id, workbook_id, semver, content_hash, created_at, published_at, validated_at")
@@ -94,6 +96,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
     supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").eq("kind", "workbook"),
     supabase.from("profiles").select("display_name").eq("user_id", ctx.userId).maybeSingle(),
     supabase.rpc("licence_allows_membership", { p_workbook: id }),
+    loadThread(id),
   ]);
   const versions = (versionsRes.data ?? []) as QueueVersion[];
   const version = versionUnderReview(w, versions);
@@ -274,6 +277,18 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
           </>
         )}
       </section>
+
+      <CommentThread
+        comments={comments}
+        viewerId={ctx.userId}
+        viewerSide="org"
+        orgName={ctx.org.displayName}
+        action={postWorkbookComment}
+        hidden={{ workbook: w.id, ...(ctx.multi ? { org: ctx.org.id } : {}) }}
+        canPost={roleCan(ctx.org.role).writeWorkbooks}
+        cannotPostLine="Owners, editors and authors in your organisation post comments."
+        notice={sp.thread}
+      />
 
       <section className="card admin-create" aria-labelledby="price-h">
         <h2 id="price-h">Price</h2>
