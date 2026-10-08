@@ -1,0 +1,77 @@
+{
+  "code": "AK-RW9JT",
+  "workbookId": "a-method-for-prayer",
+  "slug": "a-method-for-prayer-rw9jt",
+  "title": "A Method for Prayer",
+  "author": "Matthew Henry",
+  "people": [
+    {
+      "name": "Matthew Henry",
+      "role": "author",
+      "died": 1714,
+      "diedSource": "Online Books Page author heading gives 1662-1714, as recorded in docs/research/faith-titles.json. Not yet checked against a second source [to confirm]."
+    }
+  ],
+  "firstPublished": "1710",
+  "edition": {
+    "name": "Proposed: 'A Method for Prayer', 1710 edition (HathiTrust or Google Books) or 1834 Glasgow edition (archive.org)",
+    "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Henry%2C%20Matthew%2C%201662-1714",
+    "status": "No edition has been fixed yet [check]. Check the 1834 Glasgow edition for an editor or introducer. Do not use the 2013 modernised edition at mrmatthewhenry.com, which has new editorial work."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Henry died 1714. The term ran to the end of 1784. Holds provided no later editor's matter is used."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "First published 1710, before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1714 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1714 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1714 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Henry died 1714. The term ran to the end of 1784. Holds provided no later editor's matter is used."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). The named edition is far older than 25 years, so its layout is free. Quotations must come from a fresh transcription of that edition, never from a modern reprint layout or a website's own edited text.",
+  "projectGutenberg": "No Project Gutenberg file is used for this title. The text must be transcribed from page images of the named edition. Check the host's terms of use before copying [check].",
+  "checks": [
+    "Choose the 1710 or 1834 edition and record its source record.",
+    "Confirm Henry's death year (1714) against a second source.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook a-method-for-prayer, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Henry%2C%20Matthew%2C%201662-1714"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

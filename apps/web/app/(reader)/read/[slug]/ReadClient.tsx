@@ -10,6 +10,7 @@ import { hardestCardKey, sensitiveFieldKeys, shouldShowHardestCard } from "@/com
 import { PaywallCard } from "@/components/reader/PaywallCard";
 import { paywallState, unitCountPhrase, type PaywallInput } from "@/components/reader/paywall";
 import { SaveStatus } from "@/components/reader/SaveStatus";
+import { acknowledgeHigherTier } from "./actions";
 
 interface Props {
   workbook: WorkbookV3;
@@ -24,14 +25,11 @@ interface Props {
   events?: ProgressEvent[];
   /** A view a link asked for, such as the daily check from Today. */
   openView?: "daily" | "plan" | "progress" | "toolkit" | "finish" | "keep_going" | null;
+  /** The higher-tier "I have read this", as stored server side for this enrolment and version (0026). */
+  acknowledged?: boolean;
+  /** An account deletion is pending: the work opens, nothing can be added (F-025). */
+  readOnly?: boolean;
 }
-
-/**
- * The higher-tier "I have read this" is kept on this device per enrolment.
- * No progress event kind in 0003 fits it, and the Player shows Start first on
- * every open anyway, so losing it only means reading the note again.
- */
-const ackKey = (enrolmentId: string) => `ak:ack:${enrolmentId}`;
 
 function readLocal(key: string): string | null {
   try {
@@ -57,11 +55,11 @@ function writeLocal(key: string, value: string): void {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView }: Props) {
+export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
-  const [acknowledged, setAcknowledged] = useState(false);
+  const [acknowledged, setAcknowledged] = useState(acknowledgedOnServer);
   const [hardest, setHardest] = useState(false);
   const lastUnit = useRef<number | null>(null);
   const higher = workbook.safety_tier === "higher";
@@ -89,7 +87,6 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
     SupabaseAnswerStore.load({ enrolmentId, onStatus: setSaveState, onSaved })
       .then((s) => {
         if (cancelled) return;
-        if (higher && readLocal(ackKey(enrolmentId))) setAcknowledged(true);
         setStore(s);
       })
       .catch(() => {
@@ -98,7 +95,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
     return () => {
       cancelled = true;
     };
-  }, [enrolmentId, higher, onSaved]);
+  }, [enrolmentId, onSaved]);
 
   // Send anything owed when the tab goes away.
   useEffect(() => {
@@ -110,6 +107,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
 
   const record = useCallback(
     (kind: "unit_opened" | "step_done" | "checkin_done" | "daily_check_done" | "toolkit_used" | "finished", ref?: string) => {
+      // Read only (F-025): the database would refuse it anyway.
+      if (readOnly) return;
       void fetch("/api/progress", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -117,7 +116,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
         keepalive: true,
       }).catch(() => undefined);
     },
-    [enrolmentId],
+    [enrolmentId, readOnly],
   );
 
   const onViewChange = useCallback(
@@ -139,9 +138,11 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
   const onCheckInDone = useCallback((unitNumber: number) => record("checkin_done", String(unitNumber)), [record]);
   const onDailyCheckDone = useCallback(() => record("daily_check_done"), [record]);
 
+  // Kept server side (0026). If the save fails the reader is still let in
+  // for this visit and simply sees the note again next time.
   const onAcknowledge = useCallback(() => {
-    writeLocal(ackKey(enrolmentId), new Date().toISOString());
     setAcknowledged(true);
+    void acknowledgeHigherTier(enrolmentId).catch(() => undefined);
   }, [enrolmentId]);
 
   // Help now, one tap away on every screen of a wellbeing workbook (F-021).
@@ -212,6 +213,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
         requireAcknowledge={higher}
         acknowledged={acknowledged}
         onAcknowledge={onAcknowledge}
+        readOnly={readOnly}
+        pagedExercises
       />
     </section>
   );

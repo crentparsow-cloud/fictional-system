@@ -21,6 +21,8 @@ import {
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
+import { LicenceBillingAdmin } from "@/components/org/LicenceBillingAdmin";
+import { OrgBuyerTypeAdmin } from "@/components/org/OrgBuyerTypeAdmin";
 import { createLicence, inviteCustomerAdmin, saveCustomerProfile, setLicenceTitles, updateLicence } from "../actions";
 
 export const metadata: Metadata = { title: "Customer", robots: { index: false, follow: false } };
@@ -45,6 +47,7 @@ interface Profile {
   billing_name: string | null;
   billing_email: string | null;
   billing_country: string | null;
+  buyer_type?: string | null;
 }
 interface Licence {
   id: string;
@@ -99,7 +102,7 @@ export default async function AdminCustomerPage({ params, searchParams }: { para
   if (!org || !isCustomerKind(org.kind)) notFound();
 
   const [profileRes, licencesRes, summaryRes, titlesRes, rosterRes] = await Promise.all([
-    supabase.from("org_profiles").select("size_band, sector, charity_number, vat_number, billing_name, billing_email, billing_country").eq("org_id", id).maybeSingle(),
+    supabase.from("org_profiles").select("size_band, sector, charity_number, vat_number, billing_name, billing_email, billing_country, buyer_type").eq("org_id", id).maybeSingle(),
     supabase
       .from("org_licences")
       .select("id, kind, title_scope, seats_purchased, starts_at, ends_at, status, manual_invoice_ref, org_licence_titles(workbook_id)")
@@ -196,6 +199,7 @@ export default async function AdminCustomerPage({ params, searchParams }: { para
         </form>
       </section>
 
+      <OrgBuyerTypeAdmin orgId={org.id} buyerType={profile?.buyer_type ?? null} write={write} />
       <h2>Licences</h2>
       {licences.length === 0 ? <p className="muted">No licence yet.</p> : null}
       {licences.map((l) => {
@@ -216,6 +220,7 @@ export default async function AdminCustomerPage({ params, searchParams }: { para
                 Taken: {s.seats_claimed}. Invitations waiting: {s.invitations_open}. People started: {startedText(s.started_shown, s.people_started, s.threshold)}.
               </p>
             ) : null}
+            <LicenceBillingAdmin orgId={org.id} licenceId={l.id} kind={l.kind} status={l.status} write={write} notice={sp.billing} />
             {l.title_scope === "list" ? (
               <ul className="small">
                 {listed.map((w) => (

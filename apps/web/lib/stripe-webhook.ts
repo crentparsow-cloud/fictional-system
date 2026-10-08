@@ -66,6 +66,22 @@ import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
  * refund Stripe holds for the payment (so a console refund and a dashboard
  * refund both land once), and charge.dispute.created and .closed (won)
  * reverse and restore the author's share. All idempotent in SQL.
+ *
+ * Confirmation emails (0031 mail gaps), returned in outcome.mail for the
+ * route to send through lib/purchase-email.ts. None names a title.
+ *  - purchase_lifetime when a single purchase is paid, once per purchase
+ *    (purchase:<purchase id>).
+ *  - purchase_membership on the first paid membership invoice
+ *    (billing_reason subscription_create), once per subscription
+ *    (purchase_membership:<sub id>). Organisation subscriptions are not
+ *    membership plans and send nothing here.
+ *  - refund_confirmed on charge.refunded for a single purchase, once per
+ *    Stripe refund (refund:<re_ id>), the same key the refund console
+ *    claims (0027, lib/support-mail.ts). Whichever claims first sends;
+ *    the other is skipped, so a console refund sends one email and a
+ *    dashboard refund now sends one too.
+ * Each key is claimed in public.email_claims (0010) before the send and
+ * released if the send fails.
  */
 
 export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
@@ -73,6 +89,22 @@ export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
 export interface PurchaseRef {
   id: string;
   status: PurchaseStatus;
+  /** The buyer, when the repo reads it. Used only to find the sign-in address. */
+  userId?: string | null;
+}
+
+/** Where a reader email goes: the sign-in address and first name. */
+export interface ReaderContact {
+  email: string;
+  name: string | null;
+}
+
+/** One refund Stripe holds for a payment, as the refund email needs it. */
+export interface RefundSummary {
+  id: string;
+  amountMinor: number;
+  currency: string;
+  status: string | null;
 }
 
 export interface GrantDetails {
@@ -91,6 +123,10 @@ export interface PurchaseRepo {
   /** app.revoke_purchase_entitlement */
   revoke(purchaseId: string, reason: string): Promise<void>;
   markFailed(purchaseId: string): Promise<void>;
+  /** The reader's sign-in address and name. Optional: without it the address Stripe holds is used. */
+  readerContact?(userId: string): Promise<ReaderContact | null>;
+  /** Every refund Stripe holds for a payment. Optional: without it no refund email is asked for. */
+  listRefunds?(paymentIntentId: string): Promise<RefundSummary[]>;
 }
 
 export type WebhookAction =
@@ -199,6 +235,49 @@ export interface RenewalNotice {
 
 export type MembershipNotice = PaymentFailedNotice | RenewalNotice | CancellationNotice;
 
+/** Fields every confirmation email carries. Never a title. */
+interface ReaderMailBase {
+  to: string;
+  name: string | null;
+  userId: string | null;
+  dedupeKey: string;
+}
+
+/** A single purchase is paid: purchase_lifetime, once per purchase. */
+export interface PurchaseConfirmedNotice extends ReaderMailBase {
+  template: "purchase_lifetime";
+  purchaseId: string;
+  amountMinor: number;
+  currency: string;
+}
+
+/** The first membership invoice is paid: purchase_membership, once per subscription. */
+export interface MembershipConfirmedNotice extends ReaderMailBase {
+  template: "purchase_membership";
+  subscriptionId: string;
+  plan: MembershipPricePointId;
+  amountMinor: number;
+  currency: string;
+  /** ISO timestamp of the next payment. */
+  nextPaymentAt: string;
+}
+
+/** A refund of a single purchase: refund_confirmed, once per Stripe refund. */
+export interface RefundConfirmedNotice extends ReaderMailBase {
+  template: "refund_confirmed";
+  refundId: string;
+  amountMinor: number;
+  currency: string;
+  accessEnded: boolean;
+}
+
+export type ReaderMailNotice = PurchaseConfirmedNotice | MembershipConfirmedNotice | RefundConfirmedNotice;
+
+/** The dedupe keys, in one place so the refund console and the webhook agree. */
+export const purchaseMailKey = (purchaseId: string) => `purchase:${purchaseId}`;
+export const membershipMailKey = (subscriptionId: string) => `purchase_membership:${subscriptionId}`;
+export const refundMailKey = (refundId: string) => `refund:${refundId}`;
+
 export interface WebhookOutcome {
   eventId: string;
   type: string;
@@ -208,6 +287,8 @@ export interface WebhookOutcome {
   subscriptionId?: string | null;
   /** Set when the route should send an email. */
   notify?: MembershipNotice;
+  /** Confirmation emails the route should send (purchase, membership, refund). */
+  mail?: ReaderMailNotice[];
 }
 
 export async function handleStripeEvent(
@@ -236,7 +317,13 @@ export async function handleStripeEvent(
       // F-100: the sale's receipt and royalty line. Memberships reach the
       // ledger through invoice.paid instead.
       if (ledger && session.mode === "payment") await ledger.recordSale(purchase.id, idOf(session.payment_intent), event.livemode);
-      return { ...base, action: already ? "already_paid" : "granted", purchaseId: purchase.id };
+      const outcome: WebhookOutcome = { ...base, action: already ? "already_paid" : "granted", purchaseId: purchase.id };
+      // The purchase email. Asked for on a replay too: the claim keeps it to one.
+      if (session.mode === "payment") {
+        const notice = await purchaseConfirmed(session, purchase, repo);
+        if (notice) outcome.mail = [notice];
+      }
+      return outcome;
     }
 
     case "checkout.session.async_payment_failed": {
@@ -257,12 +344,22 @@ export async function handleStripeEvent(
       if (ledger) await ledger.syncRefunds(pi, event.livemode);
       const purchase = await repo.findByPaymentIntentId(pi);
       if (!purchase) return { ...base, action: "purchase_not_found", purchaseId: null };
-      if (purchase.status === "refunded") return { ...base, action: "already_refunded", purchaseId: purchase.id };
       // A partial refund (the pro rata promise, F-096) leaves access in place.
       // Only a full refund closes the gate.
-      if (charge.amount_refunded < charge.amount) return { ...base, action: "partial_refund_kept", purchaseId: purchase.id };
-      await repo.revoke(purchase.id, "charge.refunded");
-      return { ...base, action: "revoked", purchaseId: purchase.id };
+      const full = charge.amount_refunded >= charge.amount;
+      let action: WebhookAction;
+      if (purchase.status === "refunded") action = "already_refunded";
+      else if (!full) action = "partial_refund_kept";
+      else {
+        await repo.revoke(purchase.id, "charge.refunded");
+        action = "revoked";
+      }
+      const outcome: WebhookOutcome = { ...base, action, purchaseId: purchase.id };
+      // Even when the purchase was already refunded (the console got there
+      // first): the claim on refund:<re_ id> decides who sends.
+      const mail = await refundsConfirmed(pi, purchase, full, charge.receipt_email ?? charge.billing_details?.email ?? null, repo);
+      if (mail.length) outcome.mail = mail;
+      return outcome;
     }
 
     case "customer.subscription.created":
@@ -297,7 +394,7 @@ export async function handleStripeEvent(
       if (!subscriptionId || !invoice.id) return { ...base, action: "ignored", purchaseId: null };
       const failed = event.type === "invoice.payment_failed";
       // Refresh the subscription first so the invoice has a row to hang on.
-      await upsertFresh(subscriptionId, null, event, membership);
+      const fresh = await upsertFresh(subscriptionId, null, event, membership);
       const recorded = await membership.recordInvoice({
         invoiceId: invoice.id,
         subscriptionId,
@@ -313,6 +410,11 @@ export async function handleStripeEvent(
       // F-100: membership money waits in the pool month.
       if (ledger && !failed && recorded !== "unlinked") await ledger.recordMembership(invoice.id, event.livemode);
       const outcome: WebhookOutcome = { ...base, action: `invoice_${recorded}`, purchaseId: null, subscriptionId };
+      // The membership email, on the first paid invoice only.
+      if (!failed && recorded !== "unlinked" && invoice.billing_reason === "subscription_create") {
+        const notice = await membershipConfirmed(invoice, subscriptionId, fresh?.state ?? null, repo);
+        if (notice) outcome.mail = [notice];
+      }
       // One email per failed invoice. The first payment fails on Stripe's own
       // page during checkout, so there is nothing to tell the reader by email.
       if (failed && recorded === "recorded" && invoice.customer_email && invoice.billing_reason !== "subscription_create") {
@@ -436,6 +538,88 @@ export function periodEndCancellation(subscriptionId: string, to: string, endsAt
     refundState: null,
     dedupeKey: `cancellation:${subscriptionId}:period_end:${endsAt ? endsAt.slice(0, 10) : "open"}`,
   };
+}
+
+/** The sign-in address when the repo can read it, else the one Stripe holds. */
+async function contactFor(userId: string | null, fallback: string | null | undefined, repo: PurchaseRepo): Promise<ReaderContact | null> {
+  if (userId && repo.readerContact) {
+    const c = await repo.readerContact(userId);
+    if (c?.email) return c;
+  }
+  return fallback ? { email: fallback, name: null } : null;
+}
+
+/** purchase_lifetime for a paid single purchase, or null when there is no address or amount. */
+async function purchaseConfirmed(session: Stripe.Checkout.Session, purchase: PurchaseRef, repo: PurchaseRepo): Promise<PurchaseConfirmedNotice | null> {
+  if (typeof session.amount_total !== "number" || !session.currency) return null;
+  const meta = (session.metadata ?? {}) as Record<string, string | undefined>;
+  const userId = purchase.userId ?? meta.user_id ?? null;
+  const who = await contactFor(userId, session.customer_details?.email ?? session.customer_email, repo);
+  if (!who) return null;
+  return {
+    template: "purchase_lifetime",
+    to: who.email,
+    name: who.name,
+    userId,
+    purchaseId: purchase.id,
+    amountMinor: session.amount_total,
+    currency: session.currency.toUpperCase(),
+    dedupeKey: purchaseMailKey(purchase.id),
+  };
+}
+
+/** purchase_membership for the first paid invoice of a reader membership, or null. */
+async function membershipConfirmed(
+  invoice: Stripe.Invoice,
+  subscriptionId: string,
+  state: SubscriptionState | null,
+  repo: PurchaseRepo,
+): Promise<MembershipConfirmedNotice | null> {
+  const plan = state?.plan ?? planFromInvoiceLines(invoice);
+  if (plan !== "member_month" && plan !== "member_year") return null;
+  const nextPaymentAt = state?.currentPeriodEnd ?? isoOf(invoice.lines?.data?.find((l) => l.period?.end)?.period?.end);
+  if (!nextPaymentAt || typeof invoice.amount_paid !== "number" || !invoice.currency) return null;
+  const userId = state?.userId ?? null;
+  const who = await contactFor(userId, invoice.customer_email, repo);
+  if (!who) return null;
+  return {
+    template: "purchase_membership",
+    to: who.email,
+    name: who.name,
+    userId,
+    subscriptionId,
+    plan,
+    amountMinor: invoice.amount_paid,
+    currency: invoice.currency.toUpperCase(),
+    nextPaymentAt,
+    dedupeKey: membershipMailKey(subscriptionId),
+  };
+}
+
+/** refund_confirmed for every refund on a single purchase's payment that has gone or is going. */
+async function refundsConfirmed(
+  paymentIntentId: string,
+  purchase: PurchaseRef,
+  full: boolean,
+  fallbackEmail: string | null,
+  repo: PurchaseRepo,
+): Promise<RefundConfirmedNotice[]> {
+  if (!repo.listRefunds) return [];
+  const refunds = (await repo.listRefunds(paymentIntentId)).filter((r) => (r.status === "succeeded" || r.status === "pending") && r.amountMinor > 0);
+  if (!refunds.length) return [];
+  const who = await contactFor(purchase.userId ?? null, fallbackEmail, repo);
+  if (!who) return [];
+  return refunds.map((r) => ({
+    template: "refund_confirmed",
+    to: who.email,
+    name: who.name,
+    userId: purchase.userId ?? null,
+    refundId: r.id,
+    amountMinor: r.amountMinor,
+    currency: r.currency.toUpperCase(),
+    accessEnded: full,
+    dedupeKey: refundMailKey(r.id),
+  }));
 }
 
 /** The address to tell: the customer's email from Stripe, when the repo can read it. */

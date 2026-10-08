@@ -6,6 +6,7 @@
 
 import type { AuthorTemplateName } from "./author";
 import type { ReaderTemplateName } from "./reader";
+import type { OrganisationTemplateName } from "./organisation";
 
 export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = {
   welcome: "Sent when a reader starts a workbook. Their free first unit is open.",
@@ -35,6 +36,8 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
   partner_invite: "To a check-in partner: the reader's invitation to accept or decline.",
   partner_update: "To a check-in partner: a short update on how far the reader has got.",
   partner_stopped: "To a check-in partner: the updates have stopped.",
+  refund_confirmed: "Confirms a single-workbook refund made by Akana: the amount and whether access ended. No title.",
+  deletion_cancelled: "Confirms that Akana support cancelled a pending account deletion at the reader's request.",
 };
 
 export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = {
@@ -52,4 +55,20 @@ export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = 
   lead_received: "To the Akana team: someone sent the publish enquiry form.",
   review_assigned: "To an Akana reviewer: a workbook version was assigned to them, by AK code only.",
   ops_alert: "To the Akana operator: an operational alert opened, with kind, route and code only.",
+  submission_declined: "Staff declined a submission, with the reason. Nothing goes live.",
+  workbook_comment: "To the author organisation: Akana posted on the workbook's comment thread. No comment text.",
+  review_comment: "To Akana reviewers: the author posted on a workbook's thread, by AK code only. No comment text.",
+};
+
+// Akana for organisations (0024, 0030, 0031). Billing emails go to the owner
+// and finance contacts only, once per event, and never name a member.
+export const ORGANISATION_TEMPLATE_CATALOGUE: { [K in OrganisationTemplateName]: string } = {
+  seat_invite: "Invites a person to take a seat on an organisation's licence. No title.",
+  admin_invite: "Invites the person who will run a customer organisation's account.",
+  org_invoice_sent: "Owner and finance: a new invoice to pay, with the amount, due date and pay link.",
+  org_payment_problem: "Owner and finance: a payment failed or an invoice is overdue, and until when access holds.",
+  org_licence_suspended: "Owner and finance: billing paused access until the payment goes through.",
+  org_licence_ending: "Owner and finance: the licence will not renew, and access lasts until the date shown.",
+  org_licence_ended: "Owner and finance: the licence ended, with any cooling-off refund. Members keep their work.",
+  org_terms_reminder: "Consumer organisers: price, how often, next payment and how to cancel, before renewals.",
 };

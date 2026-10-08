@@ -1,7 +1,7 @@
 "use client";
 
 import type { WorkbookV3 } from "@akana/schema";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FieldRenderer } from "../FieldRenderer";
 import { answerText } from "../progress";
 import { isAnswered, resolveField, type AnswerStore, type FieldValue } from "../types";
@@ -41,7 +41,34 @@ export interface ExerciseScreenProps {
   /** The exercise's toolkit_link, when that tool is in the Toolkit. */
   relatedTool?: { id: string; title: string };
   onOpenTool?: (toolId: string) => void;
+  /**
+   * Page through the exercise one part per screen, as the legacy app did:
+   * purpose, steps, example, your turn, done (the short version pages
+   * steps, your turn, done). Off by default so the harness and previews
+   * render every part at once.
+   */
+  paged?: boolean;
+  /** Paged only: leaves the exercise, from the first page and from Done. */
+  onClose?: () => void;
+  /** Paged only: the words on that button, for example "Back to Week 2". */
+  closeLabel?: string;
 }
+
+export type ExercisePage = "purpose" | "steps" | "example" | "yours" | "done";
+
+/** The pages an exercise shows, in order. An exercise with no example skips that page. */
+export function exercisePages(e: Pick<Exercise, "example">, mode: ExerciseMode): ExercisePage[] {
+  if (mode === "short") return ["steps", "yours", "done"];
+  return e.example ? ["purpose", "steps", "example", "yours", "done"] : ["purpose", "steps", "yours", "done"];
+}
+
+const PAGE_NAMES: Record<ExercisePage, string> = {
+  purpose: "What you will have",
+  steps: "The steps",
+  example: "An example",
+  yours: "Your turn",
+  done: "Done",
+};
 
 /**
  * One exercise on one page: purpose, why, steps, example, fields, reflect,
@@ -66,13 +93,20 @@ export function ExerciseScreen({
   earlier,
   relatedTool,
   onOpenTool,
+  paged,
+  onClose,
+  closeLabel = "Back",
 }: ExerciseScreenProps) {
   const [modeState, setModeState] = useState<ExerciseMode>(defaultMode);
+  const [pageIndex, setPageIndex] = useState(0);
+  const pageHeading = useRef<HTMLHeadingElement>(null);
+  const turned = useRef(false);
   const sv = e.short_version;
   const mode: ExerciseMode = sv ? (modeProp ?? modeState) : "full";
   const setMode = (m: ExerciseMode) => {
     setModeState(m);
     onModeChange?.(m);
+    setPageIndex(0);
   };
   const scope = answerScope ?? e.id;
   const fields = mode === "short" && sv ? e.fields.filter((f) => sv.field_ids.includes(f.id)) : e.fields;
@@ -104,6 +138,218 @@ export function ExerciseScreen({
             return { id: f.id, label: f.label, then: answerText(rf, store.get(earlier.scope, f.id), toolkitTitles), now: answerText(rf, store.get(scope, f.id), toolkitTitles) };
           })
       : [];
+
+  // Paged: one part per screen. Focus moves to the new page's heading so a
+  // screen reader hears where it is, and keyboard users start at the top.
+  const pages = exercisePages(e, mode);
+  const index = Math.min(pageIndex, pages.length - 1);
+  const page = pages[index] ?? "steps";
+  useEffect(() => {
+    if (!paged) return;
+    if (!turned.current) return;
+    pageHeading.current?.focus();
+  }, [paged, index, mode]);
+  const turn = (to: number) => {
+    turned.current = true;
+    setPageIndex(Math.max(0, Math.min(pages.length - 1, to)));
+  };
+
+  const fieldsBlock = (
+    <>
+      {resolved.map((f) => (
+        <FieldRenderer
+          key={f.id}
+          field={f}
+          idPrefix={scope.replace(/[^a-z0-9_-]/gi, "_")}
+          value={store.get(scope, f.id)}
+          readOnly={readOnly}
+          onChange={(v) => store.set(scope, f.id, v)}
+        />
+      ))}
+      {mode === "full" && e.reflect ? (
+        <div className="ak-field ak-field-long_text">
+          <label className="ak-q" htmlFor={`${scope}-reflect`}>
+            {e.reflect} <span className="ak-muted ak-small">(optional)</span>
+          </label>
+          <textarea
+            className="ak-textarea"
+            id={`${scope}-reflect`}
+            rows={3}
+            readOnly={readOnly}
+            value={typeof reflectValue === "string" ? reflectValue : ""}
+            onChange={(ev) => store.set(scope, "reflect", ev.target.value)}
+          />
+        </div>
+      ) : null}
+      <span className="ak-saved ak-small ak-muted" aria-live="polite">
+        {readOnly ? "Read only" : "Saved as you type"}
+      </span>
+    </>
+  );
+
+  const thenAndNowCard = thenAndNow.length ? (
+    <Card>
+      <h3 className="ak-h3">Then and now</h3>
+      {thenAndNow.map((r) => (
+        <div key={r.id} className="ak-then-now">
+          <p className="ak-small">
+            <b>{r.label}</b>
+          </p>
+          <div className="ak-two-up">
+            <div>
+              <Eyebrow>{earlier?.label}</Eyebrow>
+              <p className="ak-small">{r.then || "Not filled in"}</p>
+            </div>
+            <div>
+              <Eyebrow>Now</Eyebrow>
+              <p className="ak-small">{r.now || "Not filled in"}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </Card>
+  ) : null;
+
+  const versionToggle = sv ? (
+    <div className="ak-seg" role="group" aria-label="Version">
+      <button type="button" aria-pressed={mode === "full"} onClick={() => setMode("full")}>
+        Full version
+        <span>About {minutesWord(e.minutes)}</span>
+      </button>
+      <button type="button" aria-pressed={mode === "short"} onClick={() => setMode("short")}>
+        Short version
+        <span>About {minutesWord(sv.minutes)}</span>
+      </button>
+    </div>
+  ) : null;
+
+  if (paged) {
+    const canFinish = !!onDone && !readOnly && !done;
+    const forward = (() => {
+      if (page === "done") return null;
+      if (page === "yours" && canFinish) {
+        return (
+          <button
+            type="button"
+            className="ak-btn"
+            disabled={!ready}
+            onClick={() => {
+              onDone?.();
+              turn(index + 1);
+            }}
+          >
+            Done
+          </button>
+        );
+      }
+      // Read only and not yet done: nothing lies beyond Your turn.
+      if (page === "yours" && !done) return null;
+      const next = pages[index + 1];
+      const label = next === "example" ? "See an example" : next === "yours" ? "Your turn" : next === "steps" ? "See the steps" : "Next";
+      return (
+        <button type="button" className="ak-btn" onClick={() => turn(index + 1)}>
+          {label}
+        </button>
+      );
+    })();
+
+    return (
+      <article className="ak-screen ak-exercise ak-exercise-paged" data-exercise={e.id} data-mode={mode} data-page={page}>
+        <header className="ak-ex-head">
+          {firstFigure ? <FigurePlaceholder figure={firstFigure} /> : null}
+          <div>
+            <Eyebrow>
+              {eyebrow ? `${eyebrow}, ` : ""}
+              {isRepeat ? "comes back, " : ""}
+              {mode === "short" ? "short version, " : ""}about {minutesWord(minutes)}
+            </Eyebrow>
+            <h2 className="ak-h2">{e.title}</h2>
+          </div>
+        </header>
+
+        {/* Progress dots, no numbers on screen. Screen readers hear the part instead. */}
+        <ol className="ak-dots" aria-hidden="true">
+          {pages.map((p, i) => (
+            <li key={p} className="ak-dot" data-state={i < index ? "done" : i === index ? "current" : "todo"} />
+          ))}
+        </ol>
+
+        <section className="ak-page" aria-labelledby={`${scope}-page-h`}>
+          <h3 className="ak-h3 ak-page-h" id={`${scope}-page-h`} ref={pageHeading} tabIndex={-1}>
+            <span className="ak-visually-hidden">
+              Part {index + 1} of {pages.length}:{" "}
+            </span>
+            {page === "example" && e.example ? `How ${e.example.character} did it` : page === "steps" && mode === "short" ? "The short version" : PAGE_NAMES[page]}
+          </h3>
+
+          {page === "purpose" ? (
+            <>
+              <p className="ak-purpose">
+                <b>You will have:</b> {e.purpose}
+              </p>
+              <details className="ak-card ak-card-flat ak-details">
+                <summary>Why this step</summary>
+                <p className="ak-muted">{e.why}</p>
+              </details>
+            </>
+          ) : null}
+
+          {page === "steps" ? <Steps steps={steps} /> : null}
+
+          {page === "example" && e.example ? (
+            <Card>
+              <p>{e.example.text}</p>
+            </Card>
+          ) : null}
+
+          {page === "yours" ? (
+            <>
+              <details className="ak-card ak-card-flat ak-details">
+                <summary>{mode === "short" ? "The short version" : "The steps"}</summary>
+                <Steps steps={steps} />
+              </details>
+              <div className="ak-answers">{fieldsBlock}</div>
+            </>
+          ) : null}
+
+          {page === "done" ? (
+            <>
+              <p className="ak-done-when">
+                <b>{e.done_when}</b>
+              </p>
+              {done ? (
+                <p className="ak-small ak-done-mark" role="status">
+                  Marked done. You can still change your answers.
+                </p>
+              ) : null}
+              {thenAndNowCard}
+              {relatedTool && onOpenTool ? (
+                <button type="button" className="ak-btn ak-btn-quiet" onClick={() => onOpenTool(relatedTool.id)}>
+                  Related tool: {relatedTool.title}
+                </button>
+              ) : null}
+            </>
+          ) : null}
+        </section>
+
+        {index === 0 ? versionToggle : null}
+
+        <nav className="ak-pager" aria-label="Exercise pages">
+          {index > 0 && (page !== "done" || !onClose) ? (
+            <button type="button" className="ak-btn ak-btn-secondary" onClick={() => turn(index - 1)}>
+              Back
+            </button>
+          ) : null}
+          {(index === 0 || page === "done") && onClose ? (
+            <button type="button" className={page === "done" ? "ak-btn" : "ak-btn ak-btn-secondary"} onClick={onClose}>
+              {closeLabel}
+            </button>
+          ) : null}
+          {forward}
+        </nav>
+      </article>
+    );
+  }
 
   return (
     <article className="ak-screen ak-exercise" data-exercise={e.id} data-mode={mode}>

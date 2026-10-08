@@ -6,6 +6,7 @@ import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
 import { createMailer, type SendResult } from "@akana/emails";
 import { getReaderSession } from "@/lib/auth";
+import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createUserClient } from "@/lib/supabase/server";
 import { ORG_FILES_BUCKET } from "@/lib/storage/file-rules";
@@ -120,7 +121,7 @@ function studioMailer() {
   return createMailer({
     env: mailerEnvFromProcess(),
     isSuppressed: () => false,
-    log: (e) => console.info("studio_mail", e.template, e.status, e.reason ?? ""),
+    log: mailLog("studio", "studio_mail"),
   });
 }
 

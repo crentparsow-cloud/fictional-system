@@ -80,6 +80,11 @@ export interface PlayerProps {
   acknowledged?: boolean;
   /** Called when the reader presses "I have read this", so the app can store it. */
   onAcknowledge?: () => void;
+  /**
+   * Page through each exercise one part per screen, with Back and Next and
+   * progress dots, as the legacy app did (F-015). Off by default.
+   */
+  pagedExercises?: boolean;
 }
 
 /**
@@ -107,6 +112,7 @@ export function Player({
   requireAcknowledge,
   acknowledged,
   onAcknowledge,
+  pagedExercises,
 }: PlayerProps) {
   const [acked, setAcked] = useState<boolean>(!!acknowledged);
   const gated = !!requireAcknowledge && !acked && !acknowledged;
@@ -291,6 +297,8 @@ export function Player({
 
         {view.kind === "unit" && current && !currentLocked ? (
           <UnitScreen
+            key={current.number}
+            paged={pagedExercises}
             workbook={doc}
             unit={current}
             store={liveStore}

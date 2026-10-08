@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
 import { sendMembershipNotice } from "@/lib/membership-email";
+import { sendPurchaseEmail } from "@/lib/purchase-email";
 import { cancelInCoolingOff } from "@/lib/membership-refund";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
@@ -10,12 +11,15 @@ import {
   type MembershipRepo,
   type PurchaseRef,
   type PurchaseRepo,
+  type ReaderMailNotice,
 } from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countFunnelEvent } from "@/lib/funnel";
+import { mailLog } from "@/lib/mail-ops";
 import { reportOps } from "@/lib/ops-alerts";
 import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
 import { ledgerRepo } from "@/lib/money/ledger-repo";
+import { handleOrgBillingWebhook, isOrgBillingEvent } from "@/lib/org-billing-webhook";
 
 /**
  * Stripe platform webhook (F-096). POST /api/stripe/webhook
@@ -53,6 +57,13 @@ import { ledgerRepo } from "@/lib/money/ledger-repo";
  * refunds and disputes (charge.dispute.created and .closed) write ledger
  * rows through lib/money/ledger-repo.ts.
  *
+ * Confirmation emails (0031 mail gaps): purchase_lifetime when a single
+ * purchase is paid, purchase_membership on the first paid membership
+ * invoice, and refund_confirmed on charge.refunded for a single purchase
+ * (a dashboard refund included), each once through public.email_claims.
+ * The refund key is refund:<re_ id>, the one the refund console claims, so
+ * the two never both send. Best effort, like the membership emails.
+ *
  * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
  * is a 500 so Stripe does retry.
@@ -84,13 +95,16 @@ export async function POST(request: NextRequest) {
 
   // Connected account events (account.updated, payout bank changes) go to lib/payouts.
   if (isConnectEvent(event)) return handleConnectWebhook(event, siteOrigin(request));
+  // Organisation billing (F-220, migration 0030): lib/org-billing-webhook.ts.
+  if (isOrgBillingEvent(event)) return handleOrgBillingWebhook(event);
 
   try {
     const admin = createAdminClient();
     const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin), ledgerRepo(admin, getStripe()));
-    const { notify, ...logged } = outcome;
+    const { notify, mail, ...logged } = outcome;
     console.info("stripe webhook", logged);
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
+    for (const n of mail ?? []) await sendMail(admin, n, siteOrigin(request));
     if (outcome.action === "granted") await countPurchase(admin, event);
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
@@ -114,9 +128,10 @@ type Admin = ReturnType<typeof createAdminClient>;
 
 function supabaseRepo(admin: Admin): PurchaseRepo {
   const find = async (column: string, value: string): Promise<PurchaseRef | null> => {
-    const { data, error } = await admin.from("purchases").select("id, status").eq(column, value).maybeSingle();
+    const { data, error } = await admin.from("purchases").select("id, status, user_id").eq(column, value).maybeSingle();
     if (error) throw new Error(`purchases lookup failed: ${error.code ?? error.message}`);
-    return (data as PurchaseRef | null) ?? null;
+    const row = data as { id: string; status: PurchaseRef["status"]; user_id: string | null } | null;
+    return row ? { id: row.id, status: row.status, userId: row.user_id } : null;
   };
   return {
     findBySessionId: (id) => find("stripe_checkout_session_id", id),
@@ -139,6 +154,25 @@ function supabaseRepo(admin: Admin): PurchaseRepo {
     async markFailed(purchaseId: string) {
       const { error } = await admin.from("purchases").update({ status: "failed" }).eq("id", purchaseId).eq("status", "pending");
       if (error) throw new Error(`mark failed failed: ${error.code ?? error.message}`);
+    },
+    // Email lookups never fail the webhook: no address means no email.
+    async readerContact(userId: string) {
+      try {
+        const { data, error } = await admin.auth.admin.getUserById(userId);
+        if (error || !data?.user?.email) return null;
+        const { data: profile } = await admin.from("profiles").select("display_name").eq("user_id", userId).maybeSingle();
+        return { email: data.user.email, name: (profile as { display_name?: string | null } | null)?.display_name ?? null };
+      } catch {
+        return null;
+      }
+    },
+    async listRefunds(paymentIntentId: string) {
+      try {
+        const refunds = await getStripe().refunds.list({ payment_intent: paymentIntentId, limit: 100 });
+        return refunds.data.map((r) => ({ id: r.id, amountMinor: r.amount, currency: r.currency, status: r.status ?? null }));
+      } catch {
+        return [];
+      }
     },
   };
 }
@@ -237,10 +271,44 @@ async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Pr
         const { error } = await admin.rpc("release_email", { p_key: key });
         if (error) console.error("membership_email_release_failed", { code: error.code ?? "unknown" });
       },
-      log: (e) => console.info("membership_email", e.template, e.status, e.reason ?? ""),
+      log: mailLog("api/stripe/webhook", "membership_email"),
     });
   } catch (err) {
     console.error("membership_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
+  }
+}
+
+/**
+ * The confirmation emails (purchase, membership, refund). Best effort, like
+ * sendNotice: claimed in public.email_claims before the send, released if
+ * it fails, failures reported through lib/mail-ops.ts. Never a title.
+ */
+async function sendMail(admin: Admin, n: ReaderMailNotice, origin: string): Promise<void> {
+  try {
+    const env = process.env;
+    const status = await sendPurchaseEmail(n, origin, {
+      env: {
+        RESEND_API_KEY: env.RESEND_API_KEY,
+        EMAIL_FROM: env.EMAIL_FROM,
+        EMAIL_REPLY_TO: env.EMAIL_REPLY_TO,
+        POSTAL_ADDRESS: env.POSTAL_ADDRESS,
+        EMAIL_MODE: env.EMAIL_MODE,
+        TEST_RECIPIENT: env.TEST_RECIPIENT,
+      },
+      async claim(key) {
+        const { data, error } = await admin.rpc("claim_email", { p_key: key });
+        if (error) throw new Error(`claim_email failed: ${error.code ?? error.message}`);
+        return data === true;
+      },
+      async release(key) {
+        const { error } = await admin.rpc("release_email", { p_key: key });
+        if (error) console.error("purchase_email_release_failed", { code: error.code ?? "unknown" });
+      },
+      log: mailLog("api/stripe/webhook", "purchase_email"),
+    });
+    if (status === "no_figures") console.warn("purchase_email_no_figures", { template: n.template });
+  } catch (err) {
+    console.error("purchase_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
   }
 }
 

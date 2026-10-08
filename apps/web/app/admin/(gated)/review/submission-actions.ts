@@ -11,9 +11,10 @@ import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Move a submission on (0013 public.submission_set_status) and email the
- * organisation (F-043): accepted, or changes requested with the reason.
- * Owners and editors only; the function checks again and writes the audit
- * row. A decline carries a reason too, which the author sees in the Studio.
+ * organisation (F-043): accepted, changes requested with the reason, or
+ * declined with the reason (submission_declined, 0027 work). Owners and
+ * editors only; the function checks again and writes the audit row. The
+ * author also sees the reason in the Studio.
  */
 const TARGETS = ["accepted", "changes_requested", "declined"] as const;
 type Target = (typeof TARGETS)[number];
@@ -42,7 +43,8 @@ export async function setSubmissionStatus(fd: FormData): Promise<void> {
   let mailed = 0;
   if (target === "accepted") mailed = await sendAuthorStatus(workbookId, "submission_accepted", { versionId: id });
   if (target === "changes_requested") mailed = await sendAuthorStatus(workbookId, "changes_requested", { notes: reason ? [reason] : [] });
+  if (target === "declined") mailed = await sendAuthorStatus(workbookId, "submission_declined", { reason: reason ?? undefined, versionId: id });
   revalidatePath(page);
   revalidatePath("/admin/review");
-  redirect(`${page}?notice=${target === "declined" ? "status" : mailed > 0 ? "author_mailed" : "author_not_mailed"}`);
+  redirect(`${page}?notice=${mailed > 0 ? "author_mailed" : "author_not_mailed"}`);
 }

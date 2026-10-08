@@ -1,0 +1,77 @@
+{
+  "code": "AK-3KZ64",
+  "workbookId": "all-of-grace",
+  "slug": "all-of-grace-3kz64",
+  "title": "All of Grace",
+  "author": "C. H. Spurgeon",
+  "people": [
+    {
+      "name": "C. H. Spurgeon",
+      "role": "author",
+      "died": 1892,
+      "diedSource": "Online Books Page author heading gives 1834-1892, as recorded in docs/research/faith-titles.json. Not yet checked against a second source [to confirm]."
+    }
+  ],
+  "firstPublished": "1886",
+  "edition": {
+    "name": "Proposed: 'All of Grace: an earnest word with those who are seeking salvation by the Lord Jesus Christ', R. Carter, New York, 1886, page images at HathiTrust",
+    "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Spurgeon%2C%20C.%20H.%20%28Charles%20Haddon%29%2C%201834-1892",
+    "status": "Not yet fixed [check]. The Online Books Page also lists a Moody Press 1900 scan and an HTML text at spurgeon.org (fetched 7 October 2026). Do not copy the spurgeon.org text until its source edition and terms are checked."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Spurgeon died 1892. The term ended at the end of 1962."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "The proposed edition was published in 1886, before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1892 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1892 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1892 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Spurgeon died 1892. The term ended at the end of 1962."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). The named edition is far older than 25 years, so its layout is free. Quotations must come from a fresh transcription of that edition, never from a modern reprint layout or a website's own edited text.",
+  "projectGutenberg": "No Project Gutenberg file is used for this title. The text must be transcribed from page images of the named edition. Check the host's terms of use before copying [check].",
+  "checks": [
+    "Confirm the R. Carter 1886 scan as the source and record its HathiTrust record number.",
+    "Check spurgeon.org terms if its HTML is used as a working copy.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook all-of-grace, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Spurgeon%2C%20C.%20H.%20%28Charles%20Haddon%29%2C%201834-1892"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

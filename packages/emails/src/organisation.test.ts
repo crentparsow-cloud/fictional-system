@@ -3,7 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { createMailer } from "./mailer";
-import { ORGANISATION_PRIVACY_LINE, ORGANISATION_TEMPLATES, type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
+import { ORGANISATION_BILLING_TEMPLATES, ORGANISATION_PRIVACY_LINE, ORGANISATION_TEMPLATES, type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
 
 /**
  * Organisation emails (F-203). An invitation from an employer or a church
@@ -43,8 +43,46 @@ const sample: { [K in OrganisationTemplateName]: OrganisationProps[K] } = {
     acceptUrl: "https://example.test/org/admin-join/abc",
     consoleUrl: "https://example.test/org",
   },
+  org_invoice_sent: {
+    organisationName: "Harbour Logistics",
+    supportEmail: "support@example.test",
+    billingUrl: "https://example.test/org/billing",
+    invoiceNumber: "AK-0042",
+    amount: "£120.00",
+    dueOn: "7 November 2026",
+    payUrl: "https://invoice.stripe.com/i/x",
+  },
+  org_payment_problem: {
+    organisationName: "Harbour Logistics",
+    supportEmail: "support@example.test",
+    billingUrl: "https://example.test/org/billing",
+    mode: "failed",
+    amount: "£120.00",
+    accessUntil: "21 October 2026",
+  },
+  org_licence_suspended: { organisationName: "Harbour Logistics", supportEmail: "support@example.test", billingUrl: "https://example.test/org/billing" },
+  org_licence_ending: { organisationName: "Harbour Logistics", supportEmail: "support@example.test", billingUrl: "https://example.test/org/billing", endsOn: "1 December 2026" },
+  org_licence_ended: {
+    organisationName: "Harbour Logistics",
+    supportEmail: "support@example.test",
+    billingUrl: "https://example.test/org/billing",
+    endedOn: "8 October 2026",
+    refundAmount: "£12.60",
+    refundStatus: "pending",
+  },
+  org_terms_reminder: {
+    organisationName: "Harbour Logistics",
+    supportEmail: "support@example.test",
+    billingUrl: "https://example.test/org/billing",
+    price: "£18.00",
+    yearly: false,
+    nextDate: "20 October 2026",
+    seats: 6,
+  },
 };
 const names = Object.keys(ORGANISATION_TEMPLATES) as OrganisationTemplateName[];
+const billing = [...ORGANISATION_BILLING_TEMPLATES] as OrganisationTemplateName[];
+const invites = names.filter((n) => !billing.includes(n));
 
 describe("organisation emails", () => {
   it("has titles to test against", () => {
@@ -65,7 +103,7 @@ describe("organisation emails", () => {
     expect(a.subject).not.toMatch(/Harbour|@/);
   });
 
-  it.each(names)("%s carries the privacy line", (name) => {
+  it.each(invites)("%s carries the privacy line", (name) => {
     expect(renderOrganisation(name, sample[name] as never).text).toContain(ORGANISATION_PRIVACY_LINE);
   });
 
@@ -76,6 +114,37 @@ describe("organisation emails", () => {
     expect(r.text).toContain("No, thank you");
     expect(r.text).toContain(sample.seat_invite.declineUrl);
     expect(r.text).toContain("21 October 2026");
+  });
+
+  it.each(billing)("%s names no member and links to Billing", (name) => {
+    const r = renderOrganisation(name, sample[name] as never);
+    expect(r.text).toContain("https://example.test/org/billing");
+    expect(r.text).not.toMatch(/holder|@work\.example/);
+  });
+
+  it("the invoice email gives the number, amount, due date and pay link", () => {
+    const r = renderOrganisation("org_invoice_sent", sample.org_invoice_sent);
+    for (const s of ["AK-0042", "£120.00", "7 November 2026", "https://invoice.stripe.com/i/x"]) expect(r.text).toContain(s);
+  });
+
+  it("the payment problem email says until when access holds, and has an overdue wording", () => {
+    expect(renderOrganisation("org_payment_problem", sample.org_payment_problem).text).toContain("21 October 2026");
+    const o = renderOrganisation("org_payment_problem", { ...sample.org_payment_problem, mode: "overdue" });
+    expect(o.subject).toMatch(/overdue/);
+  });
+
+  it("the ended email shows a cooling-off refund only when there is one", () => {
+    expect(renderOrganisation("org_licence_ended", sample.org_licence_ended).text).toContain("£12.60");
+    const plain = renderOrganisation("org_licence_ended", { ...sample.org_licence_ended, refundAmount: undefined });
+    expect(plain.text).not.toContain("cooling-off");
+  });
+
+  it("the terms reminder states price, how often, next payment and how to cancel", () => {
+    const m = renderOrganisation("org_terms_reminder", sample.org_terms_reminder).text;
+    for (const s of ["£18.00", "Every month", "20 October 2026", "Cancel", "six months"]) expect(m).toContain(s);
+    const y = renderOrganisation("org_terms_reminder", { ...sample.org_terms_reminder, yearly: true }).text;
+    expect(y).toContain("Every year");
+    expect(y).toContain("14 days");
   });
 
   it("refuses a title under any likely key", () => {

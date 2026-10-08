@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
+import { preload } from "react-dom";
 import "./globals.css";
 import { brand } from "@/lib/brand";
 import { siteUrl } from "@/lib/site-url";
@@ -27,6 +28,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const h = await headers();
   const tenant = h.get("x-akana-tenant") ?? "akana";
   const kind = h.get("x-akana-tenant-kind") ?? "marketplace";
+  // Self-hosted body font: React emits a <link rel="preload"> in <head>, no
+  // inline script, so the CSP is unchanged. Latin only; the rest load on use.
+  preload("/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2", {
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  });
   return (
     <html lang="en-GB" data-tenant={tenant} data-tenant-kind={kind}>
       <body>{children}</body>

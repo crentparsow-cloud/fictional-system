@@ -120,6 +120,15 @@ export default async function AdminHomePage() {
       closed: !can.readReviewQueue,
     },
     {
+      href: "/admin/guides",
+      title: "Facilitator guides",
+      line: "Discussion questions and timings for group leaders, one guide per workbook version.",
+      count: null,
+      unit: "",
+      closed: !can.releaseVersions,
+      noCount: true,
+    },
+    {
       href: "/admin/support",
       title: "Support inbox",
       line: "Messages from the contact form, with saved replies.",
@@ -211,7 +220,7 @@ export default async function AdminHomePage() {
                 <p className="muted">{c.line}</p>
                 <p className="admin-card-count">
                   {"noCount" in c && c.noCount ? (
-                    <span className="muted">{c.href === "/admin/lookup" ? "Open the lookup" : c.href === "/admin/money" ? "Open the ledger" : "Open the counts"}</span>
+                    <span className="muted">{c.href === "/admin/lookup" ? "Open the lookup" : c.href === "/admin/money" ? "Open the ledger" : c.href === "/admin/guides" ? "Open the guides" : "Open the counts"}</span>
                   ) : c.count === null ? (
                     <span className="muted">Count unavailable</span>
                   ) : (

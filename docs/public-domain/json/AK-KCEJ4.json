@@ -1,0 +1,84 @@
+{
+  "code": "AK-KCEJ4",
+  "workbookId": "the-autobiography-of-benjamin-franklin",
+  "slug": "the-autobiography-of-benjamin-franklin-kcej4",
+  "title": "The Autobiography of Benjamin Franklin",
+  "author": "Benjamin Franklin",
+  "people": [
+    {
+      "name": "Benjamin Franklin",
+      "role": "author",
+      "died": 1790,
+      "diedSource": "Project Gutenberg catalogue page for eBook #148 (fetched 7 October 2026) gives 1706-1790. Matches the catalogue research file."
+    },
+    {
+      "name": "Charles W. Eliot",
+      "role": "editor",
+      "died": 1926,
+      "diedSource": "Project Gutenberg catalogue page for eBook #148 (fetched 7 October 2026) gives 1834-1926. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Written 1771 to 1790 [check]; first full English text published after Franklin's death [check year]",
+  "edition": {
+    "name": "'The Autobiography of Benjamin Franklin', edited by Charles W. Eliot (Harvard Classics text), Project Gutenberg eBook #148",
+    "url": "https://www.gutenberg.org/ebooks/148",
+    "status": "Do not use eBook #20203: its editor Frank Woodworth Pine has no death year in the Gutenberg record, so the editorial matter cannot be cleared. Eliot's Harvard Classics volume appeared in 1909 [check]."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Franklin died 1790 and the editor Eliot died 1926. The last term ended at the end of 1996."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Project Gutenberg marks eBook #148 public domain in the USA. Eliot's edition appeared in the Harvard Classics in 1909 [check], before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1926 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1926 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1926 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Franklin died 1790 and the editor Eliot died 1926. The last term ended at the end of 1996."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the Harvard Classics year (1909).",
+    "Record the first publication year of the full English text.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/growth-love-family.json (workbook the-autobiography-of-benjamin-franklin, pd_record block)",
+    "https://www.gutenberg.org/ebooks/148",
+    "https://www.gutenberg.org/ebooks/20203"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

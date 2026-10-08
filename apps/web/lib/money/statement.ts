@@ -29,6 +29,8 @@ export interface StatementRow {
   line_count: number;
   is_placeholder_rate: boolean;
   closed_at: string;
+  /** A demo statement from migration 0029 (invented figures, never real). */
+  is_demo?: boolean;
 }
 
 export interface StatementLine {
@@ -73,6 +75,8 @@ export interface StatementModel {
   currency: string;
   livemode: boolean;
   provisional: boolean;
+  /** Invented figures for the Akana demo. Not a real statement. */
+  demo: boolean;
   titles: TitleSummary[];
   other: { kind: string; label: string; amountMinor: number; note: string | null; date: string }[];
   totals: {
@@ -162,7 +166,9 @@ export function buildStatementModel(
   const titlesSorted = [...byTitle.values()].sort((a, b) => a.code.localeCompare(b.code));
   const anyPool = titlesSorted.some((t) => t.poolAmountMinor !== 0);
   const provisional = st.is_placeholder_rate;
+  const demo = st.is_demo === true;
   const method = [
+    ...(demo ? ["DEMO: invented figures for the Akana demo publisher. Not a real statement. No reader paid and nothing was paid out."] : []),
     "Your share is worked out on net receipts: what the reader paid, less VAT, less the payment fee Stripe charged where that applies.",
     "Each line keeps the rate used on the day, so a later change of rate never alters an earlier line.",
     "A refund or a disputed payment reverses your share of that payment in the month it happens. If that month's statement has already closed, it comes off the next one.",
@@ -181,6 +187,7 @@ export function buildStatementModel(
     currency: st.currency,
     livemode: st.livemode,
     provisional,
+    demo,
     titles: titlesSorted,
     other: other.sort((a, b) => a.date.localeCompare(b.date)),
     totals: {
@@ -244,6 +251,7 @@ export function statementCsv(m: StatementModel): string {
   rows.push(["meta", "", m.orgName, "period", "", "", "", "", "", "", "", m.period, cur]);
   rows.push(["meta", "", "", "mode", "", "", "", "", "", "", "", m.livemode ? "live" : "test", cur]);
   rows.push(["meta", "", "", "provisional", "", "", "", "", "", "", "", m.provisional ? "yes" : "no", cur]);
+  if (m.demo) rows.push(["meta", "", "", "demo", "", "", "", "", "", "", "", "yes, invented figures, not a real statement", cur]);
   return rows.map((r) => r.map(csvCell).join(",")).join("\r\n") + "\r\n";
 }
 
@@ -259,10 +267,11 @@ export function statementPdfLines(m: StatementModel): PdfLine[] {
   const cur = m.currency;
   const money = (n: number) => plainMinor(n);
   const lines: PdfLine[] = [
-    { text: "Akana royalty statement", font: "bold", size: 16 },
+    { text: m.demo ? "Akana royalty statement (DEMO)" : "Akana royalty statement", font: "bold", size: 16 },
     { text: `${m.orgName}`, font: "regular", size: 12, gap: 4 },
     { text: `${m.periodLabel}. Amounts in ${cur}.`, size: 10 },
   ];
+  if (m.demo) lines.push({ text: "DEMO: invented figures. Not a real statement. Nothing was sold or paid.", font: "bold", size: 10, gap: 4 });
   if (m.provisional) lines.push({ text: "PROVISIONAL: placeholder rates, not final.", font: "bold", size: 10, gap: 4 });
   if (!m.livemode) lines.push({ text: "TEST MODE: built from test payments. No real money moved.", font: "bold", size: 10 });
 
@@ -327,13 +336,13 @@ export function wrap(text: string, n: number): string[] {
 
 export function statementPdf(m: StatementModel): Uint8Array {
   return buildPdf(statementPdfLines(m), {
-    title: `Akana statement ${m.period} ${m.currency}`,
-    footer: `Akana royalty statement, ${m.orgName}, ${m.periodLabel}, ${m.currency}${m.livemode ? "" : ", test mode"}.`,
+    title: `Akana statement ${m.period} ${m.currency}${m.demo ? " (demo)" : ""}`,
+    footer: `Akana royalty statement, ${m.orgName}, ${m.periodLabel}, ${m.currency}${m.livemode ? "" : ", test mode"}${m.demo ? ", DEMO, not a real statement" : ""}.`,
   });
 }
 
 /** A safe file name: akana-statement-<org code or slug>-<period>-<currency>.<ext> */
-export function statementFileName(orgRef: string, m: Pick<StatementModel, "period" | "currency" | "livemode">, ext: "pdf" | "csv"): string {
+export function statementFileName(orgRef: string, m: Pick<StatementModel, "period" | "currency" | "livemode"> & { demo?: boolean }, ext: "pdf" | "csv"): string {
   const ref = orgRef.toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/^-+|-+$/g, "") || "organisation";
-  return `akana-statement-${ref}-${m.period}-${m.currency.toLowerCase()}${m.livemode ? "" : "-test"}.${ext}`;
+  return `akana-statement-${ref}-${m.period}-${m.currency.toLowerCase()}${m.livemode ? "" : "-test"}${m.demo ? "-demo" : ""}.${ext}`;
 }

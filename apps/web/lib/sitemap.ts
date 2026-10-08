@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import type { LibraryCard } from "@/lib/catalogue-types";
 import { authorIndex, isSlug, themeIndex, type Publisher, type ThemeInput } from "@/lib/author-theme-pages";
+import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { siteOrigin } from "@/lib/site-url";
 
 /**
@@ -94,7 +95,10 @@ export function sitemapPaths(input: Omit<SitemapInput, "origin">): string[] {
     if (p.codes.some((code) => liveCodes.has(code))) out.add(`/publishers/${p.slug}`);
   }
 
-  for (const shelf of themeIndex(input.themes, input.cards)) {
+  // Only Themes a reader may see: never a retired one (0025), nor one held
+  // below its minimum (F-148), whose page is a 404.
+  const shownCards = maskHiddenThemes(input.cards, hiddenThemeIds(input.themes, input.cards));
+  for (const shelf of themeIndex(input.themes, shownCards)) {
     for (const t of shelf.themes) if (isSlug(t.id)) out.add(`/themes/${t.id}`);
   }
 

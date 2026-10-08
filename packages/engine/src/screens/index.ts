@@ -1,4 +1,4 @@
-export { ExerciseScreen, type ExerciseScreenProps, type ExerciseMode, type Exercise } from "./Exercise";
+export { ExerciseScreen, exercisePages, type ExerciseScreenProps, type ExerciseMode, type Exercise, type ExercisePage } from "./Exercise";
 export { UnitScreen, type UnitScreenProps, type ProgrammeUnit } from "./Unit";
 export { StartScreen, type StartScreenProps } from "./Start";
 export { ToolkitScreen, ToolkitCardView, type ToolkitScreenProps, type ToolkitCard } from "./Toolkit";

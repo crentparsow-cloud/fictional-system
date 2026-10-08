@@ -1,0 +1,77 @@
+{
+  "code": "AK-WY652",
+  "workbookId": "holiness",
+  "slug": "holiness-wy652",
+  "title": "Holiness",
+  "author": "J. C. Ryle",
+  "people": [
+    {
+      "name": "J. C. Ryle",
+      "role": "author",
+      "died": 1900,
+      "diedSource": "Project Gutenberg catalogue page for eBook #38162 (fetched 7 October 2026) gives 1816-1900. Same dates as the Online Books Page heading."
+    }
+  ],
+  "firstPublished": "1877; enlarged 1879",
+  "edition": {
+    "name": "Proposed: 'Holiness: Its Nature, Hindrances, Difficulties and Roots', enlarged edition, 1879, page images at HathiTrust or archive.org",
+    "url": "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Ryle%2C%20J.%20C.%20%28John%20Charles%29%2C%201816-1900",
+    "status": "No scan has been fixed yet [check]. Check the anglicanlibrary.org HTML's source before using it. Avoid modern editions with forewords."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Ryle died 1900. The term ended at the end of 1970."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Published 1877 and 1879, before 1931."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Ryle died 1900. The term ended at the end of 1970."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). The named edition is far older than 25 years, so its layout is free. Quotations must come from a fresh transcription of that edition, never from a modern reprint layout or a website's own edited text.",
+  "projectGutenberg": "No Project Gutenberg file is used for this title. The text must be transcribed from page images of the named edition. Check the host's terms of use before copying [check].",
+  "checks": [
+    "Choose a scan of the 1879 edition and record its record number.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook holiness, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Ryle%2C%20J.%20C.%20%28John%20Charles%29%2C%201816-1900",
+    "https://en.wikipedia.org/wiki/J._C._Ryle"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

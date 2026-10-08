@@ -2,6 +2,7 @@ import "server-only";
 import type { LibraryCard } from "@/lib/catalogue-types";
 import { cleanTopics, entryFromCard, topicHashes, type SearchEntry } from "@/lib/search";
 import { createUserClient } from "@/lib/supabase/server";
+import { isRetiredStatus } from "@/lib/theme-visibility";
 
 /**
  * Builds the search index entries (F-008) for cards the page has already
@@ -25,11 +26,13 @@ export async function searchEntriesFor(cards: readonly LibraryCard[]): Promise<S
   if (ids.length) {
     try {
       const supabase = await createUserClient();
-      const { data, error } = await supabase.from("workbooks").select("id, themes(topics), books(publisher)").in("id", ids).limit(ids.length);
+      const { data, error } = await supabase.from("workbooks").select("id, themes(topics, status), books(publisher)").in("id", ids).limit(ids.length);
       if (!error) {
-        type Row = { id: string; themes: { topics: string[] | null } | null; books: { publisher: string | null } | null };
+        type Row = { id: string; themes: { topics: string[] | null; status?: string | null } | null; books: { publisher: string | null } | null };
         for (const row of (data ?? []) as unknown as Row[]) {
-          extras.set(row.id, { topicHashes: await topicHashes(cleanTopics(row.themes?.topics)), publisher: row.books?.publisher ?? null });
+          // A retired Theme (0025) adds nothing to the index, not even hashed topics.
+          const topics = isRetiredStatus(row.themes?.status) ? null : row.themes?.topics;
+          extras.set(row.id, { topicHashes: await topicHashes(cleanTopics(topics)), publisher: row.books?.publisher ?? null });
         }
       }
     } catch {

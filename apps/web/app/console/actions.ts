@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { originFrom } from "@/lib/partner";
 import { cleanEmail, isUuid, OWNER_GRANTABLE_ROLES, parseOrgRole, str, studioErrorNotice, withOrg, type StudioNotice } from "@/lib/studio";
 import { inviterName, requireStudio, sendOrgInvite } from "@/lib/studio-server";
@@ -23,6 +24,7 @@ function back(path: string, notice: StudioNotice, orgId: string, multi: boolean)
 export async function inviteMember(formData: FormData): Promise<void> {
   const ctx = await requireStudio("/console", String(formData.get("org") ?? ""));
   const home = String(formData.get("from") ?? "") === "authors" ? "/console/authors" : "/console";
+  await requireRoleMfa(ctx.org.role, home);
   const email = cleanEmail(formData.get("email"));
   const role = parseOrgRole(formData.get("role"));
   const author = String(formData.get("author") ?? "");
@@ -42,6 +44,7 @@ export async function inviteMember(formData: FormData): Promise<void> {
 
 export async function resendInvite(formData: FormData): Promise<void> {
   const ctx = await requireStudio("/console", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, "/console");
   const id = String(formData.get("invite") ?? "");
   if (!isUuid(id)) back("/console", "invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();
@@ -63,6 +66,7 @@ export async function resendInvite(formData: FormData): Promise<void> {
 
 export async function revokeInvite(formData: FormData): Promise<void> {
   const ctx = await requireStudio("/console", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, "/console");
   const id = String(formData.get("invite") ?? "");
   if (!isUuid(id)) back("/console", "invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();
@@ -74,6 +78,7 @@ export async function revokeInvite(formData: FormData): Promise<void> {
 
 export async function setMemberRole(formData: FormData): Promise<void> {
   const ctx = await requireStudio("/console", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, "/console");
   const user = String(formData.get("user") ?? "");
   const role = parseOrgRole(formData.get("role"));
   if (!isUuid(user) || !role) back("/console", "invalid", ctx.org.id, ctx.multi);
@@ -87,6 +92,7 @@ export async function setMemberRole(formData: FormData): Promise<void> {
 /** Removal takes effect on the member's next request: every policy reads org_members live. */
 export async function removeMember(formData: FormData): Promise<void> {
   const ctx = await requireStudio("/console", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, "/console");
   const user = String(formData.get("user") ?? "");
   if (!isUuid(user) || formData.get("confirm") !== "yes") back("/console", "invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();

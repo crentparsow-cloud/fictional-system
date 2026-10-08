@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildSeed } from "./build";
+import { buildSeed, themeStatus } from "./build";
 import { canonicalJson, contentHash, stableUuid } from "./ids";
 import { renderSeedSql } from "./sql";
 import { chunk } from "./apply";
@@ -101,6 +101,23 @@ describe("buildSeed", () => {
       expect(shelfIds.has(t.shelf_id)).toBe(true);
       expect(areaIds.has(t.area_id)).toBe(true);
     }
+  });
+
+  it("carries themes.status (0025): Reading Scripture retired, the other 50 active, and no title on a retired Theme", () => {
+    const retired = seed.themes.filter((t) => t.status === "retired");
+    expect(retired.map((t) => t.id)).toEqual(["reading-scripture"]);
+    expect(retired[0]?.retired_at).toBe("2026-10-07T00:00:00Z");
+    expect(retired[0]?.retired_reason).toMatch(/Bible study is out of scope/);
+    expect(seed.themes.filter((t) => t.status === "active")).toHaveLength(50);
+    for (const t of seed.themes) if (t.status === "active") expect(t.retired_at).toBeNull();
+    const retiredIds = new Set(retired.map((t) => t.id));
+    for (const w of seed.workbooks) expect(retiredIds.has(w.theme_id ?? "")).toBe(false);
+  });
+
+  it("refuses a retired registry Theme with no retired_at date", () => {
+    expect(() => themeStatus({ id: "x", status: "retired" })).toThrow(/no retired_at/);
+    expect(themeStatus({ id: "x", status: "proposed" })).toEqual({ status: "active", retired_at: null, retired_reason: null });
+    expect(themeStatus({ id: "x", status: "retired", retired_at: "2026-10-07T09:00:00Z" }).retired_at).toBe("2026-10-07T09:00:00Z");
   });
 
   it("carries Maya Vaughn as a house author and strips the internal block from content", () => {

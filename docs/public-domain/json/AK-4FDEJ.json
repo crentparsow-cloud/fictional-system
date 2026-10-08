@@ -1,0 +1,84 @@
+{
+  "code": "AK-4FDEJ",
+  "workbookId": "the-spiritual-exercises-eight-day-retreat",
+  "slug": "the-spiritual-exercises-eight-day-retreat-4fdej",
+  "title": "The Spiritual Exercises",
+  "author": "Ignatius of Loyola",
+  "people": [
+    {
+      "name": "Ignatius of Loyola",
+      "role": "author",
+      "died": 1556,
+      "diedSource": "Project Gutenberg catalogue page for eBook #70790 (fetched 7 October 2026) gives 1491-1556. Matches the catalogue research file."
+    },
+    {
+      "name": "Charles Coppens",
+      "role": "adapter",
+      "died": 1920,
+      "diedSource": "Project Gutenberg catalogue page for eBook #70790 (fetched 7 October 2026) gives 1835-1920. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Exercises composed about 1522 to 1524; Coppens adaptation B. Herder, 1916",
+  "edition": {
+    "name": "'The spiritual exercises of St. Ignatius: adapted to an eight days retreat and six triduums in preparation for the semi-annual renovation of the vows, all for the use of Jesuits only', Charles Coppens, B. Herder, 1916, Project Gutenberg eBook #70790",
+    "url": "https://www.gutenberg.org/ebooks/70790",
+    "status": "Produced from Internet Archive images. The full title says the adaptation is \"for the use of Jesuits only\". That is a fit question for the workbook, not a copyright point."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Ignatius died 1556 and Coppens died 1920. The last term ended at the end of 1990."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Published 1916, before 1931. Project Gutenberg marks eBook #70790 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1920 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1920 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1920 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Ignatius died 1556 and Coppens died 1920. The last term ended at the end of 1990."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1916 Herder date on the file's title page.",
+    "Editorial: confirm a lay workbook on a Jesuit-only adaptation is the intended use.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook the-spiritual-exercises-eight-day-retreat, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/70790"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

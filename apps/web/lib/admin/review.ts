@@ -93,6 +93,8 @@ export interface ValidatorSummary {
   ok: boolean;
   errors: Finding[];
   warnings: Finding[];
+  /** True when the validator itself threw: a fault to alert on (F-142), not a content finding. */
+  crashed?: boolean;
 }
 
 /** Runs @akana/validate at full strength: the gate never uses the lenient mode. */
@@ -105,6 +107,7 @@ export function runValidator(content: unknown): ValidatorSummary {
       ok: false,
       errors: [{ severity: "error", category: "schema", path: "", message: "The validator could not read this version." }],
       warnings: [],
+      crashed: true,
     };
   }
 }

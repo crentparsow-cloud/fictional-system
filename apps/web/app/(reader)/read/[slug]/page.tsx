@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import "@akana/engine/engine.css";
+import { readerDeletion } from "@/lib/account-server";
 import { getReaderSession } from "@/lib/auth";
 import { consentGate, consentHref, faithConsentGate, faithConsentHref } from "@/lib/consent";
+import { countView } from "@/lib/funnel-server";
 import { marketFor } from "@/lib/markets";
 import { membershipPlansOpen } from "@/lib/membership";
 import { PRICE_LADDER, marketPriceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
@@ -28,7 +30,8 @@ import { ReadClient } from "./ReadClient";
  *   faith    a workbook on the Faith and Spirituality shelf sends a reader
  *            with no faith consent to /consent/faith (F-150).
  * Then, inside the Player:
- *   higher   the Start screen and its "I have read this" before unit 1 (F-022)
+ *   higher   the Start screen and its "I have read this" before unit 1 (F-022),
+ *            kept server side per enrolment and version (0026)
  *   paywall  a unit the entitlement does not cover shows the calm card (F-019)
  */
 export const dynamic = "force-dynamic";
@@ -181,6 +184,26 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     .limit(5000);
   const events = ((eventRows ?? []) as { kind: string; ref: string | null; at: string }[]).map((e) => ({ kind: e.kind, ref: e.ref, at: e.at }));
 
+  // F-022: "I have read this", kept server side for the pinned version
+  // (0026). If it cannot be read the reader sees the note again, nothing worse.
+  let acknowledged = false;
+  if (workbook.safety_tier === "higher") {
+    const { data: ack, error: ackError } = await supabase
+      .from("enrolment_acknowledgements")
+      .select("acknowledged_at")
+      .eq("enrolment_id", enrolment.id)
+      .eq("version_id", enrolment.version_id)
+      .maybeSingle();
+    acknowledged = !ackError && Boolean(ack);
+  }
+
+  // F-025: read only while an account deletion is pending.
+  const { readOnly } = await readerDeletion(supabase, session.userId);
+
+  // F-141: a reader without the full workbook is reading the free sample.
+  // Ids only, and nothing is counted when they have opted out of counting.
+  if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id);
+
   // Membership checkout opens per plan once its Stripe price id is set (F-097).
   const plansOpen = membershipPlansOpen();
 
@@ -194,6 +217,8 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
       market={market.code}
       events={events}
       openView={openView}
+      acknowledged={acknowledged}
+      readOnly={readOnly}
       paywall={{
         demo: workbook.is_demo,
         workbookPrice,

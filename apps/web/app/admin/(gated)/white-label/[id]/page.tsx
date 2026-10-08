@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AdminBack } from "../../_components/Bits";
 import { Notice } from "../../_components/Notice";
 import { addTenantListing, saveTenantBrand, saveTenantListing } from "../actions";
+import { DomainsSection } from "./DomainsSection";
 import { checkedColours, linksToText, LISTING_PRICE_OPTIONS, whiteLabelAbilities } from "@/lib/admin/white-label";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
@@ -227,6 +228,8 @@ export default async function TenantAdminPage({
           </button>
         </form>
       </section>
+
+      {tenant.is_demo ? null : <DomainsSection tenantId={tenant.id} disabled={disabled} />}
 
       <p>
         <Link href="/admin/demo">Demo publisher and logins</Link>

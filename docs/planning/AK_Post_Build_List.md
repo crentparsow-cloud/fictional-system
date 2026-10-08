@@ -96,6 +96,7 @@ No figure here is new. Prices and dates are quoted from the source named.
 | S6 | Confirm the test keys are in Vercel (`STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`) | DAY_LOG Day 3 follow-up | Confirm | Yes |
 | S7 | Customer portal settings carried to live | DAY_LOG Day 6 | Open | Yes |
 | S8 | API version: the dashboard offered 2026-08-26.dahlia, the code pins 2026-09-30.endive. Recheck at live | DAY_LOG Day 3 follow-up | Open | No |
+| S9 | Stripe Radar rules (F-143). Custom rules need Radar for Fraud Teams, a paid add-on: decide whether to buy it first. Then add, in test mode first and live at switch-on: block when `:cvc_check: = 'fail'`; block when `:address_zip_check: = 'fail'`; request 3D Secure when `:risk_level: = 'elevated'`; keep the default block on `:risk_level: = 'highest'`; block a card after repeated declines in an hour and an email address after many cards in a day, using the velocity attributes the rule editor offers (check their exact names there); review any charge above a set amount once real prices exist (C1). Akana's own limit of 10 Checkout Sessions an hour per reader (0027) sits in front of these | 0027 build, F-143 | Open | Yes, dashboard |
 
 ## 5. Technical
 
@@ -123,6 +124,6 @@ No figure here is new. Prices and dates are quoted from the source named.
 | Crent | 30 | 30 | 0 |
 | Lawyer | 16 | 0 | 2 |
 | Accountant | 7 | 0 | 0 |
-| Stripe | 8 | 7 | 0 |
+| Stripe | 9 | 8 | 0 |
 | Technical | 14 | 5 | 0 |
-| **Total** | **75** | **42** | **2** |
+| **Total** | **76** | **43** | **2** |

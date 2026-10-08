@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RoleMfaBanner } from "@/components/mfa/RoleMfaBanner";
 import { StudioShell } from "@/components/studio/StudioShell";
 
 export const metadata: Metadata = {
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 
 /** Organisation console (F-055, F-056). Apex host only (proxy). */
 export default function ConsoleLayout({ children }: { children: React.ReactNode }) {
-  return <StudioShell>{children}</StudioShell>;
+  return (
+    <StudioShell>
+      <RoleMfaBanner next="/console" />
+      {children}
+    </StudioShell>
+  );
 }

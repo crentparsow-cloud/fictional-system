@@ -40,7 +40,8 @@ interface StatementRow {
  * (migration 0021): per workbook and month through public.org_earnings
  * (0022, which reads the royalty_title_months view), and balances and closed
  * statements straight from 0021's tables under its own RLS (owner, finance
- * and author members). Exact amounts, never a reader's identity.
+ * and author members). Exact amounts, never a reader's identity. The demo
+ * organisation reads 0029's demo tables instead, labelled Demo throughout.
  */
 export default async function StudioEarningsPage({ searchParams }: { searchParams: Search }) {
   const sp = await searchParams;
@@ -49,14 +50,17 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
   const orgParam = ctx.multi ? ctx.org.id : null;
   const supabase = await createUserClient();
 
+  // A demo organisation (Quillmoor Demo Press) reads its demo money from
+  // migration 0029's separate demo tables; org_earnings already switches.
+  const demo = ctx.org.isDemo;
   const [earnings, balances, statements] = await Promise.all([
     supabase.rpc("org_earnings", { p_org: ctx.org.id, p_from: range.fromDay, p_to: range.toDay }),
     supabase
-      .from("royalty_balances")
+      .from(demo ? "demo_royalty_balances" : "royalty_balances")
       .select("currency, livemode, balance_minor, payable_minor, pending_payout_minor, last_closed_period, has_placeholder_rate")
       .eq("org_id", ctx.org.id),
     supabase
-      .from("statements")
+      .from(demo ? "demo_statements" : "statements")
       .select("id, period, currency, livemode, closing_minor, sales_minor, refunds_minor, pool_minor, payouts_minor, units, is_placeholder_rate")
       .eq("org_id", ctx.org.id)
       .order("period", { ascending: false })
@@ -95,6 +99,13 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
             </p>
           </section>
 
+          {demo ? (
+            <p className="studio-draft" role="note">
+              <strong>Demo.</strong> These are invented test-mode figures for the Quillmoor demo. No reader paid, no money moved, and none of it is on a
+              real statement or payout. Resetting the demo rebuilds them.
+            </p>
+          ) : null}
+
           {provisional ? (
             <p className="studio-draft" role="note">
               <strong>Provisional.</strong> The rates behind these figures are placeholders until Akana sets them. Nothing here is paid out at these rates.
@@ -127,7 +138,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
                   {bal.map((b) => (
                     <tr key={`${b.currency}-${b.livemode}`}>
                       <th scope="row">
-                        {b.currency} {b.livemode ? null : <span className="badge demo">Test</span>}
+                        {b.currency} {demo ? <span className="badge demo">Demo</span> : b.livemode ? null : <span className="badge demo">Test</span>}
                       </th>
                       <td className="dash-num">{money(b.balance_minor, b.currency)}</td>
                       <td className="dash-num">{money(b.payable_minor, b.currency)}</td>
@@ -175,7 +186,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
                   {stmts.map((s) => (
                     <tr key={s.id}>
                       <th scope="row">
-                        {monthLabel(s.period)} {s.currency} {s.livemode ? null : <span className="badge demo">Test</span>}
+                        {monthLabel(s.period)} {s.currency} {demo ? <span className="badge demo">Demo</span> : s.livemode ? null : <span className="badge demo">Test</span>}
                         {s.is_placeholder_rate ? <span className="muted small"> Provisional</span> : null}
                       </th>
                       <td className="dash-num">{money(s.sales_minor, s.currency)}</td>
@@ -210,7 +221,8 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
               {groups.map((g) => (
                 <section key={`${g.month}-${g.currency}-${g.livemode}`} className="dash-month-block" aria-label={`${monthLabel(g.month)} ${g.currency}`}>
                   <h3 className="dash-month">
-                    {monthLabel(g.month)} <span className="muted">{g.currency}</span> {g.livemode ? null : <span className="badge demo">Test</span>}
+                    {monthLabel(g.month)} <span className="muted">{g.currency}</span>{" "}
+                    {demo ? <span className="badge demo">Demo</span> : g.livemode ? null : <span className="badge demo">Test</span>}
                   </h3>
                   <div className="admin-table-wrap">
                     <table className="admin-table">

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { signOut } from "@/app/(auth)/sign-out/action";
 import { deletionState, longDate, noticeText, type DeletionRow } from "@/lib/account";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { SignOutButton } from "@/components/SignOutButton";
+import { AppearanceSettings } from "@/components/you/AppearanceSettings";
 import { CheckInPartner, type PartnerReply } from "@/components/you/CheckInPartner";
+import { OrgEndedNotice } from "@/components/org/OrgEndedNotice";
 import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
 import { partnerNoticeText, type PartnerRow } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
@@ -99,7 +101,7 @@ export default async function YouPage({ searchParams }: Props) {
           <p>
             <b>Your account will be deleted on {longDate(deletion.deletesOn)}.</b>
           </p>
-          <p className="small">You can undo it until then.</p>
+          <p className="small">You can undo it until then. Until then your work is read only: you can open and download it, but not add to it.</p>
           <form action={cancelDeletion}>
             <button type="submit" className="btn">
               Cancel deletion
@@ -116,6 +118,8 @@ export default async function YouPage({ searchParams }: Props) {
         </div>
       ) : null}
 
+      <OrgEndedNotice />
+
       <section className="you-section" aria-labelledby="you-account">
         <h2 id="you-account">Account</h2>
         <dl className="card you-list">
@@ -128,11 +132,7 @@ export default async function YouPage({ searchParams }: Props) {
             <dd>{session?.adultConfirmedAt ? longDate(session.adultConfirmedAt) : "Not yet"}</dd>
           </div>
         </dl>
-        <form action={signOut}>
-          <button type="submit" className="btn secondary">
-            {t("you.signOut")}
-          </button>
-        </form>
+        <SignOutButton label={t("you.signOut")} />
       </section>
 
       {showMembership ? (
@@ -163,6 +163,9 @@ export default async function YouPage({ searchParams }: Props) {
           now={new Date()}
         />
       ) : null}
+
+      {/* Text size, font, dim at night, reduced motion. On this device only. */}
+      <AppearanceSettings />
 
       {/* One reminder for all workbooks (F-024). It lives on Today; this is the way there. */}
       <section className="you-section" aria-labelledby="you-reminder">

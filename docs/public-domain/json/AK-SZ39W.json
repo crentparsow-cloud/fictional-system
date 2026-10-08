@@ -1,0 +1,76 @@
+{
+  "code": "AK-SZ39W",
+  "workbookId": "walden",
+  "slug": "walden-sz39w",
+  "title": "Walden",
+  "author": "Henry David Thoreau",
+  "people": [
+    {
+      "name": "Henry David Thoreau",
+      "role": "author",
+      "died": 1862,
+      "diedSource": "Project Gutenberg catalogue page for eBook #205 (fetched 7 October 2026) gives 1817-1862. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "1854 (Ticknor and Fields, Boston)",
+  "edition": {
+    "name": "'Walden, and On The Duty Of Civil Disobedience', Project Gutenberg eBook #205. Only Walden is used",
+    "url": "https://www.gutenberg.org/ebooks/205",
+    "status": "Credits: Judith Boss and David Widger. No editor is named."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Thoreau died 1862. The term ended at the end of 1932."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "First published 1854, before 1931. Project Gutenberg marks eBook #205 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1862 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1862 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1862 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Thoreau died 1862. The term ended at the end of 1932."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1854 Ticknor and Fields first edition against a second source.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/growth-love-family.json (workbook walden, pd_record block)",
+    "https://www.gutenberg.org/ebooks/205"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

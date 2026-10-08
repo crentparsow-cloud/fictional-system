@@ -17,13 +17,16 @@ create table if not exists auth.users (
 grant usage on schema auth to anon, authenticated, service_role;
 grant select on auth.users to authenticated, service_role;
 
--- Helper for tests: act as a user with the given platform roles.
+-- Helper for tests: act as a user with the given platform roles. The
+-- session has passed a second factor just now (aal2, TOTP in amr), as owners,
+-- finance and staff must from 0032; tests of the aal1 case set claims themselves.
 create or replace function test_as(p_user uuid, p_platform_roles text[] default '{}') returns void
 language plpgsql as $$
 begin
   perform set_config('request.jwt.claim.sub', p_user::text, true);
   perform set_config('request.jwt.claims',
-    jsonb_build_object('sub', p_user, 'role', 'authenticated',
+    jsonb_build_object('sub', p_user, 'role', 'authenticated', 'aal', 'aal2',
+      'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)),
       'app_metadata', jsonb_build_object('platform_roles', to_jsonb(p_platform_roles)))::text, true);
   execute 'set local role authenticated';
 end $$;

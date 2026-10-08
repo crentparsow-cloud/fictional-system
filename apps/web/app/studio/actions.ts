@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { clientIp, hashWithSalt, leadSalt } from "@/lib/leads";
+import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { originFrom } from "@/lib/partner";
 import { parseOrgFilePath } from "@/lib/storage/file-rules";
 import {
@@ -216,6 +217,7 @@ export async function acceptLicence(formData: FormData): Promise<void> {
   const bookId = String(formData.get("book") ?? "");
   if (!isUuid(bookId)) back("/studio/books", "invalid", ctx.org.id, ctx.multi);
   const home = `/studio/books/${bookId}/licence`;
+  await requireRoleMfa(ctx.org.role, withOrg(home, ctx.org.id, ctx.multi));
   const file = readLicenceFile();
   if (!file || formData.get("sha") !== file.sha256 || formData.get("version") !== file.version) back(home, "licence-changed", ctx.org.id, ctx.multi);
   if (!["warrant_rights", "warrant_no_clash", "warrant_no_claims"].every((k) => formData.get(k) === "yes")) {
@@ -254,6 +256,7 @@ export async function uploadLicence(formData: FormData): Promise<void> {
   const bookId = String(formData.get("book") ?? "");
   if (!isUuid(bookId)) back("/studio/books", "invalid", ctx.org.id, ctx.multi);
   const home = `/studio/books/${bookId}/licence`;
+  await requireRoleMfa(ctx.org.role, withOrg(home, ctx.org.id, ctx.multi));
   const file = readLicenceFile();
   if (!file) back(home, "failed", ctx.org.id, ctx.multi);
   const path = String(formData.get("licence_path") ?? "");

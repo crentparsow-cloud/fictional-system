@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signOut } from "@/app/(auth)/sign-out/action";
+import { SignOutButton } from "@/components/SignOutButton";
 
 /**
  * Shell for the Studio and the console (F-033, F-055). Served on the Akana apex only (proxy). Each
@@ -28,11 +28,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
             <Link href="/payouts">Payouts</Link>
             <Link href="/studio/help">Help</Link>
           </nav>
-          <form action={signOut}>
-            <button type="submit" className="btn secondary admin-signout">
-              Sign out
-            </button>
-          </form>
+          <SignOutButton label="Sign out" className="btn secondary admin-signout" />
         </div>
       </header>
       <main id="main" className="wrap admin-main" tabIndex={-1}>

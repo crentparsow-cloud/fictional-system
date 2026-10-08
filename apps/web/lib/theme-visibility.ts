@@ -10,6 +10,11 @@ import type { LibraryCard } from "@/lib/catalogue-types";
  * launch Themes and 7 launch shelves) keep their current behaviour: they show
  * as soon as one title is live, and a Theme page renders even when empty.
  *
+ * A retired Theme (themes.status 'retired', migration 0025) is never shown,
+ * whatever it holds: not in the library, /themes, its own page, the sitemap
+ * or the search index. Its row and id are kept for good, but readers never
+ * see it, and it does not count towards its shelf.
+ *
  * A live workbook on a hidden Theme is still a live workbook: its card stays
  * in the library, just without the Theme label or link. Pure, so the library
  * and /themes pages share one decision and the tests cover it.
@@ -26,6 +31,13 @@ export interface ThemeGate {
   minBooks?: number | null;
   /** shelves.hidden_until_min_books for the Theme's shelf. */
   shelfHeld?: boolean;
+  /** themes.status is 'retired' (0025). Missing reads as active. */
+  retired?: boolean;
+}
+
+/** Is this themes.status value a retired Theme? Anything else reads as active. */
+export function isRetiredStatus(status: string | null | undefined): boolean {
+  return status === "retired";
 }
 
 function minimum(n: number | null | undefined): number {
@@ -40,15 +52,16 @@ export function liveCountsByTheme(cards: readonly LibraryCard[]): Map<string, nu
 }
 
 /** May a reader see this one Theme, given how many live titles it holds? */
-export function themeShown(theme: Pick<ThemeGate, "held" | "minBooks">, liveCount: number): boolean {
+export function themeShown(theme: Pick<ThemeGate, "held" | "minBooks" | "retired">, liveCount: number): boolean {
+  if (theme.retired) return false;
   if (!theme.held) return true;
   return liveCount >= minimum(theme.minBooks);
 }
 
 /**
- * The ids of every Theme a reader must not see: a held Theme below its
- * minimum, or any Theme on a held shelf whose shown Themes hold fewer than
- * the default minimum between them.
+ * The ids of every Theme a reader must not see: a retired Theme, a held
+ * Theme below its minimum, or any Theme on a held shelf whose shown Themes
+ * hold fewer than the default minimum between them.
  */
 export function hiddenThemeIds(themes: readonly ThemeGate[], cards: readonly LibraryCard[]): Set<string> {
   const counts = liveCountsByTheme(cards);

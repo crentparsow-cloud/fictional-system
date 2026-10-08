@@ -1,0 +1,84 @@
+{
+  "code": "AK-FWYF6",
+  "workbookId": "confessions",
+  "slug": "confessions-fwyf6",
+  "title": "Confessions",
+  "author": "Augustine of Hippo",
+  "people": [
+    {
+      "name": "Augustine of Hippo",
+      "role": "author",
+      "died": 430,
+      "diedSource": "Project Gutenberg catalogue page for eBook #3296 (fetched 7 October 2026) gives 354-430. Matches the catalogue research file."
+    },
+    {
+      "name": "E. B. Pusey",
+      "role": "translator",
+      "died": 1882,
+      "diedSource": "Project Gutenberg catalogue page for eBook #3296 (fetched 7 October 2026) gives 1800-1882. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Latin, written AD 397 to 400",
+  "edition": {
+    "name": "'The Confessions of St. Augustine', translated by E. B. Pusey, Project Gutenberg eBook #3296",
+    "url": "https://www.gutenberg.org/ebooks/3296",
+    "status": "Pusey's translation was first published in 1838 (catalogue research file) [check]. Do not use Outler (1955), Pine-Coffin (1961) or Chadwick (2008)."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Augustine died 430 and the translator Pusey died 1882. The last term ended at the end of 1952."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "The Pusey translation was published in 1838, before 1931. Project Gutenberg marks eBook #3296 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Augustine died 430 and the translator Pusey died 1882. The last term ended at the end of 1952."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1838 date of Pusey's translation against a second source.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook confessions, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/3296",
+    "https://en.wikipedia.org/wiki/Confessions_(Augustine)"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

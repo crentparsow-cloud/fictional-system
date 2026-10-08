@@ -17,5 +17,6 @@ export function PlayerClient({ workbook }: { workbook: WorkbookV3 }) {
         Help now
       </button>
     ) : null;
-  return <Player workbook={workbook} store={store} helpSlot={helpSlot} />;
+  // Paged like the reader app (F-015 parity).
+  return <Player workbook={workbook} store={store} helpSlot={helpSlot} pagedExercises />;
 }

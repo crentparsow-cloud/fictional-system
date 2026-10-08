@@ -186,13 +186,17 @@ export async function getWorkbookBySlug(slug: string): Promise<WorkbookDetail | 
 /** Active shelves with their Themes for the filter chips. Topics are never selected. */
 export async function listShelvesWithThemes(): Promise<ShelfWithThemes[]> {
   const supabase = await createUserClient();
-  const { data, error } = await supabase.from("shelves").select("id, name, sort, themes(id, name, line)").eq("status", "active").order("sort");
+  const { data, error } = await supabase.from("shelves").select("id, name, sort, themes(id, name, line, status)").eq("status", "active").order("sort");
   if (error) throw new Error(`listShelvesWithThemes: ${error.message}`);
-  type Row = { id: string; name: string; sort: number; themes: { id: string; name: string; line: string | null }[] };
+  type Row = { id: string; name: string; sort: number; themes: { id: string; name: string; line: string | null; status?: string | null }[] };
+  // A retired Theme (0025) never appears as a chip or heading.
   return ((data ?? []) as unknown as Row[]).map((s) => ({
     id: s.id,
     name: s.name,
-    themes: [...(s.themes ?? [])].sort((a, b) => a.name.localeCompare(b.name)),
+    themes: (s.themes ?? [])
+      .filter((t) => t.status !== "retired")
+      .map((t) => ({ id: t.id, name: t.name, line: t.line }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
   }));
 }
 

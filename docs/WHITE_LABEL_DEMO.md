@@ -1,6 +1,6 @@
 # White-label demo and demo logins (M7)
 
-Features F-067, F-068, F-069, F-074 and F-045. Migration `supabase/migrations/0023_whitelabel_demo.sql`, tests in `supabase/tests/0023_whitelabel_demo.sql`.
+Features F-067, F-068, F-069, F-074 and F-045. Migrations `supabase/migrations/0023_whitelabel_demo.sql` and `0029_demo_money.sql` (demo money), tests in `supabase/tests/` under the same numbers.
 
 ## 1. What a tenant site is
 
@@ -64,15 +64,32 @@ No accounts or passwords were created. To set the logins up:
 2. Sign in to `/admin` as a platform owner, open **White-label and demo**, then **Demo publisher and logins**, and register each address as Demo author or Demo publisher. A staff account, or an account in a real organisation, is refused.
 3. Press **Reset the demo now**. The publisher login becomes the owner of Quillmoor Demo Press and admin of its site. The author login becomes Odalys Penhaligon-Reyes's profile and an author member.
 
-Every reset, staff or nightly, puts the demo back: names, imprints, authors, the four workbook states, the site's look and catalogue, and the members (the registered logins only; anyone a demo user invited is removed). Workbooks a demo user added are retired, because AK codes are never deleted.
+Every reset, staff or nightly, puts the demo back: names, imprints, authors, the four workbook states, the site's look and catalogue, the members (the registered logins only; anyone a demo user invited is removed) and the demo money (section 7). Workbooks a demo user added are retired, because AK codes are never deleted.
 
-## 7. Not built here
+## 7. Demo money (F-045, migration 0029)
 
-- Test-mode sales, a sample statement and a populated dashboard for the demo publisher (F-045 asks for them). Demo titles cannot be bought by design, so these need a demo-only path in the ledger (0021) that keeps them out of real statements. Left for the ledger owner.
+After a reset the demo logins see money on Earnings, Dashboard and the publisher roll-up. Migration `supabase/migrations/0029_demo_money.sql`, tests in `supabase/tests/0029_demo_money.sql`.
+
+What the reset writes, relative to the day it runs:
+
+- Six months of test-mode sales at a stand-in price of GBP 7.99 (VAT included). The Ten-Minute Desk (AK-DEM01, live) sells every month. Notes on Tidy Rooms (AK-DEM02, paused) sold until two months ago. Three refunds.
+- A statement for every month whose refund window has passed, usually four, each opening at the last one's closing balance. Each closed month is paid out in test mode on the payout day. Statements download as PDF and CSV, marked DEMO on the first line and in the footer, with "-demo" in the file name.
+- Monthly dashboard counts: listing views, free weeks started, purchases (matching the sales), week one and final week finished. Some sit below the threshold of 10 so the suppression shows. The title in review has none; the draft is not listed.
+- Rates are the configured ones. While they are placeholders, the figures say Provisional, like real ones.
+
+How it stays out of the real money:
+
+- It lives in its own tables (`demo_royalty_lines`, `demo_statements`, `demo_funnel_months`), not in the real ledger. Statement closing, the payout run, reconciliation, balances and the admin money pages read only the real tables.
+- The database refuses any demo organisation, demo workbook or demo tenant in the real ledger, statements, payouts, receipts or pool (error AKQ01), for every role. The demo tables refuse anything real. Only the reset writes them.
+- `organisations.is_demo` is Akana's. An owner cannot change it, an organisation with real money cannot become a demo, and the demo cannot become real while it holds demo money.
+- The dashboard functions read the demo tables only for a demo organisation. A real organisation never sees a demo row. The tests try each of these leaks.
+
+## 8. Not built here
+
 - Uploading a logo from the admin form. Today the logo is a `/brand/` file in the repo or a Supabase public file URL.
 - Tenant emails, tenant checkout, custom domains and sign-in on tenant hosts. All after launch.
 
-## 8. Questions for Crent
+## 9. Questions for Crent
 
 1. Which demo look, A or B (M7 asks you to choose)?
 2. Should "Powered by Akana" be hidden on any plan? Add the plan names to `powered_by_hidden_plans` when plans are set.

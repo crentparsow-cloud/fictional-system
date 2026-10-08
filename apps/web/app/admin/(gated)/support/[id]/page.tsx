@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { formatAdminDate, isUuid, mailtoHref } from "@/lib/admin/leads";
 import { adminAbilities } from "@/lib/admin/permissions";
-import { SAVED_REPLIES, SUPPORT_STATUSES, SUPPORT_STATUS_LABELS, SUPPORT_TOPIC_LABELS, isSupportTopic } from "@/lib/admin/support";
+import { GROUP_CONCERN_REPLY, GROUP_CONCERN_TOPIC, INBOX_TOPIC_LABELS, SAVED_REPLIES, SUPPORT_STATUSES, SUPPORT_STATUS_LABELS, isSupportTopic } from "@/lib/admin/support";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack, labelFor } from "../../_components/Bits";
@@ -20,6 +20,7 @@ interface Message {
   email: string;
   message: string;
   status: string;
+  org_group_id: string | null;
 }
 
 /** One support message, the saved reply for its topic and the status change (F-090). */
@@ -38,12 +39,19 @@ export default async function SupportMessagePage({
   if (!can.readSupport) notFound();
 
   const supabase = await createUserClient();
-  const { data, error } = await supabase.from("support_messages").select("id, created_at, topic, name, email, message, status").eq("id", id).maybeSingle();
+  const { data, error } = await supabase.from("support_messages").select("id, created_at, topic, name, email, message, status, org_group_id").eq("id", id).maybeSingle();
   if (error) console.error("admin_support_message_failed", error.code ?? "");
   if (!data) notFound();
   const m = data as Message;
   const mail = mailtoHref(m.email);
-  const saved = isSupportTopic(m.topic) ? SAVED_REPLIES[m.topic] : SAVED_REPLIES.other;
+  const saved = m.topic === GROUP_CONCERN_TOPIC ? GROUP_CONCERN_REPLY : isSupportTopic(m.topic) ? SAVED_REPLIES[m.topic] : SAVED_REPLIES.other;
+  // F-216: which group the concern is about. Staff only; never shown to the organisation.
+  const group = m.org_group_id
+    ? (((await supabase.from("org_groups").select("name, organisations(display_name, kind)").eq("id", m.org_group_id).maybeSingle()).data ?? null) as {
+        name: string;
+        organisations: { display_name: string; kind: string } | null;
+      } | null)
+    : null;
 
   return (
     <div className="admin-page">
@@ -60,6 +68,12 @@ export default async function SupportMessagePage({
         </p>
       ) : null}
 
+      {m.topic === GROUP_CONCERN_TOPIC ? (
+        <p className="admin-notice admin-notice-error" role="note">
+          A concern about an organisation&apos;s group. Reply today. Do not contact the organisation or the group leader without the person&apos;s
+          agreement. Akana is not a safeguarding service: for church groups, point them to the church&apos;s safeguarding lead.
+        </p>
+      ) : null}
       <dl className="admin-dl card">
         <div>
           <dt>Received</dt>
@@ -67,8 +81,17 @@ export default async function SupportMessagePage({
         </div>
         <div>
           <dt>About</dt>
-          <dd>{labelFor(SUPPORT_TOPIC_LABELS, m.topic)}</dd>
+          <dd>{labelFor(INBOX_TOPIC_LABELS, m.topic)}</dd>
         </div>
+        {group ? (
+          <div>
+            <dt>Group</dt>
+            <dd>
+              {group.name}, {group.organisations?.display_name ?? "organisation"}
+              {group.organisations?.kind === "church" ? " (church)" : ""}
+            </dd>
+          </div>
+        ) : null}
       </dl>
 
       <h2>Message</h2>

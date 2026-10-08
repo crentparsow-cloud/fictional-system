@@ -77,3 +77,18 @@ export const SAVED_REPLIES: Record<SupportTopic, { title: string; body: string }
     body: "Thank you for getting in touch. We have your message and will reply within [support response time].",
   },
 };
+
+/**
+ * Inbox-only topic (F-216, migration 0028): a concern a member or leader
+ * raised about an organisation's group. It never comes from the public
+ * contact form, so it is not in SUPPORT_TOPICS.
+ */
+export const GROUP_CONCERN_TOPIC = "safeguarding" as const;
+export const INBOX_TOPIC_LABELS: Record<string, string> = { ...SUPPORT_TOPIC_LABELS, [GROUP_CONCERN_TOPIC]: "A concern about a group" };
+export const GROUP_CONCERN_REPLY = {
+  title: "A concern about a group",
+  body:
+    "Thank you for telling us. We have read your report and it has not been shared with your group, its leader or your organisation. " +
+    "We are not a crisis service or a safeguarding service. If someone is in danger now, call 999 in the UK, or your local emergency number. " +
+    "If your group is run by a church, please also speak to the church's safeguarding lead. [What we will do next.]",
+};

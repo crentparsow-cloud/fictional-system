@@ -53,6 +53,19 @@ const MESSAGES: Record<string, { tone: "ok" | "error"; text: string }> = {
   demo_login_added: { tone: "ok", text: "Demo login registered. Reset the demo to give it its place." },
   demo_login_removed: { tone: "ok", text: "Demo login removed." },
   demo_login_refused: { tone: "error", text: "That account cannot be a demo login. It must already exist, must not be staff and must not belong to a real organisation." },
+  // Custom domains (0033)
+  domain_added: { tone: "ok", text: "Host added. Give the tenant the two DNS records below, then add the host in Vercel." },
+  domain_verified: { tone: "ok", text: "TXT record found. The host is verified and is served within a minute." },
+  domain_not_yet: { tone: "error", text: "The TXT record is not there yet, or its value does not match. DNS changes can take a while. Try again later." },
+  domain_check_failed: { tone: "error", text: "The TXT record check failed. The host is still served, but stops after 3 failed checks in a row." },
+  domain_dns_error: { tone: "error", text: "The DNS lookup did not get an answer. Nothing was counted. Try again in a few minutes." },
+  domain_removed: { tone: "ok", text: "Host removed. Remove it from the Vercel project as well." },
+  domain_invalid: { tone: "error", text: "That is not a host name. Enter it like books.example.com, with no https:// and no path." },
+  domain_reserved: { tone: "error", text: "That host cannot be a tenant domain. Akana's own hosts, Vercel hosts and IP addresses are not allowed." },
+  domain_tenant: { tone: "error", text: "Custom domains are for white-label tenants only, not the marketplace or the demo." },
+  domain_limit: { tone: "error", text: "A tenant can have up to 5 hosts. Remove one first." },
+  domain_taken: { tone: "error", text: "That host is already registered to a tenant." },
+  domain_unknown: { tone: "error", text: "That host is not registered to this tenant." },
 };
 
 export function Notice({ code }: { code: string | string[] | undefined }) {

@@ -1,0 +1,83 @@
+{
+  "code": "AK-21QJ0",
+  "workbookId": "the-enchiridion",
+  "slug": "the-enchiridion-21qj0",
+  "title": "The Enchiridion",
+  "author": "Epictetus",
+  "people": [
+    {
+      "name": "Epictetus",
+      "role": "author",
+      "died": 135,
+      "diedSource": "Project Gutenberg catalogue page for eBook #45109 (fetched 7 October 2026) gives 55-135. Matches the catalogue research file."
+    },
+    {
+      "name": "Thomas Wentworth Higginson",
+      "role": "translator",
+      "died": 1911,
+      "diedSource": "Project Gutenberg catalogue page for eBook #45109 (fetched 7 October 2026) gives 1823-1911. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Greek, compiled by Arrian in the 2nd century [check]; Higginson's translation in print by 1890 (first printing 1865 [check])",
+  "edition": {
+    "name": "'The Enchiridion', translated by Thomas Wentworth Higginson, Project Gutenberg eBook #45109",
+    "url": "https://www.gutenberg.org/ebooks/45109",
+    "status": "Higginson's 'The Works of Epictetus' was printed in New York by T. Nelson in 1890 (HathiTrust record 100027143, per the catalogue research file)."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Epictetus died about 135 and the translator Higginson died 1911. The translation term ended at the end of 1981."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "The translation was in print by 1890, before 1931. Project Gutenberg marks eBook #45109 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1911 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1911 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1911 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Epictetus died about 135 and the translator Higginson died 1911. The translation term ended at the end of 1981."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the first printing year of Higginson's translation (1865).",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/growth-love-family.json (workbook the-enchiridion, pd_record block)",
+    "https://www.gutenberg.org/ebooks/45109",
+    "https://catalog.hathitrust.org/Record/100027143"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

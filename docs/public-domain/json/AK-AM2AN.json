@@ -1,0 +1,80 @@
+{
+  "code": "AK-AM2AN",
+  "workbookId": "a-narrative-of-george-muller",
+  "slug": "a-narrative-of-george-muller-am2an",
+  "title": "A Narrative of Some of the Lord's Dealings with George Müller",
+  "author": "George Müller",
+  "people": [
+    {
+      "name": "George Müller",
+      "role": "author",
+      "died": 1898,
+      "diedSource": "Project Gutenberg catalogue pages for eBooks #20379, #22034, #22148 and #20245 (fetched 7 October 2026) all give 1805-1898. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "In parts during Müller's lifetime [check the year of each part]",
+  "edition": {
+    "name": "'A Narrative of Some of the Lord's Dealings with George Müller', Parts 1 to 4, Project Gutenberg eBooks #20379 (Part 1), #22034 (Part 2), #22148 (Part 3) and #20245 (Part 4)",
+    "url": "https://www.gutenberg.org/ebooks/20379",
+    "status": "All four parts credit \"the Bookworm\" and name no editor. Which printings they follow is [to confirm against the files]."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Müller died 1898. The term ended at the end of 1968."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Project Gutenberg marks all four parts public domain in the USA. Müller died 1898 and wrote every part himself, so the parts were issued before 1931 [check each part's year]."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1898 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1898 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1898 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Müller died 1898. The term ended at the end of 1968."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Record the first publication year of each part.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook a-narrative-of-george-muller, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/20379",
+    "https://www.gutenberg.org/ebooks/22034",
+    "https://www.gutenberg.org/ebooks/22148",
+    "https://www.gutenberg.org/ebooks/20245"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

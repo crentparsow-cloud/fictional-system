@@ -1,11 +1,12 @@
 import "server-only";
 import { createMailer, type AuthorProps, type MailerEnv, type Transport } from "@akana/emails";
+import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { siteOrigin } from "@/lib/site-url";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
- * Author status emails (F-043): submission accepted, changes requested,
+ * Author status emails (F-043): submission accepted or declined, changes requested,
  * ready for sign-off, approved, live and paused. Sent from the staff action
  * that moved the workbook on, to the owning organisation's owners, editors
  * and authors (public.author_mail_recipients, 0020, reviewers only). The
@@ -16,12 +17,12 @@ import { createUserClient } from "@/lib/supabase/server";
  * page says whether the email went. Without RESEND_API_KEY nothing leaves.
  */
 
-export type AuthorStatusTemplate = "submission_accepted" | "changes_requested" | "ready_for_sign_off" | "approved" | "live" | "paused";
+export type AuthorStatusTemplate = "submission_accepted" | "submission_declined" | "changes_requested" | "ready_for_sign_off" | "approved" | "live" | "paused";
 
 export interface AuthorStatusExtra {
   /** changes_requested: the reasons, as the reviewer wrote them. */
   notes?: string[];
-  /** paused: a short reason for the author. */
+  /** paused and submission_declined: a short reason for the author. */
   reason?: string;
   /** The version the email is about, for the dedupe key. */
   versionId?: string | null;
@@ -57,6 +58,8 @@ export function authorStatusProps(
       return { ...base, liveUrl: `${origin}/w/${w.slug}` };
     case "paused":
       return { ...base, reason: extra.reason };
+    case "submission_declined":
+      return { ...base, reason: extra.reason?.trim() || "The reason is in the Studio." };
     default:
       return base;
   }
@@ -85,7 +88,7 @@ export async function sendAuthorStatus(
     const mailer = createMailer({
       env,
       isSuppressed: () => false,
-      log: (e) => console.info("author_status_mail", e.template, e.status, e.reason ?? ""),
+      log: mailLog("admin/author-status", "author_status_mail"),
       ...(o.transport ? { transport: o.transport } : {}),
     });
     const origin = siteOrigin();

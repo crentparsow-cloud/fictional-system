@@ -7,10 +7,12 @@ import {
   exportFileName,
   exportJson,
   labelsFromUnitSections,
+  partnerForExport,
   renderExportHtml,
   type ExportAnswerInput,
   type ExportEnrolmentInput,
 } from "@/lib/export";
+import { EXPORT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 
@@ -27,8 +29,14 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  * the same rule the answers route applies. Values are unsealed here, on the
  * server, with the AAD each one was sealed under (user | tenant | field).
  *
- * Errors: 401 no session, 404 unknown tenant, 400 bad format, 503 when
- * ANSWERS_KEYS is not set, 500 when a read fails. All no-store.
+ * The check-in partner (0012) is read the same way: the reader's own row,
+ * filtered by user id, and only the replies on that row. Only the partner's
+ * name, the share level, the status and the kind words go into the file
+ * (partnerForExport). If they cannot be read the part is left out.
+ *
+ * Errors: 401 no session, 404 unknown tenant, 400 bad format, 429 after 10
+ * downloads in an hour (0027), 503 when ANSWERS_KEYS is not set, 500 when a
+ * read fails. All no-store.
  */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -63,6 +71,8 @@ export async function GET(request: NextRequest) {
   }
 
   const supabase = await createUserClient();
+  // F-143: at most 10 downloads an hour per reader (0027).
+  if (!(await hitSelf(supabase, "export_user"))) return plain(EXPORT_BUSY_MESSAGE, 429);
   const { data: enrolData, error: enrolError } = await supabase
     .from("enrolments")
     .select("id, user_id, tenant_id, version_id, status, started_at, workbooks(code, title)")
@@ -112,8 +122,10 @@ export async function GET(request: NextRequest) {
     };
   });
 
+  const partner = await readPartner(supabase, session.userId);
+
   const now = new Date();
-  const doc = buildExport(inputs, answers, unreadable, now);
+  const doc = buildExport(inputs, answers, unreadable, now, partner);
   const body = format === "json" ? exportJson(doc) : renderExportHtml(doc, { showTitles });
   return new NextResponse(body, {
     status: 200,
@@ -124,4 +136,30 @@ export async function GET(request: NextRequest) {
       "X-Content-Type-Options": "nosniff",
     },
   });
+}
+
+async function readPartner(supabase: Awaited<ReturnType<typeof createUserClient>>, userId: string) {
+  try {
+    const { data: row, error } = await supabase
+      .from("partners")
+      .select("id, user_id, partner_name, share_level, status")
+      .eq("user_id", userId)
+      .maybeSingle();
+    const p = row as { id: string; user_id: string; partner_name: unknown; share_level: unknown; status: unknown } | null;
+    if (error || !p || p.user_id !== userId) return null;
+    const { data: replies } = await supabase
+      .from("partner_replies")
+      .select("body, created_at")
+      .eq("partner_id", p.id)
+      .order("created_at", { ascending: true })
+      .limit(500);
+    return partnerForExport({
+      partner_name: p.partner_name,
+      share_level: p.share_level,
+      status: p.status,
+      replies: (replies ?? []) as { body: unknown; created_at: unknown }[],
+    });
+  } catch {
+    return null;
+  }
 }

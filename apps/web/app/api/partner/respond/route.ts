@@ -3,6 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { isSameOriginPost, isTokenShaped, originFrom, PARTNER_HEADERS, parseRespondAction } from "@/lib/partner";
 import { respondToLink } from "@/lib/partner-flow";
 import { createPartnerMail, mailerEnvFromProcess } from "@/lib/partner-mail";
+import { hitKeyed, limiterSalt, rateKey } from "@/lib/limits";
 import { createRateLimiter } from "@/lib/rate-limit";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
   // One-click stop from a mail client.
   if (q.get("a") === "stop" && isOneClickUnsubscribeRequest("POST", raw)) {
     const t = q.get("t");
-    if (!isTokenShaped(t) || !limiter.hit(ip)) return NextResponse.json({ ok: false }, { status: 400, headers: PARTNER_HEADERS });
+    if (!isTokenShaped(t) || !limiter.hit(ip) || !(await dbAllowed(ip))) return NextResponse.json({ ok: false }, { status: 400, headers: PARTNER_HEADERS });
     const r = await act(t, "stop", null, origin);
     return NextResponse.json({ ok: r.outcome === "stopped" || r.outcome === "already" }, { headers: PARTNER_HEADERS });
   }
@@ -50,10 +51,19 @@ export async function POST(request: NextRequest) {
   const t = form.get("t");
   const action = parseRespondAction(form.get("a"));
   if (!isTokenShaped(t) || !action) return NextResponse.redirect(`${origin}/respond/invalid`, { status: 303, headers: PARTNER_HEADERS });
-  if (!limiter.hit(ip)) return NextResponse.redirect(`${origin}/respond/${t}?done=failed`, { status: 303, headers: PARTNER_HEADERS });
+  if (!limiter.hit(ip) || !(await dbAllowed(ip))) return NextResponse.redirect(`${origin}/respond/${t}?done=failed`, { status: 303, headers: PARTNER_HEADERS });
 
   const r = await act(t, action, form.get("message"), origin);
   return NextResponse.redirect(`${origin}/respond/${t}?done=${r.outcome}`, { status: 303, headers: PARTNER_HEADERS });
+}
+
+/** F-143: the same limit held in the database across instances (0027), 30 in 10 minutes per IP. Fails open. */
+async function dbAllowed(ip: string): Promise<boolean> {
+  try {
+    return await hitKeyed(createAdminClient(), "partner_respond_ip", rateKey("partner_respond_ip", ip, limiterSalt()));
+  } catch {
+    return true;
+  }
 }
 
 async function act(token: string, action: Parameters<typeof respondToLink>[1], message: string | null, origin: string) {

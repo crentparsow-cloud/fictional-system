@@ -1,0 +1,77 @@
+{
+  "code": "AK-B06WT",
+  "workbookId": "literary-taste",
+  "slug": "literary-taste-b06wt",
+  "title": "Literary Taste",
+  "author": "Arnold Bennett",
+  "people": [
+    {
+      "name": "Arnold Bennett",
+      "role": "author",
+      "died": 1931,
+      "diedSource": "Project Gutenberg catalogue page for eBook #3640 (fetched 7 October 2026) gives 1867-1931. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "1909 (London, New Age Press) [check the publisher]",
+  "edition": {
+    "name": "'Literary Taste: How to Form It', Project Gutenberg eBook #3640",
+    "url": "https://www.gutenberg.org/ebooks/3640",
+    "status": "Gutenberg note: \"This eBook is taken from a 1914 re-printing of a 1909 edition. See also: #13852 taken from a 1913 edition.\" (fetched 7 October 2026). Use #3640."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Bennett died 1931. The term ended at the end of 2001."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Published 1909, reprinted 1914, both before 1931. Project Gutenberg marks eBook #3640 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1931 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1931 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1931 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Bennett died 1931. The term ended at the end of 2001."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1909 publisher (New Age Press).",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/learning-creativity.json (workbook literary-taste, pd_record block)",
+    "https://www.gutenberg.org/ebooks/3640",
+    "https://www.gutenberg.org/ebooks/13852"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

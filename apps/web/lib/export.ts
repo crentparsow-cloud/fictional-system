@@ -1,6 +1,7 @@
 import { FIELD_TYPES } from "@akana/schema";
 import { printableValue, type FieldDef, type Printable } from "@akana/engine/values";
 import { splitFieldKey } from "@/lib/answer-fields";
+import { FEATURE_NAME as PARTNER_FEATURE, SHARE_LEVELS, type ShareLevel } from "@/lib/partner";
 
 /**
  * Export of the reader's own work (F-023). Pure: the route reads the rows
@@ -39,10 +40,20 @@ import { splitFieldKey } from "@/lib/answer-fields";
  *         ],
  *         "unreadable": 0                    // rows that would not unseal, left out
  *       }
- *     ]
+ *     ],
+ *     "check_in_partner": null | {          // added 8 Oct 2026 (F-030, F-023)
+ *       "partner_name": "Sam",
+ *       "share_level": 1 | 2 | 3,
+ *       "share_level_label": "Stage reached",
+ *       "status": "invited" | "accepted" | "declined" | "stopped",
+ *       "kind_words": [{ "body": "...", "received_at": "..." }]
+ *     }
  *   }
  *
  * Exports carry prompts (field labels) and answers, never the teaching text.
+ * The check-in partner part carries the partner's first name, the share
+ * level, the status and the kind words received. Never the partner's email,
+ * the reader's note, tokens or anything about sends.
  */
 
 export const EXPORT_FORMAT = "akana.export";
@@ -102,11 +113,56 @@ export interface ExportWorkbook {
   unreadable: number;
 }
 
+export interface ExportKindWord {
+  body: string;
+  received_at: string;
+}
+
+export interface ExportPartner {
+  partner_name: string;
+  share_level: ShareLevel;
+  share_level_label: string;
+  status: string;
+  kind_words: ExportKindWord[];
+}
+
 export interface ExportDocument {
   format: typeof EXPORT_FORMAT;
   version: typeof EXPORT_VERSION;
   exported_at: string;
   workbooks: ExportWorkbook[];
+  /** The reader's check-in partner, if they have ever invited one. Added 8 Oct 2026. */
+  check_in_partner: ExportPartner | null;
+}
+
+/** What the route reads under RLS: the reader's own partner row and replies. Extra columns are ignored. */
+export interface ExportPartnerInput {
+  partner_name: unknown;
+  share_level: unknown;
+  status: unknown;
+  replies: { body: unknown; created_at: unknown }[];
+}
+
+/**
+ * Only the four things the export promises, whatever else the row holds:
+ * name, share level, status and the kind words received, oldest first.
+ */
+export function partnerForExport(input: ExportPartnerInput | null | undefined): ExportPartner | null {
+  if (!input) return null;
+  const name = str(input.partner_name);
+  const level = input.share_level;
+  if (!name || (level !== 1 && level !== 2 && level !== 3)) return null;
+  const kind_words = (input.replies ?? [])
+    .filter((r): r is { body: string; created_at: string } => typeof r.body === "string" && r.body.trim() !== "" && typeof r.created_at === "string")
+    .map((r) => ({ body: r.body, received_at: r.created_at }))
+    .sort((a, b) => a.received_at.localeCompare(b.received_at));
+  return {
+    partner_name: name,
+    share_level: level,
+    share_level_label: SHARE_LEVELS[level].label,
+    status: str(input.status) ?? "unknown",
+    kind_words,
+  };
 }
 
 const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
@@ -213,6 +269,7 @@ export function buildExport(
   answers: ExportAnswerInput[],
   unreadableByEnrolment: Record<string, number>,
   now: Date,
+  partner: ExportPartner | null = null,
 ): ExportDocument {
   const workbooks: ExportWorkbook[] = enrolments.map((e) => {
     const rows = answers
@@ -232,7 +289,7 @@ export function buildExport(
       unreadable: unreadableByEnrolment[e.id] ?? 0,
     };
   });
-  return { format: EXPORT_FORMAT, version: EXPORT_VERSION, exported_at: now.toISOString(), workbooks };
+  return { format: EXPORT_FORMAT, version: EXPORT_VERSION, exported_at: now.toISOString(), workbooks, check_in_partner: partner };
 }
 
 export function exportJson(doc: ExportDocument): string {
@@ -310,6 +367,27 @@ function printableTableHtml(p: Extract<Printable, { kind: "table" }>): string {
   return `<table>${head}${body}${foot}</table>${caption}`;
 }
 
+const PARTNER_STATUS: Record<string, string> = {
+  invited: "Invited, not answered yet",
+  accepted: "Accepted",
+  declined: "Declined",
+  stopped: "Stopped",
+};
+
+/** The check-in partner part of the printable page. Empty when there is none. */
+function partnerHtml(p: ExportPartner | null): string {
+  if (!p) return "";
+  const e = escapeHtml;
+  const words = p.kind_words.length
+    ? p.kind_words.map((w) => `<div class="field"><p class="label">${e(longDate(w.received_at))}</p><p>${e(w.body)}</p></div>`).join("")
+    : `<p class="empty">No kind words yet.</p>`;
+  return `<article><h2>${e(PARTNER_FEATURE)}</h2>
+<div class="field"><p class="label">Name</p><p>${e(p.partner_name)}</p></div>
+<div class="field"><p class="label">What they get</p><p>${e(p.share_level_label)}</p></div>
+<div class="field"><p class="label">Status</p><p>${e(PARTNER_STATUS[p.status] ?? p.status)}</p></div>
+<section><h4>Kind words received</h4>${words}</section></article>`;
+}
+
 /** A plain page that prints well. No scripts, no outside requests. */
 export function renderExportHtml(doc: ExportDocument, opts: HtmlOptions): string {
   const e = escapeHtml;
@@ -373,6 +451,7 @@ thead th{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;background:#f3f
 <h1>My work</h1>
 <p class="lead">Made on ${e(longDate(doc.exported_at))}. Everything here is in your own words.</p>
 ${body || "<p>Nothing written yet.</p>"}
+${partnerHtml(doc.check_in_partner)}
 </body>
 </html>
 `;

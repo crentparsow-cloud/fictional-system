@@ -3,13 +3,19 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { safeNextPath } from "@/lib/auth";
+import { clientIp } from "@/lib/leads";
+import { limiterSalt, signinAllowed } from "@/lib/limits";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Magic link sign-in (F-132). Google follows once the OAuth client exists.
  *
- * Rate limiting is handled later, at the edge and in Supabase Auth's own
- * limits. Until then this action does nothing to slow a caller down.
+ * Rate limits (F-143, migration 0027): 5 links an hour per address and 20
+ * an hour per IP, counted in the database by salted hash, with an in-memory
+ * counter in front. Supabase Auth's own email limits still apply behind
+ * this. A limited request gets the same "wait a few minutes" answer whether
+ * or not the address has an account.
  *
  * The outcome is the same whether or not the address has an account, so
  * nobody can use this form to find out who is a reader.
@@ -23,6 +29,9 @@ export async function requestMagicLink(formData: FormData): Promise<void> {
   const next = safeNextPath(String(formData.get("next") ?? ""));
   const back = `/sign-in?next=${encodeURIComponent(next)}`;
   if (!EMAIL.test(email) || email.length > 254) redirect(`${back}&error=invalid`);
+
+  const h = await headers();
+  if (!(await signinAllowed(email, clientIp(h), { client: limiterClient(), salt: limiterSalt() }))) redirect(`${back}&error=busy`);
 
   const origin = await siteOrigin();
   const supabase = await createUserClient();
@@ -38,6 +47,15 @@ export async function requestMagicLink(formData: FormData): Promise<void> {
     redirect(`${back}&error=send`);
   }
   redirect(`/sign-in?sent=1&next=${encodeURIComponent(next)}`);
+}
+
+/** The service role client for the counter, or null when it is not configured (the memory limit still holds). */
+function limiterClient() {
+  try {
+    return createAdminClient();
+  } catch {
+    return null;
+  }
 }
 
 /** The origin for the callback URL. The host has already passed tenant resolution in the proxy. */

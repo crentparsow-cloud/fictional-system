@@ -219,3 +219,21 @@
   .ak-table tr, .ak-matrix-card { break-inside: avoid; }
   .ak-input-num, .ak-select { border-color: var(--line); }
 }
+
+/* ---------- exercise paging (F-015 parity: one part per screen) ---------- */
+.ak-dots { display: flex; gap: 0.45rem; list-style: none; margin: 0; padding: 0; }
+.ak-dot { inline-size: 0.6rem; block-size: 0.6rem; border-radius: 999px; background: var(--line-strong); opacity: 0.45; }
+.ak-dot[data-state="done"] { background: var(--brand); opacity: 0.6; }
+.ak-dot[data-state="current"] { background: var(--brand); opacity: 1; inline-size: 1.4rem; }
+.ak-page { display: flex; flex-direction: column; gap: 0.75rem; }
+.ak-page-h:focus { outline: none; }
+.ak-page-h:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.ak-pager { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: space-between; padding-block-start: 0.5rem; }
+.ak-pager .ak-btn { align-self: auto; }
+.ak-ex-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.ak-ex-card { display: flex; flex-direction: column; gap: 0.4rem; }
+.ak-ex-choice { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.ak-ex-choice .ak-btn { flex-direction: column; gap: 0.1rem; }
+.ak-ex-choice .ak-btn span { font-weight: 400; }
+.ak-unit-head .ak-h2:focus { outline: none; }
+.ak-unit-head .ak-h2:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }

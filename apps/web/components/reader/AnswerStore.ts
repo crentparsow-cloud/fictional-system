@@ -18,8 +18,9 @@ import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
 /**
  * failed: the server refused the value (a 4xx), so no retry will help.
  * consent: refused because health data consent is not in place (F-026).
+ * read_only: refused because an account deletion is pending (F-025).
  */
-export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent";
+export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only";
 
 export interface SupabaseAnswerStoreOptions {
   enrolmentId: string;
@@ -156,7 +157,7 @@ export class SupabaseAnswerStore implements AnswerStore {
       if (!ok && res.status >= 400 && res.status < 500 && res.status !== 429 && res.status !== 408) {
         p.inFlight = false;
         this.pending.delete(field);
-        this.setState(res.status === 403 && (await consentRefusal(res)) ? "consent" : "failed");
+        this.setState(res.status === 403 ? await refusalState(res) : "failed");
         return;
       }
     } catch {
@@ -191,11 +192,13 @@ export class SupabaseAnswerStore implements AnswerStore {
   }
 }
 
-async function consentRefusal(res: Response): Promise<boolean> {
+async function refusalState(res: Response): Promise<SaveState> {
   try {
     const body = (await res.json()) as { error?: unknown };
-    return body?.error === "consent_required";
+    if (body?.error === "consent_required") return "consent";
+    if (body?.error === "read_only") return "read_only";
+    return "failed";
   } catch {
-    return false;
+    return "failed";
   }
 }

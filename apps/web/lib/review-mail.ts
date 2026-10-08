@@ -5,6 +5,7 @@
  * every other send.
  */
 import { createDevTransport, createMailer, type MailerEnv, type SendLogEntry, type Transport } from "@akana/emails";
+import { mailLog } from "@/lib/mail-ops";
 
 export async function sendReviewAssigned(
   to: string,
@@ -17,7 +18,7 @@ export async function sendReviewAssigned(
   const mailer = createMailer({
     env,
     isSuppressed: () => false,
-    log: o.log ?? ((e) => console.info("review_assigned_email", e.status, e.reason ?? "")),
+    log: o.log ?? mailLog("admin/review/assign", "review_assigned_email"),
     transport: o.transport ?? dev?.transport,
   });
   const r = await mailer.sendAuthor(

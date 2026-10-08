@@ -37,11 +37,22 @@ A new check now enforces this. It compares each workbook with its last committed
 
 ## What stays open
 
-- How the 4 week 3 field types draw on screen. Their shape is fixed now. Their renderers land in week 3.
 - Any wording the lawyer changes in safety copy. That changes content, not the schema, and triggers `SAFETY_CHANGED` and a fresh sign-off.
+
+## How the four newer field types draw (closed 8 October 2026)
+
+This was an open item. The renderers are now built, in `packages/engine/src/fields/`, and the schema did not change to make them.
+
+- **Number** (`NumberField.tsx`). A text box with a decimal keypad on phones, not the browser's number spinner, so a stray scroll cannot change the figure and readers can type thousands separators. Up and Down add or take away one step, with Shift for ten. A figure that does not fit the field's range stays on screen with a message and is not saved. Any unit sits beside the box and is also read out in a hidden help line, so the symbol is never the only cue.
+- **Currency** (`NumberField.tsx`). The same box with the currency symbol in front. The help line names the currency code, for example "Amount in GBP." Nothing is converted.
+- **Table** (`Table.tsx`). A real HTML table named by the field label. Rows are either fixed by the author, shown as the first column, or added by the reader with "Add a row" between the minimum and maximum. Each cell box carries its column name. When the field adds up or averages, every column after the first takes numbers and a total row sits at the foot. Focus moves to the new row after "Add a row", and to the row above after "Remove row". On a narrow screen each row stacks into a card with the column name above each box.
+- **Decision matrix** (`DecisionMatrix.tsx`). One card per option, with one score per criterion on the field's scale (1 to 5 unless the author sets otherwise). Scores are native selects, so each is one Tab stop and 44px tall. A weighted matrix adds a row of importances, 1 to 5, above the cards. A plain line under the cards names the highest score so far and says "The score is a guide. The choice is yours." Nothing is announced on every change.
+
+All four save sealed like every other answer and appear in the reader's export. The engine tests cover them in `packages/engine/src/fields/v3fields.test.tsx`. The manual screen reader check of all four is in `docs/ACCESSIBILITY.md`.
 
 ## Change log
 
+- 8 Oct 2026: the open item on how the four newer field types draw is closed. See the section above. No schema change.
 - 7 Oct 2026: added an optional `sensitive` setting (true or false) to field definitions, marking an answer that may be hard to write. Additive only.
 
 ## Questions for Crent

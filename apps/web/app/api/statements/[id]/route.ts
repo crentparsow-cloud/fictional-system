@@ -36,13 +36,29 @@ export async function GET(request: NextRequest, ctx: { params: Promise<{ id: str
     console.error("statement_read_failed", error.code ?? "");
     return NextResponse.json({ error: "failed" }, { status: 500 });
   }
-  if (!st) return NextResponse.json({ error: "not_found" }, { status: 404 });
-  const row = st as StatementRow;
+  // Not a real statement: perhaps the demo publisher's sample one (migration
+  // 0029). Demo statements and lines live in their own tables, under the same
+  // RLS, and the file says Demo on every page.
+  let demo = false;
+  let found = st as StatementRow | null;
+  if (!found) {
+    const { data: ds, error: dErr } = await supabase.from("demo_statements").select(STATEMENT_COLUMNS).eq("id", id).maybeSingle();
+    if (dErr) {
+      console.error("demo_statement_read_failed", dErr.code ?? "");
+      return NextResponse.json({ error: "failed" }, { status: 500 });
+    }
+    if (ds) {
+      demo = true;
+      found = { ...(ds as StatementRow), is_demo: true };
+    }
+  }
+  if (!found) return NextResponse.json({ error: "not_found" }, { status: 404 });
+  const row = found;
 
   const [orgRes, linesRes] = await Promise.all([
     supabase.from("organisations").select("display_name, code, slug").eq("id", row.org_id).maybeSingle(),
     supabase
-      .from("royalty_lines")
+      .from(demo ? "demo_royalty_lines" : "royalty_lines")
       .select("workbook_id, kind, units, gross_minor, tax_minor, fee_minor, net_base_minor, rate, author_minor, note, occurred_at")
       .eq("org_id", row.org_id)
       .eq("period", row.period)

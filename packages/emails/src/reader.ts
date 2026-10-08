@@ -68,6 +68,10 @@ export type ReaderProps = {
   partner_invite: ReaderBase & Partner & { acceptUrl: string; declineUrl: string };
   partner_update: ReaderBase & Partner & StagePosition & { note?: string; replyUrl?: string };
   partner_stopped: ReaderBase & Omit<Partner, "shareLevel"> & { stoppedBy?: "reader" | "partner" };
+  /** A single-workbook refund made by Akana staff (0021 refund path). Names no title. */
+  refund_confirmed: ReaderBase & { amount: string; accessEnded: boolean };
+  /** Akana support cancelled a pending account deletion for the reader (F-087). */
+  deletion_cancelled: ReaderBase;
 };
 export type ReaderTemplateName = keyof ReaderProps;
 
@@ -731,6 +735,53 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       footer: "partner_stopped",
     };
   },
+
+  // A refund of a single workbook, sent once per refund from the staff
+  // refund path. It names no title: the reader knows what they bought.
+  refund_confirmed: (x) => ({
+    subject: "Your refund is on its way",
+    preheader: "We have refunded your payment.",
+    hero: "service",
+    eyebrow: "Refund",
+    headline: "Your refund is on its way",
+    greeting: hi(x.name),
+    paragraphs: ["We have refunded a payment you made for a workbook on Akana."],
+    panels: [
+      {
+        title: "Your refund",
+        rows: [
+          ["Amount", x.amount],
+          ["Access", x.accessEnded ? "Ended with the refund" : "You keep your access"],
+        ],
+        lines: ["It goes back to the card you paid with. Refunds can take several business days to show on your statement."],
+        tone: "tint",
+      },
+    ],
+    after: [
+      "Your answers are still yours. You can download them from the You page at any time.",
+      `If you have a question about this refund, reply to this email${x.supportEmail ? ` or write to ${x.supportEmail}` : ""}.`,
+    ],
+    buttons: [{ label: "Go to your account", url: x.settingsUrl }],
+    footer: "service",
+  }),
+
+  // Support cancelled a deletion on the reader's behalf. The reader asked us
+  // to, so this confirms it, and says what to do if they did not.
+  deletion_cancelled: (x) => ({
+    subject: "Your account will not be deleted",
+    preheader: "We cancelled the deletion you asked us to stop.",
+    hero: "service",
+    eyebrow: "Account deletion",
+    headline: "Your account is staying",
+    greeting: hi(x.name),
+    paragraphs: [
+      `You asked us to stop the deletion of your ${BRAND} account, so we have cancelled it. Your account, your answers and anything you bought are as they were.`,
+      "You can ask for deletion again at any time from the You page.",
+    ],
+    after: [`If you did not ask for this, contact us${x.supportEmail ? ` at ${x.supportEmail}` : ""} and we will look into it straight away.`],
+    buttons: [{ label: "Go to your account", url: x.settingsUrl }],
+    footer: "service",
+  }),
 };
 
 // ---------- sign-in emails (pasted into Supabase, not sent by the app) ----------

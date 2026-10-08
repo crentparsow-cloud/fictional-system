@@ -9,6 +9,7 @@ const COPY: Record<SaveState, string> = {
   retrying: "Could not save, will retry",
   failed: "Could not save this answer",
   consent: "Not saved. Consent to store your answers is not in place.",
+  read_only: "Not saved. Your account is read only while its deletion is pending.",
 };
 
 /**

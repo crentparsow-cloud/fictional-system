@@ -254,7 +254,7 @@ export default async function OrgConsolePage({ searchParams }: { searchParams: S
                     <tbody>
                       {seats.map((s) => (
                         <tr key={s.seat_id}>
-                          <td>{s.roster_email ?? <span className="muted">Address removed</span>}</td>
+                          <td>{s.roster_email ?? <span className="muted">No address held</span>}</td>
                           <td>{formatOrgDate(s.claimed_at)}</td>
                           {canManage ? (
                             <td>
@@ -288,7 +288,8 @@ export default async function OrgConsolePage({ searchParams }: { searchParams: S
       )}
 
       <p className="admin-note">
-        To add seats, change titles or end a licence, contact the {brand.name} team. Billing is by invoice and is arranged with you directly.
+        To change seats or end a licence, go to <Link href={withOrgParam("/org/billing", ctx.org.id, ctx.multi)}>Billing</Link>. To change titles or
+        add a licence, contact the {brand.name} team.
       </p>
     </div>
   );

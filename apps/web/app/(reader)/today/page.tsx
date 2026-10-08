@@ -1,21 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContinueCardView } from "@/components/catalogue/ContinueCardView";
+import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { CalendarReminder } from "@/components/today/CalendarReminder";
+import { DailyQuickTap } from "@/components/today/DailyQuickTap";
+import { NotToday } from "@/components/today/NotToday";
+import { readerDeletion } from "@/lib/account-server";
 import { NightNote } from "@/components/today/NightNote";
 import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards, withDailyCheck } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
 import { finishedEnrolments } from "@/lib/reader-progress";
+import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Today (F-016): the same continue cards as Home, plus the daily check
  * prompt only for workbooks whose start section carries a daily_check. A
  * finance reader never gets a mood question. One reminder for everything
  * (F-024), made on the device. No reminders of missed days, no streaks.
+ *
+ * Legacy parity: the daily check is one tap, 0 to 10, saved sealed in the
+ * workbook like the Player's own check, and "Not today" sets the day's
+ * steps aside on this device until tomorrow. Both rest while the account is
+ * read only (F-025).
  */
 export const dynamic = "force-dynamic";
 
@@ -32,6 +42,7 @@ export default async function TodayPage() {
   const daily = withDailyCheck(cards);
   const wellbeing = anyWellbeing(cards);
   const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
+  const { readOnly } = session ? await readerDeletion(await createUserClient(), session.userId) : { readOnly: false };
 
   return (
     <section className="tab-page">
@@ -39,6 +50,7 @@ export default async function TodayPage() {
         <h1>{t("nav.today")}</h1>
         {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
       </div>
+      {session ? <GroupWeekLine /> : null}
 
       {cards.length === 0 ? (
         <div className="card empty-state">
@@ -54,11 +66,18 @@ export default async function TodayPage() {
             <section className="card daily-check" aria-labelledby="daily-check-title">
               <h2 id="daily-check-title">{t("today.dailyCheck")}</h2>
               <p className="muted">{t("today.dailyCheckLead")}</p>
-              <ul className="daily-list">
+              <ul className="daily-list quick-tap-list">
                 {daily.map((card) => (
                   <li key={card.enrolmentId}>
-                    <span>{card.shortTitle ?? card.title}</span>
-                    <Link href={`/read/${card.slug}?view=daily`}>{t("today.dailyCheckOpen")}</Link>
+                    <DailyQuickTap
+                      enrolmentId={card.enrolmentId}
+                      slug={card.slug}
+                      title={card.shortTitle ?? card.title}
+                      question={t("today.quickTap")}
+                      lead={t("today.quickTapLead")}
+                      moreLabel={t("today.quickTapMore")}
+                      readOnly={readOnly}
+                    />
                   </li>
                 ))}
               </ul>
@@ -66,11 +85,13 @@ export default async function TodayPage() {
           ) : null}
 
           <h2 className="section-title">{t("home.continue")}</h2>
-          <div className="grid wb-grid">
-            {shown.map((card) => (
-              <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} />
-            ))}
-          </div>
+          <NotToday label={t("today.notToday")} doneLine={t("today.notTodayDone")} showLabel={t("today.showAnyway")}>
+            <div className="grid wb-grid">
+              {shown.map((card) => (
+                <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} />
+              ))}
+            </div>
+          </NotToday>
           <p className="muted see-all">
             {hidden > 0 ? <>{t("home.moreInLibrary", { count: hidden })} </> : null}
             <Link href="/library">{t("home.seeAll")}</Link>

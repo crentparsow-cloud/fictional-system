@@ -12,6 +12,7 @@ import {
   type QueueVersion,
   type QueueWorkbook,
 } from "@/lib/admin/review";
+import { reportOpsServer } from "@/lib/ops-report";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../_components/Bits";
@@ -101,8 +102,10 @@ export default async function ReviewQueuePage({ searchParams }: { searchParams: 
 
   // Validate on the server and record the counts against the hash validated.
   const results = new Map<string, { ok: boolean; errors: number; warnings: number }>();
+  let validatorFault: "validator_crashed" | "record_failed" | null = null;
   for (const row of (contentRes.data ?? []) as { id: string; content_hash: string; content: unknown }[]) {
     const r = runValidator(row.content);
+    if (r.crashed) validatorFault = "validator_crashed";
     results.set(row.id, { ok: r.ok, errors: r.errors.length, warnings: r.warnings.length });
     const { error } = await supabase.rpc("record_validation", {
       p_version: row.id,
@@ -111,8 +114,13 @@ export default async function ReviewQueuePage({ searchParams }: { searchParams: 
       p_errors: r.errors.length,
       p_warnings: r.warnings.length,
     });
-    if (error) console.error("admin_review_record_validation_failed", error.code ?? "");
+    if (error) {
+      console.error("admin_review_record_validation_failed", error.code ?? "");
+      validatorFault ??= "record_failed";
+    }
   }
+  // F-142: a validator that throws, or a result that cannot be recorded, opens a validator_error alert.
+  if (validatorFault) await reportOpsServer("validator_error", "admin/review", validatorFault);
 
   const now = new Date();
 

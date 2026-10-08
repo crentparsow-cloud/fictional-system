@@ -69,6 +69,8 @@ const sample = (themeName: string): { [K in ReaderTemplateName]: ReaderProps[K] 
   partner_invite: { ...base(themeName), readerName: "Sam", partnerName: "Jo", shareLevel: 3, acceptUrl: "https://example.test/yes", declineUrl: "https://example.test/no" },
   partner_update: { ...base(themeName), readerName: "Sam", partnerName: "Jo", shareLevel: 3, ...stages, stageIndex: 3, note: "Thank you for asking." },
   partner_stopped: { ...base(themeName), readerName: "Sam", partnerName: "Jo" },
+  refund_confirmed: { ...base(themeName), amount: "£9.99", accessEnded: true },
+  deletion_cancelled: { ...base(themeName) },
 });
 
 const links = { unsubscribe: "https://example.test/unsubscribe", oneClick: "https://example.test/api/unsubscribe", stop: "https://example.test/stop", report: "https://example.test/report" };
