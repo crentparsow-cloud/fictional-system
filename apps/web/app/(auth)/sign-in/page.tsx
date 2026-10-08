@@ -23,7 +23,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   if (session) redirect(next);
 
   const { t } = await getT();
-  const error = sp.error === "invalid" ? t("signIn.errorInvalid") : sp.error === "send" ? t("signIn.errorSend") : sp.error === "link" ? t("signIn.errorLink") : null;
+  const error = sp.error === "invalid" ? t("signIn.errorInvalid") : sp.error === "send" ? t("signIn.errorSend") : sp.error === "link" ? t("signIn.errorLink") : sp.error === "busy" ? t("signIn.errorBusy") : null;
 
   if (sp.sent === "1") {
     return (
