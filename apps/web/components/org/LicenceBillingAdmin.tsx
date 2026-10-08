@@ -1,5 +1,5 @@
-import { startBilling } from "@/app/admin/(gated)/business/billing-actions";
-import { billingNotice, billingStateText, ORG_PLANS, isOrgPlanId, plansForLicenceKind, TALK_TO_US } from "@/lib/org-billing";
+import { overrideBand, startBilling } from "@/app/admin/(gated)/business/billing-actions";
+import { billingNotice, billingStateText, CHURCH_BAND_PLANS, isBandPlan, ORG_PLANS, isOrgPlanId, orgPriceId, plansForLicenceKind, TALK_TO_US } from "@/lib/org-billing";
 import { formatOrgDate } from "@/lib/org-pilot";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -57,6 +57,39 @@ export async function LicenceBillingAdmin(props: {
             (iso) => formatOrgDate(iso),
           )}
         </p>
+        {props.write && isBandPlan(sub.plan) && props.status !== "ended" && !["canceled", "incomplete_expired"].includes(sub.status) ? (
+          <details>
+            <summary>Change band (staff override)</summary>
+            {notice ? (
+              <p className={`admin-notice admin-notice-${notice.tone}`} role={notice.tone === "error" ? "alert" : "status"}>
+                {notice.text}
+              </p>
+            ) : null}
+            <form className="admin-form" action={overrideBand}>
+              <input type="hidden" name="org" value={props.orgId} />
+              <input type="hidden" name="licence" value={props.licenceId} />
+              <label htmlFor={`oband-${props.licenceId}`}>Band</label>
+              <select id={`oband-${props.licenceId}`} name="plan" defaultValue={sub.plan ?? undefined} required>
+                {CHURCH_BAND_PLANS.map((b) => (
+                  <option key={b} value={b} disabled={orgPriceId(b) === null}>
+                    {ORG_PLANS[b].label}
+                    {orgPriceId(b) === null ? " (no price id)" : ""}
+                  </option>
+                ))}
+              </select>
+              <div className="check">
+                <input id={`oprorate-${props.licenceId}`} name="prorate" type="checkbox" value="yes" defaultChecked />
+                <label htmlFor={`oprorate-${props.licenceId}`}>Prorate in Stripe</label>
+              </div>
+              <label htmlFor={`oreason-${props.licenceId}`}>Reason (kept in the audit log)</label>
+              <input id={`oreason-${props.licenceId}`} name="reason" maxLength={500} required />
+              <p className="muted small">Works while past due or ending, and below the band&apos;s size. Seats never drop below the places taken.</p>
+              <button type="submit" className="btn secondary">
+                Change band
+              </button>
+            </form>
+          </details>
+        ) : null}
       </div>
     );
   }
