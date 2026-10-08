@@ -74,6 +74,10 @@ export default async function DemoAdminPage({ searchParams }: { searchParams: Pr
 
       <section aria-labelledby="reset-h">
         <h2 id="reset-h">Reset</h2>
+        <p className="muted">
+          A reset also rebuilds the demo money: six months of test-mode sales, refunds and payouts, a statement for each closed month and the dashboard
+          counts. They live in separate demo tables and never reach a real statement, payout or report.
+        </p>
         {can.resetDemo ? (
           <form action={resetDemo} className="admin-form">
             <fieldset>

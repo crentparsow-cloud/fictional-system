@@ -21,6 +21,7 @@ import {
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
+import { LicenceBillingAdmin } from "@/components/org/LicenceBillingAdmin";
 import { createLicence, inviteCustomerAdmin, saveCustomerProfile, setLicenceTitles, updateLicence } from "../actions";
 
 export const metadata: Metadata = { title: "Customer", robots: { index: false, follow: false } };
@@ -216,6 +217,7 @@ export default async function AdminCustomerPage({ params, searchParams }: { para
                 Taken: {s.seats_claimed}. Invitations waiting: {s.invitations_open}. People started: {startedText(s.started_shown, s.people_started, s.threshold)}.
               </p>
             ) : null}
+            <LicenceBillingAdmin orgId={org.id} licenceId={l.id} kind={l.kind} status={l.status} write={write} notice={sp.billing} />
             {l.title_scope === "list" ? (
               <ul className="small">
                 {listed.map((w) => (
