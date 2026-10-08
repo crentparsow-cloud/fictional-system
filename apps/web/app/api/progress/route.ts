@@ -59,6 +59,8 @@ export async function POST(request: NextRequest) {
   const { error } = await check.supabase
     .from("progress_events")
     .insert({ enrolment_id: check.enrolment.id, kind: parsed.data.kind, ref: parsed.data.ref ?? null });
+  // 0026 refuses progress while an account deletion is pending (F-025).
+  if (error?.code === "AKR01") return NextResponse.json({ error: "read_only" }, { status: 403, headers: NO_STORE });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
 
   // F-141: daily counts with ids only. The first opening of unit 1 starts the
