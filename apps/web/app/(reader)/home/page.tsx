@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContinueCardView } from "@/components/catalogue/ContinueCardView";
+import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
+import { joinNames, liveOrganisationNames, type OrgSeatRow } from "@/lib/org-seat-line";
 import { finishedEnrolments } from "@/lib/reader-progress";
+import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Home (F-016): a continue card per open workbook, capped at three, the rest
  * under a link to the Library. Help now sits at the top when any open
  * workbook is a wellbeing title; otherwise the quiet footer link.
+ *
+ * A reader with a seat from an organisation (0024) sees one line naming it,
+ * display name only. If the seats cannot be read the line is left out.
  */
 export const dynamic = "force-dynamic";
 
@@ -28,6 +34,7 @@ export default async function HomePage() {
   const { shown, hidden } = splitContinueCards(cards);
   const wellbeing = anyWellbeing(cards);
   const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
+  const orgNames = session ? await myOrganisationNames() : [];
 
   return (
     <section className="tab-page">
@@ -35,6 +42,13 @@ export default async function HomePage() {
         <h1>{t("nav.home")}</h1>
         {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
       </div>
+      {session ? <GroupWeekLine /> : null}
+
+      {orgNames.length ? (
+        <p className="org-line muted">
+          {orgNames.length === 1 ? t("home.yourOrg", { name: orgNames[0] ?? "" }) : t("home.yourOrgs", { names: joinNames(orgNames) })}
+        </p>
+      ) : null}
 
       {shown.length === 0 ? (
         <div className="card empty-state">
@@ -62,4 +76,15 @@ export default async function HomePage() {
       {!wellbeing ? <NeedSupportFooter label={t("help.needSupport")} /> : null}
     </section>
   );
+}
+
+async function myOrganisationNames(): Promise<string[]> {
+  try {
+    const supabase = await createUserClient();
+    const { data, error } = await supabase.rpc("my_org_seats");
+    if (error) return [];
+    return liveOrganisationNames((data ?? []) as OrgSeatRow[]);
+  } catch {
+    return [];
+  }
 }

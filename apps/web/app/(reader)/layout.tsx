@@ -2,6 +2,10 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { ReaderNav, type NavItem } from "@/components/ReaderNav";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
+import { AppearanceApply } from "@/components/you/AppearanceApply";
+import { ReadOnlyBanner } from "@/components/reader/ReadOnlyBanner";
+import { readerDeletion } from "@/lib/account-server";
+import { createUserClient } from "@/lib/supabase/server";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
 import { needsReaderTerms, termsHref } from "@/lib/terms";
@@ -27,6 +31,9 @@ export default async function ReaderLayout({ children }: { children: React.React
   const terms = await readerTermsAccepted();
   if (terms.ok && needsReaderTerms(terms.accepted)) redirect(termsHref(current));
 
+  // F-025: read only while a deletion is pending, said on every tab.
+  const { state: deletion } = await readerDeletion(await createUserClient(), session.userId);
+
   const { t } = await getT();
   const items: NavItem[] = [
     { href: "/home", label: t("nav.home"), icon: "home" },
@@ -42,10 +49,13 @@ export default async function ReaderLayout({ children }: { children: React.React
         {t("common.skipToContent")}
       </a>
       <main id="main" className="reader-main wrap" tabIndex={-1}>
+        {/* You has its own deletion banner with the Cancel button. */}
+        {current.startsWith("/you") ? null : <ReadOnlyBanner state={deletion} />}
         {children}
       </main>
       <ReaderNav items={items} label={t("nav.label")} />
       <ServiceWorkerRegister />
+      <AppearanceApply />
     </div>
   );
 }
