@@ -1114,3 +1114,16 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .org-billing-admin summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
 .org-end,
 .org-billing-admin { margin-block-start: 0.75rem; }
+
+/* ---------------------------------------------------------------------------
+   Role second factor (F-143): console banner and passkey button.
+   --------------------------------------------------------------------------- */
+.role-mfa-banner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+  margin-block: 0 1rem; padding: 0.75rem 1rem;
+  border: 1px solid var(--brand); border-radius: var(--radius-sm); background: var(--surface-2);
+}
+.role-mfa-banner p { margin: 0; }
+.role-mfa-banner .btn { min-height: 44px; }
+.mfa-passkey { display: grid; gap: 0.5rem; margin-block-start: 0.75rem; }
+.mfa-passkey .btn { min-height: 44px; justify-content: center; }
