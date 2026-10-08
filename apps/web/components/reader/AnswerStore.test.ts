@@ -154,4 +154,16 @@ describe("SupabaseAnswerStore", () => {
     expect(saved).toEqual([]);
     expect(fn).toHaveBeenCalledTimes(1);
   });
+
+  it("shows the read only state while a deletion is pending, and does not retry", async () => {
+    const states: SaveState[] = [];
+    const fn = vi.fn(async () => new Response(JSON.stringify({ error: "read_only", message: "m" }), { status: 403 }));
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fn as unknown as typeof fetch, onStatus: (s) => states.push(s) });
+    store.set("ex_one", "f_one", "x");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    expect(states.at(-1)).toBe("read_only");
+    await vi.advanceTimersByTimeAsync(60_000);
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
 });
