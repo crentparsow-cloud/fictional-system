@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { hashToken, isTokenShaped, originFrom } from "@/lib/partner";
 import { claimErrorCode, cleanInviteEmail, orgErrorNotice, type OrgNotice } from "@/lib/org-pilot";
 import { requireOrgConsole, sendSeatInvite, withOrgParam } from "@/lib/org-pilot-server";
@@ -31,6 +32,7 @@ async function licenceOf(orgId: string, licenceId: string): Promise<boolean> {
 
 export async function inviteToSeat(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, withOrgParam("/org", ctx.org.id, ctx.multi));
   const licence = String(formData.get("licence") ?? "");
   const email = cleanInviteEmail(formData.get("email"));
   if (!email || !(await licenceOf(ctx.org.id, licence))) back("invalid", ctx.org.id, ctx.multi);
@@ -41,6 +43,7 @@ export async function inviteToSeat(formData: FormData): Promise<void> {
 
 export async function resendSeatInvite(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, withOrgParam("/org", ctx.org.id, ctx.multi));
   const id = String(formData.get("invite") ?? "");
   if (!UUID.test(id)) back("invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();
@@ -60,6 +63,7 @@ export async function resendSeatInvite(formData: FormData): Promise<void> {
 
 export async function revokeSeatInvite(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, withOrgParam("/org", ctx.org.id, ctx.multi));
   const id = String(formData.get("invite") ?? "");
   if (!UUID.test(id)) back("invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();
@@ -71,6 +75,7 @@ export async function revokeSeatInvite(formData: FormData): Promise<void> {
 
 export async function releaseSeat(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, withOrgParam("/org", ctx.org.id, ctx.multi));
   const id = String(formData.get("seat") ?? "");
   if (!UUID.test(id) || formData.get("confirm") !== "yes") back("invalid", ctx.org.id, ctx.multi);
   const supabase = await createUserClient();
