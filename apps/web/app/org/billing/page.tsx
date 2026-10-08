@@ -2,11 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { brand } from "@/lib/brand";
 import { formatMinor } from "@/lib/money/format";
-import { billingNotice, billingStateText, ORG_PLANS, isOrgPlanId, TALK_TO_US } from "@/lib/org-billing";
+import {
+  billingNotice,
+  billingStateText,
+  CHURCH_BAND_PLANS,
+  coolingOffText,
+  isBandPlan,
+  ORG_PLANS,
+  isOrgPlanId,
+  orgPriceId,
+  TALK_TO_US,
+  type CoolingOffState,
+} from "@/lib/org-billing";
 import { formatOrgDate, labelOf, LICENCE_KIND_LABELS, LICENCE_STATUS_LABELS } from "@/lib/org-pilot";
 import { requireOrgConsole, withOrgParam } from "@/lib/org-pilot-server";
 import { createUserClient } from "@/lib/supabase/server";
-import { changeSeats, endLicenceAction } from "./actions";
+import { cancelCoolingOff, changeBand, changeSeats, endLicenceAction } from "./actions";
 
 export const metadata: Metadata = { title: "Billing", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -82,6 +93,8 @@ export default async function OrgBillingPage({ searchParams }: { searchParams: S
   let licences: Licence[] = [];
   let subs: Sub[] = [];
   let invoices: Invoice[] = [];
+  let consumer = false;
+  const cooling = new Map<string, { state: CoolingOffState; reason: string | null; closes_at: string | null }>();
   if (canRead) {
     const [l, s, i] = await Promise.all([
       supabase
@@ -105,6 +118,19 @@ export default async function OrgBillingPage({ searchParams }: { searchParams: S
     licences = (l.data ?? []) as Licence[];
     subs = (s.data ?? []) as Sub[];
     invoices = (i.data ?? []) as Invoice[];
+    // 0031: a personal plan (a consumer organiser) has a 14-day cooling-off and cancels here.
+    const { data: prof } = await supabase.from("org_profiles").select("buyer_type").eq("org_id", ctx.org.id).maybeSingle();
+    consumer = (prof?.buyer_type as string | undefined) === "consumer";
+    if (consumer) {
+      const billed = licences.filter((l) => l.status !== "ended" && subs.some((x) => x.licence_id === l.id));
+      const states = await Promise.all(billed.map((l) => supabase.rpc("org_cooling_off_state", { p_licence: l.id })));
+      billed.forEach((l, n) => {
+        const row = (Array.isArray(states[n]!.data) ? states[n]!.data[0] : states[n]!.data) as
+          | { state: CoolingOffState; reason: string | null; closes_at: string | null }
+          | undefined;
+        if (row) cooling.set(l.id, row);
+      });
+    }
   }
 
   return (
@@ -191,7 +217,68 @@ export default async function OrgBillingPage({ searchParams }: { searchParams: S
                   </form>
                 ) : null}
 
-                {isOwner && l.status !== "ended" && !ending ? (
+                {sub && plan && isBandPlan(plan.id) && l.status === "active" && !ending && ["active", "trialing"].includes(sub.status) ? (
+                  <form className="admin-form" action={changeBand}>
+                    <input type="hidden" name="org" value={ctx.org.id} />
+                    <input type="hidden" name="licence" value={l.id} />
+                    <label htmlFor={`band-${l.id}`}>Change band</label>
+                    <select id={`band-${l.id}`} name="plan" defaultValue={plan.id} required>
+                      {CHURCH_BAND_PLANS.map((b) => (
+                        <option key={b} value={b} disabled={orgPriceId(b) === null}>
+                          {ORG_PLANS[b].label}
+                          {orgPriceId(b) === null ? `: ${TALK_TO_US.toLowerCase()}` : ""}
+                        </option>
+                      ))}
+                    </select>
+                    <p className="muted small">
+                      A larger band starts now, and the difference for the rest of this period comes on its own invoice. A smaller band also starts now,
+                      and the part you have not used comes off your next invoice. A band cannot be smaller than the places already taken and invited.
+                    </p>
+                    <button type="submit" className="btn secondary">
+                      Change band
+                    </button>
+                  </form>
+                ) : null}
+
+                {consumer && isOwner && sub && l.status !== "ended" ? (
+                  <section className="org-cancel" aria-labelledby={`cancel-${l.id}`}>
+                    <h3 id={`cancel-${l.id}`}>Cancel your plan</h3>
+                    <p>
+                      Your plan renews automatically until you cancel. You can cancel here at any time. Everyone with a place keeps their account and
+                      everything they wrote.
+                    </p>
+                    {cooling.get(l.id)?.state === "open" ? (
+                      <form className="admin-form" action={cancelCoolingOff}>
+                        <input type="hidden" name="org" value={ctx.org.id} />
+                        <input type="hidden" name="licence" value={l.id} />
+                        <p>{coolingOffText("open", cooling.get(l.id)?.reason ?? null, formatOrgDate(cooling.get(l.id)?.closes_at ?? null) || null)}</p>
+                        <p className="muted small">Access ends today for everyone in the group. The refund goes back to the card you paid with.</p>
+                        <div className="check">
+                          <input id={`cool-${l.id}`} name="confirm" type="checkbox" value="yes" required />
+                          <label htmlFor={`cool-${l.id}`}>Cancel now and refund the days I have not used</label>
+                        </div>
+                        <button type="submit" className="btn secondary">
+                          Cancel now
+                        </button>
+                      </form>
+                    ) : null}
+                    {!ending ? (
+                      <form className="admin-form" action={endLicenceAction}>
+                        <input type="hidden" name="org" value={ctx.org.id} />
+                        <input type="hidden" name="licence" value={l.id} />
+                        <div className="check">
+                          <input id={`end-${l.id}`} name="confirm" type="checkbox" value="yes" required />
+                          <label htmlFor={`end-${l.id}`}>Cancel at the end of the period I have paid for</label>
+                        </div>
+                        <button type="submit" className="btn secondary">
+                          Cancel at period end
+                        </button>
+                      </form>
+                    ) : null}
+                  </section>
+                ) : null}
+
+                {isOwner && !(consumer && sub) && l.status !== "ended" && !ending ? (
                   <details className="org-end">
                     <summary>End this licence</summary>
                     <p>
