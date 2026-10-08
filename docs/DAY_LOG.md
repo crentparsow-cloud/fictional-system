@@ -585,3 +585,16 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
   - The launch and rollback docs list all eight crons.
 
 **Checks:** typecheck and lint are clean. 946 web unit tests pass, along with all package tests (emails 81). Database tests 0001 to 0034 pass. The build and the CSP check are clean. The smoke tests pass: 335 passed and 17 skipped.
+
+### Day 7, third block (Thursday 8 October, evening)
+
+**Asked by Crent:** try the Supabase connector again; approve Demo Catalogue v2.
+
+- **Supabase connector.** It works again. It lists all three projects, and read queries run on production and staging. Database work no longer needs the SQL editor in Chrome, except for files too large to send through the connector.
+- **Demo Catalogue v2 approved.** The approval covers the 120 new titles, the twelve "close" titles, the assumed answers N8 to N13, the Meditations move and the 18 Maya Vaughn placements. The JSON records it. All 194 provisional codes are now final. The Ignatius retreat stays at the short tier until Crent picks one.
+- **Seed now built from v2.** `supabase/seed/seed.sql` holds 190 workbooks, 97 authors and 190 listings. The guarded preview file and its code are removed.
+- **Seed fix found on the way.** The old seed overwrote `workbooks.status` on every run. Production has 50 live titles, so loading v2 as written would have put all 50 back to draft and emptied the Library. `status` is now written on insert only, in the SQL file and in the supabase-js apply path. A test covers both.
+- **Checked on a scratch database.** It was built from all 34 migrations, loaded with the old seed, and 50 titles were set live. Then the new seed was loaded. The same 50 stayed live and 120 new titles arrived as draft. A second run changed nothing.
+- **Not done, waiting for Crent.** Loading v2 into production, and setting the new demo titles live. New titles load as draft, so the Library is unchanged until they are released.
+
+**Checks:** typecheck is clean, seed tests 35 passed, database tests 0001 to 0034 passed.
