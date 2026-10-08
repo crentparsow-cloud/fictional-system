@@ -7,6 +7,7 @@ import { payoutStore } from "@/lib/money/db";
 import { executePayouts, runPayouts } from "@/lib/money/payout-run";
 import { moneyAbilities } from "@/lib/money/permissions";
 import { isTestKey } from "@/lib/money/reconcile";
+import { reportOpsServer } from "@/lib/ops-report";
 import { getStaffSession } from "@/lib/staff";
 import { getStripe } from "@/lib/stripe";
 import { createUserClient } from "@/lib/supabase/server";
@@ -68,6 +69,10 @@ export async function approvePayout(fd: FormData): Promise<void> {
     redirect(`${PAGE}?notice=${codeFor(error)}`);
   }
   const outcome = await executePayouts(payoutStore(supabase), getStripe().transfers, false, id);
+  // F-142: a refused or unrecorded transfer opens a payout_failure alert.
+  if (outcome.failed > 0 || outcome.errors > 0) {
+    await reportOpsServer("payout_failure", "admin/money/payouts", outcome.errors > 0 ? "record_failed" : "transfer_failed");
+  }
   revalidatePath(PAGE);
   redirect(`${PAGE}?notice=${outcome.paid === 1 ? "approved_paid" : "approved_failed"}`);
 }
@@ -78,11 +83,19 @@ export async function runPayoutsNow(): Promise<void> {
   if (!moneyAbilities(staff.roles).runPayouts) redirect(`${PAGE}?notice=denied`);
   if (!isTestKey(process.env.STRIPE_SECRET_KEY)) redirect(`${PAGE}?notice=run_live_locked`);
   const supabase = await createUserClient();
+  let result: Awaited<ReturnType<typeof runPayouts>> | null = null;
   try {
-    await runPayouts(payoutStore(supabase), getStripe().transfers, false, "staff");
+    result = await runPayouts(payoutStore(supabase), getStripe().transfers, false, "staff");
   } catch (err) {
     console.error("money_run_failed", err instanceof Error ? err.message : "");
+  }
+  // F-142: the staff run reports the same way the payout day cron does.
+  if (!result) {
+    await reportOpsServer("payout_failure", "admin/money/payouts", "run_failed");
     redirect(`${PAGE}?notice=failed`);
+  }
+  if (result.failed > 0 || result.errors > 0) {
+    await reportOpsServer("payout_failure", "admin/money/payouts", result.errors > 0 ? "record_failed" : "transfer_failed");
   }
   revalidatePath(PAGE);
   redirect(`${PAGE}?notice=run_done`);
