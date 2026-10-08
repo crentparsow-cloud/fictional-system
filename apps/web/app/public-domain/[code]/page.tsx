@@ -59,27 +59,29 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
         <section className="wb-section">
           <h2>The work</h2>
           <p>First published: {record.firstPublished}.</p>
-          <table className="pd-table">
-            <caption className="pd-caption">Contributors and death years</caption>
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Role</th>
-                <th scope="col">Died</th>
-                <th scope="col">Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              {record.people.map((p) => (
-                <tr key={p.name}>
-                  <td>{p.name}</td>
-                  <td>{p.role}</td>
-                  <td>{p.died ?? "[to confirm]"}</td>
-                  <td>{p.diedSource}</td>
+          <div className="pd-table-wrap" role="region" aria-labelledby="pd-people" tabIndex={0}>
+            <table className="pd-table">
+              <caption className="pd-caption" id="pd-people">Contributors and death years</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Died</th>
+                  <th scope="col">Source</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {record.people.map((p) => (
+                  <tr key={p.name}>
+                    <td>{p.name}</td>
+                    <td>{p.role}</td>
+                    <td>{p.died ?? "[to confirm]"}</td>
+                    <td>{p.diedSource}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section className="wb-section">
@@ -94,29 +96,31 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
         <section className="wb-section">
           <h2>By market</h2>
           <p>Tier {record.tier}. {record.tierNote}</p>
-          <table className="pd-table">
-            <caption className="pd-caption">Rule applied and conclusion by launch market</caption>
-            <thead>
-              <tr>
-                <th scope="col">Market</th>
-                <th scope="col">Rule</th>
-                <th scope="col">Conclusion</th>
-                <th scope="col">Basis</th>
-              </tr>
-            </thead>
-            <tbody>
-              {record.markets.map((m) => (
-                <tr key={m.market}>
-                  <th scope="row">{MARKET_NAMES[m.market as LaunchMarket] ?? m.market}</th>
-                  <td>{m.rule}</td>
-                  <td>
-                    <span className={m.conclusion === "clear" ? "badge" : "badge demo"}>{conclusionLabel(m.conclusion)}</span>
-                  </td>
-                  <td>{m.basis}</td>
+          <div className="pd-table-wrap" role="region" aria-labelledby="pd-markets" tabIndex={0}>
+            <table className="pd-table">
+              <caption className="pd-caption" id="pd-markets">Rule applied and conclusion by launch market</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Market</th>
+                  <th scope="col">Rule</th>
+                  <th scope="col">Conclusion</th>
+                  <th scope="col">Basis</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {record.markets.map((m) => (
+                  <tr key={m.market}>
+                    <th scope="row">{MARKET_NAMES[m.market as LaunchMarket] ?? m.market}</th>
+                    <td>{m.rule}</td>
+                    <td>
+                      <span className={m.conclusion === "clear" ? "badge" : "badge demo"}>{conclusionLabel(m.conclusion)}</span>
+                    </td>
+                    <td>{m.basis}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section className="wb-section">
