@@ -315,3 +315,18 @@ Crent's answers on the questions raised in the Day 6 evening log (`docs/DAY_LOG.
 - The World English Bible default (N4, F-151) stays, for quotations only.
 - The catalogue proposal is now 120 new titles (70 demo, 50 classics), 190 in all, across 50 active Themes.
 Changes: F-148 note, F-151, F-153, `taxonomy.json`, `categories.md`, `catalogue/faith.json` and `faith.md`, `catalogue/SUMMARY.md`.
+
+## Answered Thursday 8 October 2026
+
+Crent approved Demo Catalogue v2. That approval covers the assumed answers the catalogue was built on.
+
+| # | Question | Answer | Status |
+|---|---|---|---|
+| N8 | Tier mismatch on four Maya Vaughn titles | The workbook's own tier wins. The Theme tier is a floor for new titles only | Answered, decided |
+| N9 | Cross-listing and duplicates | One primary Theme per workbook and one author record per person. Meditations moves to Wisdom for Living. No cross-listing at launch | Answered, decided |
+| N10 | Carnegie, The Art of Public Speaking | Not added at launch | Answered, decided |
+| N11 | Tier B classics | Seeded as draft and off sale at launch | Answered, decided |
+| N12 | The seven new areas | Approved as internal labels | Answered, decided |
+| N13 | The sixth shelf | None named, so the 10-shelf proposal stands | Answered, decided |
+
+Still open from this group: N3 (a faith genre), N5 (the Theological Reviewer), N15 (other traditions) and the Ignatius retreat tier in N16. The retreat stays at the short tier until Crent picks one.

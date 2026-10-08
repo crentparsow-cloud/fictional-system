@@ -2428,7 +2428,7 @@
     ],
     "risk": "Title checks unfinished on several demo titles. With classics in draft, 25 of the 50 active Themes stay below three live titles and so stay hidden. Seed size grows past the SQL editor limit again, so loading needs the batch script.",
     "status": "partly built",
-    "status_note": "Demo Catalogue v2 and a guarded seed_v2_preview.sql are prepared; not applied until Crent approves."
+    "status_note": "Approved by Crent on 8 October 2026. seed.sql is built from v2 and keeps a title's status on re-run. New titles load as draft and go live through release_version."
   },
   {
     "id": "F-154",

@@ -1,12 +1,25 @@
 # Demo Catalogue v2: notes (F-153)
 
-Prepared Thursday 8 October 2026. **Nothing here has been applied to any database. Crent must approve the titles first.**
+Prepared Thursday 8 October 2026. **Approved by Crent on Thursday 8 October 2026.**
+
+## After approval (8 October)
+
+The approval covers the 120 new titles and their codes, the twelve "close" titles, the assumed answers N8 to N13, the Meditations move and the 18 Maya Vaughn placements. The Ignatius retreat stays at the short tier until Crent picks one. The twelve "close" titles still need the Legal Lead's ISBN check (L14 on the post-build list).
+
+What changed:
+
+- `approval` in the JSON names Crent and the date. All 194 provisional codes (120 workbooks, 73 authors and PB-7AFQE) are now `final`. Each change is listed in its record's `v2_changes`.
+- `buildSeed()` now reads v2 by default. `supabase/seed/seed.sql` is built from v2, with no guard. `seed_v2_preview.sql`, `src/v2.ts` and `src/preview-v2.ts` are gone. `buildSeed({ catalogue: "v1" })` still works, and the v1 tests run against it.
+- **The seed no longer resets a title's status.** `workbooks.status` is written on insert only, in the SQL and in the supabase-js apply path. This mattered: production holds 50 live titles (45 demo, 5 classics), and the old seed would have put every one back to draft. Live titles keep their status and new titles arrive as draft.
+- Checked on a scratch database built from all 34 migrations: the old seed, then 50 titles set live, then the new seed. Result: 190 workbooks, 97 authors, 190 listings, the same 50 still live, 120 new rows as draft. A second run changed nothing.
+
+The rest of this file is the record as prepared before approval.
 
 The files:
 
 - `docs/planning/AK_Demo_Catalogue_v2.json`: version 1 plus the 120 new titles from `docs/research/catalogue/`. Version 1 (`AK_Demo_Catalogue.json`) is unchanged.
-- `supabase/seed/seed_v2_preview.sql`: the seed built from v2. It is headed DO NOT APPLY UNTIL CRENT APPROVES. A guard after `begin;` raises an error unless the session sets `akana.apply_v2_preview = 'yes'`, so pasting it into a project's SQL editor writes nothing.
-- `packages/seed`: `buildSeed({ catalogue: "v2" })` or `buildSeedV2()`, `pnpm --filter @akana/seed preview:v2` to rewrite the preview, and `src/seed.v2.test.ts`. `supabase/seed/seed.sql` is still built from v1 and is byte-identical (a test compares it).
+- `supabase/seed/seed.sql`: the seed built from v2 (until approval this was a guarded preview file).
+- `packages/seed`: `buildSeed()` and `src/seed.v2.test.ts`.
 
 ## Counts
 
@@ -111,10 +124,10 @@ One existing behaviour to know: the seed upserts `status`, so re-running any see
 
 ## Steps after approval
 
-1. Crent approves the titles, the "close" titles and the assumed answers above, the Meditations move and the Maya Vaughn placements, and picks the Ignatius tier.
-2. Make any changes in `AK_Demo_Catalogue_v2.json`, then run `pnpm --filter @akana/seed preview:v2` and `pnpm --filter @akana/seed test`.
-3. Run the code collision check again and set `code_status` to `final` on the approved codes. Set `approval` to Crent's name and date.
-4. Point the main seed at v2: in `scripts/seed.ts`, call `buildSeed({ root: ROOT, catalogue: "v2" })`. Update the v1 counts in `packages/seed/src/seed.test.ts` (70 workbooks, 17 Themes used, `hidden_until_min_books`), then run `pnpm tsx scripts/seed.ts --sql`. That rewrites `seed.sql` without the guard. Delete `seed_v2_preview.sql`, `src/v2.ts`, `src/preview-v2.ts` and the preview tests in the same pull request.
+1. Done 8 October: Crent approved the titles, the "close" titles, the assumed answers, the Meditations move and the Maya Vaughn placements. The Ignatius tier is still open.
+2. Done. Make any later changes in `AK_Demo_Catalogue_v2.json`, then run `pnpm tsx scripts/seed.ts --sql` and `pnpm --filter @akana/seed test`.
+3. Done. Run the code collision check again and set `code_status` to `final` on the approved codes. Set `approval` to Crent's name and date.
+4. Done, with status kept on re-run as above. Point the main seed at v2: in `scripts/seed.ts`, call `buildSeed({ root: ROOT, catalogue: "v2" })`. Update the v1 counts in `packages/seed/src/seed.test.ts` (70 workbooks, 17 Themes used, `hidden_until_min_books`), then run `pnpm tsx scripts/seed.ts --sql`. That rewrites `seed.sql` without the guard. Delete `seed_v2_preview.sql`, `src/v2.ts`, `src/preview-v2.ts` and the preview tests in the same pull request.
 5. Run the DB tests, then load `seed.sql` into a scratch database. Apply to staging, then production, by the usual route, with Crent's go-ahead for each.
 6. Release through `public.release_version`, not the seed: demo titles first, faith demo titles after N3 and N5, each classic once its house record is signed, Tier B never at launch. Move each signed house record twin from `docs/public-domain/json/` to `content/public-domain/` and add it to the RECORDS list, as `INDEX_NEW.md` says.
 7. Later, if Crent wants the Maya Vaughn placements in the content too, set `theme_id` in the v3 files. That is a content change with its own review.

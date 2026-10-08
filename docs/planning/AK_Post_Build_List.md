@@ -68,7 +68,7 @@ No figure here is new. Prices and dates are quoted from the source named.
 | L11 | Online Safety Act view on group features and the check-in partner's level 3 note | Plan O21; Questions N14 | Open | No |
 | L12 | KJV wording quoted inside public-domain classics: does it need Cambridge University Press permission in the UK | Plan O21; Questions N4 | Open | No |
 | L13 | DMCA safe harbour for a curated store | Plan O13 | Open | No |
-| L14 | Titles close to existing books from the title checks (12 close, 1 clash), for example The Year Before the Wedding | DAY_LOG Day 6 evening; `catalogue/faith.md` | Open | No |
+| L14 | Titles close to existing books from the title checks (12 close, kept on Crent's approval of Demo Catalogue v2, 8 October; the clash was renamed), for example The Year Before the Wedding | DAY_LOG Day 6 evening; `catalogue/faith.md` | Open | No |
 | L15 | Faith consent wording | Decision (b) | Closed | No |
 | L16 | Privacy notice line about religious belief | Decision (b) | Closed | No |
 
