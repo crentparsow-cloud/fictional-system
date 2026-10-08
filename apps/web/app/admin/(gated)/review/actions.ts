@@ -10,6 +10,7 @@ import { sendAuthorStatus } from "@/lib/author-mail";
 import { sendReviewAssigned } from "@/lib/review-mail";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
+import { postComment } from "@/lib/workbook-comments-server";
 
 /**
  * Review queue and release gate actions (F-084, F-085, F-155). Every write
@@ -193,4 +194,19 @@ export async function reviewPrice(fd: FormData): Promise<void> {
   const { error } = await supabase.rpc("price_review", { p_workbook: workbook, p_approve: approve, p_reason: reason });
   if (error) failed(versionId, "price_review", error.code);
   done(versionId, approve ? "price_approved" : "price_declined");
+}
+
+/**
+ * F-039: post on the workbook's comment thread with the author organisation
+ * (0027 public.workbook_comment_post). Reviewers only; the function checks.
+ * The organisation is emailed that a comment is waiting, never its text.
+ */
+export async function postReviewComment(fd: FormData): Promise<void> {
+  const { versionId, supabase } = await start(fd, "review");
+  const { data: row } = await supabase.from("workbook_versions").select("workbook_id").eq("id", versionId).maybeSingle();
+  const wbId = (row as { workbook_id?: string } | null)?.workbook_id;
+  if (!wbId) back(versionId, "invalid");
+  const notice = await postComment(wbId, fd.get("body"));
+  revalidatePath(`/admin/review/${versionId}`);
+  redirect(`/admin/review/${versionId}?thread=${notice}#thread-h`);
 }

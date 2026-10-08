@@ -19,7 +19,10 @@ import {
   type Requirement,
   type SignoffKind,
 } from "@/lib/admin/review";
+import { reportOpsServer } from "@/lib/ops-report";
 import { getStaffSession } from "@/lib/staff";
+import { loadThread } from "@/lib/workbook-comments-server";
+import { CommentThread } from "@/components/workbook-thread/CommentThread";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
 import { Notice } from "../../_components/Notice";
@@ -29,6 +32,7 @@ import Link from "next/link";
 import {
   addReviewNote,
   approveOverride,
+  postReviewComment,
   askAuthorSignoff,
   assignReview,
   recordSignoff,
@@ -162,6 +166,13 @@ export default async function ReviewVersionPage({
   }
   if (!wbRes.data) notFound();
   const w = wbRes.data as WorkbookRow;
+  // F-039: the comment thread with the author organisation, and its name.
+  const [thread, orgRes] = await Promise.all([
+    loadThread(w.id),
+    supabase.from("workbooks").select("organisations(display_name)").eq("id", w.id).maybeSingle(),
+  ]);
+  const orgRel = (orgRes.data as { organisations?: { display_name?: string } | { display_name?: string }[] | null } | null)?.organisations;
+  const orgName = (Array.isArray(orgRel) ? orgRel[0]?.display_name : orgRel?.display_name) || "The author organisation";
 
   // The validator, on the server, against this version's JSON.
   const result = runValidator(v.content);
@@ -174,6 +185,8 @@ export default async function ReviewVersionPage({
       p_warnings: result.warnings.length,
     });
     if (error) console.error("admin_review_record_validation_failed", error.code ?? "");
+    // F-142: a validator that throws, or a result that cannot be recorded, opens a validator_error alert.
+    if (result.crashed || error) await reportOpsServer("validator_error", "admin/review", result.crashed ? "validator_crashed" : "record_failed");
   }
   // Read the requirements after recording, so the validator line is current.
   const { data: reqAfter } = await supabase.rpc("release_requirements", { p_version: v.id });
@@ -532,11 +545,14 @@ export default async function ReviewVersionPage({
         )}
         <form action={addReviewNote} className="admin-form review-form">
           <input type="hidden" name="version" value={v.id} />
-          <label htmlFor="note-body">Add a comment</label>
-          <textarea id="note-body" name="body" maxLength={2000} required rows={3} />
+          <label htmlFor="note-body">Add an internal note</label>
+          <p id="note-hint" className="muted small">
+            Staff only. To talk to the author, use the comment thread below.
+          </p>
+          <textarea id="note-body" name="body" maxLength={2000} required rows={3} aria-describedby="note-hint" />
           <div className="admin-actions">
             <button type="submit" className="btn secondary">
-              Add comment
+              Add note
             </button>
           </div>
         </form>
@@ -556,6 +572,18 @@ export default async function ReviewVersionPage({
           </form>
         ) : null}
       </section>
+
+      <CommentThread
+        comments={thread}
+        viewerId={staff.userId}
+        viewerSide="staff"
+        orgName={orgName}
+        action={postReviewComment}
+        hidden={{ version: v.id }}
+        canPost={can.readReviewQueue}
+        cannotPostLine="Reviewers post on the thread."
+        notice={sp.thread}
+      />
     </div>
   );
 }
