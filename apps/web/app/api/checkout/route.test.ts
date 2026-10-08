@@ -17,6 +17,8 @@ const fake = {
   country: "GB" as string | null,
   amounts: { GBP: 1200 } as Record<string, number>,
   rpcs: [] as { name: string; args: Record<string, unknown> }[],
+  limits: [] as string[],
+  limited: false,
   recordFails: false,
   linkFails: false,
   purchases: [] as Record<string, unknown>[],
@@ -27,6 +29,8 @@ const fake = {
     this.country = "GB";
     this.amounts = { GBP: 1200 };
     this.rpcs = [];
+    this.limits = [];
+    this.limited = false;
     this.recordFails = false;
     this.linkFails = false;
     this.purchases = [];
@@ -49,6 +53,11 @@ const fake = {
     return { data: table === "entitlements" ? [] : [], error: null };
   },
   rpc(name: string, args: Record<string, unknown>) {
+    // F-143 (0027): the per-reader checkout limit, kept apart from the consent calls.
+    if (name === "rate_limit_self") {
+      this.limits.push(String(args.p_bucket));
+      return { data: !this.limited, error: null };
+    }
     this.rpcs.push({ name, args });
     if (name === "record_checkout_consent") return this.recordFails ? { data: null, error: { code: "AKC02" } } : { data: 77, error: null };
     if (name === "link_checkout_consent") return this.linkFails ? { data: null, error: { code: "AKC01" } } : { data: true, error: null };
@@ -178,6 +187,17 @@ describe("POST /api/checkout: immediate-access consent", () => {
     expect(params.metadata).toMatchObject({ consent_id: "77", consent_version: CHECKOUT_CONSENTS.workbook.version, workbook_id: "wb-1" });
     expect(params.custom_text.submit.message).toMatch(/14-day right to cancel/);
     expect(fake.purchases[0]).toMatchObject({ stripe_checkout_session_id: "cs_test_route1", currency: "GBP", amount_minor: 1200 });
+  });
+
+  it("refuses with 429 after the reader's hourly checkout limit (F-143), before recording anything", async () => {
+    fake.limited = true;
+    const res = await post(good);
+    expect(res.status).toBe(429);
+    expect(((await res.json()) as { code?: string }).code).toBe("rate_limited");
+    expect(fake.limits).toEqual(["checkout_user"]);
+    expect(fake.rpcs).toEqual([]);
+    expect(fake.created).toEqual([]);
+    expect(fake.purchases).toEqual([]);
   });
 
   it("does not open Stripe when the consent cannot be recorded", async () => {

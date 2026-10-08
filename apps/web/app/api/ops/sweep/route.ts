@@ -8,10 +8,13 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *
  *   GET or POST /api/ops/sweep
  *   Authorization: Bearer <CRON_SECRET>   (Vercel Cron sends this itself)
- *   -> { funnel_pruned, ops_pruned }
+ *   -> { funnel_pruned, ops_pruned, rate_pruned, orgs_offboarded }
  *
  * Deletes funnel counts older than 13 months (public.prune_funnel_counts)
- * and ops events older than 90 days (public.prune_ops_events). A failure is
+ * ops events older than 90 days (public.prune_ops_events) and rate limit
+ * counts older than a day (public.prune_rate_hits, 0027), and offboards
+ * organisations whose licences all ended 30 days ago (public.org_offboard_sweep,
+ * 0030: roster and admin details deleted, members keep their work). A failure is
  * itself reported as a cron failure, which opens an alert and sends one
  * email. With CRON_SECRET unset the route does nothing and says so.
  */
@@ -34,13 +37,16 @@ async function run(request: NextRequest) {
 
   const funnel = await admin.rpc("prune_funnel_counts");
   const ops = await admin.rpc("prune_ops_events");
-  const failed = funnel.error ?? ops.error;
+  const rate = await admin.rpc("prune_rate_hits");
+  // F-228 (0030): roster and admin details of organisations 30 days after their last licence ended.
+  const offboard = await admin.rpc("org_offboard_sweep");
+  const failed = funnel.error ?? ops.error ?? rate.error ?? offboard.error;
   if (failed) {
     console.error("ops_sweep_failed", failed.code ?? "unknown");
     await reportOps(admin, "cron_failure", "api/ops/sweep", failed.code ?? "unknown");
     return NextResponse.json({ error: "sql_failed" }, { status: 500, headers: NO_STORE });
   }
-  return NextResponse.json({ funnel_pruned: Number(funnel.data ?? 0), ops_pruned: Number(ops.data ?? 0) }, { headers: NO_STORE });
+  return NextResponse.json({ funnel_pruned: Number(funnel.data ?? 0), ops_pruned: Number(ops.data ?? 0), rate_pruned: Number(rate.data ?? 0), orgs_offboarded: Number(offboard.data ?? 0) }, { headers: NO_STORE });
 }
 
 export const GET = run;

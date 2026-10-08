@@ -11,6 +11,7 @@ import { countFunnelEvent } from "@/lib/funnel";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { checkoutTermsDecision } from "@/lib/terms";
 import { acceptReaderTerms } from "@/lib/terms-server";
+import { CHECKOUT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
 import { WORKBOOK_SUBMIT_NOTICE, checkoutConsentDecision, consentMetadata } from "@/lib/checkout-consent";
 import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
 
@@ -153,6 +154,10 @@ export async function POST(request: NextRequest) {
   );
   if (covers) return refuse("You already have this workbook.");
 
+  // F-143: at most 10 Checkout Sessions an hour per reader (0027), counted before anything is recorded.
+  if (!(await hitSelf(supabase, "checkout_user"))) {
+    return NextResponse.json({ error: CHECKOUT_BUSY_MESSAGE, code: "rate_limited" }, { status: 429, headers: NO_STORE });
+  }
   // F-122: the acceptance is recorded before payment starts. No record, no checkout.
   if (!(await acceptReaderTerms("checkout", tenantId))) return refuse("Could not start checkout.", 500);
   // The immediate-access consent, recorded the same way before payment starts.
