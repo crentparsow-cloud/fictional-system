@@ -7,6 +7,7 @@ import {
   exportFileName,
   exportJson,
   labelsFromUnitSections,
+  partnerForExport,
   placeAnswer,
   renderExportHtml,
   valueLines,
@@ -242,5 +243,55 @@ describe("v3 figure fields in the export (F-113)", () => {
     expect(html).toContain('<tfoot><tr><th scope="row">Total</th><td>£1,150.25</td></tr></tfoot>');
     expect(html).toContain("Highest score: Stay");
     expect(html).not.toMatch(/<script|<link|https?:\/\//i);
+  });
+});
+
+describe("check-in partner in the export (F-030)", () => {
+  const input = {
+    partner_name: "Sam",
+    share_level: 3,
+    status: "accepted",
+    // Extra columns the route never selects, to prove they cannot slip through.
+    partner_email: "sam@example.com",
+    note: "my private note",
+    replies: [
+      { body: "Proud of you.", created_at: "2026-10-03T09:00:00Z" },
+      { body: "Thinking of you.", created_at: "2026-10-01T09:00:00Z" },
+      { body: "", created_at: "2026-10-02T09:00:00Z" },
+    ],
+  };
+
+  it("keeps the name, share level, status and kind words, oldest first, and nothing else", () => {
+    const p = partnerForExport(input);
+    expect(p).toEqual({
+      partner_name: "Sam",
+      share_level: 3,
+      share_level_label: "Stage, nudge and a short note",
+      status: "accepted",
+      kind_words: [
+        { body: "Thinking of you.", received_at: "2026-10-01T09:00:00Z" },
+        { body: "Proud of you.", received_at: "2026-10-03T09:00:00Z" },
+      ],
+    });
+    const json = exportJson(buildExport([], [], {}, new Date("2026-10-08T09:00:00Z"), p));
+    expect(json).not.toContain("sam@example.com");
+    expect(json).not.toContain("my private note");
+    expect(JSON.parse(json).check_in_partner.partner_name).toBe("Sam");
+  });
+
+  it("is null without a partner or with a malformed row", () => {
+    expect(partnerForExport(null)).toBeNull();
+    expect(partnerForExport({ ...input, share_level: 7 })).toBeNull();
+    expect(partnerForExport({ ...input, partner_name: "" })).toBeNull();
+    expect(buildExport([], [], {}, new Date()).check_in_partner).toBeNull();
+  });
+
+  it("prints a plain partner section, escaped", () => {
+    const p = partnerForExport({ ...input, partner_name: "Sam", replies: [{ body: "You & me <3", created_at: "2026-10-01T09:00:00Z" }] });
+    const html = renderExportHtml(buildExport([], [], {}, new Date("2026-10-08T09:00:00Z"), p), { showTitles: false });
+    expect(html).toContain("<h2>Check-in partner</h2>");
+    expect(html).toContain("You &amp; me &lt;3");
+    expect(html).toContain("Accepted");
+    expect(renderExportHtml(buildExport([], [], {}, new Date()), { showTitles: false })).not.toContain("Check-in partner");
   });
 });

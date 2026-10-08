@@ -90,8 +90,11 @@ export const SUPPORT_LINES: readonly SupportLine[] = [
   { market: "GB", group: "crisis", name: "NHS 111 (England), mental health option", number: "111", how: "Call and choose the mental health option", hours: "24/7", url: "https://www.england.nhs.uk/south-east/2024/08/30/nhs-111-offering-crisis-mental-health-support-in-the-south-east/", verified: true, verifiedOn: SUPPORT_CHECKED },
   { market: "GB", group: "crisis", name: "NHS 24 (Scotland), mental health option", number: "111", how: "Call and choose the mental health option", hours: "24/7", url: "https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-support/mental-health-services-at-nhs-24/", verified: true, verifiedOn: SUPPORT_CHECKED },
   { market: "GB", group: "crisis", name: "NHS 111 Wales, mental health", number: "111", how: "Call and press 2", hours: "24/7", url: "https://www.gov.wales/nhs-111-press-2", verified: true, verifiedOn: SUPPORT_CHECKED },
+  { market: "GB", group: "crisis", name: "Lifeline (Northern Ireland)", number: "0808 808 8000", how: "Call", hours: "24/7", url: "https://www.lifelinehelpline.info/", verified: true, verifiedOn: "2026-10-07" },
   { market: "GB", group: "abuse", name: "National Domestic Abuse Helpline (Refuge)", number: "0808 2000 247", how: "Call", hours: "24/7", url: "https://www.nationaldahelpline.org.uk/", verified: true, verifiedOn: SUPPORT_CHECKED },
   { market: "GB", group: "abuse", name: "Scotland's Domestic Abuse and Forced Marriage Helpline", number: "0800 027 1234", how: "Call", hours: "24/7", url: "https://www.sdafmh.org.uk/en/", verified: true, verifiedOn: SUPPORT_CHECKED },
+  { market: "GB", group: "abuse", name: "Live Fear Free Helpline (Wales)", number: "0808 80 10 800", how: "Call", hours: "24/7", url: "https://www.gov.wales/live-fear-free/contact-live-fear-free", verified: true, verifiedOn: "2026-10-07" },
+  { market: "GB", group: "abuse", name: "Domestic and Sexual Abuse Helpline (Northern Ireland)", number: "0808 802 1414", how: "Call", hours: "24/7", url: "https://dsahelpline.org/", verified: true, verifiedOn: "2026-10-07" },
   { market: "GB", group: "addiction", name: "FRANK", number: "0300 123 6600", how: "Call", hours: "24/7", url: "https://www.talktofrank.com/contact-frank", verified: true, verifiedOn: SUPPORT_CHECKED },
   { market: "GB", group: "addiction", name: "FRANK (text)", number: "82111", how: "Text", hours: "24/7", url: "https://www.talktofrank.com/contact-frank", verified: true, verifiedOn: SUPPORT_CHECKED },
   { market: "GB", group: "gambling", name: "National Gambling Helpline (GamCare)", number: "0808 8020 133", how: "Call or WhatsApp", hours: "24/7", url: "https://www.gamcare.org.uk/get-support/talk-to-us-now/", verified: true, verifiedOn: SUPPORT_CHECKED },
@@ -185,9 +188,10 @@ export function regionFromAcceptLanguage(header: string | null | undefined, allo
  * in content/catalog/support_lines.json. Signposts only: Akana claims no
  * endorsement or partnership.
  *
- * GB only for now. Each number and its hours were read on the organisation's
- * own website on SIGNPOSTS_CHECKED. Every other market is null until it has
- * been checked; a null market shows no signpost rather than a guess.
+ * Each number and its hours were read on the organisation's own website on
+ * SIGNPOSTS_CHECKED. A null number could not be verified there and shows the
+ * website only [check]. A null market (US bereavement, everywhere else) shows
+ * no signpost rather than a guess.
  */
 export type SignpostId =
   | "money_worries_lines"
@@ -227,37 +231,124 @@ const BEAT = "https://www.beateatingdisorders.org.uk/get-information-and-support
 
 export const SIGNPOST_LINES: Readonly<Record<SignpostId, Partial<Record<MarketCode, readonly SignpostLine[] | null>>>> = {
   money_worries_lines: {
+    US: [
+      { name: "211", number: "211", how: "Call", hours: null, url: "https://www.211.org/", verified: true, verifiedOn: c },
+    ],
     GB: [
       { name: "MoneyHelper", number: "0800 011 3797", how: "Call", hours: "Mon to Fri 9am to 5pm", url: "https://www.moneyhelper.org.uk/en/contact-us", verified: true, verifiedOn: c },
       { name: "StepChange Debt Charity", number: "0800 138 1111", how: "Call", hours: "Mon to Fri 8am to 8pm; Sat 9am to 2pm", url: "https://www.stepchange.org/contact-us.aspx", verified: true, verifiedOn: c },
       { name: "National Debtline", number: "0808 808 4000", how: "Call", hours: "Mon to Fri 9am to 8pm; Sat 9:30am to 1pm", url: "https://nationaldebtline.org/contact-us/", verified: true, verifiedOn: c },
       { name: "Citizens Advice Adviceline (England)", number: "0800 144 8848", how: "Call", hours: "Mon to Fri 9am to 5pm", url: "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/", verified: true, verifiedOn: c },
       { name: "Citizens Advice Advicelink (Wales)", number: "0800 702 2020", how: "Call", hours: "Mon to Fri 8am to 7pm; Sat 9am to 1pm", url: "https://www.citizensadvice.org.uk/wales/about-us/contact-us/contact-us/contact-us/", verified: true, verifiedOn: c },
+      { name: "Citizens Advice Scotland Money Talk Team", number: "0800 028 1456", how: "Call", hours: null, url: "https://www.cas.org.uk/get-advice/money-talk-team/talk-us", verified: true, verifiedOn: c },
+      { name: "Advice NI (Northern Ireland)", number: "0800 915 4604", how: "Call", hours: null, url: "https://www.adviceni.net/contact", verified: true, verifiedOn: c },
     ],
+    CA: [
+      { name: "211 Canada (local community and social services)", number: "211", how: "Call", hours: "24 hours a day", url: "https://211.ca/", verified: true, verifiedOn: c },
+      { name: "Financial Consumer Agency of Canada: debt help", number: "canada.ca", how: "Website", hours: null, url: "https://www.canada.ca/en/financial-consumer-agency/services/debt.html", verified: true, verifiedOn: c },
+    ],
+    AU: [
+      { name: "National Debt Helpline", number: "1800 007 007", how: "Call", hours: "Mon to Fri 9:30am to 4:30pm", url: "https://ndh.org.au/", verified: true, verifiedOn: c },
+    ],
+    IE: [
+      { name: "MABS Helpline", number: "0818 07 2000", how: "Call", hours: "Mon to Fri 9am to 8pm", url: "https://www.mabs.ie/contact-us/", verified: true, verifiedOn: c },
+    ],
+    NZ: [
+      { name: "MoneyTalks", number: "0800 345 123", how: "Call", hours: null, url: "https://fincap.org.nz/moneytalks", verified: true, verifiedOn: c },
+      { name: "MoneyTalks (text)", number: "4029", how: "Text", hours: null, url: "https://fincap.org.nz/moneytalks", verified: true, verifiedOn: c },
+    ],
+    XX: null,
   },
   eating_support_lines: {
+    US: [
+      { name: "ANAD Eating Disorder Helpline", number: "1-888-375-7767", how: "Call", hours: "Mon to Fri 9am to 9pm CT", url: "https://anad.org/eating-disorder-helpline/", verified: true, verifiedOn: c },
+    ],
     GB: [
       { name: "Beat Helpline (England)", number: "0808 801 0677", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
       { name: "Beat Helpline (Scotland)", number: "0808 801 0432", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
       { name: "Beat Helpline (Wales)", number: "0808 801 0433", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
       { name: "Beat Helpline (Northern Ireland)", number: "0808 801 0434", how: "Call", hours: "Mon to Fri 3pm to 8pm", url: BEAT, verified: true, verifiedOn: c },
     ],
+    CA: [
+      { name: "NEDIC Helpline", number: "1-866-633-4220", how: "Call", hours: "Mon to Thu 10am to 6pm; Fri 10am to 5pm; Sat and Sun 12pm to 5pm ET", url: "https://nedic.ca/contact/", verified: true, verifiedOn: c },
+    ],
+    AU: [
+      { name: "Butterfly National Helpline", number: "1800 33 4673", how: "Call", hours: "7 days 8am to midnight AEST/AEDT", url: "https://butterfly.org.au/get-support/helpline/", verified: true, verifiedOn: c },
+    ],
+    IE: [
+      { name: "Bodywhys Helpline", number: "01 210 7906", how: "Call", hours: "Mon, Wed and Sun 7:30pm to 9:30pm; Tue, Thu, Fri and Sat 10:30am to 12:30pm", url: "https://www.bodywhys.ie/supports-services/helpline/", verified: true, verifiedOn: c },
+    ],
+    NZ: [
+      { name: "EDANZ (for families and carers)", number: "0800 233 269", how: "Call", hours: null, url: "https://www.ed.org.nz/", verified: true, verifiedOn: c },
+    ],
+    XX: null,
   },
   bereavement_support_lines: {
+    US: null,
     GB: [
       { name: "Cruse Bereavement Support", number: "0808 808 1677", how: "Call", hours: "Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm", url: "https://www.cruse.org.uk/get-support/helpline/", verified: true, verifiedOn: c },
+      { name: "Cruse Scotland", number: "0808 802 6161", how: "Call", hours: "Mon to Fri 9am to 5pm; Mon and Thu until 8pm", url: "https://www.crusescotland.org.uk/get-support/free-bereavement-helpline/", verified: true, verifiedOn: c },
     ],
+    CA: [
+      { name: "MyGrief.ca (Canadian Virtual Hospice)", number: "mygrief.ca", how: "Website", hours: null, url: "https://www.mygrief.ca/", verified: true, verifiedOn: c },
+    ],
+    AU: [
+      { name: "Griefline", number: "1300 845 745", how: "Call", hours: "Mon to Fri 10am to 8pm AEST/AEDT", url: "https://griefline.org.au/", verified: true, verifiedOn: c },
+    ],
+    IE: [
+      { name: "Irish Hospice Foundation Bereavement Support Line", number: "1800 80 70 77", how: "Call", hours: "Mon to Fri 10am to 1pm", url: "https://hospicefoundation.ie/our-supports-services/bereavement-loss-hub/bereavement-support-line/", verified: true, verifiedOn: c },
+    ],
+    NZ: [
+      { name: "1737 Need to talk?", number: "1737", how: "Call or text", hours: "24/7", url: "https://1737.org.nz/", verified: true, verifiedOn: c },
+    ],
+    XX: null,
   },
   new_parent_support_lines: {
+    US: [
+      { name: "National Maternal Mental Health Hotline", number: "1-833-852-6262", how: "Call or text", hours: "24/7", url: "https://mchb.hrsa.gov/national-maternal-mental-health-hotline", verified: true, verifiedOn: c },
+      { name: "Postpartum Support International HelpLine", number: "1-800-944-4773", how: "Call", hours: null, url: "https://www.postpartum.net/get-help/psi-helpline/", verified: true, verifiedOn: c },
+    ],
     GB: [
       { name: "Family Lives (England and Wales)", number: "0808 800 2222", how: "Call", hours: "Mon to Fri 9am to 9pm; weekends 10am to 3pm", url: "https://www.familylives.org.uk/how-we-can-help/confidential-helpline/", verified: true, verifiedOn: c },
+      { name: "Children First Support Line (Scotland)", number: "08000 28 22 33", how: "Call", hours: "Mon to Fri 9am to 9pm; weekends 9am to 12pm", url: "https://www.childrenfirst.org.uk/get-support/support-line", verified: true, verifiedOn: c },
+      { name: "Parenting NI Support Line (Northern Ireland)", number: null, how: "Website", hours: null, url: "https://www.parentingni.org/parents/support-line/", verified: false, verifiedOn: c },
       { name: "PANDAS Foundation (perinatal mental health)", number: "pandasfoundation.org.uk", how: "Website", hours: null, url: "https://pandasfoundation.org.uk/", verified: true, verifiedOn: c },
     ],
+    CA: [
+      { name: "211 Canada (local community and social services)", number: "211", how: "Call", hours: "24 hours a day", url: "https://211.ca/", verified: true, verifiedOn: c },
+    ],
+    AU: [
+      { name: "PANDA National Helpline", number: "1300 726 306", how: "Call", hours: "7 days a week", url: "https://panda.org.au/", verified: true, verifiedOn: c },
+    ],
+    IE: [
+      { name: "Parentline", number: "01 873 3500", how: "Call", hours: "Mon to Thu 10am to 9pm; Fri 10am to 7pm", url: "https://www.parentline.ie/", verified: true, verifiedOn: c },
+    ],
+    NZ: [
+      { name: "PlunketLine", number: "0800 933 922", how: "Call", hours: "24/7", url: "https://www.plunket.org.nz/plunket/contact-us/", verified: true, verifiedOn: c },
+    ],
+    XX: null,
   },
   carer_support_lines: {
+    US: [
+      { name: "Eldercare Locator", number: "1-800-677-1116", how: "Call or text", hours: null, url: "https://eldercare.acl.gov/", verified: true, verifiedOn: c },
+      { name: "211", number: "211", how: "Call", hours: null, url: "https://www.211.org/", verified: true, verifiedOn: c },
+    ],
     GB: [
       { name: "Carers UK Helpline", number: "0808 808 7777", how: "Call", hours: "Mon to Fri 9am to 6pm", url: "https://www.carersuk.org/help-and-advice/helpline-and-other-support/", verified: true, verifiedOn: c },
     ],
+    CA: [
+      { name: "211 Canada (local community and social services)", number: "211", how: "Call", hours: "24 hours a day", url: "https://211.ca/", verified: true, verifiedOn: c },
+    ],
+    AU: [
+      { name: "Carer Gateway", number: "1800 422 737", how: "Call", hours: "Mon to Fri 8am to 5pm", url: "https://www.carergateway.gov.au/contact-us", verified: true, verifiedOn: c },
+    ],
+    IE: [
+      { name: "Family Carers Ireland National Freephone Careline", number: "1800 24 07 24", how: "Call", hours: "Mon to Thu 9am to 5:30pm; Fri 9am to 5pm", url: "https://familycarers.ie/carer-supports/national-freephone-careline/", verified: true, verifiedOn: c },
+    ],
+    NZ: [
+      { name: "Carers NZ", number: "0800 777 797", how: "Call", hours: null, url: "https://carers.net.nz/", verified: true, verifiedOn: c },
+    ],
+    XX: null,
   },
 };
 

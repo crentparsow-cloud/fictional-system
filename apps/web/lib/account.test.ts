@@ -52,3 +52,18 @@ describe("helpers", () => {
     expect(noticeText(undefined)).toBeNull();
   });
 });
+
+describe("read only while a deletion is pending (F-025)", () => {
+  it("is read only when pending or due, and not otherwise", async () => {
+    const { isReadOnly, readOnlyBanner } = await import("./account");
+    expect(isReadOnly(deletionState(row(), now))).toBe(true);
+    expect(isReadOnly(deletionState(row({ cancel_before: "2026-10-06T12:00:00Z" }), now))).toBe(true);
+    expect(isReadOnly(deletionState(row({ cancelled_at: "2026-10-06T00:00:00Z" }), now))).toBe(false);
+    expect(isReadOnly(deletionState(null, now))).toBe(false);
+    expect(readOnlyBanner(deletionState(null, now))).toBeNull();
+    const b = readOnlyBanner(deletionState(row(), now));
+    expect(b?.title).toBe("Your account will be deleted on 12 October 2026.");
+    expect(b?.body).toContain("read only");
+    expect(`${b?.title} ${b?.body}`).not.toMatch(/—/);
+  });
+});

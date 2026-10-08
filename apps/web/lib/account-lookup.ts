@@ -66,7 +66,15 @@ export interface LookupResult {
   profile?: { displayName: string | null; locale: string | null; country: string | null; adultConfirmedAt: string | null } | null;
   consents?: { healthAt: string | null; healthVersion: string | null; faithAt: string | null; faithVersion: string | null } | null;
   terms: { doc: string; version: string; context: string; wasDraft: boolean; acceptedAt: string | null }[];
-  deletion: { state: "pending" | "cancelled" | "completed"; requestedAt: string | null; cancelBefore: string | null; cancelledAt: string | null; completedAt: string | null } | null;
+  deletion: {
+    state: "pending" | "cancelled" | "completed";
+    requestedAt: string | null;
+    cancelBefore: string | null;
+    cancelledAt: string | null;
+    completedAt: string | null;
+    /** 0027: still inside the undo window, so staff may cancel it for the reader. */
+    canCancel: boolean;
+  } | null;
   purchases: {
     id: string;
     kind: string;
@@ -90,14 +98,25 @@ export interface LookupResult {
     pastDueSince: string | null;
     subscriptionId: string | null;
   }[];
-  entitlements: { workbookCode: string | null; source: string; status: string; startsAt: string | null; endsAt: string | null }[];
+  entitlements: {
+    /** 0027: the row id, for restore access. Null from an older database. */
+    id: string | null;
+    workbookCode: string | null;
+    source: string;
+    status: string;
+    startsAt: string | null;
+    endsAt: string | null;
+    takenDown: boolean;
+  }[];
   lookups: { at: string | null; actorRole: string | null; reason: string | null }[];
+  /** 0027: the last staff actions on the account (restore, resend, cancel deletion). */
+  actions: { at: string | null; action: string; actorRole: string | null; reason: string | null }[];
 }
 
 /** Read the jsonb defensively. Unknown keys are dropped, never shown. */
 export function readLookup(raw: unknown): LookupResult {
   const j = obj(raw) ?? {};
-  const empty: LookupResult = { found: false, terms: [], deletion: null, purchases: [], subscriptions: [], entitlements: [], lookups: [] };
+  const empty: LookupResult = { found: false, terms: [], deletion: null, purchases: [], subscriptions: [], entitlements: [], lookups: [], actions: [] };
   if (!bool(j.found)) return empty;
   const u = obj(j.user) ?? {};
   const p = obj(j.profile);
@@ -126,7 +145,14 @@ export function readLookup(raw: unknown): LookupResult {
     })),
     deletion:
       d && (state === "pending" || state === "cancelled" || state === "completed")
-        ? { state, requestedAt: str(d.requested_at), cancelBefore: str(d.cancel_before), cancelledAt: str(d.cancelled_at), completedAt: str(d.completed_at) }
+        ? {
+            state,
+            requestedAt: str(d.requested_at),
+            cancelBefore: str(d.cancel_before),
+            cancelledAt: str(d.cancelled_at),
+            completedAt: str(d.completed_at),
+            canCancel: bool(d.can_cancel),
+          }
         : null,
     purchases: arr(j.purchases).map((x) => ({
       id: String(x.id ?? ""),
@@ -152,13 +178,16 @@ export function readLookup(raw: unknown): LookupResult {
       subscriptionId: str(x.stripe_subscription_id),
     })),
     entitlements: arr(j.entitlements).map((x) => ({
+      id: str(x.id),
       workbookCode: str(x.workbook_code),
       source: String(x.source ?? ""),
       status: String(x.status ?? ""),
       startsAt: str(x.starts_at),
       endsAt: str(x.ends_at),
+      takenDown: bool(x.taken_down),
     })),
     lookups: arr(j.lookups).map((x) => ({ at: str(x.at), actorRole: str(x.actor_role), reason: str(x.reason) })),
+    actions: arr(j.actions).map((x) => ({ at: str(x.at), action: String(x.action ?? ""), actorRole: str(x.actor_role), reason: str(x.reason) })),
   };
 }
 
@@ -170,6 +199,21 @@ export function accountStatusLine(r: LookupResult, now: Date = new Date()): stri
   if (r.user.bannedUntil && new Date(r.user.bannedUntil).getTime() > now.getTime()) return "Blocked from signing in.";
   if (!r.user.emailConfirmedAt && r.user.lastSignInAt === null) return "Active. No sign-in recorded yet.";
   return "Active.";
+}
+
+/** Labels for the staff actions listed on an account (0027). */
+export const ACTION_LABELS: Record<string, string> = {
+  "account.access_restored": "Access restored",
+  "account.email_resent": "Email resent",
+  "account.deletion_cancelled_by_staff": "Deletion cancelled for the reader",
+};
+
+/** A purchase or gift row that is revoked, lapsed or past its end: one staff may restore. */
+export function canRestoreRow(e: LookupResult["entitlements"][number], now: Date = new Date()): boolean {
+  if (!e.id || e.takenDown) return false;
+  if (e.source !== "purchase" && e.source !== "gift") return false;
+  const ended = e.endsAt ? new Date(e.endsAt).getTime() <= now.getTime() : false;
+  return e.status !== "active" || ended;
 }
 
 export const PLAN_LABELS: Record<string, string> = { member_month: "Monthly membership", member_year: "Yearly membership" };

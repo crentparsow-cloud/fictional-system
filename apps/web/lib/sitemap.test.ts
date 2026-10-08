@@ -68,6 +68,24 @@ describe("sitemap (F-011)", () => {
     expect(paths).not.toContain("/publishers/idle-press");
   });
 
+  it("never lists a retired Theme (0025) or a held one below its minimum, even with a live title", () => {
+    const more = [
+      ...cards,
+      card({ id: "3", slug: "on-retired", code: "AK-CCCC3", themeId: "old-theme" }),
+      card({ id: "4", slug: "on-held", code: "AK-DDDD4", themeId: "new-theme" }),
+    ];
+    const p = sitemapPaths({
+      ...input,
+      cards: more,
+      themes: [...input.themes, { ...theme("old-theme"), retired: true }, { ...theme("new-theme"), held: true, minBooks: 3 }],
+    });
+    expect(p).not.toContain("/themes/old-theme");
+    expect(p).not.toContain("/themes/new-theme");
+    expect(p).toContain("/themes/focus");
+    // the titles themselves stay listed
+    expect(p).toContain("/w/on-retired");
+  });
+
   it("never lists a private path or a malformed code", () => {
     for (const p of paths) expect(isPrivatePath(p), p).toBe(false);
     expect(paths.some((p) => p.includes(".."))).toBe(false);

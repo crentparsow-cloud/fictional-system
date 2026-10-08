@@ -1,5 +1,6 @@
 import "server-only";
 import { isSlug, type ThemeInput } from "@/lib/author-theme-pages";
+import { isRetiredStatus } from "@/lib/theme-visibility";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -60,11 +61,12 @@ type ThemeRow = {
   clearance_status: string;
   min_books: number | null;
   hidden_until_min_books: boolean | null;
+  status: string | null;
   shelves: { name: string; hidden_until_min_books: boolean | null } | null;
 };
 
-// hidden_until_min_books comes from migration 0015 (F-148).
-const THEME_COLUMNS = "id, name, line, shelf_id, clearance_status, min_books, hidden_until_min_books, shelves(name, hidden_until_min_books)";
+// hidden_until_min_books comes from migration 0015 (F-148); status from 0025.
+const THEME_COLUMNS = "id, name, line, shelf_id, clearance_status, min_books, hidden_until_min_books, status, shelves(name, hidden_until_min_books)";
 
 function toTheme(row: ThemeRow): ThemeInput {
   return {
@@ -76,10 +78,11 @@ function toTheme(row: ThemeRow): ThemeInput {
     held: row.hidden_until_min_books === true,
     minBooks: row.min_books,
     shelfHeld: row.shelves?.hidden_until_min_books === true,
+    retired: isRetiredStatus(row.status),
   };
 }
 
-/** One Theme by id, or null. A Theme whose name failed clearance is never shown. */
+/** One Theme by id, or null. A Theme whose name failed clearance, or a retired Theme (0025), is never shown. */
 export async function getTheme(slug: string): Promise<ThemeInput | null> {
   if (!isSlug(slug)) return null;
   const supabase = await createUserClient();
@@ -87,10 +90,14 @@ export async function getTheme(slug: string): Promise<ThemeInput | null> {
   if (error) throw new Error(`getTheme: ${error.message}`);
   if (!data) return null;
   const row = data as unknown as ThemeRow;
-  return row.clearance_status === "rejected" ? null : toTheme(row);
+  return row.clearance_status === "rejected" || isRetiredStatus(row.status) ? null : toTheme(row);
 }
 
-/** Every Theme that has not failed clearance, with its shelf name. */
+/**
+ * Every Theme that has not failed clearance, with its shelf name. Retired
+ * Themes are included, marked retired, so hiddenThemeIds can take their
+ * label off any card that still names them; no page lists them.
+ */
 export async function listThemes(): Promise<ThemeInput[]> {
   const supabase = await createUserClient();
   const { data, error } = await supabase.from("themes").select(THEME_COLUMNS).neq("clearance_status", "rejected").order("name").limit(500);

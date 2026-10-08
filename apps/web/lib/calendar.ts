@@ -95,3 +95,69 @@ export function buildIcs(input: IcsInput): string {
   ];
   return lines.map(icsFold).join("\r\n") + "\r\n";
 }
+
+/**
+ * The group calendar file (F-211, reusing F-024): one all-day event per
+ * unit open date in the member's group schedule. Built in the browser, so
+ * Akana never learns that a member made one. The default wording is
+ * neutral ("Group: unit 3 opens") and names no workbook and no group,
+ * because a group name can say something about health or faith. A member
+ * may choose the workbook's name or their own words instead; that choice
+ * stays on their device. Soft pace: the text never says behind, missed or
+ * streak, and nothing repeats or nags.
+ */
+export const GROUP_LABEL_DEFAULT = "Group";
+
+export interface GroupIcsInput {
+  /** The schedule rows the member can read (0028 org_group_schedule). */
+  units: { unit_number: number; opens_on: string }[];
+  /** The words before ": unit 3 opens". Neutral unless the member chose otherwise. */
+  label: string;
+  /** Random id made on the device, shared by every event in the file. */
+  uid: string;
+  /** Where each event points, for example https://akana.app/groups. */
+  url: string;
+  now?: Date;
+}
+
+const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+/** yyyy-mm-dd to yyyymmdd and the day after, or null for anything else. */
+function allDay(date: string): { start: string; end: string } | null {
+  const m = ISO_DATE.exec(date);
+  if (!m) return null;
+  const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  if (Number.isNaN(d.getTime()) || d.getUTCDate() !== Number(m[3])) return null;
+  const next = new Date(d.getTime() + 86_400_000);
+  const ymd = (x: Date) => `${x.getUTCFullYear()}${pad(x.getUTCMonth() + 1)}${pad(x.getUTCDate())}`;
+  return { start: ymd(d), end: ymd(next) };
+}
+
+export function buildGroupIcs(input: GroupIcsInput): string {
+  const now = input.now ?? new Date();
+  const stamp = `${now.getUTCFullYear()}${pad(now.getUTCMonth() + 1)}${pad(now.getUTCDate())}T${pad(now.getUTCHours())}${pad(now.getUTCMinutes())}${pad(now.getUTCSeconds())}Z`;
+  const label = cleanCustomLabel(input.label) || GROUP_LABEL_DEFAULT;
+  const seen = new Set<number>();
+  const units = input.units
+    .filter((u) => Number.isInteger(u.unit_number) && u.unit_number >= 1 && u.unit_number <= 99 && !seen.has(u.unit_number) && seen.add(u.unit_number))
+    .map((u) => ({ n: u.unit_number, day: allDay(u.opens_on) }))
+    .filter((u): u is { n: number; day: { start: string; end: string } } => u.day !== null)
+    .sort((a, b) => a.day.start.localeCompare(b.day.start) || a.n - b.n);
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Akana//Group schedule//EN", "CALSCALE:GREGORIAN"];
+  for (const u of units) {
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${input.uid}-${u.n}@group.akana`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${u.day.start}`,
+      `DTEND;VALUE=DATE:${u.day.end}`,
+      `SUMMARY:${icsEscape(`${label}: unit ${u.n} opens`)}`,
+      `DESCRIPTION:${icsEscape(`Unit ${u.n} opens for your group. Read at your own pace. ${input.url}`)}`,
+      `URL:${input.url}`,
+      "TRANSP:TRANSPARENT",
+      "END:VEVENT",
+    );
+  }
+  lines.push("END:VCALENDAR");
+  return lines.map(icsFold).join("\r\n") + "\r\n";
+}

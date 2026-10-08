@@ -43,9 +43,12 @@ describe("support lines data", () => {
       ["NHS 111 (England), mental health option", "111"],
       ["NHS 24 (Scotland), mental health option", "111"],
       ["NHS 111 Wales, mental health", "111"],
+      ["Lifeline (Northern Ireland)", "0808 808 8000"],
     ]);
+    const gbAbuse = SUPPORT_LINES.filter((l) => l.market === "GB" && l.group === "abuse").map((l) => l.number);
+    expect(gbAbuse).toEqual(["0808 2000 247", "0800 027 1234", "0808 80 10 800", "0808 802 1414"]);
     expect(SUPPORT_LINES.find((l) => l.name === "Cruse Bereavement Support")?.hours).toBe("Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm");
-    expect(SUPPORT_LINES).toHaveLength(57);
+    expect(SUPPORT_LINES).toHaveLength(60);
   });
 
   it("has an emergency line for every market and the finder for everywhere else", () => {
@@ -81,7 +84,7 @@ describe("support lines data", () => {
 });
 
 describe("signposts (F-154)", () => {
-  it("carries the five groups, GB only, every other market null", () => {
+  it("carries the five groups for every launch market, US bereavement and everywhere else null", () => {
     expect(SIGNPOST_GROUPS.map((g) => g.id)).toEqual([
       "money_worries_lines",
       "eating_support_lines",
@@ -90,14 +93,26 @@ describe("signposts (F-154)", () => {
       "carer_support_lines",
     ]);
     for (const g of SIGNPOST_GROUPS) {
-      expect(signpostFor(g.id, "GB")?.lines.length).toBeGreaterThan(0);
-      for (const m of ["US", "CA", "AU", "IE", "NZ", "XX"] as const) expect(signpostFor(g.id, m)).toBeNull();
+      for (const m of ["GB", "CA", "AU", "IE", "NZ"] as const) expect(signpostFor(g.id, m)?.lines.length).toBeGreaterThan(0);
+      expect(signpostFor(g.id, "XX")).toBeNull();
+      if (g.id === "bereavement_support_lines") expect(signpostFor(g.id, "US")).toBeNull();
+      else expect(signpostFor(g.id, "US")?.lines.length).toBeGreaterThan(0);
     }
+  });
+
+  it("covers Scotland and Northern Ireland within GB", () => {
+    const names = (id: string) => signpostFor(id, "GB")!.lines.map((l) => l.name);
+    expect(names("money_worries_lines")).toEqual(expect.arrayContaining(["Citizens Advice Scotland Money Talk Team", "Advice NI (Northern Ireland)"]));
+    expect(names("bereavement_support_lines")).toContain("Cruse Scotland");
+    expect(names("new_parent_support_lines")).toEqual(expect.arrayContaining(["Children First Support Line (Scotland)", "Parenting NI Support Line (Northern Ireland)"]));
+    const ni = signpostFor("new_parent_support_lines", "GB")!.lines.find((l) => l.name.startsWith("Parenting NI"))!;
+    expect(ni.number).toBeNull();
+    expect(signpostHref(ni)).toBe(ni.url);
   });
 
   it("dates and links every line, with a verified number or none", () => {
     for (const g of SIGNPOST_GROUPS) {
-      for (const line of signpostFor(g.id, "GB")!.lines) {
+      for (const line of (["US", "GB", "CA", "AU", "IE", "NZ"] as const).flatMap((m) => signpostFor(g.id, m)?.lines ?? [])) {
         expect(line.url).toMatch(/^https:\/\//);
         expect(line.verifiedOn).toBe(SIGNPOSTS_CHECKED);
         if (line.number === null) expect(line.verified).toBe(false);

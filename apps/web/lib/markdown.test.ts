@@ -10,6 +10,7 @@ describe("markdown subset (F-010, F-121)", () => {
     expect(html).toContain("<ol><li>x</li><li>y</li></ol>");
     expect(html).toContain("<th>H</th>");
     expect(html).toContain("<td>d</td>");
+    expect(html).toContain('<div class="md-table" role="region" aria-label="Table: Title" tabindex="0"><table>');
   });
 
   it("escapes markup in the source", () => {

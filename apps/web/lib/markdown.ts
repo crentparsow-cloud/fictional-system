@@ -31,6 +31,8 @@ export function markdownToHtml(md: string): string {
   const lines = md.split(/\r?\n/);
   const at = (n: number) => lines[n] ?? "";
   let i = 0;
+  // The last heading's plain text names the scroll region around a table.
+  let lastHeading = "";
   while (i < lines.length) {
     const line = at(i);
     if (line.trim() === "") {
@@ -41,6 +43,7 @@ export function markdownToHtml(md: string): string {
     if (h) {
       const level = (h[1] ?? "#").length;
       out.push(`<h${level}>${inlineMarkdown(h[2] ?? "")}</h${level}>`);
+      lastHeading = (h[2] ?? "").replace(/\*\*|`/g, "").replace(/\[([^\]]+)\]\([^)]*\)/g, "$1").trim();
       i++;
       continue;
     }
@@ -71,7 +74,12 @@ export function markdownToHtml(md: string): string {
         rows.push(tableRow(at(i), "td"));
         i++;
       }
-      out.push(`<table><thead>${head}</thead><tbody>${rows.join("")}</tbody></table>`);
+      // F-144: a wide table scrolls sideways on a phone, so its wrapper is a
+      // named, focusable region that a keyboard user can scroll.
+      const label = escapeHtml(lastHeading ? `Table: ${lastHeading}` : "Table");
+      out.push(
+        `<div class="md-table" role="region" aria-label="${label}" tabindex="0"><table><thead>${head}</thead><tbody>${rows.join("")}</tbody></table></div>`,
+      );
       continue;
     }
     const para: string[] = [];

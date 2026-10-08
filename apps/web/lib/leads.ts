@@ -15,6 +15,7 @@ import {
   KIND_LABELS,
   SUCCESS_MESSAGE,
 } from "@/app/publish/options";
+import { mailLog } from "@/lib/mail-ops";
 import { type RateLimiter, createRateLimiter } from "@/lib/rate-limit";
 
 /**
@@ -174,7 +175,7 @@ export async function notifyLead(
   const mailer = createMailer({
     env,
     isSuppressed: () => false,
-    log: o.log ?? ((e) => console.info("lead_notify", e.status, e.reason ?? "", e.provider_id ?? "")),
+    log: o.log ?? mailLog("publish", "lead_notify"),
     transport: o.transport ?? dev?.transport,
   });
   const when = (o.now ?? new Date()).toLocaleString("en-GB", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/London" });

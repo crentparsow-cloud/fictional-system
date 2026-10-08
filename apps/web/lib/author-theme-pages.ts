@@ -71,6 +71,8 @@ export interface ThemeInput {
   minBooks?: number | null;
   /** shelves.hidden_until_min_books for the Theme's shelf. */
   shelfHeld?: boolean;
+  /** themes.status is 'retired' (0025): never shown. See lib/theme-visibility.ts. */
+  retired?: boolean;
 }
 
 export interface ThemeSummary extends ThemeInput {
@@ -92,6 +94,8 @@ export function themeIndex(themes: readonly ThemeInput[], cards: readonly Librar
   for (const c of cards) if (c.themeId) counts.set(c.themeId, (counts.get(c.themeId) ?? 0) + 1);
   const shelves = new Map<string, ThemeShelf>();
   for (const t of themes) {
+    // A retired Theme (0025) is never listed, whatever it holds.
+    if (t.retired) continue;
     const count = counts.get(t.id) ?? 0;
     if (count === 0) continue;
     const key = t.shelfId ?? "";

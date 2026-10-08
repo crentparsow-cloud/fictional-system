@@ -62,3 +62,26 @@ export function noticeText(code: string | string[] | undefined): string | null {
   const c = Array.isArray(code) ? code[0] : code;
   return c && c in YOU_NOTICES ? YOU_NOTICES[c as YouNotice] : null;
 }
+
+/**
+ * Read only while a deletion is asked for and not yet done (F-025): the
+ * reader can open and download their work but not add to it. The answers
+ * and progress routes refuse writes in the same state (0026).
+ */
+export function isReadOnly(state: DeletionState): boolean {
+  return state.kind === "pending" || state.kind === "due";
+}
+
+/** The banner's words, or null when the account is not read only. */
+export function readOnlyBanner(state: DeletionState): { title: string; body: string } | null {
+  if (state.kind === "pending") {
+    return {
+      title: `Your account will be deleted on ${longDate(state.deletesOn)}.`,
+      body: "Until then your work is read only. You can still open and download it. To keep your account, cancel the deletion on You.",
+    };
+  }
+  if (state.kind === "due") {
+    return { title: "Your account is being deleted.", body: "Your work is read only. You can still download it until the deletion runs." };
+  }
+  return null;
+}

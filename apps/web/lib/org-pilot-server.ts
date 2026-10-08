@@ -4,6 +4,7 @@ import { cache } from "react";
 import { createMailer } from "@akana/emails";
 import { getReaderSession } from "@/lib/auth";
 import { hashToken, mintToken } from "@/lib/partner";
+import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createUserClient } from "@/lib/supabase/server";
 import { adminJoinUrl, formatOrgDate, isCustomerKind, orgErrorNotice, seatJoinUrl, type OrgNotice } from "@/lib/org-pilot";
@@ -71,7 +72,7 @@ function orgMailer() {
   return createMailer({
     env: mailerEnvFromProcess(),
     isSuppressed: () => false,
-    log: (e) => console.info("org_mail", e.template, e.status, e.reason ?? ""),
+    log: mailLog("org", "org_mail"),
   });
 }
 
