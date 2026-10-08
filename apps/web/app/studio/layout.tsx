@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RoleMfaBanner } from "@/components/mfa/RoleMfaBanner";
 import { StudioShell } from "@/components/studio/StudioShell";
 
 export const metadata: Metadata = {
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return <StudioShell>{children}</StudioShell>;
+  return (
+    <StudioShell>
+      <RoleMfaBanner next="/studio" />
+      {children}
+    </StudioShell>
+  );
 }
