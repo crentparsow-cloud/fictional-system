@@ -1,0 +1,78 @@
+{
+  "code": "AK-XWXG0",
+  "workbookId": "humility-the-beauty-of-holiness",
+  "slug": "humility-the-beauty-of-holiness-xwxg0",
+  "title": "Humility: The Beauty of Holiness",
+  "author": "Andrew Murray",
+  "people": [
+    {
+      "name": "Andrew Murray",
+      "role": "author",
+      "died": 1917,
+      "diedSource": "Project Gutenberg catalogue page for eBook #57121 (fetched 7 October 2026) gives 1828-1917. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "1895",
+  "edition": {
+    "name": "'Humility: The Beauty of Holiness', Project Gutenberg eBook #57121",
+    "url": "https://www.gutenberg.org/ebooks/57121",
+    "status": "Credits: Free elf. No editor or introducer is named in the catalogue record. Which printing the file follows is [to confirm against the file]."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Murray died 1917. The term ended at the end of 1987."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "First published 1895, before 1931. Project Gutenberg marks eBook #57121 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1917 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1917 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1917 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Murray died 1917. The term ended at the end of 1987."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1895 first publication year against a second source.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook humility-the-beauty-of-holiness, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/57121",
+    "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Murray%2C%20Andrew%2C%201828-1917"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

@@ -1,0 +1,77 @@
+{
+  "code": "AK-KN241",
+  "workbookId": "the-gospel-of-relaxation",
+  "slug": "the-gospel-of-relaxation-kn241",
+  "title": "The Gospel of Relaxation",
+  "author": "William James",
+  "people": [
+    {
+      "name": "William James",
+      "role": "author",
+      "died": 1910,
+      "diedSource": "Project Gutenberg catalogue page for eBook #16287 (fetched 7 October 2026) gives 1842-1910. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "1899, in Talks to Teachers on Psychology: and to Students on Some of Life's Ideals",
+  "edition": {
+    "name": "'Talks to Teachers on Psychology: and to Students on Some of Life's Ideals', Henry Holt and Company, New York, 1925 printing (copyright 1899, 1900), Project Gutenberg eBook #16287. The Gospel of Relaxation is the first of the three Talks to Students",
+    "url": "https://www.gutenberg.org/ebooks/16287",
+    "status": "The catalogue research file records that the front matter shows only James's own 1899 preface, no later hand."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "James died 1910. The term ended at the end of 1980."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "First published 1899 and the edition used is a 1925 printing, both before 1931. Project Gutenberg marks eBook #16287 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "James died 1910. The term ended at the end of 1980."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1925 printing statement on the file's title page.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/mind-health.json (workbook the-gospel-of-relaxation, pd_record block)",
+    "https://www.gutenberg.org/ebooks/16287",
+    "https://gutenberg.org/files/16287/16287-h/16287-h.htm"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

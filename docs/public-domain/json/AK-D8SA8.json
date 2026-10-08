@@ -1,0 +1,84 @@
+{
+  "code": "AK-D8SA8",
+  "workbookId": "the-imitation-of-christ",
+  "slug": "the-imitation-of-christ-d8sa8",
+  "title": "The Imitation of Christ",
+  "author": "Thomas a Kempis",
+  "people": [
+    {
+      "name": "Thomas a Kempis",
+      "role": "author",
+      "died": 1471,
+      "diedSource": "Project Gutenberg catalogue page for eBook #1653 (fetched 7 October 2026) gives 1380-1471. Matches the catalogue research file."
+    },
+    {
+      "name": "William Benham",
+      "role": "translator",
+      "died": 1910,
+      "diedSource": "Project Gutenberg catalogue page for eBook #1653 (fetched 7 October 2026) gives 1831-1910. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Latin, composed about 1418 to 1427",
+  "edition": {
+    "name": "'The Imitation of Christ', translated by the Rev. William Benham, Project Gutenberg eBook #1653",
+    "url": "https://www.gutenberg.org/ebooks/1653",
+    "status": "The Gutenberg file names Benham as translator and carries his own introduction. The year his translation was first published is not shown in the catalogue record [check]. The alternative file #26222 is not checked and should not be used without its own check."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Thomas died 1471 and the translator Benham died 1910. The last term ended at the end of 1980."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Project Gutenberg marks eBook #1653 public domain in the USA. Benham died 1910, so his translation appeared before 1931 unless issued long after his death [check the translation year]."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1910 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Thomas died 1471 and the translator Benham died 1910. The last term ended at the end of 1980."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the year Benham's translation was first published.",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook the-imitation-of-christ, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/1653",
+    "https://www.gutenberg.org/ebooks/26222"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

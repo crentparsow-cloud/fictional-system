@@ -1,0 +1,85 @@
+{
+  "code": "AK-DAA18",
+  "workbookId": "on-old-age",
+  "slug": "on-old-age-daa18",
+  "title": "On Old Age",
+  "author": "Marcus Tullius Cicero",
+  "people": [
+    {
+      "name": "Marcus Tullius Cicero",
+      "role": "author",
+      "died": -43,
+      "diedSource": "Catalogue research file gives 43 BCE. Project Gutenberg eBook #2808 gives \"107 BCE-44 BCE\" (fetched 7 October 2026), which does not match [check]. Either year leaves no term."
+    },
+    {
+      "name": "Evelyn Shirley Shuckburgh",
+      "role": "translator",
+      "died": 1906,
+      "diedSource": "Project Gutenberg catalogue page for eBook #2808 (fetched 7 October 2026) gives 1843-1906. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Latin, 44 BCE (Cato Maior de Senectute) [check]",
+  "edition": {
+    "name": "'Treatises on Friendship and Old Age', translated by Evelyn S. Shuckburgh, Project Gutenberg eBook #2808. Only the treatise on old age is used",
+    "url": "https://www.gutenberg.org/ebooks/2808",
+    "status": "The same translation is in The Harvard Classics vol. 9 (P. F. Collier, New York, c1909; HathiTrust record 001381079, per the catalogue research file)."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Cicero died 43 BCE and the translator Shuckburgh died 1906. The translation term ended at the end of 1976."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "The translation was in print by about 1909, before 1931. Project Gutenberg marks eBook #2808 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1906 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1906 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1906 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Cicero died 43 BCE and the translator Shuckburgh died 1906. The translation term ended at the end of 1976."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Record the year of Shuckburgh's first printing of the translation.",
+    "Settle Cicero's death year in the people table (43 BCE).",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/mind-health.json (workbook on-old-age, pd_record block)",
+    "https://www.gutenberg.org/ebooks/2808",
+    "https://catalog.hathitrust.org/Record/001381079",
+    "https://en.wikipedia.org/wiki/On_Old_Age"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

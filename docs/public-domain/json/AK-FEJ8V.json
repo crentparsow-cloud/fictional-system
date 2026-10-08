@@ -1,0 +1,77 @@
+{
+  "code": "AK-FEJ8V",
+  "workbookId": "self-reliance",
+  "slug": "self-reliance-fej8v",
+  "title": "Self-Reliance",
+  "author": "Ralph Waldo Emerson",
+  "people": [
+    {
+      "name": "Ralph Waldo Emerson",
+      "role": "author",
+      "died": 1882,
+      "diedSource": "Project Gutenberg catalogue page for eBook #2944 (fetched 7 October 2026) gives 1803-1882. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "1841, in Essays: First Series",
+  "edition": {
+    "name": "'Essays: First Series', which contains 'Self-Reliance', Project Gutenberg eBook #2944",
+    "url": "https://www.gutenberg.org/ebooks/2944",
+    "status": "Credits: Tony Adam and David Widger. No editor is named. An alternative text is eBook #16643 (not checked for this record)."
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "Emerson died 1882. The term ended at the end of 1952."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "First published 1841, before 1931. Project Gutenberg marks eBook #2944 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1882 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "Emerson died 1882. The term ended at the end of 1952."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm which printing eBook #2944 follows (1841 or a later revised text).",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/growth-love-family.json (workbook self-reliance, pd_record block)",
+    "https://www.gutenberg.org/ebooks/2944",
+    "https://www.gutenberg.org/ebooks/16643"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}

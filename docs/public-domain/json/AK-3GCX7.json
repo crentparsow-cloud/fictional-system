@@ -1,0 +1,85 @@
+{
+  "code": "AK-3GCX7",
+  "workbookId": "the-dhammapada",
+  "slug": "the-dhammapada-3gcx7",
+  "title": "The Dhammapada",
+  "author": "F. Max Müller (translator)",
+  "people": [
+    {
+      "name": "Unknown (traditional Pali text)",
+      "role": "author",
+      "died": null,
+      "diedSource": "Ancient anonymous text; no term can survive."
+    },
+    {
+      "name": "F. Max Müller",
+      "role": "translator",
+      "died": 1900,
+      "diedSource": "Project Gutenberg catalogue page for eBook #2017 (fetched 7 October 2026) gives 1823-1900. Matches the catalogue research file."
+    }
+  ],
+  "firstPublished": "Pali text, traditional and anonymous. Müller's translation published in The Sacred Books of the East, Volume X, Part I, Clarendon Press, Oxford, 1881",
+  "edition": {
+    "name": "'Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists', translated by F. Max Müller, Project Gutenberg eBook #2017",
+    "url": "https://www.gutenberg.org/ebooks/2017",
+    "status": "Gutenberg note: transcribed from The Sacred Books of the East, Volume X, Part I; \"The introduction, notes and index have been omitted.\""
+  },
+  "tier": "A",
+  "tierNote": "Research 4 Tier A: published before 1931 and every author, translator and editor died before 1946.",
+  "markets": [
+    {
+      "market": "GB",
+      "rule": "Life plus 70 years (UK).",
+      "conclusion": "clear",
+      "basis": "The source text is ancient and anonymous. The translator Müller died 1900, so his term ended at the end of 1970."
+    },
+    {
+      "market": "US",
+      "rule": "Published before 1 January 1931 (Research 4 test, true for 2026).",
+      "conclusion": "clear",
+      "basis": "Published 1881, before 1931. Project Gutenberg marks eBook #2017 public domain in the USA."
+    },
+    {
+      "market": "CA",
+      "rule": "Canadian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Canadian rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "AU",
+      "rule": "Australian term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the Australian rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "NZ",
+      "rule": "New Zealand term is not recorded in the repo planning files [to confirm].",
+      "conclusion": "to_confirm",
+      "basis": "Needs the New Zealand rule applied to a last death year of 1900 and the edition named here [to confirm]."
+    },
+    {
+      "market": "IE",
+      "rule": "Life plus 70 years (EU rule; Ireland is an EU member state).",
+      "conclusion": "clear",
+      "basis": "The source text is ancient and anonymous. The translator Müller died 1900, so his term ended at the end of 1970."
+    }
+  ],
+  "typographicalArrangement": "UK publishers hold a 25-year right in the typographical arrangement of an edition (Research 4, cited in docs/planning/AK_Demo_Catalogue_Plan.md section 7). Quotations must come from the Project Gutenberg transcription, never from a modern reprint layout.",
+  "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
+  "checks": [
+    "Confirm the 1881 Clarendon Press date against the Wikisource index.",
+    "A Buddhist reviewer to read the workbook before launch (content, not copyright).",
+    "Apply the Canadian, Australian and New Zealand rules and record the result.",
+    "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Sign the review line below."
+  ],
+  "sources": [
+    "docs/research/catalogue/faith.json (workbook the-dhammapada, pd_record block)",
+    "docs/research/faith-titles.json",
+    "https://www.gutenberg.org/ebooks/2017",
+    "https://en.wikisource.org/wiki/Index:Sacred_Books_of_the_East_-_Volume_10.djvu"
+  ],
+  "status": "unreviewed",
+  "reviewedBy": null,
+  "reviewedOn": null
+}
