@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { signOut } from "@/app/(auth)/sign-out/action";
+import { SignOutButton } from "@/components/SignOutButton";
 import { orgNotice } from "@/lib/org-pilot";
 
 /**
@@ -21,14 +21,14 @@ export function OrgShell({ children }: { children: React.ReactNode }) {
           </Link>
           <nav aria-label="Organisation" className="studio-nav">
             <Link href="/org">Seats</Link>
+            <Link href="/org/invite">Invite in bulk</Link>
+            <Link href="/org/groups">Groups</Link>
+            <Link href="/org/reports">Reports</Link>
+            <Link href="/org/billing">Billing</Link>
             <Link href="/trust">How answers are protected</Link>
             <Link href="/help">Help</Link>
           </nav>
-          <form action={signOut}>
-            <button type="submit" className="btn secondary admin-signout">
-              Sign out
-            </button>
-          </form>
+          <SignOutButton label="Sign out" className="btn secondary admin-signout" />
         </div>
       </header>
       <main id="main" className="wrap admin-main" tabIndex={-1}>
