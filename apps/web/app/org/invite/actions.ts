@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 import { CSV_MAX_BYTES, joinLinkUrl, parseInviteCsv, parseInviteList, parseJoinLinkForm, billingErrorNotice, BILLING_NOTICES } from "@/lib/org-billing";
 import { ORG_NOTICES } from "@/lib/org-pilot";
 import { hashToken, mintToken, originFrom } from "@/lib/partner";
+import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { requireOrgConsole, sendSeatInvite, withOrgParam } from "@/lib/org-pilot-server";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -43,9 +44,11 @@ interface OpenLicence {
 }
 
 /** The licence, if it belongs to the organisation and the caller owns it. */
-async function ownedLicence(formData: FormData): Promise<OpenLicence | null> {
+async function ownedLicence(formData: FormData, change = false): Promise<OpenLicence | null> {
   const ctx = await requireOrgConsole("/org/invite", String(formData.get("org") ?? ""));
   if (ctx.org.role !== "owner") return null;
+  // Sending invitations or making a link changes membership: second factor first (F-143, 0032).
+  if (change) await requireRoleMfa(ctx.org.role, withOrgParam("/org/invite", ctx.org.id, ctx.multi));
   const id = String(formData.get("licence") ?? "");
   if (!UUID.test(id)) return null;
   const supabase = await createUserClient();
@@ -90,7 +93,7 @@ const REASONS: Record<string, string> = {
 };
 
 export async function sendInviteCsv(_prev: CsvState, formData: FormData): Promise<CsvState> {
-  const licence = await ownedLicence(formData);
+  const licence = await ownedLicence(formData, true);
   if (!licence) return { status: "error", message: ORG_NOTICES.denied.text };
   const list = parseInviteList(formData.get("emails"));
   if (!list) return { status: "error", message: ORG_NOTICES.invalid.text };
@@ -116,7 +119,7 @@ export async function sendInviteCsv(_prev: CsvState, formData: FormData): Promis
 }
 
 export async function createJoinLink(_prev: LinkState, formData: FormData): Promise<LinkState> {
-  const licence = await ownedLicence(formData);
+  const licence = await ownedLicence(formData, true);
   if (!licence) return { status: "error", message: BILLING_NOTICES.denied.text };
   const input = parseJoinLinkForm((k) => formData.get(k), licence.seats_purchased);
   if (!input) return { status: "error", message: BILLING_NOTICES.invalid.text };
@@ -139,6 +142,7 @@ export async function createJoinLink(_prev: LinkState, formData: FormData): Prom
 
 export async function revokeJoinLink(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org/invite", String(formData.get("org") ?? ""));
+  await requireRoleMfa(ctx.org.role, withOrgParam("/org/invite", ctx.org.id, ctx.multi));
   const id = String(formData.get("link") ?? "");
   const back = withOrgParam("/org/invite", ctx.org.id, ctx.multi);
   const sep = back.includes("?") ? "&" : "?";
