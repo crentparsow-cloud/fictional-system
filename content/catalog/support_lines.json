@@ -32,11 +32,14 @@
           {"label": "Shout", "number": "85258", "how": "Text SHOUT to", "hours": "24/7", "url": "https://giveusashout.org/", "verified": true},
           {"label": "NHS 111 (England), mental health option", "number": "111", "how": "Call and choose the mental health option", "hours": "24/7", "url": "https://www.england.nhs.uk/south-east/2024/08/30/nhs-111-offering-crisis-mental-health-support-in-the-south-east/", "verified": true},
           {"label": "NHS 24 (Scotland), mental health option", "number": "111", "how": "Call and choose the mental health option", "hours": "24/7", "url": "https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-support/mental-health-services-at-nhs-24/", "verified": true},
-          {"label": "NHS 111 Wales, mental health", "number": "111", "how": "Call and press 2", "hours": "24/7", "url": "https://www.gov.wales/nhs-111-press-2", "verified": true}
+          {"label": "NHS 111 Wales, mental health", "number": "111", "how": "Call and press 2", "hours": "24/7", "url": "https://www.gov.wales/nhs-111-press-2", "verified": true},
+          {"label": "Lifeline (Northern Ireland)", "number": "0808 808 8000", "how": "Call", "hours": "24/7", "url": "https://www.lifelinehelpline.info/", "verified": true, "checked": "2026-10-07"}
         ]},
         {"id": "abuse", "title": "Domestic abuse", "lines": [
           {"label": "National Domestic Abuse Helpline (Refuge)", "number": "0808 2000 247", "how": "Call", "hours": "24/7", "url": "https://www.nationaldahelpline.org.uk/", "verified": true},
-          {"label": "Scotland's Domestic Abuse and Forced Marriage Helpline", "number": "0800 027 1234", "how": "Call", "hours": "24/7", "url": "https://www.sdafmh.org.uk/en/", "verified": true}
+          {"label": "Scotland's Domestic Abuse and Forced Marriage Helpline", "number": "0800 027 1234", "how": "Call", "hours": "24/7", "url": "https://www.sdafmh.org.uk/en/", "verified": true},
+          {"label": "Live Fear Free Helpline (Wales)", "number": "0808 80 10 800", "how": "Call", "hours": "24/7", "url": "https://www.gov.wales/live-fear-free/contact-live-fear-free", "verified": true, "checked": "2026-10-07"},
+          {"label": "Domestic and Sexual Abuse Helpline (Northern Ireland)", "number": "0808 802 1414", "how": "Call", "hours": "24/7", "url": "https://dsahelpline.org/", "verified": true, "checked": "2026-10-07"}
         ]},
         {"id": "addiction", "title": "Drugs and alcohol", "lines": [
           {"label": "FRANK", "number": "0300 123 6600", "how": "Call", "hours": "24/7", "url": "https://www.talktofrank.com/contact-frank", "verified": true},
@@ -168,87 +171,146 @@
     }
   },
   "signposts": {
-    "_note": "F-154 signpost groups, added 7 October 2026. Signposts only: no endorsement or partnership is claimed. Each GB number and its hours were read on the organisation's own website on the checked date. Every other market is null until checked by market (question N16).",
+    "_note": "F-154 signpost groups, added 7 October 2026. Signposts only: no endorsement or partnership is claimed. Each number and its hours were read on the organisation's own website on the checked date. A null number is not yet verified and shows the website only [check]. A null market shows no signpost (question N16).",
     "checked": "2026-10-07",
     "groups": {
       "money_worries_lines": {
         "title": "Money worries",
-        "_note": "Free debt and money help. MoneyHelper is the government-backed service; the others are charities.",
+        "_note": "Free debt and money help. GB: MoneyHelper is the government-backed service; the others are charities. The Scotland and Northern Ireland numbers list no hours on their own pages, so hours are null. US and CA: 211 connects to local services and is not a debt adviser. CA adds the federal debt guidance page.",
         "markets": {
-          "US": null,
+          "US": [
+            {"label": "211", "number": "211", "how": "Call", "hours": null, "url": "https://www.211.org/", "verified": true, "checked": "2026-10-07"}
+          ],
           "GB": [
             {"label": "MoneyHelper", "number": "0800 011 3797", "how": "Call", "hours": "Mon to Fri 9am to 5pm", "url": "https://www.moneyhelper.org.uk/en/contact-us", "verified": true, "checked": "2026-10-07"},
             {"label": "StepChange Debt Charity", "number": "0800 138 1111", "how": "Call", "hours": "Mon to Fri 8am to 8pm; Sat 9am to 2pm", "url": "https://www.stepchange.org/contact-us.aspx", "verified": true, "checked": "2026-10-07"},
             {"label": "National Debtline", "number": "0808 808 4000", "how": "Call", "hours": "Mon to Fri 9am to 8pm; Sat 9:30am to 1pm", "url": "https://nationaldebtline.org/contact-us/", "verified": true, "checked": "2026-10-07"},
             {"label": "Citizens Advice Adviceline (England)", "number": "0800 144 8848", "how": "Call", "hours": "Mon to Fri 9am to 5pm", "url": "https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/", "verified": true, "checked": "2026-10-07"},
-            {"label": "Citizens Advice Advicelink (Wales)", "number": "0800 702 2020", "how": "Call", "hours": "Mon to Fri 8am to 7pm; Sat 9am to 1pm", "url": "https://www.citizensadvice.org.uk/wales/about-us/contact-us/contact-us/contact-us/", "verified": true, "checked": "2026-10-07"}
+            {"label": "Citizens Advice Advicelink (Wales)", "number": "0800 702 2020", "how": "Call", "hours": "Mon to Fri 8am to 7pm; Sat 9am to 1pm", "url": "https://www.citizensadvice.org.uk/wales/about-us/contact-us/contact-us/contact-us/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Citizens Advice Scotland Money Talk Team", "number": "0800 028 1456", "how": "Call", "hours": null, "url": "https://www.cas.org.uk/get-advice/money-talk-team/talk-us", "verified": true, "checked": "2026-10-07"},
+            {"label": "Advice NI (Northern Ireland)", "number": "0800 915 4604", "how": "Call", "hours": null, "url": "https://www.adviceni.net/contact", "verified": true, "checked": "2026-10-07"}
           ],
-          "CA": null,
-          "AU": null,
-          "IE": null,
-          "NZ": null,
+          "CA": [
+            {"label": "211 Canada (local community and social services)", "number": "211", "how": "Call", "hours": "24 hours a day", "url": "https://211.ca/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Financial Consumer Agency of Canada: debt help", "number": "canada.ca", "how": "Website", "hours": null, "url": "https://www.canada.ca/en/financial-consumer-agency/services/debt.html", "verified": true, "checked": "2026-10-07"}
+          ],
+          "AU": [
+            {"label": "National Debt Helpline", "number": "1800 007 007", "how": "Call", "hours": "Mon to Fri 9:30am to 4:30pm", "url": "https://ndh.org.au/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "IE": [
+            {"label": "MABS Helpline", "number": "0818 07 2000", "how": "Call", "hours": "Mon to Fri 9am to 8pm", "url": "https://www.mabs.ie/contact-us/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "NZ": [
+            {"label": "MoneyTalks", "number": "0800 345 123", "how": "Call", "hours": null, "url": "https://fincap.org.nz/moneytalks", "verified": true, "checked": "2026-10-07"},
+            {"label": "MoneyTalks (text)", "number": "4029", "how": "Text", "hours": null, "url": "https://fincap.org.nz/moneytalks", "verified": true, "checked": "2026-10-07"}
+          ],
           "XX": null
         }
       },
       "eating_support_lines": {
         "title": "Food and eating",
-        "_note": "Beat's own page gives these four numbers and hours.",
+        "_note": "GB: Beat's own page gives these four numbers and hours. NZ: EDANZ says its support is for families and carers only, and its site gives no hours.",
         "markets": {
-          "US": null,
+          "US": [
+            {"label": "ANAD Eating Disorder Helpline", "number": "1-888-375-7767", "how": "Call", "hours": "Mon to Fri 9am to 9pm CT", "url": "https://anad.org/eating-disorder-helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
           "GB": [
             {"label": "Beat Helpline (England)", "number": "0808 801 0677", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
             {"label": "Beat Helpline (Scotland)", "number": "0808 801 0432", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
             {"label": "Beat Helpline (Wales)", "number": "0808 801 0433", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"},
             {"label": "Beat Helpline (Northern Ireland)", "number": "0808 801 0434", "how": "Call", "hours": "Mon to Fri 3pm to 8pm", "url": "https://www.beateatingdisorders.org.uk/get-information-and-support/get-help-for-myself/helpline/", "verified": true, "checked": "2026-10-07"}
           ],
-          "CA": null,
-          "AU": null,
-          "IE": null,
-          "NZ": null,
+          "CA": [
+            {"label": "NEDIC Helpline", "number": "1-866-633-4220", "how": "Call", "hours": "Mon to Thu 10am to 6pm; Fri 10am to 5pm; Sat and Sun 12pm to 5pm ET", "url": "https://nedic.ca/contact/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "AU": [
+            {"label": "Butterfly National Helpline", "number": "1800 33 4673", "how": "Call", "hours": "7 days 8am to midnight AEST/AEDT", "url": "https://butterfly.org.au/get-support/helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "IE": [
+            {"label": "Bodywhys Helpline", "number": "01 210 7906", "how": "Call", "hours": "Mon, Wed and Sun 7:30pm to 9:30pm; Tue, Thu, Fri and Sat 10:30am to 12:30pm", "url": "https://www.bodywhys.ie/supports-services/helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "NZ": [
+            {"label": "EDANZ (for families and carers)", "number": "0800 233 269", "how": "Call", "hours": null, "url": "https://www.ed.org.nz/", "verified": true, "checked": "2026-10-07"}
+          ],
           "XX": null
         }
       },
       "bereavement_support_lines": {
         "title": "Bereavement",
+        "_note": "GB: the Cruse helpline serves anyone in the UK; Cruse Scotland runs its own free helpline. US: no free national bereavement helpline found, so the US stays null and Help now shows 988. CA: MyGrief.ca is free and online. NZ: 1737 lists grief and loss among the things it helps with.",
         "markets": {
           "US": null,
           "GB": [
-            {"label": "Cruse Bereavement Support", "number": "0808 808 1677", "how": "Call", "hours": "Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm", "url": "https://www.cruse.org.uk/get-support/helpline/", "verified": true, "checked": "2026-10-07"}
+            {"label": "Cruse Bereavement Support", "number": "0808 808 1677", "how": "Call", "hours": "Mon, Wed, Thu, Fri 9:30am to 5pm; Tue 1pm to 8pm", "url": "https://www.cruse.org.uk/get-support/helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Cruse Scotland", "number": "0808 802 6161", "how": "Call", "hours": "Mon to Fri 9am to 5pm; Mon and Thu until 8pm", "url": "https://www.crusescotland.org.uk/get-support/free-bereavement-helpline/", "verified": true, "checked": "2026-10-07"}
           ],
-          "CA": null,
-          "AU": null,
-          "IE": null,
-          "NZ": null,
+          "CA": [
+            {"label": "MyGrief.ca (Canadian Virtual Hospice)", "number": "mygrief.ca", "how": "Website", "hours": null, "url": "https://www.mygrief.ca/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "AU": [
+            {"label": "Griefline", "number": "1300 845 745", "how": "Call", "hours": "Mon to Fri 10am to 8pm AEST/AEDT", "url": "https://griefline.org.au/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "IE": [
+            {"label": "Irish Hospice Foundation Bereavement Support Line", "number": "1800 80 70 77", "how": "Call", "hours": "Mon to Fri 10am to 1pm", "url": "https://hospicefoundation.ie/our-supports-services/bereavement-loss-hub/bereavement-support-line/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "NZ": [
+            {"label": "1737 Need to talk?", "number": "1737", "how": "Call or text", "hours": "24/7", "url": "https://1737.org.nz/", "verified": true, "checked": "2026-10-07"}
+          ],
           "XX": null
         }
       },
       "new_parent_support_lines": {
         "title": "New parents",
-        "_note": "Family Lives covers England and Wales; its site points callers in Scotland to Children 1st's Parentline Scotland, not yet checked here [check]. PANDAS lists no helpline number on its home page, so only the website is given [check].",
+        "_note": "GB: Family Lives covers England and Wales. Children First's Support Line (formerly Parentline Scotland) covers Scotland. Parenting NI's Support Line could not be read on its own site on the checked date, so only the website is given [check]. PANDAS offers WhatsApp support and booked callbacks, not a phone helpline. US: the PSI HelpLine says it is not a crisis line. CA: no national new-parent line found; 211 connects to local services.",
         "markets": {
-          "US": null,
+          "US": [
+            {"label": "National Maternal Mental Health Hotline", "number": "1-833-852-6262", "how": "Call or text", "hours": "24/7", "url": "https://mchb.hrsa.gov/national-maternal-mental-health-hotline", "verified": true, "checked": "2026-10-07"},
+            {"label": "Postpartum Support International HelpLine", "number": "1-800-944-4773", "how": "Call", "hours": null, "url": "https://www.postpartum.net/get-help/psi-helpline/", "verified": true, "checked": "2026-10-07"}
+          ],
           "GB": [
             {"label": "Family Lives (England and Wales)", "number": "0808 800 2222", "how": "Call", "hours": "Mon to Fri 9am to 9pm; weekends 10am to 3pm", "url": "https://www.familylives.org.uk/how-we-can-help/confidential-helpline/", "verified": true, "checked": "2026-10-07"},
+            {"label": "Children First Support Line (Scotland)", "number": "08000 28 22 33", "how": "Call", "hours": "Mon to Fri 9am to 9pm; weekends 9am to 12pm", "url": "https://www.childrenfirst.org.uk/get-support/support-line", "verified": true, "checked": "2026-10-07"},
+            {"label": "Parenting NI Support Line (Northern Ireland)", "number": null, "how": "Website", "hours": null, "url": "https://www.parentingni.org/parents/support-line/", "verified": false, "checked": "2026-10-07"},
             {"label": "PANDAS Foundation (perinatal mental health)", "number": "pandasfoundation.org.uk", "how": "Website", "hours": null, "url": "https://pandasfoundation.org.uk/", "verified": true, "checked": "2026-10-07"}
           ],
-          "CA": null,
-          "AU": null,
-          "IE": null,
-          "NZ": null,
+          "CA": [
+            {"label": "211 Canada (local community and social services)", "number": "211", "how": "Call", "hours": "24 hours a day", "url": "https://211.ca/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "AU": [
+            {"label": "PANDA National Helpline", "number": "1300 726 306", "how": "Call", "hours": "7 days a week", "url": "https://panda.org.au/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "IE": [
+            {"label": "Parentline", "number": "01 873 3500", "how": "Call", "hours": "Mon to Thu 10am to 9pm; Fri 10am to 7pm", "url": "https://www.parentline.ie/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "NZ": [
+            {"label": "PlunketLine", "number": "0800 933 922", "how": "Call", "hours": "24/7", "url": "https://www.plunket.org.nz/plunket/contact-us/", "verified": true, "checked": "2026-10-07"}
+          ],
           "XX": null
         }
       },
       "carer_support_lines": {
         "title": "Carers",
+        "_note": "GB: Carers UK's helpline page does not say whether it covers every nation; no separate Scotland or Northern Ireland number is listed there [check]. US and NZ: hours are not given on the services' own pages. CA: no national carer line found; 211 connects to local services.",
         "markets": {
-          "US": null,
+          "US": [
+            {"label": "Eldercare Locator", "number": "1-800-677-1116", "how": "Call or text", "hours": null, "url": "https://eldercare.acl.gov/", "verified": true, "checked": "2026-10-07"},
+            {"label": "211", "number": "211", "how": "Call", "hours": null, "url": "https://www.211.org/", "verified": true, "checked": "2026-10-07"}
+          ],
           "GB": [
             {"label": "Carers UK Helpline", "number": "0808 808 7777", "how": "Call", "hours": "Mon to Fri 9am to 6pm", "url": "https://www.carersuk.org/help-and-advice/helpline-and-other-support/", "verified": true, "checked": "2026-10-07"}
           ],
-          "CA": null,
-          "AU": null,
-          "IE": null,
-          "NZ": null,
+          "CA": [
+            {"label": "211 Canada (local community and social services)", "number": "211", "how": "Call", "hours": "24 hours a day", "url": "https://211.ca/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "AU": [
+            {"label": "Carer Gateway", "number": "1800 422 737", "how": "Call", "hours": "Mon to Fri 8am to 5pm", "url": "https://www.carergateway.gov.au/contact-us", "verified": true, "checked": "2026-10-07"}
+          ],
+          "IE": [
+            {"label": "Family Carers Ireland National Freephone Careline", "number": "1800 24 07 24", "how": "Call", "hours": "Mon to Thu 9am to 5:30pm; Fri 9am to 5pm", "url": "https://familycarers.ie/carer-supports/national-freephone-careline/", "verified": true, "checked": "2026-10-07"}
+          ],
+          "NZ": [
+            {"label": "Carers NZ", "number": "0800 777 797", "how": "Call", "hours": null, "url": "https://carers.net.nz/", "verified": true, "checked": "2026-10-07"}
+          ],
           "XX": null
         }
       }
