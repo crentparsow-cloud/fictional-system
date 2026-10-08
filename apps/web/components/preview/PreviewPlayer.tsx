@@ -15,7 +15,8 @@ type Theme = "system" | "light" | "dark";
  * events, no locked units. The Preview watermark stays on screen.
  *
  * The controls let the author check the phone and desktop widths, both
- * themes and 200% text. Theme and text size are set on the document root
+ * themes and 200% text. Exercises page one part per screen, with Back and
+ * Next, as they do for readers (F-015). Theme and text size are set on the document root
  * for the life of this page and put back when it closes.
  */
 export function PreviewPlayer({ workbook, label }: { workbook: WorkbookV3; label: string }) {
@@ -88,7 +89,8 @@ export function PreviewPlayer({ workbook, label }: { workbook: WorkbookV3; label
         </div>
       </div>
       <div className={`preview-stage is-${width}`} data-watermark="Preview">
-        <Player key={resetKey} workbook={workbook} store={store} helpSlot={helpSlot} />
+        {/* Paged exercises, as readers see them (ReadClient), so the preview matches the reader app. */}
+        <Player key={resetKey} workbook={workbook} store={store} helpSlot={helpSlot} pagedExercises />
       </div>
     </section>
   );
