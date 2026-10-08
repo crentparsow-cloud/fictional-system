@@ -22,7 +22,7 @@ function sub(over: Record<string, unknown> = {}): Stripe.Subscription {
 }
 
 function fakeRepo(opts: { fresh?: Stripe.Subscription | null; provision?: "closed" } = {}) {
-  const calls = { apply: [] as OrgSubscriptionArgs[], invoices: [] as OrgInvoiceArgs[], receipts: [] as string[], provisions: [] as OrgSignup[] };
+  const calls = { apply: [] as OrgSubscriptionArgs[], invoices: [] as OrgInvoiceArgs[], receipts: [] as string[], provisions: [] as OrgSignup[], seats: [] as string[] };
   const repo: OrgBillingRepo = {
     retrieveSubscription: async () => (opts.fresh === undefined ? sub() : opts.fresh),
     apply: async (a) => {
@@ -41,6 +41,10 @@ function fakeRepo(opts: { fresh?: Stripe.Subscription | null; provision?: "close
       calls.provisions.push(s);
       return opts.provision ?? { licenceId: LICENCE };
     },
+    seatOrganiser: async (licence, user) => {
+      calls.seats.push(`${licence}:${user}`);
+      return "seat_1";
+    },
   };
   return { repo, calls };
 }
@@ -55,6 +59,23 @@ describe("handleOrgBillingEvent", () => {
     expect(out.action).toBe("subscription_applied");
     expect(calls.apply[0]!.p_status).toBe("active");
     expect(calls.apply[0]!.p_licence).toBe(LICENCE);
+    // No tick box, no seat.
+    expect(calls.seats).toEqual([]);
+  });
+
+  it("seats the organiser only when they ticked the box, after the mirror", async () => {
+    const session = {
+      id: "cs_2",
+      mode: "subscription",
+      payment_status: "paid",
+      subscription: "sub_SS",
+      metadata: { akana_kind: "org_signup", user_id: USER, plan: "group_member_month", org_kind: "community_group", org_name: "Club", quantity: "6", auto_seat: "yes" },
+    };
+    const { repo, calls } = fakeRepo({ fresh: sub({ id: "sub_SS", metadata: { akana_kind: "org_signup" } }) });
+    const out = await handleOrgBillingEvent(event("checkout.session.completed", session), repo);
+    expect(out.organiserSeated).toBe(true);
+    expect(calls.apply).toHaveLength(1);
+    expect(calls.seats).toEqual([`${LICENCE}:${USER}`]);
   });
 
   it("falls back to the event's copy, dated by the event, when Stripe cannot be read", async () => {

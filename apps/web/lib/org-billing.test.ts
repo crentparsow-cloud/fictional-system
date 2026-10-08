@@ -208,7 +208,8 @@ describe("signup form", () => {
   const get = (o: Record<string, string>) => (k: string) => o[k];
   const ok = { plan: "group_member_month", org_kind: "community_group", name: "Book Club", quantity: "6", adult: "yes", renews: "yes" };
   it("needs the 18+ tick, the renewal tick and bounds for the plan", () => {
-    expect(parseSignupForm(get(ok))).toEqual({ plan: "group_member_month", orgKind: "community_group", name: "Book Club", quantity: 6 });
+    expect(parseSignupForm(get(ok))).toEqual({ plan: "group_member_month", orgKind: "community_group", name: "Book Club", quantity: 6, autoSeat: false });
+    expect(parseSignupForm(get({ ...ok, auto_seat: "yes" }))?.autoSeat).toBe(true);
     expect(parseSignupForm(get({ ...ok, adult: "" }))).toBeNull();
     expect(parseSignupForm(get({ ...ok, renews: "" }))).toBeNull();
     expect(parseSignupForm(get({ ...ok, quantity: "3" }))).toBeNull();

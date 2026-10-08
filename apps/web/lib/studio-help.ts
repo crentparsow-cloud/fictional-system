@@ -7,7 +7,7 @@ import { firstHeading, firstParagraph, markdownToHtml } from "@/lib/markdown";
  * read at build time, in the same shape as the reader help centre (F-010).
  * The order here is the order on the index page.
  */
-export const STUDIO_HELP_TOPICS = ["house-rules", "review", "pricing", "payments", "pool"] as const;
+export const STUDIO_HELP_TOPICS = ["house-rules", "review", "pricing", "payments", "pool", "comments", "statements", "demo-accounts"] as const;
 export type StudioHelpTopic = (typeof STUDIO_HELP_TOPICS)[number];
 
 export function isStudioHelpTopic(value: string): value is StudioHelpTopic {

@@ -1,7 +1,8 @@
 import "server-only";
 import type Stripe from "stripe";
 import { isTestKey } from "@/lib/money/reconcile";
-import { billingErrorNotice, ORG_PLANS, orgPriceId, type BillingNotice, type OrgPlanId, type SignupInput } from "@/lib/org-billing";
+import { refundCoolingOff } from "@/lib/membership-refund";
+import { bandProration, billingErrorNotice, ORG_PLANS, orgPriceId, type BillingNotice, type ChurchBandPlan, type OrgPlanId, type SignupInput } from "@/lib/org-billing";
 import { getStripe } from "@/lib/stripe";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -186,6 +187,7 @@ export async function startSelfServeCheckout(a: { userId: string; email: string 
     org_kind: a.input.orgKind,
     org_name: a.input.name,
     quantity: String(a.input.quantity),
+    auto_seat: a.input.autoSeat ? "yes" : "no",
   };
   try {
     const session = await stripe.checkout.sessions.create({
@@ -205,4 +207,104 @@ export async function startSelfServeCheckout(a: { userId: string; email: string 
     console.error("org_self_serve_checkout_failed", { reason: e instanceof Error ? e.name : "unknown" });
     return "stripe_failed";
   }
+}
+
+/**
+ * Change a church band (0031): a price swap on the same subscription item,
+ * quantity 1, prorated. Up: the difference for the rest of the period is
+ * invoiced now. Down: the unused part comes off the next invoice. The
+ * organisation's owner or finance may do it while the licence is active;
+ * staff may override (a reason, and optionally no proration). The metadata
+ * plan moves with the price, so the mirror reads the new band; 0031's
+ * trigger then sets the seats to the band's size.
+ */
+export async function changeLicenceBand(a: {
+  licenceId: string;
+  subscriptionId: string;
+  plan: ChurchBandPlan;
+  staff?: { reason: string; prorate: boolean };
+}): Promise<BillingNotice> {
+  const price = orgPriceId(a.plan);
+  if (!price) return "not_priced";
+  const stripe = testStripe();
+  if (!stripe) return "stripe_off";
+  const supabase = await createUserClient();
+  const { data, error } = await supabase.rpc("org_billing_band_change_check", {
+    p_licence: a.licenceId,
+    p_plan: a.plan,
+    p_reason: a.staff?.reason ?? null,
+  });
+  if (error) return billingErrorNotice(error.code);
+  if (data === "same") return "band_same";
+  const direction = data === "up" ? "up" : "down";
+  try {
+    const sub = await stripe.subscriptions.retrieve(a.subscriptionId);
+    const meta = (sub.metadata ?? {}) as Record<string, string>;
+    if (meta.licence_id && meta.licence_id !== a.licenceId) return "denied";
+    const item = sub.items.data[0];
+    if (!item) return "stripe_failed";
+    await stripe.subscriptions.update(
+      a.subscriptionId,
+      {
+        items: [{ id: item.id, price, quantity: 1 }],
+        proration_behavior: bandProration(direction, a.staff ? a.staff.prorate : true),
+        metadata: { ...meta, plan: a.plan },
+      },
+      { idempotencyKey: `org_band:${a.licenceId}:${a.plan}:${sub.items.data[0]?.price?.id ?? "x"}` },
+    );
+  } catch (e) {
+    console.error("org_billing_band_failed", { licence: a.licenceId, reason: e instanceof Error ? e.name : "unknown" });
+    return "stripe_failed";
+  }
+  return direction === "up" ? "band_up" : "band_down";
+}
+
+/**
+ * A consumer organiser cancels inside the 14-day cooling-off (0031, DMCC
+ * Act): from the start, or from a yearly renewal's payment. The database
+ * says whether the window is open; Stripe is asked again by
+ * refundCoolingOff (the same rule and once-per-invoice guard as reader
+ * memberships). Refund first, then cancel now, then end the licence: if a
+ * step fails the owner can press again and the refund is not repeated.
+ */
+export async function cancelOrgInCoolingOff(a: { licenceId: string }): Promise<BillingNotice> {
+  const stripe = testStripe();
+  if (!stripe) return "stripe_off";
+  const supabase = await createUserClient();
+  const { data, error } = await supabase.rpc("org_cooling_off_state", { p_licence: a.licenceId });
+  if (error) return billingErrorNotice(error.code);
+  const row = (Array.isArray(data) ? data[0] : data) as { state: string; stripe_subscription_id: string | null } | undefined;
+  if (!row || row.state !== "open" || !row.stripe_subscription_id) return "cooling_off_closed";
+  const { data: allowed } = await supabase.rpc("org_billing_end_allowed", { p_licence: a.licenceId });
+  if (allowed !== true) return "denied";
+
+  let refundMinor: number | null = null;
+  let currency: string | null = null;
+  let refundState: string | null = null;
+  try {
+    const sub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    const meta = (sub.metadata ?? {}) as Record<string, string>;
+    if (meta.licence_id && meta.licence_id !== a.licenceId) return "denied";
+    const now = new Date();
+    const refund = await refundCoolingOff(stripe, sub.id, { now, requestedAt: now, reason: "cooling_off_cancel", subscription: sub });
+    if (refund.status === "not_due" && refund.reason === "outside_cooling_off") return "cooling_off_closed";
+    if (refund.status === "refunded" || refund.status === "already_refunded") {
+      refundMinor = refund.amountMinor ?? null;
+      currency = refund.currency ?? null;
+      refundState = refund.refundState ?? null;
+    }
+    if (sub.status !== "canceled") await stripe.subscriptions.cancel(sub.id, { invoice_now: false, prorate: false });
+  } catch (e) {
+    console.error("org_cooling_off_failed", { licence: a.licenceId, reason: e instanceof Error ? e.name : "unknown" });
+    return "stripe_failed";
+  }
+  const done = await supabase.rpc("org_cooling_off_done", {
+    p_licence: a.licenceId,
+    p_refund_minor: refundMinor,
+    p_currency: currency,
+    p_refund_state: refundState,
+  });
+  // Stripe has cancelled: the webhook ends the licence even if this failed.
+  if (done.error) console.error("org_cooling_off_record_failed", done.error.code ?? "unknown");
+  return "cooled_off";
 }

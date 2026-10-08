@@ -2,6 +2,7 @@ import "server-only";
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { handleOrgBillingEvent, type OrgBillingRepo } from "@/lib/org-billing-events";
+import { mailOrigin, sendOrgBillingMail } from "@/lib/org-billing-mail-server";
 import { reportOps } from "@/lib/ops-alerts";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -23,6 +24,13 @@ export async function handleOrgBillingWebhook(event: Stripe.Event): Promise<Next
     const admin = createAdminClient();
     const outcome = await handleOrgBillingEvent(event, orgBillingRepo(admin, getStripe()));
     console.info("stripe webhook org billing", outcome);
+    // 0031: send the billing emails this event queued. Best effort: the
+    // daily job (api/org/billing-mail) sends whatever fails here.
+    try {
+      await sendOrgBillingMail(admin, mailOrigin());
+    } catch (e) {
+      console.error("stripe webhook org billing mail failed", { reason: e instanceof Error ? e.message : "unknown" });
+    }
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook org billing failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
@@ -113,6 +121,11 @@ export function orgBillingRepo(admin: Admin, stripe: Stripe): OrgBillingRepo {
       }
       if (error) throw new Error(`org_self_serve_provision failed: ${error.code ?? "unknown"}`);
       return { licenceId: String(data) };
+    },
+    async seatOrganiser(licenceId, userId) {
+      const { data, error } = await admin.rpc("org_self_serve_seat_organiser", { p_licence: licenceId, p_user: userId });
+      if (error) throw new Error(`org_self_serve_seat_organiser failed: ${error.code ?? "unknown"}`);
+      return data ? String(data) : null;
     },
   };
 }

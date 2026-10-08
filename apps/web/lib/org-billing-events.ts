@@ -39,6 +39,8 @@ export interface OrgBillingRepo {
   recordReceipt(invoiceId: string, livemode: boolean): Promise<string>;
   /** app.org_self_serve_provision. "closed" when the flag is off. */
   provision(s: OrgSignup): Promise<{ licenceId: string } | "closed">;
+  /** app.org_self_serve_seat_organiser (0031): the organiser asked for a seat at sign-up. Null when not given (not 18+ confirmed, no place). */
+  seatOrganiser(licenceId: string, userId: string): Promise<string | null>;
 }
 
 export type OrgBillingAction =
@@ -61,6 +63,7 @@ export interface OrgBillingOutcome {
   action: OrgBillingAction;
   subscriptionId: string | null;
   receipt?: string;
+  organiserSeated?: boolean;
 }
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -135,6 +138,11 @@ export async function handleOrgBillingEvent(event: Stripe.Event, repo: OrgBillin
     });
     if (done === "closed") return { ...base, action: "self_serve_closed", subscriptionId };
     await applyFresh(subscriptionId, null, event, repo, done.licenceId);
+    // 0031: the tick box at sign-up, off unless ticked. After the mirror, so the seat takes the licence's real dates.
+    if (meta.auto_seat === "yes") {
+      const seat = await repo.seatOrganiser(done.licenceId, meta.user_id);
+      return { ...base, action: "signup_provisioned", subscriptionId, organiserSeated: seat !== null };
+    }
     return { ...base, action: "signup_provisioned", subscriptionId };
   }
 

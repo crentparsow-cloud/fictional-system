@@ -78,6 +78,34 @@ export function plansForLicenceKind(kind: string, env: Env = process.env): { pla
 
 export const TALK_TO_US = "Talk to us";
 
+/** Church bands, smallest first (0031: a band change is a price swap with proration). */
+export const CHURCH_BAND_PLANS = ["church_band_1", "church_band_2", "church_band_3"] as const satisfies readonly OrgPlanId[];
+export type ChurchBandPlan = (typeof CHURCH_BAND_PLANS)[number];
+
+export function isBandPlan(v: unknown): v is ChurchBandPlan {
+  return typeof v === "string" && (CHURCH_BAND_PLANS as readonly string[]).includes(v);
+}
+
+/** Band sizes, placeholders kept in step with 0031's app_config rows. */
+export const CHURCH_BAND_SEATS: Record<ChurchBandPlan, number> = { church_band_1: 50, church_band_2: 150, church_band_3: 400 };
+
+/** Up, down or the same, from one band to another. */
+export function bandDirection(from: ChurchBandPlan, to: ChurchBandPlan): "up" | "down" | "same" {
+  const a = CHURCH_BAND_PLANS.indexOf(from);
+  const b = CHURCH_BAND_PLANS.indexOf(to);
+  return b > a ? "up" : b < a ? "down" : "same";
+}
+
+/**
+ * How Stripe prorates a band change. Up: the difference for the rest of the
+ * period is invoiced now. Down: the unused part comes off the next invoice.
+ * A staff override may choose no proration at all.
+ */
+export function bandProration(direction: "up" | "down", prorate = true): "always_invoice" | "create_prorations" | "none" {
+  if (!prorate) return "none";
+  return direction === "up" ? "always_invoice" : "create_prorations";
+}
+
 /** Self-serve bounds. Placeholders, kept in step with 0030's app_config rows. */
 export const SELF_SERVE_BOUNDS = { group: { min: 4, max: 15 }, teams: { min: 2, max: 25 } } as const;
 
@@ -424,6 +452,12 @@ export const BILLING_NOTICES = {
   link_closed: { tone: "ok", text: "Link closed. It no longer works." },
   csv_sent: { tone: "ok", text: "Invitations sent." },
   billing_started: { tone: "ok", text: "Billing started in Stripe (test mode). The first invoice is on 30-day terms." },
+  band_up: { tone: "ok", text: "Band changed. The extra cost for the rest of this period is on a new invoice." },
+  band_down: { tone: "ok", text: "Band changed. The unused part of this period comes off your next invoice." },
+  band_same: { tone: "ok", text: "No change: that is the band you have." },
+  cooled_off: { tone: "ok", text: "Cancelled. Access has ended, and the days you had not used are being refunded to your card." },
+  cooling_off_closed: { tone: "error", text: "The 14 days to cancel for a refund have passed. You can still cancel at the end of the period you have paid for." },
+  buyer_saved: { tone: "ok", text: "Buyer type saved." },
   not_priced: { tone: "error", text: "That plan has no price yet. Talk to us." },
   stripe_off: { tone: "error", text: "Stripe is not set up here, or it is not in test mode. Nothing changed." },
   stripe_failed: { tone: "error", text: "Stripe did not accept that. Nothing changed." },
@@ -444,6 +478,7 @@ export function billingErrorNotice(code: string | undefined): BillingNotice {
   switch (code) {
     case "AKO01":
     case "42501":
+    case "AKM01": // 0032/0034: the session has no second factor; actions send people to /verify first
       return "denied";
     case "AKO02":
       return "invalid";
@@ -452,6 +487,8 @@ export function billingErrorNotice(code: string | undefined): BillingNotice {
       return "state";
     case "AKO14":
       return "state";
+    case "AKO31":
+      return "cooling_off_closed";
     case "AKO29":
       return "limited";
     default:
@@ -574,6 +611,8 @@ export interface SignupInput {
   orgKind: "community_group" | "business" | "charity";
   name: string;
   quantity: number;
+  /** The organiser takes one of the places themselves (0031). Off unless ticked. */
+  autoSeat: boolean;
 }
 
 export function parseSignupForm(get: (k: string) => unknown): SignupInput | null {
@@ -588,5 +627,20 @@ export function parseSignupForm(get: (k: string) => unknown): SignupInput | null
   if (!Number.isInteger(quantity) || quantity < bounds.min || quantity > bounds.max) return null;
   if (plan === "group_member_month" && orgKind !== "community_group") return null;
   if (plan !== "group_member_month" && orgKind !== "business" && orgKind !== "charity") return null;
-  return { plan, orgKind: orgKind as SignupInput["orgKind"], name, quantity };
+  return { plan, orgKind: orgKind as SignupInput["orgKind"], name, quantity, autoSeat: get("auto_seat") === "yes" };
+}
+
+// ---------------------------------------------------------------------------
+// Consumer organisers (0031, DMCC Act subscription rules)
+// ---------------------------------------------------------------------------
+
+export type CoolingOffState = "business" | "not_billed" | "ended" | "open" | "closed";
+
+/** The words /org/billing shows a consumer organiser about cancelling. */
+export function coolingOffText(state: CoolingOffState, reason: string | null, closesOn: string | null): string | null {
+  if (state !== "open") return null;
+  const when = closesOn ? ` until ${closesOn}` : "";
+  return reason === "renewal"
+    ? `Your plan renewed recently. You can cancel${when} and get back the days you have not used.`
+    : `You started recently. You can cancel${when} and get back the days you have not used.`;
 }
