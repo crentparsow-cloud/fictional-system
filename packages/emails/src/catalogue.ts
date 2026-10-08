@@ -35,6 +35,8 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
   partner_invite: "To a check-in partner: the reader's invitation to accept or decline.",
   partner_update: "To a check-in partner: a short update on how far the reader has got.",
   partner_stopped: "To a check-in partner: the updates have stopped.",
+  refund_confirmed: "Confirms a single-workbook refund made by Akana: the amount and whether access ended. No title.",
+  deletion_cancelled: "Confirms that Akana support cancelled a pending account deletion at the reader's request.",
 };
 
 export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = {
@@ -52,4 +54,7 @@ export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = 
   lead_received: "To the Akana team: someone sent the publish enquiry form.",
   review_assigned: "To an Akana reviewer: a workbook version was assigned to them, by AK code only.",
   ops_alert: "To the Akana operator: an operational alert opened, with kind, route and code only.",
+  submission_declined: "Staff declined a submission, with the reason. Nothing goes live.",
+  workbook_comment: "To the author organisation: Akana posted on the workbook's comment thread. No comment text.",
+  review_comment: "To Akana reviewers: the author posted on a workbook's thread, by AK code only. No comment text.",
 };

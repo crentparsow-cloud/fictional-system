@@ -59,6 +59,20 @@ export type AuthorProps = {
    * the kind, the route and a short code only. studioUrl is /admin/ops.
    */
   ops_alert: Omit<AuthorBase, "workbookTitle"> & { kind: string; source: string; code?: string; at: string };
+  /** Staff declined the submission (0013 submission_set_status), with the reason the author also sees in the Studio. */
+  submission_declined: AuthorBase & { reason: string };
+  /**
+   * To the author organisation when Akana posts on the workbook's comment
+   * thread (F-039). Never carries the comment: the author reads it in the
+   * Studio, signed in. studioUrl is the workbook page.
+   */
+  workbook_comment: AuthorBase;
+  /**
+   * To Akana reviewers when the author organisation posts on a thread
+   * (F-039). The AK code only, never the title or the comment. studioUrl is
+   * the review page.
+   */
+  review_comment: Omit<AuthorBase, "workbookTitle"> & { code: string };
 };
 export type AuthorTemplateName = keyof AuthorProps;
 
@@ -276,6 +290,52 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
       },
     ],
     buttons: [{ label: "Open alerts", url: x.studioUrl }],
+    footer: "author",
+  }),
+
+  submission_declined: (x) => ({
+    subject: "About your submission",
+    preheader: "We will not be taking it forward.",
+    hero: "author",
+    eyebrow: "Submission",
+    headline: `We won't be taking ${x.workbookTitle} forward`,
+    greeting: hi(x.name),
+    paragraphs: [
+      `Thank you for submitting ${x.workbookTitle}. We have looked at it carefully, and we will not be taking it forward as an Akana workbook.`,
+    ],
+    panels: [{ title: "Why", lines: [x.reason], tone: "tint" }],
+    after: [
+      "Nothing goes on sale and nothing is charged. Your book and your files stay in the Studio.",
+      `If you would like to talk about it, reply to this email${x.supportEmail ? ` or write to ${x.supportEmail}` : ""}.`,
+    ],
+    buttons: [{ label: "Open the Studio", url: x.studioUrl }],
+    footer: "author",
+  }),
+
+  workbook_comment: (x) => ({
+    subject: "A new comment from the Akana team",
+    preheader: "Read it in the Studio.",
+    hero: "author",
+    eyebrow: "Comment",
+    headline: "The Akana team left a comment",
+    greeting: hi(x.name),
+    paragraphs: [
+      `There is a new comment from the Akana team on ${x.workbookTitle}.`,
+      "For privacy, comments are only shown in the Studio. Sign in to read it and reply.",
+    ],
+    buttons: [{ label: "Read the comment", url: x.studioUrl }],
+    footer: "author",
+  }),
+
+  review_comment: (x) => ({
+    subject: "A new comment on a workbook",
+    preheader: `${x.code} has a new comment.`,
+    hero: "author",
+    eyebrow: "Comment",
+    headline: "The author left a comment",
+    greeting: hi(x.name),
+    paragraphs: [`The author organisation posted on the comment thread for ${x.code}.`, "Comments are only shown in admin. Sign in to read it and reply."],
+    buttons: [{ label: "Open the review", url: x.studioUrl }],
     footer: "author",
   }),
 };
