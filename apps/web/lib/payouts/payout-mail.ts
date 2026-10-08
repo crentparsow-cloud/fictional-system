@@ -1,5 +1,6 @@
 import "server-only";
 import { createMailer, type MailerEnv, type Transport } from "@akana/emails";
+import { mailLog } from "@/lib/mail-ops";
 import type { createAdminClient } from "@/lib/supabase/admin";
 
 /**
@@ -51,7 +52,7 @@ export async function sendPayoutChangeEmails(admin: Admin, m: PayoutChangeMail):
     const mailer = createMailer({
       env,
       isSuppressed: () => false,
-      log: (e) => console.info("payout_mail", e.template, e.status, e.reason ?? ""),
+      log: mailLog("payouts", "payout_mail"),
       async claim(key) {
         const { data, error: cErr } = await admin.rpc("claim_email", { p_key: key });
         if (cErr) throw new Error(`claim_email failed: ${cErr.code ?? cErr.message}`);
