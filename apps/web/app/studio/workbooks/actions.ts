@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { isUuid, parsePriceChoice, parseStudioSignoff, releaseErrorNotice, type ReleaseNotice } from "@/lib/author-release";
 import { withOrg } from "@/lib/studio";
+import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { requireStudio } from "@/lib/studio-server";
 import { postComment } from "@/lib/workbook-comments-server";
 import { createUserClient } from "@/lib/supabase/server";
@@ -60,7 +61,8 @@ export async function choosePrice(fd: FormData): Promise<void> {
     redirect("/studio/workbooks");
   }
   const c = parsed.value;
-  await requireStudio(`/studio/workbooks/${c.workbookId}`, org);
+  const ctx = await requireStudio(`/studio/workbooks/${c.workbookId}`, org);
+  await requireRoleMfa(ctx.org.role, withOrg(`/studio/workbooks/${c.workbookId}`, org, Boolean(org)));
   const supabase = await createUserClient();
   const { error } = await supabase.rpc("price_choose", { p_workbook: c.workbookId, p_point: c.point, p_in_membership: c.inMembership });
   if (error) {
