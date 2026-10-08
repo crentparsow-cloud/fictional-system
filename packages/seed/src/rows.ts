@@ -48,6 +48,11 @@ export interface ThemeRow {
   group_suitable: boolean;
   /** Added after launch: hidden from readers until min_books live titles (0015, F-148). */
   hidden_until_min_books: boolean;
+  /** 'active' or 'retired' (0025). A retired Theme keeps its row and id and is never shown. */
+  status: "active" | "retired";
+  /** When it was retired (required by 0025's check when status is retired). */
+  retired_at: string | null;
+  retired_reason: string | null;
 }
 
 export interface OrganisationRow {
