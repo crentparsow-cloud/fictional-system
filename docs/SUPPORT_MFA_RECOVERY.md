@@ -2,7 +2,9 @@
 
 Owners, finance contacts and Akana staff confirm with an authenticator app before they change billing, seats, members, prices, licences or payout details. If they lose the phone or the app, they cannot make those changes until support removes the old factor. Readers never need this.
 
-There is no self-service reset and no recovery codes. That is deliberate. A reset is the easiest way to take over an account that controls money, so a person does it, after checking who is asking.
+Readers who chose two-step sign-in for their own account (13.2, `docs/AUTH.md` section 3) are a different case: they hold recovery codes, and a code turns two-step sign-in off by itself. A reader who has lost both the phone and the codes is handled as below, but the checks in step 4 are the account email plus one of: a recent purchase receipt number checked in Stripe, or the date and amount of the last membership payment. Tell no other person, because there is no organisation. The database refuses recovery codes to owners, finance members and staff (`AKR03`), so this never applies to them.
+
+For owners, finance and staff there is no self-service reset and no recovery codes. That is deliberate. A reset is the easiest way to take over an account that controls money, so a person does it, after checking who is asking.
 
 ## Who may do a reset
 
