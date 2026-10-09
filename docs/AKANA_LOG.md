@@ -4,7 +4,7 @@ The one log. From 9 October 2026 every working session, test run and decision is
 
 ## Where things stand (updated 9 October 2026)
 
-- **Code.** `crentparsow-cloud/fictional-system`, main at 8f9ff0a. Live at akana-one.vercel.app. CI green. 947 web unit tests.
+- **Code.** `crentparsow-cloud/fictional-system`, main at 6d2aad9 and later. Live at akana-one.vercel.app. CI green. 947 web unit tests.
 - **Database.** Production `akana-saas` (suiuyolccgyjglfwgwnw, Pro plan) and staging `akana-staging` (qddsfkontkjdblidqxym). Migrations 0001 to 0035 on both.
 - **Catalogue.** Production: 102 live titles (97 demo, 5 classics), 18 faith demo and 50 classics in draft, 20 Maya Vaughn in review. Every title has a price point.
 - **Prices.** Permanent until Crent changes them: £7.99, £8.99, £9.99, £11.99, £12.99, £14.99 (p1 to p6), VAT inclusive, GBP only. Membership interim £7.99 a month, £69.99 a year.
@@ -28,6 +28,14 @@ Decisions recorded from Crent today:
 - Research covers all three audiences; growth models prioritised.
 
 Earlier in the day (full detail in `docs/DAY_LOG.md`, Day 8): PR #4 merged; email variables set; `app.uid()` defect found and fixed with migration 0035; prices set on all workbooks; checkout route hardened; test plan written.
+
+### 9 October 2026, late afternoon
+
+Asked: confirm Gmail sign-up with easy verification and optional two-factor; run top-quality research across the audiences with seven or eight agents; research again.
+
+Done: no parallel agents exist in this session, so the nine strands were run in sequence by one agent, two to three searches each. Report: `docs/research/AK_Market_Research_2026-10.md`. Twenty additions folded into the build list as section 13, with the Phase A order amended to start with analytics and sign-in. On sign-in: Google One Tap with account linking gives Gmail users one-tap sign-up with verification done by Google; magic link stays for others; two-factor for readers becomes optional in the You tab (items 13.1 to 13.3). Google OAuth client (C26) remains the one thing only Crent can create.
+
+Research headlines: hard paywalls convert about five times freemium with the same retention, and long trials convert far better than short ones (RevenueCat 2026); Google One Tap roughly doubles sign-up conversion in Google's case studies; Duolingo's Streak Freeze cut at-risk churn 21 percent, so pausable streaks are the ethical and effective version; the CMA has fined under the DMCC Act for drip pricing and fake urgency is blacklisted; Hallow sells a six-person family plan at about 1.7 times single; Gumroad takes 10 percent on creator-sourced sales and 30 percent on marketplace-sourced, a precedent for the author share; Headspace for Work prices at $12 to $36 per employee per year; on iOS, Web Push works only after Home Screen install and installed web apps start signed out.
 
 ## Test runs
 
