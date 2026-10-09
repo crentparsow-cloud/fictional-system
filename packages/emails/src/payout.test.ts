@@ -26,3 +26,25 @@ describe("payout_details_changed", () => {
     expect(r.subject).not.toContain("—");
   });
 });
+
+describe("connect_onboarding_nudge", () => {
+  const nudge = {
+    studioUrl: "https://example.test/payouts",
+    supportEmail: "support@example.test",
+    organisationName: "Hold One",
+    step: "Connect a payout account through Stripe.",
+    waiting: "£50.45",
+    payoutsUrl: "https://example.test/payouts",
+  };
+
+  it("names the one step and the amount waiting, and no workbook", () => {
+    const r = renderAuthor("connect_onboarding_nudge", nudge);
+    expect(r.subject).toBe("Your earnings are waiting for one step");
+    expect(r.text).toContain("Hold One");
+    expect(r.text).toContain("Connect a payout account through Stripe.");
+    expect(r.text).toContain("£50.45");
+    expect(r.text).toContain("at most once a week");
+    expect(r.html).toContain("https://example.test/payouts");
+    expect(r.text).not.toContain("—");
+  });
+});

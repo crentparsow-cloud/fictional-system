@@ -3,9 +3,11 @@ import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Who is signed in, and whether they have confirmed they are an adult
- * (F-127). Reads the reader's own profile row under RLS.
+ * (F-127). Reads the reader's own profile row under RLS. mfaEnrolled says
+ * whether the account has a verified authenticator (13.2); the (reader)
+ * layout then asks for a code when the session has not given one.
  */
-export type ReaderSession = { userId: string; email: string | null; adultConfirmedAt: string | null };
+export type ReaderSession = { userId: string; email: string | null; adultConfirmedAt: string | null; mfaEnrolled: boolean };
 
 export async function getReaderSession(): Promise<ReaderSession | null> {
   const supabase = await createUserClient();
@@ -13,7 +15,9 @@ export async function getReaderSession(): Promise<ReaderSession | null> {
   const user = data.user;
   if (!user) return null;
   const { data: profile } = await supabase.from("profiles").select("adult_confirmed_at").eq("user_id", user.id).maybeSingle();
-  return { userId: user.id, email: user.email ?? null, adultConfirmedAt: (profile?.adult_confirmed_at as string | null | undefined) ?? null };
+  const factors = (user as { factors?: { factor_type?: string; status?: string }[] }).factors ?? [];
+  const mfaEnrolled = factors.some((f) => f.status === "verified");
+  return { userId: user.id, email: user.email ?? null, adultConfirmedAt: (profile?.adult_confirmed_at as string | null | undefined) ?? null, mfaEnrolled };
 }
 
 /** Only ever send a reader to a path on this site. */

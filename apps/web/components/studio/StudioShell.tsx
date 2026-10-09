@@ -23,6 +23,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
             <Link href="/studio/workbooks">Workbooks</Link>
             <Link href="/studio/dashboard">Readers</Link>
             <Link href="/studio/earnings">Earnings</Link>
+            <Link href="/studio/payments">Payments</Link>
             <Link href="/console">Team</Link>
             <Link href="/console/rollup">Roll-up</Link>
             <Link href="/payouts">Payouts</Link>
