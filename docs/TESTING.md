@@ -9,6 +9,8 @@ This page explains how to run each kind of test, what the end-to-end smoke suite
 | Unit | Engine, schema, seal, validator, emails and web helpers behave as specified | `pnpm test` |
 | Types and lint | The code compiles and follows the lint rules | `pnpm typecheck` and `pnpm lint` |
 | Content | Every v3 workbook validates and v1 files migrate cleanly | `pnpm migrate:v1 --check` then `pnpm validate --parked` |
+| Plain English (optional) | Sentences over 25 words, negative contractions, banned words and short unit titles, over the workbooks and `apps/web/messages`. Warnings only; see docs/VOICE.md | `pnpm validate --parked --style` |
+| Classics source | Edition named, copyright and date, scan quality, reversible modernisation log for a public-domain source text. See docs/content/CLASSICS_PIPELINE.md | `pnpm tsx scripts/classics-source-check.ts source.txt --code AK-XXXXX` |
 | Database | Migrations apply to a fresh database and the RLS isolation tests pass | `DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres bash scripts/db-test.sh` |
 | Harness | Every screen of every workbook renders through the engine | `pnpm tsx scripts/harness-all.ts` |
 | End to end | The built site serves its public pages safely to a signed-out visitor | `pnpm --filter @akana/web e2e` |
