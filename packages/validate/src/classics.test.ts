@@ -17,7 +17,7 @@ describe("classics source checks", () => {
 
   it("measures scan quality", () => {
     expect(checkScanQuality("A clean page of text, with a few 'quotes' and 1 number.").suspect).toBe(false);
-    const broken = "The qu\\uFFFDck br0wn fox \\u0000\\u0001\\u0002\\u0003 jumps";
+    const broken = "The qu�ck br0wn fox \u0000\u0001\u0002\u0003 jumps";
     const q = checkScanQuality(broken);
     expect(q.replacementChars).toBe(1);
     expect(q.digitsInWords).toBe(1);
@@ -25,7 +25,7 @@ describe("classics source checks", () => {
   });
 
   it("modernises reversibly, even when the modern word was already in the line", () => {
-    const original = "To-day and today \\u2014 any one may shew it.\n\\u201CWell,\\u201D said he, &c.\nUnchanged line.";
+    const original = "To-day and today — any one may shew it.\n“Well,” said he, &c.\nUnchanged line.";
     const { text, log } = modernise(original);
     expect(text).toBe('Today and today, anyone may show it.\n"Well," said he, etc.\nUnchanged line.');
     expect(log.map((e) => e.note)).toEqual([
