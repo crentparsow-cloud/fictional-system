@@ -6,6 +6,7 @@ import { answerWriteDecision, faithAnswerWriteDecision } from "@/lib/consent";
 import { readerDeletion } from "@/lib/account-server";
 import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countFunnelEvent } from "@/lib/funnel";
 
 /**
  * Reader answers, sealed (F-134).
@@ -40,6 +41,8 @@ const PutBody = z
     enrolment: z.string().uuid(),
     field: z.string().regex(FIELD_PATTERN),
     value: jsonValue,
+    /** The unit the field sits in. Used only for the daily count (0036); never stored with the answer. */
+    unit: z.number().int().min(1).max(999).optional(),
   })
   .strict();
 
@@ -74,7 +77,7 @@ export async function PUT(request: NextRequest) {
   }
   const parsed = PutBody.safeParse(raw);
   if (!parsed.success) return NextResponse.json({ error: "invalid_body" }, { status: 400, headers: NO_STORE });
-  const { enrolment: enrolmentId, field, value } = parsed.data;
+  const { enrolment: enrolmentId, field, value, unit } = parsed.data;
 
   if (Buffer.byteLength(JSON.stringify(value), "utf8") > MAX_ANSWER_BYTES) {
     return NextResponse.json({ error: "too_large", max_bytes: MAX_ANSWER_BYTES }, { status: 413, headers: NO_STORE });
@@ -134,12 +137,35 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json({ error: "sealing_unavailable" }, { status: 503, headers: NO_STORE });
   }
 
+  // 0036: is this the first save of the field? Read through the reader's own
+  // client; only the count of rows comes back, never a value.
+  let firstSave = false;
+  try {
+    const { count } = await check.supabase.from("answers").select("id", { count: "exact", head: true }).eq("enrolment_id", enrolment.id).eq("field", field);
+    firstSave = count === 0;
+  } catch {
+    firstSave = false;
+  }
+
   const updatedAt = new Date().toISOString();
   const admin = createAdminClient();
   const { error } = await admin
     .from("answers")
     .upsert({ enrolment_id: enrolment.id, field, sealed: sealed.sealed, key_id: sealed.keyId, updated_at: updatedAt }, { onConflict: "enrolment_id,field" });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
+
+  // F-141 / 0036: one more field answered in this unit. A count, not the
+  // field name and never the value. Skipped when the reader has opted out.
+  if (firstSave) {
+    await countFunnelEvent(check.supabase, "field_answered", {
+      tenantId,
+      workbookId: enrolment.workbook_id,
+      unit: unit ?? null,
+      headers: request.headers,
+      cookies: request.cookies,
+      userId: enrolment.user_id,
+    });
+  }
 
   return NextResponse.json({ updated_at: updatedAt }, { headers: NO_STORE });
 }

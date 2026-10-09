@@ -33,6 +33,12 @@ export interface SupabaseAnswerStoreOptions {
   endpoint?: string;
   /** Called with the field key after the server confirms a save. Never with the value. */
   onSaved?: (field: string) => void;
+  /**
+   * The unit the reader is in, sent with a save as `unit` so the server can
+   * count fields answered per unit (0036). A number only; it is never stored
+   * with the answer. Omit and nothing is sent.
+   */
+  currentUnit?: () => number | null;
 }
 
 interface Pending {
@@ -44,6 +50,11 @@ interface Pending {
 
 const DEFAULT_RETRY = [1_000, 2_000, 5_000, 10_000, 30_000] as const;
 
+/** Adds `unit` to a request body when there is a sensible one. */
+function withUnit<T extends object>(body: T, unit: number | null): T | (T & { unit: number }) {
+  return unit != null && Number.isInteger(unit) && unit >= 1 && unit <= 999 ? { ...body, unit } : body;
+}
+
 export class SupabaseAnswerStore implements AnswerStore {
   private readonly values = new Map<string, FieldValue>();
   private readonly pending = new Map<string, Pending>();
@@ -54,6 +65,7 @@ export class SupabaseAnswerStore implements AnswerStore {
   private readonly retryDelays: readonly number[];
   private readonly endpoint: string;
   private readonly onSaved: (field: string) => void;
+  private readonly currentUnit: () => number | null;
   private state: SaveState = "idle";
 
   constructor(opts: SupabaseAnswerStoreOptions) {
@@ -64,6 +76,7 @@ export class SupabaseAnswerStore implements AnswerStore {
     this.retryDelays = opts.retryDelaysMs ?? DEFAULT_RETRY;
     this.endpoint = opts.endpoint ?? "/api/answers";
     this.onSaved = opts.onSaved ?? (() => undefined);
+    this.currentUnit = opts.currentUnit ?? (() => null);
     for (const [field, value] of Object.entries(opts.initial ?? {})) {
       this.values.set(field, value as FieldValue);
     }
@@ -148,7 +161,7 @@ export class SupabaseAnswerStore implements AnswerStore {
       const res = await this.fetchFn(this.endpoint, {
         method: "PUT",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ enrolment: this.enrolmentId, field, value: value ?? null }),
+        body: JSON.stringify(withUnit({ enrolment: this.enrolmentId, field, value: value ?? null }, this.currentUnit())),
         keepalive: true,
       });
       // 4xx other than 429 will not get better by retrying; drop the save
