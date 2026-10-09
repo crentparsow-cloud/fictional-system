@@ -2,17 +2,17 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildSeed, buildSeedV2, repoRoot } from "./build";
-import { AKANA_HOUSE_ORG_ID } from "./rows";
+import { splitInsertOnly } from "./apply";
+import { AKANA_HOUSE_ORG_ID, INSERT_ONLY_COLUMNS } from "./rows";
 import { renderSeedSql } from "./sql";
-import { V2_PREVIEW_PATH, renderSeedV2PreviewSql } from "./v2";
 
 /**
- * Demo Catalogue v2 (F-153). These tests cover the preview only; seed.sql is
- * still built from v1 and must not move.
+ * Demo Catalogue v2 (F-153), approved by Crent on 8 October 2026.
+ * supabase/seed/seed.sql is built from v2.
  */
 
 const root = repoRoot();
-const v1 = buildSeed();
+const v1 = buildSeed({ catalogue: "v1" });
 const v2 = buildSeedV2();
 const readJson = (...p: string[]) => JSON.parse(readFileSync(join(root, ...p), "utf8"));
 const catalogueV1 = readJson("docs", "planning", "AK_Demo_Catalogue.json") as { workbooks: { code: string; id: string; url_slug: string; theme_id: string }[] };
@@ -42,13 +42,13 @@ const catalogueV2 = readJson("docs", "planning", "AK_Demo_Catalogue_v2.json") as
 const registryThemes = readJson("content", "registry", "themes.json").themes as { id: string; status?: string }[];
 const isMaya = (w: { badge: string }) => w.badge === "official";
 
-describe("v1 output is unchanged", () => {
-  it("supabase/seed/seed.sql is byte-identical to the v1 build", () => {
-    expect(renderSeedSql(v1)).toBe(readFileSync(join(root, "supabase", "seed", "seed.sql"), "utf8"));
+describe("seed.sql is the v2 build", () => {
+  it("supabase/seed/seed.sql is byte-identical to the v2 build", () => {
+    expect(renderSeedSql(v2)).toBe(readFileSync(join(root, "supabase", "seed", "seed.sql"), "utf8"));
   });
 
-  it("buildSeed defaults to v1", () => {
-    expect(renderSeedSql(buildSeed({ catalogue: "v1" }))).toBe(renderSeedSql(v1));
+  it("buildSeed defaults to v2 and v1 stays readable", () => {
+    expect(renderSeedSql(buildSeed())).toBe(renderSeedSql(v2));
     expect(v1.workbooks).toHaveLength(70);
   });
 });
@@ -97,7 +97,7 @@ describe("buildSeedV2: counts", () => {
   });
 
   it("is deterministic", () => {
-    expect(renderSeedV2PreviewSql(buildSeedV2())).toBe(renderSeedV2PreviewSql(v2));
+    expect(renderSeedSql(buildSeedV2())).toBe(renderSeedSql(v2));
   });
 });
 
@@ -124,7 +124,7 @@ describe("buildSeedV2: codes", () => {
     }
     for (const a of v1.authors) expect(v2.authors.find((b) => b.code === a.code)?.id).toBe(a.id);
     const v1Codes = new Set([...v1.workbooks.map((w) => w.code), ...v1.authors.map((a) => a.code), ...v1.organisations.map((o) => o.code)]);
-    const provisional = catalogueV2.workbooks.filter((w) => w.code_status === "provisional");
+    const provisional = catalogueV2.workbooks.filter((w) => w.v2_source !== "docs/planning/AK_Demo_Catalogue.json");
     expect(provisional).toHaveLength(120);
     for (const w of provisional) expect(v1Codes.has(w.code)).toBe(false);
     const mayaFiles = readdirSync(join(root, "content", "workbooks", "v3")).filter((f) => f.endsWith(".json"));
@@ -243,7 +243,7 @@ describe("buildSeedV2: badges, status and listing values", () => {
     for (const w of fresh) {
       expect(w.fully_written).toBe(false);
       expect(w.depth).toBe("first_week");
-      expect(w.code_status).toBe("provisional");
+      expect(w.code_status).toBe("final");
     }
     for (const w of catalogueV2.workbooks) {
       expect(["short", "standard", "extended", "programme"]).toContain(w.price_tier);
@@ -255,32 +255,39 @@ describe("buildSeedV2: badges, status and listing values", () => {
     for (const w of catalogueV2.workbooks) expect(w.area_id, w.code).toBe(themeArea.get(w.theme_id));
   });
 
-  it("is still awaiting Crent's approval", () => {
-    expect(catalogueV2.approval.status).toBe("awaiting Crent");
+  it("is approved by Crent with every code final", () => {
+    expect(catalogueV2.approval.status).toBe("approved");
+    expect(catalogueV2.workbooks.every((w) => w.code_status === "final")).toBe(true);
   });
 });
 
-describe("seed_v2_preview.sql", () => {
-  const sql = readFileSync(join(root, ...V2_PREVIEW_PATH), "utf8");
+describe("seed.sql after approval", () => {
+  const sql = readFileSync(join(root, "supabase", "seed", "seed.sql"), "utf8");
 
-  it("is current with the v2 build", () => {
-    expect(sql).toBe(renderSeedV2PreviewSql(v2));
-  });
-
-  it("is headed DO NOT APPLY and refuses to run without the scratch setting", () => {
-    expect(sql.startsWith("-- DO NOT APPLY UNTIL CRENT APPROVES.")).toBe(true);
-    const begin = sql.indexOf("begin;");
-    const guard = sql.indexOf("akana.apply_v2_preview', true)");
-    const firstInsert = sql.indexOf("insert into");
-    expect(begin).toBeGreaterThan(0);
-    expect(guard).toBeGreaterThan(begin);
-    expect(guard).toBeLessThan(firstInsert);
-    expect(sql).not.toContain("—");
+  it("has no preview guard and no em dashes", () => {
+    expect(sql.startsWith("-- Akana catalogue seed")).toBe(true);
+    expect(sql).not.toContain("apply_v2_preview");
+    expect(sql).not.toContain("DO NOT APPLY");
+    expect(sql).not.toContain("\u2014");
     expect(sql).not.toMatch(/insert into public\.organisations[^;]*'00000000-0000-0000-0000-000000000001'/);
   });
 
-  it("is not seed.sql", () => {
-    expect(V2_PREVIEW_PATH.join("/")).toBe("supabase/seed/seed_v2_preview.sql");
-    expect(sql).not.toBe(readFileSync(join(root, "supabase", "seed", "seed.sql"), "utf8"));
+  it("sets workbooks.status on insert only, so a re-run never puts a live title back to draft", () => {
+    expect(INSERT_ONLY_COLUMNS.workbooks).toEqual(["status"]);
+    const start = sql.indexOf("insert into public.workbooks (");
+    const block = sql.slice(sql.indexOf("on conflict (id) do update set", start), sql.indexOf(";", sql.indexOf("on conflict (id) do update set", start)));
+    expect(block).toContain("title = excluded.title");
+    expect(block).not.toContain("status = excluded.status");
+    expect(sql).toMatch(/insert into public\.themes[\s\S]*?status = excluded\.status/);
+  });
+
+  it("drops insert-only columns from rows that already exist when applying through supabase-js", () => {
+    const rows = [
+      { id: "a", status: "draft", title: "A" },
+      { id: "b", status: "draft", title: "B" },
+    ];
+    const { fresh, known } = splitInsertOnly(rows, new Set(["b"]), ["status"]);
+    expect(fresh).toEqual([{ id: "a", status: "draft", title: "A" }]);
+    expect(known).toEqual([{ id: "b", title: "B" }]);
   });
 });

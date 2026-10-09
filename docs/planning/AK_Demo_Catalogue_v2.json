@@ -1,12 +1,13 @@
 {
- "_note": "Akana demo catalogue, version 2. PROPOSAL ONLY: not seeded and not to be applied until Crent approves the titles. Version 1 (AK_Demo_Catalogue.json) plus the 120 new titles from docs/research/catalogue (the four Bible study titles skipped). Invented authors, imprints and books are marked is_demo and badged demo. Classics are real public-domain texts with new Akana workbooks, badged public_domain, and stay draft until their house record is signed. Maya Vaughn's 20 workbooks stay in content/workbooks/v3 and are not repeated here. Prices are tiers only. Codes marked provisional are not final.",
+ "_note": "Akana demo catalogue, version 2. Approved by Crent on 8 October 2026; supabase/seed/seed.sql is built from this file. Version 1 (AK_Demo_Catalogue.json) plus the 120 new titles from docs/research/catalogue (the four Bible study titles skipped). Invented authors, imprints and books are marked is_demo and badged demo. Classics are real public-domain texts with new Akana workbooks, badged public_domain, and stay draft until their house record is signed. Maya Vaughn's 20 workbooks stay in content/workbooks/v3 and are not repeated here. Prices are tiers only.",
  "version": 2,
  "prepared": "2026-10-08",
- "prepared_by": "F-153 merge (agent), from the five catalogue research files and version 1. Awaiting Crent's approval.",
+ "prepared_by": "F-153 merge (agent), from the five catalogue research files and version 1. Approved by Crent on 8 October 2026.",
  "approval": {
-  "status": "awaiting Crent",
-  "approved_by": null,
-  "approved_on": null
+  "status": "approved",
+  "approved_by": "Crent",
+  "approved_on": "2026-10-08",
+  "scope": "All 120 new titles and their codes, the twelve 'close' titles (still subject to the Legal Lead's ISBN check), the assumed answers N8 to N13, the Meditations move to Wisdom for Living and the 18 Maya Vaughn Theme placements. The Ignatius retreat (AK-4FDEJ) stays at the short tier until Crent picks one (N16)."
  },
  "inputs": {
   "docs/planning/AK_Demo_Catalogue.json": {
@@ -732,7 +733,7 @@
   },
   {
    "id": "PB-7AFQE",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "brackenfold",
    "name": "Brackenfold Books",
    "city": "Leeds",
@@ -745,7 +746,10 @@
     "tool": "WebSearch",
     "result": "No publisher of that name found. Results were Brockhampton Press and unrelated small presses [check registers]"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   }
  ],
  "authors": [
@@ -1094,8 +1098,11 @@
     "tool": "WebSearch",
     "result": "No person with this full name found. Results were the Dhaliwal and Fournier surname pages and an unrelated singer called Harnoor. First choices Amrit Dhaliwal-Fournier (a real UK business speaker is Amrit Dhaliwal), Simran Dhaliwal-Fournier (a published author is Simran Dhaliwal) and Kiranjit Bhullar-Fournier (first name strongly linked to Kiranjit Ahluwalia, a public figure) were dropped."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-XKWYA",
@@ -1115,8 +1122,11 @@
     "tool": "WebSearch",
     "result": "No person with this name found. First choice Delphine Arceneaux-Park was dropped because Arceneaux Park is a real park in Broussard, Louisiana, and the name read as a place."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-3C6MR",
@@ -1136,8 +1146,11 @@
     "tool": "WebSearch",
     "result": "No person with this name found. Results were about the historical Princess Gwenllian of Wales."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-4W407",
@@ -1157,8 +1170,11 @@
     "tool": "WebSearch",
     "result": "No person with this full name found. A footballer called Niamh Corrigan exists; the double-barrelled name was not found, so kept [Legal to confirm the closeness is acceptable]."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-Q03MF",
@@ -1178,8 +1194,11 @@
     "tool": "WebSearch",
     "result": "No person with this name found. Nearby: Mary Kalantzis, a real Australian academic, shares one surname only."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-48E8W",
@@ -1194,8 +1213,11 @@
    "bio": "Marcus Tullius Cicero (106 BCE to 43 BCE). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-F4SW6",
@@ -1210,8 +1232,11 @@
    "bio": "Henry David Thoreau (1817 to 1862). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-WF4D7",
@@ -1226,12 +1251,15 @@
    "bio": "William James (1842 to 1910). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/mind-health.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-CG7QM",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "mireille-okafor-gauthier",
    "name": "Mireille Okafor-Gauthier",
    "country": "CA",
@@ -1248,11 +1276,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were people with the single surnames Okafor or Gauthier, none an author on this subject."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-RTFCW",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "bronwyn-achterberg-lui",
    "name": "Bronwyn Achterberg-Lui",
    "country": "AU",
@@ -1269,11 +1300,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were other Bronwyns (Fredericks, Bancroft, Penrith) with different surnames."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-WE3ZY",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "theodora-valdez-brennan",
    "name": "Theodora Valdez-Brennan",
    "country": "US",
@@ -1290,11 +1324,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were the Byzantine empress Theodora and unrelated people named Valdez."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-1F1Q2",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "isla-macphail-osei",
    "name": "Isla MacPhail-Osei",
    "country": "GB",
@@ -1311,11 +1348,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were genealogy records for Isabella MacPhail and MacPhail family archives."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-93Z6G",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "jamal-whitacre-odom",
    "name": "Jamal Whitacre-Odom",
    "country": "US",
@@ -1332,11 +1372,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were unrelated news items on people named Jamal and on the basketball player Lamar Odom. Low risk, noted."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-56780",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "ffion-rees-adeyemi",
    "name": "Ffion Rees-Adeyemi",
    "country": "GB",
@@ -1353,11 +1396,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were the given-name page for Ffion and unrelated people surnamed Rees."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-R2438",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "mereana-tautahi-cole",
    "name": "Mereana Tautahi-Cole",
    "country": "NZ",
@@ -1374,11 +1420,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were other women named Mereana (Selby, Taungapeau, Topia) with different surnames."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-12VRG",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "rukhsana-begum-thornley",
    "name": "Rukhsana Begum-Thornley",
    "country": "GB",
@@ -1395,11 +1444,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Nearby: the boxer and author Ruqsana Begum (memoir 'Born Fighter', Simon and Schuster) and the children's author Rukhsana Khan. Spelling and surname differ, but Legal may prefer a different first part of the surname [check]."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-PJM1M",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "declan-hennessy-ruane",
    "name": "Declan Hennessy-Ruane",
    "country": "IE",
@@ -1416,11 +1468,14 @@
     "tool": "WebSearch",
     "result": "No exact match. Results were surname pages for Hennessy and Ruane and an unrelated hurler named Hennessy."
    },
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-2B7DZ",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "ralph-waldo-emerson",
    "name": "Ralph Waldo Emerson",
    "country": "US",
@@ -1432,11 +1487,14 @@
    "bio": "Ralph Waldo Emerson (1803 to 1882). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-E2PWZ",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "epictetus",
    "name": "Epictetus",
    "country": "Roman Empire (Greek Stoic)",
@@ -1448,11 +1506,14 @@
    "bio": "Epictetus (about 50 to about 135). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-N9B03",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "seneca",
    "name": "Lucius Annaeus Seneca",
    "country": "Roman Empire",
@@ -1464,11 +1525,14 @@
    "bio": "Lucius Annaeus Seneca (about 4 BCE to 65 CE). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "source": "docs/research/catalogue/growth-love-family.json"
+   "source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-WFC25",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "priya-sandhu-lavoie",
    "name": "Priya Sandhu-Lavoie",
    "country": "CA",
@@ -1485,11 +1549,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-H8PV1",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "lamar-whitfield-osei",
    "name": "Lamar Whitfield-Osei",
    "country": "US",
@@ -1506,11 +1573,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-PTR2C",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "mei-lin-gallagher-ross",
    "name": "Mei-Lin Gallagher-Ross",
    "country": "AU",
@@ -1527,11 +1597,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-2D1J1",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "niamh-oyelaran-byrne",
    "name": "Niamh Oyelaran-Byrne",
    "country": "IE",
@@ -1548,11 +1621,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-D21DK",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "rhiannon-asante-pugh",
    "name": "Rhiannon Asante-Pugh",
    "country": "GB",
@@ -1569,11 +1645,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-0W5W9",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "tomasz-kowalczyk-hale",
    "name": "Tomasz Kowalczyk-Hale",
    "country": "GB",
@@ -1590,11 +1669,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only (several Polish men named Tomasz Kowalczyk exist; none with this double-barrelled name)"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-RSCF4",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "iona-bhattacharya-reid",
    "name": "Iona Bhattacharya-Reid",
    "country": "GB",
@@ -1611,11 +1693,14 @@
     "tool": "WebSearch",
     "result": "No exact match for the full name. Results showed unrelated people sharing one part of the name only"
    },
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-NZCNB",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "william-strunk-jr",
    "name": "William Strunk Jr.",
    "country": "US",
@@ -1631,11 +1716,14 @@
    "sources": [
     "https://www.gutenberg.org/ebooks/37134"
    ],
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-T0XP9",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "claude-c-hopkins",
    "name": "Claude C. Hopkins",
    "country": "US",
@@ -1652,11 +1740,14 @@
     "https://en.wikipedia.org/wiki/Claude_C._Hopkins",
     "https://en.wikipedia.org/wiki/Scientific_Advertising"
    ],
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-DNA5J",
-   "code_status": "provisional",
+   "code_status": "final",
    "slug": "charles-mackay",
    "name": "Charles Mackay",
    "country": "GB",
@@ -1672,7 +1763,10 @@
    "sources": [
     "https://www.gutenberg.org/ebooks/24518"
    ],
-   "source": "docs/research/catalogue/work-money.json"
+   "source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-QP3S0",
@@ -1691,9 +1785,12 @@
     "tool": "WebSearch",
     "result": "WebSearch exact phrase \"Priya Ramdhanie-Cole\" returned no person of that name (results were the given name Priya, Priya Nandra-Hart, Priya Ahluwalia and unrelated pages)."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:priya-ramdhanie-cole:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-ASZZY",
@@ -1712,9 +1809,12 @@
     "tool": "WebSearch",
     "result": "WebSearch exact phrase \"Aoife Brannigan-Oduya\" returned no person of that name (results were footballers named Aoife and the name page)."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:aoife-brannigan-oduya:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-ZM7E5",
@@ -1733,10 +1833,13 @@
     "tool": "WebSearch",
     "result": "WebSearch exact phrase \"Marisol Abernathy-Kwan\" returned no person of that name (results were the artist Marisol, Marisol Chalas and unrelated pages)."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:marisol-abernathy-kwan:0",
    "genre_original": "creative-writing",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-5J8FN",
@@ -1755,10 +1858,13 @@
     "tool": "WebSearch",
     "result": "WebSearch exact phrase \"Ailsa Fenwick-Dhillon\" returned no person of that name (results were the name pages for Ailsa and Dhillon and unrelated Ailsas)."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:ailsa-fenwick-dhillon:0",
    "genre_original": "life-writing",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-CKAX8",
@@ -1777,10 +1883,13 @@
     "tool": "WebSearch",
     "result": "First choice 'Tessa Moorcroft-Liang' rejected: Moorcroft is a well-known pottery maker, too close for a crafts author. WebSearch exact phrase \"Tessa Wyborn-Liang\" returned no person of that name (results were people surnamed Wyborn, the name Tessa and unrelated pages)."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:tessa-wyborn-liang:0",
    "genre_original": "creativity",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-YYPTK",
@@ -1800,9 +1909,12 @@
     "tool": "WebFetch",
     "result": "Life dates as given on the Project Gutenberg catalogue page https://www.gutenberg.org/ebooks/944."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:charles-darwin:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-7JZB3",
@@ -1822,9 +1934,12 @@
     "tool": "WebFetch",
     "result": "Life dates as given on the Project Gutenberg catalogue page https://www.gutenberg.org/ebooks/1408."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:gilbert-white:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-0RC6P",
@@ -1844,9 +1959,12 @@
     "tool": "WebFetch",
     "result": "Life dates as given on the Project Gutenberg catalogue page https://www.gutenberg.org/ebooks/14474."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:michael-faraday:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-N5SBB",
@@ -1866,9 +1984,12 @@
     "tool": "WebFetch",
     "result": "Life dates as given on the Project Gutenberg catalogue page https://www.gutenberg.org/ebooks/37423."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:john-dewey:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-2QKGP",
@@ -1888,9 +2009,12 @@
     "tool": "WebFetch",
     "result": "Life dates as given on the Project Gutenberg catalogue page https://www.gutenberg.org/ebooks/30325."
    },
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:author:john-ruskin:0",
-   "source": "docs/research/catalogue/learning-creativity.json"
+   "source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-5XM4G",
@@ -1905,8 +2029,11 @@
    "bio": "Brother Lawrence (Nicolas Herman) (1611 to 1691). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-4NWSD",
@@ -1921,8 +2048,11 @@
    "bio": "Thomas a Kempis (about 1380 to 1471). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-4DR5N",
@@ -1937,8 +2067,11 @@
    "bio": "John Bunyan (1628 to 1688). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-WKMKN",
@@ -1953,8 +2086,11 @@
    "bio": "Andrew Murray (1828 to 1917). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-PSJZK",
@@ -1969,8 +2105,11 @@
    "bio": "C. H. Spurgeon (1834 to 1892). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-8KH2F",
@@ -1985,8 +2124,11 @@
    "bio": "E. M. Bounds (1835 to 1913). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-CQMA1",
@@ -2001,8 +2143,11 @@
    "bio": "Augustine of Hippo (354 to 430). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-JEF3H",
@@ -2017,8 +2162,11 @@
    "bio": "Hannah Whitall Smith (1832 to 1911). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-VG1H4",
@@ -2033,8 +2181,11 @@
    "bio": "Charles M. Sheldon (1857 to 1946). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-XXBBW",
@@ -2049,8 +2200,11 @@
    "bio": "Francis de Sales (1567 to 1622). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-149G7",
@@ -2065,8 +2219,11 @@
    "bio": "William Law (1686 to 1761). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-Y69DS",
@@ -2081,8 +2238,11 @@
    "bio": "Jonathan Edwards (1703 to 1758). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-QV5FE",
@@ -2097,8 +2257,11 @@
    "bio": "J. C. Ryle (1816 to 1900). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-88545",
@@ -2113,8 +2276,11 @@
    "bio": "George Müller (1805 to 1898). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-GWK99",
@@ -2129,8 +2295,11 @@
    "bio": "Julian of Norwich (about 1343 to after 1416). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-84F24",
@@ -2145,8 +2314,11 @@
    "bio": "Henry Drummond (1851 to 1897). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-0DB2R",
@@ -2161,8 +2333,11 @@
    "bio": "G. K. Chesterton (1874 to 1936). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-PDGRA",
@@ -2177,8 +2352,11 @@
    "bio": "R. A. Torrey (1856 to 1928). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-VE8V6",
@@ -2193,8 +2371,11 @@
    "bio": "Evelyn Underhill (1875 to 1941). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-MEBAQ",
@@ -2209,8 +2390,11 @@
    "bio": "George MacDonald (1824 to 1905). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-MGV8B",
@@ -2225,8 +2409,11 @@
    "bio": "Ignatius of Loyola (1491 to 1556). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-Z53HR",
@@ -2241,8 +2428,11 @@
    "bio": "Matthew Henry (1662 to 1714). Real author. The original text is in the public domain; the workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-TA7MB",
@@ -2257,8 +2447,11 @@
    "bio": "F. Max Müller (1823 to 1900). Real translator. The source text is traditional and anonymous; his English translation is in the public domain. The workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-KM3PB",
@@ -2273,8 +2466,11 @@
    "bio": "Edwin Arnold (1832 to 1904). Real translator. The source text is traditional and anonymous; his English translation is in the public domain. The workbook around it is new Akana material.",
    "is_demo": false,
    "is_public_domain": true,
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-HESJ2",
@@ -2296,8 +2492,11 @@
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
    "edit_note": "7 October 2026: genre changed from education to personal-development to match the titles that remain after the Bible-study removal. Bio reworded to drop Bible study.",
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-4SXM8",
@@ -2319,8 +2518,11 @@
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
    "edit_note": "7 October 2026: genre changed from education to personal-development to match the titles that remain after the Bible-study removal. Bio reworded to drop Bible study.",
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-NQZGX",
@@ -2342,8 +2544,11 @@
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
    "edit_note": "7 October 2026: genre changed from education to relationships to match the titles that remain after the Bible-study removal.",
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-C7YJ6",
@@ -2364,8 +2569,11 @@
     "query": "\"Ioana Constantinescu-Byrne\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-E5MP6",
@@ -2386,8 +2594,11 @@
     "query": "\"Siobhán Carrick-Doherty\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-1A05T",
@@ -2408,8 +2619,11 @@
     "query": "\"Jerome Whitlock-Bayliss\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-BT1YF",
@@ -2430,8 +2644,11 @@
     "query": "\"Losa Faleolo-Pierce\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-Q0X8F",
@@ -2452,8 +2669,11 @@
     "query": "\"Winsome Clarke-Adeyemi\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "AU-Y8MZQ",
@@ -2474,8 +2694,11 @@
     "query": "\"Agnieszka Lessard-Nowak\"",
     "result": "No exact match for the full name. Results showed only people sharing one part of the name."
    },
-   "code_status": "provisional",
-   "source": "docs/research/catalogue/faith.json"
+   "code_status": "final",
+   "source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   }
  ],
  "workbooks": [
@@ -5003,10 +5226,13 @@
    "safety_tier": "standard",
    "area": "Self and Connection",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/mind-health.json"
+   "v2_source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-lamp-low-hour",
@@ -5056,10 +5282,13 @@
    "safety_tier": "standard",
    "area": "Self and Connection",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/mind-health.json"
+   "v2_source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-gospel-of-relaxation",
@@ -5134,10 +5363,13 @@
    "safety_tier": "standard",
    "area": "Stress and Overload",
    "badge_label": "Classic text, Akana workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/mind-health.json"
+   "v2_source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "drafts-not-verdicts",
@@ -5189,13 +5421,14 @@
    "safety_tier": "standard",
    "area": "Self and Connection",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
     "card_line: 'Treat a bad day as a first draft and write a fairer account of it.' -> 'Read a hard day as a first draft and write a fairer account of it.' (claims check)",
-    "outline[3]: 'Week 4: high standards that help and standards that only punish.' -> 'Week 4: high standards that serve you and standards that only punish.' (claims check)"
+    "outline[3]: 'Week 4: high standards that help and standards that only punish.' -> 'Week 4: high standards that serve you and standards that only punish.' (claims check)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5244,10 +5477,13 @@
    "safety_tier": "standard",
    "area": "Stress and Overload",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/mind-health.json"
+   "v2_source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "one-window-open",
@@ -5303,10 +5539,13 @@
    "safety_tier": "higher",
    "area": "Mood and Energy",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/mind-health.json"
+   "v2_source": "docs/research/catalogue/mind-health.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "walking",
@@ -5380,12 +5619,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Classic text, Akana workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5438,12 +5678,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5492,12 +5733,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5548,12 +5790,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5637,12 +5880,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Classic text, Akana workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5695,12 +5939,13 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
@@ -5757,19 +6002,20 @@
    "safety_tier": "standard",
    "area": "Everyday Health",
    "badge_label": "Demo workbook",
-   "code_status": "provisional",
+   "code_status": "final",
    "status": "draft",
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/mind-health.json",
    "v2_changes": [
     "outline[7]: 'Week 8: technology that helps you keep in touch, at your own pace.' -> 'Week 8: simple ways to keep in touch with technology, at your own pace.' (claims check)",
-    "area_id null -> everyday-health (from the Theme; N12 assumed yes)"
+    "area_id null -> everyday-health (from the Theme; N12 assumed yes)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-autobiography-of-benjamin-franklin",
    "code": "AK-KCEJ4",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-autobiography-of-benjamin-franklin-kcej4",
    "title": "The Autobiography of Benjamin Franklin",
    "subtitle": "A Workbook on Franklin's Thirteen Virtues",
@@ -5867,13 +6113,14 @@
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "outline[5]: 'Week 6: sincerity, justice and how you treat people at work.' -> 'Week 6: sincerity, justice and how you deal with people at work.' (claims check)"
+    "outline[5]: 'Week 6: sincerity, justice and how you treat people at work.' -> 'Week 6: sincerity, justice and how you deal with people at work.' (claims check)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "self-reliance",
    "code": "AK-FEJ8V",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "self-reliance-fej8v",
    "title": "Self-Reliance",
    "subtitle": "A Workbook on Emerson's Essay",
@@ -5955,12 +6202,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "saying-it-once-clearly",
    "code": "AK-4CY9V",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "saying-it-once-clearly-4cy9v",
    "title": "Saying It Once, Clearly",
    "subtitle": "Speaking Up When You Would Rather Not",
@@ -6009,13 +6259,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "a-polite-no",
    "code": "AK-DJ4FC",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-polite-no-dj4fc",
    "title": "A Polite No",
    "subtitle": "Setting Limits Without a Speech",
@@ -6060,12 +6311,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-human-machine",
    "code": "AK-B0DY0",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-human-machine-b0dy0",
    "title": "The Human Machine",
    "subtitle": "A Workbook on Arnold Bennett's Guide to Directing Your Mind",
@@ -6148,12 +6402,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-kitchen-table-decision",
    "code": "AK-19BS2",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-kitchen-table-decision-19bs2",
    "title": "The Kitchen-Table Decision",
    "subtitle": "Big Choices Worked Through on Paper",
@@ -6204,13 +6461,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "three-goals-on-the-fridge",
    "code": "AK-JZ46W",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "three-goals-on-the-fridge-jz46w",
    "title": "Three Goals on the Fridge",
    "subtitle": "A Few Goals and a Monthly Check",
@@ -6255,12 +6513,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "walden",
    "code": "AK-SZ39W",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "walden-sz39w",
    "title": "Walden",
    "subtitle": "A Workbook on Thoreau's Year of Living Deliberately",
@@ -6349,12 +6610,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "letters-to-the-next-ten-years",
    "code": "AK-05FNF",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "letters-to-the-next-ten-years-05fnf",
    "title": "Letters to the Next Ten Years",
    "subtitle": "Shaping Midlife Around What Matters",
@@ -6405,13 +6669,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-small-legacy",
    "code": "AK-N1Q1M",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-small-legacy-n1q1m",
    "title": "The Small Legacy",
    "subtitle": "Values, Stories and What You Pass On",
@@ -6459,12 +6724,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-enchiridion",
    "code": "AK-21QJ0",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-enchiridion-21qj0",
    "title": "The Enchiridion",
    "subtitle": "A Workbook on Epictetus' Handbook, in Higginson's Translation",
@@ -6558,12 +6826,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "of-the-shortness-of-life",
    "code": "AK-B4AR6",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "of-the-shortness-of-life-b4ar6",
    "title": "Of the Shortness of Life",
    "subtitle": "A Workbook on Seneca, in Aubrey Stewart's Translation",
@@ -6655,12 +6926,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "on-friendship",
    "code": "AK-62M74",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "on-friendship-62m74",
    "title": "On Friendship",
    "subtitle": "A Workbook on Cicero's Laelius, in Shuckburgh's Translation",
@@ -6751,12 +7025,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/growth-love-family.json"
+   "v2_source": "docs/research/catalogue/growth-love-family.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "starting-over-in-a-smaller-flat",
    "code": "AK-GCTYD",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "starting-over-in-a-smaller-flat-gctyd",
    "title": "Starting Over in a Smaller Flat",
    "subtitle": "Rebuilding Ordinary Life After a Separation",
@@ -6809,13 +7086,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "coffee-not-fireworks",
    "code": "AK-TWVHM",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "coffee-not-fireworks-twvhm",
    "title": "Coffee, Not Fireworks",
    "subtitle": "Dating Again at Your Own Pace",
@@ -6865,13 +7143,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "telling-the-people-who-matter",
    "code": "AK-GCEAD",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "telling-the-people-who-matter-gcead",
    "title": "Telling the People Who Matter",
    "subtitle": "Sharing News of a Separation Calmly",
@@ -6919,13 +7198,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-first-year-written-down",
    "code": "AK-DCQDG",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-first-year-written-down-dcqdg",
    "title": "The First Year, Written Down",
    "subtitle": "Weekly Notes for New Parents",
@@ -6982,13 +7262,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-monday-after-leave",
    "code": "AK-MX0NC",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-monday-after-leave-mx0nc",
    "title": "The Monday After Leave",
    "subtitle": "Planning a Return to Work After a Baby",
@@ -7036,13 +7317,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "shoulder-to-shoulder-at-home",
    "code": "AK-JSTTS",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "shoulder-to-shoulder-at-home-jstts",
    "title": "Shoulder to Shoulder at Home",
    "subtitle": "Sharing the Early Months as a New Father",
@@ -7092,13 +7374,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "making-room-for-everyone",
    "code": "AK-RKJ4J",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "making-room-for-everyone-rkj4j",
    "title": "Making Room for Everyone",
    "subtitle": "Settling Into Life as a Stepfamily",
@@ -7151,13 +7434,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "when-the-grandchildren-came-to-stay",
    "code": "AK-WYAE0",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "when-the-grandchildren-came-to-stay-wyae0",
    "title": "When the Grandchildren Came to Stay",
    "subtitle": "Kinship Care in Ordinary Weeks",
@@ -7208,13 +7492,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-grandparent-days",
    "code": "AK-590ZQ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-grandparent-days-590zq",
    "title": "The Grandparent Days",
    "subtitle": "Staying Close Without Taking Over",
@@ -7261,13 +7546,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "keeping-track-of-dads-care",
    "code": "AK-WPFW3",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "keeping-track-of-dads-care-wpfw3",
    "title": "Keeping Track of Dad's Care",
    "subtitle": "Appointments, Paperwork and Help From Others",
@@ -7324,13 +7610,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "an-afternoon-to-yourself",
    "code": "AK-QXH92",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "an-afternoon-to-yourself-qxh92",
    "title": "An Afternoon to Yourself",
    "subtitle": "Planning Breaks When You Look After Someone",
@@ -7377,13 +7664,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "visits-with-my-mother",
    "code": "AK-J7MRF",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "visits-with-my-mother-j7mrf",
    "title": "Visits With My Mother",
    "subtitle": "Keeping Conversation Going as Memory Changes",
@@ -7434,13 +7722,14 @@
    "v2_source": "docs/research/catalogue/growth-love-family.json",
    "v2_changes": [
     "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-elements-of-style",
    "code": "AK-WXE4R",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-elements-of-style-wxe4r",
    "title": "The Elements of Style",
    "subtitle": "A Workbook on William Strunk Jr.'s Little Book",
@@ -7522,13 +7811,14 @@
    "release": "tier_b_off_sale_at_launch",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "depth full -> first_week (fully_written is false)"
+    "depth full -> first_week (fully_written is false)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "five-minutes-at-the-front-of-the-room",
    "code": "AK-5NJQA",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "five-minutes-at-the-front-of-the-room-5njqa",
    "title": "Five Minutes at the Front of the Room",
    "subtitle": "Short Talks at Work, Calmly Given",
@@ -7572,12 +7862,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "asking-well-agreeing-fairly",
    "code": "AK-WRRC3",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "asking-well-agreeing-fairly-wrrc3",
    "title": "Asking Well, Agreeing Fairly",
    "subtitle": "Everyday Negotiation at Work",
@@ -7622,12 +7915,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-new-starters-desk",
    "code": "AK-EK8V2",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-new-starters-desk-ek8v2",
    "title": "The New Starter's Desk",
    "subtitle": "A Four-Week Welcome for New Team Members",
@@ -7672,12 +7968,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "office-days-home-days",
    "code": "AK-01V20",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "office-days-home-days-01v20",
    "title": "Office Days, Home Days",
    "subtitle": "Hybrid Working That Suits the Whole Team",
@@ -7721,12 +8020,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "meetings-where-everyone-speaks",
    "code": "AK-MBRV9",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "meetings-where-everyone-speaks-mbrv9",
    "title": "Meetings Where Everyone Speaks",
    "subtitle": "A Team Programme for Fair and Open Ways of Working",
@@ -7771,12 +8073,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "scientific-advertising",
    "code": "AK-01AZG",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "scientific-advertising-01azg",
    "title": "Scientific Advertising",
    "subtitle": "A Workbook on Claude C. Hopkins' 1923 Classic",
@@ -7859,13 +8164,14 @@
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "advice_guardrail null -> not_legal_or_tax_advice (the validator requires one for business)"
+    "advice_guardrail null -> not_legal_or_tax_advice (the validator requires one for business)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "a-newsletter-people-look-forward-to",
    "code": "AK-EEG0Q",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-newsletter-people-look-forward-to-eeg0q",
    "title": "A Newsletter People Look Forward To",
    "subtitle": "Email for Small Businesses, One Issue at a Time",
@@ -7910,12 +8216,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "selling-like-a-good-neighbour",
    "code": "AK-2W5XQ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "selling-like-a-good-neighbour-2w5xq",
    "title": "Selling Like a Good Neighbour",
    "subtitle": "Sales Conversations for Small Firms",
@@ -7962,13 +8271,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "advice_guardrail null -> not_legal_or_tax_advice (the validator requires one for business)"
+    "advice_guardrail null -> not_legal_or_tax_advice (the validator requires one for business)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "everything-i-owe-on-one-page",
    "code": "AK-GY8S3",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "everything-i-owe-on-one-page-gy8s3",
    "title": "Everything I Owe, On One Page",
    "subtitle": "A Calm First Look at Your Debts",
@@ -8015,13 +8325,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-repayment-notebook",
    "code": "AK-EDYRR",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-repayment-notebook-edyrr",
    "title": "The Repayment Notebook",
    "subtitle": "Steady Steps With What You Owe",
@@ -8068,13 +8379,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "opening-the-brown-envelopes",
    "code": "AK-KVEBR",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "opening-the-brown-envelopes-kvebr",
    "title": "Opening the Brown Envelopes",
    "subtitle": "Facing Bills, Letters and Arrears",
@@ -8120,13 +8432,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)"
+    "safety_profile standard -> wellbeing_standard (seed value for schema tier standard; tier kept, not lowered)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "extraordinary-popular-delusions",
    "code": "AK-4HBJN",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "extraordinary-popular-delusions-4hbjn",
    "title": "Extraordinary Popular Delusions and the Madness of Crowds",
    "subtitle": "A Workbook on Charles Mackay's Money Manias",
@@ -8208,13 +8521,14 @@
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "advice_guardrail null -> not_financial_advice (the validator requires one for finance)"
+    "advice_guardrail null -> not_financial_advice (the validator requires one for finance)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "your-workplace-pension-explained-slowly",
    "code": "AK-ZSFV9",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "your-workplace-pension-explained-slowly-zsfv9",
    "title": "Your Workplace Pension, Explained Slowly",
    "subtitle": "Reading Your Pension Letters, Line by Line",
@@ -8258,12 +8572,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-long-view-on-saving",
    "code": "AK-TZT8G",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-long-view-on-saving-tzt8g",
    "title": "The Long View on Saving",
    "subtitle": "Pensions, ISAs and How Investing Works",
@@ -8307,12 +8624,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/work-money.json"
+   "v2_source": "docs/research/catalogue/work-money.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "thrift",
    "code": "AK-097A5",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "thrift-097a5",
    "title": "Thrift",
    "subtitle": "A Workbook on Samuel Smiles' Victorian Classic",
@@ -8394,13 +8714,14 @@
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/work-money.json",
    "v2_changes": [
-    "advice_guardrail null -> not_financial_advice (the validator requires one for finance)"
+    "advice_guardrail null -> not_financial_advice (the validator requires one for finance)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "pause-before-you-click",
    "code": "AK-NDT42",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:pause-before-you-click:0",
    "url_slug": "pause-before-you-click-ndt42",
    "title": "Pause Before You Click",
@@ -8451,13 +8772,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre life_skills -> life-skills"
+    "genre life_skills -> life-skills",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-quieter-phone",
    "code": "AK-GA0DR",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-quieter-phone:0",
    "url_slug": "the-quieter-phone-ga0dr",
    "title": "The Quieter Phone",
@@ -8505,13 +8827,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre life_skills -> life-skills"
+    "genre life_skills -> life-skills",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "spreadsheets-for-the-kitchen-table",
    "code": "AK-D49C0",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:spreadsheets-for-the-kitchen-table:0",
    "url_slug": "spreadsheets-for-the-kitchen-table-d49c0",
    "title": "Spreadsheets for the Kitchen Table",
@@ -8560,13 +8883,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre life_skills -> life-skills"
+    "genre life_skills -> life-skills",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "how-we-think",
    "code": "AK-HHGT0",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:how-we-think:0",
    "url_slug": "how-we-think-hhgt0",
    "title": "How We Think",
@@ -8654,12 +8978,15 @@
    },
    "status": "draft",
    "release": "tier_b_off_sale_at_launch",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-sunday-morning-circle",
    "code": "AK-XB0A1",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-sunday-morning-circle:0",
    "url_slug": "the-sunday-morning-circle-xb0a1",
    "title": "The Sunday Morning Circle",
@@ -8708,12 +9035,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "one-learner-at-a-time",
    "code": "AK-QS96Q",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:one-learner-at-a-time:0",
    "url_slug": "one-learner-at-a-time-qs96q",
    "title": "One Learner at a Time",
@@ -8759,12 +9089,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-voyage-of-the-beagle",
    "code": "AK-1VM0D",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-voyage-of-the-beagle:0",
    "url_slug": "the-voyage-of-the-beagle-1vm0d",
    "title": "The Voyage of the Beagle",
@@ -8856,12 +9189,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-natural-history-of-selborne",
    "code": "AK-7A9C1",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-natural-history-of-selborne:0",
    "url_slug": "the-natural-history-of-selborne-7a9c1",
    "title": "The Natural History of Selborne",
@@ -8947,12 +9283,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-chemical-history-of-a-candle",
    "code": "AK-7ZHZS",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-chemical-history-of-a-candle:0",
    "url_slug": "the-chemical-history-of-a-candle-7zhzs",
    "title": "The Chemical History of a Candle",
@@ -9046,12 +9385,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "literary-taste",
    "code": "AK-B06WT",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:literary-taste:0",
    "url_slug": "literary-taste-b06wt",
    "title": "Literary Taste",
@@ -9138,12 +9480,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-authors-craft",
    "code": "AK-GQHF9",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-authors-craft:0",
    "url_slug": "the-authors-craft-gqhf9",
    "title": "The Author's Craft",
@@ -9227,12 +9572,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "twenty-minutes-at-the-table",
    "code": "AK-HQMFC",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:twenty-minutes-at-the-table:0",
    "url_slug": "twenty-minutes-at-the-table-hqmfc",
    "title": "Twenty Minutes at the Table",
@@ -9282,12 +9630,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-short-story-season",
    "code": "AK-GS5DG",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-short-story-season:0",
    "url_slug": "the-short-story-season-gs5dg",
    "title": "The Short Story Season",
@@ -9342,12 +9693,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "demo_live_after_approval",
-   "v2_source": "docs/research/catalogue/learning-creativity.json"
+   "v2_source": "docs/research/catalogue/learning-creativity.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "stories-told-out-loud",
    "code": "AK-RE0NT",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:stories-told-out-loud:0",
    "url_slug": "stories-told-out-loud-re0nt",
    "title": "Stories Told Out Loud",
@@ -9398,13 +9752,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "before-the-names-are-lost",
    "code": "AK-TDWTS",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:before-the-names-are-lost:0",
    "url_slug": "before-the-names-are-lost-tdwts",
    "title": "Before the Names Are Lost",
@@ -9461,13 +9816,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "letters-left-in-the-drawer",
    "code": "AK-RMVAJ",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:letters-to-open-later:0",
    "url_slug": "letters-left-in-the-drawer-rmvaj",
    "title": "Letters Left in the Drawer",
@@ -9526,13 +9882,14 @@
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
     "title clash: 'Letters to Open Later' -> 'Letters Left in the Drawer' (title_alternative, checked clear); id and url_slug follow, code kept",
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-elements-of-drawing",
    "code": "AK-JS5RW",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-elements-of-drawing:0",
    "url_slug": "the-elements-of-drawing-js5rw",
    "title": "The Elements of Drawing",
@@ -9626,13 +9983,14 @@
    "release": "after_house_record_signed",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "something-made-each-week",
    "code": "AK-FNAAM",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:something-made-each-week:0",
    "url_slug": "something-made-each-week-fnaam",
    "title": "Something Made Each Week",
@@ -9682,13 +10040,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-walk-with-a-camera",
    "code": "AK-7YRZP",
-   "code_status": "provisional",
+   "code_status": "final",
    "code_key": "akana:workbook:the-walk-with-a-camera:0",
    "url_slug": "the-walk-with-a-camera-7yrzp",
    "title": "The Walk With a Camera",
@@ -9737,13 +10096,14 @@
    "release": "demo_live_after_approval",
    "v2_source": "docs/research/catalogue/learning-creativity.json",
    "v2_changes": [
-    "genre personal_development -> personal-development"
+    "genre personal_development -> personal-development",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "the-practice-of-the-presence-of-god",
    "code": "AK-8KCC9",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-practice-of-the-presence-of-god-8kcc9",
    "title": "The Practice of the Presence of God",
    "subtitle": "A Workbook on Brother Lawrence, in the Revell Translation",
@@ -9827,12 +10187,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-imitation-of-christ",
    "code": "AK-D8SA8",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-imitation-of-christ-d8sa8",
    "title": "The Imitation of Christ",
    "subtitle": "A Workbook on Thomas a Kempis, in William Benham's Translation",
@@ -9921,12 +10284,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-pilgrims-progress",
    "code": "AK-Q7XMY",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-pilgrims-progress-q7xmy",
    "title": "The Pilgrim's Progress",
    "subtitle": "A Workbook on John Bunyan's Journey, Part I",
@@ -10010,12 +10376,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "abide-in-christ",
    "code": "AK-HMER6",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "abide-in-christ-hmer6",
    "title": "Abide in Christ",
    "subtitle": "A Workbook on Andrew Murray's Thirty-One Meditations",
@@ -10093,12 +10462,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "with-christ-in-the-school-of-prayer",
    "code": "AK-7H62V",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "with-christ-in-the-school-of-prayer-7h62v",
    "title": "With Christ in the School of Prayer",
    "subtitle": "A Workbook on Andrew Murray's Lessons in Prayer",
@@ -10176,12 +10548,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "humility-the-beauty-of-holiness",
    "code": "AK-XWXG0",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "humility-the-beauty-of-holiness-xwxg0",
    "title": "Humility: The Beauty of Holiness",
    "subtitle": "A Workbook on Andrew Murray",
@@ -10259,12 +10634,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "absolute-surrender",
    "code": "AK-WDMXA",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "absolute-surrender-wdmxa",
    "title": "Absolute Surrender",
    "subtitle": "A Workbook on Andrew Murray's Keswick Addresses",
@@ -10340,12 +10718,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "morning-and-evening",
    "code": "AK-2YG1J",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "morning-and-evening-2yg1j",
    "title": "Morning and Evening",
    "subtitle": "A Workbook on C. H. Spurgeon's Daily Readings, One Season",
@@ -10429,12 +10810,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "all-of-grace",
    "code": "AK-3KZ64",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "all-of-grace-3kz64",
    "title": "All of Grace",
    "subtitle": "A Workbook on C. H. Spurgeon for Enquirers and New Christians",
@@ -10511,12 +10895,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "power-through-prayer",
    "code": "AK-Q46PK",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "power-through-prayer-q46pk",
    "title": "Power Through Prayer",
    "subtitle": "A Workbook on E. M. Bounds for Leaders and Church Teams",
@@ -10602,12 +10989,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "confessions",
    "code": "AK-FWYF6",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "confessions-fwyf6",
    "title": "Confessions",
    "subtitle": "A Workbook on Augustine of Hippo, in E. B. Pusey's Translation",
@@ -10696,12 +11086,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-christians-secret-of-a-happy-life",
    "code": "AK-VMD0B",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-christians-secret-of-a-happy-life-vmd0b",
    "title": "The Christian's Secret of a Happy Life",
    "subtitle": "A Devotional Workbook on Hannah Whitall Smith",
@@ -10780,12 +11173,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "in-his-steps",
    "code": "AK-DQXE1",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "in-his-steps-dqxe1",
    "title": "In His Steps",
    "subtitle": "A Book Group Workbook on Charles M. Sheldon",
@@ -10863,12 +11259,15 @@
    },
    "status": "draft",
    "release": "tier_b_off_sale_at_launch",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "introduction-to-the-devout-life",
    "code": "AK-0STN5",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "introduction-to-the-devout-life-0stn5",
    "title": "Introduction to the Devout Life",
    "subtitle": "A Workbook on Francis de Sales for People With Jobs and Families",
@@ -10954,12 +11353,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "a-serious-call-to-a-devout-and-holy-life",
    "code": "AK-1M3DZ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-serious-call-to-a-devout-and-holy-life-1m3dz",
    "title": "A Serious Call to a Devout and Holy Life",
    "subtitle": "A Workbook on William Law",
@@ -11038,12 +11440,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "religious-affections",
    "code": "AK-R503Z",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "religious-affections-r503z",
    "title": "Religious Affections",
    "subtitle": "A Study Group Workbook on Jonathan Edwards",
@@ -11126,12 +11531,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "holiness",
    "code": "AK-WY652",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "holiness-wy652",
    "title": "Holiness",
    "subtitle": "A Workbook on J. C. Ryle",
@@ -11211,12 +11619,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "practical-religion",
    "code": "AK-HM6H5",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "practical-religion-hm6h5",
    "title": "Practical Religion",
    "subtitle": "A Workbook on J. C. Ryle's Daily Duties",
@@ -11296,12 +11707,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "a-narrative-of-george-muller",
    "code": "AK-AM2AN",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-narrative-of-george-muller-am2an",
    "title": "A Narrative of Some of the Lord's Dealings with George Müller",
    "subtitle": "A Workbook on George Müller's Prayer Record",
@@ -11381,13 +11795,14 @@
    "release": "after_house_record_signed_and_theological_review",
    "v2_source": "docs/research/catalogue/faith.json",
    "v2_changes": [
-    "advice_guardrail money_guidance_not_advice -> not_financial_advice"
+    "advice_guardrail money_guidance_not_advice -> not_financial_advice",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "revelations-of-divine-love",
    "code": "AK-WQJ3H",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "revelations-of-divine-love-wqj3h",
    "title": "Revelations of Divine Love",
    "subtitle": "A Workbook on Julian of Norwich, in Grace Warrack's Edition",
@@ -11473,12 +11888,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-greatest-thing-in-the-world",
    "code": "AK-N315M",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-greatest-thing-in-the-world-n315m",
    "title": "The Greatest Thing in the World",
    "subtitle": "A Workbook on Henry Drummond and 1 Corinthians 13",
@@ -11554,12 +11972,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "orthodoxy",
    "code": "AK-6BZ6X",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "orthodoxy-6bz6x",
    "title": "Orthodoxy",
    "subtitle": "A Discussion Group Workbook on G. K. Chesterton",
@@ -11640,12 +12061,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "how-to-pray",
    "code": "AK-JGTJX",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "how-to-pray-jgtjx",
    "title": "How to Pray",
    "subtitle": "A Workbook on R. A. Torrey",
@@ -11720,12 +12144,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "practical-mysticism",
    "code": "AK-JP1P8",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "practical-mysticism-jp1p8",
    "title": "Practical Mysticism",
    "subtitle": "A Workbook on Evelyn Underhill",
@@ -11803,12 +12230,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "unspoken-sermons",
    "code": "AK-GPX38",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "unspoken-sermons-gpx38",
    "title": "Unspoken Sermons",
    "subtitle": "A Close-Reading Workbook on George MacDonald",
@@ -11892,12 +12322,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-spiritual-exercises-eight-day-retreat",
    "code": "AK-4FDEJ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-spiritual-exercises-eight-day-retreat-4fdej",
    "title": "The Spiritual Exercises",
    "subtitle": "An Eight-Day Retreat at Home, after Charles Coppens",
@@ -11986,13 +12419,14 @@
    "release": "after_house_record_signed_and_theological_review",
    "v2_source": "docs/research/catalogue/faith.json",
    "v2_changes": [
-    "price_tier 'short [Crent]' -> short (lowest tier, provisional)"
+    "price_tier 'short [Crent]' -> short (lowest tier, provisional)",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "a-method-for-prayer",
    "code": "AK-RW9JT",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-method-for-prayer-rw9jt",
    "title": "A Method for Prayer",
    "subtitle": "A Workbook on Matthew Henry",
@@ -12069,12 +12503,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-dhammapada",
    "code": "AK-3GCX7",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-dhammapada-3gcx7",
    "title": "The Dhammapada",
    "subtitle": "A Contemplative Workbook, in F. Max Müller's 1881 Translation",
@@ -12157,12 +12594,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_tradition_reviewer",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-song-celestial",
    "code": "AK-MZ4ST",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-song-celestial-mz4st",
    "title": "The Song Celestial",
    "subtitle": "A Contemplative Workbook on the Bhagavad Gita, in Edwin Arnold's 1885 Verse Translation",
@@ -12244,12 +12684,15 @@
    },
    "status": "draft",
    "release": "after_house_record_signed_and_tradition_reviewer",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "vespers-at-home",
    "code": "AK-KPHZS",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "vespers-at-home-kphzs",
    "title": "Vespers at Home",
    "subtitle": "Six Weeks of Evening Prayer",
@@ -12298,12 +12741,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "supper-grace-and-bedtime-prayers",
    "code": "AK-KWNPD",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "supper-grace-and-bedtime-prayers-kwnpd",
    "title": "Supper Grace and Bedtime Prayers",
    "subtitle": "Six Weeks of Family Prayer",
@@ -12352,12 +12798,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "a-small-place-for-prayer",
    "code": "AK-C0VNY",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-small-place-for-prayer-c0vny",
    "title": "A Small Place for Prayer",
    "subtitle": "Making an Icon Corner in Four Weeks",
@@ -12404,12 +12853,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-year-before-the-wedding",
    "code": "AK-AABM4",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-year-before-the-wedding-aabm4",
    "title": "The Year Before the Wedding",
    "subtitle": "Eight Conversations for Engaged Couples",
@@ -12460,12 +12912,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "sunday-lunch-monday-prayers",
    "code": "AK-BK6HZ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "sunday-lunch-monday-prayers-bk6hz",
    "title": "Sunday Lunch, Monday Prayers",
    "subtitle": "Six Weeks of Faith Around the Family Table",
@@ -12514,12 +12969,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "sabbath-in-a-busy-week",
    "code": "AK-C9CN0",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "sabbath-in-a-busy-week-c9cn0",
    "title": "Sabbath in a Busy Week",
    "subtitle": "Four Weeks Towards a Day of Rest",
@@ -12566,12 +13024,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "offering-the-working-day",
    "code": "AK-X1EHA",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "offering-the-working-day-x1eha",
    "title": "Offering the Working Day",
    "subtitle": "Six Weeks of Prayer at Work",
@@ -12620,12 +13081,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "straight-dealing-at-work",
    "code": "AK-JREXJ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "straight-dealing-at-work-jrexj",
    "title": "Straight Dealing at Work",
    "subtitle": "Six Weeks on Integrity and Faith",
@@ -12674,12 +13138,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "open-hands-full-table",
    "code": "AK-ZEG8Z",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "open-hands-full-table-zeg8z",
    "title": "Open Hands, Full Table",
    "subtitle": "Six Weeks of Generous Living",
@@ -12730,13 +13197,14 @@
    "release": "after_faith_genre_decision_and_theological_review",
    "v2_source": "docs/research/catalogue/faith.json",
    "v2_changes": [
-    "advice_guardrail money_guidance_not_advice -> not_financial_advice"
+    "advice_guardrail money_guidance_not_advice -> not_financial_advice",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "content-with-daily-bread",
    "code": "AK-CRPDM",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "content-with-daily-bread-crpdm",
    "title": "Content With Daily Bread",
    "subtitle": "Four Weeks on Enough",
@@ -12785,13 +13253,14 @@
    "release": "after_faith_genre_decision_and_theological_review",
    "v2_source": "docs/research/catalogue/faith.json",
    "v2_changes": [
-    "advice_guardrail money_guidance_not_advice -> not_financial_advice"
+    "advice_guardrail money_guidance_not_advice -> not_financial_advice",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "a-lighter-lent",
    "code": "AK-EB501",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "a-lighter-lent-eb501",
    "title": "A Lighter Lent",
    "subtitle": "Six Weeks of Prayer, Fasting and Almsgiving",
@@ -12842,13 +13311,14 @@
    "release": "after_faith_genre_decision_and_theological_review",
    "v2_source": "docs/research/catalogue/faith.json",
    "v2_changes": [
-    "advice_guardrail money_guidance_not_advice -> not_financial_advice"
+    "advice_guardrail money_guidance_not_advice -> not_financial_advice",
+    "code_status provisional -> final (approved 2026-10-08)"
    ]
   },
   {
    "id": "kept-company-in-grief",
    "code": "AK-H2K6J",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "kept-company-in-grief-h2k6j",
    "title": "Kept Company in Grief",
    "subtitle": "Eight Weeks With the Psalms After a Death",
@@ -12899,12 +13369,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "forgiving-slowly",
    "code": "AK-577PZ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "forgiving-slowly-577pz",
    "title": "Forgiving Slowly",
    "subtitle": "Six Weeks on Forgiveness Without Pretending",
@@ -12953,12 +13426,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "psalms-of-the-long-night",
    "code": "AK-G96XJ",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "psalms-of-the-long-night-g96xj",
    "title": "Psalms of the Long Night",
    "subtitle": "Four Weeks of Lament and Hope",
@@ -13005,12 +13481,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "questions-welcome",
    "code": "AK-1QX95",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "questions-welcome-1qx95",
    "title": "Questions Welcome",
    "subtitle": "Six Weeks With Doubt in the Bible",
@@ -13059,12 +13538,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "welcome-at-the-door",
    "code": "AK-DCSC6",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "welcome-at-the-door-dcsc6",
    "title": "Welcome at the Door",
    "subtitle": "Four Weeks for Church Welcome Teams",
@@ -13111,12 +13593,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "the-small-group-leaders-year",
    "code": "AK-0G88S",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "the-small-group-leaders-year-0g88s",
    "title": "The Small Group Leader's Year",
    "subtitle": "Twelve Weeks of Leading a Home Group",
@@ -13172,12 +13657,15 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   },
   {
    "id": "visiting-well",
    "code": "AK-CNN64",
-   "code_status": "provisional",
+   "code_status": "final",
    "url_slug": "visiting-well-cnn64",
    "title": "Visiting Well",
    "subtitle": "Six Weeks for Pastoral Visitors",
@@ -13226,7 +13714,10 @@
    "badge_label": "Demo workbook",
    "status": "draft",
    "release": "after_faith_genre_decision_and_theological_review",
-   "v2_source": "docs/research/catalogue/faith.json"
+   "v2_source": "docs/research/catalogue/faith.json",
+   "v2_changes": [
+    "code_status provisional -> final (approved 2026-10-08)"
+   ]
   }
  ],
  "maya_vaughn": {

@@ -5,10 +5,10 @@ import { renderSeedSql } from "./sql";
 import { chunk } from "./apply";
 import { AKANA_HOUSE_ORG_ID, MARKETPLACE_TENANT_ID, MAYA_VAUGHN_AUTHOR_CODE } from "./rows";
 
-const seed = buildSeed();
+const seed = buildSeed({ catalogue: "v1" });
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 
-describe("buildSeed", () => {
+describe("buildSeed with the v1 catalogue", () => {
   it("returns 20 Maya Vaughn workbooks with versions and 50 catalogue workbooks without", () => {
     const maya = seed.workbooks.filter((w) => w.org_id === AKANA_HOUSE_ORG_ID && w.badge === "official");
     expect(maya).toHaveLength(20);
@@ -35,7 +35,7 @@ describe("buildSeed", () => {
   });
 
   it("gives ids that are stable across two runs", () => {
-    const again = buildSeed();
+    const again = buildSeed({ catalogue: "v1" });
     const idsOf = (s: typeof seed) =>
       Object.fromEntries(
         Object.entries(s).map(([table, rows]) => [table, (rows as Record<string, unknown>[]).map((r) => JSON.stringify(Object.values(r).slice(0, 2)))]),

@@ -178,6 +178,15 @@ export const TABLE_ORDER = [
   "tenant_listings",
 ] as const satisfies readonly (keyof Seed)[];
 
+/**
+ * Columns written when a row is first inserted and never overwritten on a
+ * re-run. workbooks.status moves through public.release_version (0016), so a
+ * seed run must not put a live title back to draft.
+ */
+export const INSERT_ONLY_COLUMNS: Partial<Record<keyof Seed, readonly string[]>> = {
+  workbooks: ["status"],
+};
+
 /** Conflict targets per table. Tables without an id column key on their natural key. */
 export const CONFLICT_KEYS: Record<keyof Seed, string[]> = {
   genres: ["id"],
