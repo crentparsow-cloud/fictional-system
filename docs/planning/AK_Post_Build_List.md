@@ -21,12 +21,12 @@ No figure here is new. Prices and dates are quoted from the source named.
 | # | Item | Source | Status | Only Crent |
 |---|---|---|---|---|
 | C1 | Real membership prices. Interim prices are £7.99 a month and £69.99 a year, VAT included, no free trial. Then the live Stripe price ids | DAY_LOG Day 6 second batch | Interim | Yes |
-| C2 | Real workbook prices: the fixed ladder by length (short, standard, extended, programme) and its GBP and USD points. Checkout shows "Price to be confirmed" until then | Questions C4; DAY_LOG Day 3 | Open | Yes |
+| C2 | Workbook prices. Set 9 October 2026 as the permanent ladder until Crent changes it: six GBP points, £7.99, £8.99, £9.99, £11.99, £12.99, £14.99, VAT inclusive, each on a Stripe sandbox price. Full programmes on p4 to p6, shorter titles on p1 to p4. USD and other currencies still unset, so other markets see the GBP figure. At a change: update `price_points`, `lib/pricing.ts` and the Stripe prices together; live Stripe prices at switch-on | DAY_LOG Day 8 | Set | Yes, for changes |
 | C3 | D1 to D4: charge model, single-sale revenue share, subscription pool share and basis, royalty base | Questions D1 to D4; plan section 6 | Open | Yes |
 | C4 | D5 payout settings: payout day, minimum payout, first-payout hold, hand-approval threshold, payout currency | Questions D5 | Open | Yes |
 | C5 | Domain (A7): buy the main Akana apex once the trade mark view allows, and a neutral tenant apex. Then DNS for Vercel and Resend | Questions A7; plan O5; DAY_LOG Day 4 (f) | Open | Yes |
 | C6 | `OPS_ALERT_TO`: the real staff alerts address. Alerts go to `LEADS_NOTIFY_TO` while it is unset | DAY_LOG Day 6 evening; decision (d) | Placeholder, deferred | Yes |
-| C7 | `LEADS_NOTIFY_TO`: the address that receives enquiries | DAY_LOG Day 4 | Confirm | Yes |
+| C7 | `LEADS_NOTIFY_TO`: the address that receives enquiries. Set in Vercel 9 October with `TEST_RECIPIENT` and `EMAIL_REPLY_TO` | DAY_LOG Day 4, Day 8 | Done | Yes |
 | C8 | Staff owner role and TOTP: sign in once, add the owner role (SQL in the Day 4 log), turn on TOTP under Supabase Authentication, Multi-Factor, enrol an authenticator, open `/admin` | DAY_LOG Day 4 item 4 | Confirm | Yes |
 | C9 | Board codes for the 20 Maya Vaughn titles. AK- codes are provisional until the naming board sends them | DAY_LOG Day 1 and Day 4; `SCHEMA_V3_FREEZE.md` | Open | Yes |
 | C10 | Public-domain record signer: who signs each house record in `docs/public-domain/`. Every new classic waits for this | DAY_LOG Day 5 (e), Day 6; F-118, F-152 | Open | Yes |
@@ -88,7 +88,7 @@ No figure here is new. Prices and dates are quoted from the source named.
 
 | # | Item | Source | Status | Only Crent |
 |---|---|---|---|---|
-| S1 | Stripe Tax set-up: turn it on with the business address and tax registrations, check the product tax codes, then run test checkouts for a workbook and both membership prices from a UK and a US address and check the tax lines | DAY_LOG Day 3 and follow-up 2 | Open | Yes |
+| S1 | Stripe Tax set-up: turn it on with the business address and tax registrations, check the product tax codes, then run test checkouts for a workbook and both membership prices from a UK and a US address and check the tax lines. Confirmed blocking on 9 October: Stripe refuses every Checkout Session until the sandbox has a head office address | DAY_LOG Day 3 and follow-up 2, Day 8 | Open, blocks the first test payment | Yes |
 | S2 | Live activation of the platform account under the company | Plan O7 | Open | Yes |
 | S3 | Connect platform profile submitted and approved. Stripe sets the timing | Plan O7; plan section 8 | Open | Yes |
 | S4 | Second webhook endpoint for connected accounts (`account.updated`, `account.external_account.*`), then `STRIPE_CONNECT_WEBHOOK_SECRET` in Vercel | DAY_LOG Day 6 evening | Open | Yes |
@@ -116,6 +116,9 @@ No figure here is new. Prices and dates are quoted from the source named.
 | T12 | Crisis phrase list in `apps/web/lib/search-safety.ts` is interim until clinician sign-off (C23) | DAY_LOG Day 6 | Interim | No |
 | T13 | External penetration test before the first paying white-label tenant | Questions E10 | Open | No |
 | T14 | Production secrets: Crent adds every live key himself | Plan section 8 | Open | Yes |
+| T15 | Content for the five live classics. They have no content version, so `/read` is 404 and nothing on production can be read and bought together. Load their v3 content, or move them back to draft until it exists | DAY_LOG Day 8 | Open | No, but C10 first |
+| T16 | Public workbook page Buy and Membership buttons are placeholders; the working buttons sit on the `/read` paywall. Wire the public page to the checkout API, or send Buy to the paywall | DAY_LOG Day 8 | Open | No |
+| T17 | Test plan in `docs/testing/AK_Test_Plan.md`: five staging test accounts (T7) needed before Part B can run | DAY_LOG Day 8 | Open | Addresses, yes |
 
 ## Counts
 
@@ -125,5 +128,5 @@ No figure here is new. Prices and dates are quoted from the source named.
 | Lawyer | 16 | 0 | 2 |
 | Accountant | 7 | 0 | 0 |
 | Stripe | 9 | 8 | 0 |
-| Technical | 14 | 5 | 0 |
-| **Total** | **76** | **43** | **2** |
+| Technical | 17 | 5 | 0 |
+| **Total** | **79** | **43** | **2** |
