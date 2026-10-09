@@ -21,9 +21,11 @@ export const dynamic = "force-dynamic";
  */
 export default async function VerifyPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;
-  const next = safeNextPath(typeof sp.next === "string" ? sp.next : null, "/studio");
   const supabase = await createUserClient();
   const { data: userData } = await supabase.auth.getUser();
+  // With no next, staff go to /admin. The Studio is invite only and shows a
+  // 404 to anyone without an organisation, which is where staff landed before.
+  const next = safeNextPath(typeof sp.next === "string" ? sp.next : null, defaultAfterVerify(userData.user?.app_metadata));
   if (!userData.user) redirect(`/sign-in?next=${encodeURIComponent(`/verify?next=${encodeURIComponent(next)}`)}`);
   if ((await getRoleMfaSession()).verified) redirect(next);
 
@@ -57,4 +59,10 @@ export default async function VerifyPage({ searchParams }: { searchParams: Promi
       </section>
     </main>
   );
+}
+
+/** Where /verify sends someone when no next is given: staff to /admin, everyone else to /studio. */
+function defaultAfterVerify(appMetadata: Record<string, unknown> | undefined): string {
+  const roles = appMetadata?.platform_roles;
+  return Array.isArray(roles) && roles.length > 0 ? "/admin" : "/studio";
 }
