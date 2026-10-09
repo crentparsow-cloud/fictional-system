@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { requestMagicLink } from "./action";
+import { GoogleSignIn } from "@/components/auth/GoogleSignIn";
 import { brand } from "@/lib/brand";
 import { getReaderSession, safeNextPath } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
@@ -15,6 +16,7 @@ type Search = { sent?: string; error?: string; next?: string };
 /**
  * Sign-in (F-132). Generic by design: it names no workbook, topic or title
  * (F-127), so the screen says nothing about what a reader is here for.
+ * Google One Tap (13.1) sits above the email form while its client id is set.
  */
 export default async function SignInPage({ searchParams }: { searchParams: Promise<Search> }) {
   const sp = await searchParams;
@@ -23,7 +25,7 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   if (session) redirect(next);
 
   const { t } = await getT();
-  const error = sp.error === "invalid" ? t("signIn.errorInvalid") : sp.error === "send" ? t("signIn.errorSend") : sp.error === "link" ? t("signIn.errorLink") : sp.error === "busy" ? t("signIn.errorBusy") : null;
+  const error = sp.error === "invalid" ? t("signIn.errorInvalid") : sp.error === "send" ? t("signIn.errorSend") : sp.error === "link" ? t("signIn.errorLink") : sp.error === "busy" ? t("signIn.errorBusy") : sp.error === "google" ? t("signIn.errorGoogle") : null;
 
   if (sp.sent === "1") {
     return (
@@ -45,6 +47,8 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
       <section className="card auth-card">
         <p className="eyebrow">{brand.name}</p>
         <h1>{t("signIn.title")}</h1>
+        {/* Google One Tap (13.1): renders only while NEXT_PUBLIC_GOOGLE_CLIENT_ID is set. */}
+        <GoogleSignIn next={next} label={t("signIn.google")} divider={t("signIn.or")} />
         <p>{t("signIn.lead")}</p>
         <form action={requestMagicLink} noValidate>
           <input type="hidden" name="next" value={next} />

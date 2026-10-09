@@ -8,6 +8,8 @@ import { readerDeletion } from "@/lib/account-server";
 import { createUserClient } from "@/lib/supabase/server";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { getRoleMfaSession } from "@/lib/mfa/role-mfa-server";
+import { readerVerifyHref } from "@/lib/mfa/reader-mfa";
 import { needsReaderTerms, termsHref } from "@/lib/terms";
 import { readerTermsAccepted } from "@/lib/terms-server";
 
@@ -17,7 +19,10 @@ import { readerTermsAccepted } from "@/lib/terms-server";
  * Nobody signed in goes to /sign-in. A signed-in reader who has not yet
  * confirmed they are 18 or over goes to /welcome first (F-127). Both carry
  * the path they were heading for so they come straight back. A reader who
- * has not accepted the current reader terms goes to /terms (F-122).
+ * has not accepted the current reader terms goes to /terms (F-122). A
+ * reader who turned on two-step sign-in (13.2) and has not yet given a code
+ * on this session goes to /verify. Readers who never turned it on are not
+ * asked.
  */
 export default async function ReaderLayout({ children }: { children: React.ReactNode }) {
   const session = await getReaderSession();
@@ -25,6 +30,7 @@ export default async function ReaderLayout({ children }: { children: React.React
   const current = h.get("x-akana-path") ?? "/home";
   if (!session) redirect(`/sign-in?next=${encodeURIComponent(current)}`);
   if (!session.adultConfirmedAt) redirect(`/welcome?next=${encodeURIComponent(current)}`);
+  if (session.mfaEnrolled && !(await getRoleMfaSession()).verified) redirect(readerVerifyHref(current));
   // F-122: asked again when the reader terms version changes. If the status
   // cannot be read the tabs stay open (logged); checkout still refuses
   // without a recorded acceptance.

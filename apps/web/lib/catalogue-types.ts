@@ -73,6 +73,10 @@ export interface WorkbookDetail {
   bookLanguage: string | null;
   listing: ListingBody | null;
   start: StartBody | null;
+  /** The ladder point the title is sold at, for the public page's Buy button (item 3.2). Null while unpriced. */
+  pricePointId: string | null;
+  /** Whether the membership covers this title (0009). */
+  inMembership: boolean;
 }
 
 export interface ShelfWithThemes {
