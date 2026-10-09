@@ -172,6 +172,15 @@ export default async function AdminHomePage() {
       noCount: true,
     },
     {
+      href: "/admin/analytics",
+      title: "Analytics",
+      line: "Funnel to first unit and checkout, where readers stop, finished steps per week by cohort, trial cancels. Counts only.",
+      count: null,
+      unit: "",
+      closed: !can.readFunnel,
+      noCount: true,
+    },
+    {
       href: "/admin/lookup",
       title: "Account lookup",
       line: "Find a reader by email for a support case. Every lookup is logged with a reason.",
