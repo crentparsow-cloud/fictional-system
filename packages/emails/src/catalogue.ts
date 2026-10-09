@@ -52,6 +52,7 @@ export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = 
   payout_action_needed: "Something is needed before a payout can be made.",
   statement_ready: "A new earnings statement is ready.",
   payout_details_changed: "Security notice to owners and finance: payout or tax details changed.",
+  connect_onboarding_nudge: "Owner and finance, at most weekly: earnings are waiting on one Stripe Connect step. No title.",
   lead_received: "To the Akana team: someone sent the publish enquiry form.",
   review_assigned: "To an Akana reviewer: a workbook version was assigned to them, by AK code only.",
   ops_alert: "To the Akana operator: an operational alert opened, with kind, route and code only.",
