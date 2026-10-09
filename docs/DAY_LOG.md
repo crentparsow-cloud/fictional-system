@@ -608,3 +608,10 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Production.** v2 loaded through the SQL editor. The Maya Vaughn versions section was left out, because production already held the same 20 versions (checked by content hash). Counts matched staging.
 - **Demo titles live.** 52 more demo titles set live in production, the approved group in `release: demo_live_after_approval`. Production now has 102 live titles: 97 demo and 5 classics. 18 faith demo titles and 50 classics stay in draft. The 20 Maya Vaughn titles stay in review. Staging was not set live.
 - **Live site.** /themes now shows 25 Themes holding 77 of the live titles. A Theme shows once it has three live titles, so the rest wait for the faith titles and classics.
+
+### Day 8, second block (Friday 9 October)
+
+- **Crent's set-up checked.** Supabase is on Pro, so production has backups. The Vercel secrets are in place and the current deployment uses them. Crent has the owner role and a verified authenticator. The demo author and publisher logins are registered and the demo reset has run.
+- **Fix: /verify sent staff to a 404.** With no `next`, /verify sent everyone to the Studio, which is invite only. Staff now go to /admin (PR #4).
+- **Still to add in Vercel:** `TEST_RECIPIENT`, `LEADS_NOTIFY_TO` and `EMAIL_REPLY_TO`.
+- **Pushing.** Git push stays blocked in this session. Small files go up through the GitHub connector in one commit; large files through the GitHub upload page, checked by hash.
