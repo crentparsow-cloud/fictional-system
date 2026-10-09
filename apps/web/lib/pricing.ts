@@ -5,10 +5,14 @@ import { formatMoney, type Market } from "@/lib/markets";
  * public.price_points in migration 0004. One source for every displayed
  * and charged price: pages show what checkout charges.
  *
- * PLACEHOLDER: the workbook amounts below are empty because Crent has not
- * set the figures (questions C4 and D1 to D4 are open). While a point has no
- * amount, priceFor() returns null and pages show "Price to be confirmed".
- * Nothing can be sold from a placeholder point: the checkout route refuses.
+ * WORKBOOK PRICES (set 9 October 2026): a six-step GBP ladder, VAT
+ * inclusive, from GBP 7.99 to GBP 14.99. The same figures sit in
+ * public.price_points on staging and production, each backed by a Stripe
+ * price on the product "Akana workbook" (ids in the database rows, not
+ * here). Full programmes sit on p4 to p6, first-unit and listing-only
+ * titles on p1 to p4. These are the prices until Crent changes them; when
+ * they change, update this ladder, the database rows and the Stripe prices
+ * together.
  *
  * INTERIM: the two membership points carry test-mode prices for the GBP
  * market until Crent confirms them: GBP 7.99 a month and GBP 69.99 a year,
@@ -43,8 +47,21 @@ export interface PricePoint {
   active: boolean;
 }
 
-/** PLACEHOLDER. Empty on purpose until Crent sets the figures. */
+/** An empty amounts object, used when a point has no figure. */
 export const PLACEHOLDER_AMOUNTS: Amounts = Object.freeze({}) as Amounts;
+
+/**
+ * The workbook ladder in minor units, GBP only, VAT inclusive. Mirrors
+ * public.price_points. Change both together.
+ */
+export const WORKBOOK_AMOUNTS: Readonly<Record<WorkbookPricePointId, Amounts>> = Object.freeze({
+  p1: Object.freeze({ GBP: 799 }) as Amounts,
+  p2: Object.freeze({ GBP: 899 }) as Amounts,
+  p3: Object.freeze({ GBP: 999 }) as Amounts,
+  p4: Object.freeze({ GBP: 1199 }) as Amounts,
+  p5: Object.freeze({ GBP: 1299 }) as Amounts,
+  p6: Object.freeze({ GBP: 1499 }) as Amounts,
+});
 
 const placeholder = (id: PricePointId, kind: PricePointKind, label: string): PricePoint => ({
   id,
@@ -53,6 +70,12 @@ const placeholder = (id: PricePointId, kind: PricePointKind, label: string): Pri
   amounts: PLACEHOLDER_AMOUNTS,
   stripePriceId: null,
   active: false,
+});
+
+const workbookPoint = (id: WorkbookPricePointId, label: string): PricePoint => ({
+  ...placeholder(id, "workbook", label),
+  amounts: WORKBOOK_AMOUNTS[id],
+  active: true,
 });
 
 /**
@@ -66,12 +89,12 @@ export const INTERIM_MEMBERSHIP_AMOUNTS: Readonly<Record<MembershipPricePointId,
 
 /** The ladder. p1 is the shortest workbook, p6 the longest. */
 export const PRICE_LADDER: Readonly<Record<PricePointId, PricePoint>> = {
-  p1: placeholder("p1", "workbook", "Ladder point 1 (shortest)"),
-  p2: placeholder("p2", "workbook", "Ladder point 2"),
-  p3: placeholder("p3", "workbook", "Ladder point 3"),
-  p4: placeholder("p4", "workbook", "Ladder point 4"),
-  p5: placeholder("p5", "workbook", "Ladder point 5"),
-  p6: placeholder("p6", "workbook", "Ladder point 6 (longest)"),
+  p1: workbookPoint("p1", "Ladder point 1, GBP 7.99 (shortest)"),
+  p2: workbookPoint("p2", "Ladder point 2, GBP 8.99"),
+  p3: workbookPoint("p3", "Ladder point 3, GBP 9.99"),
+  p4: workbookPoint("p4", "Ladder point 4, GBP 11.99"),
+  p5: workbookPoint("p5", "Ladder point 5, GBP 12.99"),
+  p6: workbookPoint("p6", "Ladder point 6, GBP 14.99 (longest)"),
   member_month: { ...placeholder("member_month", "membership", "Membership, monthly"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_month, active: true },
   member_year: { ...placeholder("member_year", "membership", "Membership, annual"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_year, active: true },
 };

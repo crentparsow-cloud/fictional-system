@@ -24,16 +24,29 @@ const setPoint: PricePoint = {
 };
 
 describe("the ladder", () => {
-  it("mirrors the eight price_points rows and every workbook point is a placeholder", () => {
+  it("mirrors the eight price_points rows and every workbook point carries its GBP figure", () => {
     expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year"]);
     for (const id of PRICE_POINT_IDS) {
       expect(PRICE_LADDER[id].stripePriceId).toBeNull();
       if (PRICE_LADDER[id].kind !== "workbook") continue;
-      expect(isPlaceholder(PRICE_LADDER[id])).toBe(true);
-      expect(PRICE_LADDER[id].active).toBe(false);
+      expect(isPlaceholder(PRICE_LADDER[id])).toBe(false);
+      expect(PRICE_LADDER[id].active).toBe(true);
     }
     expect(PRICE_LADDER.member_month.kind).toBe("membership");
     expect(PRICE_LADDER.p1.kind).toBe("workbook");
+  });
+
+  it("carries the workbook ladder set on 9 October 2026: GBP 7.99 to GBP 14.99, in pence", () => {
+    expect(PRICE_LADDER.p1.amounts).toEqual({ GBP: 799 });
+    expect(PRICE_LADDER.p2.amounts).toEqual({ GBP: 899 });
+    expect(PRICE_LADDER.p3.amounts).toEqual({ GBP: 999 });
+    expect(PRICE_LADDER.p4.amounts).toEqual({ GBP: 1199 });
+    expect(PRICE_LADDER.p5.amounts).toEqual({ GBP: 1299 });
+    expect(PRICE_LADDER.p6.amounts).toEqual({ GBP: 1499 });
+    expect(priceFor({ pricePointId: "p1" }, MARKETS.GB)?.formatted).toBe("£7.99");
+    expect(priceFor({ pricePointId: "p6" }, MARKETS.GB)?.formatted).toBe("£14.99");
+    // No local figure for another market: priceFor is null, marketPriceFor falls back to GBP (F-094).
+    expect(priceFor({ pricePointId: "p3" }, MARKETS.IE)).toBeNull();
   });
 
   it("carries the interim membership prices from migration 0010: GBP only, in pence", () => {
@@ -60,8 +73,9 @@ describe("the ladder", () => {
 });
 
 describe("priceFor", () => {
-  it("returns null while the amounts are placeholders so pages show the holding line", () => {
-    expect(priceFor({ pricePointId: "p2" }, MARKETS.GB)).toBeNull();
+  it("returns null for a placeholder point so pages show the holding line", () => {
+    const empty: PricePoint = { ...setPoint, amounts: {}, active: false };
+    expect(priceFor({ pricePointId: "p2" }, MARKETS.GB, { p2: empty })).toBeNull();
     expect(PRICE_TO_BE_CONFIRMED).toBe("Price to be confirmed");
   });
 

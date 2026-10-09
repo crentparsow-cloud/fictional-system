@@ -84,7 +84,7 @@ describe("listing form", () => {
 describe("tenant price line (F-069)", () => {
   it("never offers a demo title or a placeholder price", () => {
     expect(tenantPriceLine({ isDemo: true, pricePointId: "p2" })).toBe("Demo title. Not for sale.");
-    expect(tenantPriceLine({ isDemo: false, pricePointId: "p2" })).toBe("Price to be confirmed");
+    expect(tenantPriceLine({ isDemo: false, pricePointId: "p2" })).toBe("£8.99. Not on sale on this site yet.");
     expect(tenantPriceLine({ isDemo: false, pricePointId: null })).toBe("Price to be confirmed");
   });
 });

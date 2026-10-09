@@ -37,7 +37,7 @@ describe("marketPriceFor (F-094)", () => {
   });
 
   it("keeps 'Price to be confirmed' for placeholders, demo titles and unknown points", () => {
-    expect(marketPriceFor(wb, MARKETS.US)).toBeNull();
+    expect(marketPriceFor(wb, MARKETS.US, { p3: { ...gbpOnly, amounts: {}, active: false } })).toBeNull();
     expect(marketPriceFor({ pricePointId: "p3", isDemo: true }, MARKETS.US, { p3: gbpOnly })).toBeNull();
     expect(marketPriceFor({ pricePointId: "p9" }, MARKETS.US, { p3: gbpOnly })).toBeNull();
     expect(marketPriceFor({ pricePointId: null }, MARKETS.GB, { p3: gbpOnly })).toBeNull();
