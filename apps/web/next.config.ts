@@ -1,26 +1,20 @@
 import type { NextConfig } from "next";
 
+import { withSentryConfig } from "@sentry/nextjs/config";
+import { buildCsp, ONE_TAP_PATHS, sentryOrigin } from "./csp.mjs";
+
 /**
  * Security headers (F-125). No third-party scripts or pixels on any host, by
  * construction. Fonts load from the app itself. Supabase and Stripe are the
  * only outside origins the browser may talk to, and only for API calls and
- * Stripe's hosted checkout.
+ * Stripe's hosted checkout. Two exceptions switch on with their variables
+ * (csp.mjs): Google One Tap on the sign-in pages only, and the Sentry ingest
+ * origin in connect-src. scripts/check-csp.mjs guards both.
  */
-const csp = [
-  "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://js.stripe.com",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.supabase.co",
-  "font-src 'self'",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com",
-  "frame-src https://js.stripe.com https://checkout.stripe.com",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  // connect.stripe.com: Connect Express onboarding and dashboard links (F-099).
-  "form-action 'self' https://checkout.stripe.com https://connect.stripe.com",
-  "object-src 'none'",
-  "upgrade-insecure-requests",
-].join("; ");
+const sentry = sentryOrigin(process.env.NEXT_PUBLIC_SENTRY_DSN);
+const oneTapOn = Boolean(process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID);
+const csp = buildCsp({ sentry });
+const oneTapCsp = buildCsp({ oneTap: true, sentry });
 
 const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
@@ -44,6 +38,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },
+      // Google One Tap (13.1): accounts.google.com only on the pages that render
+      // it, and only while the client id is set. A later match for the same
+      // header key replaces the earlier value.
+      ...(oneTapOn ? ONE_TAP_PATHS.map((source) => ({ source, headers: [{ key: "Content-Security-Policy", value: oneTapCsp }] })) : []),
       // Check-in partner token links (F-030): never cached, never indexed,
       // and the token in the path never leaves in a Referer header.
       { source: "/respond/:path*", headers: partnerLinkHeaders },
@@ -65,4 +63,20 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+/**
+ * Error tracking (10.3). With SENTRY_DSN blank the config is exported as is,
+ * so nothing from Sentry is wired into the build. With it set, the Sentry
+ * plugin instruments the server and client bundles. Source maps are uploaded
+ * only when SENTRY_AUTH_TOKEN, SENTRY_ORG and SENTRY_PROJECT are set too.
+ */
+export default process.env.SENTRY_DSN
+  ? withSentryConfig(nextConfig, {
+      silent: true,
+      telemetry: false,
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      sourcemaps: { disable: !process.env.SENTRY_AUTH_TOKEN },
+      widenClientFileUpload: false,
+    })
+  : nextConfig;
