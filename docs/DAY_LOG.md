@@ -598,3 +598,13 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Not done, waiting for Crent.** Loading v2 into production, and setting the new demo titles live. New titles load as draft, so the Library is unchanged until they are released.
 
 **Checks:** typecheck is clean, seed tests 35 passed, database tests 0001 to 0034 passed.
+
+### Day 8, first block (Friday 9 October)
+
+**Asked by Crent:** do all four: staging, merge, production, set the demo titles live.
+
+- **Staging.** v2 loaded. 190 workbooks, 97 authors and 190 listings. The 50 live titles stayed live and 120 new titles arrived as draft.
+- **Merged.** PR #3 merged into main (ba4d735). Vercel production deployment READY.
+- **Production.** v2 loaded through the SQL editor. The Maya Vaughn versions section was left out, because production already held the same 20 versions (checked by content hash). Counts matched staging.
+- **Demo titles live.** 52 more demo titles set live in production, the approved group in `release: demo_live_after_approval`. Production now has 102 live titles: 97 demo and 5 classics. 18 faith demo titles and 50 classics stay in draft. The 20 Maya Vaughn titles stay in review. Staging was not set live.
+- **Live site.** /themes now shows 25 Themes holding 77 of the live titles. A Theme shows once it has three live titles, so the rest wait for the faith titles and classics.
