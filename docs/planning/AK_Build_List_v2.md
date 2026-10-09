@@ -194,10 +194,38 @@ The rule: on mental health titles nothing counts days, nothing expires, nothing 
 
 ---
 
+## 13. Additions from the deep research (9 October, afternoon)
+
+Evidence for each is in `docs/research/AK_Market_Research_2026-10.md`, strand numbers in brackets.
+
+| # | Idea | From | Fit with Akana | Effort | Crent | Phase |
+|---|---|---|---|---|---|---|
+| 13.1 | Google One Tap on the web, with account linking by verified email so a magic-link reader who taps Google lands in the same account (strand 1) | Google case studies: Reddit conversion nearly doubled, eBay sign-ins doubled | Gmail users sign up in one tap with no email round trip; verification is automatic because Google has verified the address | S | OAuth client (C26) | A |
+| 13.2 | Optional two-factor for readers in the You tab: authenticator or passkey, never required, with recovery codes (strand 1) | Passwordless decision frameworks: primary method plus fallback, step-up only when risky | Code exists for staff; opening it to readers who want it costs little | S | | A |
+| 13.3 | Passkey prompt after the first successful sign-in on a device, so return visits are one touch (strand 1) | Synced platform passkeys are the 2026 default recommendation | Built behind a flag for staff | S | | B |
+| 13.4 | Membership offered inside onboarding, after the quiz and the first exercise, as one clear offer with the price visible (strand 2) | RevenueCat: onboarding accounts for about half of trial starts; skippers rarely return | The free first week stays; the membership offer moves earlier | S | | A |
+| 13.5 | Longer membership trial, 14 to 21 days, card required, reminder before first charge, cancel in two taps (strand 2) | RevenueCat: trials of 17 to 32 days convert at 42.5 percent against 25.5 percent for short ones | Sits inside the DMCC reminder rules already built | S | Decision: trial length | A |
+| 13.6 | Streak rules written down and enforced: opt-in, counts the step not the day, free pause always available, never sell protection, mental health shelves excluded (strand 3) | Duolingo Streak Freeze cut at-risk churn 21 percent; Trophy: freezes make streaks 4.5x longer | Turns the decision into a specification the lint (11.3) can check | S | Approves the rules | B |
+| 13.7 | DMCC compliance pass before first sale: no countdowns, no false scarcity, full price on every invitation to buy, true counts only, reviews only from verified buyers (strand 3) | CMA fined the AA £4.2 million over drip pricing in 2026; fake urgency and fake reviews are blacklisted | Mostly confirms what is built; makes it auditable | S | Lawyer (L1 to L4) | A |
+| 13.8 | Three design directions to choose from: paper and ink, bright editorial, quiet confidence, each shown on the same four screens (strand 4) | Readwise, Headway and Imprint, Blinkist | Gives 1.1 a concrete decision | M | Picks one | A |
+| 13.9 | Reading floor regardless of direction: warm canvas, reading serif, 65-character line length, generous margins, one accent colour, keyboard shortcuts (strand 4) | Readwise Reader design breakdowns | Not taste; the baseline every reading app meets | S | | A |
+| 13.10 | Household plan for two to four at about 1.5 to 1.7 times the single membership, separately sealed answers (strand 5, widens 6.1) | Hallow Friends and Family covers six at 1.7x; Blinkist Connect lifted organic growth by about a quarter | Couples, families, friends; the best-evidenced growth feature | M | Price and household size | A |
+| 13.11 | Double-sided referral: credit to both on the friend's first purchase, shown after a finished unit, not on first visit (strand 5) | Friend with a reward converts at 15 to 22 percent against 8 to 12 percent without; 78 percent of programmes are double-sided | Small credit ledger needed | M | Credit value | B |
+| 13.12 | Two author shares: higher on sales the author's own link brings, lower on marketplace-originated sales (strand 6, informs D1 to D4) | Gumroad charges 10 percent on creator-sourced sales and 30 percent on its own marketplace sales | Pays authors most for the distribution they bring; a tested precedent for the share decision | S (policy) | D1 to D4 | A |
+| 13.13 | Studio dashboard home: sales this month, readers started, readers finished, next payout, on one screen (strand 6, sharpens 8.1) | Creators switch platforms for a better dashboard and suite | First screen an author sees | M | | B |
+| 13.14 | Organisation pricing in the $12 to $36 per person per year band for teams and churches, with facilitator-supported programmes above it (strand 7) | Vendr benchmarks for Headspace for Work; HR buyer guides | Gives C3 and L7 a market anchor | S | Prices | B |
+| 13.15 | Small-organisation plan shape: self-serve 5 to 50 seats, invoice payment, no auto-renew, seat reassignment, launch toolkit, aggregate reporting (strand 7) | Headspace Core for Small Business; Blinkist Business Team plan | Most of this is built behind the flag | S | Terms (L7) | B |
+| 13.16 | Church profile page with a featured programme that notifies followers, a share link, and printable leader materials (strand 8) | YouVersion for Churches; Hallow parish kit | Builds on groups (0028) and facilitator guides | M | Reviewer (C11) | C |
+| 13.17 | Parish-style annual partnership offer: free period then a discount, seasonal Lent and Advent programmes (strand 8) | Hallow parish partnerships; Global Bible Month | Sales shape for the faith channel | S | Offer terms | C |
+| 13.18 | iOS install guide of our own, shown after the second visit, and sign-in that recovers in one tap inside the installed web app (strand 9) | iOS has no automatic install prompt; installed web apps start signed out | Makes the web-only decision work on iPhones | S | | A |
+| 13.19 | Web Push for installed readers only, daily step only, email the primary channel (strand 9, sharpens 4.11) | Web Push on iOS works only after Home Screen install | Keeps notifications honest and web-only | M | | B |
+| 13.20 | First-party analytics as the first build item, because no comparator publishes trial or paywall figures and Akana will need its own (strand 9 note) | RevenueCat data is category-wide, not Akana's | 10.4 moved to the front of Phase A | M | | A |
+
 ## Suggested order if everything in Phase A is chosen
 
-Front-loaded for the first sale, about six weeks of agent work plus Crent's items.
+Front-loaded for the first sale, about six weeks of agent work plus Crent's items. Section 13 items are folded in where they belong.
 
+0. First-party analytics (10.4, 13.20) and Google One Tap with optional two-factor (13.1, 13.2), so everything after it can be measured and signed into.
 1. Visual identity and design system (1.1 to 1.7), because everything else is painted with it.
 2. Content for one sellable title (7.1) and the public-page buttons (3.2), because nothing sells without them.
 3. Explore page and shelf pages (2.1 to 2.6, 2.12), the library readers see first.
