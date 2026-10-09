@@ -172,7 +172,9 @@ export async function POST(request: NextRequest) {
     return refuse("Payments are not configured.", 503);
   }
 
-  const checkout = await stripe.checkout.sessions.create({
+  let checkout;
+  try {
+    checkout = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [
       {
@@ -201,6 +203,13 @@ export async function POST(request: NextRequest) {
     success_url: `${origin}/read/${workbook.slug}?paid=1&session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/w/${workbook.slug}`,
   });
+  } catch (err) {
+    // A Stripe refusal (for example Stripe Tax not set up) is logged by code, not
+    // message, and the reader gets the same plain line as the other refusals.
+    const code = err instanceof Error && "code" in err ? String((err as { code?: unknown }).code ?? "") : "";
+    console.error("checkout: stripe refused", { code, type: err instanceof Error ? err.name : typeof err });
+    return refuse("Could not start checkout.", 502);
+  }
 
   // Tie the consent to this session. If that fails, do not leave a payable session behind.
   if (!(await linkCheckoutConsent(consentId, checkout.id))) {

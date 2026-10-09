@@ -81,10 +81,11 @@ describe("sign-off (F-039)", () => {
 });
 
 describe("pricing (F-040)", () => {
-  it("lists the six workbook points and says when a figure is not set", () => {
+  it("lists the six workbook points with their GBP figures, and says when a figure is not set", () => {
     const opts = ladderOptions();
     expect(opts.map((o) => o.id)).toEqual(["p1", "p2", "p3", "p4", "p5", "p6"]);
-    expect(opts.every((o) => o.gbp === null)).toBe(true);
+    expect(opts.map((o) => o.gbp)).toEqual(["£7.99", "£8.99", "£9.99", "£11.99", "£12.99", "£14.99"]);
+    expect(ladderOptions([{ id: "p1", kind: "workbook", label: "x", amounts: {}, stripePriceId: null, active: false }])[0]!.gbp).toBeNull();
     const withFigure = ladderOptions([{ id: "p2", kind: "workbook", label: "x", amounts: { GBP: 999 }, stripePriceId: null, active: false }]);
     expect(withFigure[1]!.gbp).toBe("£9.99");
   });

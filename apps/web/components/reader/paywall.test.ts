@@ -48,12 +48,13 @@ describe("paywallState (F-019)", () => {
     for (const w of ["only today", "hurry", "last chance", "left", "ends", "limited", "countdown", "now only"]) expect(text).not.toContain(w);
   });
 
-  it("works with the real ladder: a placeholder workbook price is disabled, the interim membership price shows", () => {
+  it("works with the real ladder: an unpriced workbook point is disabled, the membership price shows", () => {
     const market = MARKETS.GB;
-    const workbookPrice = priceFor({ pricePointId: "p3" }, market);
+    const workbookPrice = priceFor({ pricePointId: "p3" }, market, { ...PRICE_LADDER, p3: { ...PRICE_LADDER.p3, amounts: {}, active: false } });
     const membershipPrice = priceFor({ pricePointId: "member_month" }, market);
     const membershipYearlyPrice = priceFor({ pricePointId: "member_year" }, market);
     expect(workbookPrice).toBeNull();
+    expect(priceFor({ pricePointId: "p3" }, market)?.formatted).toBe("£9.99");
     expect(membershipPrice?.formatted).toBe("£7.99");
     const s = paywallState({ entitled: false, demo: false, workbookPrice, membershipPrice });
     expect(s.kind === "offer" && [s.buy.enabled, s.membership.enabled]).toEqual([false, false]);
