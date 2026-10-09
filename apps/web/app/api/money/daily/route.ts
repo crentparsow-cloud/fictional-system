@@ -1,8 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { cronAuthorised } from "@/lib/cron-auth";
+import { mailLog } from "@/lib/mail-ops";
+import { sendConnectNudges, type NudgeCandidate, type NudgeContact, type NudgeOutcome } from "@/lib/money/connect-nudge";
 import { isTestKey } from "@/lib/money/reconcile";
 import { runReconciliation } from "@/lib/money/reconcile-run";
 import { reportOps } from "@/lib/ops-alerts";
+import { mailerEnv } from "@/lib/payouts/payout-mail";
+import { siteOrigin } from "@/lib/site-url";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -11,13 +15,16 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *
  *   GET or POST /api/money/daily
  *   Authorization: Bearer <CRON_SECRET>   (Vercel Cron sends this itself)
- *   -> { livemode, reconciliation, pools_closed, statements_closed }
+ *   -> { livemode, reconciliation, pools_closed, statements_closed, connect_nudges }
  *
  * 1. Reconciles the last three days of Stripe balance transactions with the
  *    ledger's receipts, records fees the ledger did not know, and keeps a
  *    run with anything a person should look at (/admin/money).
  * 2. Closes every membership pool month that is past its refund window
  *    (the pool split, D3), then every organisation statement month that is.
+ * 3. Nudges organisations whose earnings wait on Stripe Connect onboarding
+ *    (0039 connect_nudge_candidates), at most once a week per recipient
+ *    through public.email_claims. Without RESEND_API_KEY nothing leaves.
  *
  * Livemode follows the Stripe key: a test key works on test data only.
  * Each step reports its own failure as a cron failure (one alert email) and
@@ -72,7 +79,40 @@ async function run(request: NextRequest) {
     statementsClosed = Number(statements.data ?? 0);
   }
 
-  const body = { livemode, reconciliation, pools_closed: poolsClosed, statements_closed: statementsClosed, failures };
+  let nudges: NudgeOutcome | null = null;
+  try {
+    nudges = await sendConnectNudges(
+      {
+        async candidates(mode) {
+          const { data, error } = await admin.rpc("connect_nudge_candidates", { p_livemode: mode });
+          if (error) throw new Error(`connect_nudge_candidates failed: ${error.code ?? "unknown"}`);
+          return (data ?? []) as NudgeCandidate[];
+        },
+        async contacts(orgId) {
+          const { data, error } = await admin.rpc("payout_contacts", { p_org: orgId });
+          if (error) throw new Error(`payout_contacts failed: ${error.code ?? "unknown"}`);
+          return (data ?? []) as NudgeContact[];
+        },
+        async claim(key) {
+          const { data, error } = await admin.rpc("claim_email", { p_key: key });
+          if (error) throw new Error(`claim_email failed: ${error.code ?? "unknown"}`);
+          return data === true;
+        },
+        async release(key) {
+          const { error } = await admin.rpc("release_email", { p_key: key });
+          if (error) console.error("connect_nudge_release_failed", error.code ?? "");
+        },
+      },
+      { env: mailerEnv(), log: mailLog("api/money/daily", "connect_nudge_mail"), origin: siteOrigin() },
+      livemode,
+    );
+  } catch (err) {
+    failures.push("connect_nudges");
+    console.error("money_daily_nudges_failed", err instanceof Error ? err.message : "unknown");
+    await reportOps(admin, "cron_failure", "api/money/daily", "connect_nudges");
+  }
+
+  const body = { livemode, reconciliation, pools_closed: poolsClosed, statements_closed: statementsClosed, connect_nudges: nudges, failures };
   return NextResponse.json(body, { status: failures.length ? 500 : 200, headers: NO_STORE });
 }
 
