@@ -463,3 +463,5 @@ export function formatFindings(file: string, result: ValidationResult): string {
   return lines.join("\n");
 }
 export * from "./guide";
+export * from "./plain";
+export * from "./classics";
