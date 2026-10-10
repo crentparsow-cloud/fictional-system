@@ -415,6 +415,8 @@ describe("royalty figures form", () => {
     refund_window_days: "14",
     first_payout_hold_days: "30",
     payout_day: "15",
+    payout_cadence: "weekly",
+    payout_weekday: "5",
     min_GBP: "25",
     approve_GBP: "1000",
     note: "Agreed at the D1 to D5 meeting",
@@ -428,8 +430,12 @@ describe("royalty figures form", () => {
       p_min_payout_minor: { GBP: 2500 },
       p_approval_above_minor: { GBP: 100000 },
       p_payout_day: 15,
+      p_payout_cadence: "weekly",
+      p_payout_weekday: 5,
     });
     expect(parseConfigForm((k) => ({ ...base, sale_rate: "101" })[k])).toBeNull();
+    expect(parseConfigForm((k) => ({ ...base, payout_cadence: "daily" })[k])).toBeNull();
+    expect(parseConfigForm((k) => ({ ...base, payout_weekday: "8" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, payout_day: "31" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, fee_treatment: "split" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, note: "" })[k])).toBeNull();

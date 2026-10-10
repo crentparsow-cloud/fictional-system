@@ -3,11 +3,13 @@ import Link from "next/link";
 import { ContinueCardView } from "@/components/catalogue/ContinueCardView";
 import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
+import { MembershipOffer } from "@/components/membership/MembershipOffer";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
+import { loadMembershipOffer } from "@/lib/membership-offer-server";
 import { joinNames, liveOrganisationNames, type OrgSeatRow } from "@/lib/org-seat-line";
 import { finishedEnrolments } from "@/lib/reader-progress";
 import { createUserClient } from "@/lib/supabase/server";
@@ -35,6 +37,10 @@ export default async function HomePage() {
   const wellbeing = anyWellbeing(cards);
   const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
   const orgNames = session ? await myOrganisationNames() : [];
+  // 13.4: the one membership offer in onboarding. The browser decides whether it is due
+  // (after the quiz and the first exercise, never on a first visit); the server only
+  // supplies the terms, and nothing when there is no offer to make.
+  const offer = session ? await loadMembershipOffer(session.userId) : null;
 
   return (
     <section className="tab-page">
@@ -43,6 +49,7 @@ export default async function HomePage() {
         {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
       </div>
       {session ? <GroupWeekLine /> : null}
+      {offer ? <MembershipOffer plans={offer.plans} library={offer.library} /> : null}
 
       {orgNames.length ? (
         <p className="org-line muted">

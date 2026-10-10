@@ -13,7 +13,8 @@
  *
  * Nothing personal goes in. The source is a route path and the code is a
  * short token; anything else is stored as "unrecognised" by the database.
- * No third-party error tracker is used.
+ * Sentry (10.3) sees errors only while SENTRY_DSN is set; these alerts work
+ * without it.
  *
  * Reporting never throws: a failure to report is logged and swallowed, so
  * it cannot turn a handled error into a worse one.

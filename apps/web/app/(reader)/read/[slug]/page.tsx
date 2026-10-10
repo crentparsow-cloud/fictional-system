@@ -7,8 +7,12 @@ import { consentGate, consentHref, faithConsentGate, faithConsentHref } from "@/
 import { countView } from "@/lib/funnel-server";
 import { marketFor } from "@/lib/markets";
 import { membershipPlansOpen } from "@/lib/membership";
+import { sharedPlanOpen } from "@/lib/shared-membership";
+import { trialEligible } from "@/lib/membership-trial";
+import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { PRICE_LADDER, marketPriceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
 import { rebuildWorkbook, type SectionRow } from "@/lib/rebuild-workbook";
+import { openAtFromQuery, type OpenAt } from "@/lib/today/links";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { ReadClient } from "./ReadClient";
@@ -37,7 +41,7 @@ import { ReadClient } from "./ReadClient";
 export const dynamic = "force-dynamic";
 
 type Params = { slug: string };
-type Search = { view?: string | string[] };
+type Search = { view?: string | string[]; unit?: string | string[]; step?: string | string[]; short?: string | string[]; page?: string | string[]; field?: string | string[]; resume?: string | string[] };
 
 /** Views a link may open straight to, such as Today's daily check link. Units and Start are not among them. */
 const OPEN_VIEWS = ["daily", "plan", "progress", "toolkit", "finish", "keep_going"] as const;
@@ -75,6 +79,7 @@ interface PricePointRow {
 
 const MEMBERSHIP_POINT: PricePointId = "member_month";
 const MEMBERSHIP_YEARLY_POINT: PricePointId = "member_year";
+const MEMBERSHIP_TWO_POINT: PricePointId = "member_two_month";
 
 interface EnrolmentRow {
   id: string;
@@ -148,6 +153,29 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     enrolment = created as EnrolmentRow;
   }
 
+  // Where to open: a link may name a unit and a step (Today, reminders, the
+  // calendar), or ask to resume a pause (14.5). A resumed place is used once.
+  let place: OpenAt | null = openAtFromQuery(sp);
+  const wantsResume = (Array.isArray(sp.resume) ? sp.resume[0] : sp.resume) === "1";
+  if (!place && wantsResume) {
+    const { data: saved } = await supabase
+      .from("reading_places")
+      .select("unit, exercise_id, page, field_id, mode, paused")
+      .eq("enrolment_id", enrolment.id)
+      .maybeSingle();
+    const row = saved as { unit: number; exercise_id: string | null; page: string | null; field_id: string | null; mode: string | null; paused: boolean } | null;
+    if (row?.paused) {
+      place = openAtFromQuery({
+        unit: String(row.unit),
+        ...(row.exercise_id ? { step: row.exercise_id } : {}),
+        ...(row.mode === "short" ? { short: "1" } : {}),
+        ...(row.page ? { page: row.page } : {}),
+        ...(row.field_id ? { field: row.field_id } : {}),
+      });
+      await supabase.from("reading_places").update({ paused: false }).eq("enrolment_id", enrolment.id);
+    }
+  }
+
   // Sections for the version this reader is pinned to, as RLS returns them.
   const { data: sectionRows } = await supabase
     .from("workbook_sections")
@@ -162,8 +190,13 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
   let workbookPrice: Price | null = null;
   let membershipPrice: Price | null = null;
   let membershipYearlyPrice: Price | null = null;
+  let membershipTwoPrice: Price | null = null;
+  // 13.5: the trial this reader would get at checkout, only when they have never had a membership.
+  let membershipTrial: { monthly: number; yearly: number } | undefined;
   if (rebuilt.lockedUnits.length && !workbook.is_demo) {
-    const ids = [MEMBERSHIP_POINT, MEMBERSHIP_YEARLY_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
+    const { count: priorSubscriptions } = await supabase.from("subscriptions").select("status", { count: "exact", head: true }).eq("user_id", session.userId).eq("tenant_id", tenantId);
+    if (typeof priorSubscriptions === "number" && trialEligible(priorSubscriptions)) membershipTrial = { ...(await loadTrialConfig()) };
+    const ids = [MEMBERSHIP_POINT, MEMBERSHIP_YEARLY_POINT, MEMBERSHIP_TWO_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
     const { data: points } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").in("id", ids);
     const ladder: Partial<Record<PricePointId, PricePoint>> = { ...PRICE_LADDER };
     for (const row of (points ?? []) as PricePointRow[]) {
@@ -173,6 +206,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     workbookPrice = marketPriceFor({ pricePointId: workbook.price_point_id, isDemo: workbook.is_demo }, market, ladder);
     membershipPrice = marketPriceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
     membershipYearlyPrice = marketPriceFor({ pricePointId: MEMBERSHIP_YEARLY_POINT }, market, ladder);
+    membershipTwoPrice = marketPriceFor({ pricePointId: MEMBERSHIP_TWO_POINT }, market, ladder);
   }
   // Progress events for this enrolment: ids and timestamps only (F-020).
   // The Player works out progress and milestones from them (F-018).
@@ -202,7 +236,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
 
   // F-141: a reader without the full workbook is reading the free sample.
   // Ids only, and nothing is counted when they have opted out of counting.
-  if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id);
+  if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id, session.userId);
 
   // Membership checkout opens per plan once its Stripe price id is set (F-097).
   const plansOpen = membershipPlansOpen();
@@ -217,6 +251,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
       market={market.code}
       events={events}
       openView={openView}
+      place={place}
       acknowledged={acknowledged}
       readOnly={readOnly}
       paywall={{
@@ -226,7 +261,11 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
         membershipCheckoutReady: plansOpen.monthly,
         membershipYearlyPrice,
         membershipYearlyReady: plansOpen.yearly,
+        membershipTwoPrice,
+        membershipTwoReady: sharedPlanOpen(),
         inMembership: workbook.in_membership !== false,
+        membershipTrial,
+        market,
       }}
     />
   );

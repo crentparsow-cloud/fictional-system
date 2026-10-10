@@ -31,6 +31,7 @@ export default async function ToolkitPage() {
   const wellbeing = anyWellbeing(cards);
 
   let groups: ToolkitGroup[] = [];
+  let saved: string[] = [];
   if (cards.length) {
     const supabase = await createUserClient();
     const { data: rows } = await supabase
@@ -47,6 +48,8 @@ export default async function ToolkitPage() {
       const list = Array.isArray(s.body?.cards) ? (s.body.cards as ToolkitCard[]) : [];
       toolsOf.set(s.version_id, list);
     }
+    const { data: saves } = await supabase.from("toolkit_saves").select("enrolment_id, tool_id").in("enrolment_id", cards.map((c) => c.enrolmentId));
+    saved = ((saves ?? []) as { enrolment_id: string; tool_id: string }[]).map((r) => `${r.enrolment_id}:${r.tool_id}`);
     groups = cards
       .map((c) => ({ enrolmentId: c.enrolmentId, title: c.shortTitle ?? c.title, slug: c.slug, cards: toolsOf.get(versionOf.get(c.enrolmentId) ?? "") ?? [] }))
       .filter((g) => g.cards.length > 0);
@@ -60,7 +63,7 @@ export default async function ToolkitPage() {
       </div>
       <p className="muted">{t("toolkit.line")}</p>
       {groups.length ? (
-        <ToolkitTab groups={groups} />
+        <ToolkitTab groups={groups} saved={saved} />
       ) : (
         <div className="card empty-state">
           <p>Your tools appear here once you open a workbook that has them.</p>

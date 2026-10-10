@@ -47,6 +47,16 @@ const sample = (themeName: string): { [K in ReaderTemplateName]: ReaderProps[K] 
   purchase_lifetime: { ...base(themeName), offerName: "a single workbook", price: "£14" },
   purchase_membership: { ...base(themeName), price: "£6", periodWords: "a month", nextDate: "6 November 2026" },
   renewal_notice: { ...base(themeName), renewDate: "6 October 2027", price: "£48" },
+  trial_started: {
+    ...base(themeName),
+    trialLength: "14 days",
+    reminderDate: "17 October 2026",
+    firstPaymentDate: "20 October 2026",
+    price: "£7.99",
+    periodWords: "a month",
+    planItems: ["Day 1: Name what is going on", "Day 2: One small step"],
+  },
+  trial_ending: { ...base(themeName), firstPaymentDate: "20 October 2026", price: "£7.99", periodWords: "a month" },
   membership_terms_reminder: { ...base(themeName), price: "£48", periodWords: "a year", nextDate: "6 October 2027" },
   membership_away: { ...base(themeName), price: "£6", nextDate: "6 November 2026" },
   payment_failed: { ...base(themeName), price: "£6" },
@@ -71,6 +81,9 @@ const sample = (themeName: string): { [K in ReaderTemplateName]: ReaderProps[K] 
   partner_stopped: { ...base(themeName), readerName: "Sam", partnerName: "Jo" },
   refund_confirmed: { ...base(themeName), amount: "£9.99", accessEnded: true },
   deletion_cancelled: { ...base(themeName) },
+  step_reminder: { ...base(themeName), stepName: "Plan your first small step", unitWords: "Week 3", subjectLabel: "Plan your first small step", minutes: 10, stepUrl: "https://example.test/today/go" },
+  reminders_stopping: { ...base(themeName), remindersUrl: "https://example.test/you#today-settings" },
+  welcome_back: { ...base(themeName), stepUrl: "https://example.test/today/go" },
 });
 
 const links = { unsubscribe: "https://example.test/unsubscribe", oneClick: "https://example.test/api/unsubscribe", stop: "https://example.test/stop", report: "https://example.test/report" };
@@ -179,6 +192,72 @@ describe("reader templates", () => {
     const r = renderReader("payment_failed", { ...base("Mood and Energy"), price: "£7.99" }, links);
     expect(r.text).toContain("The latest payment for your membership (£7.99) did not go through.");
     expect(r.text).toContain("over the next two weeks");
+  });
+
+  it("reminders: the 'Akana today:' prefix, the step named by unit name, no guilt and no counting", () => {
+    const p = sample("Mood and Energy");
+    const r = renderReader("step_reminder", p.step_reminder, links);
+    expect(r.subject).toBe("Akana today: Plan your first small step");
+    expect(r.text).toContain("Plan your first small step");
+    expect(r.text).toContain("About 10 minutes.");
+    expect(r.category).toBe("transactional");
+    for (const name of ["step_reminder", "reminders_stopping", "welcome_back"] as const) {
+      const out = renderReader(name, p[name], links);
+      const text = [out.subject, out.text].join("\n");
+      expect(text, name).not.toMatch(/\b(missed|miss(ed)?\b|streak|behind|overdue|catch up on|days? in a row|don't break|last chance|discount|% off)/i);
+      expect(text, name).not.toContain("\u2014");
+    }
+    // Win-back subjects are short and plain.
+    expect(renderReader("welcome_back", p.welcome_back, links).subject.length).toBeLessThan(30);
+    expect(renderReader("reminders_stopping", p.reminders_stopping, links).text).toContain("Turn reminders back on");
+  });
+
+  it("trial_started leads with the first week's unit names, not a receipt, and never calls the trial free", () => {
+    const r = renderReader(
+      "trial_started",
+      {
+        ...base("Mood and Energy"),
+        trialLength: "14 days",
+        reminderDate: "17 October 2026",
+        firstPaymentDate: "20 October 2026",
+        price: "£7.99",
+        periodWords: "a month",
+        planItems: ["Day 1: Name what is going on", "Day 2: One small step"],
+      },
+      links,
+    );
+    expect(r.subject).toBe("Your first week is ready");
+    expect(r.text.indexOf("Day 1: Name what is going on")).toBeGreaterThan(-1);
+    expect(r.text.indexOf("Day 1: Name what is going on")).toBeLessThan(r.text.indexOf("Trial length"));
+    expect(r.text).toContain("17 October 2026");
+    expect(r.text).toContain("20 October 2026");
+    expect(r.text).toContain("£7.99 a month");
+    expect(r.text).toContain(CANCEL_PATH);
+    expect(r.text).not.toMatch(/\bfree\b/i);
+    expect(r.text).not.toMatch(/receipt/i);
+    expect(findTitle([r.subject, r.text, r.html].join("\n"))).toBeNull();
+    expect(r.category).toBe("transactional");
+  });
+
+  it("trial_started still reads well when no plan could be found", () => {
+    const r = renderReader("trial_started", { ...base("Mood and Energy"), trialLength: "21 days", reminderDate: "1 November 2026", firstPaymentDate: "4 November 2026", price: "£69.99", periodWords: "a year" }, links);
+    expect(r.text).toContain("Your trial has started");
+    expect(r.text).not.toContain("Your first week\n");
+  });
+
+  it("trial_ending states the date, the amount and how to cancel", () => {
+    const r = renderReader("trial_ending", { ...base("Mood and Energy"), firstPaymentDate: "20 October 2026", price: "£7.99", periodWords: "a month" }, links);
+    expect(r.subject).toBe("Your trial ends on 20 October 2026");
+    expect(r.text).toContain("£7.99 a month");
+    expect(r.text).toContain(`If you want to cancel, ${CANCEL_PATH} before 20 October 2026. You will not be charged.`);
+    expect(findTitle([r.subject, r.text, r.html].join("\n"))).toBeNull();
+  });
+
+  it("the magic link email carries the six-digit code for the installed app (13.18)", () => {
+    const r = renderSigninTemplate("magic_link");
+    expect(r.html).toContain("{{ .Token }}");
+    expect(r.html).toContain("{{ .ConfirmationURL }}");
+    expect(renderSigninTemplate("confirm_signup").html).not.toContain("{{ .Token }}");
   });
 
   it("writes the lang attribute from the reader's locale", () => {

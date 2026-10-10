@@ -11,6 +11,8 @@ import {
   workbookStatusLabel,
   type WorkbookRow,
 } from "@/lib/admin/workbooks";
+import { firstUnitGapsFor } from "@/lib/catalogue";
+import type { FirstUnitGap } from "@/lib/first-unit";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack, labelFor } from "../_components/Bits";
@@ -28,6 +30,10 @@ const LIMIT = 500;
  * Every workbook by AK code, with the kill switch (F-083). Any staff role
  * reads the list (workbooks_read lets app.is_staff see every row). Only
  * owners and editors see Pause and Resume.
+ *
+ * Policy 7.9: the Library column says whether a live title reaches the
+ * public lists, and why not when it does not (lib/first-unit.ts). Staff see
+ * every title here whatever the public pages show.
  */
 export default async function AdminWorkbooksPage({ searchParams }: { searchParams: Promise<Search> }) {
   const staff = await getStaffSession("/admin/workbooks");
@@ -38,12 +44,18 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
   const supabase = await createUserClient();
   const { data, error } = await supabase
     .from("workbooks")
-    .select("id, code, title, status, badge, is_demo")
+    .select("id, code, title, status, badge, is_demo, current_version_id")
     .order("code", { ascending: true })
     .limit(LIMIT);
   if (error) console.error("admin_workbooks_read_failed", error.code ?? "");
-  const all = (data ?? []) as WorkbookRow[];
+  const all = (data ?? []) as (WorkbookRow & { current_version_id: string | null })[];
   const rows = filterWorkbooks(all, q);
+  let gaps = new Map<string, FirstUnitGap>();
+  try {
+    gaps = await firstUnitGapsFor(supabase, rows);
+  } catch (err) {
+    console.error("admin_workbooks_first_unit_failed", err instanceof Error ? err.message : "");
+  }
 
   const confirmCode = can.pauseWorkbooks ? parseWorkbookCode(Array.isArray(sp.confirm) ? sp.confirm[0] : sp.confirm) : null;
   const confirming = confirmCode ? all.find((w) => w.code === confirmCode) : undefined;
@@ -121,6 +133,7 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
                 <th scope="col">Status</th>
                 <th scope="col">Badge</th>
                 <th scope="col">Demo</th>
+                <th scope="col">Library</th>
                 {can.pauseWorkbooks ? (
                   <th scope="col">
                     <span className="admin-vh">Action</span>
@@ -143,6 +156,7 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
                     </td>
                     <td>{labelFor(BADGE_LABELS, w.badge)}</td>
                     <td>{w.is_demo ? <span className="badge demo">Demo</span> : "No"}</td>
+                    <td>{libraryCell(w.status, gaps.get(w.id))}</td>
                     {can.pauseWorkbooks ? (
                       <td>
                         {act ? (
@@ -161,5 +175,17 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
         </div>
       )}
     </div>
+  );
+}
+
+/** Policy 7.9 in one cell: shown, or hidden with the reason. Only a live title can be shown. */
+function libraryCell(status: string, gap: FirstUnitGap | undefined) {
+  if (status !== "live") return <span className="muted">Not live</span>;
+  if (!gap) return <span className="muted">Not checked</span>;
+  if (gap.complete) return "Shown";
+  return (
+    <span>
+      Hidden. <span className="muted small">{gap.reason}</span>
+    </span>
   );
 }

@@ -14,8 +14,8 @@ export interface RecordConsentInput {
   tenantId: string | null;
   /** The workbook for a single purchase. */
   workbookId?: string | null;
-  /** The membership price point for a membership: member_month or member_year. */
-  plan?: "member_month" | "member_year" | null;
+  /** The membership price point for a membership: member_month, member_year or member_two_month. */
+  plan?: "member_month" | "member_year" | "member_two_month" | null;
 }
 
 /** Records the consent before payment starts. Returns the row id, or null when it did not save. */

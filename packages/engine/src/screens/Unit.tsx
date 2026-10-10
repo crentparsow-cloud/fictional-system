@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { prefillFor, unitOfExercise } from "../progress";
 import { repeatScope } from "../store";
 import type { AnswerStore } from "../types";
-import { ExerciseScreen, type ExerciseMode } from "./Exercise";
+import { ExerciseScreen, type ExerciseMode, type ExercisePage } from "./Exercise";
 import { Card, Eyebrow, minutesWord, unitLabel } from "./parts";
 
 export type ProgrammeUnit = WorkbookV3["units"][number];
@@ -31,22 +31,78 @@ export interface UnitScreenProps {
    * Off by default, so the harness renders every exercise in full.
    */
   paged?: boolean;
+  /**
+   * Paged only: open this exercise straight away (pause and save, "Today's
+   * step"). mode picks the short version, page and fieldId say where inside it.
+   */
+  initialOpen?: { exerciseId: string; mode?: ExerciseMode; page?: ExercisePage; fieldId?: string };
+  /** Paged only: where the reader is, ids only. exerciseId is null on the unit's own list. */
+  onPlace?: (place: { exerciseId: string | null; page: ExercisePage | null; fieldId: string | null; mode: ExerciseMode | null }) => void;
 }
 
 type Opened = { id: string; scope: string; repeat: boolean; mode: ExerciseMode };
+
+/** Schema 3.1: the unit's introduction and key ideas, shown before the exercises. Renders nothing for a 3.0 unit. */
+function UnitReading({ unit }: { unit: ProgrammeUnit }) {
+  const ideas = unit.ideas ?? [];
+  if (!unit.intro && ideas.length === 0) return null;
+  return (
+    <div className="ak-unit-reading">
+      {unit.intro ? <p className="ak-unit-intro">{unit.intro}</p> : null}
+      {ideas.length ? (
+        <ol className="ak-plain-list ak-ideas" aria-label="Key ideas">
+          {ideas.map((idea, i) => (
+            <li key={i}>
+              <Card flat className="ak-idea">
+                <Eyebrow>{`Key idea ${i + 1} of ${ideas.length}`}</Eyebrow>
+                <h3 className="ak-h3">{idea.heading}</h3>
+                <p>{idea.body}</p>
+                <p className="ak-muted ak-idea-example">{idea.example}</p>
+              </Card>
+            </li>
+          ))}
+        </ol>
+      ) : null}
+    </div>
+  );
+}
+
+/** Schema 3.1: the closing takeaway. */
+function UnitTakeaway({ unit }: { unit: ProgrammeUnit }) {
+  if (!unit.takeaway) return null;
+  return (
+    <Card flat className="ak-takeaway">
+      <Eyebrow>To take with you</Eyebrow>
+      <p>{unit.takeaway}</p>
+    </Card>
+  );
+}
 
 /**
  * One unit: its focus line, the stage primer when the unit opens a stage,
  * the exercises in full, and repeats of earlier exercises as short versions.
  */
-export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerciseDone, onOpenCheckIn, onOpenSelfCheck, done, onOpenTool, paged }: UnitScreenProps) {
-  const [opened, setOpened] = useState<Opened | null>(null);
+export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerciseDone, onOpenCheckIn, onOpenSelfCheck, done, onOpenTool, paged, initialOpen, onPlace }: UnitScreenProps) {
+  const [opened, setOpened] = useState<Opened | null>(() => {
+    if (!paged || !initialOpen) return null;
+    const id = initialOpen.exerciseId;
+    if (unit.exercise_ids.includes(id)) return { id, scope: id, repeat: false, mode: initialOpen.mode ?? "full" };
+    if ((unit.repeat_ids ?? []).includes(id)) return { id, scope: repeatScope(id), repeat: true, mode: initialOpen.mode ?? "short" };
+    return null;
+  });
+  const landing = useRef(initialOpen);
   const listHeading = useRef<HTMLHeadingElement>(null);
   const returned = useRef(false);
   useEffect(() => {
     // Back from an exercise: put focus on the unit heading, not the top of the page.
     if (!opened && returned.current) listHeading.current?.focus();
   }, [opened]);
+  useEffect(() => {
+    if (!paged || opened) return;
+    onPlace?.({ exerciseId: null, page: null, fieldId: null, mode: null });
+    // Reported when the reader is on the unit's own list.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paged, opened]);
   const byId = new Map(doc.exercises.map((e) => [e.id, e]));
   const toolkitTitles = doc.toolkit.map((t) => t.title);
   const stage = doc.structure.stages?.find((s) => s.id === unit.stage || s.units.includes(unit.number));
@@ -86,6 +142,9 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
             paged
             onClose={close}
             closeLabel={`Back to ${label}`}
+            initialPage={landing.current?.exerciseId === opened.id ? landing.current.page : undefined}
+            initialFieldId={landing.current?.exerciseId === opened.id ? landing.current.fieldId : undefined}
+            onPlace={(p) => onPlace?.({ exerciseId: opened.id, page: p.page, fieldId: p.fieldId, mode: opened.mode })}
           />
         </section>
       );
@@ -117,6 +176,8 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
             <p className="ak-muted">{stage.primer.body}</p>
           </details>
         ) : null}
+
+        <UnitReading unit={unit} />
 
         {newTools.length ? (
           <Card flat>
@@ -177,6 +238,8 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
           })}
         </ul>
 
+        <UnitTakeaway unit={unit} />
+
         {unit.selfcheck && doc.selfcheck && onOpenSelfCheck ? (
           <Card>
             <Eyebrow>{label} self-check</Eyebrow>
@@ -218,6 +281,8 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
           <p className="ak-muted">{stage.primer.body}</p>
         </details>
       ) : null}
+
+      <UnitReading unit={unit} />
 
       {newTools.length ? (
         <Card flat>
@@ -281,6 +346,8 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
           />
         );
       })}
+
+      <UnitTakeaway unit={unit} />
 
       {unit.selfcheck && doc.selfcheck && onOpenSelfCheck ? (
         <Card>

@@ -5,12 +5,23 @@ import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
 import { SignOutButton } from "@/components/SignOutButton";
 import { AppearanceSettings } from "@/components/you/AppearanceSettings";
+import { TodaySettings } from "@/components/you/TodaySettings";
 import { CheckInPartner, type PartnerReply } from "@/components/you/CheckInPartner";
 import { OrgEndedNotice } from "@/components/org/OrgEndedNotice";
 import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
+import {
+  buyerSeatLine,
+  buyerSeatView,
+  memberSeatLine,
+  sharedNotice,
+  type BuyerSeatRow,
+  type MemberSeatRow,
+} from "@/lib/shared-membership";
+import { tenantIdForRequest } from "@/lib/tenant-id";
+import { SharedSeatLink } from "@/components/you/SharedSeatLink";
 import { partnerNoticeText, type PartnerRow } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
-import { cancelDeletion, requestDeletion, withdrawFaithConsent, withdrawHealthConsent } from "./actions";
+import { cancelDeletion, leaveSharedMembership, removeSharedMember, requestDeletion, withdrawFaithConsent, withdrawHealthConsent } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -66,7 +77,23 @@ export default async function YouPage({ searchParams }: Props) {
   const showMembership = Boolean(session) && !subError;
   const membership = membershipSummary(subRows as SubscriptionRow[] | null);
   const canManageMembership = portalCustomerId(subRows as SubscriptionRow[] | null) !== null;
-  const membershipMessage = membershipNotice(params.membership);
+  const membershipMessage = membershipNotice(params.membership) ?? sharedNotice(params.shared);
+
+  // Shared membership (migration 0041). The buyer sees the state of the second
+  // place and never who holds it; a member sees their own seat row, which
+  // carries no account ids. Both are left out if they cannot be read.
+  const tenantId = session ? await tenantIdForRequest() : null;
+  const { data: seatRows } =
+    session && tenantId ? await supabase.rpc("my_shared_seat", { p_tenant: tenantId }) : { data: null };
+  const buyerSeat = buyerSeatView(seatRows as BuyerSeatRow[] | null, new Date());
+  const { data: memberSeatRows } = session
+    ? await supabase
+        .from("membership_seats")
+        .select("id, status, accepted_at")
+        .eq("member_user_id", session.userId)
+        .eq("status", "active")
+    : { data: null };
+  const memberSeat = memberSeatLine(((memberSeatRows as MemberSeatRow[] | null) ?? [])[0]);
 
   // Check-in partner (F-030): the reader's own row and the kind words their
   // partner sent, under RLS (0012). Left out if they cannot be read.
@@ -131,6 +158,12 @@ export default async function YouPage({ searchParams }: Props) {
             <dt>Confirmed you are 18 or over</dt>
             <dd>{session?.adultConfirmedAt ? longDate(session.adultConfirmedAt) : "Not yet"}</dd>
           </div>
+          <div>
+            <dt>Two-step sign-in</dt>
+            <dd>
+              {session?.mfaEnrolled ? "On" : "Off"}. <Link href="/you/security">{session?.mfaEnrolled ? "Manage" : "Turn it on"}</Link>
+            </dd>
+          </div>
         </dl>
         <SignOutButton label={t("you.signOut")} />
       </section>
@@ -143,7 +176,33 @@ export default async function YouPage({ searchParams }: Props) {
               {membershipMessage}
             </p>
           ) : null}
-          <p>{membershipLine(membership, longDate)}</p>
+          <p>{memberSeat ?? membershipLine(membership, longDate)}</p>
+          {buyerSeat.kind !== "none" ? (
+            <div className="you-shared">
+              <h3>Your second place</h3>
+              <p>{buyerSeatLine(buyerSeat, longDate)}</p>
+              {buyerSeat.kind === "empty" || buyerSeat.kind === "invited" ? (
+                <SharedSeatLink label={buyerSeat.kind === "invited" ? "Make a new link" : "Make an invitation link"} />
+              ) : null}
+              {buyerSeat.kind === "invited" || buyerSeat.kind === "joined" ? (
+                <form action={removeSharedMember}>
+                  <button type="submit" className="btn secondary">
+                    {buyerSeat.kind === "joined" ? "Remove them" : "Withdraw the invitation"}
+                  </button>
+                  {buyerSeat.kind === "joined" ? (
+                    <p className="small muted">They lose access at once. Their answers stay theirs, and you cannot read them.</p>
+                  ) : null}
+                </form>
+              ) : null}
+            </div>
+          ) : null}
+          {memberSeat ? (
+            <form action={leaveSharedMembership}>
+              <button type="submit" className="btn secondary">
+                Leave the shared membership
+              </button>
+            </form>
+          ) : null}
           {canManageMembership ? (
             <form method="post" action="/api/billing/portal">
               <button type="submit" className="btn secondary">
@@ -163,6 +222,9 @@ export default async function YouPage({ searchParams }: Props) {
           now={new Date()}
         />
       ) : null}
+
+      {/* Email reminders, the daily review, the welcome-back note and the calendar link (4.3, 4.7, 4.8, 4.9). */}
+      {session ? <TodaySettings userId={session.userId} notice={typeof params.today === "string" ? params.today : undefined} /> : null}
 
       {/* Text size, font, dim at night, reduced motion. On this device only. */}
       <AppearanceSettings />

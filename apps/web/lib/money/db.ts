@@ -58,11 +58,15 @@ export interface RoyaltyConfig {
   min_payout_minor: Record<string, number>;
   approval_above_minor: Record<string, number>;
   payout_day: number;
+  /** 0039: weekly or monthly. The run still acts monthly on payout_day until the cadence follow-up. */
+  payout_cadence: "weekly" | "monthly";
+  /** 0039: ISO weekday, 1 Monday to 7 Sunday. */
+  payout_weekday: number;
   note: string | null;
 }
 
 export const CONFIG_COLUMNS =
-  "id, effective_from, is_placeholder, sale_rate_author, sale_rate_author_link, pool_share_author, pool_step_cap, pool_activity_floor, fee_treatment, refund_window_days, first_payout_hold_days, min_payout_minor, approval_above_minor, payout_day, note";
+  "id, effective_from, is_placeholder, sale_rate_author, sale_rate_author_link, pool_share_author, pool_step_cap, pool_activity_floor, fee_treatment, refund_window_days, first_payout_hold_days, min_payout_minor, approval_above_minor, payout_day, payout_cadence, payout_weekday, note";
 
 /** The config row in force now. */
 export async function currentConfig(db: Db): Promise<RoyaltyConfig | null> {

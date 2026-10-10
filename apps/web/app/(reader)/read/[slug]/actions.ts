@@ -26,3 +26,47 @@ export async function acknowledgeHigherTier(enrolmentId: string): Promise<boolea
     return false;
   }
 }
+
+const EXERCISE = /^[a-z0-9][a-z0-9_:~.-]{0,79}$/;
+const PAGES = ["purpose", "steps", "example", "yours", "done"];
+
+export interface PlaceInput {
+  unit: number;
+  exerciseId: string | null;
+  page: string | null;
+  fieldId: string | null;
+  mode: "full" | "short" | null;
+}
+
+/**
+ * Pause and save (14.5): keeps the exact place, ids only. The answers
+ * themselves are saved as the reader types, through /api/answers. paused is
+ * true when the reader pressed Pause, so the next plain open resumes here.
+ * Quiet on failure: the place is a convenience.
+ */
+export async function saveReadingPlace(enrolmentId: string, place: PlaceInput, paused: boolean): Promise<boolean> {
+  if (typeof enrolmentId !== "string" || !UUID.test(enrolmentId)) return false;
+  if (!Number.isInteger(place.unit) || place.unit < 1 || place.unit > 999) return false;
+  if (place.exerciseId !== null && !EXERCISE.test(place.exerciseId)) return false;
+  if (place.fieldId !== null && !EXERCISE.test(place.fieldId)) return false;
+  if (place.page !== null && !PAGES.includes(place.page)) return false;
+  try {
+    const supabase = await createUserClient();
+    const { error } = await supabase.from("reading_places").upsert(
+      {
+        enrolment_id: enrolmentId,
+        unit: place.unit,
+        exercise_id: place.exerciseId,
+        page: place.page,
+        field_id: place.fieldId,
+        mode: place.mode,
+        paused: paused === true,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "enrolment_id" },
+    );
+    return !error;
+  } catch {
+    return false;
+  }
+}

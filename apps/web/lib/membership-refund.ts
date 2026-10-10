@@ -9,6 +9,9 @@ import type Stripe from "stripe";
  * When the window runs:
  *   * First period: 14 days from the membership starting (the
  *     subscription's start_date, which is when the first invoice was paid).
+ *   * After a trial: 14 days from the first payment, the day the trial
+ *     ended (coolingOffOpensAt, isFirstPaymentAfterTrial). The DMCC regime
+ *     gives a new cooling-off period when a trial converts to paid.
  *   * Renewal of a yearly plan: 14 days from that renewal's payment. This is
  *     the renewal cooling-off the DMCC Act subscription regime adds for
  *     contracts of a year or more.
@@ -48,6 +51,29 @@ export type ProRata =
 export function inCoolingOff(windowFrom: Date, requestedAt: Date): boolean {
   const since = requestedAt.getTime() - windowFrom.getTime();
   return since >= 0 && since <= COOLING_OFF_DAYS * DAY_MS;
+}
+
+/**
+ * When the first-period cooling-off window opens (DMCC: cooling-off after a
+ * trial converts). Without a trial it is the membership's start. With a trial
+ * it is the day the trial ends and the first payment is taken, so a member
+ * who is charged on day 14 still has 14 days to cancel for a refund. During
+ * the trial the window has not opened yet, so nothing is refundable (nothing
+ * has been paid).
+ */
+export function coolingOffOpensAt(sub: Pick<Stripe.Subscription, "start_date" | "trial_end">): Date {
+  const start = sub.start_date * 1000;
+  const trialEnd = typeof sub.trial_end === "number" ? sub.trial_end * 1000 : 0;
+  return new Date(Math.max(start, trialEnd));
+}
+
+/**
+ * True when an invoice is the first payment after a trial: its period starts
+ * at the trial's end. That payment opens the cooling-off window like a first
+ * payment does, whatever its billing reason says.
+ */
+export function isFirstPaymentAfterTrial(sub: Pick<Stripe.Subscription, "trial_end">, periodStartSeconds: number): boolean {
+  return typeof sub.trial_end === "number" && Math.abs(periodStartSeconds - sub.trial_end) <= 3600;
 }
 
 export function proRataRefund(i: ProRataInput): ProRata {
@@ -113,6 +139,7 @@ export async function refundCoolingOff(
   // cooling-off). Monthly renewal: no window.
   let windowFrom: number | null;
   if (invoice.billing_reason === "subscription_create") windowFrom = sub.start_date ?? paidAt;
+  else if (isFirstPaymentAfterTrial(sub, period.start)) windowFrom = paidAt;
   else if (isYearly(sub, period)) windowFrom = paidAt;
   else windowFrom = null;
   if (windowFrom === null) return { status: "not_due", reason: "outside_cooling_off" };
@@ -189,7 +216,7 @@ export async function cancelInCoolingOff(
   const sub = await api.subscriptions.retrieve(subscriptionId);
   if (ENDED.has(sub.status)) return { status: "already_ended" };
   if (!sub.cancel_at_period_end && !sub.cancel_at) return { status: "not_requested" };
-  if (!inCoolingOff(new Date(sub.start_date * 1000), opts.requestedAt)) return { status: "outside_cooling_off" };
+  if (!inCoolingOff(coolingOffOpensAt(sub), opts.requestedAt)) return { status: "outside_cooling_off" };
 
   const refund = await refundCoolingOff(api, subscriptionId, { now: opts.now, requestedAt: opts.requestedAt, reason: "cooling_off_cancel", subscription: sub });
   const ended = await api.subscriptions.cancel(subscriptionId, { invoice_now: false, prorate: false });

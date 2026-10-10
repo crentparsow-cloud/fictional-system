@@ -65,7 +65,7 @@ export function withinTermsReminderWindow(anchor: Date, nextPayment: Date, now: 
 
 /** The whole rule, as a pure function. */
 export function termsReminderDue(c: TermsReminderCandidate, now: Date): boolean {
-  if (c.plan !== "member_month") return false;
+  if (c.plan !== "member_month" && c.plan !== "member_two_month") return false;
   if (c.status !== "active" && c.status !== "trialing") return false;
   if (c.cancelAtPeriodEnd || c.cancelAt || c.endedAt) return false;
   if (!c.currentPeriodEnd) return false;

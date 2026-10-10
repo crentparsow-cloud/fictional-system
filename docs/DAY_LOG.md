@@ -622,3 +622,63 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Post-build list.** C2 set, C7 done, S1 marked blocking, T15 to T17 added.
 
 **Checks:** typecheck and lint clean. 947 web unit tests pass.
+
+### Day 9, overnight block (Saturday 10 October, built overnight)
+
+**Asked by Crent:** run Phase A wave 1 as parallel builds and integrate them on one branch, `phase-a`.
+
+- **Build list v3 and research annex.** `docs/planning/AK_Build_List_Final.md` is the plan the wave worked from, enriched from six research strands. The evidence sits in `docs/research/AK_Build_Research_2026-10-09.md`. Both merged from `build-list-final`.
+- **Five branches merged** into `phase-a`, in order, each with its own commit. No merge conflicts; the shared files (`.env.example`, `lib/funnel.ts`, `next.config.ts`, `docs/TESTING.md`, the lockfile) combined cleanly.
+  - `content-spec`: the unit standard (`docs/content/UNIT_SPEC.md`), the classics pipeline and source check script, the voice guide, a plain English lint behind `pnpm validate --style`, and the review gate checklist.
+  - `analytics`: first-party analytics (0036). Five new funnel events with unit numbers and uniques, a daily-rotating visitor hash with no cookie, cohort and membership reads, and `/admin/analytics` with counts under 5 withheld.
+  - `signin`: Google One Tap and Continue with Google behind `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, optional two-step sign-in for readers at `/you/security` with recovery codes (0037), and Sentry behind a DSN with scrubbing and masked replays. The CSP moves to `apps/web/csp.mjs`.
+  - `public-buy`: Buy, Join and Start on the public workbook page, a `/code` page for promotion codes carried into Checkout with the total in plain words, and the first-unit rule that hides a live title from public lists until unit 1 parses as a full v3 unit.
+  - `studio-money`: payout calendar and cadence on `royalty_config` (0039), a Studio Payments page with a breakdown per sale, the sale channel on purchases and royalty lines, the Connect hold in place of the old go-live gate, and a weekly onboarding nudge email.
+- **Migrations 0036, 0037 and 0039** are built with tests and not yet applied to staging or production.
+
+**Checks:** typecheck and lint clean. All package tests pass and 1014 web unit tests pass (91 files). `pnpm validate --parked` 20 files, 0 failed. Web build with the CI placeholder env is clean. CSP check clean. Database tests on a scratch Postgres 16: all 37 migration files apply through 0039; every test passes except 0006 and 0015, which fail on main already ("a session with no user gave consent").
+
+**For Crent:**
+
+- Set `LEAD_HASH_SALT` in production if it is absent. The visitor hash depends on it.
+- Create the Google Cloud OAuth client and set `NEXT_PUBLIC_GOOGLE_CLIENT_ID`. Turn on the Google provider in Supabase with account linking on, staging first. Steps in `docs/AUTH.md`.
+- Create a Sentry EU project and set `SENTRY_DSN` and `NEXT_PUBLIC_SENTRY_DSN`.
+- Create the Stripe test-mode coupon and the promotion code `FIRSTWORKBOOK`.
+- Apply 0036, 0037 and 0039 to staging.
+- Decide D1 to D5 and whether the payout run goes weekly. The Studio shows the word placeholder until they are set.
+- Decide the schema v3.1 additive fields in `docs/content/UNIT_SPEC.md`.
+- Check the three email variables (`TEST_RECIPIENT`, `LEADS_NOTIFY_TO`, `EMAIL_REPLY_TO`) are set on Production and Preview.
+
+### Day 10, first block (Saturday 10 October)
+
+**Asked by Crent:** run Phase A wave 2 as five parallel builds and integrate them on `phase-a`.
+
+- **Five branches merged** into `phase-a`, in this order.
+  - `classic-one`: schema v3.1 (14.38). Optional unit introduction, key ideas and takeaway, with validator checks against `docs/content/UNIT_SPEC.md` and rendering on the unit screen. Every 3.0 file stays valid.
+  - `explore`: Explore, shelf pages, collections, programme length, related titles and My workbooks (2.1, 2.2, 2.3, 2.4, 2.6, 2.12), plus `/admin/collections` and the nav links.
+  - `today`: Today, the weekly rhythm, the daily review, reminders, the calendar feed and the cron jobs (4.1 to 4.9, 14.3, 14.5, 12.10, 14.8).
+  - `shared`: one membership for two people (6.1, 13.10).
+  - `funnel`: the top of the funnel (5.1 quiz, 5.2 signed-out try, 5.3 free-unit label, 13.4 and 14.21 plan display, 13.5 trials, 10.1 and 13.18 install and standalone sign-in).
+- **Merge conflicts, resolved keeping both sides.** `today` conflicted in `globals.css`. `funnel` conflicted in `globals.css`, the read page and `ReadClient`, the pricing page, `WorkbookCard`, `paywall.ts` and its test, `catalogue.ts`, `catalogue-types.ts` and the reader email test. The paywall now carries the two-person option and the trial days together, and the card shows the length badge and the free-unit line. `.env.example` and the message files combined without conflict.
+- **One fix after the merge.** The membership checkout indexed the trial settings by plan, and the new two-person plan has no setting. The two-person plan now gets no trial. The monthly and annual plans are unchanged.
+- **Migrations 0040 to 0043**, built with tests and not yet applied to staging.
+  - 0040 Today: settings per enrolment, the reminder log, review marks and queue, the calendar feed hash, and pg_cron jobs for reminders and the daily review. The jobs are created only where pg_cron, pg_net and Vault exist, and log "skipped" until `cron_base_url` is set.
+  - 0041 Shared membership: the two-person plan, seats and invitations, with five earlier functions replaced (`upsert_subscription`, `due_terms_reminders`, `record_checkout_consent`, `close_pool_period`, `sync_membership_entitlement`). Price-point counts changed in tests 0004 and 0010 and in `pricing.test.ts`.
+  - 0042 Trial lengths: `membership_trial_days_monthly` 14 and `membership_trial_days_yearly` 21 in `app_config`. A value of 0 switches a trial off.
+  - 0043 Explore: shelf editor's line and featured title, collections and their items with staff-only save and delete functions, and the explore signals (starts and finishes per live title).
+
+**Checks:** `pnpm typecheck` and `pnpm lint` clean. All package tests pass and 1305 web unit tests pass (114 files). `pnpm validate --parked` 20 files, 0 failed. `pnpm check:ids` 0 findings. Web build with the CI placeholder env is clean and the CSP check is clean. Database tests on a scratch Postgres 16: 38 of 40 test files pass, including 0040 to 0043. 0006 and 0015 fail as they do on main. The lockfile did not change.
+
+**Only Crent can:**
+
+- Apply 0040 to 0043 to staging.
+- Enable pg_cron, pg_net and Vault, create the Vault secret `cron_secret` and set `cron_base_url` in `app_config`.
+- Create a Stripe test-mode price for the two-person plan and set `STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY`.
+- Set `STRIPE_PRICE_MEMBERSHIP_MONTHLY` and `STRIPE_PRICE_MEMBERSHIP_YEARLY`.
+- Add the webhook event `customer.subscription.trial_will_end`.
+- Re-paste the `magic_link` email template in Supabase with `{{ .Token }}`.
+- Replace the placeholder PWA icons.
+- Review the shelf one-liners and name the first collections.
+- Supply the Meditations source text (gutenberg.org is blocked from the sandbox) and name the house-record signer.
+
+**Open questions:** `/library` stays the catalogue and `/my-workbooks` is new. The finish rate only ranks a title once it has 10 starts. The signed-out try is limited to safety tier none. A reader gets one trial. The cooling-off period starts at the first payment after the trial. The two-person plan has no trial in this build.

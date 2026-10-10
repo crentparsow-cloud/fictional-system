@@ -85,6 +85,13 @@ export interface PlayerProps {
    * progress dots, as the legacy app did (F-015). Off by default.
    */
   pagedExercises?: boolean;
+  /**
+   * Open straight on one exercise of the initial unit (Today's step, and
+   * pause and save, 14.5). Needs pagedExercises and an initialView of that unit.
+   */
+  initialOpen?: { exerciseId: string; mode?: "full" | "short"; page?: "purpose" | "steps" | "example" | "yours" | "done"; fieldId?: string };
+  /** Where the reader is inside a unit, ids only, so the app can keep the place. */
+  onPlace?: (place: { unit: number; exerciseId: string | null; page: string | null; fieldId: string | null; mode: "full" | "short" | null }) => void;
 }
 
 /**
@@ -113,6 +120,8 @@ export function Player({
   acknowledged,
   onAcknowledge,
   pagedExercises,
+  initialOpen,
+  onPlace,
 }: PlayerProps) {
   const [acked, setAcked] = useState<boolean>(!!acknowledged);
   const gated = !!requireAcknowledge && !acked && !acknowledged;
@@ -299,6 +308,8 @@ export function Player({
           <UnitScreen
             key={current.number}
             paged={pagedExercises}
+            initialOpen={initialOpen}
+            onPlace={(p) => onPlace?.({ unit: current.number, ...p })}
             workbook={doc}
             unit={current}
             store={liveStore}

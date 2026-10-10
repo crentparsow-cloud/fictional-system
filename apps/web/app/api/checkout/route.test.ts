@@ -24,6 +24,9 @@ const fake = {
   purchases: [] as Record<string, unknown>[],
   created: [] as Record<string, unknown>[],
   expired: [] as string[],
+  /** Promotion codes Stripe would return, by upper-case code (item 5.9). */
+  promos: {} as Record<string, { id: string; code: string; percent_off?: number; amount_off?: number; currency?: string }>,
+  promoCalls: [] as Record<string, unknown>[],
   reset() {
     this.session = { userId: "user-1", email: "reader@test" };
     this.country = "GB";
@@ -36,6 +39,8 @@ const fake = {
     this.purchases = [];
     this.created = [];
     this.expired = [];
+    this.promos = {};
+    this.promoCalls = [];
   },
   single(table: string) {
     switch (table) {
@@ -110,6 +115,30 @@ vi.mock("@/lib/supabase/admin", () => ({
 }));
 vi.mock("@/lib/stripe", () => ({
   getStripe: () => ({
+    promotionCodes: {
+      list: async (params: Record<string, unknown>) => {
+        fake.promoCalls.push(params);
+        const p = fake.promos[String(params.code).toUpperCase()];
+        if (!p) return { data: [] };
+        return {
+          data: [
+            {
+              id: p.id,
+              active: true,
+              code: p.code,
+              expires_at: null,
+              max_redemptions: null,
+              times_redeemed: 0,
+              restrictions: { first_time_transaction: false, minimum_amount: null, minimum_amount_currency: null },
+              promotion: {
+                type: "coupon",
+                coupon: { valid: true, percent_off: p.percent_off ?? null, amount_off: p.amount_off ?? null, currency: p.currency ?? null, duration: "once", duration_in_months: null },
+              },
+            },
+          ],
+        };
+      },
+    },
     checkout: {
       sessions: {
         create: async (params: Record<string, unknown>) => {
@@ -247,5 +276,49 @@ describe("POST /api/checkout: the charged price matches the shown price (F-094)"
     expect(res.status).toBe(409);
     expect((await res.json()).error).toBe("Price to be confirmed.");
     expect(fake.rpcs).toEqual([]);
+  });
+});
+
+describe("POST /api/checkout: promotion code from the /code page (item 5.9)", () => {
+  beforeEach(() => {
+    fake.reset();
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => vi.restoreAllMocks());
+
+  it("looks the code up in Stripe again and pins it as the session's discount, with the code box off", async () => {
+    fake.promos.FIRSTBOOK = { id: "promo_First", code: "FIRSTBOOK", percent_off: 20 };
+    const res = await post({ ...good, code: "firstbook" });
+    expect(res.status).toBe(200);
+    expect(fake.promoCalls[0]).toMatchObject({ code: "FIRSTBOOK", active: true });
+    const params = fake.created[0] as { discounts?: unknown; allow_promotion_codes?: unknown; line_items: { price_data: { unit_amount: number } }[] };
+    expect(params.discounts).toEqual([{ promotion_code: "promo_First" }]);
+    expect(params.allow_promotion_codes).toBeUndefined();
+    // The line item stays the listed price; Stripe applies the discount and the webhook records what was paid.
+    expect(params.line_items[0]?.price_data.unit_amount).toBe(1200);
+  });
+
+  it("leaves the code box on when no code is sent", async () => {
+    await post(good);
+    const params = fake.created[0] as { discounts?: unknown; allow_promotion_codes?: unknown };
+    expect(params.allow_promotion_codes).toBe(true);
+    expect(params.discounts).toBeUndefined();
+    expect(fake.promoCalls).toEqual([]);
+  });
+
+  it("refuses an unknown code rather than charging full price quietly, before anything is recorded", async () => {
+    const res = await post({ ...good, code: "NOPE" });
+    expect(res.status).toBe(409);
+    expect((await res.json()).code).toBe("promo_invalid");
+    expect(fake.rpcs).toEqual([]);
+    expect(fake.created).toEqual([]);
+  });
+
+  it("refuses a fixed-amount code in another currency, since it could not apply to this price", async () => {
+    fake.promos.USDOFF = { id: "promo_Usd", code: "USDOFF", amount_off: 200, currency: "usd" };
+    const res = await post({ ...good, code: "USDOFF" });
+    expect(res.status).toBe(409);
+    expect((await res.json()).code).toBe("promo_invalid");
+    expect(fake.created).toEqual([]);
   });
 });

@@ -177,7 +177,7 @@ end $$;
 set local role anon;
 do $$ declare n int; begin
   select count(*) into n from public.price_points where kind = 'membership' and active;
-  if n <> 2 then raise exception 'anon sees % active membership points', n; end if;
+  if n <> 3 then raise exception 'anon sees % active membership points', n; end if;
 end $$;
 reset role;
 

@@ -22,6 +22,7 @@ export type FooterKind =
   | "partner_stopped"
   | "deleted"
   | "signin"
+  | "reminder"
   | "author";
 export type Panel = {
   title?: string;
@@ -161,6 +162,14 @@ export function footerText(kind: FooterKind, links: FooterLinks, postal?: string
         lines: [`You're getting this because someone used this address to sign in to ${BRAND}.`],
         company,
         safety: false,
+      };
+    case "reminder":
+      return {
+        buttons: settings,
+        textLinks: [],
+        lines: [`You are getting this because you chose to be reminded in ${BRAND}. You can change the days or stop the reminders any time.`],
+        company,
+        safety: true,
       };
     case "author":
       return {

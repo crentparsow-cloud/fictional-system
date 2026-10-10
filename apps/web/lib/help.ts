@@ -6,7 +6,7 @@ import { firstHeading, firstParagraph, markdownToHtml } from "@/lib/markdown";
  * The help centre (F-010). Static pages from content/help/<slug>.md, read at
  * build time. The order here is the order on the index page.
  */
-export const HELP_TOPICS = ["account", "membership", "cancelling", "refunds", "privacy", "help-now", "check-in-partner", "organisations", "groups", "appearance"] as const;
+export const HELP_TOPICS = ["account", "membership", "cancelling", "refunds", "privacy", "help-now", "check-in-partner", "organisations", "groups", "appearance", "install"] as const;
 export type HelpTopic = (typeof HELP_TOPICS)[number];
 
 export function isHelpTopic(value: string): value is HelpTopic {

@@ -42,10 +42,10 @@ insert into public.workbook_sections (version_id, kind, unit_number, body, free)
   ('dddddddd-0000-0000-0000-0000000000d6', 'toolkit', null, '{"cards": []}'::jsonb, false);
 
 -- The workbook ladder is seeded with empty amounts and nothing active (D1 to
--- D4 open). The two membership points carry interim figures from 0010.
+-- D4 open). The membership points carry interim figures from 0010; 0041 adds the two-person point, so nine in all.
 do $$ declare n int; begin
   select count(*) into n from public.price_points;
-  if n <> 8 then raise exception 'expected 8 price points, saw %', n; end if;
+  if n <> 9 then raise exception 'expected 9 price points, saw %', n; end if;
   select count(*) into n from public.price_points where kind = 'workbook' and (amounts <> '{}'::jsonb or active);
   if n <> 0 then raise exception 'a workbook price point has figures or is active before Crent set them'; end if;
   begin
@@ -260,7 +260,7 @@ select set_config('request.jwt.claim.sub', '', true), set_config('request.jwt.cl
 set local role anon;
 do $$ declare n int; begin
   select count(*) into n from public.price_points;
-  if n <> 8 then raise exception 'anon should read 8 price points, saw %', n; end if;
+  if n <> 9 then raise exception 'anon should read 9 price points, saw %', n; end if;
   select count(*) into n from public.workbook_sections where kind = 'unit' and unit_number = 2;
   if n <> 0 then raise exception 'anon read a paid unit, %', n; end if;
   begin

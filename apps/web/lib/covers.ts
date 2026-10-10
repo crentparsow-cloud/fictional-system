@@ -218,6 +218,31 @@ export function buildCoverSvg(input: CoverInput): string {
   return parts.join("");
 }
 
+export const COVER_PATTERNS: readonly CoverPattern[] = ["waves", "steps", "rings", "dots", "diagonals", "chevrons", "grid", "bars", "columns", "arcs", "crosses"];
+
+/**
+ * A pattern-only cover for a collection (build list 2.3): the same tint,
+ * accent and pattern family as a workbook cover, with no title or author on
+ * it. The genre picks the tint and accent; an explicit pattern overrides the
+ * genre's own. Returns the inner SVG markup for a 600 x 420 viewBox, to be
+ * placed inside an <svg> the caller labels.
+ */
+export function buildPatternCover(genreId: string | null | undefined, patternOverride?: string | null, clipId = "collection-panel"): string {
+  const style = genreStyle(genreId);
+  const kind = (COVER_PATTERNS as readonly string[]).includes(patternOverride ?? "") ? (patternOverride as CoverPattern) : style.pattern;
+  const panel = { x: 20, y: 20, w: 560, h: 380 };
+  return [
+    `<rect width="600" height="420" fill="${T.canvas}"/>`,
+    `<rect x="${panel.x}" y="${panel.y}" width="${panel.w}" height="${panel.h}" rx="14" fill="${style.tint}"/>`,
+    `<g clip-path="url(#${clipId})" fill="none" stroke="${style.accent}" stroke-width="6" stroke-linecap="round" opacity="0.32">${pattern(kind, panel, style.accent)}</g>`,
+    `<rect x="${panel.x}" y="${panel.y + panel.h - 6}" width="${panel.w}" height="6" fill="${style.accent}" clip-path="url(#${clipId})"/>`,
+  ].join("");
+}
+
+export function collectionPanelClip(clipId = "collection-panel"): string {
+  return `<clipPath id="${clipId}"><rect x="20" y="20" width="560" height="380" rx="14"/></clipPath>`;
+}
+
 // ---------------------------------------------------------------------------
 
 function clean(text: string): string {

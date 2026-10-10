@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ConnectHoldBanner } from "@/components/studio/ConnectHoldBanner";
 import { LicenceDraftBanner, OrgSwitcher, StudioNotice } from "@/components/studio/StudioBits";
 import { checklist, LICENCE_VERSION, ORG_ROLE_LABELS, parseOrgRole, roleCan, withOrg } from "@/lib/studio";
 import { readLicenceTextRow, requireStudio } from "@/lib/studio-server";
@@ -57,6 +58,7 @@ export default async function StudioHome({ searchParams }: { searchParams: Searc
       </p>
       <StudioNotice code={sp.notice} />
       {text?.status === "approved" ? null : <LicenceDraftBanner />}
+      <ConnectHoldBanner ctx={ctx} />
 
       <h2>Getting started</h2>
       <ol className="studio-checklist">

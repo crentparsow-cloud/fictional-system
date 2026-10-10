@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { InstallPrompt } from "@/components/InstallPrompt";
 import { ReaderNav, type NavItem } from "@/components/ReaderNav";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { AppearanceApply } from "@/components/you/AppearanceApply";
@@ -8,6 +9,8 @@ import { readerDeletion } from "@/lib/account-server";
 import { createUserClient } from "@/lib/supabase/server";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { getRoleMfaSession } from "@/lib/mfa/role-mfa-server";
+import { readerVerifyHref } from "@/lib/mfa/reader-mfa";
 import { needsReaderTerms, termsHref } from "@/lib/terms";
 import { readerTermsAccepted } from "@/lib/terms-server";
 
@@ -17,7 +20,10 @@ import { readerTermsAccepted } from "@/lib/terms-server";
  * Nobody signed in goes to /sign-in. A signed-in reader who has not yet
  * confirmed they are 18 or over goes to /welcome first (F-127). Both carry
  * the path they were heading for so they come straight back. A reader who
- * has not accepted the current reader terms goes to /terms (F-122).
+ * has not accepted the current reader terms goes to /terms (F-122). A
+ * reader who turned on two-step sign-in (13.2) and has not yet given a code
+ * on this session goes to /verify. Readers who never turned it on are not
+ * asked.
  */
 export default async function ReaderLayout({ children }: { children: React.ReactNode }) {
   const session = await getReaderSession();
@@ -25,6 +31,7 @@ export default async function ReaderLayout({ children }: { children: React.React
   const current = h.get("x-akana-path") ?? "/home";
   if (!session) redirect(`/sign-in?next=${encodeURIComponent(current)}`);
   if (!session.adultConfirmedAt) redirect(`/welcome?next=${encodeURIComponent(current)}`);
+  if (session.mfaEnrolled && !(await getRoleMfaSession()).verified) redirect(readerVerifyHref(current));
   // F-122: asked again when the reader terms version changes. If the status
   // cannot be read the tabs stay open (logged); checkout still refuses
   // without a recorded acceptance.
@@ -51,6 +58,8 @@ export default async function ReaderLayout({ children }: { children: React.React
       <main id="main" className="reader-main wrap" tabIndex={-1}>
         {/* You has its own deletion banner with the Cancel button. */}
         {current.startsWith("/you") ? null : <ReadOnlyBanner state={deletion} />}
+        {/* 10.1, 13.18: from the second visit, a pre-permission card or the iOS guide. Never in the installed app. */}
+        <InstallPrompt />
         {children}
       </main>
       <ReaderNav items={items} label={t("nav.label")} />

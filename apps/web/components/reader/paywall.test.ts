@@ -132,3 +132,55 @@ describe("paywallState membership options (F-097)", () => {
     for (const w of ["only today", "hurry", "last chance", "limited"]) expect(text.toLowerCase()).not.toContain(w);
   });
 });
+
+describe("the two-person option (0041)", () => {
+  const two: Price = { pointId: "member_two_month", currency: "GBP", amountMinor: 1200, formatted: "£12.00", inGbp: true } as Price;
+  const base = { entitled: false, demo: false, workbookPrice: gbp, membershipPrice: member, membershipCheckoutReady: true } as const;
+
+  it("is absent unless the plan has a price and a Stripe price", () => {
+    for (const extra of [{}, { membershipTwoPrice: two }, { membershipTwoReady: true }, { membershipTwoPrice: null, membershipTwoReady: true }]) {
+      const s = paywallState({ ...base, ...extra });
+      expect(s.kind === "offer" && "shared" in s).toBe(false);
+    }
+  });
+
+  it("carries the positioning line and the price when it can be bought", () => {
+    const s = paywallState({ ...base, membershipTwoPrice: two, membershipTwoReady: true });
+    expect(s.kind === "offer" && s.shared).toEqual({
+      positioning: "Two people, one price, each with sealed answers",
+      label: "Share a membership, £12.00 a month for two people",
+    });
+  });
+
+  it("is hidden for a title outside the membership", () => {
+    const s = paywallState({ ...base, inMembership: false, membershipTwoPrice: two, membershipTwoReady: true });
+    expect(s.kind === "offer" && "shared" in s).toBe(false);
+  });
+});
+
+describe("paywallState trial and annual labels (5.3, 13.5, 14.21)", () => {
+  const monthly: Price = { pointId: "member_month", currency: "GBP", amountMinor: 799, formatted: "£7.99" };
+  const yearly: Price = { pointId: "member_year", currency: "GBP", amountMinor: 6999, formatted: "£69.99" };
+  const base = { entitled: false, demo: false, workbookPrice: gbp, membershipPrice: monthly, membershipCheckoutReady: true, membershipYearlyPrice: yearly, membershipYearlyReady: true } as const;
+
+  it("labels the membership '14 days, then £7.99 a month', never free", () => {
+    const s = paywallState({ ...base, membershipTrial: { monthly: 14, yearly: 21 }, market: MARKETS.GB });
+    expect(s.kind === "offer" && s.membership.note).toBe("14 days, then £7.99 a month");
+    expect(s.kind === "offer" && s.trialDays).toBe(14);
+    expect(JSON.stringify(s)).not.toMatch(/free/i);
+  });
+
+  it("shows the annual plan as a monthly equivalent with the yearly total beside it", () => {
+    const s = paywallState({ ...base, membershipTrial: { monthly: 14, yearly: 21 }, market: MARKETS.GB });
+    expect(s.kind === "offer" && s.yearly?.label).toBe("Or 21 days, then £5.83 a month, £69.99 a year");
+    const noTrial = paywallState({ ...base, market: MARKETS.GB });
+    expect(noTrial.kind === "offer" && noTrial.yearly?.label).toBe("Or £5.83 a month, £69.99 a year");
+    expect(noTrial.kind === "offer" && noTrial.membership.note).toBe("£7.99 a month");
+    expect(noTrial.kind === "offer" && "trialDays" in noTrial).toBe(false);
+  });
+
+  it("a trial of 0 days reads as no trial", () => {
+    const s = paywallState({ ...base, membershipTrial: { monthly: 0, yearly: 0 } });
+    expect(s.kind === "offer" && s.membership.note).toBe("£7.99 a month");
+  });
+});

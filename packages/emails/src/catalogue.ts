@@ -13,6 +13,8 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
   first_unit_finished: "Sent when a reader finishes the free first unit. Nothing was charged.",
   purchase_lifetime: "Confirms a one-off purchase and the terms agreed at checkout.",
   purchase_membership: "Confirms a new membership: price, how often, next payment and how to cancel.",
+  trial_started: "Day zero of a membership trial: the first week's plan as unit names, the trial dates and how to cancel. Not a receipt.",
+  trial_ending: "Three days before a trial converts: the first payment date, the amount and how to cancel.",
   renewal_notice: "Annual members, before each renewal: the date, the amount and how to cancel.",
   membership_terms_reminder: "Monthly members, every six months before a payment: price, how often, next payment and how to cancel.",
   membership_away: "A member who has been away: the membership is still active, and how to cancel.",
@@ -38,6 +40,9 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
   partner_stopped: "To a check-in partner: the updates have stopped.",
   refund_confirmed: "Confirms a single-workbook refund made by Akana: the amount and whether access ended. No title.",
   deletion_cancelled: "Confirms that Akana support cancelled a pending account deletion at the reader's request.",
+  step_reminder: "A reminder on the reader's chosen days (4.7). Starts \"Akana today:\", names the unit, never the title.",
+  reminders_stopping: "The one email after unanswered reminders (14.3): they are stopping, and how to restart.",
+  welcome_back: "One short, plain note after a long gap (4.9) to a reader who asked for reminders. No offer.",
 };
 
 export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = {
@@ -52,6 +57,7 @@ export const AUTHOR_TEMPLATE_CATALOGUE: { [K in AuthorTemplateName]: string } = 
   payout_action_needed: "Something is needed before a payout can be made.",
   statement_ready: "A new earnings statement is ready.",
   payout_details_changed: "Security notice to owners and finance: payout or tax details changed.",
+  connect_onboarding_nudge: "Owner and finance, at most weekly: earnings are waiting on one Stripe Connect step. No title.",
   lead_received: "To the Akana team: someone sent the publish enquiry form.",
   review_assigned: "To an Akana reviewer: a workbook version was assigned to them, by AK code only.",
   ops_alert: "To the Akana operator: an operational alert opened, with kind, route and code only.",
