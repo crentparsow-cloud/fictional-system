@@ -46,6 +46,23 @@ export type ReaderProps = {
   purchase_lifetime: ReaderBase & { offerName: string; price: string };
   purchase_membership: ReaderBase & MembershipTerms;
   renewal_notice: ReaderBase & { renewDate: string; price: string };
+  /**
+   * The day-zero email after a membership trial starts (14.20): the first
+   * week's plan, as unit names only, then the trial dates. It is not a
+   * receipt. planItems come from the workbook's public outline and are
+   * never the workbook or book title.
+   */
+  trial_started: ReaderBase & {
+    trialLength: string;
+    reminderDate: string;
+    firstPaymentDate: string;
+    price: string;
+    periodWords: string;
+    planHeading?: string;
+    planItems?: string[];
+  };
+  /** Three days before a trial converts: the first payment date, the amount and how to cancel. */
+  trial_ending: ReaderBase & { firstPaymentDate: string; price: string; periodWords: string };
   membership_terms_reminder: ReaderBase & MembershipTerms;
   membership_away: ReaderBase & { price: string; nextDate: string };
   payment_failed: ReaderBase & { price?: string };
@@ -72,6 +89,17 @@ export type ReaderProps = {
   refund_confirmed: ReaderBase & { amount: string; accessEnded: boolean };
   /** Akana support cancelled a pending account deletion for the reader (F-087). */
   deletion_cancelled: ReaderBase;
+  /**
+   * A reminder the reader set up themselves (4.7). The step is named by its
+   * unit name, never the workbook title. subjectLabel is what follows
+   * "Akana today:" in the subject: the unit name, or just "Week 3" for a
+   * wellbeing title. No line about anything missed.
+   */
+  step_reminder: ReaderBase & { stepName: string; unitWords: string; subjectLabel: string; minutes?: number; stepUrl: string };
+  /** The one email that says the reminders are stopping (14.3), and how to start them again. */
+  reminders_stopping: ReaderBase & { remindersUrl: string };
+  /** One plain note after a long gap (4.9), to a reader who asked for reminders. No offer, no discount. */
+  welcome_back: ReaderBase & { stepUrl: string };
 };
 export type ReaderTemplateName = keyof ReaderProps;
 
@@ -146,6 +174,11 @@ const stagePosition = (s: StagePosition): { number: number; count: number } => {
   const raw = "stageNumber" in s ? { number: s.stageNumber, count: s.stageCount } : { number: s.stageIndex + 1, count: s.stageLabels.length };
   const count = Math.max(1, Math.floor(Number(raw.count) || 1));
   return { number: Math.min(count, Math.max(1, Math.floor(Number(raw.number) || 1))), count };
+};
+
+const minutesPhrase = (n: unknown) => {
+  const m = Math.floor(Number(n));
+  return Number.isFinite(m) && m > 0 ? `About ${m} ${m === 1 ? "minute" : "minutes"}.` : "";
 };
 
 export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[K]) => Email } = {
@@ -258,6 +291,74 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       { label: "Open your workbooks", url: x.appUrl },
       { label: "Manage membership", url: x.settingsUrl },
     ],
+    footer: "service",
+  }),
+
+  // The day-zero email after a trial starts (14.20). Leads with the first
+  // week's plan, unit names only, never a workbook title. The trial dates and
+  // the way to cancel follow. It says nothing is taken today and never calls
+  // the trial free. Not a receipt: Stripe sends no receipt for a nil invoice.
+  trial_started: (x) => {
+    const items = (x.planItems ?? []).filter((i) => i.trim());
+    const panels: Panel[] = [];
+    if (items.length) panels.push({ title: x.planHeading ?? "Your first week", items, tone: "tint" });
+    panels.push(
+      {
+        title: "Your trial",
+        rows: [
+          ["Trial length", x.trialLength],
+          ["Reminder email", x.reminderDate],
+          ["First payment", `${x.firstPaymentDate}, ${x.price} ${x.periodWords}`.trim()],
+          ["After that", `${x.price} ${x.periodWords}, automatically, until you cancel`.trim()],
+        ],
+        tone: "terms",
+      },
+      HOW_TO_CANCEL,
+    );
+    return {
+      subject: "Your first week is ready",
+      preheader: items.length ? "Here is what the first week looks like." : "Your trial dates, and how to cancel.",
+      hero: "service",
+      eyebrow: "Your membership trial",
+      headline: items.length ? "Here is your first week" : "Your trial has started",
+      greeting: hi(x.name),
+      paragraphs: [
+        items.length
+          ? "Your trial has started and everything in the membership is open. This is how your first week is laid out. Take it one step at a time."
+          : "Your trial has started and everything in the membership is open. Pick up where you like.",
+        `Nothing is taken today. We email you a reminder on ${x.reminderDate}, before your first payment on ${x.firstPaymentDate}.`,
+      ],
+      panels,
+      after: ["If you cancel before the first payment, you are not charged."],
+      buttons: [
+        { label: "Open your first step", url: x.appUrl },
+        { label: "Manage membership", url: x.settingsUrl },
+      ],
+      equalButtons: true,
+      footer: "service",
+    };
+  },
+
+  // Three days before a trial converts. Names no title. States the date and
+  // the amount, and how to cancel without being charged.
+  trial_ending: (x) => ({
+    subject: `Your trial ends on ${x.firstPaymentDate}`,
+    preheader: "Nothing to do if you want to keep your membership.",
+    hero: "service",
+    eyebrow: "Trial reminder",
+    headline: "Your trial ends soon",
+    greeting: hi(x.name),
+    paragraphs: ["Your membership trial is nearly over. Here is when your first payment is taken, and what it is."],
+    panels: [{ title: "First payment", big: x.firstPaymentDate, rows: [["Amount", `${x.price} ${x.periodWords}`.trim()]], tone: "service" }],
+    after: [
+      "If you want to keep your membership, you do not need to do anything.",
+      `If you want to cancel, ${CANCEL_PATH} before ${x.firstPaymentDate}. You will not be charged.`,
+    ],
+    buttons: [
+      { label: "Keep my membership", url: x.appUrl },
+      { label: "Manage membership", url: x.settingsUrl },
+    ],
+    equalButtons: true,
     footer: "service",
   }),
 
@@ -767,6 +868,48 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
 
   // Support cancelled a deletion on the reader's behalf. The reader asked us
   // to, so this confirms it, and says what to do if they did not.
+  step_reminder: (x) => ({
+    subject: `Akana today: ${x.subjectLabel}`,
+    preheader: "Your step is ready when you are.",
+    hero: "stage-1",
+    eyebrow: "Your reminder",
+    headline: "Your step for today",
+    greeting: hi(x.name),
+    paragraphs: ["You asked us to remind you on days like this one. Your step is ready when you are."],
+    panels: [{ title: x.unitWords, lines: [x.stepName, minutesPhrase(x.minutes)].filter(Boolean), tone: "tint" }],
+    buttons: [{ label: "Open today's step", url: x.stepUrl }],
+    quietLink: { label: "Change or stop these reminders", url: x.settingsUrl },
+    footer: "reminder",
+  }),
+
+  reminders_stopping: (x) => ({
+    subject: "We are stopping your reminders",
+    preheader: "No action needed. You can start them again any time.",
+    hero: "stage-1",
+    eyebrow: "Your reminders",
+    headline: "We are stopping your reminders",
+    greeting: hi(x.name),
+    paragraphs: [
+      "We have sent a few reminders and have not heard back, so we are stopping them. That is fine. Nothing else changes.",
+      "Your work is saved. Whenever you want reminders again, turn them on in You, choose your days and time, and they will start from the next day you pick.",
+    ],
+    buttons: [{ label: "Turn reminders back on", url: x.remindersUrl }],
+    footer: "reminder",
+  }),
+
+  welcome_back: (x) => ({
+    subject: "Welcome back",
+    preheader: "Your place is saved. One easy step is waiting.",
+    hero: "stage-1",
+    eyebrow: "Whenever you are ready",
+    headline: "Welcome back",
+    greeting: hi(x.name),
+    paragraphs: ["Your place is saved. There is one easy step waiting, and it is a small one."],
+    buttons: [{ label: "See where you were", url: x.stepUrl }],
+    quietLink: { label: "Change or stop these emails", url: x.settingsUrl },
+    footer: "reminder",
+  }),
+
   deletion_cancelled: (x) => ({
     subject: "Your account will not be deleted",
     preheader: "We cancelled the deletion you asked us to stop.",
@@ -786,13 +929,16 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
 
 // ---------- sign-in emails (pasted into Supabase, not sent by the app) ----------
 // Keep {{ .ConfirmationURL }} and {{ .SiteURL }} exactly as written.
-const signin = (subject: string, headline: string, line: string, label: string, ignore: string): Email => ({
+const signin = (subject: string, headline: string, line: string, label: string, ignore: string, code?: { title: string; line: string }): Email => ({
   subject,
   preheader: line,
   hero: "service",
   headline,
   greeting: "Hello,",
   paragraphs: [line],
+  // 13.18: a six-digit code for readers in the installed web app, where a link
+  // opens the browser instead. Supabase fills {{ .Token }}. Keep it exactly as written.
+  ...(code ? { panels: [{ title: code.title, big: "{{ .Token }}", spaced: true, lines: [code.line], tone: "tint" as const }] } : {}),
   buttons: [{ label, url: "{{ .ConfirmationURL }}" }],
   after: [ignore],
   footer: "signin",
@@ -811,6 +957,7 @@ export const SIGNIN_TEMPLATES: Record<string, Email> = {
     "Here's your sign-in link. It works once, and only for a short time.",
     "Sign in",
     "If you didn't ask for this, you can ignore it. Nobody can sign in without the link.",
+    { title: "Or type this code", line: "Use it if you are signed in from the app on your home screen. It works once, and only for a short time." },
   ),
   reset_password: signin(
     "Reset your password",
@@ -855,6 +1002,7 @@ export function assertSubjectSafe(subject: string, props: { themeName?: string }
 export const READER_CATEGORY: Record<FooterKind, "transactional" | "progress" | "marketing" | "partner"> = {
   service: "transactional",
   signin: "transactional",
+  reminder: "transactional",
   deleted: "transactional",
   author: "transactional",
   progress: "progress",
