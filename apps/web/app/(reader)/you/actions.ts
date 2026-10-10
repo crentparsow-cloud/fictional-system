@@ -50,3 +50,29 @@ export async function withdrawFaithConsent(): Promise<void> {
   if (error) back("faith-consent-failed");
   back("faith-consent-withdrawn");
 }
+
+const sharedBack = (code: "left" | "removed" | "withdrawn" | "failed"): never => redirect(`/you?shared=${code}#membership`);
+
+/**
+ * The buyer removes the person on the second place, or withdraws an unused
+ * invitation (migration 0041, app.seat_remove). Access ends at once for the
+ * person removed. Their answers stay theirs.
+ */
+export async function removeSharedMember(): Promise<void> {
+  const supabase = await createUserClient();
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) redirect("/sign-in?next=/you");
+  const { data: result, error } = await supabase.rpc("seat_remove", {});
+  if (error) sharedBack("failed");
+  sharedBack(result === "removed" ? "removed" : "withdrawn");
+}
+
+/** The member leaves a shared membership (app.seat_leave). */
+export async function leaveSharedMembership(): Promise<void> {
+  const supabase = await createUserClient();
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) redirect("/sign-in?next=/you");
+  const { data: result, error } = await supabase.rpc("seat_leave");
+  if (error || result !== "left") sharedBack("failed");
+  sharedBack("left");
+}

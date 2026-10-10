@@ -17,6 +17,7 @@ const fake = {
   limited: false,
   recordFails: false,
   linkFails: false,
+  seatHeld: false,
   purchases: [] as Record<string, unknown>[],
   created: [] as Record<string, unknown>[],
   expired: [] as string[],
@@ -26,6 +27,7 @@ const fake = {
     this.limited = false;
     this.recordFails = false;
     this.linkFails = false;
+    this.seatHeld = false;
     this.purchases = [];
     this.created = [];
     this.expired = [];
@@ -55,7 +57,8 @@ class Query {
     return Promise.resolve(this.table === "profiles" ? { data: { country: "GB" }, error: null } : { data: null, error: null });
   }
   then<T>(res: (v: unknown) => T, rej?: (e: unknown) => T) {
-    return Promise.resolve({ data: [], error: null }).then(res, rej);
+    const rows = this.table === "membership_seats" && fake.seatHeld ? [{ id: "seat-1" }] : [];
+    return Promise.resolve({ data: rows, error: null }).then(res, rej);
   }
 }
 
@@ -178,5 +181,33 @@ describe("POST /api/checkout/membership: pro rata refund consent", () => {
     expect(res.status).toBe(500);
     expect(fake.expired).toEqual(["cs_test_member1"]);
     expect(fake.purchases).toEqual([]);
+  });
+
+  it("takes the two-person plan: its own price, its own consent plan, its own metadata", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(200);
+    expect(fake.rpcs[0]?.args).toMatchObject({ p_kind: "membership", p_plan: "member_two_month" });
+    const params = fake.created[0] as { line_items: { price: string }[]; metadata: Record<string, string>; subscription_data: { metadata: Record<string, string> } };
+    expect(params.line_items[0]?.price).toBe("price_test_two");
+    expect(params.metadata.plan).toBe("member_two_month");
+    expect(params.subscription_data.metadata.plan).toBe("member_two_month");
+    expect(fake.purchases[0]).toMatchObject({ kind: "membership", price_point_id: "member_two_month" });
+  });
+
+  it("says not open yet while the two-person price is unset, and opens nothing", async () => {
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(409);
+    expect(fake.created).toEqual([]);
+  });
+
+  it("refuses a person who already holds the second place on someone else's membership", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    fake.seatHeld = true;
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(409);
+    expect(((await res.json()) as { error: string }).error).toMatch(/shared membership/);
+    expect(fake.created).toEqual([]);
+    expect(fake.rpcs).toEqual([]);
   });
 });

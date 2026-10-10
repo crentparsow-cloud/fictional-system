@@ -88,6 +88,15 @@ export default async function AdminHomePage() {
       closed: false,
     },
     {
+      href: "/admin/collections",
+      title: "Collections and shelves",
+      line: "Curated groups of titles across shelves, and the editor's line and featured title for each shelf page.",
+      count: null,
+      unit: "",
+      closed: !can.curateCatalogue,
+      noCount: true,
+    },
+    {
       href: "/admin/organisations",
       title: "Organisations",
       line: "Publishers, author companies and sole authors.",

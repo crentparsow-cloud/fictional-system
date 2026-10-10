@@ -12,7 +12,10 @@ import {
   portalCustomerId,
   type SubscriptionRow,
 } from "@/lib/membership";
-import { priceCurrencyFor } from "@/lib/pricing";
+import { PRICE_LADDER, priceCurrencyFor } from "@/lib/pricing";
+import { trialCheckoutNotice, trialEligible } from "@/lib/membership-trial";
+import { loadTrialConfig } from "@/lib/membership-trial-server";
+import { formatMinor } from "@/lib/membership-email";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
@@ -28,7 +31,7 @@ import { lookupPromoCode } from "@/lib/promo-code-server";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
- *   { plan: "monthly" | "yearly", workbook?: slug }  ->  { url }
+ *   { plan: "monthly" | "yearly" | "two_monthly", workbook?: slug }  ->  { url }
  *
  * Stripe Checkout in subscription mode, next to the single workbook
  * checkout and kept in step with it: Stripe Tax, promotion codes and the
@@ -59,13 +62,20 @@ import { lookupPromoCode } from "@/lib/promo-code-server";
  *
  * A returning member keeps their Stripe customer, so they have one portal
  * and one invoice history.
+ *
+ * Trial (13.5): a reader with no earlier subscription gets the trial for the
+ * plan they chose (app_config, 14 days monthly and 21 annual by default),
+ * card required. Stripe's pay button states the first payment date and the
+ * reminder date. The reminder goes out on customer.subscription.trial_will_end
+ * (lib/stripe-webhook.ts). Cooling-off runs from the first payment, not from
+ * the day the trial began (lib/membership-refund.ts coolingOffOpensAt).
  */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 const Body = z
   .object({
-    plan: z.enum(["monthly", "yearly"]),
+    plan: z.enum(["monthly", "yearly", "two_monthly"]),
     workbook: z
       .string()
       .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/)
@@ -120,6 +130,11 @@ export async function POST(request: NextRequest) {
   if (subErr) return refuse("Could not start checkout.", 500);
   const rows = (subs ?? []) as SubscriptionRow[];
   if (hasLiveMembership(rows)) return refuse("You are already a member. You can manage your membership in your account.");
+  // A person who holds the second place on someone else's membership has access already.
+  const { data: seats } = await supabase.from("membership_seats").select("id").eq("tenant_id", tenantId).eq("status", "active");
+  if (seats && seats.length > 0) {
+    return refuse("You already have access through a shared membership. Leave it first if you would rather have your own.");
+  }
 
   const { data: profile } = await supabase.from("profiles").select("country").eq("user_id", session.userId).maybeSingle();
   const market = marketFor((profile?.country as string | null | undefined) ?? null);
@@ -151,6 +166,16 @@ export async function POST(request: NextRequest) {
   const consentId = await recordCheckoutConsent({ kind: "membership", version: consent.version, tenantId, plan: MEMBERSHIP_PLAN_POINT[plan] });
   if (consentId === null) return refuse("Could not start checkout.", 500);
 
+  // 13.5: a first-time member gets the trial for the plan, card required. The
+  // pay button states the first payment date and the reminder date. A price that
+  // cannot be formatted means no trial notice can be written, so no trial.
+  // The two-person plan has no trial: the trial settings cover the monthly and annual plans only.
+  const trialPlan = plan === "two_monthly" ? null : plan;
+  const trialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
+  const trialPrice = trialPlan && trialDays > 0 ? await trialRenewalPrice(supabase, trialPlan, priceCurrencyFor(market)) : null;
+  const trialNotice = trialPlan && trialPrice ? trialCheckoutNotice(trialPlan, trialDays, trialPrice, new Date()) : null;
+  const trial = trialNotice ? { days: trialDays, notice: trialNotice } : null;
+
   const origin = siteOrigin(request);
   const successUrl = workbook ? `${origin}/read/${workbook}?member=1&session_id={CHECKOUT_SESSION_ID}` : `${origin}/you?membership=welcome#membership`;
   const cancelUrl = workbook ? `${origin}/read/${workbook}` : `${origin}/you#membership`;
@@ -167,6 +192,7 @@ export async function POST(request: NextRequest) {
       successUrl,
       cancelUrl,
       promotionCodeId,
+      trial,
     });
     const consentMeta = consentMetadata(consentId, consent.version);
     params.metadata = { ...params.metadata, ...consentMeta };
@@ -206,6 +232,15 @@ export async function POST(request: NextRequest) {
   // F-141: a daily count, ids only, unless the visitor has opted out.
   await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies, userId: session.userId });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
+}
+
+/** The renewal price for the trial notice, "£7.99", from the price point row, else the ladder. Null when there is none. */
+async function trialRenewalPrice(supabase: Awaited<ReturnType<typeof createUserClient>>, plan: "monthly" | "yearly", currency: string): Promise<string | null> {
+  const point = MEMBERSHIP_PLAN_POINT[plan];
+  const { data } = await supabase.from("price_points").select("amounts").eq("id", point).maybeSingle();
+  const amounts = (data?.amounts ?? PRICE_LADDER[point].amounts) as Record<string, number | undefined>;
+  const minor = amounts[currency];
+  return typeof minor === "number" && minor > 0 ? (formatMinor(minor, currency) ?? null) : null;
 }
 
 async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): Promise<void> {
