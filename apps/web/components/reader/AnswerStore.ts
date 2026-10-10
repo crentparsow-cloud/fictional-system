@@ -1,5 +1,6 @@
 import type { AnswerStore, FieldValue } from "@akana/engine";
 import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
+import type { DraftStore, DraftWrite } from "@/lib/draft-store";
 
 /**
  * The engine's AnswerStore over the sealed answers route.
@@ -13,6 +14,18 @@ import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
  *
  * The store never sees plaintext leave the device unsealed except over this
  * one route, and never sees a key. Sealing is the server's job.
+ *
+ * Offline draft recovery (14.6): with a DraftStore, every change is also
+ * written to IndexedDB on the device, in a bucket for this enrolment, and
+ * deleted again once the server confirms that save. If the tab closes or the
+ * connection drops with a save still owed, the next load finds the drafts and
+ * sends them. Once an answer is on the server it is the server's sealed copy
+ * and no plaintext is left on the device. The device write never blocks the
+ * save and never throws; a full or blocked disk is reported to onDraftIssue
+ * and the reader's typing carries on in memory as before.
+ *
+ * DeviceAnswerStore, below, is the same store with no server: it is what a
+ * visitor with no account writes into while trying the first unit (5.2).
  */
 
 /**
@@ -20,7 +33,7 @@ import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
  * consent: refused because health data consent is not in place (F-026).
  * read_only: refused because an account deletion is pending (F-025).
  */
-export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only";
+export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "device" | "device_full";
 
 export interface SupabaseAnswerStoreOptions {
   enrolmentId: string;
@@ -39,6 +52,14 @@ export interface SupabaseAnswerStoreOptions {
    * with the answer. Omit and nothing is sent.
    */
   currentUnit?: () => number | null;
+  /** Device drafts for offline recovery (14.6). Omit for none. */
+  drafts?: DraftStore | null;
+  /** The drafts bucket for this enrolment (lib/draft-store.ts enrolmentBucket). Required with drafts. */
+  draftBucket?: string;
+  /** Called when a device draft could not be kept: the device is full, or storage is blocked. */
+  onDraftIssue?: (issue: Exclude<DraftWrite, "ok">) => void;
+  /** Called once on load with how many unsaved answers were recovered from the device and are being sent. */
+  onRecovered?: (count: number) => void;
 }
 
 interface Pending {
@@ -66,6 +87,10 @@ export class SupabaseAnswerStore implements AnswerStore {
   private readonly endpoint: string;
   private readonly onSaved: (field: string) => void;
   private readonly currentUnit: () => number | null;
+  private readonly drafts: DraftStore | null;
+  private readonly draftBucket: string;
+  private readonly onDraftIssue: (issue: Exclude<DraftWrite, "ok">) => void;
+  private readonly onRecovered: (count: number) => void;
   private state: SaveState = "idle";
 
   constructor(opts: SupabaseAnswerStoreOptions) {
@@ -77,6 +102,10 @@ export class SupabaseAnswerStore implements AnswerStore {
     this.endpoint = opts.endpoint ?? "/api/answers";
     this.onSaved = opts.onSaved ?? (() => undefined);
     this.currentUnit = opts.currentUnit ?? (() => null);
+    this.drafts = opts.drafts ?? null;
+    this.draftBucket = opts.draftBucket ?? "";
+    this.onDraftIssue = opts.onDraftIssue ?? (() => undefined);
+    this.onRecovered = opts.onRecovered ?? (() => undefined);
     for (const [field, value] of Object.entries(opts.initial ?? {})) {
       this.values.set(field, value as FieldValue);
     }
@@ -89,7 +118,37 @@ export class SupabaseAnswerStore implements AnswerStore {
     const res = await fetchFn(`${endpoint}?enrolment=${encodeURIComponent(opts.enrolmentId)}`, { cache: "no-store" });
     if (!res.ok) throw new Error(`answers_load_${res.status}`);
     const body = (await res.json()) as { answers?: Record<string, unknown> };
-    return new SupabaseAnswerStore({ ...opts, initial: body.answers ?? {} });
+    const store = new SupabaseAnswerStore({ ...opts, initial: body.answers ?? {} });
+    await store.recover();
+    return store;
+  }
+
+  /**
+   * Offline draft recovery (14.6). Any draft on the device is an answer that
+   * was typed and never confirmed by the server, so it is newer than what the
+   * server holds for that field unless it matches. Each is put back in
+   * memory and sent. A draft the server already holds the same value for is
+   * simply deleted.
+   */
+  async recover(): Promise<number> {
+    if (!this.drafts || !this.draftBucket) return 0;
+    const records = await this.drafts.list(this.draftBucket);
+    let recovered = 0;
+    for (const rec of records) {
+      if (!splitFieldKey(rec.field)) {
+        await this.drafts.remove(this.draftBucket, rec.field);
+        continue;
+      }
+      if (sameValue(this.values.get(rec.field), rec.value)) {
+        await this.drafts.remove(this.draftBucket, rec.field);
+        continue;
+      }
+      this.values.set(rec.field, rec.value as FieldValue);
+      this.schedule(rec.field, 0);
+      recovered += 1;
+    }
+    if (recovered) this.onRecovered(recovered);
+    return recovered;
   }
 
   get(scope: string, fieldId: string): FieldValue | undefined {
@@ -99,7 +158,20 @@ export class SupabaseAnswerStore implements AnswerStore {
   set(scope: string, fieldId: string, value: FieldValue): void {
     const field = fieldKey(scope, fieldId);
     this.values.set(field, value);
+    this.keepDraft(field, value);
     this.schedule(field, this.debounceMs);
+  }
+
+  private keepDraft(field: string, value: FieldValue): void {
+    if (!this.drafts || !this.draftBucket) return;
+    void this.drafts.put(this.draftBucket, field, value).then((r) => {
+      if (r !== "ok") this.onDraftIssue(r);
+    });
+  }
+
+  private dropDraft(field: string): void {
+    if (!this.drafts || !this.draftBucket) return;
+    void this.drafts.remove(this.draftBucket, field);
   }
 
   /** Current state, for a component mounting after the first change. */
@@ -170,7 +242,10 @@ export class SupabaseAnswerStore implements AnswerStore {
       if (!ok && res.status >= 400 && res.status < 500 && res.status !== 429 && res.status !== 408) {
         p.inFlight = false;
         this.pending.delete(field);
-        this.setState(res.status === 403 ? await refusalState(res) : "failed");
+        const refused = res.status === 403 ? await refusalState(res) : "failed";
+        // Consent and read-only are about the account, not the answer: the draft stays on the device.
+        if (refused === "failed") this.dropDraft(field);
+        this.setState(refused);
         return;
       }
     } catch {
@@ -184,6 +259,8 @@ export class SupabaseAnswerStore implements AnswerStore {
       if (p.dirty) {
         this.schedule(field, this.debounceMs);
       } else {
+        // The server holds the sealed copy now; nothing plaintext stays on the device.
+        this.dropDraft(field);
         this.pending.delete(field);
         if (this.pending.size === 0) this.setState("saved");
       }
@@ -213,5 +290,97 @@ async function refusalState(res: Response): Promise<SaveState> {
     return "failed";
   } catch {
     return "failed";
+  }
+}
+
+function sameValue(a: unknown, b: unknown): boolean {
+  if (a === b) return true;
+  try {
+    return JSON.stringify(a) === JSON.stringify(b);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The AnswerStore for a visitor with no account (5.2). Answers are held in
+ * memory and in the device's IndexedDB drafts, in one bucket per workbook,
+ * and go nowhere else. Nothing is sent to the server, so nothing is sealed
+ * and there is nothing to retry. The status line says where the answers are:
+ * "device" while they are kept, "device_full" when the disk would not take
+ * them (the answers stay in memory for this visit).
+ *
+ * When the visitor signs in, ReadClient offers the drafts to the account;
+ * accepting writes each through SupabaseAnswerStore.set, which seals it on
+ * the server, and the device copy is then cleared.
+ */
+export class DeviceAnswerStore implements AnswerStore {
+  private readonly values = new Map<string, FieldValue>();
+  private state: SaveState = "idle";
+  private timers = new Map<string, ReturnType<typeof setTimeout>>();
+
+  constructor(
+    private readonly drafts: DraftStore,
+    private readonly bucket: string,
+    private readonly onStatus: (state: SaveState) => void = () => undefined,
+    private readonly debounceMs = 300,
+  ) {}
+
+  /** Build a store holding whatever drafts the device already has for this bucket. */
+  static async load(drafts: DraftStore, bucket: string, onStatus?: (state: SaveState) => void): Promise<DeviceAnswerStore> {
+    const store = new DeviceAnswerStore(drafts, bucket, onStatus);
+    for (const rec of await drafts.list(bucket)) {
+      if (splitFieldKey(rec.field)) store.values.set(rec.field, rec.value as FieldValue);
+    }
+    if (store.values.size) store.setState("device");
+    return store;
+  }
+
+  get(scope: string, fieldId: string): FieldValue | undefined {
+    return this.values.get(fieldKey(scope, fieldId));
+  }
+
+  set(scope: string, fieldId: string, value: FieldValue): void {
+    const field = fieldKey(scope, fieldId);
+    this.values.set(field, value);
+    const old = this.timers.get(field);
+    if (old) clearTimeout(old);
+    this.timers.set(
+      field,
+      setTimeout(() => {
+        this.timers.delete(field);
+        void this.write(field);
+      }, this.debounceMs),
+    );
+  }
+
+  /** Write everything owed now. Used on page hide. */
+  flush(): void {
+    for (const [field, timer] of this.timers) {
+      clearTimeout(timer);
+      this.timers.delete(field);
+      void this.write(field);
+    }
+  }
+
+  get status(): SaveState {
+    return this.state;
+  }
+
+  get size(): number {
+    return this.values.size;
+  }
+
+  private async write(field: string): Promise<void> {
+    const value = this.values.get(field);
+    if (value === undefined) return;
+    const result = await this.drafts.put(this.bucket, field, value);
+    this.setState(result === "ok" ? "device" : "device_full");
+  }
+
+  private setState(next: SaveState): void {
+    if (this.state === next) return;
+    this.state = next;
+    this.onStatus(next);
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { trialDateLines } from "@/lib/membership-trial";
 import { CHECKOUT_CONSENTS, CONSENT_REQUIRED_MESSAGE, type CheckoutConsentKind } from "@/lib/checkout-consent";
 import { READER_TERMS_LINKS, READER_TERMS_VERSION } from "@/lib/terms";
 import type { PaywallState } from "./paywall";
@@ -72,14 +73,16 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
   const buy = () => {
     if (consented("workbook")) void start("/api/checkout", { workbook: slug, consent: CHECKOUT_CONSENTS.workbook.version });
   };
-  const join = (plan: "monthly" | "yearly") => {
+  const join = (plan: "monthly" | "yearly" | "two_monthly") => {
     if (consented("membership")) void start("/api/checkout/membership", { plan, workbook: slug, consent: CHECKOUT_CONSENTS.membership.version });
   };
 
   const offer = state.kind === "offer" ? state : null;
+  // 13.5: the exact dates, from the moment the card is on screen (this card only renders in the browser).
+  const trialLines = offer?.trialDays ? trialDateLines(new Date(), offer.trialDays) : null;
   const consentKinds: { kind: CheckoutConsentKind; heading: string }[] = [];
   if (offer?.buy.enabled) consentKinds.push({ kind: "workbook", heading: "If you buy this workbook" });
-  if (offer && (offer.membership.enabled || offer.yearly)) consentKinds.push({ kind: "membership", heading: "If you join the membership" });
+  if (offer && (offer.membership.enabled || offer.yearly || offer.shared)) consentKinds.push({ kind: "membership", heading: "If you join the membership" });
 
   return (
     <div className="paywall-card" role="note" aria-labelledby="paywall-title">
@@ -136,10 +139,23 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
               <span className="paywall-note">{state.membership.note}</span>
             </button>
           </div>
+          {trialLines ? (
+            <p className="small muted paywall-trial">
+              If you join the membership today: the trial lasts {trialLines.days}, nothing is taken today, we email you a reminder on {trialLines.reminder}, and the first payment is on {trialLines.firstPayment}. To cancel, go to You, then Manage membership.
+            </p>
+          ) : null}
           {state.yearly ? (
             <p className="small">
               <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
                 {state.yearly.label}
+              </button>
+            </p>
+          ) : null}
+          {state.shared ? (
+            <p className="small paywall-shared">
+              {state.shared.positioning}.{" "}
+              <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("two_monthly")}>
+                {state.shared.label}
               </button>
             </p>
           ) : null}

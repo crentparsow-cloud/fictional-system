@@ -10,6 +10,8 @@ const COPY: Record<SaveState, string> = {
   failed: "Could not save this answer",
   consent: "Not saved. Consent to store your answers is not in place.",
   read_only: "Not saved. Your account is read only while its deletion is pending.",
+  device: "Kept on this device. Sign in to save it to your account.",
+  device_full: "This device has no room, so your latest answer is not being kept. Sign in to save it.",
 };
 
 /**
