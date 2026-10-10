@@ -94,6 +94,16 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
       <h1>{t("nav.library")}</h1>
       <p className="muted">{t("library.line")}</p>
 
+      <p className="small library-links">
+        <Link href="/explore">{t("library.explore")}</Link>
+        {session ? (
+          <>
+            {" "}
+            <Link href="/my-workbooks">{t("library.myWorkbooks")}</Link>
+          </>
+        ) : null}
+      </p>
+
       <CatalogueSearch entries={searchEntries} labels={searchLabels(t)} />
 
       <div className="library-filters">

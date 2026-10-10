@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { InstallPrompt } from "@/components/InstallPrompt";
 import { ReaderNav, type NavItem } from "@/components/ReaderNav";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { AppearanceApply } from "@/components/you/AppearanceApply";
@@ -57,6 +58,8 @@ export default async function ReaderLayout({ children }: { children: React.React
       <main id="main" className="reader-main wrap" tabIndex={-1}>
         {/* You has its own deletion banner with the Cancel button. */}
         {current.startsWith("/you") ? null : <ReadOnlyBanner state={deletion} />}
+        {/* 10.1, 13.18: from the second visit, a pre-permission card or the iOS guide. Never in the installed app. */}
+        <InstallPrompt />
         {children}
       </main>
       <ReaderNav items={items} label={t("nav.label")} />
