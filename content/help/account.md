@@ -6,6 +6,10 @@ How signing in works, what we ask when you join, and how to download or delete y
 
 There is no password. Enter your email address on the sign-in page and we send you a link. Open it in the same browser you asked from. The link works once and expires after a short time. If it has expired, ask for a new one.
 
+If you use Akana from your home screen, the link in the email may open in your browser instead of the app. The same email has a six-digit code. Type the code into the sign-in page in the app and you are in. You can also choose Continue with Google, where it is offered.
+
+If you tried the first unit before signing in, the answers you wrote are kept on your device only. After you sign in we ask whether to save them to your account.
+
 ## When you join
 
 We ask you to confirm two things before you start:

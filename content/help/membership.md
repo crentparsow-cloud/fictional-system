@@ -8,12 +8,19 @@ Membership opens every workbook marked as included in membership on the Akana ma
 
 Current prices are on the [pricing page](/pricing).
 
+## The trial
+
+If you have not been a member before, membership starts with a trial: 14 days on the monthly plan and 21 days on the yearly plan. A card is needed to start it. Nothing is taken today. The offer and the payment page both show the date we email you a reminder, which is three days before the trial ends, and the date of your first payment. If you cancel before that date, you are not charged.
+
+The first unit of every workbook can be read without a card or an account. That is separate from the trial.
+
 ## How it renews
 
 You choose monthly or yearly when you join. Membership renews automatically until you cancel. The payment page says so above the pay button.
 
 We remind you by email:
 
+- when you are on a trial, three days before it ends
 - if you pay yearly, before each renewal
 - if you pay monthly, every six months, with the price, how often you pay, your next payment date and how to cancel
 
