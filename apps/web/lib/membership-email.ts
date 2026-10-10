@@ -1,10 +1,12 @@
 import { createMailer, type MailerOptions, type ReaderProps, type SendResult } from "@akana/emails";
+import { ukDateWords } from "@/lib/membership-trial";
 import type { TermsReminder } from "@/lib/membership-reminders";
 import type { MembershipNotice } from "@/lib/stripe-webhook";
 
 /**
  * Sends the membership emails the webhook asks for (F-097): payment_failed,
- * the annual renewal_notice and the cancellation confirmation; and the
+ * the annual renewal_notice, the trial_reminder three days before a trial
+ * converts (13.5) and the cancellation confirmation; and the
  * six-monthly membership_terms_reminder the daily job sends to monthly
  * members (lib/membership-reminders.ts). No template takes a title (F-098).
  *
@@ -72,6 +74,17 @@ export async function sendMembershipNotice(notice: MembershipNotice, origin: str
   }
 
   const price = notice.amountMinor !== null && notice.currency ? formatMinor(notice.amountMinor, notice.currency) : undefined;
+  if (notice.template === "trial_reminder") {
+    // The first payment date in UK time, the same as the offer and the day-zero email.
+    const firstPaymentDate = ukDateWords(new Date(notice.trialEndsAt));
+    const props: ReaderProps["trial_ending"] = {
+      ...base,
+      firstPaymentDate,
+      price: price ?? "the price shown in your account",
+      periodWords: notice.plan === "member_year" ? "a year" : "a month",
+    };
+    return mailer.sendReader("trial_ending", props, { to: notice.to, dedupeKey: notice.dedupeKey });
+  }
   if (notice.template === "renewal_notice") {
     const props: ReaderProps["renewal_notice"] = { ...base, renewDate: renewalDateWords(notice.renewsAt), price: price ?? "As shown in your account" };
     return mailer.sendReader("renewal_notice", props, { to: notice.to, dedupeKey: notice.dedupeKey });
