@@ -505,6 +505,16 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .paywall-note { font-size: 0.85rem; font-weight: 400; }
 .paywall-yearly { background: none; border: 0; padding: 0.5rem 0; min-block-size: 44px; color: var(--brand); text-decoration: underline; font: inherit; cursor: pointer; }
 .paywall-yearly:disabled { opacity: 0.55; cursor: not-allowed; }
+/* Public buy panel (item 3.2) and the code page (item 5.9) */
+.public-buy { display: grid; gap: 0.5rem; }
+.public-buy p { margin: 0; }
+.public-buy .wb-actions { margin-block-end: 0; }
+.public-buy-btn { flex-direction: column; align-items: flex-start; gap: 0.1rem; min-block-size: 44px; text-align: start; }
+.public-buy-code { display: grid; gap: 0.25rem; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.wb-promo { margin-block: 0.75rem 0; }
+.code-form { display: grid; gap: 0.4rem; max-inline-size: 36rem; }
+.code-form select { flex: 1; min-inline-size: 0; }
+.code-offer { margin-block-start: 1rem; max-inline-size: 36rem; }
 .consent-page { display: grid; gap: 1rem; max-inline-size: 36rem; margin-inline: auto; padding-block: 1rem; }
 .consent-help { display: flex; justify-content: flex-end; }
 .consent-card { padding: 1.5rem; display: grid; gap: 0.75rem; }
@@ -1127,3 +1137,14 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .role-mfa-banner .btn { min-height: 44px; }
 .mfa-passkey { display: grid; gap: 0.5rem; margin-block-start: 0.75rem; }
 .mfa-passkey .btn { min-height: 44px; justify-content: center; }
+
+/* ---------- Google sign-in (13.1) ---------- */
+.google-signin { display: grid; justify-items: center; margin-block-start: 1rem; min-block-size: 44px; }
+.google-signin-button { display: flex; justify-content: center; inline-size: 100%; }
+.auth-divider { text-align: center; margin-block: 0.75rem 0; }
+
+/* ---------- two-step sign-in for readers (13.2) ---------- */
+.you-recovery { display: grid; gap: 0.75rem; }
+.you-recovery > * { margin-block: 0; }
+.you-recovery-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.5rem; margin: 0; padding-inline-start: 1.25rem; }
+.you-recovery-list code { font-size: 1.05rem; letter-spacing: 0.08em; }
