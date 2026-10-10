@@ -14,6 +14,7 @@ import {
   SAFETY_KEYS,
   SAFETY_WORDS_RE,
   SPELLING_PAIRS,
+  UNIT_SPEC,
   claimPatterns,
   genreProfile,
 } from "./rules";
@@ -342,6 +343,84 @@ function checkFields(doc: Workbook, out: Finding[]): void {
   for (const f of doc.checkin?.fields ?? []) checkFieldSettings(f, `checkin.fields.${f.id}`, out);
 }
 
+// ---------- unit parts (schema 3.1, UNIT_SPEC.md) ----------
+
+function sentenceCount(s: string): number {
+  return s.split(/(?<=[.!?])\s+/).filter((x) => x.trim().length > 0).length;
+}
+
+/** Words the reader reads in a unit's own parts: intro, key ideas, takeaway. Exercises are not counted. */
+export function unitReadingWords(u: Workbook["units"][number]): number {
+  let n = words(u.intro ?? "") + words(u.takeaway ?? "");
+  for (const i of u.ideas ?? []) n += words(i.heading) + words(i.body) + words(i.example);
+  return n;
+}
+
+/** Reading time in whole minutes at the spec's 200 words a minute, never below one when there is text. */
+export function unitReadingMinutes(u: Workbook["units"][number]): number {
+  const w = unitReadingWords(u);
+  return w === 0 ? 0 : Math.max(1, Math.round(w / UNIT_SPEC.wordsPerMinute));
+}
+
+function checkUnits(doc: Workbook, out: Finding[]): void {
+  const err = (path: string, message: string, excerptText?: string) => out.push({ severity: "error", category: "limit", path, message, excerpt: excerptText });
+  const warn = (path: string, message: string) => out.push({ severity: "warning", category: "limit", path, message });
+  const exById = new Map(doc.exercises.map((e) => [e.id, e]));
+  for (const u of doc.units) {
+    const at = `units[${u.number}]`;
+    const ideas = u.ideas ?? [];
+    const uses = ideas.length > 0 || u.intro !== undefined || u.takeaway !== undefined;
+    if (!uses) continue;
+    if (ideas.length > 0) {
+      const [lo, hi] = UNIT_SPEC.ideas;
+      if (ideas.length < lo || ideas.length > hi) err(`${at}.ideas`, `${ideas.length} key ideas, need ${lo} to ${hi}`);
+      if (u.intro === undefined) warn(at, "key ideas without an intro");
+      if (u.takeaway === undefined) warn(at, "key ideas without a takeaway");
+    } else {
+      warn(at, "intro or takeaway without key ideas");
+    }
+    ideas.forEach((idea, i) => {
+      const p = `${at}.ideas[${i}]`;
+      const hw = words(idea.heading);
+      if (hw < UNIT_SPEC.headingMinWords) err(`${p}.heading`, `${hw} words, a heading is a full sentence of ${UNIT_SPEC.headingMinWords} or more`, idea.heading);
+      const total = hw + words(idea.body) + words(idea.example);
+      const [tMin, tMax] = UNIT_SPEC.ideaWords;
+      if (total > tMax) err(p, `${total} words in one key idea, limit ${tMax}`, excerpt(idea.heading, 60));
+      else if (total < tMin) warn(p, `${total} words in one key idea, spec asks for ${tMin} to ${tMax}`);
+      const bs = sentenceCount(idea.body);
+      if (bs < 2 || bs > 5) warn(`${p}.body`, `${bs} sentence(s) in the explanation, spec asks for 2 to 5`);
+      if (!idea.example.trim()) err(`${p}.example`, "a key idea needs one example");
+    });
+    if (u.intro !== undefined) {
+      const n = sentenceCount(u.intro);
+      const [lo, hi] = UNIT_SPEC.introSentences;
+      if (n < lo || n > hi) warn(`${at}.intro`, `${n} sentence(s), spec asks for ${lo} to ${hi}`);
+    }
+    if (u.takeaway !== undefined) {
+      const n = sentenceCount(u.takeaway);
+      const [lo, hi] = UNIT_SPEC.takeawaySentences;
+      if (n < lo || n > hi) warn(`${at}.takeaway`, `${n} sentence(s), spec asks for ${lo} to ${hi}`);
+    }
+    // Exercises: one set-up paragraph and one direct question.
+    for (const id of u.exercise_ids) {
+      const e = exById.get(id);
+      if (!e) continue;
+      const p = `exercises.${e.id}`;
+      if (/\n\s*\n/.test(e.why.trim())) err(`${p}.why`, "the set-up is one paragraph");
+      const q = e.fields[0]?.label ?? "";
+      if (!q.trim().endsWith("?")) err(`${p}.fields.${e.fields[0]?.id ?? "0"}.label`, "the direct question must be a question", q);
+      if (e.fields.length > UNIT_SPEC.maxFieldsPerExercise) warn(`${p}.fields`, `${e.fields.length} fields, more than ${UNIT_SPEC.maxFieldsPerExercise} means the question is not direct`);
+    }
+    // Time: reading estimate from word count plus the exercise minutes.
+    const readMin = unitReadingMinutes(u);
+    const exMin = u.exercise_ids.reduce((n, id) => n + (exById.get(id)?.minutes ?? 0), 0);
+    const [rLo, rHi] = UNIT_SPEC.readingMinutes;
+    if (readMin < rLo || readMin > rHi) warn(at, `reading time about ${readMin} minute(s) from ${unitReadingWords(u)} words, spec asks for ${rLo} to ${rHi}`);
+    const [tLo, tHi] = UNIT_SPEC.totalMinutes;
+    if (readMin + exMin < tLo || readMin + exMin > tHi) warn(at, `reading ${readMin} plus exercises ${exMin} is ${readMin + exMin} minutes, spec asks for about 15`);
+  }
+}
+
 function checkSafety(doc: Workbook, out: Finding[]): void {
   const err = (path: string, message: string) => out.push({ severity: "error", category: "safety", path, message });
   const wellbeing = doc.safety_tier !== "none";
@@ -435,6 +514,7 @@ export function validateWorkbook(input: unknown, opts: ValidateOptions = {}): Va
   checkStyle(doc, findings, opts);
   checkLimits(doc, findings);
   checkRefs(doc, findings);
+  checkUnits(doc, findings);
   checkFields(doc, findings);
   checkSafety(doc, findings);
   checkCountsAndDepth(doc, findings, opts);
