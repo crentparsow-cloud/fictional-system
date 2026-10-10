@@ -93,7 +93,7 @@ What works today, in v3.0:
 | Direct question | `exercises[].fields[0].label` | One field |
 | Closing takeaway | `exercises[].done_when` of the unit's last exercise; `finish.summary` for the final unit | |
 
-What this spec needs that v3.0 does not have: an optional `units[].intro` (the introduction, about 80 words), an optional `units[].ideas` list of up to ten `{ heading, body, example }` objects, and an optional `units[].takeaway`. All three are additive, so they are a minor version (3.1) under the freeze rules, with a render block on the unit screen and three new `LIMITS` entries. The validator's reader-word cap for tier none would then rise to about 1,500 a unit. This is a decision for Crent before the classics are written in full. Until then a classic is written to this spec in its Markdown source document and loaded into v3.0 with the mapping above.
+Schema 3.1 (10 October 2026, decided by Crent) adds the three containers this spec needs, all optional, so every 3.0 file stays valid: `units[].intro` (the introduction, about 80 words), `units[].ideas` (up to ten `{ heading, body, example }` objects) and `units[].takeaway`. The unit screen renders them in that order, ideas before exercises and the takeaway after. The validator (`checkUnits` in `packages/validate/src/index.ts`) checks them against this spec: five to ten ideas, headings of five words or more, an idea at 120 words or fewer, a question as the first field of each exercise, and a reading time worked from word count at 200 words a minute. The reader-word cap for tier none is now 1,500 a unit. A file that declares `"schema_version": "3.1"` may use the new fields. The v3.0 mapping above still works for older files.
 
 ## Worked skeleton: Meditations, week 1
 
