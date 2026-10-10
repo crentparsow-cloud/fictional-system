@@ -1,6 +1,7 @@
 import "server-only";
 import type { Badge, ContinueCard, Depth, EnrolmentStatus, LibraryCard, ListingBody, SafetyTier, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
 import { firstUnitGaps, type FirstUnitGap } from "@/lib/first-unit";
+import { isFreeUnitKind } from "@/lib/free-label";
 import { createUserClient } from "@/lib/supabase/server";
 import { MARKETPLACE_TENANT_ID, tenantIdForRequest } from "@/lib/tenant-id";
 // Demo catalogue, read for programme length only (see demoUnitCounts below).
@@ -18,7 +19,7 @@ export type { ContinueCard, LibraryCard, ListingBody, ShelfWithThemes, StartBody
 
 // Named columns only. The nested authors select is slug and display_name alone.
 const CARD_COLUMNS =
-  "id, code, slug, title, short_title, card_line, genre_id, theme_id, badge, is_demo, depth, safety_tier, current_version_id, price_point_id, in_membership, " +
+  "id, code, slug, title, short_title, card_line, genre_id, theme_id, badge, is_demo, depth, safety_tier, current_version_id, price_point_id, in_membership, created_at, " +
   "genres(name), themes(name), books(title, language, book_contributors(role, sort, authors(slug, display_name)))";
 
 interface CardRow {
@@ -37,6 +38,7 @@ interface CardRow {
   current_version_id: string | null;
   price_point_id: string | null;
   in_membership: boolean | null;
+  created_at?: string | null;
   genres: { name: string } | null;
   themes: { name: string } | null;
   books: {
@@ -72,6 +74,10 @@ function toCard(row: CardRow): LibraryCard {
     authorRefs,
     language: row.books?.language ?? "en",
     unitCount: null,
+    unitKind: null,
+    addedAt: row.created_at ?? null,
+    freeUnits: null,
+    inMembership: row.in_membership !== false,
   };
 }
 
@@ -99,22 +105,29 @@ function demoUnitCounts(): Map<string, number> {
 async function withUnitCounts(supabase: Awaited<ReturnType<typeof createUserClient>>, rows: CardRow[], cards: LibraryCard[]): Promise<LibraryCard[]> {
   const versionIds = [...new Set(rows.map((r) => r.current_version_id).filter((v): v is string => v !== null))];
   const byVersion = new Map<string, number>();
+  const kindByVersion = new Map<string, NonNullable<LibraryCard["unitKind"]>>();
+  const freeByVersion = new Map<string, number>();
   if (versionIds.length) {
     const { data, error } = await supabase
       .from("workbook_sections")
-      .select("version_id, count:body->structure->count")
+      .select("version_id, count:body->structure->count, unit:body->structure->>unit, free_units:body->structure->free_units")
       .eq("kind", "listing")
       .in("version_id", versionIds);
     if (error) throw new Error(`listLibrary lengths: ${error.message}`);
-    for (const s of (data ?? []) as unknown as { version_id: string; count: unknown }[]) {
+    for (const s of (data ?? []) as unknown as { version_id: string; count: unknown; unit: unknown; free_units: unknown }[]) {
       if (typeof s.count === "number" && Number.isFinite(s.count)) byVersion.set(s.version_id, s.count);
+      if (isFreeUnitKind(s.unit)) kindByVersion.set(s.version_id, s.unit);
+      if (typeof s.free_units === "number" && Number.isFinite(s.free_units)) freeByVersion.set(s.version_id, s.free_units);
     }
   }
   const demo = demoUnitCounts();
   return cards.map((card, i) => {
     const v = rows[i]?.current_version_id;
-    const count = (v ? byVersion.get(v) : undefined) ?? demo.get(card.code) ?? null;
-    return { ...card, unitCount: count };
+    const published = v ? byVersion.get(v) : undefined;
+    const count = published ?? demo.get(card.code) ?? null;
+    // The demo catalogue's figure is in weeks. A published listing says its own unit.
+    const kind = (v ? kindByVersion.get(v) : undefined) ?? (published === undefined && count !== null ? "week" : null);
+    return { ...card, unitCount: count, unitKind: kind, freeUnits: (v ? freeByVersion.get(v) : undefined) ?? null };
   });
 }
 
@@ -215,7 +228,7 @@ export async function getWorkbookBySlug(slug: string): Promise<WorkbookDetail | 
   }
   const unitCount = typeof listing?.structure?.count === "number" ? listing.structure.count : (demoUnitCounts().get(card.code) ?? null);
   return {
-    card: { ...card, unitCount },
+    card: { ...card, unitCount, unitKind: listing?.structure?.unit ?? (unitCount !== null ? "week" : null) },
     bookTitle: row.books?.title ?? null,
     bookLanguage: row.books?.language ?? null,
     listing,

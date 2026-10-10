@@ -37,6 +37,16 @@ export interface LibraryCard {
   language?: string;
   /** Number of units in the programme, or null when nothing says. */
   unitCount?: number | null;
+  /** The unit word of the programme (week, day, module, chapter), or null when the listing does not say. */
+  unitKind?: "week" | "day" | "module" | "chapter" | null;
+  /** How many units are free. Null when the listing does not say, which means the first one. */
+  freeUnits?: number | null;
+  /** Whether the membership covers this title (0009). */
+  inMembership?: boolean;
+  /** The Theme's shelf, for the onboarding quiz. */
+  shelfId?: string | null;
+  /** When the workbook was added (workbooks.created_at, ISO). Drives "New this week". */
+  addedAt?: string | null;
 }
 
 /** Programme length buckets for the length chips: up to 4 units, 5 to 8, 9 or more. */

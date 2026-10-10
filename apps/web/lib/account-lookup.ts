@@ -216,7 +216,11 @@ export function canRestoreRow(e: LookupResult["entitlements"][number], now: Date
   return e.status !== "active" || ended;
 }
 
-export const PLAN_LABELS: Record<string, string> = { member_month: "Monthly membership", member_year: "Yearly membership" };
+export const PLAN_LABELS: Record<string, string> = {
+  member_month: "Monthly membership",
+  member_year: "Yearly membership",
+  member_two_month: "Monthly membership for two people",
+};
 
 export const DOC_LABELS: Record<string, string> = {
   reader_terms: "Reader terms",

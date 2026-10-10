@@ -10,8 +10,12 @@
 //   NEXT_PUBLIC_SENTRY_DSN        the Sentry ingest origin in connect-src
 //                                 (10.3). No script tag: the SDK is bundled.
 
-/** Paths that render Google One Tap and so carry the wider policy. */
-export const ONE_TAP_PATHS = ["/sign-in"];
+/**
+ * Paths that render Google One Tap and so carry the wider policy. These are
+ * Next.js header sources, so "/try/:slug" covers the signed-out first unit
+ * (5.2), where the soft sign-in wall renders the Google sign-in component.
+ */
+export const ONE_TAP_PATHS = ["/sign-in", "/try/:slug"];
 
 /** Google Identity Services origins, as Google's CSP guide lists them. */
 export const GOOGLE_GSI = {
