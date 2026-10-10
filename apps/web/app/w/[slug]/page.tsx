@@ -5,8 +5,13 @@ import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { brand } from "@/lib/brand";
-import { getWorkbookBySlug } from "@/lib/catalogue";
+import { listThemes } from "@/lib/author-theme-queries";
+import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { getWorkbookBySlug, listLibrary } from "@/lib/catalogue";
+import { relatedTitles } from "@/lib/explore";
+import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
+import { firstUnitFreeLabel } from "@/lib/free-label";
 import { getT } from "@/lib/i18n";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
@@ -59,8 +64,11 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
   const wellbeing = card.safetyTier !== "none";
   const canOpen = card.hasVersion;
   const readHref = `/read/${card.slug}`;
-  const openHref = session ? readHref : `/sign-in?next=${encodeURIComponent(readHref)}`;
+  // 5.2: a visitor with no account tries the first unit at /try, where answers stay on the device
+  // until they sign in. A wellbeing title asks for consent first, which needs an account.
+  const openHref = session ? readHref : card.safetyTier === "none" ? `/try/${card.slug}` : `/sign-in?next=${encodeURIComponent(readHref)}`;
   const unit = unitWord(detail);
+  const freeLabel = firstUnitFreeLabel({ hasVersion: card.hasVersion, unit: listing?.structure?.unit ?? null, freeUnits: listing?.structure?.free_units ?? null });
 
   // Item 3.2: the same figures the paywall and checkout use, for this reader's market.
   const market = await marketForReader(session?.userId ?? null);
@@ -85,6 +93,16 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
   const language = listing?.language ?? detail.bookLanguage;
   const minutes = structure?.minutes_per_day;
   const publisher = publisherForCode(card.code);
+
+  // Item 2.6: up to six titles on the same Theme, by the same author or of the same length.
+  // The pool is listLibrary, so the first-unit rule applies. A read that fails leaves the section out.
+  let related: Awaited<ReturnType<typeof listLibrary>> = [];
+  try {
+    const [pool, themeRows] = await Promise.all([listLibrary({}), listThemes()]);
+    related = maskHiddenThemes(relatedTitles(card, pool), hiddenThemeIds(themeRows, pool));
+  } catch (err) {
+    console.error("related_titles_failed", err instanceof Error ? err.message : "");
+  }
 
   return (
     <main className="wb-page">
@@ -120,6 +138,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
             <p className="wb-author">{card.authors.join(", ")}</p>
           ) : null}
           <p className="wb-line">{card.cardLine}</p>
+          {freeLabel ? <p className="wb-free">{freeLabel}</p> : null}
           <p className="muted small">{card.code}</p>
           {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
             <p className="small pd-link">
@@ -237,6 +256,18 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
             <span className="btn secondary is-disabled" aria-disabled="true">
               Buy the book (coming soon)
             </span>
+          </section>
+        ) : null}
+
+        {related.length ? (
+          <section className="wb-section related-titles" aria-labelledby="related-heading">
+            <h2 id="related-heading">{t("related.heading")}</h2>
+            <p className="muted small">{t("related.line")}</p>
+            <div className="grid wb-grid">
+              {related.map((c) => (
+                <WorkbookCard key={c.id} card={c} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
+              ))}
+            </div>
           </section>
         ) : null}
 
