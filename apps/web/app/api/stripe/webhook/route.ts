@@ -1,12 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
 import { sendMembershipNotice } from "@/lib/membership-email";
-import { sendPurchaseEmail } from "@/lib/purchase-email";
+import { sendPurchaseEmail, type TrialExtras } from "@/lib/purchase-email";
+import { loadFirstWeekPlan } from "@/lib/first-week-plan-server";
+import { PRICE_LADDER } from "@/lib/pricing";
 import { cancelInCoolingOff } from "@/lib/membership-refund";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
   handleStripeEvent,
   type GrantDetails,
+  type MembershipConfirmedNotice,
   type MembershipNotice,
   type MembershipRepo,
   type PurchaseRef,
@@ -287,6 +290,8 @@ async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Pr
 async function sendMail(admin: Admin, n: ReaderMailNotice, origin: string): Promise<void> {
   try {
     const env = process.env;
+    // 14.20: the day-zero email of a trial carries the first week's plan and the renewal price.
+    const extras = n.template === "purchase_membership" && n.trial ? await trialExtras(admin, n) : {};
     const status = await sendPurchaseEmail(n, origin, {
       env: {
         RESEND_API_KEY: env.RESEND_API_KEY,
@@ -306,11 +311,21 @@ async function sendMail(admin: Admin, n: ReaderMailNotice, origin: string): Prom
         if (error) console.error("purchase_email_release_failed", { code: error.code ?? "unknown" });
       },
       log: mailLog("api/stripe/webhook", "purchase_email"),
-    });
+    }, extras);
     if (status === "no_figures") console.warn("purchase_email_no_figures", { template: n.template });
   } catch (err) {
     console.error("purchase_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
   }
+}
+
+/** The first week's plan and the price the trial renews at, for the day-zero email. Best effort. */
+async function trialExtras(admin: Admin, n: MembershipConfirmedNotice): Promise<TrialExtras> {
+  const firstWeek = await loadFirstWeekPlan(admin, n.userId);
+  const point = n.plan;
+  const { data } = await admin.from("price_points").select("amounts").eq("id", point).maybeSingle();
+  const amounts = (data?.amounts ?? PRICE_LADDER[point].amounts) as Record<string, number | undefined>;
+  const renewalMinor = amounts[n.currency] ?? null;
+  return { firstWeek, renewalMinor };
 }
 
 /** The public origin for links in the email, from the proxy's headers. */
