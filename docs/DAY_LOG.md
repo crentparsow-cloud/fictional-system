@@ -622,3 +622,29 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Post-build list.** C2 set, C7 done, S1 marked blocking, T15 to T17 added.
 
 **Checks:** typecheck and lint clean. 947 web unit tests pass.
+
+### Day 9, overnight block (Saturday 10 October, built overnight)
+
+**Asked by Crent:** run Phase A wave 1 as parallel builds and integrate them on one branch, `phase-a`.
+
+- **Build list v3 and research annex.** `docs/planning/AK_Build_List_Final.md` is the plan the wave worked from, enriched from six research strands. The evidence sits in `docs/research/AK_Build_Research_2026-10-09.md`. Both merged from `build-list-final`.
+- **Five branches merged** into `phase-a`, in order, each with its own commit. No merge conflicts; the shared files (`.env.example`, `lib/funnel.ts`, `next.config.ts`, `docs/TESTING.md`, the lockfile) combined cleanly.
+  - `content-spec`: the unit standard (`docs/content/UNIT_SPEC.md`), the classics pipeline and source check script, the voice guide, a plain English lint behind `pnpm validate --style`, and the review gate checklist.
+  - `analytics`: first-party analytics (0036). Five new funnel events with unit numbers and uniques, a daily-rotating visitor hash with no cookie, cohort and membership reads, and `/admin/analytics` with counts under 5 withheld.
+  - `signin`: Google One Tap and Continue with Google behind `NEXT_PUBLIC_GOOGLE_CLIENT_ID`, optional two-step sign-in for readers at `/you/security` with recovery codes (0037), and Sentry behind a DSN with scrubbing and masked replays. The CSP moves to `apps/web/csp.mjs`.
+  - `public-buy`: Buy, Join and Start on the public workbook page, a `/code` page for promotion codes carried into Checkout with the total in plain words, and the first-unit rule that hides a live title from public lists until unit 1 parses as a full v3 unit.
+  - `studio-money`: payout calendar and cadence on `royalty_config` (0039), a Studio Payments page with a breakdown per sale, the sale channel on purchases and royalty lines, the Connect hold in place of the old go-live gate, and a weekly onboarding nudge email.
+- **Migrations 0036, 0037 and 0039** are built with tests and not yet applied to staging or production.
+
+**Checks:** typecheck and lint clean. All package tests pass and 1014 web unit tests pass (91 files). `pnpm validate --parked` 20 files, 0 failed. Web build with the CI placeholder env is clean. CSP check clean. Database tests on a scratch Postgres 16: all 37 migration files apply through 0039; every test passes except 0006 and 0015, which fail on main already ("a session with no user gave consent").
+
+**For Crent:**
+
+- Set `LEAD_HASH_SALT` in production if it is absent. The visitor hash depends on it.
+- Create the Google Cloud OAuth client and set `NEXT_PUBLIC_GOOGLE_CLIENT_ID`. Turn on the Google provider in Supabase with account linking on, staging first. Steps in `docs/AUTH.md`.
+- Create a Sentry EU project and set `SENTRY_DSN` and `NEXT_PUBLIC_SENTRY_DSN`.
+- Create the Stripe test-mode coupon and the promotion code `FIRSTWORKBOOK`.
+- Apply 0036, 0037 and 0039 to staging.
+- Decide D1 to D5 and whether the payout run goes weekly. The Studio shows the word placeholder until they are set.
+- Decide the schema v3.1 additive fields in `docs/content/UNIT_SPEC.md`.
+- Check the three email variables (`TEST_RECIPIENT`, `LEADS_NOTIFY_TO`, `EMAIL_REPLY_TO`) are set on Production and Preview.
