@@ -14,7 +14,7 @@ import {
   type ReaderMailNotice,
 } from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { countFunnelEvent } from "@/lib/funnel";
+import { countFunnelEvent, membershipFunnelEvent } from "@/lib/funnel";
 import { mailLog } from "@/lib/mail-ops";
 import { reportOps } from "@/lib/ops-alerts";
 import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
@@ -106,6 +106,7 @@ export async function POST(request: NextRequest) {
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
     for (const n of mail ?? []) await sendMail(admin, n, siteOrigin(request));
     if (outcome.action === "granted") await countPurchase(admin, event);
+    if (outcome.action === "subscription_applied" || outcome.action === "cooling_off_cancelled") await countMembership(admin, event);
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
@@ -322,11 +323,25 @@ function siteOrigin(request: NextRequest): string {
 /**
  * F-141: count a completed purchase. Server to server, so there is no
  * visitor opt-out to read; the count carries the tenant and workbook ids
- * from the session metadata and nothing about the buyer. Best effort.
+ * from the session metadata and nothing about the buyer beyond the daily
+ * hash of their id (0036), so one buyer is one unique. Best effort.
  */
 async function countPurchase(admin: Admin, event: Stripe.Event): Promise<void> {
   const obj = event.data.object as { metadata?: Record<string, string> | null };
   const tenantId = obj.metadata?.tenant_id;
   if (!tenantId) return;
-  await countFunnelEvent(admin, "purchase", { tenantId, workbookId: obj.metadata?.workbook_id ?? null, headers: null });
+  await countFunnelEvent(admin, "purchase", { tenantId, workbookId: obj.metadata?.workbook_id ?? null, headers: null, userId: obj.metadata?.user_id ?? null });
+}
+
+/**
+ * 0036: trial_started, trial_cancelled or membership_cancelled from a
+ * subscription event that changed our row. Counts only, the same way.
+ */
+async function countMembership(admin: Admin, event: Stripe.Event): Promise<void> {
+  const kind = membershipFunnelEvent(event as unknown as Parameters<typeof membershipFunnelEvent>[0]);
+  if (!kind) return;
+  const obj = event.data.object as { metadata?: Record<string, string> | null };
+  const tenantId = obj.metadata?.tenant_id;
+  if (!tenantId) return;
+  await countFunnelEvent(admin, kind, { tenantId, workbookId: null, headers: null, userId: obj.metadata?.user_id ?? null });
 }

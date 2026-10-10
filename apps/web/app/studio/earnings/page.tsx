@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CsvLink, DashError, MonthRangeForm, rangeQuery } from "@/components/dashboards/DashBits";
+import { ConnectHoldBanner } from "@/components/studio/ConnectHoldBanner";
 import { OrgSwitcher } from "@/components/studio/StudioBits";
 import { dashboardError, groupEarnings, money, monthLabel, parseMonthRange, rateText, type EarningsRow } from "@/lib/dashboards";
 import { requireStudio } from "@/lib/studio-server";
@@ -79,6 +80,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
     <div className="admin-page studio-page dash-page">
       <OrgSwitcher ctx={ctx} path="/studio/earnings" />
       <h1>Earnings</h1>
+      <ConnectHoldBanner ctx={ctx} />
 
       {earnings.error && dashboardError(earnings.error.code) === "denied" ? (
         <DashError state="denied" />
@@ -151,7 +153,8 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
             </div>
           )}
           <p className="muted small">
-            Payouts go to the bank account on your <Link href="/payouts">payouts</Link> page.
+            Payouts go to the bank account on your <Link href="/payouts">payouts</Link> page. The payout calendar, each payout and each sale are on{" "}
+            <Link href="/studio/payments">Payments</Link>.
           </p>
 
           <h2>Statements</h2>
