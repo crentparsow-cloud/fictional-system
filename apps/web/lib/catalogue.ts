@@ -1,5 +1,6 @@
 import "server-only";
 import type { Badge, ContinueCard, Depth, EnrolmentStatus, LibraryCard, ListingBody, SafetyTier, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
+import { firstUnitGaps, type FirstUnitGap } from "@/lib/first-unit";
 import { createUserClient } from "@/lib/supabase/server";
 import { MARKETPLACE_TENANT_ID, tenantIdForRequest } from "@/lib/tenant-id";
 // Demo catalogue, read for programme length only (see demoUnitCounts below).
@@ -17,7 +18,7 @@ export type { ContinueCard, LibraryCard, ListingBody, ShelfWithThemes, StartBody
 
 // Named columns only. The nested authors select is slug and display_name alone.
 const CARD_COLUMNS =
-  "id, code, slug, title, short_title, card_line, genre_id, theme_id, badge, is_demo, depth, safety_tier, current_version_id, " +
+  "id, code, slug, title, short_title, card_line, genre_id, theme_id, badge, is_demo, depth, safety_tier, current_version_id, price_point_id, in_membership, " +
   "genres(name), themes(name), books(title, language, book_contributors(role, sort, authors(slug, display_name)))";
 
 interface CardRow {
@@ -34,6 +35,8 @@ interface CardRow {
   depth: Depth;
   safety_tier: SafetyTier;
   current_version_id: string | null;
+  price_point_id: string | null;
+  in_membership: boolean | null;
   genres: { name: string } | null;
   themes: { name: string } | null;
   books: {
@@ -115,6 +118,31 @@ async function withUnitCounts(supabase: Awaited<ReturnType<typeof createUserClie
   });
 }
 
+/**
+ * Policy 7.9: the unit 1 section of each current version, so only a title
+ * whose first unit is complete reaches a public list. Unit 1 is free, so
+ * anyone can read it for a public title; a row RLS withholds counts as
+ * missing. Keyed by workbook id.
+ */
+export async function firstUnitGapsFor(
+  supabase: Awaited<ReturnType<typeof createUserClient>>,
+  rows: readonly { id: string; current_version_id: string | null }[],
+): Promise<Map<string, FirstUnitGap>> {
+  const versionIds = [...new Set(rows.map((r) => r.current_version_id).filter((v): v is string => v !== null))];
+  let units: { version_id: string; body: unknown }[] = [];
+  if (versionIds.length) {
+    const { data, error } = await supabase.from("workbook_sections").select("version_id, body").eq("kind", "unit").eq("unit_number", 1).in("version_id", versionIds);
+    if (error) throw new Error(`firstUnitGapsFor: ${error.message}`);
+    units = (data ?? []) as { version_id: string; body: unknown }[];
+  }
+  return firstUnitGaps(rows, units);
+}
+
+/** The rows whose first unit is complete, in the same order. */
+export function onlyComplete<T extends { id: string }>(rows: readonly T[], gaps: Map<string, FirstUnitGap>): T[] {
+  return rows.filter((r) => gaps.get(r.id)?.complete === true);
+}
+
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const GENRE = /^[a-z_]+$/;
 
@@ -128,6 +156,11 @@ export interface LibraryFilter {
  * Live workbooks on this tenant as cards, optionally narrowed by genre,
  * Theme or a title search. Capped at 200 rows: the library is grouped on the
  * page, and a catalogue past that size gets paging in week 3.
+ *
+ * Policy 7.9: a live title whose first unit is not complete (lib/first-unit.ts)
+ * is left out here, so the library, Explore, the Theme, author and publisher
+ * pages, the home page and the sitemap all follow one rule. Staff see such
+ * titles, with the reason, on /admin/workbooks.
  */
 export async function listLibrary(filter: LibraryFilter = {}): Promise<LibraryCard[]> {
   const supabase = await createUserClient();
@@ -139,7 +172,8 @@ export async function listLibrary(filter: LibraryFilter = {}): Promise<LibraryCa
   if (q) query = query.ilike("title", `%${q}%`);
   const { data, error } = await query;
   if (error) throw new Error(`listLibrary: ${error.message}`);
-  const rows = (data ?? []) as unknown as CardRow[];
+  const all = (data ?? []) as unknown as CardRow[];
+  const rows = onlyComplete(all, await firstUnitGapsFor(supabase, all));
   return withUnitCounts(supabase, rows, rows.map(toCard));
 }
 
@@ -180,7 +214,15 @@ export async function getWorkbookBySlug(slug: string): Promise<WorkbookDetail | 
     }
   }
   const unitCount = typeof listing?.structure?.count === "number" ? listing.structure.count : (demoUnitCounts().get(card.code) ?? null);
-  return { card: { ...card, unitCount }, bookTitle: row.books?.title ?? null, bookLanguage: row.books?.language ?? null, listing, start };
+  return {
+    card: { ...card, unitCount },
+    bookTitle: row.books?.title ?? null,
+    bookLanguage: row.books?.language ?? null,
+    listing,
+    start,
+    pricePointId: row.price_point_id,
+    inMembership: row.in_membership !== false,
+  };
 }
 
 /** Active shelves with their Themes for the filter chips. Topics are never selected. */

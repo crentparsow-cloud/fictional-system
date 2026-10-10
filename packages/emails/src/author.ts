@@ -32,6 +32,13 @@ export type AuthorProps = {
    */
   payout_details_changed: Omit<AuthorBase, "workbookTitle"> & { organisationName: string; what: string; changedAt: string; payoutsUrl: string };
   /**
+   * The weekly nudge while earnings wait on Stripe Connect onboarding
+   * (build list 14.29). Goes to the organisation's owners and finance
+   * contacts at most once a week. Names the one step left and the amount
+   * waiting. Names no workbook and no reader.
+   */
+  connect_onboarding_nudge: Omit<AuthorBase, "workbookTitle"> & { organisationName: string; step: string; waiting: string; payoutsUrl: string };
+  /**
    * To the Akana team when someone sends the enquiry form on /publish (F-001).
    * studioUrl is where staff open leads. The subject is fixed: it never carries
    * the book title, the sender's name or their message.
@@ -234,6 +241,23 @@ export const AUTHOR_TEMPLATES: { [K in AuthorTemplateName]: (props: AuthorProps[
       `If you do not recognise it, contact ${x.supportEmail || "Akana support"} straight away. We will hold payouts while we check.`,
     ],
     buttons: [{ label: "Check your payouts", url: x.payoutsUrl }],
+    footer: "author",
+  }),
+
+  connect_onboarding_nudge: (x) => ({
+    subject: "Your earnings are waiting for one step",
+    preheader: "Finish setting up payouts and we can pay you.",
+    hero: "author",
+    eyebrow: "Payouts",
+    headline: "One step before we can pay you",
+    greeting: hi(x.name),
+    paragraphs: [
+      `${x.organisationName} has earnings on Akana that we cannot pay out yet. Payouts are set up through Stripe, and that is not finished.`,
+      `Waiting to be paid: ${x.waiting}.`,
+    ],
+    panels: [{ title: "The one step left", lines: [x.step], tone: "tint" }],
+    after: ["Your earnings are recorded and kept safely. Once the step is done they go out on the next payout day.", "We send this reminder at most once a week."],
+    buttons: [{ label: "Finish setting up payouts", url: x.payoutsUrl }],
     footer: "author",
   }),
 

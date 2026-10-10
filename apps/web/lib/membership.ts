@@ -67,6 +67,8 @@ export interface MembershipCheckoutInput {
   customerId: string | null;
   successUrl: string;
   cancelUrl: string;
+  /** A promotion code (promo_...) to pin to the session (item 5.9). The code box is then off, as Stripe requires. */
+  promotionCodeId?: string | null;
 }
 
 /**
@@ -82,7 +84,7 @@ export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Che
     mode: "subscription",
     line_items: [{ price: i.priceId, quantity: 1 }],
     automatic_tax: { enabled: true },
-    allow_promotion_codes: true,
+    ...(i.promotionCodeId ? { discounts: [{ promotion_code: i.promotionCodeId }] } : { allow_promotion_codes: true }),
     tax_id_collection: { enabled: true },
     ...(i.customerId
       ? { customer: i.customerId, customer_update: { name: "auto", address: "auto" } }
