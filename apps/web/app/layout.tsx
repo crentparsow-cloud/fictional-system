@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { preload } from "react-dom";
 import "./globals.css";
 import { brand } from "@/lib/brand";
+import { DeviceVisit } from "@/components/DeviceVisit";
 import { siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
   },
   description: brand.line,
   robots: { index: false, follow: false }, // off until launch
+  // 10.1: the manifest is app/manifest.ts. These two make an iPhone's home screen copy open without Safari's bars.
+  icons: { icon: [{ url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" }], apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }] },
+  appleWebApp: { capable: true, title: brand.name, statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
@@ -37,7 +41,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   });
   return (
     <html lang="en-GB" data-tenant={tenant} data-tenant-kind={kind}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <DeviceVisit />
+      </body>
     </html>
   );
 }

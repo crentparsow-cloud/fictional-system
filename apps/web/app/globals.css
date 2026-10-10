@@ -1148,3 +1148,174 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .you-recovery > * { margin-block: 0; }
 .you-recovery-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); gap: 0.5rem; margin: 0; padding-inline-start: 1.25rem; }
 .you-recovery-list code { font-size: 1.05rem; letter-spacing: 0.08em; }
+
+/* ---------- Explore, shelf pages, collections, My workbooks (build list 2.1 to 2.12) ----------
+   Structure only. Colours come from lib/shelves.ts through --shelf-tint and --shelf-accent;
+   everything else uses the site tokens. The design pass re-skins here and in that file. */
+.badge.programme { background: var(--surface-2); color: var(--ink-soft); }
+
+.shelf-tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+.shelf-tile {
+  display: grid; grid-template-columns: auto 1fr; column-gap: 0.85rem; row-gap: 0.15rem; align-items: start;
+  min-block-size: 44px; padding: 0.9rem 1rem; border: 1px solid var(--line); border-inline-start: 6px solid var(--shelf-accent, var(--brand));
+  border-radius: var(--radius); background: var(--surface); color: var(--ink); text-decoration: none;
+  transition: border-color 0.15s var(--ease);
+}
+.shelf-tile:hover { border-color: var(--line-strong); border-inline-start-color: var(--shelf-accent, var(--brand)); }
+.shelf-tile .shelf-icon {
+  grid-row: 1 / span 3; box-sizing: content-box; padding: 0.5rem; border-radius: var(--radius-sm);
+  background: var(--shelf-tint, var(--brand-wash)); color: var(--shelf-accent, var(--brand));
+}
+.shelf-tile-name { font-weight: 700; color: var(--ink); }
+.shelf-tile-line { color: var(--ink-soft); font-size: 0.92rem; }
+.shelf-tile-count { color: var(--ink-soft); font-size: 0.85rem; }
+.shelf-hero { border-block-end: 6px solid var(--shelf-accent, transparent); }
+.shelf-hero .shelf-icon { vertical-align: middle; }
+.shelf-count-line { margin: 0.25rem 0 0; }
+.editor-line { margin-block: 1.25rem 0; padding: 0.9rem 1.1rem; border-inline-start: 4px solid var(--shelf-accent, var(--brand)); background: var(--surface); border-radius: var(--radius-sm); }
+.editor-line p { margin: 0; }
+.editor-line-label { color: var(--ink-soft); margin-block-end: 0.25rem !important; }
+.shelf-featured { max-inline-size: 26rem; }
+
+.rail { margin-block: 1.75rem; }
+.rail-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.rail-head h2 { margin: 0; font-size: 1.25rem; }
+.rail-all { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+.rail-line { margin-block: 0.15rem 0.5rem; }
+.rail-row {
+  list-style: none; margin: 0.5rem 0 0; padding: 0 0 0.5rem; display: grid; grid-auto-flow: column; grid-auto-columns: min(82%, 17rem);
+  gap: 0.85rem; overflow-x: auto; scroll-snap-type: x proximity;
+}
+.rail-row > li { scroll-snap-align: start; display: flex; }
+.rail-row > li > * { flex: 1; }
+.explore-length { align-items: center; }
+.explore-links a { margin-inline-end: 1.25rem; }
+
+.collection-tile {
+  display: grid; gap: 0.3rem; align-content: start; color: var(--ink); text-decoration: none;
+  padding: 0.6rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+}
+.collection-tile:hover { border-color: var(--line-strong); }
+.collection-cover { inline-size: 100%; block-size: auto; border-radius: var(--radius-sm); display: block; }
+.collection-tile-name { font-weight: 700; }
+.collection-tile-line { color: var(--ink-soft); font-size: 0.92rem; }
+.collection-tile-count { color: var(--ink-soft); font-size: 0.85rem; }
+.collection-hero { display: grid; gap: 1.25rem; align-items: center; }
+.collection-hero .collection-cover { max-inline-size: 22rem; }
+.collection-list { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.85rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+@media (min-width: 40rem) {
+  .collection-hero { grid-template-columns: 1fr minmax(14rem, 22rem); }
+}
+
+.related-titles .wb-grid { margin-block-start: 0.75rem; }
+
+.library-links a { display: inline-flex; align-items: center; min-block-size: 44px; margin-inline-end: 1.25rem; font-weight: 600; }
+.mine-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.mine-card { display: flex; flex-direction: column; gap: 0.4rem; }
+.mine-card .wb-card-title { margin: 0.25rem 0 0; }
+.mine-chip-count { margin-inline-start: 0.35rem; opacity: 0.8; font-weight: 400; }
+.mine-status { min-block-size: 32px; }
+.mine-status-reading { background: var(--brand-wash); color: var(--brand); }
+.mine-status-finished { background: var(--stage-1-t); color: var(--stage-1-i); }
+.mine-status-paused { background: var(--surface-2); color: var(--ink-soft); }
+
+/* ---------- Today (4.1 to 4.9, 14.5) ---------- */
+.today-cards { display: grid; gap: 1rem; margin-block: 1rem; }
+.today-card { display: grid; gap: 0.5rem; justify-items: start; padding: 1rem; border: 1px solid var(--border, currentColor); border-radius: var(--radius-sm); background: var(--surface-2); }
+.today-card > * { margin: 0; }
+.today-card .btn { min-height: 44px; }
+.week-line { margin-block: 0.5rem; color: var(--ink-soft); }
+.review-panel { display: grid; gap: 0.75rem; margin-block: 1rem; padding: 1rem; border-radius: var(--radius-sm); background: var(--surface-2); }
+.review-panel > * { margin: 0; }
+.review-quote { padding-inline-start: 1rem; border-inline-start: 3px solid var(--brand); white-space: pre-wrap; }
+.review-panel button, .linklike { min-height: 44px; }
+.linklike { background: none; border: 0; padding: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
+.pickup-reflection { display: grid; gap: 0.5rem; }
+.pause-bar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-block: 0.5rem; }
+.pause-bar .btn { min-height: 44px; }
+.pause-card { display: grid; gap: 0.75rem; padding: 1rem; border-radius: var(--radius-sm); background: var(--surface-2); }
+.break-line { margin-block: 0.5rem; color: var(--ink-soft); }
+.you-today-card { display: grid; gap: 0.75rem; }
+.you-days { display: flex; flex-wrap: wrap; gap: 0.5rem; border: 0; padding: 0; }
+.you-days label { display: inline-flex; align-items: center; gap: 0.25rem; min-height: 44px; }
+.calendar-link { display: grid; gap: 0.5rem; }
+.calendar-link code { overflow-wrap: anywhere; }
+
+/* ---------------------------------------------------------------------------
+   Top of the funnel (Phase A step 4): onboarding quiz (5.1), free-unit label
+   (5.3), try without an account (5.2), membership offer and plan toggle
+   (13.4, 14.21), install prompt (10.1, 13.18).
+   --------------------------------------------------------------------------- */
+
+.btn-link {
+  background: none; border: 0; padding: 0.4em 0; font: inherit; color: var(--brand);
+  text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer; min-block-size: 44px;
+  display: inline-flex; align-items: center;
+}
+
+.wb-card-free, .wb-free { margin: 0; font-weight: 600; color: var(--brand); font-size: 0.92rem; }
+.wb-hero .wb-free { color: inherit; opacity: 0.95; }
+
+.quiz-page { padding-block: 1.5rem 4rem; }
+.quiz-card { max-inline-size: 40rem; margin-inline: auto; display: grid; gap: 0.9rem; }
+.quiz-card h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2.1rem); }
+.quiz-card h1:focus { outline: none; }
+.quiz-progress { block-size: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.quiz-progress-bar { block-size: 100%; background: var(--brand); border-radius: 999px; transition: inline-size 0.3s var(--ease); }
+.quiz-step, .quiz-why { margin: 0; }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-option {
+  display: grid; gap: 0.15rem; text-align: start; font: inherit; color: var(--ink); cursor: pointer;
+  min-block-size: 56px; padding: 0.8rem 1rem; background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm);
+}
+.quiz-option:hover { border-color: var(--brand); }
+.quiz-option[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-wash); }
+.quiz-option-label { font-weight: 600; }
+.quiz-foot { margin: 0.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.quiz-results { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.quiz-result { display: grid; gap: 0.5rem; }
+.quiz-result.is-start { border-color: var(--brand); border-width: 2px; }
+.quiz-result-title { margin: 0; font-size: 1.2rem; }
+.quiz-ready { margin: 0; font-weight: 600; color: var(--brand); }
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+.try-page { padding-block: 1.5rem 4rem; }
+.try-wall { display: grid; gap: 0.75rem; max-inline-size: 34rem; }
+.try-wall h2 { margin: 0; }
+.try-wall-form { display: grid; gap: 0.5rem; }
+.draft-transfer { display: grid; gap: 0.6rem; margin-block-end: 1rem; }
+.draft-transfer h2 { margin: 0; font-size: 1.15rem; }
+.draft-transfer-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.plan-toggle { border: 0; padding: 0; margin: 0; }
+.plan-toggle legend { font-weight: 600; padding: 0; margin-block-end: 0.5rem; }
+.plan-toggle-options { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.plan-option {
+  display: grid; gap: 0.25rem; padding: 0.9rem 1rem; border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm);
+  background: var(--surface); cursor: pointer; min-block-size: 44px;
+}
+.plan-option[data-selected="true"] { border-color: var(--brand); background: var(--brand-wash); }
+.plan-option input { position: absolute; opacity: 0; pointer-events: none; }
+.plan-option:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.plan-option-name { font-weight: 700; }
+.plan-price { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+/* One size for every price figure, so the monthly equivalent and the yearly total read as equals (14.21). */
+.plan-price-figure { font-size: 1.1rem; font-weight: 600; }
+
+.membership-offer { display: grid; gap: 0.9rem; margin-block-end: 1.25rem; }
+.membership-offer h2 { margin: 0; }
+.offer-library { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.offer-terms { margin: 0; display: grid; gap: 0.4rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-2); }
+.offer-terms > div { display: grid; gap: 0.1rem; grid-template-columns: minmax(7rem, 9rem) 1fr; }
+.offer-terms dt { font-weight: 600; }
+.offer-terms dd { margin: 0; }
+@media (max-width: 30rem) { .offer-terms > div { grid-template-columns: 1fr; } }
+.offer-actions, .install-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+.install-card { display: grid; gap: 0.7rem; margin-block-end: 1rem; }
+.install-card h2 { margin: 0; font-size: 1.15rem; }
+.install-steps { margin: 0; padding-inline-start: 1.25rem; display: grid; gap: 0.3rem; }
+.auth-standalone { padding: 0.7rem 0.9rem; border-radius: var(--radius-sm); background: var(--brand-wash); }
+.auth-code-title { font-size: 1.05rem; margin-block: 1rem 0.25rem; }
+
+@media (prefers-reduced-motion: reduce) { .quiz-progress-bar { transition: none; } }
