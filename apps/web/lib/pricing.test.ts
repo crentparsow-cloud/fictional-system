@@ -24,8 +24,8 @@ const setPoint: PricePoint = {
 };
 
 describe("the ladder", () => {
-  it("mirrors the eight price_points rows and every workbook point carries its GBP figure", () => {
-    expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year"]);
+  it("mirrors the nine price_points rows and every workbook point carries its GBP figure", () => {
+    expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year", "member_two_month"]);
     for (const id of PRICE_POINT_IDS) {
       expect(PRICE_LADDER[id].stripePriceId).toBeNull();
       if (PRICE_LADDER[id].kind !== "workbook") continue;
@@ -34,6 +34,15 @@ describe("the ladder", () => {
     }
     expect(PRICE_LADDER.member_month.kind).toBe("membership");
     expect(PRICE_LADDER.p1.kind).toBe("workbook");
+  });
+
+  it("puts the two-person point at about 1.5 times the single monthly price (0041, placeholder)", () => {
+    const single = PRICE_LADDER.member_month.amounts.GBP ?? 0;
+    const two = PRICE_LADDER.member_two_month.amounts.GBP ?? 0;
+    expect(PRICE_LADDER.member_two_month.kind).toBe("membership");
+    expect(two).toBe(1199);
+    expect(two / single).toBeGreaterThan(1.4);
+    expect(two / single).toBeLessThan(1.6);
   });
 
   it("carries the workbook ladder set on 9 October 2026: GBP 7.99 to GBP 14.99, in pence", () => {

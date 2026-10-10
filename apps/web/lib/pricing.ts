@@ -14,7 +14,7 @@ import { formatMoney, type Market } from "@/lib/markets";
  * they change, update this ladder, the database rows and the Stripe prices
  * together.
  *
- * INTERIM: the two membership points carry test-mode prices for the GBP
+ * INTERIM: the membership points carry test-mode prices for the GBP
  * market until Crent confirms them: GBP 7.99 a month and GBP 69.99 a year,
  * VAT inclusive, no free trial (migration 0010). Their Stripe prices come
  * from STRIPE_PRICE_MEMBERSHIP_MONTHLY and _YEARLY, not from this file, so
@@ -26,7 +26,7 @@ import { formatMoney, type Market } from "@/lib/markets";
  */
 
 export type WorkbookPricePointId = "p1" | "p2" | "p3" | "p4" | "p5" | "p6";
-export type MembershipPricePointId = "member_month" | "member_year";
+export type MembershipPricePointId = "member_month" | "member_year" | "member_two_month";
 export type PricePointId = WorkbookPricePointId | MembershipPricePointId;
 export type PricePointKind = "workbook" | "membership";
 
@@ -85,6 +85,9 @@ const workbookPoint = (id: WorkbookPricePointId, label: string): PricePoint => (
 export const INTERIM_MEMBERSHIP_AMOUNTS: Readonly<Record<MembershipPricePointId, Amounts>> = Object.freeze({
   member_month: Object.freeze({ GBP: 799 }) as Amounts,
   member_year: Object.freeze({ GBP: 6999 }) as Amounts,
+  // PLACEHOLDER (migration 0041): the two-person plan, about 1.5 times the
+  // single monthly price. Crent sets the real figure (D1 to D5).
+  member_two_month: Object.freeze({ GBP: 1199 }) as Amounts,
 });
 
 /** The ladder. p1 is the shortest workbook, p6 the longest. */
@@ -97,6 +100,7 @@ export const PRICE_LADDER: Readonly<Record<PricePointId, PricePoint>> = {
   p6: workbookPoint("p6", "Ladder point 6, GBP 14.99 (longest)"),
   member_month: { ...placeholder("member_month", "membership", "Membership, monthly"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_month, active: true },
   member_year: { ...placeholder("member_year", "membership", "Membership, annual"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_year, active: true },
+  member_two_month: { ...placeholder("member_two_month", "membership", "Membership for two people, monthly"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_two_month, active: true },
 };
 
 export const PRICE_POINT_IDS = Object.keys(PRICE_LADDER) as PricePointId[];

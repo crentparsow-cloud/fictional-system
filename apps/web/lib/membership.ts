@@ -17,17 +17,19 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * the plan only (F-098).
  */
 
-export type MembershipPlan = "monthly" | "yearly";
-export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly"];
+export type MembershipPlan = "monthly" | "yearly" | "two_monthly";
+export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly", "two_monthly"];
 
 export const MEMBERSHIP_PLAN_POINT: Readonly<Record<MembershipPlan, MembershipPricePointId>> = {
   monthly: "member_month",
   yearly: "member_year",
+  two_monthly: "member_two_month",
 };
 
-export const MEMBERSHIP_PRICE_ENV: Readonly<Record<MembershipPlan, "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY">> = {
+export const MEMBERSHIP_PRICE_ENV: Readonly<Record<MembershipPlan, "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY">> = {
   monthly: "STRIPE_PRICE_MEMBERSHIP_MONTHLY",
   yearly: "STRIPE_PRICE_MEMBERSHIP_YEARLY",
+  two_monthly: "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY",
 };
 
 /** What the checkout and paywall say while no membership price is configured. */
@@ -36,7 +38,7 @@ export const MEMBERSHIP_NOT_OPEN_MESSAGE = "Membership is not open yet. Please t
 type Env = Partial<Record<string, string | undefined>>;
 
 export function isMembershipPlan(value: unknown): value is MembershipPlan {
-  return value === "monthly" || value === "yearly";
+  return value === "monthly" || value === "yearly" || value === "two_monthly";
 }
 
 /** The Stripe price id for a plan, or null when it is unset or not a price id. */
@@ -45,15 +47,20 @@ export function membershipPriceId(plan: MembershipPlan, env: Env = process.env):
   return v && /^price_[A-Za-z0-9_]+$/.test(v) ? v : null;
 }
 
-/** Which plans can be bought right now. */
-export function membershipPlansOpen(env: Env = process.env): Record<MembershipPlan, boolean> {
+/**
+ * Which single-person plans can be bought right now. The two-person plan is
+ * asked about separately (sharedPlanOpen in lib/shared-membership.ts), so
+ * the paywall's two buttons stay as they were.
+ */
+export function membershipPlansOpen(env: Env = process.env): { monthly: boolean; yearly: boolean } {
   return { monthly: membershipPriceId("monthly", env) !== null, yearly: membershipPriceId("yearly", env) !== null };
 }
 
 /** The line shown on Stripe's page above the pay button: the auto-renewal consent (F-097). */
 export function autoRenewNotice(plan: MembershipPlan): string {
-  const period = plan === "monthly" ? "month" : "year";
-  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time on the You page, under Manage membership. You keep access until the end of the period you have paid for.`;
+  const period = plan === "yearly" ? "year" : "month";
+  const who = plan === "two_monthly" ? " It covers you and one person you invite. You can remove them at any time." : "";
+  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time on the You page, under Manage membership. You keep access until the end of the period you have paid for.${who}`;
 }
 
 export interface MembershipCheckoutInput {
@@ -69,6 +76,12 @@ export interface MembershipCheckoutInput {
   cancelUrl: string;
   /** A promotion code (promo_...) to pin to the session (item 5.9). The code box is then off, as Stripe requires. */
   promotionCodeId?: string | null;
+  /**
+   * A trial (13.5): its length in days and the sentence for the pay button,
+   * which states the first payment date and the reminder date
+   * (lib/membership-trial.ts). The card is always collected. Omit for no trial.
+   */
+  trial?: { days: number; notice: string } | null;
 }
 
 /**
@@ -91,8 +104,14 @@ export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Che
       : { customer_email: i.email ?? undefined }),
     client_reference_id: i.userId,
     metadata,
-    subscription_data: { metadata },
-    custom_text: { submit: { message: autoRenewNotice(i.plan) } },
+    subscription_data: {
+      metadata,
+      // 13.5: the card is taken at the start, and a trial that reaches its end
+      // without a card on file is cancelled rather than left running.
+      ...(i.trial ? { trial_period_days: i.trial.days, trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } } : {}),
+    },
+    ...(i.trial ? { payment_method_collection: "always" as const } : {}),
+    custom_text: { submit: { message: i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan)}` : autoRenewNotice(i.plan) } },
     success_url: i.successUrl,
     cancel_url: i.cancelUrl,
   };
@@ -142,6 +161,17 @@ function idOf(ref: string | { id: string } | null | undefined): string | null {
   return typeof ref === "string" ? ref : ref.id;
 }
 
+/**
+ * The two-person plan has the same interval as the single monthly one, so the
+ * interval cannot tell them apart. It is the two-person plan when the item's
+ * price is the configured one, or when checkout stamped it in the metadata.
+ */
+function sharedPlanOf(priceId: string | null | undefined, metaPlan: MembershipPricePointId | null, env: Env): MembershipPricePointId | null {
+  const configured = membershipPriceId("two_monthly", env);
+  if (configured && priceId === configured) return "member_two_month";
+  return metaPlan === "member_two_month" ? "member_two_month" : null;
+}
+
 export function planFromInterval(interval: string | null | undefined): MembershipPricePointId | null {
   if (interval === "month") return "member_month";
   if (interval === "year") return "member_year";
@@ -158,20 +188,21 @@ export function subscriptionStateFrom(
   sub: Stripe.Subscription,
   observedAt: Date,
   fallbackMeta?: { user_id?: string | null; tenant_id?: string | null } | null,
+  sharedPriceEnv: Env = process.env,
 ): SubscriptionState | null {
   if (!isSubscriptionStatus(sub.status)) return null;
   const customerId = idOf(sub.customer as string | { id: string } | null);
   if (!customerId) return null;
   const item = sub.items?.data?.[0];
   const meta = (sub.metadata ?? {}) as Record<string, string | undefined>;
-  const metaPlan = meta.plan === "member_month" || meta.plan === "member_year" ? meta.plan : null;
+  const metaPlan = meta.plan === "member_month" || meta.plan === "member_year" || meta.plan === "member_two_month" ? meta.plan : null;
   return {
     subscriptionId: sub.id,
     customerId,
     userId: uuidOrNull(meta.user_id) ?? uuidOrNull(fallbackMeta?.user_id),
     tenantId: uuidOrNull(meta.tenant_id) ?? uuidOrNull(fallbackMeta?.tenant_id),
     status: sub.status,
-    plan: planFromInterval(item?.price?.recurring?.interval) ?? metaPlan,
+    plan: sharedPlanOf(item?.price?.id, metaPlan, sharedPriceEnv) ?? planFromInterval(item?.price?.recurring?.interval) ?? metaPlan,
     priceId: item?.price?.id ?? null,
     currentPeriodEnd: iso(item?.current_period_end),
     cancelAtPeriodEnd: Boolean(sub.cancel_at_period_end),
@@ -198,7 +229,7 @@ export interface SubscriptionRow {
 
 export type MembershipSummary =
   | { kind: "none" }
-  | { kind: "active"; plan: "monthly" | "yearly" | null; renewsOn: string | null }
+  | { kind: "active"; plan: "monthly" | "yearly" | "two_monthly" | null; renewsOn: string | null }
   | { kind: "ending"; endsOn: string | null }
   | { kind: "payment_issue" }
   | { kind: "ended" };
@@ -218,7 +249,7 @@ export function membershipSummary(rows: readonly SubscriptionRow[] | null | unde
   }
   if (live.status === "past_due") return { kind: "payment_issue" };
   if (live.cancel_at_period_end) return { kind: "ending", endsOn: live.current_period_end };
-  const plan = live.plan === "member_month" ? "monthly" : live.plan === "member_year" ? "yearly" : null;
+  const plan = live.plan === "member_month" ? "monthly" : live.plan === "member_year" ? "yearly" : live.plan === "member_two_month" ? "two_monthly" : null;
   return { kind: "active", plan, renewsOn: live.current_period_end };
 }
 
@@ -240,7 +271,14 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
     case "none":
       return "You are not a member at the moment.";
     case "active": {
-      const name = summary.plan === "yearly" ? "Annual membership." : summary.plan === "monthly" ? "Monthly membership." : "Membership active.";
+      const name =
+        summary.plan === "yearly"
+          ? "Annual membership."
+          : summary.plan === "monthly"
+            ? "Monthly membership."
+            : summary.plan === "two_monthly"
+              ? "Monthly membership for two people."
+              : "Membership active.";
       return summary.renewsOn ? `${name} Renews on ${formatDate(summary.renewsOn)}.` : name;
     }
     case "ending":
