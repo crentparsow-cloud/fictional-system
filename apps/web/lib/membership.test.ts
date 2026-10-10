@@ -57,6 +57,12 @@ describe("membershipCheckoutParams", () => {
     expect("managed_payments" in p).toBe(false);
   });
 
+  it("pins a promotion code from the /code page as the session's discount and turns the code box off (item 5.9)", () => {
+    const p = membershipCheckoutParams({ ...base, promotionCodeId: "promo_First" });
+    expect(p.discounts).toEqual([{ promotion_code: "promo_First" }]);
+    expect(p.allow_promotion_codes).toBeUndefined();
+  });
+
   it("starts no free trial: the free first unit is the trial (0010)", () => {
     for (const plan of ["monthly", "yearly"] as const) {
       const p = membershipCheckoutParams({ ...base, plan });

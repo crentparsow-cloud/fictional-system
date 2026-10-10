@@ -202,7 +202,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
 
   // F-141: a reader without the full workbook is reading the free sample.
   // Ids only, and nothing is counted when they have opted out of counting.
-  if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id);
+  if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id, session.userId);
 
   // Membership checkout opens per plan once its Stripe price id is set (F-097).
   const plansOpen = membershipPlansOpen();

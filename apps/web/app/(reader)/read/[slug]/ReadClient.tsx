@@ -84,7 +84,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
 
   useEffect(() => {
     let cancelled = false;
-    SupabaseAnswerStore.load({ enrolmentId, onStatus: setSaveState, onSaved })
+    SupabaseAnswerStore.load({ enrolmentId, onStatus: setSaveState, onSaved, currentUnit: () => lastUnit.current })
       .then((s) => {
         if (cancelled) return;
         setStore(s);
@@ -109,10 +109,13 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
     (kind: "unit_opened" | "step_done" | "checkin_done" | "daily_check_done" | "toolkit_used" | "finished", ref?: string) => {
       // Read only (F-025): the database would refuse it anyway.
       if (readOnly) return;
+      // A step done carries the unit it was done in, for the per-unit count
+      // only (0036). The event itself stores ids and a time, as ever.
+      const unit = kind === "step_done" && lastUnit.current != null ? { unit: lastUnit.current } : {};
       void fetch("/api/progress", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(ref === undefined ? { enrolment: enrolmentId, kind } : { enrolment: enrolmentId, kind, ref }),
+        body: JSON.stringify(ref === undefined ? { enrolment: enrolmentId, kind, ...unit } : { enrolment: enrolmentId, kind, ref, ...unit }),
         keepalive: true,
       }).catch(() => undefined);
     },

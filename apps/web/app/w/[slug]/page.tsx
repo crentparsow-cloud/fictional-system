@@ -11,6 +11,10 @@ import { getT } from "@/lib/i18n";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 import { countView } from "@/lib/funnel-server";
+import { PublicBuy, type PaidLines } from "@/components/catalogue/PublicBuy";
+import { normalisePromoCode, offerSummary, PROMO_MESSAGES } from "@/lib/promo-code";
+import { lookupPromoCode } from "@/lib/promo-code-server";
+import { marketForReader, paidLinesFor, publicOffer } from "@/lib/public-offer";
 
 /**
  * The public workbook page (F-005) at /w/{slug}. Server rendered for anyone,
@@ -18,13 +22,18 @@ import { countView } from "@/lib/funnel-server";
  * through the user client, so a visitor sees only public workbooks and only
  * their listing and start sections.
  *
- * Commerce is not wired: buy and membership are disabled placeholders. The
- * book link is a placeholder until /go/ exists. Hidden Theme topics are never
- * read, so they cannot appear here; lib/catalogue-guard.ts tests that.
+ * Buy and Join open the same Stripe Checkout the reader's paywall uses
+ * (item 3.2), after sign-in for a visitor; Start opens the free first unit,
+ * which enrols the reader on first open (/read). A promotion code in ?code=
+ * from the /code page is checked with Stripe and carried into checkout, with
+ * the price paid said in plain words (item 5.9). Demo titles are not sold.
+ * The book link is a placeholder until /go/ exists. Hidden Theme topics are
+ * never read, so they cannot appear here; lib/catalogue-guard.ts tests that.
  */
 export const dynamic = "force-dynamic";
 
 type Params = { slug: string };
+type Search = { code?: string | string[] };
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
@@ -39,11 +48,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
-export default async function WorkbookPage({ params }: { params: Promise<Params> }) {
+export default async function WorkbookPage({ params, searchParams }: { params: Promise<Params>; searchParams: Promise<Search> }) {
   const { slug } = await params;
+  const sp = await searchParams;
   const [detail, session, { t }] = await Promise.all([getWorkbookBySlug(slug), getReaderSession(), getT()]);
   if (!detail) notFound();
-  await countView("page_view", detail.card.id); // F-141, ids only, opt-out respected
+  await countView("page_view", detail.card.id, session?.userId ?? null); // F-141, ids only, opt-out respected
 
   const { card, listing, start } = detail;
   const wellbeing = card.safetyTier !== "none";
@@ -51,6 +61,25 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
   const readHref = `/read/${card.slug}`;
   const openHref = session ? readHref : `/sign-in?next=${encodeURIComponent(readHref)}`;
   const unit = unitWord(detail);
+
+  // Item 3.2: the same figures the paywall and checkout use, for this reader's market.
+  const market = await marketForReader(session?.userId ?? null);
+  const offer = await publicOffer({ pricePointId: detail.pricePointId, isDemo: card.isDemo, inMembership: detail.inMembership }, market);
+
+  // Item 5.9: a code from the /code page. Checked with Stripe; the page says what is paid, never what "was".
+  const code = normalisePromoCode(Array.isArray(sp.code) ? sp.code[0] : sp.code);
+  let promoNote: string | null = null;
+  let paidLines: PaidLines | null = null;
+  if (code && !card.isDemo) {
+    const promo = await lookupPromoCode(code, session ? `user:${session.userId}` : "anon");
+    if (promo.ok) {
+      paidLines = paidLinesFor(offer, promo.offer);
+      promoNote = offerSummary(promo.offer, market);
+    } else {
+      promoNote = PROMO_MESSAGES[promo.reason];
+    }
+  }
+  const returnTo = `/w/${card.slug}${code ? `?code=${encodeURIComponent(code)}` : ""}#buy`;
   const structure = listing?.structure;
   const outline = listing?.outline ?? [];
   const language = listing?.language ?? detail.bookLanguage;
@@ -97,27 +126,26 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
               <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
             </p>
           ) : null}
-          <div className="wb-actions">
-            {canOpen ? (
-              <Link className="btn" href={openHref}>
-                Open {unit.toLowerCase()} 1 free
-              </Link>
-            ) : (
-              <span className="btn secondary is-disabled" aria-disabled="true">
-                {t("library.outlineOnly")}
-              </span>
-            )}
-            <button type="button" className="btn secondary" disabled aria-describedby="coming-soon">
-              Buy
-            </button>
-            <button type="button" className="btn secondary" disabled aria-describedby="coming-soon">
-              Membership
-            </button>
-            {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
-          </div>
-          <p id="coming-soon" className="muted small">
-            Buying and membership are coming soon.
-          </p>
+          {promoNote ? (
+            <p className="small wb-promo" role="status">
+              {promoNote}
+            </p>
+          ) : null}
+          <PublicBuy
+            slug={card.slug}
+            state={offer.state}
+            signedIn={Boolean(session)}
+            returnTo={returnTo}
+            start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
+            outlineOnlyLabel={t("library.outlineOnly")}
+            code={paidLines ? code : null}
+            paidLines={paidLines}
+          />
+          {wellbeing ? (
+            <div className="wb-actions">
+              <HelpNowButton label={t("help.now")} />
+            </div>
+          ) : null}
         </div>
       </header>
 

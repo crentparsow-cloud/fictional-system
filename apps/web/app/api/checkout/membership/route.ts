@@ -23,6 +23,8 @@ import { acceptReaderTerms } from "@/lib/terms-server";
 import { CHECKOUT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
 import { checkoutConsentDecision, consentMetadata } from "@/lib/checkout-consent";
 import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
+import { PROMO_MESSAGES } from "@/lib/promo-code";
+import { lookupPromoCode } from "@/lib/promo-code-server";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
@@ -72,6 +74,8 @@ const Body = z
     terms: z.string().max(40).optional(),
     // The membership consent version the reader ticked (0019).
     consent: z.string().max(60).optional(),
+    // A promotion code from the /code page (item 5.9), checked again against Stripe.
+    code: z.string().max(40).optional(),
   })
   .strict();
 
@@ -120,6 +124,16 @@ export async function POST(request: NextRequest) {
   const { data: profile } = await supabase.from("profiles").select("country").eq("user_id", session.userId).maybeSingle();
   const market = marketFor((profile?.country as string | null | undefined) ?? null);
 
+  // Item 5.9: the code the page showed, looked up again and pinned to the session as its discount.
+  let promotionCodeId: string | null = null;
+  if (parsed.data.code) {
+    const promo = await lookupPromoCode(parsed.data.code, `checkout:${session.userId}`);
+    if (!promo.ok) {
+      return NextResponse.json({ error: PROMO_MESSAGES[promo.reason], code: "promo_invalid" }, { status: 409, headers: NO_STORE });
+    }
+    promotionCodeId = promo.offer.id;
+  }
+
   let stripe;
   try {
     stripe = getStripe();
@@ -152,6 +166,7 @@ export async function POST(request: NextRequest) {
       customerId: portalCustomerId(rows),
       successUrl,
       cancelUrl,
+      promotionCodeId,
     });
     const consentMeta = consentMetadata(consentId, consent.version);
     params.metadata = { ...params.metadata, ...consentMeta };
@@ -189,7 +204,7 @@ export async function POST(request: NextRequest) {
 
   if (!checkout.url) return refuse("Could not start checkout.", 500);
   // F-141: a daily count, ids only, unless the visitor has opted out.
-  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies });
+  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies, userId: session.userId });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
 }
 
