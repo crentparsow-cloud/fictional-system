@@ -437,6 +437,7 @@ grant execute on function app.seat_invite_state(text, uuid), public.seat_invite_
 -- 7. Replaced functions, bodies copied from the migrations named, one marked
 -- change each. CREATE OR REPLACE keeps the grants made earlier.
 -- ---------------------------------------------------------------------------
+
 -- 0019 record_checkout_consent: the plan list gains member_two_month.
 create or replace function app.record_checkout_consent(
   p_kind text, p_version text, p_tenant uuid default null, p_workbook uuid default null, p_plan text default null
