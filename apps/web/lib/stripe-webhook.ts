@@ -1,6 +1,6 @@
 import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
-import { inCoolingOff, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
+import { coolingOffOpensAt, inCoolingOff, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
 import type { MembershipPricePointId } from "@/lib/pricing";
 import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
 
@@ -39,6 +39,14 @@ import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
  * retry can go out. Monthly memberships get the six-monthly
  * membership_terms_reminder from a daily job instead
  * (lib/membership-reminders.ts, migration 0011), not from this webhook.
+ *
+ * Trial reminders (13.5): customer.subscription.trial_will_end, which Stripe
+ * raises three days before a trial ends, asks the route to send
+ * trial_reminder with the date of the first payment, the amount and how to
+ * cancel, once per subscription and trial end. invoice.upcoming is skipped
+ * for a trialing subscription so the first payment is announced once.
+ * The first paid invoice of a trial (for nothing) asks for the day-zero
+ * email instead of a receipt (14.20).
  *
  * Cooling-off cancel (docs/legal/refund-policy.md section 2): when
  * customer.subscription.updated shows a member asked to cancel (through the
@@ -148,6 +156,9 @@ export type WebhookAction =
   | "renewal_reminder"
   | "renewal_reminder_not_needed"
   | "renewal_reminder_no_address"
+  | "trial_reminder"
+  | "trial_reminder_not_needed"
+  | "trial_reminder_no_address"
   | "cooling_off_cancelled"
   | "dispute_recorded"
   | "ignored";
@@ -233,7 +244,26 @@ export interface RenewalNotice {
   dedupeKey: string;
 }
 
-export type MembershipNotice = PaymentFailedNotice | RenewalNotice | CancellationNotice;
+/**
+ * The reminder before a trial converts (13.5). Sent on
+ * customer.subscription.trial_will_end, which Stripe raises three days before
+ * the trial ends. States the first payment date, the amount and how to
+ * cancel. Never carries a title.
+ */
+export interface TrialReminderNotice {
+  template: "trial_reminder";
+  to: string;
+  subscriptionId: string;
+  plan: MembershipPricePointId;
+  /** ISO timestamp of the first payment (the trial's end). */
+  trialEndsAt: string;
+  amountMinor: number | null;
+  currency: string | null;
+  /** One reminder per subscription and trial end: trial_reminder:<sub id>:<yyyy-mm-dd>. */
+  dedupeKey: string;
+}
+
+export type MembershipNotice = PaymentFailedNotice | RenewalNotice | CancellationNotice | TrialReminderNotice;
 
 /** Fields every confirmation email carries. Never a title. */
 interface ReaderMailBase {
@@ -254,6 +284,13 @@ export interface PurchaseConfirmedNotice extends ReaderMailBase {
 /** The first membership invoice is paid: purchase_membership, once per subscription. */
 export interface MembershipConfirmedNotice extends ReaderMailBase {
   template: "purchase_membership";
+  /**
+   * Set when the membership starts with a trial. The first invoice is then
+   * for nothing, so the email is the day-zero email (14.20): the first week's
+   * plan and the dates, not a receipt. nextPaymentAt is the trial's end, and
+   * amountMinor is 0.
+   */
+  trial?: boolean;
   subscriptionId: string;
   plan: MembershipPricePointId;
   amountMinor: number;
@@ -386,6 +423,37 @@ export async function handleStripeEvent(
       return outcome;
     }
 
+    case "customer.subscription.trial_will_end": {
+      if (!membership) return { ...base, action: "ignored", purchaseId: null };
+      const sub = event.data.object;
+      const fresh = await upsertFresh(sub.id, sub, event, membership);
+      const outcome = { ...base, purchaseId: null, subscriptionId: sub.id };
+      const state = fresh?.state ?? null;
+      // Nothing will be charged if the member has already cancelled or the trial is over.
+      if (!fresh || !state || state.status !== "trialing" || state.cancelAtPeriodEnd || state.cancelAt) {
+        return { ...outcome, action: "trial_reminder_not_needed" };
+      }
+      const trialEndsAt = isoOf(fresh.sub.trial_end) ?? state.currentPeriodEnd;
+      if (!trialEndsAt || (state.plan !== "member_month" && state.plan !== "member_year")) return { ...outcome, action: "ignored" };
+      const to = await subscriberEmail(fresh.sub, membership);
+      if (!to) return { ...outcome, action: "trial_reminder_no_address" };
+      const price = fresh.sub.items?.data?.[0]?.price;
+      return {
+        ...outcome,
+        action: "trial_reminder",
+        notify: {
+          template: "trial_reminder",
+          to,
+          subscriptionId: sub.id,
+          plan: state.plan,
+          trialEndsAt,
+          amountMinor: typeof price?.unit_amount === "number" ? price.unit_amount : null,
+          currency: price?.currency ? price.currency.toUpperCase() : null,
+          dedupeKey: trialReminderDedupeKey(sub.id, trialEndsAt),
+        },
+      };
+    }
+
     case "invoice.paid":
     case "invoice.payment_failed": {
       if (!membership) return { ...base, action: "ignored", purchaseId: null };
@@ -448,6 +516,9 @@ export async function handleStripeEvent(
       if (state && (state.cancelAtPeriodEnd || !(state.status === "active" || state.status === "trialing"))) {
         return { ...outcome, action: "renewal_reminder_not_needed" };
       }
+      // A trial's reminder comes from customer.subscription.trial_will_end, so
+      // the first payment is not announced twice.
+      if (state?.status === "trialing") return { ...outcome, action: "renewal_reminder_not_needed" };
       const renewsAt = renewalDateOf(invoice, state);
       if (!renewsAt) return { ...outcome, action: "ignored" };
 
@@ -496,7 +567,7 @@ export function cancelRequestedInCoolingOff(sub: Stripe.Subscription, event: Pic
   if (sub.status !== "active" && sub.status !== "trialing") return false;
   if (!sub.cancel_at_period_end && !sub.cancel_at) return false;
   if (typeof sub.start_date !== "number") return false;
-  return inCoolingOff(new Date(sub.start_date * 1000), new Date((sub.canceled_at ?? event.created) * 1000));
+  return inCoolingOff(coolingOffOpensAt(sub), new Date((sub.canceled_at ?? event.created) * 1000));
 }
 
 /**
@@ -576,7 +647,7 @@ async function membershipConfirmed(
   repo: PurchaseRepo,
 ): Promise<MembershipConfirmedNotice | null> {
   const plan = state?.plan ?? planFromInvoiceLines(invoice);
-  if (plan !== "member_month" && plan !== "member_year") return null;
+  if (plan !== "member_month" && plan !== "member_year" && plan !== "member_two_month") return null;
   const nextPaymentAt = state?.currentPeriodEnd ?? isoOf(invoice.lines?.data?.find((l) => l.period?.end)?.period?.end);
   if (!nextPaymentAt || typeof invoice.amount_paid !== "number" || !invoice.currency) return null;
   const userId = state?.userId ?? null;
@@ -592,6 +663,7 @@ async function membershipConfirmed(
     amountMinor: invoice.amount_paid,
     currency: invoice.currency.toUpperCase(),
     nextPaymentAt,
+    ...(state?.status === "trialing" ? { trial: true } : {}),
     dedupeKey: membershipMailKey(subscriptionId),
   };
 }
@@ -628,6 +700,11 @@ async function subscriberEmail(sub: Stripe.Subscription, membership: MembershipR
   if (customer && typeof customer === "object" && !customer.deleted && customer.email) return customer.email;
   const id = idOf(customer);
   return id && membership.customerEmail ? membership.customerEmail(id) : null;
+}
+
+/** The dedupe key for one trial reminder: the subscription and the day the trial ends (UTC). */
+export function trialReminderDedupeKey(subscriptionId: string, trialEndsAt: string): string {
+  return `trial_reminder:${subscriptionId}:${trialEndsAt.slice(0, 10)}`;
 }
 
 /** The dedupe key for one renewal reminder: the subscription and the renewal day (UTC). */
