@@ -69,6 +69,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [acknowledged, setAcknowledged] = useState(acknowledgedOnServer);
   const [hardest, setHardest] = useState(false);
   // 14.6: unsaved answers kept on the device until the server confirms them.
   const [recovered, setRecovered] = useState(0);
