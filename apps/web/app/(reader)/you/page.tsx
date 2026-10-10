@@ -131,6 +131,12 @@ export default async function YouPage({ searchParams }: Props) {
             <dt>Confirmed you are 18 or over</dt>
             <dd>{session?.adultConfirmedAt ? longDate(session.adultConfirmedAt) : "Not yet"}</dd>
           </div>
+          <div>
+            <dt>Two-step sign-in</dt>
+            <dd>
+              {session?.mfaEnrolled ? "On" : "Off"}. <Link href="/you/security">{session?.mfaEnrolled ? "Manage" : "Turn it on"}</Link>
+            </dd>
+          </div>
         </dl>
         <SignOutButton label={t("you.signOut")} />
       </section>
