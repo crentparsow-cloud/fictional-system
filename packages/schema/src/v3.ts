@@ -16,7 +16,14 @@ import { CODE_PATTERN } from "./codes";
  * new minor version and a migration.
  */
 
-export const SCHEMA_VERSION = "3.0" as const;
+export const SCHEMA_VERSION = "3.1" as const;
+
+/**
+ * Versions a file may declare. 3.1 (10 October 2026) adds the optional
+ * units[].intro, ideas and takeaway fields from docs/content/UNIT_SPEC.md.
+ * Additive only: every 3.0 file stays valid and parses to the same result.
+ */
+export const SUPPORTED_SCHEMA_VERSIONS = ["3.0", "3.1"] as const;
 
 // Identifier used inside a workbook: exercises, fields, stages, plan sections.
 export const Id = z.string().regex(/^[a-z][a-z0-9_]*$/, "lower-case id, letters, digits and underscores");
@@ -188,6 +195,16 @@ export const Structure = z
   })
   .strict();
 
+/** One key idea in a unit (3.1): a sentence heading, a short explanation and one example. */
+export const KeyIdea = z
+  .object({
+    heading: z.string(),
+    body: z.string(),
+    example: z.string(),
+  })
+  .strict();
+export type KeyIdea = z.infer<typeof KeyIdea>;
+
 export const ProgrammeUnit = z
   .object({
     number: z.number().int().min(1),
@@ -197,6 +214,10 @@ export const ProgrammeUnit = z
     new_toolkit_ids: z.array(Id).optional(),
     selfcheck: z.boolean().optional(),
     repeat_ids: z.array(Id).max(2).optional(),
+    // Added in 3.1, all optional. Counts and word limits are checked by @akana/validate.
+    intro: z.string().optional(),
+    ideas: z.array(KeyIdea).max(10).optional(),
+    takeaway: z.string().optional(),
   })
   .strict();
 
@@ -289,7 +310,7 @@ export const AuthorRef = z
 
 export const WorkbookV3 = z
   .object({
-    schema_version: z.literal(SCHEMA_VERSION),
+    schema_version: z.enum(SUPPORTED_SCHEMA_VERSIONS),
 
     // Identity (title-first, decision carried from the naming board)
     code: z.string().regex(/^AK-[0-9A-HJKMNP-TV-Z]{5}$/),
