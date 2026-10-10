@@ -205,7 +205,7 @@ describe("reader templates", () => {
       const out = renderReader(name, p[name], links);
       const text = [out.subject, out.text].join("\n");
       expect(text, name).not.toMatch(/\b(missed|miss(ed)?\b|streak|behind|overdue|catch up on|days? in a row|don't break|last chance|discount|% off)/i);
-      expect(text, name).not.toContain("\\u2014");
+      expect(text, name).not.toContain("\u2014");
     }
     // Win-back subjects are short and plain.
     expect(renderReader("welcome_back", p.welcome_back, links).subject.length).toBeLessThan(30);
