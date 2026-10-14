@@ -94,7 +94,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       outsideMembership: new Set(),
     });
     const cards = selectTodayCards({ now, programmes: [], savedTools: [], suggestions, membershipStartedAt: subRows, monthThreeOffer });
-    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/library")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone };
+    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/explore")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone };
   }
 
   const ids = cardsAll.map((c) => c.enrolmentId);
