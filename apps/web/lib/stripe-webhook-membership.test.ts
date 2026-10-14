@@ -422,7 +422,7 @@ describe("invoice.upcoming: renewal reminders (DMCC subscription regime)", () =>
     expect(msg.to).toBe("reader@example.com");
     expect(msg.subject).toBe("Your membership renews on 15 January 2028");
     expect(msg.text).toContain("£69.99");
-    expect(msg.text).toContain("go to You, then Manage membership, then Cancel before 15 January 2028");
+    expect(msg.text).toContain("go to You, then Cancel membership before 15 January 2028");
     expect(msg.text).toContain("https://akana.test/you#membership");
     expect(msg.text).not.toMatch(/\bpass\b/i);
   });
