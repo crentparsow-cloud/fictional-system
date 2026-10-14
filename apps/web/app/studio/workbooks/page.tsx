@@ -49,7 +49,7 @@ export default async function StudioWorkbooksPage({ searchParams }: { searchPara
         <div className="card admin-empty">
           <h2>No workbooks yet</h2>
           <p className="muted">
-            A workbook starts when you submit one for a book. <Link href={withOrg("/studio/books", ctx.org.id, ctx.multi)}>Go to your books</Link>.
+            Start one from a book. <Link href={withOrg("/studio/books", ctx.org.id, ctx.multi)}>Go to your books</Link>.
           </p>
         </div>
       ) : (

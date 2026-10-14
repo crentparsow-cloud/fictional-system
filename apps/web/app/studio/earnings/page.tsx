@@ -116,7 +116,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
 
           <h2>Balance</h2>
           {bal.length === 0 ? (
-            <p className="muted">No earnings yet.</p>
+            <p className="muted">No earnings yet. The first appears after a paid sale.</p>
           ) : (
             <div className="admin-table-wrap">
               <table className="admin-table">
