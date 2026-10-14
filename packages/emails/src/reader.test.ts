@@ -80,6 +80,7 @@ const sample = (themeName: string): { [K in ReaderTemplateName]: ReaderProps[K] 
   partner_update: { ...base(themeName), readerName: "Sam", partnerName: "Jo", shareLevel: 3, ...stages, stageIndex: 3, note: "Thank you for asking." },
   partner_stopped: { ...base(themeName), readerName: "Sam", partnerName: "Jo" },
   refund_confirmed: { ...base(themeName), amount: "£9.99", accessEnded: true },
+  membership_paused: { ...base(themeName), pauseFrom: "6 November 2026", resumeDate: "6 January 2027", price: "£7.99", periodWords: "a month" },
   deletion_cancelled: { ...base(themeName) },
   step_reminder: { ...base(themeName), stepName: "Plan your first small step", unitWords: "Week 3", subjectLabel: "Plan your first small step", minutes: 10, stepUrl: "https://example.test/today/go" },
   reminders_stopping: { ...base(themeName), remindersUrl: "https://example.test/you#today-settings" },
@@ -168,7 +169,7 @@ describe("reader templates", () => {
 
   it("points every membership email at the You page and Manage membership", () => {
     const props = sample("Mood and Energy");
-    expect(CANCEL_PATH).toBe("go to You, then Manage membership, then Cancel");
+    expect(CANCEL_PATH).toBe("go to You, then Cancel membership");
     for (const name of ["purchase_membership", "membership_terms_reminder", "renewal_notice", "membership_away"] as const) {
       const r = renderReader(name, props[name], links);
       expect(r.text, name).toContain("Manage membership");
@@ -205,7 +206,7 @@ describe("reader templates", () => {
       const out = renderReader(name, p[name], links);
       const text = [out.subject, out.text].join("\n");
       expect(text, name).not.toMatch(/\b(missed|miss(ed)?\b|streak|behind|overdue|catch up on|days? in a row|don't break|last chance|discount|% off)/i);
-      expect(text, name).not.toContain("\u2014");
+      expect(text, name).not.toContain("—");
     }
     // Win-back subjects are short and plain.
     expect(renderReader("welcome_back", p.welcome_back, links).subject.length).toBeLessThan(30);
@@ -264,5 +265,41 @@ describe("reader templates", () => {
     const props = sample("Mood and Energy");
     expect(renderReader("welcome", props.welcome, {}, null, "en-US").html).toContain('<html lang="en-US"');
     expect(renderReader("welcome", props.welcome).html).toContain('<html lang="en-GB"');
+  });
+
+  describe("receipts and pause (5.11, 14.25)", () => {
+    const props = sample("Worry and Fear");
+    it("receipts say Paid, carry the date, and are in plain words", () => {
+      const lifetime = renderReader("purchase_lifetime", { ...props.purchase_lifetime, paidOn: "14 October 2026" }, links);
+      expect(lifetime.subject).toBe("Receipt for your purchase");
+      expect(lifetime.text).toContain("14 October 2026");
+      expect(lifetime.text).toMatch(/Paid/);
+      const member = renderReader("purchase_membership", { ...props.purchase_membership, paidOn: "14 October 2026" }, links);
+      expect(member.subject).toBe("Receipt for your membership");
+      expect(member.text).toContain("14 October 2026");
+      expect(member.text).toContain("go to You, then Cancel membership");
+    });
+    it("the refund receipt carries amount and date, and the pause email carries both dates", () => {
+      const refund = renderReader("refund_confirmed", { ...props.refund_confirmed, refundedOn: "14 October 2026" }, links);
+      expect(refund.text).toContain("£9.99");
+      expect(refund.text).toContain("14 October 2026");
+      const paused = renderReader("membership_paused", props.membership_paused, links);
+      expect(paused.text).toContain("6 November 2026");
+      expect(paused.text).toContain("6 January 2027");
+      expect(paused.text).toMatch(/nothing is charged/i);
+    });
+    it("uses no em dash, no emoji and never the word free for anything paid", () => {
+      for (const name of ["purchase_lifetime", "purchase_membership", "refund_confirmed", "membership_paused", "cancellation"] as const) {
+        const r = renderReader(name, props[name] as never, links);
+        const body = [r.subject, r.text].join("\n");
+        expect(body, name).not.toMatch(/—|\p{Extended_Pictographic}/u);
+        expect(body.toLowerCase(), name).not.toMatch(/\bfree\b/);
+      }
+    });
+    it("renders identically for the same props, so a resend is the same email", () => {
+      const a = renderReader("membership_paused", props.membership_paused, links);
+      const b = renderReader("membership_paused", props.membership_paused, links);
+      expect(a).toEqual(b);
+    });
   });
 });
