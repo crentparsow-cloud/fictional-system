@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildSeed, buildSeedV2, repoRoot } from "./build";
+import { buildSeed, buildSeedV2, classicFiles, repoRoot } from "./build";
 import { splitInsertOnly } from "./apply";
 import { AKANA_HOUSE_ORG_ID, INSERT_ONLY_COLUMNS } from "./rows";
 import { renderSeedSql } from "./sql";
@@ -40,6 +40,7 @@ const catalogueV2 = readJson("docs", "planning", "AK_Demo_Catalogue_v2.json") as
   maya_vaughn: { theme_placements: { code: string; theme_id: string }[]; unplaced: { code: string }[] };
 };
 const registryThemes = readJson("content", "registry", "themes.json").themes as { id: string; status?: string }[];
+const writtenClassicCodes = new Set(classicFiles(root).map((f) => (JSON.parse(readFileSync(f, "utf8")) as { code: string }).code));
 const isMaya = (w: { badge: string }) => w.badge === "official";
 
 describe("seed.sql is the v2 build", () => {
@@ -61,7 +62,9 @@ describe("buildSeedV2: counts", () => {
     expect(v2.workbooks.filter((w) => w.badge === "public_domain")).toHaveLength(55);
     expect(v2.books).toHaveLength(190);
     expect(v2.tenant_listings).toHaveLength(190);
-    expect(v2.workbook_versions).toHaveLength(20);
+    // 20 Maya Vaughn versions plus one per written classic in content/workbooks/classics (Meditations so far).
+    expect(v2.workbook_versions).toHaveLength(20 + classicFiles(root).length);
+    expect(v2.workbook_versions.filter((v) => v.schema_version === "3.0")).toHaveLength(20);
   });
 
   it("holds 96 catalogue authors plus Maya Vaughn, and six imprints", () => {
@@ -206,8 +209,11 @@ describe("buildSeedV2: Themes", () => {
 describe("buildSeedV2: badges, status and listing values", () => {
   it("badges demo titles demo and classics public_domain, all draft", () => {
     for (const w of v2.workbooks.filter((x) => !isMaya(x))) {
-      expect(w.status).toBe("draft");
-      expect(w.current_version_id).toBeNull();
+      // A classic with written content carries its file status and a version pointer; every other title is a bare draft.
+      const written = writtenClassicCodes.has(w.code);
+      expect(w.status).toBe(written ? "in_review" : "draft");
+      if (written) expect(w.current_version_id).not.toBeNull();
+      else expect(w.current_version_id).toBeNull();
       if (w.is_demo) expect(w.badge).toBe("demo");
       else {
         expect(w.badge).toBe("public_domain");
@@ -268,7 +274,7 @@ describe("seed.sql after approval", () => {
     expect(sql.startsWith("-- Akana catalogue seed")).toBe(true);
     expect(sql).not.toContain("apply_v2_preview");
     expect(sql).not.toContain("DO NOT APPLY");
-    expect(sql).not.toContain("\u2014");
+    expect(sql).not.toContain("—");
     expect(sql).not.toMatch(/insert into public\.organisations[^;]*'00000000-0000-0000-0000-000000000001'/);
   });
 
