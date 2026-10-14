@@ -53,7 +53,7 @@ export default async function AdminJoinPage({ params, searchParams }: { params: 
   const session = await getReaderSession();
   const e = Array.isArray(sp.e) ? sp.e[0] : sp.e;
   const error =
-    e === "other-address" ? "This invitation is for a different email address." : e === "closed" ? "This invitation can no longer be used." : e ? "That didn't work just now. Please try again." : null;
+    e === "other-address" ? "This invitation is for a different email address." : e === "closed" ? "This invitation can no longer be used." : e ? "We're sorry. That did not work just now. Please try again." : null;
 
   return (
     <section className="card auth-card">

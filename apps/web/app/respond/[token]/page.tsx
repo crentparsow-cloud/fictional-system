@@ -95,7 +95,7 @@ export default async function RespondPage({ params, searchParams }: Props) {
     if (view.status !== "invited") return <Shell calm={calmLinkPage("inactive")} />;
     if (first(sp.a) === "decline") {
       return (
-        <Shell calm={{ title: "Say no thanks?", body: "You won't hear from us again, and no more invitations will reach this address." }}>
+        <Shell calm={{ title: "Say no thanks?", body: "You will not hear from us again, and no more invitations will reach this address." }}>
           <ActionForm token={token} action="decline" label="No, thank you" />
           <p className="small">
             <a href={`/respond/${token}`}>Go back to the invitation</a>
@@ -113,7 +113,7 @@ export default async function RespondPage({ params, searchParams }: Props) {
             ))}
             <li>A way to send a few kind words back.</li>
           </ul>
-          <h2>What you won&apos;t see</h2>
+          <h2>What you will not see</h2>
           <p>Their answers, what they write, or which workbook they&apos;re using. You&apos;re not being asked to check on them, or to act as an emergency contact.</p>
         </div>
         <div className="respond-actions">
@@ -134,10 +134,10 @@ export default async function RespondPage({ params, searchParams }: Props) {
   }
 
   if (view.purpose === "stop") {
-    if (view.status === "stopped") return <Shell calm={{ title: "Updates are stopped", body: "You won't get any more updates." }} />;
+    if (view.status === "stopped") return <Shell calm={{ title: "Updates are stopped", body: "You will not get any more updates." }} />;
     if (view.status !== "accepted") return <Shell calm={calmLinkPage("inactive")} />;
     return (
-      <Shell calm={{ title: "Stop updates?", body: `You won't get any more updates about ${reader}. They'll see in the app that updates have stopped.` }}>
+      <Shell calm={{ title: "Stop updates?", body: `You will not get any more updates about ${reader}. They'll see in the app that updates have stopped.` }}>
         <ActionForm token={token} action="stop" label="Stop updates" />
       </Shell>
     );
@@ -169,9 +169,9 @@ export default async function RespondPage({ params, searchParams }: Props) {
 function usedPage(view: View): Calm {
   const reader = view.readerName || "your friend";
   if (view.purpose === "respond" && view.status === "accepted") return { title: "You've already said yes", body: `Thank you. You'll get a short note when ${reader} reaches a new stage.` };
-  if (view.purpose === "respond" && view.status === "declined") return { title: "Already done", body: "You said no thanks. You won't hear from us again." };
+  if (view.purpose === "respond" && view.status === "declined") return { title: "Already done", body: "You said no thanks. You will not hear from us again." };
   if (view.purpose === "reply") return { title: "Message sent", body: "Your message from this email has been sent. Each update email lets you send one." };
-  if (view.purpose === "stop") return { title: "Updates are stopped", body: "You won't get any more updates." };
+  if (view.purpose === "stop") return { title: "Updates are stopped", body: "You will not get any more updates." };
   if (view.purpose === "report") return { title: "Reported and blocked", body: "No more invitations will reach your address." };
   return calmLinkPage("used");
 }
