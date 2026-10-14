@@ -9,6 +9,7 @@ export const INFO_FOOTER_LINKS = [
   { href: "/help", label: "Help centre" },
   { href: "/help-now", label: "Help now" },
   { href: "/trust", label: "Trust" },
+  { href: "/accessibility", label: "Accessibility" },
   { href: "/pricing", label: "Pricing" },
   { href: "/legal/terms", label: "Reader terms" },
   { href: "/legal/privacy", label: "Privacy notice" },

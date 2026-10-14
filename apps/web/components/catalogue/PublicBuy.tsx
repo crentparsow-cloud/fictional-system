@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { TrustStrip } from "@/components/TrustStrip";
 import { CHECKOUT_CONSENTS, CONSENT_REQUIRED_MESSAGE, type CheckoutConsentKind } from "@/lib/checkout-consent";
 import { READER_TERMS_LINKS, READER_TERMS_VERSION } from "@/lib/terms";
 import type { PaywallState } from "@/components/reader/paywall";
@@ -193,6 +194,7 @@ export function PublicBuy({ slug, state, signedIn, returnTo, start, outlineOnlyL
               ) : null}
             </div>
           ))}
+          <TrustStrip kind={consentKinds.length > 1 ? "both" : (consentKinds[0]?.kind ?? "both")} />
         </fieldset>
       ) : null}
 

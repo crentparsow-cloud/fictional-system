@@ -1,3 +1,4 @@
+import { snapCoverWidth } from "@/lib/cache-headers";
 import { coverAlt, COVER_HEIGHT, COVER_WIDTH } from "@/lib/covers";
 
 /**
@@ -20,14 +21,16 @@ export function Cover({
   className?: string;
   priority?: boolean;
 }) {
-  const height = Math.round((width * COVER_HEIGHT) / COVER_WIDTH);
+  // 10.2: one short list of sizes, so a raster cover would make few transformations.
+  const w = snapCoverWidth(width);
+  const height = Math.round((w * COVER_HEIGHT) / COVER_WIDTH);
   return (
     // The cover is our own SVG; next/image would need dangerouslyAllowSVG for no gain.
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className ? `cover ${className}` : "cover"}
       src={`/covers/${encodeURIComponent(code)}`}
-      width={width}
+      width={w}
       height={height}
       alt={coverAlt(title, author)}
       loading={priority ? "eager" : "lazy"}
