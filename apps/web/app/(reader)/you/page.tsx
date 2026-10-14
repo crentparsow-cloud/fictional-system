@@ -71,12 +71,14 @@ export default async function YouPage({ searchParams }: Props) {
   const { data: subRows, error: subError } = session
     ? await supabase
         .from("subscriptions")
-        .select("status, plan, current_period_end, cancel_at_period_end, ended_at, stripe_customer_id, updated_at")
+        .select("status, plan, current_period_end, cancel_at_period_end, ended_at, stripe_customer_id, updated_at, paused_from, paused_until")
         .eq("user_id", session.userId)
     : { data: null, error: null };
   const showMembership = Boolean(session) && !subError;
   const membership = membershipSummary(subRows as SubscriptionRow[] | null);
   const canManageMembership = portalCustomerId(subRows as SubscriptionRow[] | null) !== null;
+  // 14.24: Cancel membership is two taps from here. Shown while there is a membership of your own that is not already ending.
+  const canCancelMembership = ["active", "paused", "pause_ahead", "payment_issue"].includes(membership.kind);
   const membershipMessage = membershipNotice(params.membership) ?? sharedNotice(params.shared);
 
   // Shared membership (migration 0041). The buyer sees the state of the second
@@ -203,12 +205,19 @@ export default async function YouPage({ searchParams }: Props) {
               </button>
             </form>
           ) : null}
+          {canCancelMembership ? (
+            <p>
+              <Link className="btn secondary" href="/you/membership/cancel">
+                Cancel membership
+              </Link>
+            </p>
+          ) : null}
           {canManageMembership ? (
             <form method="post" action="/api/billing/portal">
               <button type="submit" className="btn secondary">
                 Manage membership
               </button>
-              <p className="small muted">Cancel, change your card or see your invoices on Stripe&apos;s secure page.</p>
+              <p className="small muted">Change your card or see your invoices on Stripe&apos;s secure page.</p>
             </form>
           ) : null}
         </section>
