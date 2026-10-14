@@ -1,0 +1,1423 @@
+[
+  {
+    "line": 90,
+    "col": 16,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 378,
+    "col": 45,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 421,
+    "col": 0,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 426,
+    "col": 4,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 513,
+    "col": 50,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 514,
+    "col": 57,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 621,
+    "col": 17,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 638,
+    "col": 50,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 639,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 715,
+    "col": 58,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 725,
+    "col": 48,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 726,
+    "col": 24,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 774,
+    "col": 47,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 942,
+    "col": 46,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 946,
+    "col": 63,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 953,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1027,
+    "col": 18,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1169,
+    "col": 63,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1268,
+    "col": 21,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1268,
+    "col": 54,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1273,
+    "col": 47,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1418,
+    "col": 50,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1419,
+    "col": 12,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1602,
+    "col": 7,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1665,
+    "col": 38,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1691,
+    "col": 35,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1766,
+    "col": 59,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1848,
+    "col": 48,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1876,
+    "col": 35,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 1987,
+    "col": 21,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 1991,
+    "col": 62,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 2002,
+    "col": 57,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2020,
+    "col": 28,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2039,
+    "col": 40,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 2054,
+    "col": 69,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2228,
+    "col": 7,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 2328,
+    "col": 12,
+    "from": "every one",
+    "to": "everyone",
+    "note": "two-word every one (not before 'of')"
+  },
+  {
+    "line": 2546,
+    "col": 47,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2547,
+    "col": 63,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2572,
+    "col": 52,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2578,
+    "col": 38,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2587,
+    "col": 37,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2592,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2626,
+    "col": 21,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 2704,
+    "col": 53,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2719,
+    "col": 18,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2720,
+    "col": 30,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2753,
+    "col": 18,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2821,
+    "col": 57,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2822,
+    "col": 30,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2895,
+    "col": 14,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2996,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 2997,
+    "col": 25,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3000,
+    "col": 53,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3001,
+    "col": 45,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3005,
+    "col": 41,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3006,
+    "col": 36,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3027,
+    "col": 13,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3035,
+    "col": 25,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 3084,
+    "col": 3,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 3089,
+    "col": 29,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3137,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3169,
+    "col": 20,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3185,
+    "col": 43,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 3218,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3331,
+    "col": 45,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 3332,
+    "col": 14,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 3336,
+    "col": 0,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 3350,
+    "col": 0,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 3355,
+    "col": 27,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3384,
+    "col": 12,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 3415,
+    "col": 8,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3418,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3419,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3424,
+    "col": 63,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3458,
+    "col": 60,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3485,
+    "col": 46,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3486,
+    "col": 56,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3486,
+    "col": 62,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3490,
+    "col": 32,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3498,
+    "col": 51,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3518,
+    "col": 22,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3557,
+    "col": 7,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3588,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3604,
+    "col": 49,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3764,
+    "col": 51,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3827,
+    "col": 17,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3828,
+    "col": 6,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 3829,
+    "col": 45,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4027,
+    "col": 11,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4063,
+    "col": 20,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4109,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4185,
+    "col": 17,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4197,
+    "col": 14,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4199,
+    "col": 63,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4255,
+    "col": 45,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4256,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4313,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4320,
+    "col": 52,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4393,
+    "col": 13,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 4394,
+    "col": 65,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 4398,
+    "col": 46,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 4494,
+    "col": 44,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4517,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4517,
+    "col": 61,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4540,
+    "col": 20,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4574,
+    "col": 14,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4602,
+    "col": 22,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4651,
+    "col": 54,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4729,
+    "col": 34,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4814,
+    "col": 62,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 4826,
+    "col": 47,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4837,
+    "col": 14,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 4881,
+    "col": 38,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4889,
+    "col": 39,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4912,
+    "col": 25,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4949,
+    "col": 51,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 4968,
+    "col": 30,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5027,
+    "col": 43,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5039,
+    "col": 35,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5041,
+    "col": 59,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5057,
+    "col": 36,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5064,
+    "col": 26,
+    "from": "to-day",
+    "to": "today",
+    "note": "hyphenated to-day"
+  },
+  {
+    "line": 5064,
+    "col": 0,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 5070,
+    "col": 36,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5071,
+    "col": 22,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5078,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5079,
+    "col": 29,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5101,
+    "col": 38,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5102,
+    "col": 12,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5110,
+    "col": 46,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5118,
+    "col": 24,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5120,
+    "col": 60,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5131,
+    "col": 59,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5133,
+    "col": 51,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5147,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5148,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5199,
+    "col": 53,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5200,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5200,
+    "col": 18,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5200,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5260,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5260,
+    "col": 55,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5262,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5262,
+    "col": 65,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5284,
+    "col": 24,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5284,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5285,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5285,
+    "col": 27,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5316,
+    "col": 64,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5413,
+    "col": 16,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5414,
+    "col": 21,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5435,
+    "col": 24,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5437,
+    "col": 11,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5462,
+    "col": 33,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5474,
+    "col": 59,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5490,
+    "col": 25,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5548,
+    "col": 49,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5551,
+    "col": 4,
+    "from": "To-day",
+    "to": "Today",
+    "note": "hyphenated To-day"
+  },
+  {
+    "line": 5566,
+    "col": 49,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5641,
+    "col": 61,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5661,
+    "col": 21,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 5713,
+    "col": 31,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 5791,
+    "col": 36,
+    "from": "every one",
+    "to": "everyone",
+    "note": "two-word every one (not before 'of')"
+  },
+  {
+    "line": 5989,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6036,
+    "col": 16,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6199,
+    "col": 3,
+    "from": "every one",
+    "to": "everyone",
+    "note": "two-word every one (not before 'of')"
+  },
+  {
+    "line": 6268,
+    "col": 48,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6270,
+    "col": 50,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6301,
+    "col": 38,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6345,
+    "col": 13,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6346,
+    "col": 34,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6404,
+    "col": 51,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6409,
+    "col": 10,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6413,
+    "col": 4,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6464,
+    "col": 34,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6486,
+    "col": 10,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6507,
+    "col": 24,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6604,
+    "col": 18,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6629,
+    "col": 31,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6673,
+    "col": 4,
+    "from": "every one",
+    "to": "everyone",
+    "note": "two-word every one (not before 'of')"
+  },
+  {
+    "line": 6702,
+    "col": 7,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6752,
+    "col": 10,
+    "from": "To-morrow",
+    "to": "Tomorrow",
+    "note": "hyphenated To-morrow"
+  },
+  {
+    "line": 6752,
+    "col": 44,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6753,
+    "col": 9,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6775,
+    "col": 11,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6775,
+    "col": 35,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6776,
+    "col": 8,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6776,
+    "col": 16,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6776,
+    "col": 52,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6777,
+    "col": 5,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6800,
+    "col": 47,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6834,
+    "col": 12,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6849,
+    "col": 58,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6932,
+    "col": 23,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 6947,
+    "col": 55,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7090,
+    "col": 23,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7117,
+    "col": 56,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7125,
+    "col": 66,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7126,
+    "col": 59,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7206,
+    "col": 60,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 7416,
+    "col": 27,
+    "from": "every one",
+    "to": "everyone",
+    "note": "two-word every one (not before 'of')"
+  },
+  {
+    "line": 7794,
+    "col": 31,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  }
+]
