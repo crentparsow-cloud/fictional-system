@@ -545,3 +545,4 @@ export function formatFindings(file: string, result: ValidationResult): string {
 export * from "./guide";
 export * from "./plain";
 export * from "./classics";
+export * from "./title-copy";
