@@ -297,7 +297,7 @@ export function ExerciseScreen({
               {isRepeat ? "comes back, " : ""}
               {mode === "short" ? "short version, " : ""}about {minutesWord(minutes)}
             </Eyebrow>
-            <h2 className="ak-h2">{e.title}</h2>
+            <h2 className="ak-h2" data-ra>{e.title}</h2>
           </div>
         </header>
 
@@ -318,12 +318,12 @@ export function ExerciseScreen({
 
           {page === "purpose" ? (
             <>
-              <p className="ak-purpose">
+              <p className="ak-purpose" data-ra>
                 <b>You will have:</b> {e.purpose}
               </p>
               <details className="ak-card ak-card-flat ak-details">
                 <summary>Why this step</summary>
-                <p className="ak-muted">{e.why}</p>
+                <p className="ak-muted" data-ra>{e.why}</p>
               </details>
             </>
           ) : null}
@@ -332,7 +332,7 @@ export function ExerciseScreen({
 
           {page === "example" && e.example ? (
             <Card>
-              <p>{e.example.text}</p>
+              <p data-ra>{e.example.text}</p>
             </Card>
           ) : null}
 
@@ -361,7 +361,7 @@ export function ExerciseScreen({
 
           {page === "done" ? (
             <>
-              <p className="ak-done-when">
+              <p className="ak-done-when" data-ra>
                 <b>{e.done_when}</b>
               </p>
               {done ? (
