@@ -1,0 +1,1142 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-7SWKN",
+  "slug": "self-help-7swkn",
+  "title": "Self-Help",
+  "short_title": "Self-Help",
+  "card_line": "Read Smiles' short lives of patient effort and plan one of your own.",
+  "book": {
+    "book_id": "self-help",
+    "title": "Self-Help",
+    "subtitle": "with Illustrations of Conduct and Perseverance",
+    "year": 1859
+  },
+  "author": {
+    "author_id": "AU-HX8HW",
+    "display_name": "Samuel Smiles"
+  },
+  "genre": "personal_development",
+  "theme_id": "chosen-habits",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "public_domain",
+  "licence_ref": "public-domain:/public-domain/AK-7SWKN",
+  "status": "in_review",
+  "safety_tier": "none",
+  "structure": {
+    "unit": "week",
+    "count": 6,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "begin",
+        "number": 1,
+        "name": "Begin",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Where the book begins",
+          "body": "Self-Help opens with its argument and then turns to the ordinary qualities that carry it out. Chapter I says you are your own best helper, and admits that other people matter too. Chapter IV is about attention, repetition and patience. The first two weeks ask you to name who has helped you. You choose one task that is yours to do, and one thing to return to each day."
+        },
+        "outcome": "A clear sense of what is yours to do, who helps you, and one thing you return to each day."
+      },
+      {
+        "id": "stand",
+        "number": 2,
+        "name": "Stand",
+        "units": [
+          3,
+          4
+        ],
+        "primer": {
+          "title": "Purpose and money",
+          "body": "Chapters VIII and X are about purpose and about money. Smiles says energy of will is the centre of character, and that how a person handles money shows it. Weeks 3 and 4 ask you to turn a wish into a step and find a place for small courage. You then name the shares of your week and think about what you want less of. The pages on war and empire are left out."
+        },
+        "outcome": "A first step on something you have put off, and a plain view of where your money goes."
+      },
+      {
+        "id": "shape",
+        "number": 3,
+        "name": "Shape",
+        "units": [
+          5,
+          6
+        ],
+        "primer": {
+          "title": "Learning and character",
+          "body": "Chapters XI and XIII turn to what you make of yourself. Smiles says the education you give yourself counts most, and that character is built from small acts repeated. Weeks 5 and 6 ask you to pick something to learn well and find the minutes for it. You then build one small habit and write two rules to live by."
+        },
+        "outcome": "One thing you are learning, one habit you are building, and two rules in your own words."
+      }
+    ]
+  },
+  "start": {
+    "welcome": "This workbook follows six chapters of Self-Help, Samuel Smiles's book of 1859, one a week for six weeks. Each week takes about fifteen minutes. You read a short account of the chapter, then answer a few questions in your own words. Smiles wrote for his own time, and his views on class, work and money show it. The text is from a public-domain edition, with a few old spellings updated. Week 1 is free. No card is needed.",
+    "how_it_works": [
+      "Read the week's key ideas. Each one is a sentence you can agree or disagree with.",
+      "Answer one question for each exercise. A line is enough.",
+      "Smiles's examples are mostly men of his own time. Read them as stories about effort, and judge each one for yourself.",
+      "Your answers build a plan you can read at the end."
+    ],
+    "why_prompt": "What made you pick up a book written in 1859? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "begin",
+      "focus": "Smiles begins by arguing that you are your own best helper",
+      "exercise_ids": [
+        "u1_helpers",
+        "u1_own"
+      ],
+      "intro": "Chapter I states the argument of the whole book. Smiles held that progress depends mainly on individual effort, and he backs this with short lives of people who began with little. He ends the chapter by admitting that nobody gets far alone. This week you test both halves against your own life.",
+      "ideas": [
+        {
+          "heading": "Help that comes from within a person lasts longer than help from outside.",
+          "body": "Smiles opens with the old saying that heaven helps those who help themselves. He argues that whatever is done for people can remove their reason to act for themselves. He does not call outside help wrong. He calls it weaker than the habit of acting, and he builds the rest of the book on that claim.",
+          "example": "Smiles states the claim in one sentence. Chapter I: \"Help from without is often enfeebling in its effects, but help from within invariably invigorates.\""
+        },
+        {
+          "heading": "Rules can protect what you earn but cannot change your habits.",
+          "body": "Smiles wrote when many people expected new laws to settle most problems. He agreed that good laws protect people in the enjoyment of their work. He doubted that any law could do a person's changing for them. Whatever you think of that as politics, it holds for one life: a rule can ask, and only you can do.",
+          "example": "On what laws cannot do. Chapter I: \"no laws, however stringent, can make the idle industrious, the thriftless provident, or the drunken sober.\""
+        },
+        {
+          "heading": "The lives of ordinary people shape a country as much as the famous ones.",
+          "body": "Smiles says history remembers the generals, but the victories were won by the soldiers. He applies this to everyday life. A person who sets an example of steady work and honesty affects others without knowing it. Their life and character pass into the lives of the people around them.",
+          "example": "He says many lives go unrecorded. Chapter I: \"Many are the lives of men unwritten, which have nevertheless as powerfully influenced civilisation and progress\""
+        },
+        {
+          "heading": "Books alone do not teach their own use.",
+          "body": "Smiles quotes Francis Bacon to say that study gives knowledge but not the wisdom to apply it. That comes from observation and from doing the work. He goes further and says a person improves more by work than by reading, which is why his own book is made of working lives.",
+          "example": "Bacon, quoted by Smiles. Chapter I: \"Studies teach not their own use; but that is a wisdom without them, and above them, won by observation\""
+        },
+        {
+          "heading": "In some lives, difficulty did the work that comfort could not.",
+          "body": "Smiles notes that many of his subjects met poverty and obstacles early and used them to build their powers. He says those difficulties seemed to be their best helpers. This is a claim about the people he chose to write about. It is not advice to look for hardship, and it does not describe everyone.",
+          "example": "The mathematician Lagrange said his family's loss of money shaped his career. Chapter I: \"I should probably not have become a mathematician\""
+        },
+        {
+          "heading": "Wealth cannot buy the study that a person has to do for themselves.",
+          "body": "Smiles insists that his argument covers rich people too. A person can inherit property but not knowledge. He adds that you can pay others to do your work but not to do your thinking. For Smiles, self-help is a rule for everyone, not only for those starting with little.",
+          "example": "On what cannot be inherited. Chapter I: \"though an inheritance of acres may be bequeathed, an inheritance of knowledge and wisdom cannot.\""
+        },
+        {
+          "heading": "Read his success stories as accounts of effort, not as forecasts for you.",
+          "body": "Smiles picked examples that proved his point, and many people who worked as hard did not rise. His subjects are almost all men, and most lived in Britain or France in earlier centuries. Take from them the habits they describe, such as patience, attention and early starts, and leave the outcomes with them. The book makes no promise about what effort will bring you.",
+          "example": "Smiles says such rises are common. Chapter I: \"are indeed so numerous that they have long ceased to be regarded as exceptional\""
+        },
+        {
+          "heading": "Smiles himself says that nobody gets far without help from others.",
+          "body": "Near the end of the chapter Smiles qualifies his own argument. He says the help we receive from others is of very great importance. His example is de Tocqueville. He resigned a post won through family influence, yet thanked his friends and his wife for ideas and support.",
+          "example": "Smiles on the strongest people. Chapter I: \"the best and strongest are usually found the readiest to acknowledge such help.\""
+        }
+      ],
+      "takeaway": "You have named the people who helped you, and one thing that is yours to do this week."
+    },
+    {
+      "number": 2,
+      "stage": "begin",
+      "focus": "Smiles argues that ordinary qualities used every day outweigh talent",
+      "exercise_ids": [
+        "u2_return",
+        "u2_help"
+      ],
+      "intro": "Chapter IV is about application and perseverance. Smiles says the greatest results come from simple means and ordinary qualities, such as attention, patience and repetition. His examples include scientists, writers and a shoemaker. This week you choose something to return to each day and look at one habit you cannot hold alone.",
+      "ideas": [
+        {
+          "heading": "Plain qualities such as attention and patience do more than brilliance.",
+          "body": "Smiles opens by saying the common life of every day gives plenty of room for effort and self-improvement. He lists the qualities he trusts most: common sense, attention, application and perseverance. Even the cleverest people, he says, use these. He quotes Buffon, who said of genius, \"it is patience.\"",
+          "example": "Smiles on how great results come about. Chapter IV: \"usually attained by simple means, and the exercise of ordinary qualities\""
+        },
+        {
+          "heading": "Newton said he found his answers by keeping a question in front of him.",
+          "body": "Asked how he reached his discoveries, Newton answered that he did it by always thinking on them. He described his method as keeping the subject continually before him. Smiles reads this as diligence, not magic. Newton even took his rest by changing from one subject to another.",
+          "example": "Newton on his method. Chapter IV: \"wait till the first dawnings open slowly by little and little into a full and clear light.\""
+        },
+        {
+          "heading": "Skill comes from repeating a task until it becomes easy.",
+          "body": "Sir Robert Peel's father had him practise speaking at table and repeat as much of Sunday's sermon as he could remember. Little progress came at first. By steady repetition the habit of attention grew, until he could repeat the sermon almost word for word. Smiles says Peel later drew on this training in debate.",
+          "example": "Smiles draws the lesson. Chapter IV: \"We must repeat and again repeat; facility will come with labour.\""
+        },
+        {
+          "heading": "Good progress is slow, so Smiles says to advance as you walk, step by step.",
+          "body": "Smiles warns against expecting great results at once. He says the fruit best worth waiting for often ripens slowest. He quotes an Eastern proverb that time and patience change the mulberry leaf to satin. For him, waiting is part of the work, as long as the work goes on while you wait.",
+          "example": "On the pace of progress. Chapter IV: \"we must be satisfied to advance in life as we walk, step by step.\""
+        },
+        {
+          "heading": "Losing months of work hurts, and Audubon and Carlyle both started again.",
+          "body": "Audubon came home to find that rats had destroyed two hundred of his original bird drawings. A maid used the manuscript of Carlyle's first volume on the French Revolution to light fires. Smiles does not hide the pain, and calls the rewriting anguish almost beyond belief. Both men went back to work.",
+          "example": "Audubon on what he did next. Chapter IV: \"I took up my gun, my notebook, and my pencils, and went forth to the woods as gaily as if nothing had happened.\""
+        },
+        {
+          "heading": "Buffon paid his servant to get him out of bed before six.",
+          "body": "Buffon was born to money and liked to lie in. He saw that he was losing hours and could not break the habit alone. He promised his servant Joseph a crown each time he got him up before six, and Joseph earned it. Buffon later kept fixed hours at his desk for forty years.",
+          "example": "Smiles on Buffon's reasoning. Chapter IV: \"finding that he was losing many hours by lying a-bed in the mornings, he determined to break himself of the habit.\""
+        },
+        {
+          "heading": "One remark from a child changed how Samuel Drew spent his evenings.",
+          "body": "Drew was a shoemaker who read and wrote in his spare hours. For a time he also spent his days talking politics with neighbours, so he worked late to catch up. One night a boy called through the keyhole that he worked by night and ran about by day. Drew took it as a warning and dropped politics.",
+          "example": "Drew on what he learnt. Chapter IV: \"I learnt from it not to leave till tomorrow the work of today, or to idle when I ought to be working.\""
+        },
+        {
+          "heading": "The more a person learns, the more they see left to learn.",
+          "body": "Smiles ends his run of examples on a note of humility. Sir Walter Scott rose before six to write, kept punctual habits and answered his letters the day they came. Yet he said he felt held back by what he did not know.",
+          "example": "Scott on his own knowledge. Chapter IV: \"Throughout every part of my career I have felt pinched and hampered by my own ignorance.\""
+        }
+      ],
+      "takeaway": "You have chosen one thing to return to each day, and named a habit you will ask someone to help you keep."
+    },
+    {
+      "number": 3,
+      "stage": "stand",
+      "focus": "Smiles says energy of will is the centre of a person's character",
+      "exercise_ids": [
+        "u3_wish",
+        "u3_courage"
+      ],
+      "intro": "Chapter VIII is about energy and courage. Much of it describes soldiers and empire, and this workbook leaves those pages aside. It keeps what Smiles says about purpose, about acting promptly and about courage in ordinary matters. The examples come from civilians who stayed with causes they believed in.",
+      "ideas": [
+        {
+          "heading": "Energy lets a person push through the dull parts of any task.",
+          "body": "Smiles argues that energy of will is the central power of character. It carries a person through drudgery and dry detail. He says purpose matters more than talent, because purpose supplies the will to keep going. He also links energy to hope, which he says rests on it.",
+          "example": "On what energy does. Chapter VIII: \"Energy enables a man to force his way through irksome drudgery and dry details\""
+        },
+        {
+          "heading": "A wish that never becomes an act does little for anyone.",
+          "body": "Smiles says wishes and desires count for little unless they are acted on promptly. He holds up Wellington, who did not wait for rescue but kept working in the meantime. The rule he draws is plain. Once you have formed a good purpose, carry it out.",
+          "example": "On a purpose once formed. Chapter VIII: \"The good purpose once formed must be carried out with alacrity and without swerving.\""
+        },
+        {
+          "heading": "Fowell Buxton credited his working life to giving one thing his whole attention.",
+          "body": "Buxton trusted ordinary means and extraordinary application. He took the biblical line, do with all your might what your hand finds to do, as a rule for each task in turn. Smiles adds that people of moderate ability can do a great deal when they give themselves wholly to one thing at a time.",
+          "example": "Buxton on his rule. Chapter VIII: \"being a whole man to one thing at a time.\""
+        },
+        {
+          "heading": "Energy often shows up as a quick, plain answer to the question when.",
+          "body": "Smiles lists people who, asked when they could begin, named the nearest time. The traveller Ledyard said tomorrow morning. Earl St. Vincent, asked when he would join his ship, said directly. Smiles takes this readiness as a mark of energy.",
+          "example": "Ledyard, asked when he would be ready to set out for Africa. Chapter VIII: \"Tomorrow morning.\""
+        },
+        {
+          "heading": "Thomas Clarkson searched every port until he found one witness.",
+          "body": "Clarkson was gathering evidence against the slave trade, and he needed a witness to the slave-hunting raids. All he had was a vague description of a young sailor on a ship in ordinary. He went through the seaports and boarded the ships one by one. Smiles says he found the man in the last port.",
+          "example": "On the scale of his search. Chapter VIII: \"Clarkson conducted a correspondence with upwards of four hundred persons, travelling more than thirty-five thousand miles\""
+        },
+        {
+          "heading": "Courage can be as small as carrying an umbrella when nobody else does.",
+          "body": "Jonas Hanway spent his later life on public causes, including the care of poor children in workhouses. Smiles also records that he was the first person to walk the streets of London under an umbrella. He says it took moral courage to keep it up. Hanway carried one for thirty years before others did.",
+          "example": "On the thirty years. Chapter VIII: \"After carrying an umbrella for thirty years, Mr. Hanway saw the article at length come into general use.\""
+        },
+        {
+          "heading": "Sometimes the difference is one more step.",
+          "body": "Smiles writes that the person who goes on a little longer, and concentrates more, often outlasts someone with greater force. He gives an old Spartan reply to a son who complained that his sword was too short. The reply fits any task that seems just out of reach.",
+          "example": "The Spartan father's reply. Chapter VIII: \"Add a step to it\""
+        },
+        {
+          "heading": "A strong will is only as good as the direction it takes.",
+          "body": "Smiles warns that will without direction is only firmness and persistence, so everything depends on its aim. He sets Napoleon, whose aim he calls glory, beside Wellington, whose watchword was duty. He says power used without kindness damages its holder and those it rules. The question to ask is what your effort is for.",
+          "example": "On the right aim. Chapter VIII: \"directed towards good, the strong will is a king, and the intellect the minister of man's highest well-being.\""
+        }
+      ],
+      "takeaway": "You have turned one wish into a first step, and named one place where a little courage is needed."
+    },
+    {
+      "number": 4,
+      "stage": "stand",
+      "focus": "Smiles says how a person uses money shows their character",
+      "exercise_ids": [
+        "u4_shares",
+        "u4_wants"
+      ],
+      "intro": "Chapter X reports Smiles's views on thrift, debt and wealth, written in 1859. This workbook gives no financial advice and makes no promise about your money. It asks you to look at your own habits. You read what Smiles argued, then decide for yourself what applies.",
+      "ideas": [
+        {
+          "heading": "Money is not the aim of life, and it is not a trifle either.",
+          "body": "Smiles says how a person earns, saves and spends money is perhaps one of the best tests of practical wisdom. He ties money to honesty, generosity and forethought. He also names their opposites: greed, fraud and waste. For him, money shows character more than it makes it.",
+          "example": "On keeping money in proportion. Chapter X: \"money ought by no means to be regarded as a chief end of man's life, neither is it a trifling matter\""
+        },
+        {
+          "heading": "A first step is to keep an account of what comes in and goes out.",
+          "body": "Smiles calls it a duty to look your affairs in the face. He recommends simple arithmetic and a plan of living in which both ends meet. He quotes Locke, who said that nothing keeps a person within compass like seeing the state of their affairs in a regular account. The Duke of Wellington paid his own bills after a trusted servant left some unpaid.",
+          "example": "The duty, as Smiles states it for every man. Chapter X: \"to look his affairs in the face, and to keep an account of his incomings and outgoings in money matters.\""
+        },
+        {
+          "heading": "Thomas Wright divided his weekly pay into named shares and kept to them.",
+          "body": "Wright was a foundry worker in Manchester who spent his spare time helping released prisoners find honest work. He did it on a weekly wage. Smiles says he fixed the shares in advance, for food and clothing, for rent, for schooling and for those in need.",
+          "example": "How Wright planned each week. Chapter X: \"Every week he apportioned his income with deliberate care\""
+        },
+        {
+          "heading": "Smiles says debt tempts people to hide the truth.",
+          "body": "He argues that a person in debt has to frame excuses to the person they owe, and that the first debt makes the second easier. He quotes the painter Haydon, who dated his decline from the day he first borrowed. This is Smiles's view in 1859. Weigh it against your own situation.",
+          "example": "Smiles quotes two sayings. Chapter X: \"lying rides on debt's back\" and \"Who goes a-borrowing, goes a-sorrowing.\""
+        },
+        {
+          "heading": "Smiles calls living within your means a matter of honesty.",
+          "body": "His reasoning is short. Someone who spends more than they have must be living on somebody else's money. He says careless spenders are often generous by nature but end up doing shabby things. He adds that orderly people of moderate means usually have something left to help others.",
+          "example": "On the reasoning. Chapter X: \"he must necessarily be living dishonestly upon the means of somebody else.\""
+        },
+        {
+          "heading": "Spending to look prosperous costs more than the money.",
+          "body": "Smiles complains of a rush to seem genteel, his word for polished and well-off. People kept up appearances beyond their means, and he says honesty was often what it cost them. He thinks the pressure falls on families as well as on the person spending. The pressure may come from different places now, but the habit is recognisable.",
+          "example": "On keeping up appearances. Chapter X: \"We keep up appearances, too often at the expense of honesty\""
+        },
+        {
+          "heading": "Saving can turn into hoarding, and Smiles warns against that too.",
+          "body": "Smiles approves of providing for others and for old age. He draws the line at saving for its own sake. He says a habit that began as sensible economy can become avarice in later life. What was a duty in one case, he writes, may become a vice in the other.",
+          "example": "On the limit. Chapter X: \"to hoard for mere wealth's sake is the characteristic of the narrow-souled and the miserly.\""
+        },
+        {
+          "heading": "Joseph Brotherton judged his own wealth by how little he wanted.",
+          "body": "Brotherton began as a factory boy and became a Member of Parliament. He also kept preaching in a small Manchester chapel. Smiles quotes the motto on his monument. He uses it to say that money is one kind of power, and that intelligence and moral virtue are others.",
+          "example": "The motto on his monument. Chapter X: \"My richness consisted not in the greatness of my possessions, but in the smallness of my wants.\""
+        }
+      ],
+      "takeaway": "You have named the main shares of one week's money, and one want you would be glad to need less."
+    },
+    {
+      "number": 5,
+      "stage": "shape",
+      "focus": "Smiles argues that the education you give yourself counts most",
+      "exercise_ids": [
+        "u5_subject",
+        "u5_minutes"
+      ],
+      "intro": "Chapter XI is the longest in the book. Smiles says school gives a start and the rest is up to the learner. He covers how to study, why slow learners often catch up, and how to meet setbacks. This week you choose something to learn properly and look for the spare minutes to do it in.",
+      "ideas": [
+        {
+          "heading": "The best part of your education is the part you give yourself.",
+          "body": "Smiles borrows the line from Sir Walter Scott. He says school and college mainly teach habits of study. What you learn by your own effort stays with you in a way that imparted information does not.",
+          "example": "On knowledge won by effort. Chapter XI: \"Knowledge conquered by labour becomes a possession, a property entirely our own.\""
+        },
+        {
+          "heading": "Owning a library no more makes you learned than owning wealth makes you generous.",
+          "body": "Smiles worried that libraries, lectures and reading rooms could stand in for effort. He says wisdom comes the old way, through observation, attention and perseverance. Reading can be passive. The aim, he says, is to enlarge your own intelligence and make you more useful in your work.",
+          "example": "On libraries. Chapter XI: \"The possession of a library, or the free use of it, no more constitutes learning, than the possession of wealth constitutes generosity.\""
+        },
+        {
+          "heading": "Studying one thing until you own it beats reading a great deal.",
+          "body": "Lord St. Leonards told Fowell Buxton how he studied law. He said many of his rivals read as much in a day as he read in a week. After twelve months his knowledge was as fresh as the day he gained it, while theirs had slipped away. Smiles adds that a little exact knowledge is worth more than a wide, shallow acquaintance.",
+          "example": "St. Leonards on his method. Chapter XI: \"to make everything I acquired perfectly my own, and never to go to a second thing till I had entirely accomplished the first.\""
+        },
+        {
+          "heading": "Spare minutes are where most self-education gets done.",
+          "body": "Smiles says people who want to learn use the fragments of spare time that others let run to waste. His list includes a man who learned astronomy under the night sky and a gardener who learned mathematics. A shoemaker studied philosophy between jobs, and a quarry worker taught himself geology.",
+          "example": "On spare time. Chapter XI: \"use up the fragments of spare time which the idle permit to run to waste.\""
+        },
+        {
+          "heading": "Much is left undone because little is attempted.",
+          "body": "Smiles names lack of confidence as a larger obstacle than most people think. He says half the setbacks in life come from pulling in the horse while it is leaping. True modesty, he adds, does not mean denying your own merits. Trying something, even imperfectly, is where progress starts.",
+          "example": "On trying. Chapter XI: \"the reason why so little is done, is generally because so little is attempted.\""
+        },
+        {
+          "heading": "Watt asked for a book of blots, a record of what went wrong.",
+          "body": "Smiles says people often learn what will work by finding out what will not. James Watt wished engineers kept a record of their mistakes. Humphry Davy said his most important discoveries were suggested to him by things going wrong. A written record of mistakes, Smiles suggests, is worth having.",
+          "example": "Watt on what engineering lacked. Chapter XI: \"a book of blots.\""
+        },
+        {
+          "heading": "People have started to learn something new well into adult life.",
+          "body": "Smiles lists late starters to answer the thought that it is too late. Handel was forty-eight before he published any of his great works. James Watt learned three languages at about forty so that he could read works on engineering. Smiles says people can do much by making a beginning at any age.",
+          "example": "On Watt. Chapter XI: \"James Watt, when about forty, while working at his trade of an instrument maker in Glasgow, learnt French, German, and Italian\""
+        },
+        {
+          "heading": "What matters most is the purpose you have for what you learn.",
+          "body": "Smiles sets a limit on his own praise of learning. He says knowledge matters for the use made of it, and should serve wisdom and character. Without good aims, he warns, it can make people more dangerous, not better. His test is whether what you learn makes you more useful and more benevolent.",
+          "example": "On the purpose of knowledge. Chapter XI: \"It is not then how much a man may know, that is of importance\""
+        }
+      ],
+      "takeaway": "You have chosen one subject to learn properly, and found where in your week the minutes for it are."
+    },
+    {
+      "number": 6,
+      "stage": "shape",
+      "focus": "Smiles ends by saying character is built from small habits and honest acts",
+      "exercise_ids": [
+        "u6_habit",
+        "u6_rules"
+      ],
+      "intro": "Chapter XIII is about character, which Smiles calls the crown and glory of life. He uses the word gentleman for a person of honesty, courage and consideration, whatever their rank, and the chapter reflects the manners of 1859. This week you read the parts on honesty, habit and small kindnesses, and write rules of your own.",
+      "ideas": [
+        {
+          "heading": "Francis Horner won wide respect through character, not rank, wealth or brilliance.",
+          "body": "Smiles quotes a long tribute to Horner, a politician who died at thirty-eight. He was the son of an Edinburgh merchant, with no spare money, a short spell in office and no great gift of speech. Lord Cockburn lists what he lacked and gives the answer. His character was formed by himself, out of no peculiarly fine elements.",
+          "example": "Cockburn on Horner. Chapter XIII: \"Merely by sense, industry, good principles, and a good heart, qualities which no well-constituted mind need ever despair of attaining.\""
+        },
+        {
+          "heading": "Character shows in whether a person is really what they seem.",
+          "body": "Smiles says there is truthfulness in action as well as in words. A person who respects themselves, and wants the respect of others, will do honestly what they say they will. He tells how Granville Sharp passed a family maxim to a stranger: try to be really what you would wish to appear. People whose acts contradict their words, Smiles adds, carry little weight.",
+          "example": "On truthfulness in action. Chapter XIII: \"A man must really be what he seems or purposes to be.\""
+        },
+        {
+          "heading": "Right action matters most when nobody is watching.",
+          "body": "Smiles tells of a boy who was asked why he did not pocket some pears when nobody was there to see. He uses the answer to show conscience working as a steady influence rather than an occasional one. He says each small act of meanness changes the person who does it, whether or not it is found out.",
+          "example": "The boy's answer. Chapter XIII: \"I was there to see myself\""
+        },
+        {
+          "heading": "Small events build a habit the way snowflakes build an avalanche.",
+          "body": "Smiles says habit acts without effort and shows its strength only when you oppose it. At first it may be no stronger than a spider's web. Repeated, it binds like iron. He adds that principles are the names we give to habits, and that self-respect, application and integrity are habits rather than beliefs.",
+          "example": "On small events, taken singly. Chapter XIII: \"like snow that falls silently, flake by flake; yet accumulated, these snow-flakes form the avalanche.\""
+        },
+        {
+          "heading": "The wisest habit of all, Smiles says, is care in forming good habits.",
+          "body": "Smiles holds that it is easier to build a habit well than to mend one later. He says an old habit can wind itself through a whole life. That is his argument for care at the start. It also suggests choosing one habit at a time and watching it, rather than trying to change everything at once.",
+          "example": "Mr. Lynch, quoted by Smiles. Chapter XIII: \"the wisest habit of all is the habit of care in the formation of good habits.\""
+        },
+        {
+          "heading": "A kind look costs nothing and can matter to the person who gets it.",
+          "body": "Smiles argues that character shows in how we behave towards others, and that anyone can be civil and kind, even with no money. He quotes the preacher Robertson of Brighton, who gave a kind look to a poor girl outside church as he passed. A lady later told him the girl had been moved to tears of gratitude. He had thought no more about it.",
+          "example": "Robertson's own account. Chapter XIII: \"it gave an hour's sunshine to a human life\""
+        },
+        {
+          "heading": "You can hold a firm view and still speak to others with courtesy.",
+          "body": "Smiles asks for consideration of other people's opinions. He says principles can be kept with courtesy and without hard words, and that some words wound as much as blows. He then tells a parable from a travelling preacher about a figure seen in the mist.",
+          "example": "The parable. Chapter XIII: \"When I came nearer to it I found it was a man. When I came up to him I found he was my brother.\""
+        },
+        {
+          "heading": "How someone uses power over others is, for Smiles, the surest test of character.",
+          "body": "He asks how a person acts towards those who depend on them or cannot answer back. He lists an officer and his men, an employer and staff, a teacher and pupils. As his example he tells of Sir Ralph Abercromby, dying of a wound, who asked whose blanket was under his head.",
+          "example": "Abercromby learns it belongs to a private soldier. Chapter XIII: \"Then see that Duncan Roy gets his blanket this very night.\""
+        }
+      ],
+      "takeaway": "You have chosen one small habit to build, and written two rules for how you want to act."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "u1_helpers",
+      "title": "Name the people who helped you",
+      "purpose": "A short list of the people who helped you, and what each gave.",
+      "why": "Smiles ends his first chapter by saying that nobody gets far alone. He points to de Tocqueville, who thanked one friend for ideas and another for steady support. Think of the people who have helped you, whether family, teachers, colleagues or friends. Beside each name, write what they gave.",
+      "source": {
+        "chapter": "Chapter I, the closing pages on de Tocqueville"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the week's key ideas first, then come back here."
+        },
+        {
+          "text": "Think of three people who helped you along. Family, teachers and colleagues all count."
+        },
+        {
+          "text": "Beside each name, write one thing they gave you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "helpers",
+          "type": "two_column",
+          "label": "Who has helped you most, and what did they give you?",
+          "columns": [
+            "The person",
+            "What they gave you"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "Three people are named, each with one thing they gave you.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one person who helped you."
+          },
+          {
+            "text": "Write their name and what they gave you."
+          }
+        ],
+        "field_ids": [
+          "helpers"
+        ]
+      },
+      "reflect": "Which of these people have you thanked, and which still need thanking?",
+      "feeds_plan": [
+        {
+          "field_id": "helpers",
+          "plan_section": "helpers"
+        }
+      ]
+    },
+    {
+      "id": "u1_own",
+      "title": "Choose one thing to do yourself",
+      "purpose": "One task you have been leaving for someone else, now yours.",
+      "why": "Smiles argues that help from within lasts longer than help from outside. Pick something small that you have been waiting for someone else to start or fix. Choose a task that is within your own power and could begin this week.",
+      "source": {
+        "chapter": "Chapter I, the opening pages"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Read your list from the first exercise."
+        },
+        {
+          "text": "Think of one task you have been leaving for someone else."
+        },
+        {
+          "text": "Decide on the day you will begin it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "own",
+          "type": "short_text",
+          "label": "What is one thing you have been waiting for someone else to do, that you could start yourself this week?"
+        }
+      ],
+      "done_when": "One task is written down with a day to begin it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one task you could start yourself."
+          }
+        ],
+        "field_ids": [
+          "own"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "own",
+          "plan_section": "own"
+        }
+      ]
+    },
+    {
+      "id": "u2_return",
+      "title": "Choose one thing to return to",
+      "purpose": "One task or question you will come back to each day this week.",
+      "why": "Newton said he kept his subject continually before him. Choose one task or question of your own and come back to it each day, even for a few minutes. Smiles held that steady return counts for more than one long effort. Pick something small enough to keep going.",
+      "source": {
+        "chapter": "Chapter IV, on Newton and patient thought"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of something you want to make progress on."
+        },
+        {
+          "text": "Shrink it to a task you can do in ten minutes."
+        },
+        {
+          "text": "Choose the time of day you will come back to it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "return",
+          "type": "short_text",
+          "label": "What will you return to each day this week, and at what time of day?"
+        }
+      ],
+      "done_when": "One task and one time of day are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one task."
+          },
+          {
+            "text": "Choose a time of day for it."
+          }
+        ],
+        "field_ids": [
+          "return"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "return",
+          "plan_section": "daily"
+        }
+      ]
+    },
+    {
+      "id": "u2_help",
+      "title": "Find help for one habit",
+      "purpose": "One habit, and one person who could help you keep it.",
+      "why": "Buffon could not get himself out of bed early, so he asked his servant to help and paid him for it. Think of a habit you find hard to keep by yourself. Then think of someone who could help, whether by asking you, joining you or checking in.",
+      "source": {
+        "chapter": "Chapter IV, on Buffon"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a habit you find hard to keep alone."
+        },
+        {
+          "text": "Think of one person who could help."
+        },
+        {
+          "text": "Decide what you will ask them to do."
+        }
+      ],
+      "fields": [
+        {
+          "id": "help",
+          "type": "short_text",
+          "label": "Which habit do you find hard to keep alone, and who could help you keep it?"
+        }
+      ],
+      "done_when": "One habit and one helper are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one habit."
+          },
+          {
+            "text": "Name one person who could help."
+          }
+        ],
+        "field_ids": [
+          "help"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "help",
+          "plan_section": "helpers"
+        }
+      ]
+    },
+    {
+      "id": "u3_wish",
+      "title": "Turn one wish into a step",
+      "purpose": "One thing you keep meaning to do, with its first step and a day.",
+      "why": "Smiles says wishes count for little until they are acted on. Think of something you keep meaning to do. Write it down. Then write the first step, small enough to take within the week, and the day you will take it.",
+      "source": {
+        "chapter": "Chapter VIII, on purpose and action"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of something you have been meaning to do for a while."
+        },
+        {
+          "text": "Write the first step, small enough for this week."
+        },
+        {
+          "text": "Choose the day you will take it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wish",
+          "type": "two_column",
+          "label": "What do you keep meaning to do, and what is the first step you will take this week?",
+          "columns": [
+            "What I keep meaning to do",
+            "The first step and the day"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "One wish has a first step and a day.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one thing you keep meaning to do."
+          },
+          {
+            "text": "Write its first step."
+          }
+        ],
+        "field_ids": [
+          "wish"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "wish",
+          "plan_section": "own"
+        }
+      ]
+    },
+    {
+      "id": "u3_courage",
+      "title": "Find one place for small courage",
+      "purpose": "One sensible act you have held back from because of what others might think.",
+      "why": "Smiles calls walking under an umbrella in Hanway's day an act of moral courage. The act was small, and what it cost was the opinion of others. Think of something sensible that you have held back from for that reason. It could be a question, a request or a plain no.",
+      "source": {
+        "chapter": "Chapter VIII, on Jonas Hanway"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of something sensible you have held back from."
+        },
+        {
+          "text": "Say what you feared others would think."
+        },
+        {
+          "text": "Decide whether you will do it this week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "courage",
+          "type": "short_text",
+          "label": "What sensible thing have you held back from because of what others might think?"
+        }
+      ],
+      "done_when": "One act is named, and you have decided what to do about it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one act you have held back from."
+          }
+        ],
+        "field_ids": [
+          "courage"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "courage",
+          "plan_section": "rules"
+        }
+      ]
+    },
+    {
+      "id": "u4_shares",
+      "title": "Name the shares of your week",
+      "purpose": "A plain list of what your money is for in a usual week.",
+      "why": "Thomas Wright fixed what each part of his weekly pay was for, and kept to it. You do not need to write amounts. Write the main things your money goes to in a usual week, in your own words. Then mark any share you have given less thought to than you would like.",
+      "source": {
+        "chapter": "Chapter X, on Thomas Wright"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of a usual week."
+        },
+        {
+          "text": "List the main things your money goes to."
+        },
+        {
+          "text": "Beside each, write what it is for."
+        }
+      ],
+      "fields": [
+        {
+          "id": "shares",
+          "type": "two_column",
+          "label": "What are the main shares of your money in a usual week, and what is each for?",
+          "columns": [
+            "The share",
+            "What it is for"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "Three or more shares are named, each with a purpose.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name two shares of your week."
+          },
+          {
+            "text": "Write what each is for."
+          }
+        ],
+        "field_ids": [
+          "shares"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "shares",
+          "plan_section": "money"
+        }
+      ]
+    },
+    {
+      "id": "u4_wants",
+      "title": "Pick one want to need less",
+      "purpose": "One want you would be glad to need less, and what that would leave room for.",
+      "why": "Brotherton judged his wealth by the smallness of his wants. Smiles was asking what a want costs, not asking anyone to go without. Choose one want that takes more of your attention, time or money than you would like, and say what you would do with the room.",
+      "source": {
+        "chapter": "Chapter X, on Joseph Brotherton"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of the wants that take most of your attention."
+        },
+        {
+          "text": "Choose one you would be glad to need less."
+        },
+        {
+          "text": "Say what you would do with the room it leaves."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wants",
+          "type": "short_text",
+          "label": "Which of your wants would you be glad to need less, and what would that leave room for?"
+        }
+      ],
+      "done_when": "One want is named with one use for the room it leaves.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one want you would be glad to need less."
+          }
+        ],
+        "field_ids": [
+          "wants"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "wants",
+          "plan_section": "money"
+        }
+      ]
+    },
+    {
+      "id": "u5_subject",
+      "title": "Choose one thing to learn well",
+      "purpose": "One subject or skill, and the first piece of it to learn.",
+      "why": "Lord St. Leonards would not go to a second thing until he had mastered the first. Pick one subject or skill you would like to learn properly. Choose the first small piece of it, something you could finish in a week. Leave everything else on the list for later.",
+      "source": {
+        "chapter": "Chapter XI, on Lord St. Leonards"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the things you would like to learn."
+        },
+        {
+          "text": "Choose the one that matters most to you."
+        },
+        {
+          "text": "Name the first small piece of it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "subject",
+          "type": "short_text",
+          "label": "What is the one subject or skill you want to learn well, and what is the first piece?"
+        }
+      ],
+      "done_when": "One subject and its first piece are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one subject."
+          },
+          {
+            "text": "Name its first piece."
+          }
+        ],
+        "field_ids": [
+          "subject"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "subject",
+          "plan_section": "learning"
+        }
+      ]
+    },
+    {
+      "id": "u5_minutes",
+      "title": "Find your spare minutes",
+      "purpose": "Three places in your week where spare minutes could go to your subject.",
+      "why": "Smiles says self-education is done in the fragments of time that others let run to waste. Look at a usual week. Find three gaps, such as a commute, a lunch break or a quiet evening. Write what you could do with each, however short.",
+      "source": {
+        "chapter": "Chapter XI, on spare time"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look at a usual week."
+        },
+        {
+          "text": "Find three gaps, however short."
+        },
+        {
+          "text": "Beside each, write what you could do in it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "minutes",
+          "type": "two_column",
+          "label": "Where are the spare minutes in your week, and what could you do in each?",
+          "columns": [
+            "The gap in my week",
+            "What I could do in it"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Three gaps are named, each with something to do in it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Find one gap in your week."
+          },
+          {
+            "text": "Write what you could do in it."
+          }
+        ],
+        "field_ids": [
+          "minutes"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "minutes",
+          "plan_section": "learning"
+        }
+      ]
+    },
+    {
+      "id": "u6_habit",
+      "title": "Pick one small habit to build",
+      "purpose": "One small habit you want to build, and where it will show.",
+      "why": "Smiles says character is made of small acts repeated until they become habit. Choose one small habit that you would like to be part of your character. Make it concrete enough to do tomorrow, and say where in your week it will show.",
+      "source": {
+        "chapter": "Chapter XIII, on habit"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of a small habit you admire in other people."
+        },
+        {
+          "text": "Choose one you would like to build."
+        },
+        {
+          "text": "Say where in your week it will show."
+        }
+      ],
+      "fields": [
+        {
+          "id": "habit",
+          "type": "short_text",
+          "label": "Which small habit do you want to build, and where in your week will it show?"
+        }
+      ],
+      "done_when": "One habit is written down with a place in your week.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one small habit."
+          }
+        ],
+        "field_ids": [
+          "habit"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "habit",
+          "plan_section": "rules"
+        }
+      ]
+    },
+    {
+      "id": "u6_rules",
+      "title": "Write two rules to live by",
+      "purpose": "Two plain rules in your own words, each with where it will show.",
+      "why": "Smiles ends on character built from small acts. Look back over your answers from the six weeks. Write two rules for how you want to act, each short enough to remember. Say where each will show in a usual week.",
+      "source": {
+        "chapter": "Chapter XIII, the closing sections"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read through your plan so far."
+        },
+        {
+          "text": "Write two rules, each in one line."
+        },
+        {
+          "text": "Beside each, say where it will show."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "two_column",
+          "label": "What two rules will you live by, and where will each show in your week?",
+          "columns": [
+            "The rule",
+            "Where it will show"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Two rules are written, each with a place in your week.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one rule."
+          },
+          {
+            "text": "Say where it will show."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        }
+      ]
+    }
+  ],
+  "toolkit": [],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "week_one",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. You have named who helped you and one thing that is yours to do."
+    },
+    {
+      "id": "begin_done",
+      "trigger": "stage_complete:begin",
+      "message": "Two weeks done. You know who helps you, what is yours to do and what you return to each day."
+    },
+    {
+      "id": "stand_done",
+      "trigger": "stage_complete:stand",
+      "message": "Four weeks done. You have a first step on something put off, and a plain account of where your money goes."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Six weeks done. Your plan is ready to read."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "helpers",
+      "title": "People who help you"
+    },
+    {
+      "id": "own",
+      "title": "What is yours to do"
+    },
+    {
+      "id": "daily",
+      "title": "What you return to each day"
+    },
+    {
+      "id": "money",
+      "title": "How you think about money"
+    },
+    {
+      "id": "learning",
+      "title": "What you are learning"
+    },
+    {
+      "id": "rules",
+      "title": "Your habits and rules"
+    }
+  ],
+  "finish": {
+    "summary": "Six chapters, six weeks, and a plan built from your own answers.",
+    "book_bridge": "Self-Help is in the public domain. This workbook covers six of its thirteen chapters, using the 1897 John Murray edition, so you can read any chapter in full beside it."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you return to each day this month, and what got in the way?",
+      "Which habit did you keep this month, and where did it show?",
+      "Which of your two rules did you keep, and what will you change about the other?"
+    ],
+    "refresher_ids": [
+      "u2_return",
+      "u4_shares",
+      "u6_rules"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "docs/content/sources/AK-7SWKN/smiles-1897.txt",
+    "cut_log": [
+      {
+        "item": "Chapters II, III, V, VI, VII, IX and XII",
+        "chapter": "Chapters II, III, V, VI, VII, IX, XII",
+        "reason": "Selected out, not summarised. The book is 142,000 words and the catalogue length is six weeks. Chapters II, III, V, VI and VII are long runs of lives of inventors, potters, scientists, artists and peers. Chapter IX (men of business) and XII (example) overlap with the chapters kept and can be added if the programme is lengthened."
+      },
+      {
+        "item": "Preface, contents pages and the 1859 publication note",
+        "chapter": "Front matter",
+        "reason": "Not reader content."
+      },
+      {
+        "item": "Footnotes and footnote markers",
+        "chapter": "All chapters",
+        "reason": "Notes are not reader content. No quotation runs across a marker."
+      },
+      {
+        "item": "Chapter VIII: Teutonic race, Napoleon, the Indian campaigns, Sir Charles Napier, the rebellion of 1857, the Lawrences, Xavier and the missionaries",
+        "chapter": "Chapter VIII",
+        "reason": "Military and imperial narrative and the language of race. The unit keeps purpose, promptness, Buxton, Clarkson, Hanway and the direction of the will."
+      },
+      {
+        "item": "Chapter VIII: passages on willing oneself well",
+        "chapter": "Chapter VIII",
+        "reason": "Health claims. Not used."
+      },
+      {
+        "item": "Chapter X: the passages on drink, the working classes as a body, and religious and class language",
+        "chapter": "Chapter X",
+        "reason": "Not needed for the unit and likely to read as judgement of readers."
+      },
+      {
+        "item": "Chapter XI: passages on physical health and exercise, on novels and comic writing, and on the sins of youth",
+        "chapter": "Chapter XI",
+        "reason": "Health claims and moralising that dates the chapter. The unit keeps self-education, thoroughness, spare time, mistakes, late learners and purpose."
+      },
+      {
+        "item": "Chapter XIII: the later pages on gentlemen in India, the Birkenhead and imperial heroes",
+        "chapter": "Chapter XIII",
+        "reason": "Military narrative. The unit keeps truthfulness, habit, small kindness, courtesy and the use of power."
+      },
+      {
+        "item": "Income and fortune passages (for example Erskine's 'road to prosperity and wealth', and Chapter IX on getting on)",
+        "chapter": "Chapters X and XIII",
+        "reason": "Not quoted. No income promise appears in the workbook, and its plan and exercises ask for no amounts."
+      },
+      {
+        "item": "Passages with dash-to-comma artefacts from the reversible modernisation (140 doubled commas in the whole text)",
+        "chapter": "All chapters",
+        "reason": "Quotations are cut so that none includes a doubled comma. See the modernisation log in the house record."
+      }
+    ],
+    "notes": "Written to docs/content/UNIT_SPEC.md. Six units, one chapter each: I, IV, VIII, X, XI and XIII. Quotations are from the modernised copy of the 1897 John Murray edition (Gutenberg #935, sha1 fa029ba2e73855d21c95c9b71e84f841b79474bb) and checked against it. Status in_review until the house record is signed (C10) and a second named reviewer approves."
+  }
+}
