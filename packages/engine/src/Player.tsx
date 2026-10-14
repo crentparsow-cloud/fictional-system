@@ -90,8 +90,21 @@ export interface PlayerProps {
    * pause and save, 14.5). Needs pagedExercises and an initialView of that unit.
    */
   initialOpen?: { exerciseId: string; mode?: "full" | "short"; page?: "purpose" | "steps" | "example" | "yours" | "done"; fieldId?: string };
+  /**
+   * The calm estimate (3.6), one plain sentence such as "About 8 minutes left
+   * in this unit". Called on every render of an open unit, so it follows the
+   * reader's answers. Return null to show nothing.
+   */
+  unitEstimate?: (unit: number, done: ReadonlySet<string>, store: AnswerStore) => string | null;
+  /**
+   * Ask the Player to open a view. Each new `nonce` moves it once, so the
+   * unit map can send the reader to a unit without remounting the Player.
+   */
+  navigateTo?: { view: PlayerView; nonce: number } | null;
   /** Where the reader is inside a unit, ids only, so the app can keep the place. */
   onPlace?: (place: { unit: number; exerciseId: string | null; page: string | null; fieldId: string | null; mode: "full" | "short" | null }) => void;
+  /** The reader's first name, for author letters. Letters read fine without it. */
+  firstName?: string;
 }
 
 /**
@@ -122,6 +135,9 @@ export function Player({
   pagedExercises,
   initialOpen,
   onPlace,
+  unitEstimate,
+  navigateTo,
+  firstName,
 }: PlayerProps) {
   const [acked, setAcked] = useState<boolean>(!!acknowledged);
   const gated = !!requireAcknowledge && !acked && !acknowledged;
@@ -198,6 +214,17 @@ export function Player({
     setNotice(null);
     setView(target);
   };
+
+  // The app asked for a view (the unit map). Each nonce is acted on once.
+  const lastNonce = useRef<number | null>(navigateTo?.nonce ?? null);
+  useEffect(() => {
+    if (!navigateTo || navigateTo.nonce === lastNonce.current) return;
+    lastNonce.current = navigateTo.nonce;
+    setNotice(null);
+    setView(navigateTo.view);
+    // Only a new nonce matters.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigateTo?.nonce]);
   const navButton = (label: string, target: PlayerView, active: boolean) => (
     <button type="button" className="ak-nav-btn" aria-pressed={active} onClick={() => go(target)}>
       {label}
@@ -278,9 +305,20 @@ export function Player({
       ) : null}
 
       <main className="ak-player-body">
+        {view.kind === "unit" && current && !currentLocked && unitEstimate
+          ? (() => {
+              const line = unitEstimate(current.number, facts.done, store);
+              return line ? (
+                <p className="ak-estimate" role="status">
+                  {line}
+                </p>
+              ) : null;
+            })()
+          : null}
         {view.kind === "start" ? (
           <StartScreen
             workbook={doc}
+            firstName={firstName}
             why={why}
             readOnly={readOnly}
             onWhyChange={(w) => liveStore.set(START_SCOPE, "why", w)}
@@ -311,6 +349,7 @@ export function Player({
             initialOpen={initialOpen}
             onPlace={(p) => onPlace?.({ unit: current.number, ...p })}
             workbook={doc}
+            firstName={firstName}
             unit={current}
             store={liveStore}
             readOnly={readOnly}
