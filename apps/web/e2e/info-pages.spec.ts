@@ -52,7 +52,7 @@ test("the trust page lists what is enforced and what is never collected", async 
   await expect(page.getByRole("heading", { name: "What we never collect" })).toBeVisible();
   // 11.1: the comparison table and the analytics id rule.
   await expect(page.getByRole("heading", { name: "What we never do" })).toBeVisible();
-  await expect(page.getByRole("table", { name: /never do/i }).or(page.getByRole("region", { name: /never do/i }))).toBeVisible();
+  await expect(page.getByRole("table", { name: /never do/i }).or(page.getByRole("region", { name: /never do/i })).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "How we count visits" })).toBeVisible();
 });
 

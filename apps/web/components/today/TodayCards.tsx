@@ -28,7 +28,7 @@ export function TodayCards({ cards, hrefs, welcomeBack, readOnly }: { cards: Tod
   return (
     <div className="today-cards">
       {cards.map((card, i) => {
-        const href = hrefs[i] ?? "/library";
+        const href = hrefs[i] ?? "/explore";
         if (card.kind === "step") {
           const back = welcomeBack?.enrolmentId === card.programme.enrolmentId ? welcomeBack : null;
           const minutes = back ? back.minutes : card.step.minutes;

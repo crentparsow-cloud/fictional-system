@@ -3,6 +3,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { readdirSync } from "node:fs";
 import path from "node:path";
 import { LEGAL_SLUGS } from "../lib/legal-docs";
+import { discoverDataPages } from "./helpers";
 
 /**
  * Automated accessibility sweep (F-144). axe with the WCAG 2.0, 2.1 and 2.2
@@ -39,6 +40,8 @@ const STATIC_PAGES: string[] = [
   "/trust",
   "/accessibility",
   "/pricing",
+  "/start",
+  "/code",
   "/white-label",
   "/organisations",
   "/publish",
@@ -58,7 +61,7 @@ const STATIC_PAGES: string[] = [
 ];
 
 /** Pages that need catalogue data. Remote only. */
-const DATA_PAGES: string[] = ["/themes", "/authors"];
+const DATA_PAGES: string[] = ["/themes", "/authors", "/explore"];
 
 const VARIANTS = [
   { name: "light, phone", colorScheme: "light", viewport: { width: 320, height: 640 } },
@@ -119,6 +122,17 @@ for (const variant of VARIANTS) {
           expect(await blockingViolations(page, KNOWN_DEFECTS[route]), `axe violations on ${route}`).toEqual([]);
         });
       }
+
+      test("a shelf, a live title and a try-it title have no serious or critical violations", async ({ page }) => {
+        const found = await discoverDataPages(page);
+        test.skip(!found.shelf && !found.workbook, "no shelf or title is live on this site");
+        for (const route of [found.shelf, found.workbook, found.tryTitle]) {
+          if (!route) continue;
+          await page.goto(route);
+          expect(await blockingViolations(page), `axe violations on ${route}`).toEqual([]);
+          expect(await structureViolations(page), `structure on ${route}`).toEqual([]);
+        }
+      });
 
       test("a Theme page, an author page and a workbook page have no serious or critical violations", async ({ page }) => {
         // E2E_WORKBOOK_SLUG names a workbook to check; otherwise the first

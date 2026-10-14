@@ -27,7 +27,7 @@ for (const path of [MALFORMED, UNKNOWN]) {
     expect(response!.status()).toBeLessThan(500);
     expectPrivateHeaders(response!.headers());
 
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link isn't working");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link is not working");
     await expect(page.getByText("Nothing has changed.")).toBeVisible();
     // Nothing to press, and nothing about anyone.
     await expect(page.getByRole("button")).toHaveCount(0);
@@ -50,7 +50,7 @@ test("the calm page has no serious or critical axe violations", async ({ page })
 
 test("a result word on an unknown link changes nothing on the page", async ({ page }) => {
   await page.goto(`${UNKNOWN}?done=accepted`);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link isn't working");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link is not working");
 });
 
 test("the partner route acts only on POST", async ({ request }) => {
