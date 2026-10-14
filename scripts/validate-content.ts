@@ -1,5 +1,5 @@
 /**
- * Validate every v3 workbook under content/workbooks/v3 and the demo seed.
+ * Validate every workbook under content/workbooks/v3 and content/workbooks/classics.
  *
  *   pnpm validate                  errors fail the run
  *   pnpm validate --lenient        counts and depth become warnings (pilot content)
@@ -8,6 +8,11 @@
  *                                  warnings and never fail the run
  *   pnpm validate path/to/file.json [more...]
  *
+ * Title copy (7.2, 7.3, 12.1): when content/catalog/title-copy.json exists, every
+ * entry is checked against the claims and style rules for its shelf, with the
+ * length rules for the card line, end state, who-this-is-for lines and letters.
+ * Errors fail the run. Plain English findings are warnings and print with --style.
+ *
  * The 20 Maya Vaughn workbooks carry parked content issues (handover item 7).
  * Until Crent clears them, CI runs this with --parked, which reports style,
  * claims and count findings on those files without failing the build. Schema
@@ -15,7 +20,9 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { validateWorkbook, formatFindings, checkPlainWorkbook, checkPlainStrings, summarisePlain, type Finding, type PlainFinding } from "@akana/validate";
+// Relative import: the default scan list lives beside the validator and reads the disk, so index.ts does not export it.
+import { contentTargets } from "../packages/validate/src/targets";
+import { validateWorkbook, formatFindings, checkPlainWorkbook, checkPlainStrings, summarisePlain, checkTitleCopy, titleCopyContext, type CatalogueTitle, type Finding, type PlainFinding } from "@akana/validate";
 
 const ROOT = join(import.meta.dirname, "..");
 const args = process.argv.slice(2);
@@ -24,14 +31,10 @@ const parked = args.includes("--parked");
 const style = args.includes("--style");
 const files = args.filter((a) => !a.startsWith("--"));
 
-const targets = files.length
-  ? files
-  : [join(ROOT, "content", "workbooks", "v3")]
-      .filter(existsSync)
-      .flatMap((dir) => readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => join(dir, f)));
+const targets = files.length ? files : contentTargets(ROOT);
 
 if (targets.length === 0) {
-  console.log("No v3 workbooks found. Run pnpm migrate:v1 first.");
+  console.log("No workbooks found in content/workbooks/v3 or content/workbooks/classics. Run pnpm migrate:v1 first.");
   process.exit(0);
 }
 
@@ -66,6 +69,31 @@ if (style) {
   }
   const c = summarisePlain(plainAll);
   console.log(`\nplain English: ${plainAll.length} finding(s) in total: ${c.long_sentence} long sentence(s), ${c.negative_contraction} negative contraction(s), ${c.banned_word} banned word(s), ${c.short_unit_title} short unit title(s)`);
+}
+
+// ---------- title copy ----------
+const copyPath = join(ROOT, "content", "catalog", "title-copy.json");
+if (existsSync(copyPath) && files.length === 0) {
+  const entries = JSON.parse(readFileSync(copyPath, "utf8")) as { titles: Array<{ code: string }> };
+  const catalogue = JSON.parse(readFileSync(join(ROOT, "docs", "planning", "AK_Demo_Catalogue_v2.json"), "utf8")) as { workbooks: CatalogueTitle[] };
+  const byCode = new Map(catalogue.workbooks.map((w) => [w.code, w]));
+  let copyErrors = 0;
+  let copyWarnings = 0;
+  for (const e of entries.titles) {
+    const w = byCode.get(e.code);
+    if (!w) {
+      console.log(`  error title-copy ${e.code}: not in the catalogue`);
+      copyErrors++;
+      continue;
+    }
+    for (const f of checkTitleCopy(e, titleCopyContext(w))) {
+      if (f.severity === "error") copyErrors++;
+      else copyWarnings++;
+      if (f.severity === "error" || style) console.log(`  ${f.severity} ${f.path}: ${f.message}${f.excerpt ? ` : ${JSON.stringify(f.excerpt)}` : ""}`);
+    }
+  }
+  console.log(`title copy: ${entries.titles.length} title(s), ${copyErrors} error(s), ${copyWarnings} warning(s)`);
+  if (copyErrors) failed++;
 }
 
 console.log(`\n${targets.length} file(s), ${failed} failed`);
