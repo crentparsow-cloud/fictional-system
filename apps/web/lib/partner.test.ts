@@ -146,7 +146,7 @@ describe("notices and copy", () => {
   });
 
   it("gives the same calm page for any link that does not work", () => {
-    expect(calmLinkPage("unknown").title).toBe("This link isn't working");
+    expect(calmLinkPage("unknown").title).toBe("This link is not working");
     expect(calmLinkPage("revoked").title).toBe(calmLinkPage("inactive").title);
     expect(outcomeMessage("replied", "sam").body).toMatch(/^Sam will see/);
   });
