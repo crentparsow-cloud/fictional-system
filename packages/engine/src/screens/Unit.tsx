@@ -6,6 +6,7 @@ import { prefillFor, unitOfExercise } from "../progress";
 import { repeatScope } from "../store";
 import type { AnswerStore } from "../types";
 import { ExerciseScreen, type ExerciseMode, type ExercisePage } from "./Exercise";
+import { LetterCard, lettersAt } from "./Letter";
 import { Card, Eyebrow, minutesWord, unitLabel } from "./parts";
 
 export type ProgrammeUnit = WorkbookV3["units"][number];
@@ -38,6 +39,8 @@ export interface UnitScreenProps {
   initialOpen?: { exerciseId: string; mode?: ExerciseMode; page?: ExercisePage; fieldId?: string };
   /** Paged only: where the reader is, ids only. exerciseId is null on the unit's own list. */
   onPlace?: (place: { exerciseId: string | null; page: ExercisePage | null; fieldId: string | null; mode: ExerciseMode | null }) => void;
+  /** The reader's first name, for author letters. Letters read fine without it. */
+  firstName?: string;
 }
 
 type Opened = { id: string; scope: string; repeat: boolean; mode: ExerciseMode };
@@ -48,16 +51,16 @@ function UnitReading({ unit }: { unit: ProgrammeUnit }) {
   if (!unit.intro && ideas.length === 0) return null;
   return (
     <div className="ak-unit-reading">
-      {unit.intro ? <p className="ak-unit-intro">{unit.intro}</p> : null}
+      {unit.intro ? <p className="ak-unit-intro" data-ra>{unit.intro}</p> : null}
       {ideas.length ? (
         <ol className="ak-plain-list ak-ideas" aria-label="Key ideas">
           {ideas.map((idea, i) => (
             <li key={i}>
               <Card flat className="ak-idea">
                 <Eyebrow>{`Key idea ${i + 1} of ${ideas.length}`}</Eyebrow>
-                <h3 className="ak-h3">{idea.heading}</h3>
-                <p>{idea.body}</p>
-                <p className="ak-muted ak-idea-example">{idea.example}</p>
+                <h3 className="ak-h3" data-ra>{idea.heading}</h3>
+                <p data-ra>{idea.body}</p>
+                <p className="ak-muted ak-idea-example" data-ra>{idea.example}</p>
               </Card>
             </li>
           ))}
@@ -73,7 +76,7 @@ function UnitTakeaway({ unit }: { unit: ProgrammeUnit }) {
   return (
     <Card flat className="ak-takeaway">
       <Eyebrow>To take with you</Eyebrow>
-      <p>{unit.takeaway}</p>
+      <p data-ra>{unit.takeaway}</p>
     </Card>
   );
 }
@@ -82,7 +85,14 @@ function UnitTakeaway({ unit }: { unit: ProgrammeUnit }) {
  * One unit: its focus line, the stage primer when the unit opens a stage,
  * the exercises in full, and repeats of earlier exercises as short versions.
  */
-export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerciseDone, onOpenCheckIn, onOpenSelfCheck, done, onOpenTool, paged, initialOpen, onPlace }: UnitScreenProps) {
+export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerciseDone, onOpenCheckIn, onOpenSelfCheck, done, onOpenTool, paged, initialOpen, onPlace, firstName }: UnitScreenProps) {
+  const UnitLetters = () => (
+    <>
+      {lettersAt(doc, unit.number).map((l) => (
+        <LetterCard key={l.id} letter={l} firstName={firstName} />
+      ))}
+    </>
+  );
   const [opened, setOpened] = useState<Opened | null>(() => {
     if (!paged || !initialOpen) return null;
     const id = initialOpen.exerciseId;
@@ -163,7 +173,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
             {label}
             {stage ? `, the ${stage.name} stage` : ""}
           </Eyebrow>
-          <h2 className="ak-h2" ref={listHeading} tabIndex={-1}>
+          <h2 className="ak-h2" ref={listHeading} tabIndex={-1} data-ra>
             {unit.focus}
           </h2>
         </header>
@@ -177,6 +187,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
           </details>
         ) : null}
 
+        <UnitLetters />
         <UnitReading unit={unit} />
 
         {newTools.length ? (
@@ -217,7 +228,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
                   <h3 className="ak-h3" id={headingId}>
                     {e.title}
                   </h3>
-                  <p className="ak-muted">{repeat ? "A short repeat, side by side with your first answers." : e.purpose}</p>
+                  <p className="ak-muted" data-ra={repeat ? undefined : true}>{repeat ? "A short repeat, side by side with your first answers." : e.purpose}</p>
                   {sv ? (
                     <div className="ak-ex-choice" role="group" aria-labelledby={headingId}>
                       {(first === "full" ? (["full", "short"] as const) : (["short", "full"] as const)).map((m, i) => (
@@ -270,7 +281,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
           {label}
           {stage ? `, the ${stage.name} stage` : ""}
         </Eyebrow>
-        <h2 className="ak-h2">{unit.focus}</h2>
+        <h2 className="ak-h2" data-ra>{unit.focus}</h2>
       </header>
 
       {opensStage && stage.primer ? (
@@ -282,7 +293,8 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
         </details>
       ) : null}
 
-      <UnitReading unit={unit} />
+      <UnitLetters />
+        <UnitReading unit={unit} />
 
       {newTools.length ? (
         <Card flat>

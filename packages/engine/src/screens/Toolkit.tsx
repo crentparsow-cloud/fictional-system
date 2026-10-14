@@ -25,7 +25,7 @@ export function ToolkitCardView({ tool: t, onUse, used }: { tool: ToolkitCard; o
           <h3 className="ak-h3">{t.title}</h3>
         </div>
       </header>
-      <p>
+      <p data-ra>
         <b>When to use it:</b> {t.when_to_use}
       </p>
       {breathes(t) ? <BreathingPacer tool={t} /> : null}
