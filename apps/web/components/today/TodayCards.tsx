@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MonthThreeCard } from "@/components/today/MonthThreeCard";
 import { PickupReflection } from "@/components/today/PickupReflection";
 import type { TodayCard } from "@/lib/today/cards";
 
@@ -57,6 +58,7 @@ export function TodayCards({ cards, hrefs, welcomeBack, readOnly }: { cards: Tod
             </article>
           );
         }
+        if (card.kind === "shared_offer") return <MonthThreeCard key="shared_offer" offer={card.offer} href={href} />;
         return (
           <article key="suggestion" className="card today-card" aria-labelledby="today-suggestion">
             <p className="eyebrow">{SUGGESTION_LABEL[card.suggestion.kind]}</p>
