@@ -43,8 +43,8 @@ type MembershipTerms = { price: string; periodWords: string; nextDate: string };
 export type ReaderProps = {
   welcome: ReaderBase & { firstUnitLabel?: string };
   first_unit_finished: ReaderBase & { firstUnitLabel?: string };
-  purchase_lifetime: ReaderBase & { offerName: string; price: string };
-  purchase_membership: ReaderBase & MembershipTerms;
+  purchase_lifetime: ReaderBase & { offerName: string; price: string; paidOn?: string };
+  purchase_membership: ReaderBase & MembershipTerms & { paidOn?: string };
   renewal_notice: ReaderBase & { renewDate: string; price: string };
   /**
    * The day-zero email after a membership trial starts (14.20): the first
@@ -86,7 +86,9 @@ export type ReaderProps = {
   partner_update: ReaderBase & Partner & StagePosition & { note?: string; replyUrl?: string };
   partner_stopped: ReaderBase & Omit<Partner, "shareLevel"> & { stoppedBy?: "reader" | "partner" };
   /** A single-workbook refund made by Akana staff (0021 refund path). Names no title. */
-  refund_confirmed: ReaderBase & { amount: string; accessEnded: boolean };
+  refund_confirmed: ReaderBase & { amount: string; accessEnded: boolean; refundedOn?: string };
+  /** The member paused (14.25). Access runs to pauseFrom, nothing is charged until resumeDate. Names no title. */
+  membership_paused: ReaderBase & { pauseFrom: string; resumeDate: string; price: string; periodWords: string };
   /** Akana support cancelled a pending account deletion for the reader (F-087). */
   deletion_cancelled: ReaderBase;
   /**
@@ -114,12 +116,12 @@ const offerLabel = (s: string) => {
 };
 const membershipLabel = (periodWords: string) => (/year/.test(periodWords) ? "Annual membership" : "Monthly membership");
 
-/** Where a reader cancels, in the words the app uses: the You page, then the Manage membership button. */
-export const CANCEL_PATH = "go to You, then Manage membership, then Cancel";
+/** Where a reader cancels, in the words the app uses: the You page, then the Cancel membership link (14.24). Two taps. */
+export const CANCEL_PATH = "go to You, then Cancel membership";
 
 const HOW_TO_CANCEL: Panel = {
   title: "How to cancel",
-  lines: [`To cancel, ${CANCEL_PATH}. No questions asked. You keep access until the end of the period you have paid for.`],
+  lines: [`To cancel, ${CANCEL_PATH}. You do not have to give a reason. You keep access until the end of the period you have paid for.`],
   tone: "tint",
 };
 
@@ -229,48 +231,50 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
   },
 
   purchase_lifetime: (x) => ({
-    subject: "Your purchase is confirmed",
-    preheader: "It's open in your account now, and it's yours for life.",
+    subject: "Receipt for your purchase",
+    preheader: `Paid ${x.price}. The workbook is open in your account.`,
     hero: "service",
-    eyebrow: "Purchase confirmed",
-    headline: "Thank you. It's open now.",
+    eyebrow: "Receipt",
+    headline: "Payment received",
     greeting: hi(x.name),
-    paragraphs: ["Everything you bought is open in your account now, and it's yours for life."],
+    paragraphs: ["The workbook is open in your account now."],
     panels: [
       {
-        title: "Your purchase",
+        title: "Your receipt",
         rows: [
           ["Item", offerLabel(x.offerName)],
-          ["Price", x.price],
+          ["Paid", x.price],
+          ...(x.paidOn ? ([["Date", x.paidOn]] as [string, string][]) : []),
           ["Access", "Lifetime"],
         ],
         tone: "tint",
       },
       {
         title: "What you agreed at checkout",
-        lines: ["You asked for access to start right away. Because access has started, the 14-day right to cancel and get a refund no longer applies."],
+        lines: ["You asked for access to start straight away. Once access started, the 14-day right to cancel and get a refund ended."],
         tone: "terms",
       },
     ],
-    after: ["Your receipt comes in a separate email from our payment provider. Keep this email as your record of the terms."],
+    after: ["Stripe sends its own payment receipt in a separate email. Keep this one as your record of the terms."],
     buttons: [{ label: "Open your workbook", url: x.appUrl }],
     footer: "service",
   }),
 
   purchase_membership: (x) => ({
-    subject: "Your membership is confirmed",
+    subject: "Receipt for your membership",
     preheader: "Your membership terms, and how to cancel.",
     hero: "service",
-    eyebrow: "Membership confirmed",
+    eyebrow: "Receipt",
     headline: "Your membership is active",
     greeting: hi(x.name),
-    paragraphs: ["Thank you. Every workbook in the membership is open in your account now."],
+    paragraphs: ["Every workbook in the membership is open in your account now."],
     panels: [
       {
-        title: "Your membership",
+        title: "Your receipt",
         rows: [
           ["Plan", membershipLabel(x.periodWords)],
-          ["Price", `${x.price} ${x.periodWords}`.trim()],
+          ["Paid", `${x.price} ${x.periodWords}`.trim()],
+          ...(x.paidOn ? ([["Date", x.paidOn]] as [string, string][]) : []),
           ["Renews", "Automatically, until you cancel"],
           ["Next payment", x.nextDate],
         ],
@@ -279,14 +283,14 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       {
         title: "What you agreed at checkout",
         lines: [
-          "You asked for access to start right away. If you cancel within 14 days, you get a refund for the time you have not used.",
+          "You asked for access to start straight away. If you cancel within 14 days, you are refunded for the days you have not used.",
           "You also agreed that the membership renews automatically until you cancel.",
         ],
         tone: "terms",
       },
       HOW_TO_CANCEL,
     ],
-    after: ["Your receipt comes in a separate email from our payment provider."],
+    after: ["Stripe sends its own payment receipt in a separate email."],
     buttons: [
       { label: "Open your workbooks", url: x.appUrl },
       { label: "Manage membership", url: x.settingsUrl },
@@ -472,13 +476,13 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       headline: "Your membership is cancelled",
       greeting: hi(x.name),
       paragraphs: now
-        ? ["Your membership has ended today, and no further payments will be taken.", ...(refund.length ? ["You cancelled within 14 days of your membership starting, so the time you have not used is refunded."] : [])]
-        : ["Your membership will not renew, and no further payments will be taken."],
+        ? ["Your membership has ended today, and no further payments will be taken.", ...(refund.length ? ["You cancelled within 14 days of your membership starting, so the days you have not used are refunded."] : [])]
+        : ["We have your request to cancel. Your membership will not renew, and no further payments will be taken."],
       panels: now ? refund : [{ title: "Access until", big: endDate, tone: "service" }, ...refund],
       after: [
         now
-          ? "Everything you wrote stays in your account. You can still read all of it, and download it anytime from the You page."
-          : "Everything you wrote stays in your account. You can download it anytime from the You page.",
+          ? "Everything you wrote stays in your account. You can still read all of it, and download it from the You page."
+          : `Everything you wrote stays in your account. You can download it from the You page. If you change your mind before ${endDate}, go to You, then Manage membership.`,
       ],
       buttons: [
         { label: "Open your workbooks", url: x.appUrl },
@@ -487,6 +491,39 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
       footer: "service",
     };
   },
+
+  // The member paused (14.25). Sent at once. States the dates and that
+  // nothing is charged. Not a receipt and not an offer.
+  membership_paused: (x) => ({
+    subject: "Your membership is paused",
+    preheader: `Nothing is charged until ${x.resumeDate}.`,
+    hero: "service",
+    eyebrow: "Pause confirmed",
+    headline: "Your membership is paused",
+    greeting: hi(x.name),
+    paragraphs: [
+      `We have your request to pause. You keep access until ${x.pauseFrom}. After that nothing is charged until ${x.resumeDate}.`,
+      "Your answers stay yours. You can read everything you wrote while the membership is paused.",
+    ],
+    panels: [
+      {
+        title: "Your pause",
+        rows: [
+          ["Access until", x.pauseFrom],
+          ["Payments restart", x.resumeDate],
+          ["Then", `${x.price} ${x.periodWords}, automatically, until you cancel`.trim()],
+        ],
+        tone: "tint",
+      },
+      {
+        title: "To cancel instead",
+        lines: [`${CANCEL_PATH.charAt(0).toUpperCase()}${CANCEL_PATH.slice(1)}. You do not have to give a reason.`],
+        tone: "terms",
+      },
+    ],
+    buttons: [{ label: "Manage membership", url: x.settingsUrl }],
+    footer: "service",
+  }),
 
   // Sent when a deletion is scheduled. The finished deletion sends the shorter version.
   account_deleted: (x) => {
@@ -841,20 +878,21 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
   // refund path. It names no title: the reader knows what they bought.
   refund_confirmed: (x) => ({
     subject: "Your refund is on its way",
-    preheader: "We have refunded your payment.",
+    preheader: `${x.amount} has been refunded.`,
     hero: "service",
     eyebrow: "Refund",
     headline: "Your refund is on its way",
     greeting: hi(x.name),
-    paragraphs: ["We have refunded a payment you made for a workbook on Akana."],
+    paragraphs: ["A payment you made for a workbook has been refunded."],
     panels: [
       {
         title: "Your refund",
         rows: [
           ["Amount", x.amount],
+          ...(x.refundedOn ? ([["Date", x.refundedOn]] as [string, string][]) : []),
           ["Access", x.accessEnded ? "Ended with the refund" : "You keep your access"],
         ],
-        lines: ["It goes back to the card you paid with. Refunds can take several business days to show on your statement."],
+        lines: ["It goes back to the card you paid with. It can take several business days to show on your statement."],
         tone: "tint",
       },
     ],
