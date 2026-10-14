@@ -1,3 +1,4 @@
+import { Starters } from "@/components/catalogue/Starters";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
@@ -53,12 +54,15 @@ export default async function MyWorkbooksPage({ searchParams }: { searchParams: 
       <p className="muted">{t("mine.line")}</p>
 
       {all.length === 0 ? (
+        <>
         <div className="card empty-state">
           <p>{t("mine.empty")}</p>
           <Link className="btn" href="/explore">
             {t("mine.explore")}
           </Link>
         </div>
+        <Starters />
+        </>
       ) : (
         <>
           <div className="library-filters">
@@ -91,6 +95,9 @@ export default async function MyWorkbooksPage({ searchParams }: { searchParams: 
           {rows.length === 0 ? (
             <div className="card empty-state">
               <p>{t("mine.emptyFiltered")}</p>
+              <Link className="btn secondary" href="/my-workbooks">
+                {t("mine.showAll")}
+              </Link>
               <Link className="btn secondary" href={BASE}>
                 {t("library.clear")}
               </Link>

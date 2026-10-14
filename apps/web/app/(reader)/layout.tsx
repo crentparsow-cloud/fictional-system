@@ -3,12 +3,13 @@ import { redirect } from "next/navigation";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { ReaderNav, type NavItem } from "@/components/ReaderNav";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
-import { AppearanceApply } from "@/components/you/AppearanceApply";
+import { ReadingApply } from "@/components/reader/ReadingApply";
 import { ReadOnlyBanner } from "@/components/reader/ReadOnlyBanner";
 import { readerDeletion } from "@/lib/account-server";
 import { createUserClient } from "@/lib/supabase/server";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
+import { loadAccountReading } from "@/lib/reading/settings-server";
 import { getRoleMfaSession } from "@/lib/mfa/role-mfa-server";
 import { readerVerifyHref } from "@/lib/mfa/reader-mfa";
 import { needsReaderTerms, termsHref } from "@/lib/terms";
@@ -41,6 +42,9 @@ export default async function ReaderLayout({ children }: { children: React.React
   // F-025: read only while a deletion is pending, said on every tab.
   const { state: deletion } = await readerDeletion(await createUserClient(), session.userId);
 
+  // 3.5 to 3.7: the reading settings kept on the account. Unreadable means the device copy stands.
+  const readingAccount = await loadAccountReading();
+
   const { t } = await getT();
   const items: NavItem[] = [
     { href: "/home", label: t("nav.home"), icon: "home" },
@@ -64,7 +68,7 @@ export default async function ReaderLayout({ children }: { children: React.React
       </main>
       <ReaderNav items={items} label={t("nav.label")} />
       <ServiceWorkerRegister />
-      <AppearanceApply />
+      <ReadingApply account={readingAccount} />
     </div>
   );
 }
