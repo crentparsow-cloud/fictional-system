@@ -75,3 +75,34 @@ pnpm tsx scripts/classics-source-check.ts docs/content/sources/AK-FN9KB/long-186
 ```
 
 The script exits 1 when the copyright check is not clear or the scan is suspect, so it can sit in CI in front of the content publish step (10.10) once sources are in the repo.
+
+## Publishing: `pnpm content:publish` (10.10)
+
+One command takes the workbook files to a database.
+
+```
+pnpm content:publish --to staging --dry-run
+pnpm content:publish --to staging
+pnpm content:publish --to production --dry-run
+pnpm content:publish --to production --yes
+```
+
+What it does, in order:
+
+1. **Validate.** Every JSON file in `content/workbooks/v3` and `content/workbooks/classics`, the same scan as `pnpm validate`. A file in review fails only on schema and reference errors, as in CI (`--parked`). Any failure stops the run before anything is read from or written to a database.
+2. **Classic gates.** For each file in `classics`: the status is `draft` or `in_review`, the house record `content/public-domain/<code>.json` exists, `licence_ref` points at it, and the copyright check in that record is clear. The reviewer and the signer (steps 7 and 8 above) stay with people. This command never moves a classic past `in_review`.
+3. **Build.** The seed builder reads the registry, the demo catalogue, the 20 Maya Vaughn files and the classics folder. A classic must already have its catalogue record. Its content attaches to that row as a version, with the status in the file. A file with any other status, a slug or tier that disagrees with the catalogue, or a code the catalogue does not hold, stops the build.
+4. **Version by content hash.** The target is read for the workbooks in the build. For each written workbook the log says one of:
+   - `new`: the target holds no version for it.
+   - `unchanged`: the same hash is already stored. Nothing is rewritten.
+   - `changed`: the hash differs and the title is not released. The content goes in as the next patch version (1.0.1) beside the old one and the pointer moves to it.
+   - `held`: the hash differs but the title is approved, live or paused in the target. It is left alone. Release it through `release_version` (migration 0016).
+   Rows with no content in this build keep the version pointer they have in the target.
+5. **Apply** through the seed's own path (`applySeed`). `workbooks.status` is insert-only, so a status already in the target is never overwritten. A new classic row is inserted at `in_review`. It reaches `live` only through the reviewer gate and the signed house record.
+6. **Log.** One line per written workbook, a version tally, and the target host. The service key is never printed.
+
+Production refuses to run without `--yes`. A production `--dry-run` is allowed, writes nothing, and is the step to run first. Staging and production read separate variables (`STAGING_SUPABASE_URL`, `STAGING_SUPABASE_SERVICE_ROLE_KEY`, `PRODUCTION_SUPABASE_URL`, `PRODUCTION_SUPABASE_SERVICE_ROLE_KEY`), and the command stops if both point at the same host. Without the target's variables a dry run still works against an empty database and reports every version as new.
+
+After a publish that changes the seed inputs, regenerate `supabase/seed/seed.sql` with `pnpm tsx scripts/seed.ts --sql`. A test keeps that file identical to the build.
+
+The code is `packages/seed/src/publish.ts`; its tests are `publish.test.ts` beside it. The default scan list is `packages/validate/src/targets.ts`.
