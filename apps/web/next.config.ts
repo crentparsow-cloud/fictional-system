@@ -1,8 +1,10 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 import { withSentryConfig } from "@sentry/nextjs/config";
 import { buildCsp, ONE_TAP_PATHS, sentryOrigin } from "./csp.mjs";
 import { cacheHeaderRules, IMAGE_CONFIG } from "./cache-headers.mjs";
+import { resolveDirection } from "./design-direction.mjs";
 
 /**
  * Security headers (F-125). No third-party scripts or pixels on any host, by
@@ -32,8 +34,22 @@ const partnerLinkHeaders = [
   { key: "Referrer-Policy", value: "no-referrer" },
 ];
 
+/**
+ * Design direction (plan 1.1): "@theme-active" in app/layout.tsx resolves to
+ * the one theme file chosen by NEXT_PUBLIC_DESIGN_DIRECTION, so only that
+ * direction's CSS reaches the browser.
+ */
+const themeFile = `./app/themes/${resolveDirection(process.env.NEXT_PUBLIC_DESIGN_DIRECTION)}.css`;
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  turbopack: { resolveAlias: { "@theme-active": themeFile } },
+  webpack(config) {
+    config.resolve.alias = { ...config.resolve.alias, "@theme-active": path.resolve(process.cwd(), themeFile) };
+    return config;
+  },
+  // The Satori renderer reads its subset faces from disk (lib/design/og-fonts).
+  outputFileTracingIncludes: { "/og/[slug]": ["./lib/design/og-fonts/**"], "/covers/[code]": ["./lib/design/og-fonts/**"], "/dev/kit/cover": ["./lib/design/og-fonts/**"] },
   poweredByHeader: false,
   // 10.2: raster images (author-supplied covers, later) go through next/image with a short
   // size list, one format and a one year TTL. Generated covers are SVG and skip it.

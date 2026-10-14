@@ -7,12 +7,12 @@
  * Pure helpers here. The components read and write storage and call the
  * server inside try/catch, and nothing breaks if either is missing.
  */
-
 export const READING_KEY = "ak:reading";
 /** Fired on window after a change so the page applies it at once. */
 export const READING_EVENT = "akana:reading";
 
-export const FONTS = ["atkinson", "lexend", "dyslexic", "serif"] as const;
+/** "serif" is the active design direction's reading serif, the standard. */
+export const FONTS = ["serif", "atkinson", "lexend", "dyslexic"] as const;
 export type ReadingFontChoice = (typeof FONTS)[number];
 
 /** Text size steps. 0 is the standard 17px; each step is a little larger. */
@@ -39,7 +39,7 @@ export interface ReadingSettings {
   progress: ProgressDisplay;
 }
 
-export const DEFAULT_READING: ReadingSettings = { font: "atkinson", size: 0, colour: "auto", margin: "standard", progress: "both" };
+export const DEFAULT_READING: ReadingSettings = { font: "serif", size: 0, colour: "auto", margin: "standard", progress: "both" };
 
 /** The settings as stored, with the time they were last changed. */
 export interface StoredReading {
@@ -131,7 +131,7 @@ export function sameSettings(a: ReadingSettings, b: ReadingSettings): boolean {
 export function seedFromAppearance(a: { textSize: number; font: string } | null): ReadingSettings {
   if (!a) return { ...DEFAULT_READING };
   const size = (SIZE_STEPS as readonly number[]).includes(a.textSize) ? (a.textSize as SizeStep) : 0;
-  return { ...DEFAULT_READING, size, font: a.font === "lexend" ? "lexend" : "atkinson" };
+  return { ...DEFAULT_READING, size, font: a.font === "lexend" ? "lexend" : DEFAULT_READING.font };
 }
 
 export type HtmlAttr = "data-text-size" | "data-font" | "data-theme" | "data-margin" | "data-progress";
@@ -140,7 +140,7 @@ export type HtmlAttr = "data-text-size" | "data-font" | "data-theme" | "data-mar
 export function readingAttributes(s: ReadingSettings): Record<HtmlAttr, string | null> {
   return {
     "data-text-size": s.size === 0 ? null : String(s.size),
-    "data-font": s.font === "atkinson" ? null : s.font,
+    "data-font": s.font === "serif" ? null : s.font,
     "data-theme": s.colour === "auto" ? null : s.colour,
     "data-margin": s.margin === "standard" ? null : s.margin,
     "data-progress": s.progress === "both" ? null : s.progress,
@@ -155,10 +155,10 @@ export function applyReading(el: Pick<Element, "setAttribute" | "removeAttribute
 }
 
 export const FONT_LABELS: Record<ReadingFontChoice, { name: string; note: string }> = {
-  atkinson: { name: "Atkinson Hyperlegible", note: "Designed for low vision. The standard here." },
+  serif: { name: "Book serif", note: "The reading face of this site. The standard." },
+  atkinson: { name: "Atkinson Hyperlegible", note: "Designed for low vision." },
   lexend: { name: "Lexend", note: "Wide, even spacing." },
   dyslexic: { name: "Dyslexia-friendly", note: "A weighted-base face based on OpenDyslexic." },
-  serif: { name: "Serif", note: "Your device's own reading serif." },
 };
 export const COLOUR_LABELS: Record<PageColour, string> = { auto: "Match my device", light: "Light", dark: "Dark" };
 export const MARGIN_LABELS: Record<MarginWidth, string> = { narrow: "Narrow", standard: "Standard", wide: "Wide" };
