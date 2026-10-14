@@ -1,85 +1,40 @@
 /*
-  Akana design tokens (F-014). Carried from legacy/app/src/index.html and moved
-  to CSS variables with logical properties. A tenant overrides the brand set
-  (--brand, --brand-ink, --brand-wash, --hero-bg, --hero-ink, --focus) from its
-  own record; everything else is locked.
+  Akana design tokens (F-014, plan 1.1).
+
+  This file holds structure only: type scale, spacing, measure. Every colour,
+  the two type faces, the radii and the cover style come from the active
+  design direction, a generated file in app/themes/ that the root layout
+  loads (NEXT_PUBLIC_DESIGN_DIRECTION, default paper-and-ink). Named reading
+  themes are in app/themes/reading.css. Motion is in app/motion.css. A
+  tenant overrides the brand set (--brand, --brand-ink, --brand-wash,
+  --hero-bg, --hero-ink, --focus) from its own record; everything else is
+  locked. No raw colour belongs in this file: a unit test fails if one lands.
+
+  The brand colour (--brand) is reserved: key actions and the logo. Links and
+  small labels use --brand-text, which is safe as text on the canvas.
 */
 
 :root {
-  --canvas: #f7f5f0;
-  --surface: #ffffff;
-  --surface-2: #efece4;
-  --line: #e2ded3;
-  --line-strong: #7d878d;
-  --ink: #16222b;
-  --ink-soft: #4a5864;
+  /* Two typefaces. Sans is Akana's voice: interface, prompts, buttons. Serif is
+     content: workbook text, book titles, quotes. --f-sans and --f-serif are set
+     by the direction. --f-read is the face of reading content (the reader's
+     choice in the Aa panel; the direction's serif until they choose). */
+  --f-display: var(--f-sans);
+  --f-body: var(--f-sans);
+  --f-read: var(--f-serif);
 
-  --brand: #1f4e5a;
-  --brand-ink: #ffffff;
-  --brand-wash: #e3edee;
-  --marigold: #f2b84b;
-  --marigold-ink: #3b2a05;
-  --rose: #8a2846;
-  --rose-soft: #f6e3e9;
-  --rose-ink: #ffffff;
-  --help-bg: #8a2846;
-  --help-ink: #ffffff;
-
-  /* Stage tints: t is tile, i is ink. Stage names are free in v3; these are the four defaults. */
-  --stage-1-t: #dcebe2; --stage-1-i: #2d6a4f;
-  --stage-2-t: #f8e0d0; --stage-2-i: #9c4a25;
-  --stage-3-t: #f6eac0; --stage-3-i: #6e520f;
-  --stage-4-t: #d6e6f3; --stage-4-i: #1f5a85;
-
-  --tile-l: 0.935; --tile-c: 0.045; --tink-l: 0.42; --tink-c: 0.11;
-  --hero-bg: #1f4e5a; --hero-ink: #ffffff; --focus: #1f4e5a;
-  --scrim: rgba(22, 34, 43, 0.42);
-  --shadow: 0 1px 2px rgba(22, 34, 43, 0.04), 0 6px 20px rgba(22, 34, 43, 0.05);
-  --lift: 0 2px 6px rgba(22, 34, 43, 0.08), 0 14px 34px rgba(22, 34, 43, 0.1);
-
-  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --f-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Type scale. --fs is the root size and moves with the reader's text size
+     (data-text-size). Everything in rem follows, including the reading size. */
   --fs: 17px;
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --fs-read: 1.18rem;
+  --lh-read: 1.4;
 
-  --radius: 14px;
-  --radius-sm: 10px;
   --gutter: 16px;
   --measure: 62ch;
-
-  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --canvas: #0f1719; --surface: #172226; --surface-2: #1e2b30; --line: #2a3a40; --line-strong: #6a7e84;
-    --ink: #ecefea; --ink-soft: #a9b6b9; --brand: #7fc2cf; --brand-ink: #0f1719; --brand-wash: #1b3238;
-    --marigold: #e3aa45; --marigold-ink: #2a1d03; --rose: #e58ba6; --rose-soft: #3a1f29; --rose-ink: #2a0e18;
-    --help-bg: #5a2238; --help-ink: #fbe6ee;
-    --stage-1-t: #1c3328; --stage-1-i: #8fd1ae; --stage-2-t: #3a2419; --stage-2-i: #f2ae86;
-    --stage-3-t: #33290e; --stage-3-i: #e6c46a; --stage-4-t: #172b3c; --stage-4-i: #93c2ea;
-    --tile-l: 0.28; --tile-c: 0.035; --tink-l: 0.84; --tink-c: 0.08;
-    --hero-bg: #173c45; --hero-ink: #f2f5f2; --focus: #9ad3de;
-    --scrim: rgba(0, 0, 0, 0.6); --shadow: none; --lift: 0 12px 40px rgba(0, 0, 0, 0.45);
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --canvas: #0f1719; --surface: #172226; --surface-2: #1e2b30; --line: #2a3a40; --line-strong: #6a7e84;
-  --ink: #ecefea; --ink-soft: #a9b6b9; --brand: #7fc2cf; --brand-ink: #0f1719; --brand-wash: #1b3238;
-  --marigold: #e3aa45; --marigold-ink: #2a1d03; --rose: #e58ba6; --rose-soft: #3a1f29; --rose-ink: #2a0e18;
-  --help-bg: #5a2238; --help-ink: #fbe6ee;
-  --stage-1-t: #1c3328; --stage-1-i: #8fd1ae; --stage-2-t: #3a2419; --stage-2-i: #f2ae86;
-  --stage-3-t: #33290e; --stage-3-i: #e6c46a; --stage-4-t: #172b3c; --stage-4-i: #93c2ea;
-  --tile-l: 0.28; --tile-c: 0.035; --tink-l: 0.84; --tink-c: 0.08;
-  --hero-bg: #173c45; --hero-ink: #f2f5f2; --focus: #9ad3de;
-  --scrim: rgba(0, 0, 0, 0.6); --shadow: none; --lift: 0 12px 40px rgba(0, 0, 0, 0.45);
-  color-scheme: dark;
-}
-
-:root[data-font="lexend"] { --f-body: "Lexend", system-ui, sans-serif; }
+:root[data-font="atkinson"] { --f-sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif; --f-read: var(--f-sans); }
+:root[data-font="lexend"] { --f-sans: "Lexend", system-ui, sans-serif; --f-read: var(--f-sans); }
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -89,7 +44,7 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--f-body);
+  font-family: var(--f-sans);
   line-height: 1.5;
   min-block-size: 100dvh;
 }
@@ -98,7 +53,7 @@ h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; letter-spacing: -
 h1 { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3rem); }
 h2 { font-size: clamp(1.35rem, 1.1rem + 1.2vw, 1.9rem); }
 p { margin-block: 0 1em; max-inline-size: var(--measure); }
-a { color: var(--brand); text-underline-offset: 0.15em; }
+a { color: var(--brand-text); text-underline-offset: 0.15em; }
 
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
 
@@ -124,11 +79,11 @@ a { color: var(--brand); text-underline-offset: 0.15em; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 0.5em; min-block-size: 44px;
-  padding: 0.6em 1.1em; border-radius: var(--radius-sm); border: 1px solid transparent;
+  padding: 0.6em 1.1em; border-radius: var(--pill); border: 1px solid transparent;
   background: var(--brand); color: var(--brand-ink); font: inherit; font-weight: 600;
-  text-decoration: none; cursor: pointer; transition: transform 0.15s var(--ease);
+  text-decoration: none; cursor: pointer; transition: transform var(--dur-quick) var(--ease);
 }
-.btn.secondary { background: transparent; color: var(--brand); border-color: var(--brand); }
+.btn.secondary { background: transparent; color: var(--brand-text); border-color: var(--line-strong); }
 .btn.help { background: var(--help-bg); color: var(--help-ink); }
 
 .footer { padding-block: 2rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: 0.9rem; }
@@ -152,6 +107,9 @@ a { color: var(--brand); text-underline-offset: 0.15em; }
   outline: none;
 }
 .tab-page h1 { margin-block-end: 0.35em; }
+/* Explore is public; a signed-in reader gets the tab bar, so it leaves room for it. */
+.has-tabs { padding-block-end: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 48rem) { .has-tabs { padding-block-end: 0; } }
 
 .reader-nav {
   position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 10;
@@ -161,7 +119,7 @@ a { color: var(--brand); text-underline-offset: 0.15em; }
 }
 .reader-nav ul {
   list-style: none; margin: 0 auto; padding: 0;
-  display: grid; grid-template-columns: repeat(5, 1fr);
+  display: grid; grid-template-columns: repeat(4, 1fr);
   inline-size: min(100%, 40rem);
 }
 .reader-nav a {
@@ -172,7 +130,7 @@ a { color: var(--brand); text-underline-offset: 0.15em; }
 }
 .reader-nav a[aria-current="page"] { color: var(--brand); }
 .reader-nav a[aria-current="page"] svg { background: var(--brand-wash); }
-.reader-nav svg { padding: 2px 10px; border-radius: 999px; transition: background 0.15s var(--ease); }
+.reader-nav svg { padding: 2px 10px; border-radius: 999px; transition: background var(--dur-quick) var(--ease); }
 .reader-nav a:focus-visible { outline-offset: -3px; }
 
 @media (min-width: 48rem) {
@@ -341,18 +299,18 @@ details.help-group summary { cursor: pointer; font-weight: 600; min-block-size: 
 }
 .admin-mfa-form input[aria-invalid="true"] { border-color: var(--rose); }
 .admin-mfa-form .btn { justify-content: center; }
-.admin-mfa-qr { display: block; margin-block: 0.5rem 1rem; background: #ffffff; padding: 8px; border-radius: var(--radius-sm); }
+.admin-mfa-qr { display: block; margin-block: 0.5rem 1rem; background: var(--qr-ground); padding: 8px; border-radius: var(--radius-sm); }
 .admin-mfa-secret { margin-block-end: 0.5rem; }
 .admin-mfa-secret summary { cursor: pointer; color: var(--brand); }
 .admin-mfa-secret code { display: block; overflow-wrap: anywhere; font-size: 0.95rem; padding: 0.5rem; background: var(--surface-2); border-radius: 6px; }
-.cover { display: block; block-size: auto; max-inline-size: 100%; border-radius: 6px; box-shadow: var(--shadow); background: var(--surface-2); }
+.cover { display: block; block-size: auto; max-inline-size: 100%; border-radius: calc(var(--cover-radius) * 1px * 0.6); box-shadow: var(--shadow); background: var(--surface-2); }
 
 /* ---------- marketing home ---------- */
 .home-hero h1 { max-inline-size: 22ch; }
 .home-lead { font-size: 1.15rem; }
 .home-ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-block: 1.5rem 0; }
 .home-btn-light { background: var(--hero-ink); color: var(--hero-bg); }
-.home-btn-ghost { color: inherit; border-color: currentColor; }
+.btn.home-btn-ghost { color: inherit; border-color: currentColor; }
 .home-section { padding-block: clamp(2rem, 5vw, 3.25rem); }
 .home-band { background: var(--surface-2); }
 .home-trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
@@ -503,7 +461,10 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .paywall-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 0.5rem; }
 .paywall-actions .btn { flex-direction: column; align-items: flex-start; gap: 0.1rem; min-block-size: 44px; }
 .paywall-note { font-size: 0.85rem; font-weight: 400; }
-.paywall-yearly { background: none; border: 0; padding: 0.5rem 0; min-block-size: 44px; color: var(--brand); text-decoration: underline; font: inherit; cursor: pointer; }
+.paywall-yearly { cursor: pointer; }
+/* R6: the annual plan is a button of the same weight as the monthly one, with the yearly total in its label. */
+button.btn.paywall-yearly { text-decoration: none; }
+.paywall-shared .paywall-yearly { background: none; border: 0; padding: 0.5rem 0; min-block-size: 44px; color: var(--brand); text-decoration: underline; font: inherit; }
 .paywall-yearly:disabled { opacity: 0.55; cursor: not-allowed; }
 /* Public buy panel (item 3.2) and the code page (item 5.9) */
 .public-buy { display: grid; gap: 0.5rem; }
@@ -534,7 +495,7 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .browse-item {
   display: grid; gap: 0.15rem; min-block-size: 44px; padding: 0.75rem 1rem;
   border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface);
-  color: var(--ink); text-decoration: none; transition: border-color 0.15s var(--ease);
+  color: var(--ink); text-decoration: none; transition: border-color var(--dur-quick) var(--ease);
 }
 .browse-item:hover { border-color: var(--line-strong); }
 .browse-item-name { font-weight: 600; color: var(--brand); }
@@ -1165,7 +1126,7 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
   display: grid; grid-template-columns: auto 1fr; column-gap: 0.85rem; row-gap: 0.15rem; align-items: start;
   min-block-size: 44px; padding: 0.9rem 1rem; border: 1px solid var(--line); border-inline-start: 6px solid var(--shelf-accent, var(--brand));
   border-radius: var(--radius); background: var(--surface); color: var(--ink); text-decoration: none;
-  transition: border-color 0.15s var(--ease);
+  transition: border-color var(--dur-quick) var(--ease);
 }
 .shelf-tile:hover { border-color: var(--line-strong); border-inline-start-color: var(--shelf-accent, var(--brand)); }
 .shelf-tile .shelf-icon {
@@ -1267,7 +1228,7 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .quiz-card h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2.1rem); }
 .quiz-card h1:focus { outline: none; }
 .quiz-progress { block-size: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
-.quiz-progress-bar { block-size: 100%; background: var(--brand); border-radius: 999px; transition: inline-size 0.3s var(--ease); }
+.quiz-progress-bar { block-size: 100%; background: var(--brand); border-radius: 999px; transition: inline-size var(--dur-slow) var(--ease); }
 .quiz-step, .quiz-why { margin: 0; }
 .quiz-options { display: grid; gap: 0.6rem; }
 .quiz-option {
@@ -1347,24 +1308,26 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
   src: url("/fonts/dyslexia-friendly-latin-700-normal.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+20AC;
 }
-:root[data-font="dyslexic"] { --f-body: "Akana Dyslexia Friendly", "Atkinson Hyperlegible Next", system-ui, sans-serif; }
-:root[data-font="serif"] { --f-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+:root[data-font="dyslexic"] { --f-sans: "Akana Dyslexia Friendly", "Atkinson Hyperlegible Next", system-ui, sans-serif; --f-read: var(--f-sans); --lh-read: 1.6; }
 :root[data-text-size="4"] { --fs: 24px; }
 :root[data-text-size="5"] { --fs: 28px; }
 :root[data-font="dyslexic"] body { letter-spacing: 0.02em; word-spacing: 0.08em; }
 
 /* Margin width and the reading line: 65 characters, generous sides. */
-:root { --read-measure: 65ch; --read-pad: clamp(1rem, 4vw, 2rem); --confetti-1: #c2452d; --confetti-2: #e3aa45; --confetti-3: #3d8a9a; --confetti-4: #6aa381; }
+:root { --read-measure: 65ch; --read-pad: clamp(1rem, 4vw, 2rem); }
 :root[data-margin="narrow"] { --read-pad: 0.75rem; }
 :root[data-margin="wide"] { --read-pad: clamp(1.5rem, 9vw, 4.5rem); }
 .read-page { padding-inline: var(--read-pad); }
 .ak-player-body p, .ak-player-body li { max-inline-size: var(--read-measure); }
-.ak-player-body { line-height: 1.65; }
+/* Reading content: the serif (or the reader's face), at the reading size. The size is in rem, so
+   the text-size steps in the Aa panel move it. :where keeps the specificity at zero, so the
+   engine's own small and note sizes still win. */
+:where(.ak-player-body) :is(p, li, textarea, .ak-input, .ak-textarea) { font-family: var(--f-read); font-size: var(--fs-read); line-height: var(--lh-read); }
 :root[data-progress="time"] .ak-dots, :root[data-progress="none"] .ak-dots { display: none; }
 :root[data-progress="none"] .ak-estimate, :root[data-progress="none"] .um-note, :root[data-progress="none"] .um-strip { display: none; }
 
 /* Chrome that hides while reading: back on hover, keyboard or tap. */
-.read-head, .um-details, .ra-switch, .reader-nav { transition: opacity 0.2s var(--ease), transform 0.2s var(--ease); }
+.read-head, .um-details, .ra-switch, .reader-nav { transition: opacity var(--dur-base) var(--ease), transform var(--dur-base) var(--ease); }
 :root[data-chrome="hidden"] .read-head, :root[data-chrome="hidden"] .um-details, :root[data-chrome="hidden"] .ra-switch { opacity: 0; pointer-events: none; }
 :root[data-chrome="hidden"] .read-head:focus-within, :root[data-chrome="hidden"] .ra-switch:focus-within { opacity: 1; pointer-events: auto; }
 @media (max-width: 47.99rem) {
@@ -1387,7 +1350,8 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .rs-fonts .rs-option { display: grid; gap: 0.1rem; }
 .rs-font-lexend .rs-sample { font-family: "Lexend", sans-serif; }
 .rs-font-dyslexic .rs-sample { font-family: "Akana Dyslexia Friendly", sans-serif; }
-.rs-font-serif .rs-sample { font-family: Georgia, serif; }
+.rs-font-serif .rs-sample { font-family: var(--f-serif); }
+.rs-font-atkinson .rs-sample { font-family: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", sans-serif; }
 .rs-note { font-size: 0.8rem; color: var(--ink-soft); }
 .rs-size { display: flex; align-items: center; gap: 0.75rem; }
 .rs-size-dots { letter-spacing: 0.2em; color: var(--brand); }
@@ -1444,11 +1408,7 @@ button.um-row:hover, a.um-row:hover { background: var(--brand-wash); }
 .um-note { margin: 0; }
 .um-start { flex: none; }
 .um-cheer { margin: 0 0 0.5rem; padding: 0.6rem 0.9rem; border-radius: var(--radius-sm); background: var(--brand-wash); font-weight: 700; }
-.um-confetti { position: absolute; inset-inline: 0; inset-block-start: 0; block-size: 0; pointer-events: none; overflow: visible; }
-.um-confetti i { position: absolute; inline-size: 8px; block-size: 12px; border-radius: 2px; opacity: 0; animation: um-fall 1.3s var(--ease) forwards; }
-@keyframes um-fall { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(160px) rotate(300deg); } }
-@media (prefers-reduced-motion: reduce) { .um-confetti { display: none; } }
-:root[data-motion="reduce"] .um-confetti { display: none; }
+/* Confetti and the programme-end reveal are in app/motion.css. */
 .um-strip ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; flex-wrap: wrap; }
 .um-strip p { margin: 0.25rem 0 0; }
 .um-dot { display: inline-block; inline-size: 14px; block-size: 14px; border-radius: 50%; border: 2px solid var(--line-strong); background: var(--surface); position: relative; }
