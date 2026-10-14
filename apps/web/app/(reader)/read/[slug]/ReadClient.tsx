@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { WorkbookV3 } from "@akana/schema";
 import { Player, type PlayerView, type ProgressEvent } from "@akana/engine";
 import { HelpNowButton } from "@/components/HelpNowButton";
-import { SupabaseAnswerStore, type SaveState } from "@/components/reader/AnswerStore";
+import { SupabaseAnswerStore, type SaveDetail, type SaveState } from "@/components/reader/AnswerStore";
 import { DraftTransfer } from "@/components/reader/DraftTransfer";
 import { HardestAnswerCard } from "@/components/reader/HardestAnswerCard";
 import { useFirstExerciseMark } from "@/components/reader/useDeviceOnboarding";
@@ -13,7 +13,15 @@ import { hardestCardKey, sensitiveFieldKeys, shouldShowHardestCard } from "@/com
 import { PaywallCard } from "@/components/reader/PaywallCard";
 import { paywallState, unitCountPhrase, type PaywallInput } from "@/components/reader/paywall";
 import { PauseBar } from "@/components/reader/PauseBar";
+import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
+import { ReadAloud } from "@/components/reader/ReadAloud";
+import { ResumeCard } from "@/components/reader/ResumeCard";
 import { SaveStatus } from "@/components/reader/SaveStatus";
+import { UnitMap } from "@/components/reader/UnitMap";
+import { useReadingChrome } from "@/components/reader/useReadingChrome";
+import { buildPath, celebrationFor, pathChange, type PathNode } from "@/lib/reading/path";
+import { unitEstimateLine } from "@/lib/reading/estimate";
+import { LEAVE_LINE } from "@/lib/reading/resume";
 import { WeekLine } from "@/components/today/WeekLine";
 import type { OpenAt } from "@/lib/today/links";
 import { doneExerciseIds, nextStep, stepsFromWorkbook } from "@/lib/today/steps";
@@ -22,6 +30,8 @@ import { acknowledgeHigherTier, saveReadingPlace, type PlaceInput } from "./acti
 
 interface Props {
   workbook: WorkbookV3;
+  /** The reader's first name for author letters; letters read fine without it. */
+  firstName?: string;
   enrolmentId: string;
   lockedUnits: number[];
   missing: Array<"toolkit" | "finish" | "keep_going">;
@@ -39,6 +49,8 @@ interface Props {
   readOnly?: boolean;
   /** Open on this unit, step and field (Today, reminders, a paused place). */
   place?: OpenAt | null;
+  /** Where the reader last was, as a link to the exact field and a plain line (3.7). */
+  resume?: { href: string; where: string } | null;
 }
 
 function readLocal(key: string): string | null {
@@ -65,10 +77,15 @@ function writeLocal(key: string, value: string): void {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null }: Props) {
+export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null, resume = null }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
+  const [saveDetail, setSaveDetail] = useState<SaveDetail>({ cause: null, savedAt: null });
+  const [viewKind, setViewKind] = useState<PlayerView["kind"]>("start");
+  const [navigateTo, setNavigateTo] = useState<{ view: PlayerView; nonce: number } | null>(null);
+  const [celebration, setCelebration] = useState<ReturnType<typeof celebrationFor>>(null);
+  const prevPath = useRef<PathNode[] | null>(null);
   const [acknowledged, setAcknowledged] = useState(acknowledgedOnServer);
   const [hardest, setHardest] = useState(false);
   // 14.6: unsaved answers kept on the device until the server confirms them.
@@ -103,7 +120,10 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
     let cancelled = false;
     SupabaseAnswerStore.load({
       enrolmentId,
-      onStatus: setSaveState,
+      onStatus: (st, detail) => {
+        setSaveState(st);
+        setSaveDetail(detail);
+      },
       onSaved,
       currentUnit: () => lastUnit.current,
       drafts: readOnly ? null : deviceDrafts(),
@@ -176,6 +196,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
 
   const onViewChange = useCallback(
     (view: PlayerView) => {
+      setViewKind(view.kind);
       if (view.kind !== "unit" || view.number === lastUnit.current) return;
       lastUnit.current = view.number;
       if (lockedUnits.includes(view.number)) return;
@@ -239,6 +260,25 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
       ? { exerciseId: place.exerciseId, ...(place.mode ? { mode: place.mode } : {}), ...(place.page ? { page: place.page } : {}), ...(place.fieldId ? { fieldId: place.fieldId } : {}) }
       : undefined;
 
+  // Item 7: on a unit screen the chrome hides while reading.
+  useReadingChrome(viewKind === "unit");
+
+  // The unit map (3.3): done units, today's unit and the locked ones.
+  const doneIds = useMemo(() => doneExerciseIds([...(events ?? []), ...liveEvents]), [events, liveEvents]);
+  const path = useMemo(
+    () => buildPath({ units: workbook.units.map((u) => ({ number: u.number, focus: u.focus, exerciseIds: u.exercise_ids })), done: doneIds, lockedUnits }),
+    [workbook, doneIds, lockedUnits],
+  );
+  useEffect(() => {
+    const before = prevPath.current;
+    prevPath.current = path;
+    if (!before) return;
+    const c = celebrationFor(pathChange(before, path), { word: workbook.structure.unit, total: path.length, tier: workbook.safety_tier });
+    if (c) setCelebration(c);
+  }, [path, workbook]);
+  const openUnit = useCallback((n: number) => setNavigateTo((p) => ({ view: { kind: "unit", number: n }, nonce: (p?.nonce ?? 0) + 1 })), []);
+  const estimate = useCallback((unit: number, done: ReadonlySet<string>, st: Parameters<typeof unitEstimateLine>[3]) => unitEstimateLine(workbook, unit, done, st), [workbook]);
+
   // The weekly rhythm (4.2): a line and a mark for this week, never a streak.
   const steps = useMemo(() => stepsFromWorkbook(workbook), [workbook]);
 
@@ -272,7 +312,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
   return (
     <section className="read-page">
       <div className="read-head">
-        <SaveStatus state={saveState} />
+        <SaveStatus state={saveState} cause={saveDetail.cause} savedAt={saveDetail.savedAt} onRetry={() => store.retryNow()} keptOnDevice={saveState === "device"} />
+        <ReadingSettingsPanel />
         {missing.length ? <span className="muted" style={{ fontSize: "0.85rem" }}>Some parts open with the full workbook.</span> : null}
       </div>
       {upNext ? (
@@ -281,6 +322,12 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
           marked={thisWeekMarked(finishes, new Date(), browserZone)}
         />
       ) : null}
+      {resume && !place ? <ResumeCard href={resume.href} where={resume.where} withLine /> : <p className="small muted">{LEAVE_LINE}</p>}
+      <details className="um-details" open>
+        <summary>Your path</summary>
+        <UnitMap nodes={path} word={workbook.structure.unit} slug={slug} onOpenUnit={openUnit} celebration={celebration} />
+      </details>
+      <ReadAloud enrolmentId={enrolmentId} lang={workbook.language} />
       <DraftTransfer slug={slug} store={store} />
       {recovered ? (
         <p className="muted small" role="status">
@@ -295,6 +342,7 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
       {hardest ? <HardestAnswerCard market={helpMarket} onClose={() => setHardest(false)} /> : null}
       <Player
         workbook={workbook}
+        firstName={firstName}
         store={store}
         helpSlot={helpSlot}
         lockedUnits={lockedUnits}
@@ -315,6 +363,8 @@ export function ReadClient({ workbook, enrolmentId, lockedUnits, missing, slug, 
         pagedExercises
         initialOpen={initialOpen}
         onPlace={onPlace}
+        unitEstimate={estimate}
+        navigateTo={navigateTo}
       />
       <PauseBar onPause={pause} disabled={readOnly} />
     </section>
