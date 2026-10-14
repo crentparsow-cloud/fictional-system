@@ -206,7 +206,7 @@ describe("reader templates", () => {
       const out = renderReader(name, p[name], links);
       const text = [out.subject, out.text].join("\n");
       expect(text, name).not.toMatch(/\b(missed|miss(ed)?\b|streak|behind|overdue|catch up on|days? in a row|don't break|last chance|discount|% off)/i);
-      expect(text, name).not.toContain("—");
+      expect(text, name).not.toContain("\\u2014");
     }
     // Win-back subjects are short and plain.
     expect(renderReader("welcome_back", p.welcome_back, links).subject.length).toBeLessThan(30);
@@ -292,7 +292,7 @@ describe("reader templates", () => {
       for (const name of ["purchase_lifetime", "purchase_membership", "refund_confirmed", "membership_paused", "cancellation"] as const) {
         const r = renderReader(name, props[name] as never, links);
         const body = [r.subject, r.text].join("\n");
-        expect(body, name).not.toMatch(/—|\p{Extended_Pictographic}/u);
+        expect(body, name).not.toMatch(/\\u2014|\p{Extended_Pictographic}/u);
         expect(body.toLowerCase(), name).not.toMatch(/\bfree\b/);
       }
     });
