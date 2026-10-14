@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 import { withSentryConfig } from "@sentry/nextjs/config";
 import { buildCsp, ONE_TAP_PATHS, sentryOrigin } from "./csp.mjs";
+import { cacheHeaderRules, IMAGE_CONFIG } from "./cache-headers.mjs";
 
 /**
  * Security headers (F-125). No third-party scripts or pixels on any host, by
@@ -34,6 +35,9 @@ const partnerLinkHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // 10.2: raster images (author-supplied covers, later) go through next/image with a short
+  // size list, one format and a one year TTL. Generated covers are SVG and skip it.
+  images: { ...IMAGE_CONFIG, formats: ["image/webp" as const], imageSizes: [...IMAGE_CONFIG.imageSizes], deviceSizes: [...IMAGE_CONFIG.deviceSizes], qualities: [...IMAGE_CONFIG.qualities] },
   transpilePackages: ["@akana/schema", "@akana/validate", "@akana/seal", "@akana/engine", "@akana/emails"],
   async headers() {
     return [
@@ -57,6 +61,8 @@ const nextConfig: NextConfig = {
       { source: "/files/:path*", headers: partnerLinkHeaders },
       // Allowlist service worker (F-140): always revalidated, so a fix ships at once.
       { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, max-age=0" }] },
+      // 10.2: unhashed files in public/ and the sitemap (lib/cache-headers via cache-headers.mjs).
+      ...cacheHeaderRules(),
       // Self-hosted fonts: names are not hashed, so a week's cache, not immutable.
       { source: "/fonts/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=86400" }] },
     ];
