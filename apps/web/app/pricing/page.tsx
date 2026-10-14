@@ -73,7 +73,7 @@ export default async function PricingPage() {
                 ))}
               </ul>
               {c.href || c.checkout ? (
-                <Link className={c.badge ? "btn" : "btn secondary"} href={c.href ?? "/library"}>
+                <Link className={c.badge ? "btn" : "btn secondary"} href={c.href ?? "/explore"}>
                   {c.id === "workbook" ? "Look at the library" : "Start from the library"}
                 </Link>
               ) : null}

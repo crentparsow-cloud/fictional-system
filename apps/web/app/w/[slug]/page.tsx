@@ -117,7 +117,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
       <header className="wb-hero">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
-            <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/library">{t("nav.library")}</Link>
+            <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("nav.explore")}</Link>
           </nav>
           <div className="wb-card-top">
             <span className={`badge${card.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[card.badge]}</span>

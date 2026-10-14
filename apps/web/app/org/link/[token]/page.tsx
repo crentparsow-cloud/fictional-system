@@ -54,7 +54,7 @@ export default async function JoinLinkPage({ params, searchParams }: { params: P
           Your answers are yours alone.
         </p>
         <p>
-          <Link className="btn" href="/library">
+          <Link className="btn" href="/explore">
             Choose a workbook
           </Link>
         </p>

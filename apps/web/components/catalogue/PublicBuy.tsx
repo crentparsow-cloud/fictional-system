@@ -148,7 +148,7 @@ export function PublicBuy({ slug, state, signedIn, returnTo, start, outlineOnlyL
 
       {offer?.yearly && signedIn ? (
         <p className="small">
-          <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
+          <button type="button" className="btn secondary paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
             {offer.yearly.label}
           </button>
         </p>

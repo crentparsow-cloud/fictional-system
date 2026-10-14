@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export type NavItem = { href: string; label: string; icon: "home" | "today" | "toolkit" | "library" | "you" };
+export type NavItem = { href: string; label: string; icon: "today" | "explore" | "workbooks" | "you" };
 
 /**
- * The five-tab reader nav (F-014). Links, not buttons, so it works with the
+ * The four-tab reader nav (F-014, 14.1: Today, Explore, My workbooks, You). Links, not buttons, so it works with the
  * keyboard and the back button. aria-current marks the open tab. Each target
  * is at least 44px tall and wide.
  */
@@ -34,13 +34,6 @@ export function ReaderNav({ items, label }: { items: NavItem[]; label: string })
 function Icon({ name }: { name: NavItem["icon"] }) {
   const common = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
   switch (name) {
-    case "home":
-      return (
-        <svg {...common}>
-          <path d="M3 11.5 12 4l9 7.5" />
-          <path d="M5.5 10.5V20h13v-9.5" />
-        </svg>
-      );
     case "today":
       return (
         <svg {...common}>
@@ -48,18 +41,18 @@ function Icon({ name }: { name: NavItem["icon"] }) {
           <path d="M12 7.5V12l3 2" />
         </svg>
       );
-    case "toolkit":
-      return (
-        <svg {...common}>
-          <rect x="3.5" y="7.5" width="17" height="12" rx="2" />
-          <path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2" />
-        </svg>
-      );
-    case "library":
+    case "workbooks":
       return (
         <svg {...common}>
           <path d="M4.5 4.5h4v15h-4zM10.5 4.5h4v15h-4z" />
           <path d="m15.8 5.2 3.7-.8 3 14.6-3.7.8z" />
+        </svg>
+      );
+    case "explore":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="m15.5 8.5-2 5-5 2 2-5z" />
         </svg>
       );
     case "you":
