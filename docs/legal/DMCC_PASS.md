@@ -1,6 +1,6 @@
 # DMCC compliance pass
 
-Build list item 13.7. Date of pass: 14 October 2026. Done by the build session against the code on branch `platform`. This is an engineering audit, not legal advice. The lawyer (L1 to L4) signs off, and the rows marked "open for the lawyer" need a decision from them.
+Build list item 13.7. Date of pass: 14 October 2026. Open points R6 and R9 fixed on branch `nav-dmcc` (section "Fixed after the pass"). Done by the build session against the code on branch `platform`. This is an engineering audit, not legal advice. The lawyer (L1 to L4) signs off, and the rows marked "open for the lawyer" need a decision from them.
 
 ## Rules used
 
@@ -60,7 +60,7 @@ Result key: **Pass** (meets the rule as built), **Fixed** (changed in this pass)
 |---|---|---|---|---|
 | Struck-through prices | CSS and components | R3 | Pass | No `line-through`, `<s>` or `<del>` anywhere in `app/`, `components/`. `lib/price-display.test.ts` forbids a "was" figure. |
 | Monthly plan line | `lib/price-display.ts` `monthlyPlanLine` | R1 | Pass | "£X a month", with "£X each month until you cancel". |
-| Yearly plan line | `lib/price-display.ts` `yearlyPlanLine` | R6 | **Open** | The primary line is the monthly equivalent and the yearly total is the secondary line. The rule needs the total to be as prominent. The billing line does state the total, but the heading does not. Next wave: show "£X a year" at equal size and weight beside the monthly figure (`components/membership/PlanToggle.tsx`, `app/pricing/page.tsx`). Not a wording-only fix. |
+| Yearly plan line | `lib/price-display.ts` `yearlyPlanLine`; `lib/pricing-page.ts`; `components/reader/paywall.ts`; `lib/membership.ts` `autoRenewNotice`; `app/api/checkout/membership/route.ts` | R6 | **Fixed** | The yearly total now leads ("£69.99 a year") and the monthly equivalent sits beside it at the same size and weight (`components/membership/PlanToggle.tsx`, `app/pricing/page.tsx`, `.plan-line` and `.plan-price-figure` in `app/globals.css`). The paywall annual button names the total first and is a full button, not a text link (`components/reader/PaywallCard.tsx`, `components/catalogue/PublicBuy.tsx`). The Stripe pay screen for the annual plan opens with "You pay £69.99 a year, taken once." Tests: `lib/price-display.test.ts`, `lib/pricing-page.test.ts`, `components/reader/paywall.test.ts`, `lib/membership.test.ts`. |
 | Local currency display | `lib/markets.ts` | R1 | Lawyer | GBP market only for now (`lib/pricing.ts`). Check again when other currencies launch. |
 
 ### Trial, key terms and reminders
@@ -78,9 +78,9 @@ Result key: **Pass** (meets the rule as built), **Fixed** (changed in this pass)
 
 | Item | Where | Rule | Result | Note |
 |---|---|---|---|---|
-| Cancel route | `app/(reader)/you/page.tsx`, `app/api/billing/portal/route.ts`; offer text "Go to You, then Manage membership, then Cancel" | R9 | **Open** | Cancelling happens in Stripe's customer portal, so it is three steps (You, Manage membership, then Cancel inside Stripe) and the final button is not ours. The You page says "Cancel, change your card or see your invoices on Stripe's secure page." The plan wants a labelled Cancel button on You within two taps. Next wave: an own-site "Cancel membership" button on You that ends the subscription at period end through the API. Lawyer to say whether the portal route is enough. |
+| Cancel route | `app/(reader)/you/page.tsx` (Cancel membership), `app/(reader)/you/membership/cancel/` (`page.tsx`, `CancelForm.tsx`, `actions.ts`), `lib/membership-cancel.ts` | R9 | **Fixed** | Two taps: You, then the Cancel button on the cancel screen. The action ends the plan at the period end with `subscriptions.update(cancel_at_period_end: true)` through the Stripe API, inside Akana. The Stripe portal (`app/api/billing/portal/route.ts`) stays for card updates and invoices only; its button on You is now "Update your card", and `STRIPE_PORTAL_CONFIGURATION_ID` can point it at a configuration with cancellation off. The lawyer question on the portal route no longer applies to the main route. Tests: `lib/cancel-in-app.test.ts`, `lib/cancel-flow.test.ts`. |
 | Cancel button label | `components/membership/MembershipOffer.tsx` | R9 | Pass | Label is plain "Cancel". |
-| Confirmation | `lib/membership-email.ts` (`cancellation` template), sent from the webhook | R9 | Pass | Sent when Stripe reports the change, normally within seconds. A failure is retried by Stripe. The mailer logs failures; there is no 24-hour alarm yet. Next wave: an ops alert if a cancellation has no sent email after 24 hours. |
+| Confirmation | `lib/membership-email.ts` (`cancellation` template), `app/api/stripe/webhook/route.ts`, `lib/cancellation-confirm.ts`, `app/api/membership/cancel-emails/route.ts`, `vercel.json` | R9 | **Fixed** | Sent from the webhook when Stripe reports the change. If the send fails, an ops alert opens on the first failure through `reportOps` (`webhook_failure`, code `cancel_email_failed`, migration 0016 `record_ops_event`). A daily run at 09:11 (`/api/membership/cancel-emails`) sends again for every membership set to end in the last three days; the dedupe claim in `email_claims` (0010) stops a second copy, and a send that still fails raises the alert again (`cron_failure`). Period-end cancels are retried. A cooling-off cancel, whose email carries the refund, is covered by the alert and the staff resend in the account lookup (0027). Tests: `lib/cancellation-confirm.test.ts`. |
 | Cooling-off cancel and refund | `lib/membership-refund.ts`, `lib/stripe-webhook.ts` | R9 | Pass | A cancel inside 14 days gives a pro rata refund. |
 | Cancel flow: reason and offers | none built | R10 | Pass | No reason screen and no retention offer exist, so the rule holds. The planned pause offer (14.25) must stay off mental health shelves when built. |
 | Confirmshaming | `lib/membership-email.ts`, `docs/VOICE.md` | R9 | Pass | Cancellation email states the fact and what the reader keeps. |
@@ -96,18 +96,24 @@ Result key: **Pass** (meets the rule as built), **Fixed** (changed in this pass)
 
 None needed. Every label checked already used the approved forms. No file was changed for wording.
 
+## Fixed after the pass
+
+Trial label check across `apps/web` and `packages/emails` (14 October 2026). "Free" appears only where nothing is paid: the first week and first unit (`lib/free-label.ts`, `components/reader/PaywallCard.tsx`, the Start here titles and emails), support lines, the unbilled organisation pilot and staff-only counts. No "free trial" wording exists. `lib/trial-label-guard.test.ts` fails if it appears. The trial label comes from `trialLabel` in `lib/membership-trial.ts`: "14 days, then £7.99 a month".
+
+Navigation (14.1) is not a DMCC item but moved the cancel route's neighbours: the signed-in app now has four tabs (`components/ReaderTabs.tsx`), and `/library` redirects to `/explore`.
+
 ## For the next wave
 
-1. Yearly price prominence: show the yearly total as large as the monthly equivalent (R6). Files: `lib/price-display.ts`, `components/membership/PlanToggle.tsx`, `app/pricing/page.tsx`.
-2. Own-site cancel button on You, at most two taps from settings, ending the plan at period end (R9). Files: `app/(reader)/you/page.tsx`, a new route under `app/api/membership/`.
-3. Ops alert when a cancellation has no confirmation email after 24 hours (R9). Files: `lib/ops-alerts.ts`, `lib/stripe-webhook.ts`.
-4. Adaptive Pricing: if the toggle is switched on, show the converted total before payment (R1).
-5. Cooling-off line inside the key terms panel if the lawyer says it must sit with the other terms (R7). File: `components/membership/MembershipOffer.tsx`.
+Items 1 to 3 of the previous list (yearly prominence, own-site cancel, 24-hour confirmation alert) are fixed above. Still open:
+
+1. Adaptive Pricing: if the toggle is switched on, show the converted total before payment (R1).
+2. Cooling-off line inside the key terms panel if the lawyer says it must sit with the other terms (R7). File: `components/membership/MembershipOffer.tsx`.
+3. Stripe dashboard: set the customer portal to card and invoices only, or create a configuration with cancellation off and put its id in `STRIPE_PORTAL_CONFIGURATION_ID`.
 
 ## For the lawyer
 
 - Commencement date of the subscription regime.
-- Whether the Stripe portal is an acceptable cancel route (R9).
+- Whether the in-app two-tap cancel (You, then Cancel) meets R9. The portal is no longer the cancel route.
 - Whether the pricing page line on the 14-day refund reads as a legal fact or a favour (R5).
 - Whether cooling-off must be in the same panel as the other key terms (R7).
 - Business to business position for organisation licences.

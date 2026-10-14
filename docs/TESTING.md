@@ -61,11 +61,13 @@ For a Vercel preview behind deployment protection, also set `VERCEL_AUTOMATION_B
 
 | Spec | Checks |
 |---|---|
-| `pages.spec.ts` | `/`, `/help-now`, `/publish`, the four legal pages and `/sign-in` return 200 with one visible, non-empty h1 inside `<main>`. Help now and Sign in headings carry their names. `/library` and `/admin` send a signed-out visitor to `/sign-in?next=%2Flibrary` and `/sign-in?next=%2Fadmin`, both as a raw redirect and in the browser. |
+| `pages.spec.ts` | `/`, `/help-now`, `/publish`, the four legal pages, `/sign-in`, `/start`, `/pricing`, `/trust`, `/accessibility` and `/code` return 200 with one visible, non-empty h1 inside `<main>`. Help now and Sign in headings carry their names. `/library` and `/admin` send a signed-out visitor to `/sign-in?next=%2Flibrary` and `/sign-in?next=%2Fadmin`, both as a raw redirect and in the browser. |
 | `headers.spec.ts` | `/` sends a Content-Security-Policy whose only third-party script origin is `https://js.stripe.com`, with `frame-ancestors 'none'` and `object-src 'none'`. `X-Frame-Options: DENY` and `X-Content-Type-Options: nosniff` are present. Strict-Transport-Security is checked on the remote project only. Locally, a request with an unconfigured Host header gets a 404. |
 | `third-party.spec.ts` | Every request made while `/`, `/help-now` and `/publish` load goes to the app's own origin or `*.supabase.co`. `js.stripe.com` is allowed only on a page that carries a Stripe.js script tag, and none of these do. |
 | `help-now.spec.ts` | Every `tel:` link on `/help-now` is a dialable number and has an accessible name. The first line is emergency services. A UK browser (en-GB) is shown 999. |
 | `a11y.spec.ts` | axe with WCAG 2.2 A and AA rules on `/`, `/help-now` and `/publish`. Fails on serious or critical violations. |
+
+On the remote project only (they need catalogue data), `/explore`, one shelf, one live title and one try-it title get the same page, third-party and axe checks. Set `E2E_SHELF_SLUG`, `E2E_WORKBOOK_SLUG` or `E2E_TRY_SLUG` to pick them; otherwise they are found from `/explore`. Google One Tap must not load outside `ONE_TAP_PATHS`. There is no public collections index.
 
 Heading text is not asserted on pages that are still being rewritten. When a page settles, add its heading to `pages.spec.ts`.
 
