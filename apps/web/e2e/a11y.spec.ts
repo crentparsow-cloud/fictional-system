@@ -37,6 +37,7 @@ const STATIC_PAGES: string[] = [
   "/help",
   ...listCodes("help", ".md").map((t) => `/help/${t}`),
   "/trust",
+  "/accessibility",
   "/pricing",
   "/white-label",
   "/organisations",
