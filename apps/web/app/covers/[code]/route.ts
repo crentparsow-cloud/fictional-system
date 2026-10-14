@@ -1,6 +1,7 @@
 import { buildCoverSvg, type CoverBadge } from "@/lib/covers";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { CACHE, NO_STORE } from "@/lib/cache-headers";
 
 /**
  * Generated cover for a live workbook (F-117), by AK code. Looked up through
@@ -9,6 +10,10 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  *
  * The SVG carries its own strict CSP: no scripts, no outside loads, sandboxed.
  * It uses presentation attributes only, so it needs no style source.
+ *
+ * Cached for a day in the browser and a month at the edge (10.2). Only live
+ * workbooks are served, so the body is the same for every visitor on a host.
+ * A 404 is never stored.
  */
 const AK_CODE = /^AK-[0-9A-HJKMNP-TV-Z]{5}$/;
 
@@ -52,7 +57,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ cod
     status: 200,
     headers: {
       "Content-Type": "image/svg+xml; charset=utf-8",
-      "Cache-Control": "public, max-age=86400",
+      "Cache-Control": CACHE.cover,
       "Content-Security-Policy": SVG_CSP,
       "X-Content-Type-Options": "nosniff",
     },
@@ -62,6 +67,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ cod
 function notFound(): Response {
   return new Response("Not found", {
     status: 404,
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": NO_STORE },
   });
 }
