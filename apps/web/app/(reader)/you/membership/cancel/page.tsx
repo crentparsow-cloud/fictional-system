@@ -19,7 +19,9 @@ export const dynamic = "force-dynamic";
  * Cancel button here. One screen, one optional reason, one offer (a pause, or
  * the shared plan when cost is the reason), and a Cancel button that says
  * what it does. A confirmation email follows at once. Cancelling here is
- * the same as cancelling in Stripe's portal or writing to support.
+ * the same as writing to support. It ends the plan at the end of the period
+ * you have paid for, through the Stripe API, and never sends the reader to
+ * Stripe's billing portal, which is kept for card updates only.
  */
 export default async function CancelMembershipPage() {
   const session = await getReaderSession();
@@ -67,7 +69,7 @@ export default async function CancelMembershipPage() {
       ) : view.kind === "ending" ? (
         <>
           <p>{view.endsOn ? `Your membership is already set to end on ${longDate(view.endsOn)}. It will not renew.` : "Your membership is already set to end. It will not renew."}</p>
-          <p>If you change your mind before then, go to You, then Manage membership.</p>
+          <p>If you change your mind before then, write to support.</p>
           <p>
             <Link className="btn secondary" href="/you#membership">
               Back to You

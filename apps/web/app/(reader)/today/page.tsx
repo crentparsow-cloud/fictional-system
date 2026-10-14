@@ -67,7 +67,7 @@ export default async function TodayPage() {
         <>
         <div className="card empty-state">
           <p>{t("today.empty")}</p>
-          <Link className="btn" href="/library">
+          <Link className="btn" href="/explore">
             {t("home.browse")}
           </Link>
         </div>

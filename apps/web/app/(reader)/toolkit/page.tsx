@@ -67,7 +67,7 @@ export default async function ToolkitPage() {
       ) : (
         <div className="card empty-state">
           <p>Your tools appear here once you open a workbook that has them.</p>
-          <Link className="btn" href="/library">
+          <Link className="btn" href="/explore">
             {t("home.browse")}
           </Link>
         </div>

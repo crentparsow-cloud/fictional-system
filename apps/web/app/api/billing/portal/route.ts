@@ -7,9 +7,11 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
 
 /**
  * Stripe customer portal for members (F-097). POST /api/billing/portal from
- * the "Manage membership" form on the You page -> 303 to Stripe's portal,
- * where the reader can cancel, change their card and see invoices.
- * Cancelling is as easy as joining: one button here, one on Stripe's page.
+ * the "Update your card" form on the You page -> 303 to Stripe's portal,
+ * where the reader changes their card and sees invoices. Cancelling does
+ * not go through here: the Cancel membership button on You opens
+ * /you/membership/cancel, which ends the plan at period end through the
+ * Stripe API inside Akana (two taps, R9 in docs/legal/DMCC_PASS.md).
  *
  * The customer id is read from the reader's own subscription rows under
  * RLS, so a reader can only ever open their own portal. Anything that goes
@@ -43,7 +45,14 @@ export async function POST(request: NextRequest) {
   if (!customer) return back();
 
   try {
-    const portal = await getStripe().billingPortal.sessions.create({ customer, return_url: `${origin}/you#membership` });
+    // STRIPE_PORTAL_CONFIGURATION_ID points at a portal configuration with cancellation switched off.
+    // Blank means Stripe's default configuration.
+    const configuration = process.env.STRIPE_PORTAL_CONFIGURATION_ID?.trim();
+    const portal = await getStripe().billingPortal.sessions.create({
+      customer,
+      return_url: `${origin}/you#membership`,
+      ...(configuration ? { configuration } : {}),
+    });
     return NextResponse.redirect(portal.url, { status: 303 });
   } catch (err) {
     console.error("billing_portal_failed", { reason: err instanceof Error ? err.name : "unknown" });

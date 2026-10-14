@@ -65,7 +65,7 @@ export default async function HomePage() {
         <div className="card empty-state">
           <p>{t("home.empty")}</p>
           <p className="muted">{t("home.line")}</p>
-          <Link className="btn" href="/library">
+          <Link className="btn" href="/explore">
             {t("home.browse")}
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default async function HomePage() {
           </div>
           <p className="muted see-all">
             {hidden > 0 ? <>{t("home.moreInLibrary", { count: hidden })} </> : null}
-            <Link href="/library">{t("home.seeAll")}</Link>
+            <Link href="/explore">{t("home.seeAll")}</Link>
           </p>
         </>
       )}

@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { InstallPrompt } from "@/components/InstallPrompt";
-import { ReaderNav, type NavItem } from "@/components/ReaderNav";
+import { ReaderTabs } from "@/components/ReaderTabs";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { ReadingApply } from "@/components/reader/ReadingApply";
 import { ReadOnlyBanner } from "@/components/reader/ReadOnlyBanner";
@@ -16,7 +16,7 @@ import { needsReaderTerms, termsHref } from "@/lib/terms";
 import { readerTermsAccepted } from "@/lib/terms-server";
 
 /**
- * Reader shell (F-014): the five tabs and the gates in front of them.
+ * Reader shell (F-014): the four tabs and the gates in front of them.
  *
  * Nobody signed in goes to /sign-in. A signed-in reader who has not yet
  * confirmed they are 18 or over goes to /welcome first (F-127). Both carry
@@ -46,13 +46,6 @@ export default async function ReaderLayout({ children }: { children: React.React
   const readingAccount = await loadAccountReading();
 
   const { t } = await getT();
-  const items: NavItem[] = [
-    { href: "/home", label: t("nav.home"), icon: "home" },
-    { href: "/today", label: t("nav.today"), icon: "today" },
-    { href: "/toolkit", label: t("nav.toolkit"), icon: "toolkit" },
-    { href: "/library", label: t("nav.library"), icon: "library" },
-    { href: "/you", label: t("nav.you"), icon: "you" },
-  ];
 
   return (
     <div className="reader-shell">
@@ -66,7 +59,7 @@ export default async function ReaderLayout({ children }: { children: React.React
         <InstallPrompt />
         {children}
       </main>
-      <ReaderNav items={items} label={t("nav.label")} />
+      <ReaderTabs />
       <ServiceWorkerRegister />
       <ReadingApply account={readingAccount} />
     </div>

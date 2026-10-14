@@ -215,7 +215,7 @@ export default async function YouPage({ searchParams }: Props) {
           {canManageMembership ? (
             <form method="post" action="/api/billing/portal">
               <button type="submit" className="btn secondary">
-                Manage membership
+                Update your card
               </button>
               <p className="small muted">Change your card or see your invoices on Stripe&apos;s secure page.</p>
             </form>
