@@ -21,6 +21,8 @@ export const SCHEMA_VERSION = "3.1" as const;
 /**
  * Versions a file may declare. 3.1 (10 October 2026) adds the optional
  * units[].intro, ideas and takeaway fields from docs/content/UNIT_SPEC.md.
+ * It also adds the optional end_state, who_for and letters fields (12 October
+ * 2026 build list items 7.3 and 12.1; see TitleCopy below).
  * Additive only: every 3.0 file stays valid and parses to the same result.
  */
 export const SUPPORTED_SCHEMA_VERSIONS = ["3.0", "3.1"] as const;
@@ -308,6 +310,57 @@ export const AuthorRef = z
   })
   .strict();
 
+/**
+ * A letter at the start of a programme or part-way through it (12.1). The
+ * body is addressed to the reader by first name: it opens with {first_name},
+ * which the reader screen fills from the account and drops, with its comma,
+ * when no name is known. `from` says whose voice it is in.
+ * - "author": the author wrote it, or for a demo author the house wrote it in
+ *   the invented author's voice, and `demo` is true.
+ * - "akana": Akana wrote it about the author, in the house voice. Used for
+ *   every public domain title, so a dead author is never ghost-written.
+ * `at_unit` is the 1-based position of the unit the letter sits before. A
+ * welcome letter has none and sits at the start of the programme.
+ */
+export const AuthorLetter = z
+  .object({
+    id: Id,
+    kind: z.enum(["welcome", "unit"]),
+    at_unit: z.number().int().min(1).optional(),
+    from: z.enum(["author", "akana"]),
+    demo: z.boolean().optional(),
+    title: z.string().min(1),
+    body: z.string().min(1),
+    signed: z.string().min(1),
+  })
+  .strict()
+  .superRefine((l, ctx) => {
+    if (l.kind === "welcome" && l.at_unit !== undefined) ctx.addIssue({ code: "custom", path: ["at_unit"], message: "a welcome letter has no at_unit" });
+    if (l.kind === "unit" && l.at_unit === undefined) ctx.addIssue({ code: "custom", path: ["at_unit"], message: "a unit letter needs at_unit" });
+  });
+export type AuthorLetter = z.infer<typeof AuthorLetter>;
+
+/** Three short lines for "Who this is for" (7.3). */
+export const WhoFor = z.array(z.string().min(1)).length(3);
+
+/**
+ * The words on a title's page beyond its card line (7.2, 7.3, 12.1): the
+ * outcome line, a paragraph on what the reader will have at the end, three
+ * lines on who it is for, and the author letters. A full workbook file may
+ * carry these fields itself. For titles with no workbook file yet they live
+ * in content/catalog/title-copy.json, keyed by code, in this shape.
+ */
+export const TitleCopy = z
+  .object({
+    code: z.string().regex(/^AK-[0-9A-HJKMNP-TV-Z]{5}$/),
+    card_line: z.string().min(1),
+    end_state: z.string().min(1),
+    who_for: WhoFor,
+    letters: z.array(AuthorLetter).min(4).max(5),
+  })
+  .strict();
+export type TitleCopy = z.infer<typeof TitleCopy>;
+
 export const WorkbookV3 = z
   .object({
     schema_version: z.enum(SUPPORTED_SCHEMA_VERSIONS),
@@ -319,6 +372,11 @@ export const WorkbookV3 = z
     short_title: z.string().optional(),
     card_line: z.string(),
     tagline: z.string().optional(),
+    // Schema 3.1, additive: what the reader will have at the end, who the
+    // workbook is for, and the author letters. All optional.
+    end_state: z.string().optional(),
+    who_for: WhoFor.optional(),
+    letters: z.array(AuthorLetter).max(6).optional(),
     book: BookRef,
     author: AuthorRef,
     publisher_id: z.string().regex(CODE_PATTERN).optional(),
@@ -406,4 +464,20 @@ export function stripInternal<T extends { internal?: unknown }>(doc: T): Omit<T,
 
 export function isWellbeing(doc: Pick<WorkbookV3, "safety_tier">): boolean {
   return doc.safety_tier !== "none";
+}
+
+/**
+ * Lays a sidecar entry (content/catalog/title-copy.json) over a workbook so
+ * the engine sees end_state, who_for and letters on the document itself. Fields
+ * the workbook already carries win, so a workbook file that holds its own copy
+ * is never overwritten by the sidecar.
+ */
+export function withTitleCopy<T extends { end_state?: string; who_for?: string[]; letters?: unknown[] }>(doc: T, copy: TitleCopy | undefined): T {
+  if (!copy) return doc;
+  return {
+    ...doc,
+    end_state: doc.end_state ?? copy.end_state,
+    who_for: doc.who_for ?? copy.who_for,
+    letters: doc.letters ?? copy.letters,
+  };
 }
