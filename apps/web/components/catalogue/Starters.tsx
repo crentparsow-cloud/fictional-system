@@ -22,7 +22,7 @@ export async function Starters() {
     return (
       <div className="starters">
         <p>{t("starters.none")}</p>
-        <Link className="btn" href="/library">
+        <Link className="btn" href="/explore">
           {t("home.browse")}
         </Link>
       </div>

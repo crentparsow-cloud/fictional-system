@@ -65,7 +65,7 @@ export const LEGAL_LINKS: HomeLink[] = [
 export function buildHomeSections(input: HomeInput): HomeSections {
   const { brandName } = input;
   const cards = pickHomeCards(input.cards);
-  const libraryLink: HomeLink = { href: "/library", label: "See the whole library" };
+  const libraryLink: HomeLink = { href: "/explore", label: "See the whole library" };
 
   const library: LibrarySection = cards.length
     ? { kind: "cards", title: "From the library", cards, more: libraryLink }
@@ -80,7 +80,7 @@ export function buildHomeSections(input: HomeInput): HomeSections {
     hero: {
       line: input.line,
       lead: "Guided workbooks built from published books. Read a week, try the exercises and keep your answers private.",
-      primary: { href: "/library", label: "Browse the library" },
+      primary: { href: "/explore", label: "Browse the library" },
       secondary: { href: "/publish", label: `Publish with ${brandName}` },
     },
     trust: {

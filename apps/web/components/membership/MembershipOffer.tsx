@@ -95,7 +95,7 @@ export function MembershipOffer({ plans, library }: { plans: OfferPlan[]; librar
             </li>
           ))}
           <li className="muted small">
-            <Link href="/library">See the whole library</Link>
+            <Link href="/explore">See the whole library</Link>
           </li>
         </ul>
       ) : null}

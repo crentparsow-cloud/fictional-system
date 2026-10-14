@@ -148,7 +148,7 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
           ) : null}
           {state.yearly ? (
             <p className="small">
-              <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
+              <button type="button" className="btn secondary paywall-yearly" disabled={busy} onClick={() => join("yearly")}>
                 {state.yearly.label}
               </button>
             </p>

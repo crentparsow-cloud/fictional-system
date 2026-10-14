@@ -95,6 +95,15 @@ describe("membershipCheckoutParams", () => {
     for (const plan of ["monthly", "yearly"] as const) expect(autoRenewNotice(plan)).not.toMatch(/—|–/);
     expect(JSON.stringify(p)).not.toMatch(/title/i);
   });
+
+  it("states the yearly total on the pay screen for the annual plan (R6)", () => {
+    expect(autoRenewNotice("yearly", "£69.99")).toMatch(/^You pay £69\.99 a year, taken once\. /);
+    const p = membershipCheckoutParams({ ...base, plan: "yearly", yearlyTotal: "£69.99" });
+    expect(JSON.stringify(p.custom_text?.submit)).toContain("£69.99 a year");
+    // Monthly and two-person plans carry no yearly sentence.
+    expect(autoRenewNotice("monthly", "£69.99")).not.toContain("a year, taken once");
+    expect(autoRenewNotice("yearly")).not.toContain("taken once");
+  });
 });
 
 function sub(over: Partial<Record<string, unknown>> = {}): Stripe.Subscription {

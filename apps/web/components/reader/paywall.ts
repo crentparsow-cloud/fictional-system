@@ -123,8 +123,8 @@ export function paywallState(input: PaywallInput): PaywallState {
 
 /**
  * The annual line under the monthly button. With a market it is the monthly
- * equivalent and the yearly total side by side, and the trial first when
- * there is one: "21 days, then £5.83 a month, £69.99 a year". Without one it
+ * equivalent and the yearly total side by side, the total first, and the
+ * trial first when there is one: "21 days, then £69.99 a year, £5.83 a month". Without one it
  * is the older "Or pay £69.99 a year".
  */
 function yearlyLabel(price: Price, market: Market | undefined, trialDays: number): string {

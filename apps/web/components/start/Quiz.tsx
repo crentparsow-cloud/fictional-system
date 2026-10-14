@@ -152,7 +152,7 @@ export function Quiz({ catalogue, signedIn }: { catalogue: QuizCatalogue; signed
           <p>We could not match a workbook just now. The library has everything we have.</p>
         )}
         <p className="quiz-foot">
-          <Link href="/library">Browse the whole library</Link>
+          <Link href="/explore">Browse the whole library</Link>
           {" · "}
           <button type="button" className="btn-link" onClick={restart}>
             Answer again

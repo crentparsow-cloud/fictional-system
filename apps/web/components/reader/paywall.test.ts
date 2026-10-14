@@ -170,11 +170,11 @@ describe("paywallState trial and annual labels (5.3, 13.5, 14.21)", () => {
     expect(JSON.stringify(s)).not.toMatch(/free/i);
   });
 
-  it("shows the annual plan as a monthly equivalent with the yearly total beside it", () => {
+  it("shows the annual plan with the yearly total first and the monthly equivalent beside it", () => {
     const s = paywallState({ ...base, membershipTrial: { monthly: 14, yearly: 21 }, market: MARKETS.GB });
-    expect(s.kind === "offer" && s.yearly?.label).toBe("Or 21 days, then £5.83 a month, £69.99 a year");
+    expect(s.kind === "offer" && s.yearly?.label).toBe("Or 21 days, then £69.99 a year, £5.83 a month");
     const noTrial = paywallState({ ...base, market: MARKETS.GB });
-    expect(noTrial.kind === "offer" && noTrial.yearly?.label).toBe("Or £5.83 a month, £69.99 a year");
+    expect(noTrial.kind === "offer" && noTrial.yearly?.label).toBe("Or £69.99 a year, £5.83 a month");
     expect(noTrial.kind === "offer" && noTrial.membership.note).toBe("£7.99 a month");
     expect(noTrial.kind === "offer" && "trialDays" in noTrial).toBe(false);
   });
