@@ -1,5 +1,7 @@
+import { Starters } from "@/components/catalogue/Starters";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { UnitMap } from "@/components/reader/UnitMap";
 import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
@@ -62,17 +64,21 @@ export default async function TodayPage() {
       {session ? <GroupWeekLine /> : null}
 
       {!view || view.cards.length === 0 ? (
+        <>
         <div className="card empty-state">
           <p>{t("today.empty")}</p>
           <Link className="btn" href="/library">
             {t("home.browse")}
           </Link>
         </div>
+        <Starters />
+        </>
       ) : (
         <>
           <NightNote />
           {!view.hasProgrammes ? <p className="muted">{t("today.empty")}</p> : null}
           {view.rhythm ? <WeekLine line={view.rhythm.line} marked={view.rhythm.marked} /> : null}
+          {view.strip ? <UnitMap compact nodes={view.strip.nodes} word={view.strip.word} slug={view.strip.slug} /> : null}
           <NotToday label={t("today.notToday")} doneLine={t("today.notTodayDone")} showLabel={t("today.showAnyway")}>
             <TodayCards cards={view.cards} hrefs={view.hrefs} welcomeBack={view.welcomeBack} readOnly={readOnly} />
           </NotToday>

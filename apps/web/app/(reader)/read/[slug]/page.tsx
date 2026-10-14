@@ -1,3 +1,4 @@
+import { resumeHref, resumeWhere, type PlaceRow } from "@/lib/reading/resume";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import "@akana/engine/engine.css";
@@ -15,6 +16,8 @@ import { rebuildWorkbook, type SectionRow } from "@/lib/rebuild-workbook";
 import { openAtFromQuery, type OpenAt } from "@/lib/today/links";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { withTitleCopy } from "@akana/schema";
+import { firstNameOf, titleCopyFor } from "@/lib/title-copy";
 import { ReadClient } from "./ReadClient";
 
 /**
@@ -57,6 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 interface WorkbookRow {
   id: string;
+  code: string;
   slug: string;
   title: string;
   safety_tier: "none" | "standard" | "higher";
@@ -101,7 +105,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
 
   const { data: wb } = await supabase
     .from("workbooks")
-    .select("id, slug, title, safety_tier, is_demo, price_point_id, in_membership, current_version_id, genre_id, themes(shelf_id)")
+    .select("id, code, slug, title, safety_tier, is_demo, price_point_id, in_membership, current_version_id, genre_id, themes(shelf_id)")
     .eq("slug", slug)
     .maybeSingle();
   const workbook = wb as unknown as WorkbookRow | null;
@@ -109,7 +113,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("health_consent_at, health_consent_version, faith_consent_at, faith_consent_version, country")
+    .select("health_consent_at, health_consent_version, faith_consent_at, faith_consent_version, country, display_name")
     .eq("user_id", session.userId)
     .maybeSingle();
   const consent = {
@@ -238,12 +242,23 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
   // Ids only, and nothing is counted when they have opted out of counting.
   if (rebuilt.lockedUnits.length) await countView("sample_view", workbook.id, session.userId);
 
+  // 3.7: the exact place the reader was last in, for the Continue card. Ids only; unreadable means no card.
+  let resume: { href: string; where: string } | null = null;
+  if (!place) {
+    const { data: last } = await supabase.from("reading_places").select("unit, exercise_id, page, field_id, mode").eq("enrolment_id", enrolment.id).maybeSingle();
+    const row = last as PlaceRow | null;
+    if (row && rebuilt.workbook.units.some((u) => u.number === row.unit)) {
+      resume = { href: resumeHref(workbook.slug, row), where: resumeWhere(rebuilt.workbook.structure.unit, row) };
+    }
+  }
+
   // Membership checkout opens per plan once its Stripe price id is set (F-097).
   const plansOpen = membershipPlansOpen();
 
   return (
     <ReadClient
-      workbook={rebuilt.workbook}
+      workbook={withTitleCopy(rebuilt.workbook, titleCopyFor(workbook.code))}
+      firstName={firstNameOf(profile?.display_name as string | null | undefined)}
       enrolmentId={enrolment.id}
       lockedUnits={rebuilt.lockedUnits}
       missing={rebuilt.missing}
@@ -252,6 +267,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
       events={events}
       openView={openView}
       place={place}
+      resume={resume}
       acknowledged={acknowledged}
       readOnly={readOnly}
       paywall={{
