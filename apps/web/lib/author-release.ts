@@ -211,7 +211,7 @@ export const RELEASE_NOTICES = {
   "rate-limited": { tone: "error", text: "That's the limit for today. Please try again tomorrow." },
   invalid: { tone: "error", text: "Please check the form. Nothing changed." },
   denied: { tone: "error", text: "Your role cannot do that. Nothing changed." },
-  failed: { tone: "error", text: "That didn't work just now. Nothing changed. Please try again." },
+  failed: { tone: "error", text: "We're sorry. That did not work just now. Nothing changed. Please try again." },
 } as const;
 export type ReleaseNotice = keyof typeof RELEASE_NOTICES;
 
