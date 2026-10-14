@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { brand } from "@/lib/brand";
+import { activeDirection } from "@/lib/design/active";
 
 /**
  * The web app manifest (10.1), served at /manifest.webmanifest. Standalone
@@ -27,8 +28,8 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#f7f5f0",
-    theme_color: "#1f4e5a",
+    background_color: activeDirection.light.canvas,
+    theme_color: activeDirection.light.canvas,
     categories: ["education", "lifestyle"],
     icons: [
       { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
