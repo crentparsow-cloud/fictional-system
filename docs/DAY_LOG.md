@@ -716,3 +716,45 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - Decide the "demo letter" label.
 
 **Open questions:** The catalogue outlines for Franklin and Self-Help differ from the units built. The month-three card is hidden for wellbeing readers. The signed-out sample exercise is skipped for wellbeing titles.
+
+### Day 14, second block (Tuesday 14 October)
+
+Wave 4 integration. The `tests` branch and then the `nav-dmcc` branch were merged into `phase-a`. Both had edited the e2e specs and the explore page. The merges were clean and both intents kept: the `/library` redirect expectation and the new public page checks sit side by side.
+
+- **Tests fix.** Database tests 0006 and 0015 were test bugs that appeared after 0035 changed consent handling. The tests were corrected. No migration was added.
+- **E2E additions.** The smoke specs now cover /start, /pricing, /trust, /accessibility and /code in the local, third-party and axe specs. The live-data pages (/explore shelves, a live title, a try-it title) run on the remote project only. A check confirms Google One Tap stays off paths outside `ONE_TAP_PATHS`. The search privacy test ignores background prefetches but still fails on anything carrying the query. Local project count: 402 tests, 373 pass, 29 skipped by design (remote only), 0 fail. One spec (`info-pages` trust table check) matched two regions and was made strict-safe after the merge.
+- **Four-tab navigation (14.1).** Today, Explore, My workbooks, You. The Library tab is folded into Explore, which holds search, chips and the full list under `?all=1` or any filter. `/library` redirects to `/explore` and keeps the query. Explore is public and shows the tabs to a signed-in reader. The read-aloud bar stays above them. The old library page is now `components/catalogue/LibraryBrowse.tsx`.
+- **DMCC fixes.** (a) The yearly total leads and matches the monthly equivalent on the pricing page, offer, paywall and Stripe pay screen (R6). (b) Cancel completes inside Akana in two taps, through the Stripe API at period end. The billing portal is for cards only (R9). (c) A failed cancellation email raises an ops alert at once and is retried without sending twice (R9). A test guards against stray "free trial" wording.
+- **New daily cron** `/api/membership/cancel-emails` (09:11 UTC, in `apps/web/vercel.json`). It retries cancellation confirmation emails.
+- **New env var** `STRIPE_PORTAL_CONFIGURATION_ID` (in `.env.example`). Blank means the default portal configuration is used.
+
+**Checks:** typecheck and lint clean, web unit tests 135 files and 1495 tests pass, `validate --parked` 25 files 0 failed, `check:ids` 0 findings, web build clean with the CI placeholder env, CSP check clean, database suite passes on local Postgres 16 (all files, including 0006 and 0015), local e2e as above. A stale `.next` type cache referenced the old `(reader)/library` route and was cleared before the build.
+
+**Only Crent can:**
+
+- Set the Stripe billing portal to card and invoices only, or create a portal configuration with cancellation off and put its id in `STRIPE_PORTAL_CONFIGURATION_ID`.
+- Decide whether to enable `pg_cron` and `pg_net` on staging before 0040.
+- Upload the six large files from Chrome: `supabase/seed/seed.sql`, the two `docs/public-domain/*.modernisation-log.json` files, `content/catalog/title-copy.json` and the two woff2 fonts under `apps/web/public/fonts`.
+
+**Staging migrations 0036 to 0045 are still pending.** The Supabase tool asks for confirmation of destructive statements, and that prompt could not be answered from a subagent. They all pass on local Postgres 16. Apply them once the pg_cron and pg_net decision is made.
+
+### Day 14, third block (Tuesday 14 October)
+
+Design system branch merged into `phase-a`. It covers items 1.1 (scaffold), 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.9, 13.9 and 14.11.
+
+- **Tokens and directions.** Design tokens sit on `:root`. Three direction files live under `apps/web/app/themes`, chosen by `NEXT_PUBLIC_DESIGN_DIRECTION`. The default is paper-and-ink.
+- **Shelf colours.** A shelf colour map is in place with a contrast test.
+- **Fonts.** Self-hosted OFL fonts, documented in `docs/FONTS.md`.
+- **Reading themes.** Named reading themes, light and dark.
+- **Motion and kit.** `motion.css` and the `/dev/kit` page.
+- **Covers and share images.** Satori format-coded covers at `/covers/CODE.png`, plus share images.
+
+**Checks:** typecheck and lint clean, 1533 web unit tests pass, build clean, CSP check clean, axe clean on `/` and `/pricing` in both colour schemes.
+
+**Decisions for Crent:**
+
+- Quiet confidence's amber brand colour is 1.9:1 against its light canvas. Use it as a fill only, never as a logo colour.
+- Syncing page tone across devices needs a migration.
+- The reading font default is the direction's serif.
+
+**Not done:** SaveToast is not yet wired to autosave.
