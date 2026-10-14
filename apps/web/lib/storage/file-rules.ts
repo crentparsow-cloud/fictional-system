@@ -64,8 +64,8 @@ export type UploadCheck = { ok: true; orgId: string; kind: FileKind; ext: FileEx
 
 /** Check what the browser says about a file before any upload link is made. */
 export function checkUploadRequest(r: UploadRequest): UploadCheck {
-  if (typeof r.orgId !== "string" || !new RegExp(`^${UUID}$`, "i").test(r.orgId)) return { ok: false, message: "Something went wrong. Reload the page and try again." };
-  if (!isFileKind(r.kind)) return { ok: false, message: "Something went wrong. Reload the page and try again." };
+  if (typeof r.orgId !== "string" || !new RegExp(`^${UUID}$`, "i").test(r.orgId)) return { ok: false, message: "We're sorry. That did not work. Reload the page and try again." };
+  if (!isFileKind(r.kind)) return { ok: false, message: "We're sorry. That did not work. Reload the page and try again." };
   const rule = FILE_RULES[r.kind];
   const name = typeof r.fileName === "string" ? r.fileName : "";
   const dot = name.lastIndexOf(".");

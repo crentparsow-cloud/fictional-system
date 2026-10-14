@@ -26,6 +26,7 @@ export const STATIC_PUBLIC_PATHS = [
   "/white-label",
   "/organisations",
   "/trust",
+  "/accessibility",
   "/help",
   "/explore",
   "/themes",
