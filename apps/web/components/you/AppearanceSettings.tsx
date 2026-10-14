@@ -74,7 +74,7 @@ export function AppearanceSettings() {
           <label htmlFor={`${id}-dim`}>
             <b>Dim after 9 p.m.</b>
             <span className="small muted" id={`${id}-dim-d`}>
-              Softer colours late in the evening, until 5 a.m.
+              Dark colours and softer light late in the evening, until 5 a.m. Choosing Light in the reading settings keeps the page light.
             </span>
           </label>
         </div>

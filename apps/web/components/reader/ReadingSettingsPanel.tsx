@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { APPEARANCE_EVENT, applyAppearance, deviceStorage, loadAppearance, saveAppearance, READING_TONES, TONE_LABELS, type ReadingTheme } from "@/lib/appearance";
 import { saveReadingSettings } from "@/lib/reading/settings-actions";
 import { announceReading, applyToPage, currentReading, saveDeviceReading } from "@/lib/reading/settings-client";
 import {
@@ -140,7 +141,8 @@ export function ReadingSettingsPanel({ variant = "popover" }: { variant?: "popov
         </div>
       </div>
 
-      <Choice id={`${id}-colour`} label="Page colour" values={COLOURS} labels={COLOUR_LABELS} value={s.colour} onChange={(colour) => commit({ ...s, colour })} />
+      <PageTone id={`${id}-tone`} />
+      <Choice id={`${id}-colour`} label="Light or dark" values={COLOURS} labels={COLOUR_LABELS} value={s.colour} onChange={(colour) => commit({ ...s, colour })} />
       <Choice id={`${id}-margin`} label="Margins" values={MARGINS} labels={MARGIN_LABELS} value={s.margin} onChange={(margin) => commit({ ...s, margin })} />
       <Choice id={`${id}-progress`} label="Progress" values={PROGRESS} labels={PROGRESS_LABELS} value={s.progress} onChange={(progress) => commit({ ...s, progress })} />
 
@@ -169,6 +171,24 @@ export function ReadingSettingsPanel({ variant = "popover" }: { variant?: "popov
       {open ? panel : null}
     </div>
   );
+}
+
+/** The named page tones. Kept on this device with the other appearance choices (the account record has no field for it). */
+function PageTone({ id }: { id: string }) {
+  const [tone, setTone] = useState<ReadingTheme>("default");
+  useEffect(() => {
+    const read = () => setTone(loadAppearance(deviceStorage()).theme);
+    read();
+    window.addEventListener(APPEARANCE_EVENT, read);
+    return () => window.removeEventListener(APPEARANCE_EVENT, read);
+  }, []);
+  const change = (theme: ReadingTheme) => {
+    const next = { ...loadAppearance(deviceStorage()), theme };
+    setTone(theme);
+    if (!saveAppearance(deviceStorage(), next)) applyAppearance(document.documentElement, next, new Date());
+    else window.dispatchEvent(new Event(APPEARANCE_EVENT));
+  };
+  return <Choice id={id} label="Page tone" values={READING_TONES} labels={TONE_LABELS} value={tone} onChange={change} />;
 }
 
 function Choice<T extends string>({ id, label, values, labels, value, onChange }: { id: string; label: string; values: readonly T[]; labels: Record<T, string>; value: T; onChange: (v: T) => void }) {

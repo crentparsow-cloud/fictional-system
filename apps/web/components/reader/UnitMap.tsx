@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { unitName, type Celebration, type PathNode, type UnitWord } from "@/lib/reading/path";
 import { stepHref } from "@/lib/today/links";
+import { CONFETTI_MOUNT_MS, motionReduced } from "@/lib/motion";
+import { Confetti } from "@/components/motion/Confetti";
 
 interface Props {
   nodes: PathNode[];
@@ -17,8 +19,7 @@ interface Props {
   celebration?: Celebration | null;
 }
 
-const PIECES = [8, 22, 36, 50, 64, 78, 92, 15, 29, 43, 57, 71, 85, 5];
-const reduced = () => typeof window !== "undefined" && (window.matchMedia("(prefers-reduced-motion: reduce)").matches || document.documentElement.dataset.motion === "reduce");
+const reduced = motionReduced;
 
 const STATE_WORDS = { done: "done", today: "today", locked: "not open yet" } as const;
 
@@ -34,7 +35,7 @@ export function UnitMap({ nodes, word, slug, compact = false, onOpenUnit, celebr
   useEffect(() => {
     if (!celebration?.confetti || reduced()) return;
     const on = window.setTimeout(() => setBurst(true), 0);
-    const off = window.setTimeout(() => setBurst(false), 1600);
+    const off = window.setTimeout(() => setBurst(false), CONFETTI_MOUNT_MS);
     return () => {
       window.clearTimeout(on);
       window.clearTimeout(off);
@@ -73,13 +74,7 @@ export function UnitMap({ nodes, word, slug, compact = false, onOpenUnit, celebr
           {celebration.line}
         </p>
       ) : null}
-      {burst ? (
-        <span className="um-confetti" aria-hidden="true">
-          {PIECES.map((x, i) => (
-            <i key={i} style={{ left: `${x}%`, animationDelay: `${(i % 5) * 60}ms`, background: `var(--confetti-${(i % 4) + 1})` }} />
-          ))}
-        </span>
-      ) : null}
+      {burst ? <Confetti /> : null}
       <ol className="um-path">
         {nodes.map((n) => {
           const name = unitName(word, n.number);
