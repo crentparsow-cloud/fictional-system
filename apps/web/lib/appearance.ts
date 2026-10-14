@@ -14,14 +14,25 @@ export const APPEARANCE_EVENT = "akana:appearance";
 export type TextSize = 0 | 1 | 2 | 3;
 export type ReadingFont = "atkinson" | "lexend";
 
+/**
+ * The page tone (plan 1.5): named reading themes, each with a light and a dark
+ * version, over the direction's own ("default"). The colours are in
+ * app/themes/reading.css. Kept on this device: the account record for the
+ * reading settings has no field for it.
+ */
+export const READING_TONES = ["default", "paper", "mist", "plain"] as const;
+export type ReadingTheme = (typeof READING_TONES)[number];
+export const TONE_LABELS: Record<ReadingTheme, string> = { default: "Standard", paper: "Paper", mist: "Mist", plain: "Plain" };
+
 export interface Appearance {
   textSize: TextSize;
   font: ReadingFont;
   dimAtNight: boolean;
   reduceMotion: boolean;
+  theme: ReadingTheme;
 }
 
-export const DEFAULT_APPEARANCE: Appearance = { textSize: 0, font: "atkinson", dimAtNight: false, reduceMotion: false };
+export const DEFAULT_APPEARANCE: Appearance = { textSize: 0, font: "atkinson", dimAtNight: false, reduceMotion: false, theme: "default" };
 
 /** Root font sizes for the four steps, as in the old app. The CSS holds the same numbers. */
 export const TEXT_SIZES_PX: Record<TextSize, number> = { 0: 17, 1: 18, 2: 20, 3: 22 };
@@ -43,11 +54,12 @@ export function parseAppearance(raw: string | null | undefined): Appearance {
     font: o.font === "lexend" ? "lexend" : "atkinson",
     dimAtNight: o.dimAtNight === true,
     reduceMotion: o.reduceMotion === true,
+    theme: (READING_TONES as readonly unknown[]).includes(o.theme) ? (o.theme as ReadingTheme) : "default",
   };
 }
 
 export function serialiseAppearance(a: Appearance): string {
-  return JSON.stringify({ textSize: a.textSize, font: a.font, dimAtNight: a.dimAtNight, reduceMotion: a.reduceMotion });
+  return JSON.stringify({ textSize: a.textSize, font: a.font, dimAtNight: a.dimAtNight, reduceMotion: a.reduceMotion, theme: a.theme });
 }
 
 /** 9 p.m. to 5 a.m. on the device's clock, as in the old app. */
@@ -61,12 +73,13 @@ export function isNight(d: Date): boolean {
  * every attribute, so a reader who never opens the settings gets the page
  * exactly as before.
  */
-export function appearanceAttributes(a: Appearance, now: Date): Record<"data-text-size" | "data-font" | "data-motion" | "data-dim", string | null> {
+export function appearanceAttributes(a: Appearance, now: Date): Record<"data-text-size" | "data-font" | "data-motion" | "data-dim" | "data-reading-theme", string | null> {
   return {
     "data-text-size": a.textSize === 0 ? null : String(a.textSize),
     "data-font": a.font === "lexend" ? "lexend" : null,
     "data-motion": a.reduceMotion ? "reduce" : null,
     "data-dim": a.dimAtNight && isNight(now) ? "night" : null,
+    "data-reading-theme": a.theme === "default" ? null : a.theme,
   };
 }
 
