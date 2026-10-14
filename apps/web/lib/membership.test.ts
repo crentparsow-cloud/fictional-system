@@ -91,7 +91,7 @@ describe("membershipCheckoutParams", () => {
     expect(p.custom_text?.submit).toEqual({ message: autoRenewNotice("yearly") });
     expect(autoRenewNotice("yearly")).toContain("renews automatically each year until you cancel");
     expect(autoRenewNotice("monthly")).toContain("each month");
-    expect(autoRenewNotice("monthly")).toContain("on the You page, under Manage membership");
+    expect(autoRenewNotice("monthly")).toContain("go to the You page, then Cancel membership");
     for (const plan of ["monthly", "yearly"] as const) expect(autoRenewNotice(plan)).not.toMatch(/—|–/);
     expect(JSON.stringify(p)).not.toMatch(/title/i);
   });
@@ -130,8 +130,27 @@ describe("subscriptionStateFrom", () => {
       cancelAt: null,
       canceledAt: null,
       endedAt: null,
+      pausedFrom: null,
+      pausedUntil: null,
       observedAt: at.toISOString(),
     });
+  });
+
+  it("carries a pause window from the metadata while Stripe holds the pause (14.25)", () => {
+    const meta = { user_id: USER, tenant_id: TENANT, pause_from: "2026-11-01T00:00:00.000Z", pause_until: "2026-12-01T00:00:00.000Z" };
+    const held = subscriptionStateFrom(sub({ metadata: meta, pause_collection: { behavior: "void", resumes_at: 1 } }), at);
+    expect(held?.pausedFrom).toBe("2026-11-01T00:00:00.000Z");
+    expect(held?.pausedUntil).toBe("2026-12-01T00:00:00.000Z");
+  });
+
+  it("keeps the window for the day after Stripe resumes, and clears it if collection was resumed early", () => {
+    const meta = { user_id: USER, tenant_id: TENANT, pause_from: "2026-11-01T00:00:00.000Z", pause_until: "2026-12-01T00:00:00.000Z" };
+    const dayBefore = new Date("2026-11-30T12:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), dayBefore)?.pausedUntil).toBe("2026-12-01T00:00:00.000Z");
+    const early = new Date("2026-11-10T12:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), early)?.pausedUntil).toBeNull();
+    const after = new Date("2026-12-02T00:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), after)?.pausedFrom).toBeNull();
   });
 
   it("reads the plan from the price interval and the customer from an expanded object", () => {
