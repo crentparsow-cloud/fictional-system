@@ -201,7 +201,17 @@ function membershipRepo(admin: Admin): MembershipRepo {
         p_observed_at: st.observedAt,
       });
       if (error) throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
-      return data as "applied" | "unchanged" | "stale" | "unlinked";
+      const result = data as "applied" | "unchanged" | "stale" | "unlinked";
+      // 14.25: the pause window (migration 0045). Recorded after the row exists; a stale or unlinked event leaves it alone.
+      if (result === "applied" || result === "unchanged") {
+        const { error: pauseError } = await admin.rpc("record_subscription_pause", {
+          p_subscription: st.subscriptionId,
+          p_from: st.pausedFrom,
+          p_until: st.pausedUntil,
+        });
+        if (pauseError) throw new Error(`record_subscription_pause failed: ${pauseError.code ?? pauseError.message}`);
+      }
+      return result;
     },
     async syncMembership(userId, tenantId) {
       const { error } = await admin.rpc("sync_membership_entitlement", { p_user: userId, p_tenant: tenantId });
