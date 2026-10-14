@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { GENRES, WorkbookV3, stripInternal, type Genre } from "@akana/schema";
 import { z } from "zod";
@@ -215,6 +215,8 @@ export interface BuildOptions {
    * 8 October 2026 (F-153). v1 stays readable for comparison.
    */
   catalogue?: CatalogueVersion;
+  /** Include content/workbooks/classics. Defaults to true. */
+  classics?: boolean;
 }
 
 export function repoRoot(): string {
@@ -252,6 +254,13 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
       hidden_until_min_books: t.hidden_until_min_books,
       ...themeStatus(t),
     }));
+
+  // Outcome lines (build list 7.2) live in content/catalog/title-copy.json and
+  // win over the catalogue's older card lines. A title with no entry keeps its own.
+  const copyPath = join(root, "content", "catalog", "title-copy.json");
+  const titleCopy = new Map<string, { card_line: string }>(
+    existsSync(copyPath) ? (readJson(copyPath) as { titles: { code: string; card_line: string }[] }).titles.map((t) => [t.code, t]) : [],
+  );
 
   const version: CatalogueVersion = opts.catalogue ?? "v2";
   const rawCatalogue = readJson(join(root, ...CATALOGUE_PATHS[version]));
@@ -458,7 +467,7 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
       slug: w.url_slug,
       title: w.title,
       short_title: null,
-      card_line: w.card_line,
+      card_line: titleCopy.get(w.code)?.card_line ?? w.card_line,
       genre_id: toGenreId(w.genre),
       theme_id: w.theme_id,
       safety_tier: safetyTier,
@@ -472,10 +481,85 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
     tenant_listings.push({ tenant_id: MARKETPLACE_TENANT_ID, workbook_id: workbookId, visible: true, sort: sort++, featured: false });
   }
 
+  // Classics (10.10): written-up public-domain workbooks in content/workbooks/classics.
+  // Each one attaches a version to the catalogue row that already exists for its
+  // code. It never creates a row and never sets a status beyond in_review.
+  if (opts.classics !== false) {
+    for (const file of classicFiles(root)) {
+      attachClassic({ file, doc: WorkbookV3.parse(readJson(file)), workbooks, workbook_versions, books, authors: catalogue.authors });
+    }
+  }
+
   const seed: Seed = { genres, shelves, areas, themes, organisations, authors, books, book_contributors, workbooks, workbook_versions, tenant_listings };
   checkIntegrity(seed);
   if (v2) checkV2Integrity(seed, v2);
   return seed;
+}
+
+/** Statuses a classic may carry in the seed. A classic is never seeded as approved or live: release_version (0016) and the house record signer decide that. */
+export const CLASSIC_SEED_STATUSES = ["draft", "in_review"] as const;
+
+/** The classics folder, relative to the repository root. */
+export const CLASSICS_DIR = ["content", "workbooks", "classics"] as const;
+
+/** Absolute paths of the classic workbook files, sorted. Empty when the folder is missing. */
+export function classicFiles(root: string): string[] {
+  const dir = join(root, ...CLASSICS_DIR);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => join(dir, f));
+}
+
+interface AttachClassicInput {
+  file: string;
+  doc: z.infer<typeof WorkbookV3>;
+  workbooks: WorkbookRow[];
+  workbook_versions: WorkbookVersionRow[];
+  books: BookRow[];
+  authors: { id: string; name: string }[];
+}
+
+/**
+ * Attach a classic's content to its catalogue row. Refuses anything that would
+ * make the file and the catalogue disagree, or put a classic out as live.
+ */
+export function attachClassic({ file, doc, workbooks, workbook_versions, books, authors }: AttachClassicInput): void {
+  const name = file.split("/").pop() ?? file;
+  const row = workbooks.find((w) => w.code === doc.code);
+  if (!row) throw new Error(`${name}: ${doc.code} is not in the catalogue. Add the catalogue record first.`);
+  const problems: string[] = [];
+  if (row.badge !== "public_domain") problems.push(`catalogue badge is ${row.badge}, not public_domain`);
+  if (doc.badge !== "public_domain") problems.push(`file badge is ${doc.badge}, not public_domain`);
+  const status = doc.status ?? "";
+  if (!(CLASSIC_SEED_STATUSES as readonly string[]).includes(status)) problems.push(`status "${status}" is not allowed for a classic (draft or in_review only)`);
+  if (row.slug !== doc.slug) problems.push(`slug ${doc.slug} differs from the catalogue slug ${row.slug}`);
+  if (row.safety_tier !== doc.safety_tier) problems.push(`safety tier ${doc.safety_tier} differs from the catalogue tier ${row.safety_tier}`);
+  if (!authors.some((a) => a.id === doc.author.author_id)) problems.push(`author ${doc.author.author_id} is not in the catalogue`);
+  if (workbook_versions.some((v) => v.workbook_id === row.id)) problems.push("a version already exists for this code");
+  if (!books.some((b) => b.id === row.book_id)) problems.push("catalogue book row is missing");
+  if (problems.length) throw new Error(`${name} (${doc.code}): ${problems.join("; ")}`);
+
+  const content = stripInternal(doc) as unknown as Json;
+  const semver = "1.0.0";
+  const versionId = ids.version(doc.code, semver);
+  workbook_versions.push({
+    id: versionId,
+    workbook_id: row.id,
+    semver,
+    schema_version: doc.schema_version,
+    content,
+    content_hash: contentHash(content),
+    validated_at: null,
+    published_at: null,
+  });
+  row.current_version_id = versionId;
+  row.status = status;
+  row.depth = "full";
+  row.short_title = doc.short_title ?? row.short_title;
+  row.card_line = doc.card_line;
+  row.licence_ref = doc.licence_ref ?? null;
 }
 
 /** Build from Demo Catalogue v2 (F-153). The same as buildSeed() now v2 is the default. */
