@@ -682,3 +682,37 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - Supply the Meditations source text (gutenberg.org is blocked from the sandbox) and name the house-record signer.
 
 **Open questions:** `/library` stays the catalogue and `/my-workbooks` is new. The finish rate only ranks a title once it has 10 starts. The signed-out try is limited to safety tier none. A reader gets one trial. The cooling-off period starts at the first payment after the trial. The two-person plan has no trial in this build.
+
+### Day 14, first block (Tuesday 14 October)
+
+**Asked by Crent:** run Phase A wave 3 and integrate it on `phase-a`. The four-day gap since Day 10 was a usage limit, not a decision.
+
+- **Seven branches merged** into `phase-a`, on top of the local Meditations merge, in this order.
+  - `classics-bf`, `classics-smiles`, `classics-mason`: with Meditations, all five classics are written in full (7.1): How to Live on 24 Hours a Day, The Way to Wealth, Self-Help, Home Education and Meditations. Each is `in_review` and none is live.
+  - `reading`: reading settings, read aloud, the unit map, resume and calm chrome (3.1, 3.3, 3.5, 3.6, 3.7), with the dyslexia-friendly face. Migration 0044.
+  - `selling`: trust strip, cancel membership on one screen, plan display and the month-three card (5.4, 5.10, 5.11, 14.24, 14.25). Migration 0045.
+  - `platform`: edge caching, the accessibility helpers, the content publish command and the DMCC pass (10.2, 10.10, 11.1, 11.5, 13.7).
+  - `words`: outcome lines, who it is for, and author letters for every live title (7.2, 7.3, 7.4, 7.5, 12.1), with the title copy validator.
+- **Merge conflicts, resolved keeping both sides.** `selling` conflicted with `reading` in `globals.css` and `lib/today/server.ts` (the empty-state view now carries both the unit strip and the month-three offer). `words` conflicted in `Player.tsx` (both new props kept), `scripts/validate-content.ts` (the classics scan list and the title copy check both kept) and `supabase/seed/seed.sql`, which was regenerated with `pnpm tsx scripts/seed.ts --sql` instead of merged by hand.
+- **Words, finished.** The reader and signed-out try pages now load `content/catalog/title-copy.json` through `withTitleCopy()` (new `apps/web/lib/title-copy.ts`, with tests). The reader page passes the first word of the profile display name to the Player as `firstName`. With no name, the engine drops the placeholder and the letter still reads cleanly.
+- **Two fixes after the merge.** A stray conflict marker in `globals.css` stopped the build and was removed. The publish dry run test counted 21 files by hand. It now counts 20 workbooks plus the classics on disk (25).
+- **Migrations 0044 and 0045**, built with tests and not yet applied to staging.
+
+**Checks:** `pnpm typecheck` and `pnpm lint` clean. All package tests pass and 1472 web unit tests pass (131 files). `pnpm validate --parked` 25 files, 0 failed, title copy 102 titles with 0 errors. `pnpm validate --style` reports findings only in the 20 parked Maya workbooks and none in the five classics or the message files. `pnpm check:ids` 0 findings. The harness renders 1810 screens with 0 failures. Web build with the CI placeholder env is clean and the CSP check is clean. Database tests on a local Postgres 16: every file passes except 0006 and 0015, which fail on main as well; 0036 to 0045 all pass.
+
+**Only Crent can:**
+
+- Apply 0044 and 0045 to staging.
+- Name the C10 signer and a second reviewer for all five classics.
+- Find second sources for the death years and printings.
+- Confirm the public domain rules for Canada, Australia and New Zealand.
+- Set the Stripe billing portal to allow cancellations.
+- Set `STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY`.
+- Put the `STAGING_` and `PRODUCTION_` pairs of `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` on his machine for `content:publish`.
+- Set `STATUS_PAGE_URL` when a status page exists.
+- Do a manual accessibility pass.
+- Put three DMCC questions to the lawyer: whether the yearly total is prominent enough, whether cancelling through the Stripe portal in three taps is acceptable, and what to do when no alert goes out if the cancellation email fails.
+- Proofread the 436 letters and 102 end-state paragraphs.
+- Decide the "demo letter" label.
+
+**Open questions:** The catalogue outlines for Franklin and Self-Help differ from the units built. The month-three card is hidden for wellbeing readers. The signed-out sample exercise is skipped for wellbeing titles.
