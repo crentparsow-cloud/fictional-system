@@ -72,7 +72,7 @@ describe("mergeReading", () => {
 describe("seedFromAppearance and attributes", () => {
   it("carries the older font and size across", () => {
     expect(seedFromAppearance({ textSize: 2, font: "lexend" })).toMatchObject({ size: 2, font: "lexend" });
-    expect(seedFromAppearance({ textSize: 9, font: "x" })).toMatchObject({ size: 0, font: "atkinson" });
+    expect(seedFromAppearance({ textSize: 9, font: "x" })).toMatchObject({ size: 0, font: "serif" });
     expect(seedFromAppearance(null)).toEqual(DEFAULT_READING);
   });
   it("removes every attribute at the defaults", () => {

@@ -44,9 +44,7 @@ describe("self-hosted fonts", () => {
       expect(licences).toContain(file);
       expect(readFileSync(resolve(FONTS_DIR, "LICENCES", file), "utf8")).toMatch(/SIL OPEN FONT LICENSE Version 1\.1/i);
     }
-    const total = readdirSync(FONTS_DIR)
-      .filter((f) => f.endsWith(".woff2"))
-      .reduce((sum, f) => sum + statSync(resolve(FONTS_DIR, f)).size, 0);
-    expect(total).toBeLessThan(250_000);
+    // The budget is per design direction (lib/design/design.test.ts). Here: each file stays modest.
+    for (const f of readdirSync(FONTS_DIR).filter((n) => n.endsWith(".woff2"))) expect(statSync(resolve(FONTS_DIR, f)).size, f).toBeLessThan(60_000);
   });
 });

@@ -1,43 +1,51 @@
 /**
- * Shelf colour and icon, in one file for the design pass to edit.
+ * Shelf colour, icon and line, in one file (plan 1.3).
  *
- * Nothing else in the Explore code holds a colour value. The tile, the shelf
- * page header and the collection cover read these through CSS custom
- * properties (--shelf-tint, --shelf-accent), so a re-skin changes this file
- * and the .shelf-tile rules in globals.css, and nothing in the components.
+ * The icon and the line key are set here. The colours are not written here:
+ * each shelf points at the tokens --shelf-<id>-t (tile) and --shelf-<id>-i
+ * (icon and rule), and the values live in the theme files, one set per
+ * direction and per colour scheme (lib/design/directions.ts). That is how
+ * "per-direction overrides" work: a direction supplies its own pair for every
+ * shelf. lib/design/design.test.ts checks every pair for contrast against its
+ * tile and against the canvas (WCAG AA: 4.5 to 1 for text, 3 to 1 for icons).
  *
+ * The tile, the shelf page header and the collection cover read
+ * --shelf-tint and --shelf-accent, which the components set from this file.
  * Keyed by shelves.id (migration 0015 lists the ten). A shelf added later
  * falls back to FALLBACK_SHELF_STYLE until it is given a row here.
- *
- * Today the values are the existing cover tokens (COVER_TOKENS in
- * lib/covers.ts), so the tiles match the generated covers.
  */
-import { COVER_TOKENS as T } from "@/lib/covers";
+import { SHELF_IDS, type ShelfId } from "@/lib/design/directions";
 
 export type ShelfIcon = "mind" | "work" | "money" | "family" | "heart" | "growth" | "learn" | "body" | "spirit" | "make";
 
 export interface ShelfStyle {
-  /** Tile background. */
+  /** Tile background, as a CSS token reference. */
   tint: string;
-  /** Icon and rule colour. Needs 4.5:1 against tint for text use; icons need 3:1. */
+  /** Icon and rule colour, as a CSS token reference. */
   accent: string;
   icon: ShelfIcon;
+  /** Key of the short line in messages/en-GB.json. */
+  lineKey: string;
 }
 
-export const SHELF_STYLES: Record<string, ShelfStyle> = {
-  "mind-and-mood": { tint: T.stage4t, accent: T.stage4i, icon: "mind" },
-  "work-and-career": { tint: T.stage3t, accent: T.stage3i, icon: "work" },
-  money: { tint: T.stage1t, accent: T.stage1i, icon: "money" },
-  "family-and-parenting": { tint: T.stage2t, accent: T.stage2i, icon: "family" },
-  "love-and-relationships": { tint: T.roseSoft, accent: T.rose, icon: "heart" },
-  "personal-growth": { tint: T.brandWash, accent: T.brand, icon: "growth" },
-  "learning-and-skills": { tint: T.stage3t, accent: T.stage3i, icon: "learn" },
-  "health-and-body": { tint: T.stage1t, accent: T.stage1i, icon: "body" },
-  "faith-and-spirituality": { tint: T.stage4t, accent: T.stage4i, icon: "spirit" },
-  "creativity-and-making": { tint: T.stage2t, accent: T.stage2i, icon: "make" },
+const ICONS: Record<ShelfId, ShelfIcon> = {
+  "mind-and-mood": "mind",
+  "work-and-career": "work",
+  money: "money",
+  "family-and-parenting": "family",
+  "love-and-relationships": "heart",
+  "personal-growth": "growth",
+  "learning-and-skills": "learn",
+  "health-and-body": "body",
+  "faith-and-spirituality": "spirit",
+  "creativity-and-making": "make",
 };
 
-export const FALLBACK_SHELF_STYLE: ShelfStyle = { tint: T.surface2, accent: T.inkSoft, icon: "growth" };
+export const SHELF_STYLES: Record<string, ShelfStyle> = Object.fromEntries(
+  SHELF_IDS.map((id) => [id, { tint: `var(--shelf-${id}-t)`, accent: `var(--shelf-${id}-i)`, icon: ICONS[id], lineKey: `shelf.line.${id}` }]),
+);
+
+export const FALLBACK_SHELF_STYLE: ShelfStyle = { tint: "var(--surface-2)", accent: "var(--ink-soft)", icon: "growth", lineKey: "" };
 
 export function shelfStyle(shelfId: string | null | undefined): ShelfStyle {
   return (shelfId && Object.hasOwn(SHELF_STYLES, shelfId) ? SHELF_STYLES[shelfId] : undefined) ?? FALLBACK_SHELF_STYLE;

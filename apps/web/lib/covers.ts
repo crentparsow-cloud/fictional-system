@@ -91,7 +91,7 @@ const DISPLAY_FONT = "Bricolage Grotesque, Avenir Next, Segoe UI, system-ui, san
 const BODY_FONT = "Atkinson Hyperlegible, system-ui, -apple-system, Segoe UI, sans-serif";
 
 // Characters that XML 1.0 does not allow at all, plus lone surrogates.
-const INVALID_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F￿￾]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g;
+const INVALID_XML = /[\u0000-\u0008\u000B\u000C\u000E-\u001F￾￿]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g;
 
 /** Escape text for an XML text node or a double-quoted attribute. */
 export function escapeXml(text: string): string {
