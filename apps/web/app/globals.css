@@ -585,6 +585,7 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .search-result-link .muted { font-weight: 400; }
 .search-result-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 .search-empty { margin: 0; }
+.search-empty-block { display: grid; gap: 0.5rem; justify-items: start; }
 
 /* ---------- check-in partner (F-030) ---------- */
 .partner-card, .partner-form, .partner-replies { display: grid; gap: 0.75rem; }
@@ -950,6 +951,11 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .md-table, .pd-table-wrap { overflow-x: auto; max-inline-size: 100%; margin-block: 0.75rem 1rem; }
 .md-table > table, .pd-table-wrap > .pd-table { display: table; }
 .legal-doc .md-table > table, .info-page .md-table > table { inline-size: 100%; border-collapse: collapse; }
+
+/* Comparison tables on /trust and /accessibility (11.1, 11.5). Scroll inside the named region at phone width. */
+.info-page .compare-table { min-inline-size: 38rem; }
+.info-page .compare-table th, .info-page .compare-table td { text-align: start; vertical-align: top; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--line); }
+.info-page .compare-table thead th { border-bottom-width: 2px; }
 
 /* ---------- reader polish (0026): read only, appearance, Today quick tap, Not today, organisation line ---------- */
 /* Appearance on You, applied as attributes on <html>. Sizes match lib/appearance.ts. */
@@ -1319,3 +1325,161 @@ a.admin-card:hover, a.admin-card:focus-visible { box-shadow: var(--lift); }
 .auth-code-title { font-size: 1.05rem; margin-block: 1rem 0.25rem; }
 
 @media (prefers-reduced-motion: reduce) { .quiz-progress-bar { transition: none; } }
+
+/* ===================================================================
+   Reading (3.1 to 3.7): settings, read aloud, unit map, resume, calm chrome.
+   ========================================================================== */
+/* Dyslexia-friendly face: OpenDyslexic (SIL OFL 1.1, text in /fonts/LICENCES),
+   subset to Latin and renamed as the licence asks for a modified copy. */
+@font-face {
+  font-family: "Akana Dyslexia Friendly";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/dyslexia-friendly-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+20AC;
+}
+@font-face {
+  font-family: "Akana Dyslexia Friendly";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/dyslexia-friendly-latin-700-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+2013-2014, U+2018-2019, U+201C-201D, U+2026, U+20AC;
+}
+:root[data-font="dyslexic"] { --f-body: "Akana Dyslexia Friendly", "Atkinson Hyperlegible Next", system-ui, sans-serif; }
+:root[data-font="serif"] { --f-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+:root[data-text-size="4"] { --fs: 24px; }
+:root[data-text-size="5"] { --fs: 28px; }
+:root[data-font="dyslexic"] body { letter-spacing: 0.02em; word-spacing: 0.08em; }
+
+/* Margin width and the reading line: 65 characters, generous sides. */
+:root { --read-measure: 65ch; --read-pad: clamp(1rem, 4vw, 2rem); --confetti-1: #c2452d; --confetti-2: #e3aa45; --confetti-3: #3d8a9a; --confetti-4: #6aa381; }
+:root[data-margin="narrow"] { --read-pad: 0.75rem; }
+:root[data-margin="wide"] { --read-pad: clamp(1.5rem, 9vw, 4.5rem); }
+.read-page { padding-inline: var(--read-pad); }
+.ak-player-body p, .ak-player-body li { max-inline-size: var(--read-measure); }
+.ak-player-body { line-height: 1.65; }
+:root[data-progress="time"] .ak-dots, :root[data-progress="none"] .ak-dots { display: none; }
+:root[data-progress="none"] .ak-estimate, :root[data-progress="none"] .um-note, :root[data-progress="none"] .um-strip { display: none; }
+
+/* Chrome that hides while reading: back on hover, keyboard or tap. */
+.read-head, .um-details, .ra-switch, .reader-nav { transition: opacity 0.2s var(--ease), transform 0.2s var(--ease); }
+:root[data-chrome="hidden"] .read-head, :root[data-chrome="hidden"] .um-details, :root[data-chrome="hidden"] .ra-switch { opacity: 0; pointer-events: none; }
+:root[data-chrome="hidden"] .read-head:focus-within, :root[data-chrome="hidden"] .ra-switch:focus-within { opacity: 1; pointer-events: auto; }
+@media (max-width: 47.99rem) {
+  :root[data-chrome="hidden"] .reader-nav { transform: translateY(100%); }
+  :root[data-chrome="hidden"] { --nav-offset: 0px; }
+}
+:root[data-motion="reduce"] .read-head, :root[data-motion="reduce"] .reader-nav, :root[data-motion="reduce"] .ra-switch { transition: none; }
+
+/* Reading settings panel (Aa). */
+.rs-wrap { position: relative; }
+.rs-toggle { min-block-size: 44px; min-inline-size: 44px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); border-radius: var(--radius-sm); font: inherit; font-weight: 700; cursor: pointer; }
+.rs-panel { display: grid; gap: 1rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); max-inline-size: 28rem; }
+.rs-wrap > .rs-panel { position: absolute; inset-inline-end: 0; inset-block-start: calc(100% + 0.5rem); inline-size: min(88vw, 26rem); z-index: 15; box-shadow: var(--lift); }
+.rs-group { display: grid; gap: 0.4rem; }
+.rs-label { margin: 0; font-weight: 700; font-size: 0.9rem; }
+.rs-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.rs-fonts { display: grid; grid-template-columns: 1fr; }
+.rs-option, .rs-step, .rs-reset, .rs-close { min-block-size: 44px; padding: 0.4rem 0.9rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; text-align: start; }
+.rs-option[aria-pressed="true"] { background: var(--brand-wash); border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+.rs-fonts .rs-option { display: grid; gap: 0.1rem; }
+.rs-font-lexend .rs-sample { font-family: "Lexend", sans-serif; }
+.rs-font-dyslexic .rs-sample { font-family: "Akana Dyslexia Friendly", sans-serif; }
+.rs-font-serif .rs-sample { font-family: Georgia, serif; }
+.rs-note { font-size: 0.8rem; color: var(--ink-soft); }
+.rs-size { display: flex; align-items: center; gap: 0.75rem; }
+.rs-size-dots { letter-spacing: 0.2em; color: var(--brand); }
+.rs-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.rs-where { margin: 0; }
+.rs-option:focus-visible, .rs-step:focus-visible, .rs-toggle:focus-visible, .rs-reset:focus-visible, .rs-close:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* Autosave line: Retry beside the words. */
+.save-status[data-tone="warn"] { color: var(--rose); }
+.save-retry { margin-inline-start: 0.5rem; min-block-size: 44px; padding-inline: 0.75rem; border: 1px solid currentColor; border-radius: var(--radius-sm); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+
+/* Resume card and the reassurance line. */
+.resume-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1rem; }
+.resume-where { margin: 0; font-weight: 700; }
+
+/* Read aloud: the switch, the highlighted sentence and the bar above the tabs. */
+.ra-switch { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.ra-opt, .ra-play, .ra-btn { min-block-size: 44px; min-inline-size: 44px; padding: 0.4rem 0.9rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font: inherit; cursor: pointer; }
+.ra-opt[aria-pressed="true"], .ra-main { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.ra-play { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.ra-play:disabled { opacity: 0.5; cursor: not-allowed; }
+.ra-help { margin-inline-start: auto; }
+.ra-now { background: color-mix(in srgb, var(--marigold) 18%, transparent); border-radius: 4px; }
+::highlight(ak-reading) { background-color: color-mix(in srgb, var(--marigold) 55%, transparent); color: inherit; }
+.ra-bar {
+  position: fixed; inset-inline: 0; inset-block-end: calc(56px + env(safe-area-inset-bottom, 0px)); z-index: 9;
+  display: grid; gap: 0.4rem; padding: 0.6rem var(--gutter); background: var(--surface-2); border-block-start: 1px solid var(--line-strong);
+  box-shadow: var(--lift);
+}
+.ra-line { margin: 0; font-size: 0.9rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-inline-size: none; }
+.ra-controls { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+@media (min-width: 48rem) { .ra-bar { inset-block-end: 0; } }
+:root[data-chrome="hidden"] .ra-bar { inset-block-end: env(safe-area-inset-bottom, 0px); }
+.ra-opt:focus-visible, .ra-play:focus-visible, .ra-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* Unit map: a vertical path. Done, today, locked. */
+.um-details > summary { cursor: pointer; font-weight: 700; min-block-size: 44px; display: flex; align-items: center; }
+.um { position: relative; }
+.um-path { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.um-node { position: relative; display: flex; align-items: center; gap: 0.75rem; padding-block: 0.25rem; }
+.um-node:not(:last-child)::before { content: ""; position: absolute; inset-inline-start: 1.15rem; inset-block-start: 2.6rem; inset-block-end: -0.2rem; inline-size: 2px; background: var(--line-strong); }
+.um-node[data-state="done"]:not(:last-child)::before { background: var(--brand); }
+.um-row { flex: 1; display: flex; align-items: center; gap: 0.75rem; min-block-size: 56px; padding: 0.4rem 0.5rem; border: 0; background: transparent; color: inherit; font: inherit; text-align: start; text-decoration: none; border-radius: var(--radius-sm); }
+button.um-row, a.um-row { cursor: pointer; }
+button.um-row:hover, a.um-row:hover { background: var(--brand-wash); }
+.um-row:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.um-mark { flex: none; inline-size: 2.3rem; block-size: 2.3rem; border-radius: 50%; display: grid; place-items: center; font-weight: 700; border: 2px solid var(--line-strong); background: var(--surface); }
+.um-node[data-state="done"] .um-mark { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
+.um-node[data-state="today"] .um-mark { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-wash); }
+.um-node[data-state="locked"] { opacity: 0.7; }
+.um-text { display: grid; gap: 0.05rem; }
+.um-name { font-weight: 700; }
+.um-focus { color: var(--ink-soft); }
+.um-note { margin: 0; }
+.um-start { flex: none; }
+.um-cheer { margin: 0 0 0.5rem; padding: 0.6rem 0.9rem; border-radius: var(--radius-sm); background: var(--brand-wash); font-weight: 700; }
+.um-confetti { position: absolute; inset-inline: 0; inset-block-start: 0; block-size: 0; pointer-events: none; overflow: visible; }
+.um-confetti i { position: absolute; inline-size: 8px; block-size: 12px; border-radius: 2px; opacity: 0; animation: um-fall 1.3s var(--ease) forwards; }
+@keyframes um-fall { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(160px) rotate(300deg); } }
+@media (prefers-reduced-motion: reduce) { .um-confetti { display: none; } }
+:root[data-motion="reduce"] .um-confetti { display: none; }
+.um-strip ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.um-strip p { margin: 0.25rem 0 0; }
+.um-dot { display: inline-block; inline-size: 14px; block-size: 14px; border-radius: 50%; border: 2px solid var(--line-strong); background: var(--surface); position: relative; }
+.um-dot::after { content: ""; position: absolute; inset: -15px; }
+.um-dot[data-state="done"] { background: var(--brand); border-color: var(--brand); }
+.um-dot[data-state="today"] { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-wash); }
+
+/* Workbook page (3.1). */
+.wb-for { padding-inline-start: 1.2rem; display: grid; gap: 0.4rem; }
+.wb-for li { max-inline-size: var(--measure); }
+.wb-certificate p { color: var(--ink-soft); font-size: 0.95rem; }
+.wb-sample { inline-size: min(100%, 44rem); padding-block-end: 0; }
+.wb-facts h2 { margin-block-end: 0.5rem; }
+/* Trust strip (5.10): inside the payment box, plain, no images. */
+.trust-strip { display: grid; gap: 0.35rem; margin: 0.5rem 0 0; padding: 0.6rem 0.8rem; border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.875rem; }
+.trust-strip ul { margin: 0; padding-inline-start: 1.1rem; display: grid; gap: 0.2rem; }
+.trust-mark { margin: 0; display: flex; align-items: center; gap: 0.4rem; font-weight: 600; }
+
+/* Cancel membership (14.24): one screen. */
+.cancel-form { display: grid; gap: 1rem; }
+.cancel-reasons { border: 0; padding: 0; margin: 0; display: grid; gap: 0.4rem; min-inline-size: 0; }
+.cancel-reasons legend { font-weight: 600; padding: 0; margin-block-end: 0.25rem; }
+.cancel-reason { display: flex; gap: 0.5rem; align-items: center; }
+.cancel-offer { display: grid; gap: 0.5rem; }
+.cancel-offer > * { margin: 0; }
+.cancel-pauses { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.cancel-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.month-three { display: grid; gap: 0.5rem; }
+.month-three > * { margin: 0; }
+.plan-line { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: baseline; font-family: var(--f-display); font-size: 1.25rem; font-weight: 700; }
+.plan-badge { display: inline-block; justify-self: start; padding: 0.1rem 0.6rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+.pick-list { display: grid; gap: 0.5rem; }
+.pricing-faq details { border-block-start: 1px solid var(--line); padding-block: 0.6rem; }
+.pricing-faq summary { cursor: pointer; font-weight: 600; }
