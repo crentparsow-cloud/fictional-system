@@ -1,4 +1,5 @@
 import type Stripe from "stripe";
+import { pauseState, pauseWindowFromMetadata } from "@/lib/membership-pause";
 import type { MembershipPricePointId } from "@/lib/pricing";
 
 /**
@@ -60,7 +61,7 @@ export function membershipPlansOpen(env: Env = process.env): { monthly: boolean;
 export function autoRenewNotice(plan: MembershipPlan): string {
   const period = plan === "yearly" ? "year" : "month";
   const who = plan === "two_monthly" ? " It covers you and one person you invite. You can remove them at any time." : "";
-  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time on the You page, under Manage membership. You keep access until the end of the period you have paid for.${who}`;
+  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time: go to the You page, then Cancel membership. You keep access until the end of the period you have paid for.${who}`;
 }
 
 export interface MembershipCheckoutInput {
@@ -142,6 +143,9 @@ export interface SubscriptionState {
   cancelAt: string | null;
   canceledAt: string | null;
   endedAt: string | null;
+  /** 14.25: the pause window, both dates or neither. See pauseWindowOf. */
+  pausedFrom: string | null;
+  pausedUntil: string | null;
   /** When this state was read from Stripe. Older observations never overwrite newer ones. */
   observedAt: string;
 }
@@ -179,6 +183,25 @@ export function planFromInterval(interval: string | null | undefined): Membershi
 }
 
 /**
+ * The pause window to store (14.25). The dates live in the subscription's
+ * metadata, written when the member paused. The window holds while Stripe's
+ * pause_collection is set, and for the day between Stripe resuming
+ * collection (one day before the first payment) and that payment. If
+ * collection has been resumed earlier than that, by hand in the dashboard,
+ * the window is cleared.
+ */
+export function pauseWindowOf(sub: Stripe.Subscription, observedAt: Date): { pausedFrom: string; pausedUntil: string } | { pausedFrom: null; pausedUntil: null } {
+  const none = { pausedFrom: null, pausedUntil: null } as const;
+  const win = pauseWindowFromMetadata((sub.metadata ?? {}) as Record<string, string | undefined>);
+  if (!win) return none;
+  const until = new Date(win.until).getTime();
+  if (until <= observedAt.getTime()) return none;
+  const stripeResumed = !sub.pause_collection;
+  if (stripeResumed && observedAt.getTime() < until - 86_400_000 - 60_000) return none;
+  return { pausedFrom: win.from, pausedUntil: win.until };
+}
+
+/**
  * The row for a Stripe subscription, or null when it cannot be stored (an
  * unknown status or a missing customer). The period end comes from the
  * first item: it moved off the subscription in API 2025-03-31.
@@ -209,6 +232,7 @@ export function subscriptionStateFrom(
     cancelAt: iso(sub.cancel_at),
     canceledAt: iso(sub.canceled_at),
     endedAt: iso(sub.ended_at),
+    ...pauseWindowOf(sub, observedAt),
     observedAt: observedAt.toISOString(),
   };
 }
@@ -225,12 +249,17 @@ export interface SubscriptionRow {
   ended_at: string | null;
   stripe_customer_id: string | null;
   updated_at?: string | null;
+  /** 14.25: the pause window (migration 0045). Absent on older selects. */
+  paused_from?: string | null;
+  paused_until?: string | null;
 }
 
 export type MembershipSummary =
   | { kind: "none" }
   | { kind: "active"; plan: "monthly" | "yearly" | "two_monthly" | null; renewsOn: string | null }
   | { kind: "ending"; endsOn: string | null }
+  | { kind: "paused"; until: string }
+  | { kind: "pause_ahead"; from: string; until: string }
   | { kind: "payment_issue" }
   | { kind: "ended" };
 
@@ -240,7 +269,7 @@ const LIVE = new Set(["active", "trialing", "past_due"]);
  * The one line the You page shows. A live subscription wins over ended ones;
  * among several live ones the most recently updated wins.
  */
-export function membershipSummary(rows: readonly SubscriptionRow[] | null | undefined): MembershipSummary {
+export function membershipSummary(rows: readonly SubscriptionRow[] | null | undefined, now: Date = new Date()): MembershipSummary {
   if (!rows || rows.length === 0) return { kind: "none" };
   const sorted = [...rows].sort((a, b) => String(b.updated_at ?? "").localeCompare(String(a.updated_at ?? "")));
   const live = sorted.find((r) => LIVE.has(r.status));
@@ -249,6 +278,9 @@ export function membershipSummary(rows: readonly SubscriptionRow[] | null | unde
   }
   if (live.status === "past_due") return { kind: "payment_issue" };
   if (live.cancel_at_period_end) return { kind: "ending", endsOn: live.current_period_end };
+  const pause = pauseState({ pausedFrom: live.paused_from ?? null, pausedUntil: live.paused_until ?? null }, now);
+  if (pause.kind === "running") return { kind: "paused", until: pause.until };
+  if (pause.kind === "ahead") return { kind: "pause_ahead", from: pause.from, until: pause.until };
   const plan = live.plan === "member_month" ? "monthly" : live.plan === "member_year" ? "yearly" : live.plan === "member_two_month" ? "two_monthly" : null;
   return { kind: "active", plan, renewsOn: live.current_period_end };
 }
@@ -285,6 +317,10 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
       return summary.endsOn
         ? `Your membership ends on ${formatDate(summary.endsOn)}. It will not renew.`
         : "Your membership will not renew.";
+    case "paused":
+      return `Your membership is paused. Nothing is charged. Payments restart on ${formatDate(summary.until)}, and the library opens again then. Everything you wrote is still here.`;
+    case "pause_ahead":
+      return `Your membership pauses on ${formatDate(summary.from)}. Nothing is charged while it is paused. Payments restart on ${formatDate(summary.until)}.`;
     case "payment_issue":
       return "Your last payment did not go through. Please update your payment details so your membership carries on.";
     case "ended":
@@ -296,6 +332,11 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
 export const MEMBERSHIP_NOTICES = {
   unavailable: "Managing your membership is not available just now. Please try again later.",
   welcome: "Thank you for joining. Your membership may take a minute to show here.",
+  cancelled: "Your membership is set to end. We have emailed you to confirm.",
+  cancelled_now: "Your membership has ended. We have emailed you to confirm.",
+  paused: "Your membership is paused. We have emailed you the dates.",
+  unchanged: "Nothing was changed.",
+  cancel_failed: "That did not work and nothing was changed. Please try again, or write to support.",
 } as const;
 
 export function membershipNotice(code: string | string[] | undefined): string | null {
