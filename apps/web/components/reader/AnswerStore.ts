@@ -1,5 +1,6 @@
 import type { AnswerStore, FieldValue } from "@akana/engine";
 import { fieldKey, splitFieldKey } from "@/lib/answer-fields";
+import { causeFor, type SaveCause } from "@/lib/reading/autosave";
 import type { DraftStore, DraftWrite } from "@/lib/draft-store";
 
 /**
@@ -29,16 +30,23 @@ import type { DraftStore, DraftWrite } from "@/lib/draft-store";
  */
 
 /**
+ * unsaved: typed, and waiting out the short pause before it is sent (3.7).
  * failed: the server refused the value (a 4xx), so no retry will help.
  * consent: refused because health data consent is not in place (F-026).
  * read_only: refused because an account deletion is pending (F-025).
  */
-export type SaveState = "idle" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "device" | "device_full";
+export type SaveState = "idle" | "unsaved" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "device" | "device_full";
+
+/** What the autosave line needs besides the state: why a save failed, and when one last went through. */
+export interface SaveDetail {
+  cause: SaveCause | null;
+  savedAt: number | null;
+}
 
 export interface SupabaseAnswerStoreOptions {
   enrolmentId: string;
   initial?: Record<string, unknown>;
-  onStatus?: (state: SaveState) => void;
+  onStatus?: (state: SaveState, detail: SaveDetail) => void;
   fetch?: typeof fetch;
   debounceMs?: number;
   /** Backoff after a failed save, in ms, by attempt. The last entry repeats. */
@@ -80,7 +88,7 @@ export class SupabaseAnswerStore implements AnswerStore {
   private readonly values = new Map<string, FieldValue>();
   private readonly pending = new Map<string, Pending>();
   private readonly enrolmentId: string;
-  private readonly onStatus: (state: SaveState) => void;
+  private readonly onStatus: (state: SaveState, detail: SaveDetail) => void;
   private readonly fetchFn: typeof fetch;
   private readonly debounceMs: number;
   private readonly retryDelays: readonly number[];
@@ -92,6 +100,8 @@ export class SupabaseAnswerStore implements AnswerStore {
   private readonly onDraftIssue: (issue: Exclude<DraftWrite, "ok">) => void;
   private readonly onRecovered: (count: number) => void;
   private state: SaveState = "idle";
+  private lastCause: SaveCause | null = null;
+  private lastSavedAt: number | null = null;
 
   constructor(opts: SupabaseAnswerStoreOptions) {
     this.enrolmentId = opts.enrolmentId;
@@ -216,7 +226,30 @@ export class SupabaseAnswerStore implements AnswerStore {
     if (p.timer) clearTimeout(p.timer);
     p.timer = setTimeout(() => void this.save(field), delay);
     this.pending.set(field, p);
-    this.setState(p.attempt > 0 ? "retrying" : "saving");
+    if (p.attempt > 0) this.setState("retrying");
+    // Waiting out the pause is "unsaved"; a save already on its way, or a failing one, keeps its own word.
+    else if (this.state !== "retrying" && this.state !== "saving") this.setState(delay > 0 ? "unsaved" : "saving");
+  }
+
+  /** Try again now instead of waiting for the next retry. The Retry button calls this. */
+  retryNow(): void {
+    for (const [field, p] of this.pending) {
+      if (p.timer) {
+        clearTimeout(p.timer);
+        p.timer = null;
+      }
+      if (!p.inFlight) void this.save(field);
+    }
+  }
+
+  /** Why the last save failed, or null when the last one went through. */
+  get cause(): SaveCause | null {
+    return this.lastCause;
+  }
+
+  /** When a save was last confirmed, in milliseconds, or null before the first. */
+  get savedAt(): number | null {
+    return this.lastSavedAt;
   }
 
   private async save(field: string): Promise<void> {
@@ -239,6 +272,7 @@ export class SupabaseAnswerStore implements AnswerStore {
       // 4xx other than 429 will not get better by retrying; drop the save
       // and let the status show it could not be kept.
       ok = res.ok;
+      if (!ok) this.lastCause = causeFor(res.status, undefined);
       if (!ok && res.status >= 400 && res.status < 500 && res.status !== 429 && res.status !== 408) {
         p.inFlight = false;
         this.pending.delete(field);
@@ -250,11 +284,14 @@ export class SupabaseAnswerStore implements AnswerStore {
       }
     } catch {
       ok = false;
+      this.lastCause = causeFor(undefined, typeof navigator === "undefined" ? undefined : navigator.onLine);
     }
     p.inFlight = false;
 
     if (ok) {
       p.attempt = 0;
+      this.lastCause = null;
+      this.lastSavedAt = Date.now();
       this.onSaved(field);
       if (p.dirty) {
         this.schedule(field, this.debounceMs);
@@ -278,7 +315,7 @@ export class SupabaseAnswerStore implements AnswerStore {
   private setState(next: SaveState): void {
     if (this.state === next) return;
     this.state = next;
-    this.onStatus(next);
+    this.onStatus(next, { cause: this.lastCause, savedAt: this.lastSavedAt });
   }
 }
 
