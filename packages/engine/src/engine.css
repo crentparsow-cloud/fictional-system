@@ -242,3 +242,4 @@
 .ak-idea { display: flex; flex-direction: column; gap: 0.4rem; }
 .ak-idea p, .ak-takeaway p { margin-block-end: 0; }
 .ak-idea-example { padding-inline-start: 0.75rem; border-inline-start: 3px solid var(--line-strong); }
+.ak-estimate { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
