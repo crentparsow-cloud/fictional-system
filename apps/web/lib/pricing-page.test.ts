@@ -20,10 +20,10 @@ describe("plan cards", () => {
     expect(cards.filter((c) => c.badge)).toHaveLength(1);
   });
 
-  it("shows the annual plan as a monthly equivalent beside the yearly total", () => {
+  it("shows the annual plan with the yearly total first and the monthly equivalent beside it", () => {
     const annual = planCards(input()).find((c) => c.id === "annual")!;
-    expect(annual.primary).toBe("£4.99 a month");
-    expect(annual.secondary).toBe("£59.88 a year");
+    expect(annual.primary).toBe("£59.88 a year");
+    expect(annual.secondary).toBe("£4.99 a month");
   });
 
   it("recommends the monthly plan when no annual price is set", () => {

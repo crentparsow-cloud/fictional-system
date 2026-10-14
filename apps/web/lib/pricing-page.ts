@@ -79,8 +79,8 @@ export function planCards(input: PricingInput): PlanCard[] {
       id: "annual",
       heading: "Membership, annual",
       badge: null,
-      primary: `${formatPrice(monthlyEquivalentMinor(yearlyMinor), gb)} a month`,
-      secondary: `${total} a year`,
+      primary: `${total} a year`,
+      secondary: `${formatPrice(monthlyEquivalentMinor(yearlyMinor), gb)} a month`,
       billing: `${total} once a year, until you cancel. The monthly figure is the yearly price divided by twelve.`,
       terms: [
         ...(trialTerm("yearly", input.trial.yearly, total) ? [trialTerm("yearly", input.trial.yearly, total)!] : []),
@@ -147,7 +147,7 @@ export function planCards(input: PricingInput): PlanCard[] {
       "Access starts when you pay. Because it starts at once, the 14-day right to cancel ends then, as the box at checkout says.",
     ],
     checkout: null,
-    href: "/library",
+    href: "/explore",
   });
 
   const first = cards.find((c) => c.id === "annual") ?? cards.find((c) => c.id === "monthly");

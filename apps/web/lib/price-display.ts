@@ -4,9 +4,11 @@ import { formatPriceIn, type Price } from "@/lib/pricing";
 /**
  * How the two membership plans are shown side by side (14.21).
  *
- * The annual plan is shown as a monthly equivalent with the yearly total
- * beside it, both at the same size, so nobody has to do the sum and nothing
- * is tucked away. There is no struck-through price, no "was" figure, no
+ * The annual plan is shown with the yearly total first and the monthly
+ * equivalent beside it, both at the same size and weight (R6, CMA207 4.16 in
+ * docs/legal/DMCC_PASS.md). What is charged is the yearly total, so it leads
+ * and is never smaller than the monthly figure. Nobody has to do the sum and
+ * nothing is tucked away. There is no struck-through price, no "was" figure, no
  * "save" percentage and no countdown: a comparison against twelve monthly
  * payments invites a claim that has to be defended, and the two real prices
  * on screen already let a reader compare.
@@ -18,9 +20,9 @@ import { formatPriceIn, type Price } from "@/lib/pricing";
 
 export interface PlanPriceLine {
   plan: "monthly" | "yearly";
-  /** The headline figure: "£7.99 a month", or the monthly equivalent for the annual plan. */
+  /** The headline figure: "£7.99 a month", or the yearly total for the annual plan. */
   primary: string;
-  /** The figure beside it, the same size: "£69.99 a year" for the annual plan, null for monthly. */
+  /** The figure beside it, the same size: the monthly equivalent for the annual plan, null for monthly. */
   secondary: string | null;
   /** What is charged and when, in a sentence. */
   billing: string;
@@ -41,8 +43,8 @@ export function yearlyPlanLine(yearly: Price, market: Market): PlanPriceLine {
   const monthly = formatPriceIn(monthlyEquivalentMinor(yearly.amountMinor), yearly.currency, market);
   return {
     plan: "yearly",
-    primary: `${monthly} a month`,
-    secondary: `${total} a year`,
+    primary: `${total} a year`,
+    secondary: `${monthly} a month`,
     billing: `${total} once a year until you cancel. The monthly figure is the yearly price divided by twelve.`,
   };
 }

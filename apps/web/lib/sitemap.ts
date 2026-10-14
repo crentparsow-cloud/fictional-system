@@ -39,7 +39,6 @@ export const PRIVATE_PATH_PREFIXES = [
   "/home",
   "/today",
   "/toolkit",
-  "/library",
   "/my-workbooks",
   "/you",
   "/read/",

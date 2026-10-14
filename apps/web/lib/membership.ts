@@ -58,10 +58,12 @@ export function membershipPlansOpen(env: Env = process.env): { monthly: boolean;
 }
 
 /** The line shown on Stripe's page above the pay button: the auto-renewal consent (F-097). */
-export function autoRenewNotice(plan: MembershipPlan): string {
+export function autoRenewNotice(plan: MembershipPlan, yearlyTotal?: string | null): string {
   const period = plan === "yearly" ? "year" : "month";
+  // R6: the yearly total is stated on the pay screen, not only the monthly equivalent.
+  const total = plan === "yearly" && yearlyTotal ? `You pay ${yearlyTotal} a year, taken once. ` : "";
   const who = plan === "two_monthly" ? " It covers you and one person you invite. You can remove them at any time." : "";
-  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time: go to the You page, then Cancel membership. You keep access until the end of the period you have paid for.${who}`;
+  return `${total}Your membership renews automatically each ${period} until you cancel. You can cancel at any time: go to the You page, then Cancel membership. You keep access until the end of the period you have paid for.${who}`;
 }
 
 export interface MembershipCheckoutInput {
@@ -83,6 +85,8 @@ export interface MembershipCheckoutInput {
    * (lib/membership-trial.ts). The card is always collected. Omit for no trial.
    */
   trial?: { days: number; notice: string } | null;
+  /** The formatted yearly total, stated on the pay screen for the annual plan. */
+  yearlyTotal?: string | null;
 }
 
 /**
@@ -112,7 +116,7 @@ export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Che
       ...(i.trial ? { trial_period_days: i.trial.days, trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } } : {}),
     },
     ...(i.trial ? { payment_method_collection: "always" as const } : {}),
-    custom_text: { submit: { message: i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan)}` : autoRenewNotice(i.plan) } },
+    custom_text: { submit: { message: i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan, i.yearlyTotal)}` : autoRenewNotice(i.plan, i.yearlyTotal) } },
     success_url: i.successUrl,
     cancel_url: i.cancelUrl,
   };
