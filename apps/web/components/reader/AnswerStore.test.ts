@@ -41,7 +41,7 @@ describe("SupabaseAnswerStore", () => {
     store.set("ex_one", "f_one", "hel");
     store.set("checkin:1", "mood", 4);
     expect(calls).toHaveLength(0);
-    expect(states).toEqual(["saving"]);
+    expect(states).toEqual(["unsaved"]);
 
     await vi.advanceTimersByTimeAsync(599);
     expect(calls).toHaveLength(0);
@@ -78,6 +78,52 @@ describe("SupabaseAnswerStore", () => {
     expect(calls).toHaveLength(3);
     expect(states.at(-1)).toBe("saved");
     expect(store.pendingCount).toBe(0);
+  });
+
+  it("walks the autosave states in order: unsaved, saving, saved, with the time of the save", async () => {
+    const { fn } = fakeFetch([200]);
+    const states: SaveState[] = [];
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fn, onStatus: (s) => states.push(s) });
+    expect(store.savedAt).toBeNull();
+    store.set("ex_one", "f_one", "x");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    expect(states).toEqual(["unsaved", "saving", "saved"]);
+    expect(store.savedAt).not.toBeNull();
+    expect(store.cause).toBeNull();
+  });
+
+  it("names the cause of a failed save and clears it on success", async () => {
+    const { fn } = fakeFetch(["network", 503, 429, 200]);
+    const seen: Array<string | null> = [];
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fn, onStatus: (s, d) => s === "retrying" && seen.push(d.cause), retryDelaysMs: [1000] });
+    store.set("ex_one", "f_one", "keep");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    await vi.advanceTimersByTimeAsync(1000);
+    await flushMicrotasks();
+    await vi.advanceTimersByTimeAsync(1000);
+    await flushMicrotasks();
+    expect(store.cause).toBe("busy");
+    await vi.advanceTimersByTimeAsync(1000);
+    await flushMicrotasks();
+    expect(store.cause).toBeNull();
+    expect(store.status).toBe("saved");
+    expect(seen[0]).toBe("network");
+  });
+
+  it("retryNow sends at once instead of waiting for the backoff", async () => {
+    const { fn, calls } = fakeFetch(["network", 200]);
+    const store = new SupabaseAnswerStore({ enrolmentId: "e1", fetch: fn, retryDelaysMs: [30_000] });
+    store.set("ex_one", "f_one", "keep");
+    await vi.advanceTimersByTimeAsync(600);
+    await flushMicrotasks();
+    expect(calls).toHaveLength(1);
+    expect(store.status).toBe("retrying");
+    store.retryNow();
+    await flushMicrotasks();
+    expect(calls).toHaveLength(2);
+    expect(store.status).toBe("saved");
   });
 
   it("sends again after an in-flight save when the field changed meanwhile (last write wins)", async () => {

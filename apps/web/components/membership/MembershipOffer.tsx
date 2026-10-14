@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { TrustStrip } from "@/components/TrustStrip";
 import { useOnboardingState } from "@/components/useDeviceState";
 import { CHECKOUT_CONSENTS, CONSENT_REQUIRED_MESSAGE } from "@/lib/checkout-consent";
 import { libraryPeek, type OfferPlan } from "@/lib/membership-offer";
@@ -144,7 +145,7 @@ export function MembershipOffer({ plans, library }: { plans: OfferPlan[]; librar
         <div>
           <dt>To cancel</dt>
           <dd>
-            Go to You, then Manage membership, then Cancel.{dates ? ` Cancel before ${dates.firstPayment} and you are not charged.` : ""}
+            Go to You, then Cancel membership.{dates ? ` Cancel before ${dates.firstPayment} and you are not charged.` : ""}
           </dd>
         </div>
       </dl>
@@ -159,6 +160,8 @@ export function MembershipOffer({ plans, library }: { plans: OfferPlan[]; librar
           {CONSENT_REQUIRED_MESSAGE}
         </p>
       ) : null}
+
+      <TrustStrip kind="membership" />
 
       <div className="offer-actions">
         <button type="button" className="btn" disabled={busy} onClick={() => void start()}>
