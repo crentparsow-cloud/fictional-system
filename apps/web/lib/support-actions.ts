@@ -13,12 +13,16 @@ import { knownRoles } from "@/lib/staff-access";
  *   resend an email   owner, editor, support (0027, the lookup roles)
  *   restore access    owner, support   (0027 app.can_support_act)
  *   cancel deletion   owner, support   (0027 app.can_support_act)
+ *   cancel membership owner, support   (0045 app.staff_cancel_membership; 14.24: any clear
+ *                                      written statement is notice, so a request to the
+ *                                      support inbox is actioned here in one click)
  */
 export interface SupportAbilities {
   refund: boolean;
   resend: boolean;
   restore: boolean;
   cancelDeletion: boolean;
+  cancelMembership: boolean;
 }
 
 export function supportAbilities(rawRoles: readonly unknown[] | null | undefined): SupportAbilities {
@@ -30,6 +34,7 @@ export function supportAbilities(rawRoles: readonly unknown[] | null | undefined
     resend: lookup,
     restore: any(["owner", "support"]),
     cancelDeletion: any(["owner", "support"]),
+    cancelMembership: any(["owner", "support"]),
   };
 }
 
@@ -102,6 +107,17 @@ export function parseCancelDeletion(get: (k: string) => unknown): ActionInput<{ 
   if (get("confirm") !== "yes") return { ok: false, message: "Tick the box to confirm the reader asked for this." };
   if (!reason) return { ok: false, message: REASON_MESSAGE };
   return { ok: true, value: { userId: userId.toLowerCase(), reason } };
+}
+
+/** Cancel a reader's membership at their written request (0045). The subscription id is checked against the reader in the database. */
+export function parseCancelMembership(get: (k: string) => unknown): ActionInput<{ userId: string; subscription: string; reason: string }> {
+  const userId = get("user");
+  const subscription = get("subscription");
+  const reason = cleanReason(get("reason"));
+  if (!isUuid(userId)) return { ok: false, message: "Look the reader up again." };
+  if (typeof subscription !== "string" || !SUB.test(subscription)) return { ok: false, message: "Choose which membership to cancel." };
+  if (!reason) return { ok: false, message: REASON_MESSAGE };
+  return { ok: true, value: { userId: userId.toLowerCase(), subscription, reason } };
 }
 
 /** The 0027 error codes, in words staff can act on. */

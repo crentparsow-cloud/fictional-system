@@ -96,3 +96,19 @@ describe("selectTodayCards", () => {
     expect(JSON.stringify(cards).toLowerCase()).not.toMatch(/streak|daysin|missed|counter/);
   });
 });
+
+describe("month-three shared plan card", () => {
+  const offer = { headline: "h", body: "b", cta: "c", href: "/pricing#two-people", price: "£11.99 a month for two people" };
+  const base = { now: new Date("2026-10-14T09:00:00Z"), programmes: [], savedTools: [], suggestions: [{ kind: "related" as const, slug: "x", title: "X", line: "l" }], membershipStartedAt: new Date("2026-07-14T09:00:00Z") };
+  it("takes the third card once it is offered", () => {
+    const cards = selectTodayCards({ ...base, monthThreeOffer: offer });
+    expect(cards).toEqual([{ kind: "shared_offer", offer }]);
+  });
+  it("is absent when not offered", () => {
+    expect(selectTodayCards({ ...base, monthThreeOffer: null }).some((c) => c.kind === "shared_offer")).toBe(false);
+  });
+  it("never shows for a reader with a wellbeing title open", () => {
+    const programmes = [{ enrolmentId: "e", slug: "s", title: "t", safetyTier: "standard" as const, lastOpenedAt: "2026-10-13T00:00:00Z", unitWord: "week" as const, unitCount: 8, next: null }];
+    expect(selectTodayCards({ ...base, programmes, monthThreeOffer: offer }).some((c) => c.kind === "shared_offer")).toBe(false);
+  });
+});

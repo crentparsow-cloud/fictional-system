@@ -40,10 +40,21 @@ export interface SavedTool {
   minutes: number | null;
 }
 
+/** The shared-plan offer shown once in month three (5.4, 14.24 follow-on). Wording and price come from the server. */
+export interface MonthThreeOffer {
+  headline: string;
+  body: string;
+  cta: string;
+  href: string;
+  /** The price line from the database, for example "£11.99 a month for two people". */
+  price: string;
+}
+
 export type TodayCard =
   | { kind: "step"; programme: ProgrammeToday; step: ProgrammeStep }
   | { kind: "tool"; tool: SavedTool }
-  | { kind: "suggestion"; suggestion: Suggestion };
+  | { kind: "suggestion"; suggestion: Suggestion }
+  | { kind: "shared_offer"; offer: MonthThreeOffer };
 
 export interface TodayInput {
   now: Date;
@@ -52,6 +63,8 @@ export interface TodayInput {
   suggestions: readonly Suggestion[];
   /** When the reader's membership began, or null if they have none. */
   membershipStartedAt: Date | null;
+  /** Set only in month three of a single membership. It takes the third card. */
+  monthThreeOffer?: MonthThreeOffer | null;
 }
 
 /** True within the first 30 days of a membership. Never shown to the reader as a number. */
@@ -84,6 +97,12 @@ export function selectTodayCards(input: TodayInput): TodayCard[] {
     const day = Math.floor(input.now.getTime() / DAY_MS);
     const tool = input.savedTools[day % input.savedTools.length];
     if (tool) cards.push({ kind: "tool", tool });
+  }
+
+  // Month three: the shared plan takes the third card once. Never for a wellbeing reader.
+  if (input.monthThreeOffer && !isWellbeingReader(input.programmes)) {
+    cards.push({ kind: "shared_offer", offer: input.monthThreeOffer });
+    return cards.slice(0, MAX_TODAY_CARDS);
   }
 
   // The new-member variant is switched off for anyone with a wellbeing title open.
