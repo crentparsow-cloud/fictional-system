@@ -119,7 +119,7 @@ export function trialCheckoutNotice(plan: TrialPlan, days: number, formattedPric
   const every = plan === "monthly" ? "month" : "year";
   return (
     `Your trial lasts ${lines.days}. Nothing is taken today. On ${lines.firstPayment} we take ${formattedPrice}, and then ${formattedPrice} each ${every} until you cancel. ` +
-    `We email you a reminder on ${lines.reminder}. To cancel, go to the You page, then Manage membership. If you cancel before ${lines.firstPayment}, you are not charged.`
+    `We email you a reminder on ${lines.reminder}. To cancel, go to the You page, then Cancel membership. If you cancel before ${lines.firstPayment}, you are not charged.`
   );
 }
 

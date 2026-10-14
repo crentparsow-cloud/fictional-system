@@ -106,7 +106,7 @@ describe("checkout notice (13.5)", () => {
     expect(text).toContain("Nothing is taken today.");
     expect(text).toContain("On 24 October 2026 we take £7.99");
     expect(text).toContain("We email you a reminder on 21 October 2026.");
-    expect(text).toContain("go to the You page, then Manage membership");
+    expect(text).toContain("go to the You page, then Cancel membership");
     expect(text).toContain("If you cancel before 24 October 2026, you are not charged.");
     expect(text).not.toMatch(/free|—|–/i);
   });

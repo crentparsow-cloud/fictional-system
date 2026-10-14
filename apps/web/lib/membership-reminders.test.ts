@@ -264,7 +264,7 @@ describe("sendTermsReminder: the email", () => {
     expect(msg.text).toContain("£7.99 a month");
     expect(msg.text).toContain("Every month, automatically, until you cancel");
     expect(msg.text).toContain("17 March 2027");
-    expect(msg.text).toContain("go to You, then Manage membership, then Cancel");
+    expect(msg.text).toContain("go to You, then Cancel membership");
     expect(msg.text).toContain("every six months");
     expect(msg.text).toContain("https://akana.test/you#membership");
     expect(msg.text).not.toMatch(/—/);
