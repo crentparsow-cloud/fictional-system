@@ -16,6 +16,9 @@ import { getT } from "@/lib/i18n";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 import { countView } from "@/lib/funnel-server";
+import { SampleExercise } from "@/components/catalogue/SampleExercise";
+import { whoIsItFor } from "@/lib/who-for";
+import { loadSampleExercise } from "@/lib/sample-exercise";
 import { PublicBuy, type PaidLines } from "@/components/catalogue/PublicBuy";
 import { normalisePromoCode, offerSummary, PROMO_MESSAGES } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
@@ -48,6 +51,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: meta.title,
     description: meta.description,
+    // 1.9: one Satori renderer (app/og/[slug]/route.tsx), cached like a cover.
+    openGraph: { title: meta.title, description: meta.description, images: [{ url: `/og/${slug}`, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", images: [`/og/${slug}`] },
     // Demo content is never indexed. Live titles follow the site rule in the root layout.
     ...(detail.card.isDemo ? { robots: { index: false, follow: false } } : {}),
   };
@@ -93,6 +99,8 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
   const language = listing?.language ?? detail.bookLanguage;
   const minutes = structure?.minutes_per_day;
   const publisher = publisherForCode(card.code);
+  const sample = canOpen ? await loadSampleExercise(card.slug, card.safetyTier) : null;
+  const forLines = whoIsItFor({ tagline: listing?.tagline, cardLine: card.cardLine, howItWorks: start?.start?.how_it_works, genre: card.genreName, theme: card.themeName, minutes });
 
   // Item 2.6: up to six titles on the same Theme, by the same author or of the same length.
   // The pool is listLibrary, so the first-unit rule applies. A read that fails leaves the section out.
@@ -123,20 +131,6 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
             <span className="chip">{card.genreName}</span>
           </div>
           <h1>{card.title}</h1>
-          {card.authorRefs?.length ? (
-            <p className="wb-author">
-              {card.authorRefs.map((a, i) => (
-                <span key={a.slug}>
-                  {i > 0 ? ", " : null}
-                  <Link className="author-link" href={`/authors/${a.slug}`}>
-                    {a.name}
-                  </Link>
-                </span>
-              ))}
-            </p>
-          ) : card.authors.length ? (
-            <p className="wb-author">{card.authors.join(", ")}</p>
-          ) : null}
           <p className="wb-line">{card.cardLine}</p>
           {freeLabel ? <p className="wb-free">{freeLabel}</p> : null}
           <p className="muted small">{card.code}</p>
@@ -145,21 +139,6 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
               <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
             </p>
           ) : null}
-          {promoNote ? (
-            <p className="small wb-promo" role="status">
-              {promoNote}
-            </p>
-          ) : null}
-          <PublicBuy
-            slug={card.slug}
-            state={offer.state}
-            signedIn={Boolean(session)}
-            returnTo={returnTo}
-            start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
-            outlineOnlyLabel={t("library.outlineOnly")}
-            code={paidLines ? code : null}
-            paidLines={paidLines}
-          />
           {wellbeing ? (
             <div className="wb-actions">
               <HelpNowButton label={t("help.now")} />
@@ -171,7 +150,35 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
       <div className="wrap wb-body">
         {card.isDemo ? <p className="demo-note">{t("badge.demoNote")}</p> : null}
 
-        <section className="wb-facts" aria-label="About this workbook">
+        <section className="wb-section" aria-labelledby="wb-do">
+          <h2 id="wb-do">What you will do</h2>
+          {outline.length ? (
+            <ol className="wb-outline">
+              {outline.map((u) => (
+                <li key={u.number}>
+                  <span className="wb-outline-n">
+                    {unit} {u.number}
+                  </span>
+                  <span>{u.focus}</span>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p>{card.cardLine}</p>
+          )}
+        </section>
+
+        <section className="wb-section" aria-labelledby="wb-for">
+          <h2 id="wb-for">Who this is for</h2>
+          <ul className="wb-for">
+            {forLines.map((line, i) => (
+              <li key={i}>{line}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="wb-facts" aria-labelledby="wb-long">
+          <h2 id="wb-long">How long it takes</h2>
           <dl>
             {structure?.count ? (
               <div>
@@ -201,50 +208,59 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
                 </dd>
               </div>
             ) : null}
-            {detail.bookTitle ? (
-              <div>
-                <dt>Based on</dt>
-                <dd>{detail.bookTitle}</dd>
-              </div>
-            ) : null}
           </dl>
         </section>
 
-        {listing?.tagline || start?.start?.welcome ? (
-          <section className="wb-section">
-            <h2>Who it is for</h2>
-            {listing?.tagline ? <p className="wb-tagline">{listing.tagline}</p> : null}
-            {start?.start?.welcome ? <p>{start.start.welcome}</p> : null}
-            {start?.start?.how_it_works?.length ? (
-              <ul>
-                {start.start.how_it_works.map((line, i) => (
-                  <li key={i}>{line}</li>
-                ))}
-              </ul>
-            ) : null}
+        {sample ? (
+          <section className="wb-section" aria-labelledby="wb-try">
+            <h2 id="wb-try">Try one now</h2>
+            <p className="muted">This is the first exercise. Take a minute with it, or skip it.</p>
+            <SampleExercise slug={card.slug} exercise={sample.exercise} toolkitTitles={sample.toolkitTitles} />
           </section>
         ) : null}
 
-        {outline.length ? (
-          <section className="wb-section">
-            <h2>{unit} by {unit.toLowerCase()}</h2>
-            <ol className="wb-outline">
-              {outline.map((u) => (
-                <li key={u.number}>
-                  <span className="wb-outline-n">
-                    {unit} {u.number}
-                  </span>
-                  <span>{u.focus}</span>
-                </li>
+        <section className="wb-section wb-certificate" aria-label="Where you finish">
+          <p>You will finish with a certificate in your name, private unless you share it.</p>
+        </section>
+
+        <section className="wb-section wb-by" aria-labelledby="wb-author">
+          <h2 id="wb-author">The author</h2>
+          {card.authorRefs?.length ? (
+            <p>
+              {card.authorRefs.map((a, i) => (
+                <span key={a.slug}>
+                  {i > 0 ? ", " : null}
+                  <Link className="author-link" href={`/authors/${a.slug}`}>
+                    {a.name}
+                  </Link>
+                </span>
               ))}
-            </ol>
-          </section>
-        ) : (
-          <section className="wb-section">
-            <h2>Outline</h2>
-            <p className="muted">The {unit.toLowerCase()} by {unit.toLowerCase()} outline is being written. The card line above says what the workbook covers.</p>
-          </section>
-        )}
+            </p>
+          ) : card.authors.length ? (
+            <p>{card.authors.join(", ")}</p>
+          ) : (
+            <p className="muted">{brand.name}</p>
+          )}
+          {detail.bookTitle ? <p className="muted">Based on {detail.bookTitle}.</p> : null}
+        </section>
+
+        <section className="wb-section" id="buy" aria-label="Get this workbook">
+          {promoNote ? (
+            <p className="small wb-promo" role="status">
+              {promoNote}
+            </p>
+          ) : null}
+          <PublicBuy
+            slug={card.slug}
+            state={offer.state}
+            signedIn={Boolean(session)}
+            returnTo={returnTo}
+            start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
+            outlineOnlyLabel={t("library.outlineOnly")}
+            code={paidLines ? code : null}
+            paidLines={paidLines}
+          />
+        </section>
 
         {detail.bookTitle ? (
           <section className="wb-section">

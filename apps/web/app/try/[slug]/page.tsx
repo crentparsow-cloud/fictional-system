@@ -1,3 +1,5 @@
+import { withTitleCopy } from "@akana/schema";
+import { titleCopyFor } from "@/lib/title-copy";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
@@ -39,6 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 interface Row {
   id: string;
+  code: string;
   tenant_id: string;
   safety_tier: "none" | "standard" | "higher";
   current_version_id: string | null;
@@ -52,7 +55,7 @@ export default async function TryPage({ params }: { params: Promise<Params> }) {
   if (!tenantId) notFound();
 
   const supabase = await createUserClient();
-  const { data } = await supabase.from("workbooks").select("id, tenant_id, safety_tier, current_version_id").eq("slug", slug).maybeSingle();
+  const { data } = await supabase.from("workbooks").select("id, code, tenant_id, safety_tier, current_version_id").eq("slug", slug).maybeSingle();
   const wb = data as Row | null;
   if (!wb || !wb.current_version_id || wb.tenant_id !== tenantId) notFound();
   if (wb.safety_tier !== "none") redirect(`/sign-in?next=${encodeURIComponent(`/read/${slug}`)}`);
@@ -70,7 +73,7 @@ export default async function TryPage({ params }: { params: Promise<Params> }) {
       <p className="eyebrow">
         <Link href={`/w/${slug}`}>{brand.name}</Link>
       </p>
-      <TryClient workbook={rebuilt.workbook} slug={slug} lockedUnits={rebuilt.lockedUnits} missing={rebuilt.missing} wall={<TryWall slug={slug} />} />
+      <TryClient workbook={withTitleCopy(rebuilt.workbook, titleCopyFor(wb.code))} slug={slug} lockedUnits={rebuilt.lockedUnits} missing={rebuilt.missing} wall={<TryWall slug={slug} />} />
     </main>
   );
 }
