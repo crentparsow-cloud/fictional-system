@@ -173,6 +173,7 @@ export async function POST(request: NextRequest) {
   const trialPlan = plan === "two_monthly" ? null : plan;
   const trialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
   const trialPrice = trialPlan && trialDays > 0 ? await trialRenewalPrice(supabase, trialPlan, priceCurrencyFor(market)) : null;
+  const yearlyTotal = plan === "yearly" ? (trialPrice ?? (await trialRenewalPrice(supabase, "yearly", priceCurrencyFor(market)))) : null;
   const trialNotice = trialPlan && trialPrice ? trialCheckoutNotice(trialPlan, trialDays, trialPrice, new Date()) : null;
   const trial = trialNotice ? { days: trialDays, notice: trialNotice } : null;
 
@@ -193,6 +194,7 @@ export async function POST(request: NextRequest) {
       cancelUrl,
       promotionCodeId,
       trial,
+      yearlyTotal,
     });
     const consentMeta = consentMetadata(consentId, consent.version);
     params.metadata = { ...params.metadata, ...consentMeta };

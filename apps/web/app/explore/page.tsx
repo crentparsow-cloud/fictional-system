@@ -4,7 +4,14 @@ import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
 import { CollectionCover } from "@/components/explore/CollectionCover";
 import { Rail } from "@/components/explore/Rail";
 import { ShelfTile } from "@/components/explore/ShelfTile";
+import { LibraryBrowse } from "@/components/catalogue/LibraryBrowse";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
+import { ReaderTabs } from "@/components/ReaderTabs";
+import { CatalogueSearch } from "@/components/search/CatalogueSearch";
+import { searchLabels } from "@/lib/search";
+import { searchEntriesFor } from "@/lib/search-data";
+import { listShelvesWithThemes, myEnrolmentStatuses } from "@/lib/catalogue";
+import { applyShelfMinimum, hasActiveFilters, parseLibraryQuery, parseShelfMinCount } from "@/lib/library-grouping";
 import { getReaderSession } from "@/lib/auth";
 import { themeIndex, workbookCount } from "@/lib/author-theme-pages";
 import { brand } from "@/lib/brand";
@@ -32,6 +39,12 @@ import { hasMessage, type MessageKey } from "@/lib/locale";
  * (lib/explore.ts). The programme length filter (2.4) is a link row that
  * carries its state in the URL, so the page is server rendered.
  *
+ * Since 14.1 this is also the catalogue: the old Library tab folded in. The
+ * search box sits under the heading. The shelf, Theme, author, language and
+ * length chips and the full grouped list show when a chip is chosen or the
+ * reader asks for every workbook (?all=1). /library redirects here. The page
+ * is public. A signed-in reader gets the four tabs.
+ *
  * Every card comes from listLibrary, so the first-unit rule holds, and the
  * Theme gate (F-148) is applied once in loadExploreBase. Demo titles keep
  * their label; the workbook page decides what can be bought.
@@ -55,8 +68,17 @@ const LENGTH_KEYS: Record<ProgrammeLength, MessageKey> = {
 export default async function ExplorePage({ searchParams }: { searchParams: Promise<Search> }) {
   const [{ t }, sp, session] = await Promise.all([getT(), searchParams, getReaderSession()]);
   const length = parseProgrammeLength(sp.length);
+  const libraryQuery = parseLibraryQuery(sp);
+  const browse = hasActiveFilters(libraryQuery) || sp.all === "1";
   const base = await loadExploreBase();
-  const [collections, seeds] = await Promise.all([loadCollections(base.cards), session ? loadReadSeeds(session.userId) : Promise.resolve([])]);
+  const [collections, seeds, shelvesWithThemes, enrolments, searchEntries] = await Promise.all([
+    loadCollections(base.cards),
+    session ? loadReadSeeds(session.userId) : Promise.resolve([]),
+    browse ? listShelvesWithThemes() : Promise.resolve([]),
+    browse && session ? myEnrolmentStatuses(session.userId) : Promise.resolve(null),
+    // F-008: the on-device search index covers every visible title, whatever the filters.
+    searchEntriesFor(applyShelfMinimum(base.cards, parseShelfMinCount(process.env.SHELF_MIN_COUNT))),
+  ]);
 
   const { cards, signals } = base;
   const tiles = shelfTiles(base.shelves, cards, base.shelfOfTheme);
@@ -71,7 +93,8 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
   const lineFor = (id: string) => (hasMessage(`shelf.line.${id}`) ? t(`shelf.line.${id}` as MessageKey) : null);
 
   return (
-    <main className="wb-page browse-page explore-page">
+    <>
+    <main className={session ? "wb-page browse-page explore-page has-tabs" : "wb-page browse-page explore-page"}>
       <header className="wb-hero">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
@@ -83,6 +106,13 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </header>
 
       <div className="wrap wb-body">
+        <CatalogueSearch entries={searchEntries} labels={searchLabels(t)} />
+
+        {browse ? (
+          <LibraryBrowse cards={base.cards} shelves={shelvesWithThemes} enrolments={enrolments} signedIn={Boolean(session)} query={libraryQuery} base="/explore" />
+        ) : null}
+
+        {browse ? null : (
         <section aria-labelledby="explore-shelves">
           <h2 id="explore-shelves" className="browse-heading">
             {t("explore.shelves")}
@@ -95,8 +125,9 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
             ))}
           </ul>
         </section>
+        )}
 
-        {options.length > 1 || length ? (
+        {browse ? null : options.length > 1 || length ? (
           <nav className="chips explore-length" aria-label={t("explore.filterLength")}>
             <span className="library-chip-label small" aria-hidden="true">
               {t("explore.filterLength")}
@@ -112,7 +143,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           </nav>
         ) : null}
 
-        {cards.length === 0 ? (
+        {browse ? null : cards.length === 0 ? (
           <section className="empty-state browse-empty">
             <p>{t("explore.empty")}</p>
           </section>
@@ -207,7 +238,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
         )}
 
         <p className="browse-more explore-links">
-          <Link href="/library">{t("explore.fullLibrary")}</Link>
+          {browse ? <Link href="/explore">{t("explore.title")}</Link> : <Link href="/explore?all=1#all">{t("explore.fullLibrary")}</Link>}
           {session ? (
             <>
               {" "}
@@ -222,5 +253,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>
+    {session ? <ReaderTabs /> : null}
+    </>
   );
 }

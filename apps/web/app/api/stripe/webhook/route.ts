@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
+import { CANCEL_EMAIL_FAILED, confirmationNotSent } from "@/lib/cancellation-confirm";
 import { sendMembershipNotice } from "@/lib/membership-email";
 import { sendPurchaseEmail, type TrialExtras } from "@/lib/purchase-email";
 import { loadFirstWeekPlan } from "@/lib/first-week-plan-server";
@@ -267,7 +268,7 @@ function membershipRepo(admin: Admin): MembershipRepo {
 async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Promise<void> {
   try {
     const env = process.env;
-    await sendMembershipNotice(n, origin, {
+    const result = await sendMembershipNotice(n, origin, {
       env: {
         RESEND_API_KEY: env.RESEND_API_KEY,
         EMAIL_FROM: env.EMAIL_FROM,
@@ -287,8 +288,11 @@ async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Pr
       },
       log: mailLog("api/stripe/webhook", "membership_email"),
     });
+    // R9: a cancellation the reader was not told about is raised at once; the daily run tries again.
+    if (n.template === "cancellation" && confirmationNotSent(result)) await reportOps(admin, "webhook_failure", "api/stripe/webhook", CANCEL_EMAIL_FAILED);
   } catch (err) {
     console.error("membership_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
+    if (n.template === "cancellation") await reportOps(admin, "webhook_failure", "api/stripe/webhook", CANCEL_EMAIL_FAILED);
   }
 }
 
