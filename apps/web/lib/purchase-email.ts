@@ -78,6 +78,7 @@ export function purchaseEmailProps(
   n: ReaderMailNotice,
   origin: string,
   supportEmail: string,
+  now: Date = new Date(),
 ):
   | { template: "purchase_lifetime"; props: ReaderProps["purchase_lifetime"] }
   | { template: "purchase_membership"; props: ReaderProps["purchase_membership"] }
@@ -86,11 +87,14 @@ export function purchaseEmailProps(
   const base = readerBase(origin, supportEmail, n.name);
   const price = moneyWords(n.amountMinor, n.currency);
   if (!price) return null;
-  if (n.template === "purchase_lifetime") return { template: n.template, props: { ...base, offerName: "a single workbook", price } };
-  if (n.template === "refund_confirmed") return { template: n.template, props: { ...base, amount: price, accessEnded: n.accessEnded } };
+  // 5.11: the receipt carries the day it was sent, which is the day the webhook ran: the payment day, bar a retry.
+  const on = dateWords(now.toISOString());
+  const dated = on ? { paidOn: on } : {};
+  if (n.template === "purchase_lifetime") return { template: n.template, props: { ...base, offerName: "a single workbook", price, ...dated } };
+  if (n.template === "refund_confirmed") return { template: n.template, props: { ...base, amount: price, accessEnded: n.accessEnded, ...(on ? { refundedOn: on } : {}) } };
   const nextDate = dateWords(n.nextPaymentAt);
   if (!nextDate) return null;
-  return { template: n.template, props: { ...base, price, periodWords: n.plan === "member_year" ? "a year" : "a month", nextDate } };
+  return { template: n.template, props: { ...base, price, periodWords: n.plan === "member_year" ? "a year" : "a month", nextDate, ...dated } };
 }
 
 export async function sendPurchaseEmail(n: ReaderMailNotice, origin: string, deps: PurchaseEmailDeps, extras: TrialExtras = {}): Promise<PurchaseEmailStatus> {
