@@ -6,7 +6,9 @@ import type { ContinueCard } from "@/lib/catalogue-types";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
-import { selectTodayCards, isWellbeingReader, type ProgrammeToday, type SavedTool, type TodayCard } from "@/lib/today/cards";
+import { sharedPlanDisplay, type PricePointRowLike } from "@/lib/plans";
+import { isMonthThree, sharedPlanOffer, sharedPlanOpen } from "@/lib/shared-membership";
+import { selectTodayCards, isWellbeingReader, type MonthThreeOffer, type ProgrammeToday, type SavedTool, type TodayCard } from "@/lib/today/cards";
 import { gapDue, lastActivityAt, reflectionField } from "@/lib/today/gap";
 import { easyStep, resumeHref, stepHref } from "@/lib/today/links";
 import { localParts } from "@/lib/today/reminders";
@@ -14,6 +16,7 @@ import { fieldLabel, planReview, type ReviewEnrolment } from "@/lib/today/review
 import { effectiveFrequency, isReviewFrequency, reviewText, type ReviewFrequency } from "@/lib/today/review";
 import { pickupAllowed } from "@/lib/today/run-reminders";
 import { buildSuggestions } from "@/lib/today/suggest";
+import { buildPath, type PathNode } from "@/lib/reading/path";
 import { doneExerciseIds, hasFromFieldPaths, nextStep, stepsFromUnitSections, type ProgrammeStep } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type UnitWord } from "@/lib/today/week";
 
@@ -46,6 +49,8 @@ export interface TodayView {
   /** Href for each card, by index. */
   hrefs: string[];
   rhythm: { line: string; marked: boolean } | null;
+  /** The compact unit map for the programme leading Today (3.3). */
+  strip: { slug: string; word: UnitWord; nodes: PathNode[] } | null;
   /** The welcome-back variant of the step card, when the reader has been away. */
   welcomeBack: { enrolmentId: string; slug: string; reflectionField: string; gapKey: string; minutes: number; short: boolean } | null;
   review: ReviewView | null;
@@ -78,7 +83,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
   const wellbeing = cardsAll.some((c) => c.safetyTier !== "none");
   const timeZone = "Europe/London";
 
-  const [library, subRows] = await Promise.all([listLibrary().catch(() => []), loadMembershipStart(supabase)]);
+  const [library, subRows, monthThreeOffer] = await Promise.all([listLibrary().catch(() => []), loadMembershipStart(supabase), loadMonthThreeOffer(supabase, now)]);
 
   if (cardsAll.length === 0) {
     const suggestions = buildSuggestions({
@@ -88,8 +93,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       enrolledGenreIds: new Set(),
       outsideMembership: new Set(),
     });
-    const cards = selectTodayCards({ now, programmes: [], savedTools: [], suggestions, membershipStartedAt: subRows });
-    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/library")), rhythm: null, welcomeBack: null, review: null, continueCards: [], timeZone };
+    const cards = selectTodayCards({ now, programmes: [], savedTools: [], suggestions, membershipStartedAt: subRows, monthThreeOffer });
+    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/library")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone };
   }
 
   const ids = cardsAll.map((c) => c.enrolmentId);
@@ -170,16 +175,27 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     outsideMembership: outside,
   });
 
-  const cards = selectTodayCards({ now, programmes, savedTools, suggestions, membershipStartedAt: subRows });
+  const cards = selectTodayCards({ now, programmes, savedTools, suggestions, membershipStartedAt: subRows, monthThreeOffer });
   const stepCard = cards.find((c) => c.kind === "step");
 
   // The weekly rhythm and the pick-up, for the programme leading Today.
   let rhythm: TodayView["rhythm"] = null;
+  let strip: TodayView["strip"] = null;
   let welcomeBack: TodayView["welcomeBack"] = null;
   if (stepCard?.kind === "step") {
     const p = stepCard.programme;
     const steps = stepsOf.get(p.enrolmentId) ?? [];
     const events = eventsOf.get(p.enrolmentId) ?? [];
+    if (steps.length) {
+      const byUnit = new Map<number, { focus: string; ids: string[] }>();
+      for (const st of steps) {
+        const u = byUnit.get(st.unit) ?? { focus: st.unitName, ids: [] };
+        u.ids.push(st.exerciseId);
+        byUnit.set(st.unit, u);
+      }
+      const units = [...byUnit].map(([number, u]) => ({ number, focus: u.focus, exerciseIds: u.ids }));
+      strip = { slug: p.slug, word: p.unitWord, nodes: buildPath({ units, done: doneExerciseIds(events) }) };
+    }
     const has = hasFromFieldPaths(pathsOf.get(p.enrolmentId) ?? new Set());
     const finishes = countedFinishes(steps, events, has);
     const at = rhythmUnit(steps, p.next);
@@ -213,6 +229,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       const slug = cardsAll.find((x) => x.enrolmentId === c.tool.enrolmentId)?.slug;
       return slug ? `/toolkit` : "/toolkit";
     }
+    if (c.kind === "shared_offer") return c.offer.href;
     return `/w/${encodeURIComponent(c.suggestion.slug)}`;
   });
 
@@ -224,6 +241,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     cards,
     hrefs,
     rhythm,
+    strip,
     welcomeBack,
     review,
     continueCards: cardsAll,
@@ -236,6 +254,28 @@ async function loadMembershipStart(supabase: UserClient): Promise<Date | null> {
     const { data } = await supabase.from("subscriptions").select("status, created_at").in("status", ["active", "trialing"]).order("created_at", { ascending: true }).limit(1);
     const first = (data as { created_at: string }[] | null)?.[0];
     return first ? new Date(first.created_at) : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * The month-three offer (isMonthThree, sharedPlanOffer): only when the
+ * reader has exactly one live membership, it is a single-person plan in its
+ * fourth month, and the two-person plan can be bought and has a price.
+ */
+async function loadMonthThreeOffer(supabase: UserClient, now: Date): Promise<MonthThreeOffer | null> {
+  try {
+    if (!sharedPlanOpen()) return null;
+    const { data } = await supabase.from("subscriptions").select("status, plan, cancel_at_period_end, created_at").in("status", ["active", "trialing"]);
+    const rows = (data as { status: string; plan: string | null; cancel_at_period_end: boolean; created_at: string }[] | null) ?? [];
+    if (rows.length !== 1) return null;
+    const r = rows[0]!;
+    if (!isMonthThree({ plan: r.plan, status: r.status, cancelAtPeriodEnd: r.cancel_at_period_end, startedAt: r.created_at }, now)) return null;
+    const offer = sharedPlanOffer("month_three");
+    const { data: price } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").eq("id", "member_two_month");
+    const line = sharedPlanDisplay((price ?? []) as PricePointRowLike[]);
+    return offer && line ? { headline: offer.headline, body: offer.body, cta: offer.cta, href: offer.href, price: line } : null;
   } catch {
     return null;
   }
