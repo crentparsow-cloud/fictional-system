@@ -50,7 +50,7 @@
 .ak-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; background: var(--surface-2); border-radius: var(--radius); padding: 0.25rem; }
 .ak-seg button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.1rem; min-block-size: 56px; border: 0; border-radius: calc(var(--radius) - 0.25rem); background: none; color: var(--ink-soft); font: inherit; font-weight: 700; line-height: 1.2; padding: 0.5em 0.6em; cursor: pointer; }
 .ak-seg button span { font-weight: 400; font-size: 0.85rem; }
-.ak-seg button[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
+.ak-seg button[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); box-shadow: var(--shadow); }
 
 /* Steps */
 .ak-steps-block { display: flex; flex-direction: column; gap: 0.5rem; }
