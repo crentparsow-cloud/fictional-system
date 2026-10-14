@@ -2,18 +2,23 @@ import { ImageResponse } from "next/og";
 import { CACHE, NO_STORE, OG_SIZE } from "@/lib/cache-headers";
 import { brand } from "@/lib/brand";
 import { getWorkbookBySlug } from "@/lib/catalogue";
-import { COVER_TOKENS, genreStyle } from "@/lib/covers";
+import { activeDirection } from "@/lib/design/active";
+import { coverFonts } from "@/lib/design/cover-fonts";
+import { ShareImage } from "@/lib/design/cover-render";
+import { coverFormat, formatLabel, previewLine, shelfForCover, type CoverSpec } from "@/lib/design/cover-spec";
 
 /**
  * Open Graph image for a public workbook (10.2, 1.9): /og/<slug>, 1200 by 630.
- * One Satori renderer (next/og), flexbox only, no web fonts loaded, so the
- * bundle stays far under the 500 KB limit. The text is the title and the
- * author's name, as on the page; nothing about the reader and no claim.
+ * The same Satori renderer as the covers (lib/design/cover-render): the
+ * format-coded cover on the left, the title, author and one line of preview
+ * on the right, in the active design direction. Only the subset faces in
+ * lib/design/og-fonts are loaded, about 40 KB, so the bundle stays far under
+ * the 500 KB limit. Nothing about the reader and no claim.
  *
  * Read through the user client, so only a public workbook for this host's
  * tenant renders; anything else is a plain 404 that is never stored. The
  * image is the same for every visitor on a host, so it carries the long
- * cover cache header. Cover colours come from lib/covers.
+ * cover cache header.
  */
 const SLUG = /^[a-z0-9][a-z0-9-]{0,120}$/;
 
@@ -24,27 +29,21 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
   if (!detail) return notFound();
 
   const { card } = detail;
-  const style = genreStyle(card.genreId);
-  const title = card.title.length > 90 ? `${card.title.slice(0, 87)}...` : card.title;
-  const author = card.authors.join(" and ");
-  const size = title.length > 50 ? 56 : title.length > 28 ? 72 : 88;
+  const format = { unitCount: card.unitCount, unitKind: card.unitKind };
+  const spec: CoverSpec = {
+    format: coverFormat(format),
+    label: formatLabel(format),
+    title: card.title,
+    author: card.authors.join(" and "),
+    preview: previewLine(card.cardLine),
+    shelfId: shelfForCover(card.shelfId, card.genreId),
+  };
 
-  return new ImageResponse(
-    (
-      <div style={{ width: "100%", height: "100%", display: "flex", background: COVER_TOKENS.canvas, color: COVER_TOKENS.ink }}>
-        <div style={{ width: 28, height: "100%", background: style.accent, display: "flex" }} />
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 72px", background: style.tint }}>
-          <div style={{ display: "flex", fontSize: 30, color: COVER_TOKENS.inkSoft }}>{brand.name}</div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", fontSize: size, fontWeight: 700, lineHeight: 1.1, color: COVER_TOKENS.ink }}>{title}</div>
-            {author ? <div style={{ display: "flex", marginTop: 28, fontSize: 36, color: style.accent }}>{author}</div> : null}
-          </div>
-          <div style={{ display: "flex", fontSize: 28, color: COVER_TOKENS.inkSoft }}>{card.genreName}</div>
-        </div>
-      </div>
-    ),
-    { ...OG_SIZE, headers: { "Cache-Control": CACHE.cover } },
-  );
+  return new ImageResponse(<ShareImage spec={spec} direction={activeDirection} brandName={brand.name} />, {
+    ...OG_SIZE,
+    fonts: coverFonts(activeDirection),
+    headers: { "Cache-Control": CACHE.cover },
+  });
 }
 
 function notFound(): Response {

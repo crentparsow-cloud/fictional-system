@@ -8,16 +8,13 @@ import { DomainsSection } from "./DomainsSection";
 import { checkedColours, linksToText, LISTING_PRICE_OPTIONS, whiteLabelAbilities } from "@/lib/admin/white-label";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
-import { BRAND_FONTS, contrastChecks, formatRatio, validateBrand, type BrandColours, type ThemeName } from "@/lib/tenant-brand";
+import { BRAND_FONTS, HOUSE_BRAND, contrastChecks, formatRatio, validateBrand, type BrandColours, type ThemeName } from "@/lib/tenant-brand";
 
 export const metadata: Metadata = { title: "White-label site", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
-const HOUSE: Record<ThemeName, BrandColours> = {
-  light: { primary: "#1f4e5a", accent: "#1f4e5a" },
-  dark: { primary: "#7fc2cf", accent: "#173c45" },
-};
+const HOUSE: Record<ThemeName, BrandColours> = HOUSE_BRAND;
 
 type Listing = {
   workbook_id: string;
