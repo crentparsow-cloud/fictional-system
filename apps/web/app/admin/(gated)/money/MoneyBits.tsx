@@ -67,8 +67,7 @@ export function ModeBanner({ livemode, placeholder }: { livemode: boolean; place
       {!livemode ? <p className="admin-note money-banner">Test mode. Every figure here comes from Stripe test payments. No real money moves.</p> : null}
       {placeholder ? (
         <p className="admin-notice admin-notice-error money-banner" role="status">
-          The royalty figures are PLACEHOLDERS. Questions D1 to D5 are not answered yet, so every line and statement is provisional, and live payouts
-          are refused.
+          The royalty figures are provisional. Every line and statement is provisional until they are decided, and live payouts are refused.
         </p>
       ) : null}
     </>

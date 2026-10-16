@@ -226,7 +226,7 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
             <dl className="admin-dl">
               <div>
                 <dt>Status</dt>
-                <dd>{config.is_placeholder ? "PLACEHOLDER: not a decision (D1 to D5)" : `Set ${formatAdminDate(config.effective_from)}`}</dd>
+                <dd>{config.is_placeholder ? "Provisional: not yet decided" : `Set ${formatAdminDate(config.effective_from)}`}</dd>
               </div>
               <div>
                 <dt>Single sale, author share</dt>
@@ -266,7 +266,7 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
                 <dt>Payout calendar</dt>
                 <dd>
                   {config.payout_cadence === "weekly"
-                    ? `Weekly on ${weekdayName(config.payout_weekday)}s (published in the Studio). The run itself still acts on day ${config.payout_day} of each month, London time, until the weekly run is switched on.`
+                    ? `Weekly on ${weekdayName(config.payout_weekday)}s, London time. Money past the ${config.refund_window_days} day refund window is paid; the floor carries forward.`
                     : `Monthly on day ${config.payout_day}, London time`}
                 </dd>
               </div>
@@ -281,8 +281,7 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
           <details className="card money-config">
             <summary>Set new figures</summary>
             <p className="muted">
-              New figures apply to lines written from now on. Earlier lines keep the rate they used. Saving marks the figures as decided, not
-              placeholders.
+              New figures apply to lines written from now on. Earlier lines keep the rate they used. Saving marks the figures as decided.
             </p>
             <form action={saveRoyaltyConfig} className="admin-form">
               <label htmlFor="cfg-sale">Single sale, author share (%)</label>
