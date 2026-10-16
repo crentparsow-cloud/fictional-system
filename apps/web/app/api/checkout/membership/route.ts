@@ -7,6 +7,7 @@ import {
   MEMBERSHIP_NOT_OPEN_MESSAGE,
   MEMBERSHIP_PLAN_POINT,
   hasLiveMembership,
+  type MembershipPlan,
   membershipCheckoutParams,
   membershipPriceId,
   portalCustomerId,
@@ -31,13 +32,13 @@ import { lookupPromoCode } from "@/lib/promo-code-server";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
- *   { plan: "monthly" | "yearly" | "two_monthly", workbook?: slug }  ->  { url }
+ *   { plan: "monthly" | "yearly" | "two_monthly" | "two_yearly", workbook?: slug }  ->  { url }
  *
  * Stripe Checkout in subscription mode, next to the single workbook
  * checkout and kept in step with it: Stripe Tax, promotion codes and the
  * tax id field on, Akana as seller of record. The auto-renewal consent is
  * shown above the pay button. The price is a Stripe price id from
- * STRIPE_PRICE_MEMBERSHIP_MONTHLY or _YEARLY. While that is unset the route
+ * STRIPE_PRICE_MEMBERSHIP_MONTHLY, _YEARLY, _TWO_MONTHLY or _TWO_YEARLY. While the plan's is unset the route
  * answers 409 with "Membership is not open yet" and nothing else happens.
  *
  * The body carries the reader terms version shown by the pay button; a
@@ -75,7 +76,7 @@ export const runtime = "nodejs";
 
 const Body = z
   .object({
-    plan: z.enum(["monthly", "yearly", "two_monthly"]),
+    plan: z.enum(["monthly", "yearly", "two_monthly", "two_yearly"]),
     workbook: z
       .string()
       .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/)
@@ -114,7 +115,7 @@ export async function POST(request: NextRequest) {
   const consent = checkoutConsentDecision("membership", parsed.data.consent);
   if (!consent.ok) return NextResponse.json({ error: consent.error, code: consent.code }, { status: consent.status, headers: NO_STORE });
 
-  // PLACEHOLDER until Crent sets the membership prices (C4, D1 to D4).
+  // The plan opens when its Stripe price id is set (STRIPE_PRICE_MEMBERSHIP_*).
   const priceId = membershipPriceId(plan);
   if (!priceId) {
     console.warn("membership_price_missing", { plan });
@@ -170,10 +171,15 @@ export async function POST(request: NextRequest) {
   // pay button states the first payment date and the reminder date. A price that
   // cannot be formatted means no trial notice can be written, so no trial.
   // The two-person plan has no trial: the trial settings cover the monthly and annual plans only.
-  const trialPlan = plan === "two_monthly" ? null : plan;
+  const trialPlan = plan === "two_monthly" || plan === "two_yearly" ? null : plan;
   const trialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
   const trialPrice = trialPlan && trialDays > 0 ? await trialRenewalPrice(supabase, trialPlan, priceCurrencyFor(market)) : null;
-  const yearlyTotal = plan === "yearly" ? (trialPrice ?? (await trialRenewalPrice(supabase, "yearly", priceCurrencyFor(market)))) : null;
+  const yearlyTotal =
+    plan === "yearly"
+      ? (trialPrice ?? (await trialRenewalPrice(supabase, "yearly", priceCurrencyFor(market))))
+      : plan === "two_yearly"
+        ? await trialRenewalPrice(supabase, "two_yearly", priceCurrencyFor(market))
+        : null;
   const trialNotice = trialPlan && trialPrice ? trialCheckoutNotice(trialPlan, trialDays, trialPrice, new Date()) : null;
   const trial = trialNotice ? { days: trialDays, notice: trialNotice } : null;
 
@@ -237,7 +243,7 @@ export async function POST(request: NextRequest) {
 }
 
 /** The renewal price for the trial notice, "£7.99", from the price point row, else the ladder. Null when there is none. */
-async function trialRenewalPrice(supabase: Awaited<ReturnType<typeof createUserClient>>, plan: "monthly" | "yearly", currency: string): Promise<string | null> {
+async function trialRenewalPrice(supabase: Awaited<ReturnType<typeof createUserClient>>, plan: MembershipPlan, currency: string): Promise<string | null> {
   const point = MEMBERSHIP_PLAN_POINT[plan];
   const { data } = await supabase.from("price_points").select("amounts").eq("id", point).maybeSingle();
   const amounts = (data?.amounts ?? PRICE_LADDER[point].amounts) as Record<string, number | undefined>;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
+import { MarketingShot } from "@/components/MarketingShot";
 import { brand } from "@/lib/brand";
 import { ENQUIRY_HREF, organisationPrivacyLine } from "@/lib/plans";
 
@@ -46,10 +47,14 @@ export default function OrganisationsPage() {
         </p>
       </header>
 
-      <section className="card info-privacy" aria-labelledby="org-privacy">
-        <h2 id="org-privacy">The privacy line</h2>
-        <p>{organisationPrivacyLine(brand.name)}</p>
-      </section>
+      <div className="info-split">
+        <section className="card info-privacy" aria-labelledby="org-privacy">
+          <h2 id="org-privacy">The privacy line</h2>
+          <p>{organisationPrivacyLine(brand.name)}</p>
+          <p className="small muted">The Trust page sets out how answers are sealed.</p>
+        </section>
+        <MarketingShot name="trust-desktop" alt="The Trust page: plain statements of what is sealed, what is never tracked and who can see what." />
+      </div>
 
       <section className="info-section" aria-labelledby="org-who">
         <h2 id="org-who">Who it is for</h2>

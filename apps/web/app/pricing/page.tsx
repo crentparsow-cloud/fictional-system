@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
+import { MarketingShot } from "@/components/MarketingShot";
 import { brand } from "@/lib/brand";
 import { TrustStrip } from "@/components/TrustStrip";
 import { membershipPlansOpen } from "@/lib/membership";
 import { ENQUIRY_HREF, type PricePointRowLike } from "@/lib/plans";
 import { FAQ, WHICH_TO_PICK, planCards } from "@/lib/pricing-page";
-import { sharedPlanOpen } from "@/lib/shared-membership";
+import { sharedPlanOpen, sharedYearlyPlanOpen } from "@/lib/shared-membership";
 import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Pricing (F-009). Readers see the membership price from public.price_points
- * (interim figures until Crent sets them) and "Price to be confirmed" for
+ * (decided 15 October 2026) and "Price to be confirmed" for
  * anything without a decided figure. Publishers, white-label sites and
  * organisations have no plans yet, so each says "talk to us" and links to
  * the enquiry form on /publish.
@@ -31,7 +32,7 @@ async function membershipRows(): Promise<PricePointRowLike[]> {
     const { data, error } = await supabase
       .from("price_points")
       .select("id, kind, amounts, stripe_price_id, active")
-      .in("id", ["member_month", "member_year", "member_two_month"]);
+      .in("id", ["member_month", "member_year", "member_two_month", "member_two_year"]);
     if (error) throw new Error(error.message);
     return (data ?? []) as PricePointRowLike[];
   } catch (err) {
@@ -43,7 +44,7 @@ async function membershipRows(): Promise<PricePointRowLike[]> {
 export default async function PricingPage() {
   const rows = await membershipRows();
   const trial = await loadTrialConfig();
-  const cards = planCards({ rows, trial, sharedOpen: sharedPlanOpen(), open: membershipPlansOpen() });
+  const cards = planCards({ rows, trial, sharedOpen: sharedPlanOpen(), sharedYearlyOpen: sharedYearlyPlanOpen(), open: membershipPlansOpen() });
   const anyMembership = cards.some((c) => c.id !== "workbook");
   return (
     <main className="wrap info-page">
@@ -54,6 +55,14 @@ export default async function PricingPage() {
           Plain prices, VAT included. Week 1 of any workbook is free to read, with no card, before you decide.
         </p>
       </header>
+
+      <div className="info-split">
+        <MarketingShot name="workbook-phone" alt="A workbook page with its price, the note that week 1 is free and a Start week 1 button." />
+        <div>
+          <h2>See the price before you start</h2>
+          <p>Every workbook page shows its own price, VAT included, and a button to start week 1 free. No card is asked for until you decide to carry on.</p>
+        </div>
+      </div>
 
       <section className="info-section" aria-labelledby="pricing-readers">
         <h2 id="pricing-readers">For readers</h2>
@@ -87,7 +96,7 @@ export default async function PricingPage() {
             </div>
           ) : null}
         </div>
-        <p className="small muted">UK prices. {anyMembership ? "Membership prices may change before launch." : ""}</p>
+        <p className="small muted">UK prices.</p>
         <TrustStrip kind="both" />
         <p className="small">
           Demo workbooks are examples and cannot be bought. See <Link href="/help/membership">membership</Link>,{" "}

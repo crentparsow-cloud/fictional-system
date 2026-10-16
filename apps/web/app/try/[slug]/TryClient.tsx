@@ -5,6 +5,7 @@ import type { WorkbookV3 } from "@akana/schema";
 import { Player } from "@akana/engine";
 import { DeviceAnswerStore, type SaveState } from "@/components/reader/AnswerStore";
 import { SaveStatus } from "@/components/reader/SaveStatus";
+import { AutosaveToast } from "@/components/motion/SaveToast";
 import { useFirstExerciseMark } from "@/components/reader/useDeviceOnboarding";
 import { deviceDrafts, tryBucket } from "@/lib/draft-store";
 
@@ -65,6 +66,7 @@ export function TryClient({ workbook, slug, lockedUnits, missing, wall }: Props)
     <section className="read-page">
       <div className="read-head">
         <SaveStatus state={state} />
+        <AutosaveToast state={state} />
         {missing.length ? <span className="muted small">Some parts open with an account.</span> : null}
       </div>
       <Player

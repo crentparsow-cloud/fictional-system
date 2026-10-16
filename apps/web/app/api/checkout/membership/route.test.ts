@@ -195,6 +195,31 @@ describe("POST /api/checkout/membership: pro rata refund consent", () => {
     expect(fake.purchases[0]).toMatchObject({ kind: "membership", price_point_id: "member_two_month" });
   });
 
+  it("takes the annual two-person plan with no trial and the yearly total on the pay screen", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY", "price_test_two_year");
+    const res = await post({ ...good, plan: "two_yearly" });
+    expect(res.status).toBe(200);
+    expect(fake.rpcs[0]?.args).toMatchObject({ p_kind: "membership", p_plan: "member_two_year" });
+    const params = fake.created[0] as {
+      line_items: { price: string }[];
+      metadata: Record<string, string>;
+      subscription_data: { metadata: Record<string, string>; trial_period_days?: number };
+      custom_text: { submit: { message: string } };
+    };
+    expect(params.line_items[0]?.price).toBe("price_test_two_year");
+    expect(params.metadata.plan).toBe("member_two_year");
+    expect(params.subscription_data.trial_period_days).toBeUndefined();
+    expect(params.custom_text.submit.message).toMatch(/renews automatically each year/);
+    expect(fake.purchases[0]).toMatchObject({ kind: "membership", price_point_id: "member_two_year" });
+  });
+
+  it("says not open yet while the annual two-person price is unset", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    const res = await post({ ...good, plan: "two_yearly" });
+    expect(res.status).toBe(409);
+    expect(fake.created).toEqual([]);
+  });
+
   it("says not open yet while the two-person price is unset, and opens nothing", async () => {
     const res = await post({ ...good, plan: "two_monthly" });
     expect(res.status).toBe(409);
