@@ -1,5 +1,5 @@
 /**
- * The monthly payout run (F-103), over small interfaces so it can be tested
+ * The payout run (F-103), weekly or monthly as royalty_config says, over small interfaces so it can be tested
  * with fakes and no network. Test mode only: the route and the console
  * refuse a live key until Crent lifts that lock.
  *
@@ -109,4 +109,30 @@ export function londonDay(now: Date): number {
 
 export function isPayoutDay(now: Date, payoutDay: number): boolean {
   return Number.isInteger(payoutDay) && londonDay(now) === payoutDay;
+}
+
+/** The ISO weekday in London, 1 Monday to 7 Sunday. */
+export function londonIsoWeekday(now: Date): number {
+  const name = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", weekday: "short" }).format(now);
+  return ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(name) + 1;
+}
+
+/** The part of royalty_config the schedule reads. */
+export interface PayoutCalendar {
+  payout_cadence: "weekly" | "monthly";
+  payout_weekday: number;
+  payout_day: number;
+}
+
+/**
+ * True when the daily cron should run payouts today (London date). Weekly
+ * acts on the configured weekday; monthly acts on payout_day, as before.
+ * What each run pays is decided in the database: weekly pays money past the
+ * refund window, monthly pays money in closed months (migration 0046).
+ */
+export function isPayoutDue(now: Date, calendar: PayoutCalendar): boolean {
+  if (calendar.payout_cadence === "weekly") {
+    return Number.isInteger(calendar.payout_weekday) && londonIsoWeekday(now) === calendar.payout_weekday;
+  }
+  return isPayoutDay(now, calendar.payout_day);
 }

@@ -58,7 +58,7 @@ export interface RoyaltyConfig {
   min_payout_minor: Record<string, number>;
   approval_above_minor: Record<string, number>;
   payout_day: number;
-  /** 0039: weekly or monthly. The run still acts monthly on payout_day until the cadence follow-up. */
+  /** 0039: weekly or monthly. Weekly acts on payout_weekday, monthly on payout_day (lib/money/payout-run.ts isPayoutDue). */
   payout_cadence: "weekly" | "monthly";
   /** 0039: ISO weekday, 1 Monday to 7 Sunday. */
   payout_weekday: number;

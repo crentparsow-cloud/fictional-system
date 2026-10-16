@@ -58,6 +58,8 @@ export interface PublicDomainRecord {
   checks: string[];
   sources: string[];
   status: "unreviewed" | "reviewed" | string;
+  /** Who signs this record (C10, decided 15 October 2026). Naming the signer is not signing. */
+  signer?: string | null;
   reviewedBy: string | null;
   reviewedOn: string | null;
 }

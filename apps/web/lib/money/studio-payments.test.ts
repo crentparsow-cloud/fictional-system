@@ -18,12 +18,12 @@ const schedule = {
   payout_weekday: 5,
   payout_day: 15,
   min_payout_minor: { GBP: 1000, USD: 2500 },
-  sale_rate_author: "0.5000",
-  sale_rate_author_link: "0.7000",
+  sale_rate_author: "0.6500",
+  sale_rate_author_link: "0.8000",
   fee_treatment: "deduct" as const,
   refund_window_days: 14,
   first_payout_hold_days: 30,
-  is_placeholder: true,
+  is_placeholder: false,
 };
 
 describe("sale breakdown", () => {
@@ -60,33 +60,37 @@ describe("two-share model by channel", () => {
   });
 
   it("reads the two rates from the schedule, never a constant", () => {
-    expect(channelRate(schedule, "marketplace")).toBe(0.5);
-    expect(channelRate(schedule, "author_link")).toBe(0.7);
+    expect(channelRate(schedule, "marketplace")).toBe(0.65);
+    expect(channelRate(schedule, "author_link")).toBe(0.8);
     expect(channelRate({ sale_rate_author: 0.4, sale_rate_author_link: 0.65 }, "author_link")).toBe(0.65);
   });
 
-  it("labels a placeholder rate as one", () => {
-    expect(shareLabel("0.5000", true)).toBe("50% (placeholder)");
+  it("labels a rate as a percentage and still marks a placeholder if one is ever in force", () => {
+    expect(shareLabel("0.6500", false)).toBe("65%");
     expect(shareLabel(0.625, false)).toBe("62.5%");
+    expect(shareLabel("0.5000", true)).toBe("50% (placeholder)");
   });
 });
 
 describe("payout calendar", () => {
-  it("pays a Monday to Sunday week on the Friday of the week after, London dates", () => {
-    // Friday 9 October 2026, 23:30 UTC is Saturday 00:30 in London, so the sales week is still 5 to 11 October.
-    const weeks = weeklyCalendar(new Date("2026-10-09T23:30:00Z"), 5, 2);
-    expect(weeks[0]!.weekStart.toISOString().slice(0, 10)).toBe("2026-10-05");
-    expect(weeks[0]!.weekEnd.toISOString().slice(0, 10)).toBe("2026-10-11");
-    expect(weeks[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-16");
-    expect(weeks[0]!.sentence).toBe("Sales from 5 October to 11 October are paid on Friday 16 October 2026.");
-    expect(weeks[0]!.current).toBe(true);
-    expect(weeks[1]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-23");
-    expect(weeks[1]!.current).toBe(false);
+  it("lists the next payout days and the sales each one covers, London dates", () => {
+    // Friday 9 October 2026, 23:30 UTC is Saturday 00:30 in London, so the next Friday is the 16th.
+    const dates = weeklyCalendar(new Date("2026-10-09T23:30:00Z"), 5, 2, 14);
+    expect(dates[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-16");
+    expect(dates[0]!.salesUpTo.toISOString().slice(0, 10)).toBe("2026-10-02");
+    expect(dates[0]!.sentence).toBe("Friday 16 October 2026 pays sales made up to 2 October.");
+    expect(dates[0]!.next).toBe(true);
+    expect(dates[1]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-23");
+    expect(dates[1]!.next).toBe(false);
+  });
+
+  it("counts today when today is the payout day", () => {
+    expect(weeklyCalendar(new Date("2026-10-16T09:00:00Z"), 5, 1)[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-16");
   });
 
   it("follows the configured weekday and falls back to Friday for a bad one", () => {
     expect(weeklyCalendar(new Date("2026-10-07T12:00:00Z"), 2, 1)[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-13");
-    expect(weeklyCalendar(new Date("2026-10-07T12:00:00Z"), 9, 1)[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-16");
+    expect(weeklyCalendar(new Date("2026-10-07T12:00:00Z"), 9, 1)[0]!.payDay.toISOString().slice(0, 10)).toBe("2026-10-09");
   });
 
   it("finds the next monthly payout day", () => {

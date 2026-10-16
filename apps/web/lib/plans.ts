@@ -7,7 +7,7 @@ import { PRICE_TO_BE_CONFIRMED, amountFor, formatPrice, pricePointFromRow } from
  * that is not decided" rule is unit tested.
  *
  * Only the membership may show a figure, and only from public.price_points
- * (the interim figures from migration 0010 until Crent sets the real ones).
+ * (decided 15 October 2026, migration 0046).
  * Single workbooks, publisher plans, white-label plans and organisation
  * plans have no decided prices, so every one of them says "talk to us" or
  * "price to be confirmed". Nothing here invents a figure.
@@ -29,7 +29,7 @@ export interface MembershipDisplay {
 }
 
 /**
- * The membership lines for the pricing page, in GBP because the interim
+ * The membership lines for the pricing page, in GBP because the decided
  * prices are set for the GBP market only. A missing, inactive or
  * placeholder row shows "Price to be confirmed".
  */

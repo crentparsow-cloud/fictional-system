@@ -2,11 +2,12 @@ import { describe, expect, it } from "vitest";
 import { FAQ, WHICH_TO_PICK, planCards, type PricingInput } from "./pricing-page";
 
 const row = (id: string, gbp: number) => ({ id, kind: "membership", amounts: { GBP: gbp }, stripe_price_id: "price_x", active: true });
-const ROWS = [row("member_month", 799), row("member_year", 5988), row("member_two_month", 1199)];
+const ROWS = [row("member_month", 799), row("member_year", 6999), row("member_two_month", 1199), row("member_two_year", 10499)];
 const input = (over: Partial<PricingInput> = {}): PricingInput => ({
   rows: ROWS,
   trial: { monthly: 0, yearly: 0 },
   sharedOpen: true,
+  sharedYearlyOpen: true,
   open: { monthly: true, yearly: true },
   ...over,
 });
@@ -22,8 +23,28 @@ describe("plan cards", () => {
 
   it("shows the annual plan with the yearly total first and the monthly equivalent beside it", () => {
     const annual = planCards(input()).find((c) => c.id === "annual")!;
-    expect(annual.primary).toBe("£59.88 a year");
-    expect(annual.secondary).toBe("£4.99 a month");
+    expect(annual.primary).toBe("£69.99 a year");
+    expect(annual.secondary).toBe("£5.83 a month");
+    expect(annual.billing).toMatch(/£69\.99 once a year/);
+  });
+
+  it("shows the two-person plans at the decided prices, the annual one with its total and monthly figure", () => {
+    const cards = planCards(input());
+    const monthly = cards.find((c) => c.id === "two")!;
+    expect(monthly.primary).toBe("£11.99 a month");
+    expect(monthly.checkout).toBe("two_monthly");
+    const annual = cards.find((c) => c.id === "two_annual")!;
+    expect(annual.primary).toBe("£104.99 a year");
+    expect(annual.secondary).toBe("£8.75 a month");
+    expect(annual.checkout).toBe("two_yearly");
+    // no trial on either two-person plan, whatever the trial settings say
+    const withTrial = planCards(input({ trial: { monthly: 14, yearly: 21 } }));
+    for (const id of ["two", "two_annual"]) expect(withTrial.find((c) => c.id === id)!.terms.join(" ")).not.toMatch(/trial/i);
+  });
+
+  it("leaves out the annual two-person card until it can be bought", () => {
+    expect(planCards(input({ sharedYearlyOpen: false })).some((c) => c.id === "two_annual")).toBe(false);
+    expect(planCards(input({ rows: ROWS.filter((r) => r.id !== "member_two_year") })).some((c) => c.id === "two_annual")).toBe(false);
   });
 
   it("recommends the monthly plan when no annual price is set", () => {
