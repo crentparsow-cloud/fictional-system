@@ -14,7 +14,8 @@
 .ak-nav-btn[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
 .ak-unit-picker { display: flex; flex-direction: column; gap: 0.25rem; }
 .ak-select { min-block-size: 44px; inline-size: 100%; padding: 0.5em 0.8em; border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font: inherit; }
-.ak-player-body { display: flex; flex-direction: column; gap: 1.25rem; }
+.ak-player-body { display: flex; flex-direction: column; gap: 1.25rem; font-family: var(--f-read); }
+.ak-player-body :is(button, label, .ak-label, .ak-help) { font-family: var(--f-sans); }
 
 .ak-screen { display: flex; flex-direction: column; gap: 1.1rem; }
 .ak-h2 { font-family: var(--f-display); font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2rem); line-height: 1.15; margin-block: 0; }
@@ -40,9 +41,9 @@
 .ak-stack-lg { display: flex; flex-direction: column; gap: 1rem; }
 
 /* Buttons */
-.ak-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-block-size: 44px; min-inline-size: 44px; padding: 0.6em 1.1em; border-radius: var(--radius-sm); border: 1.5px solid transparent; background: var(--brand); color: var(--brand-ink); font: inherit; font-weight: 600; cursor: pointer; align-self: flex-start; }
+.ak-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; min-block-size: 44px; min-inline-size: 44px; padding: 0.6em 1.1em; border-radius: var(--pill); border: 1.5px solid transparent; background: var(--brand); color: var(--brand-ink); font: inherit; font-weight: 600; cursor: pointer; align-self: flex-start; }
 .ak-btn:disabled { opacity: 0.55; cursor: not-allowed; }
-.ak-btn-secondary { background: transparent; color: var(--brand); border-color: var(--brand); }
+.ak-btn-secondary { background: transparent; color: var(--brand-text); border-color: var(--brand-text); }
 .ak-btn-quiet { background: var(--surface-2); color: var(--ink); }
 .ak-link { background: none; border: 0; padding: 0.6em 0; min-block-size: 44px; color: var(--brand); font: inherit; text-decoration: underline; text-underline-offset: 0.15em; cursor: pointer; text-align: start; }
 
@@ -76,7 +77,7 @@
 .ak-field { display: flex; flex-direction: column; gap: 0.5rem; }
 .ak-q { display: block; font-weight: 700; line-height: 1.35; margin: 0; }
 .ak-help { margin: -0.25rem 0 0; }
-.ak-input, .ak-textarea { inline-size: 100%; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); border-radius: var(--radius); padding: 0.75rem 0.9rem; min-block-size: 52px; font: inherit; line-height: 1.5; }
+.ak-input, .ak-textarea { inline-size: 100%; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); border-radius: var(--radius-sm); padding: 0.75rem 0.9rem; min-block-size: 52px; font: inherit; line-height: 1.5; }
 .ak-input-time { max-inline-size: 12rem; }
 .ak-textarea { min-block-size: 128px; resize: vertical; }
 .ak-input::placeholder, .ak-textarea::placeholder { color: var(--ink-soft); opacity: 0.85; }
