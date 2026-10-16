@@ -510,7 +510,8 @@ export async function handleStripeEvent(
       const plan = state?.plan ?? planFromInvoiceLines(invoice);
       // Monthly members get the six-monthly terms reminder from the daily
       // job (lib/membership-reminders.ts), not a notice before each renewal.
-      if (plan !== "member_year") return { ...outcome, action: "renewal_reminder_not_needed" };
+      // Annual members, one person or two, get a notice before each renewal.
+      if (plan !== "member_year" && plan !== "member_two_year") return { ...outcome, action: "renewal_reminder_not_needed" };
       // Nothing will renew: the reader has already cancelled, or the
       // subscription is not in good standing.
       if (state && (state.cancelAtPeriodEnd || !(state.status === "active" || state.status === "trialing"))) {
@@ -647,7 +648,7 @@ async function membershipConfirmed(
   repo: PurchaseRepo,
 ): Promise<MembershipConfirmedNotice | null> {
   const plan = state?.plan ?? planFromInvoiceLines(invoice);
-  if (plan !== "member_month" && plan !== "member_year" && plan !== "member_two_month") return null;
+  if (plan !== "member_month" && plan !== "member_year" && plan !== "member_two_month" && plan !== "member_two_year") return null;
   const nextPaymentAt = state?.currentPeriodEnd ?? isoOf(invoice.lines?.data?.find((l) => l.period?.end)?.period?.end);
   if (!nextPaymentAt || typeof invoice.amount_paid !== "number" || !invoice.currency) return null;
   const userId = state?.userId ?? null;
