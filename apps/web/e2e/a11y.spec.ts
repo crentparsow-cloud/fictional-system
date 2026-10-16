@@ -68,7 +68,7 @@ const DATA_PAGES: string[] = ["/themes", "/authors", "/explore"];
  * preview. They are open only outside production, so they run against a dev
  * server: E2E_DEV=1 E2E_BASE_URL=http://localhost:3101 pnpm e2e e2e/a11y.spec.ts
  */
-const DEV_PAGES: string[] = ["/dev/screens/today", "/dev/screens/explore", "/dev/screens/workbook", "/dev/player"];
+const DEV_PAGES: string[] = ["/dev/kit", "/dev/screens/today", "/dev/screens/explore", "/dev/screens/workbook", "/dev/player"];
 
 const VARIANTS = [
   { name: "light, phone", colorScheme: "light", viewport: { width: 320, height: 640 } },

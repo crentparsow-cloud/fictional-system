@@ -8,7 +8,7 @@ import { consentGate, consentHref, faithConsentGate, faithConsentHref } from "@/
 import { countView } from "@/lib/funnel-server";
 import { marketFor } from "@/lib/markets";
 import { membershipPlansOpen } from "@/lib/membership";
-import { sharedPlanOpen } from "@/lib/shared-membership";
+import { sharedPlanOpen, sharedYearlyPlanOpen } from "@/lib/shared-membership";
 import { trialEligible } from "@/lib/membership-trial";
 import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { PRICE_LADDER, marketPriceFor, pricePointFromRow, type Price, type PricePoint, type PricePointId } from "@/lib/pricing";
@@ -84,6 +84,7 @@ interface PricePointRow {
 const MEMBERSHIP_POINT: PricePointId = "member_month";
 const MEMBERSHIP_YEARLY_POINT: PricePointId = "member_year";
 const MEMBERSHIP_TWO_POINT: PricePointId = "member_two_month";
+const MEMBERSHIP_TWO_YEARLY_POINT: PricePointId = "member_two_year";
 
 interface EnrolmentRow {
   id: string;
@@ -195,12 +196,13 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
   let membershipPrice: Price | null = null;
   let membershipYearlyPrice: Price | null = null;
   let membershipTwoPrice: Price | null = null;
+  let membershipTwoYearlyPrice: Price | null = null;
   // 13.5: the trial this reader would get at checkout, only when they have never had a membership.
   let membershipTrial: { monthly: number; yearly: number } | undefined;
   if (rebuilt.lockedUnits.length && !workbook.is_demo) {
     const { count: priorSubscriptions } = await supabase.from("subscriptions").select("status", { count: "exact", head: true }).eq("user_id", session.userId).eq("tenant_id", tenantId);
     if (typeof priorSubscriptions === "number" && trialEligible(priorSubscriptions)) membershipTrial = { ...(await loadTrialConfig()) };
-    const ids = [MEMBERSHIP_POINT, MEMBERSHIP_YEARLY_POINT, MEMBERSHIP_TWO_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
+    const ids = [MEMBERSHIP_POINT, MEMBERSHIP_YEARLY_POINT, MEMBERSHIP_TWO_POINT, MEMBERSHIP_TWO_YEARLY_POINT, ...(workbook.price_point_id ? [workbook.price_point_id] : [])];
     const { data: points } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").in("id", ids);
     const ladder: Partial<Record<PricePointId, PricePoint>> = { ...PRICE_LADDER };
     for (const row of (points ?? []) as PricePointRow[]) {
@@ -211,6 +213,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     membershipPrice = marketPriceFor({ pricePointId: MEMBERSHIP_POINT }, market, ladder);
     membershipYearlyPrice = marketPriceFor({ pricePointId: MEMBERSHIP_YEARLY_POINT }, market, ladder);
     membershipTwoPrice = marketPriceFor({ pricePointId: MEMBERSHIP_TWO_POINT }, market, ladder);
+    membershipTwoYearlyPrice = marketPriceFor({ pricePointId: MEMBERSHIP_TWO_YEARLY_POINT }, market, ladder);
   }
   // Progress events for this enrolment: ids and timestamps only (F-020).
   // The Player works out progress and milestones from them (F-018).
@@ -279,6 +282,8 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
         membershipYearlyReady: plansOpen.yearly,
         membershipTwoPrice,
         membershipTwoReady: sharedPlanOpen(),
+        membershipTwoYearlyPrice,
+        membershipTwoYearlyReady: sharedYearlyPlanOpen(),
         inMembership: workbook.in_membership !== false,
         membershipTrial,
         market,

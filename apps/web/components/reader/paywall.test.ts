@@ -158,6 +158,40 @@ describe("the two-person option (0041)", () => {
   });
 });
 
+describe("the annual two-person option", () => {
+  const twoYear: Price = { pointId: "member_two_year", currency: "GBP", amountMinor: 10499, formatted: "£104.99", inGbp: true } as Price;
+  const two: Price = { pointId: "member_two_month", currency: "GBP", amountMinor: 1199, formatted: "£11.99", inGbp: true } as Price;
+  const base = { entitled: false, demo: false, workbookPrice: gbp, membershipPrice: member, membershipCheckoutReady: true, market: MARKETS.GB } as const;
+
+  it("is absent unless the annual plan has a price and a Stripe price", () => {
+    for (const extra of [{}, { membershipTwoYearlyPrice: twoYear }, { membershipTwoYearlyReady: true }, { membershipTwoYearlyPrice: null, membershipTwoYearlyReady: true }]) {
+      const s = paywallState({ ...base, ...extra });
+      expect(s.kind === "offer" && "shared" in s).toBe(false);
+    }
+  });
+
+  it("shows the yearly total and the monthly equivalent side by side, with no trial", () => {
+    const s = paywallState({ ...base, membershipTwoPrice: two, membershipTwoReady: true, membershipTwoYearlyPrice: twoYear, membershipTwoYearlyReady: true });
+    expect(s.kind === "offer" && s.shared).toEqual({
+      positioning: "Two people, one price, each with sealed answers",
+      label: "Share a membership, £11.99 a month for two people",
+      yearlyLabel: "Or £104.99 a year, £8.75 a month for two people",
+    });
+  });
+
+  it("can be offered alone and carries no strike-through, saving badge or countdown wording", () => {
+    const s = paywallState({ ...base, membershipTwoYearlyPrice: twoYear, membershipTwoYearlyReady: true });
+    expect(s.kind === "offer" && s.shared?.label).toBeUndefined();
+    const text = JSON.stringify(s).toLowerCase();
+    for (const w of ["save", "was ", "free", "only today", "hurry", "limited", "—", "–"]) expect(text).not.toContain(w);
+  });
+
+  it("is hidden for a title outside the membership", () => {
+    const s = paywallState({ ...base, inMembership: false, membershipTwoYearlyPrice: twoYear, membershipTwoYearlyReady: true });
+    expect(s.kind === "offer" && "shared" in s).toBe(false);
+  });
+});
+
 describe("paywallState trial and annual labels (5.3, 13.5, 14.21)", () => {
   const monthly: Price = { pointId: "member_month", currency: "GBP", amountMinor: 799, formatted: "£7.99" };
   const yearly: Price = { pointId: "member_year", currency: "GBP", amountMinor: 6999, formatted: "£69.99" };

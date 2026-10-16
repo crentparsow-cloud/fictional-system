@@ -74,7 +74,7 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
   const buy = () => {
     if (consented("workbook")) void start("/api/checkout", { workbook: slug, consent: CHECKOUT_CONSENTS.workbook.version });
   };
-  const join = (plan: "monthly" | "yearly" | "two_monthly") => {
+  const join = (plan: "monthly" | "yearly" | "two_monthly" | "two_yearly") => {
     if (consented("membership")) void start("/api/checkout/membership", { plan, workbook: slug, consent: CHECKOUT_CONSENTS.membership.version });
   };
 
@@ -156,9 +156,17 @@ export function PaywallCard({ state, slug, fullLength, unitWord }: Props) {
           {state.shared ? (
             <p className="small paywall-shared">
               {state.shared.positioning}.{" "}
-              <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("two_monthly")}>
-                {state.shared.label}
-              </button>
+              {state.shared.label ? (
+                <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("two_monthly")}>
+                  {state.shared.label}
+                </button>
+              ) : null}
+              {state.shared.label && state.shared.yearlyLabel ? " " : null}
+              {state.shared.yearlyLabel ? (
+                <button type="button" className="paywall-yearly" disabled={busy} onClick={() => join("two_yearly")}>
+                  {state.shared.yearlyLabel}
+                </button>
+              ) : null}
             </p>
           ) : null}
           {state.currencyNote ? <p className="small muted paywall-currency">{state.currencyNote}</p> : null}

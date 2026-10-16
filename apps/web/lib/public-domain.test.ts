@@ -58,7 +58,8 @@ describe("public-domain file (F-118)", () => {
     expect(jsonCodes).toEqual(listPublicDomainRecords().map((r) => r.code).sort());
     for (const code of jsonCodes) {
       const md = readFileSync(path.join(repoRoot, "docs", "public-domain", `${code}.md`), "utf8");
-      expect(md).toContain("Reviewed by: ______");
+      // The line may be blank or signed by hand; it must be present.
+      expect(md).toMatch(/^Reviewed by: /m);
       for (const m of LAUNCH_MARKETS) expect(md).toMatch(new RegExp(`\\| ${m} \\|`));
     }
   });
