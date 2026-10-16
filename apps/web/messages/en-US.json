@@ -52,6 +52,7 @@
   "library.filterGenre": "Shelf",
   "library.filterTheme": "Theme",
   "library.outlineOnly": "Outline only",
+  "library.sampleNotWritten": "Sample not written yet",
   "library.open": "View",
   "library.noTheme": "More on this shelf",
   "library.clear": "Clear filters",
