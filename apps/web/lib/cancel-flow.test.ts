@@ -58,6 +58,9 @@ describe("the one offer", () => {
   it("never offers the shared plan to someone already on it", () => {
     const two = cancelView(sub({ plan: "member_two_month" }), NOW);
     expect(chooseOffer({ reason: "too_expensive", view: two, sharedOffer: OFFER }).kind).toBe("pause");
+    const twoYear = cancelView(sub({ plan: "member_two_year" }), NOW);
+    expect(twoYear).toMatchObject({ kind: "cancellable", plan: "two_yearly" });
+    expect(chooseOffer({ reason: "too_expensive", view: twoYear, sharedOffer: OFFER }).kind).toBe("pause");
   });
 });
 

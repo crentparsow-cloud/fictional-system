@@ -96,8 +96,10 @@ describe("pricing (F-040)", () => {
     expect(parsePriceChoice(form({ workbook: W, price_point: "member_month" }))).toEqual({ ok: false });
   });
 
-  it("shows no share estimate while any input is a placeholder", () => {
-    expect(Object.values(SHARE_ESTIMATE_INPUTS).every((v) => v === null)).toBe(true);
+  it("shows no share estimate while the VAT rate or the card fee is unconfirmed", () => {
+    // The marketplace share is decided; VAT and the card fee are not.
+    expect(SHARE_ESTIMATE_INPUTS.singleSaleShare).toBe(0.65);
+    expect(Object.values(SHARE_ESTIMATE_INPUTS).some((v) => v === null)).toBe(true);
     expect(shareEstimate(999)).toBeNull();
   });
 

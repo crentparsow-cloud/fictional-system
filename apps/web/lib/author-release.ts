@@ -165,13 +165,15 @@ export function parsePriceChoice(get: (name: string) => unknown): { ok: true; va
 }
 
 /**
- * PLACEHOLDER. The inputs to the author's share estimate. Each is null until
- * Crent sets it (questions C4, D2 and D3, and the accountant on VAT for an
- * interactive workbook). While any is null the Studio says the estimate is
- * not available, rather than showing an invented figure.
+ * The inputs to the author's share estimate. The marketplace share is decided
+ * (65 percent, 15 October 2026, migration 0046). The VAT rate for an
+ * interactive workbook waits on the accountant, and the card fee is the one
+ * Stripe charges Akana, so both stay null until they are confirmed. While any
+ * is null the Studio says the estimate is not available, rather than showing
+ * an invented figure. Real sales always use the actual VAT and fee.
  */
 export const SHARE_ESTIMATE_INPUTS: Readonly<{ singleSaleShare: number | null; vatRate: number | null; paymentFeeRate: number | null; paymentFeeFixedMinor: number | null }> =
-  Object.freeze({ singleSaleShare: null, vatRate: null, paymentFeeRate: null, paymentFeeFixedMinor: null });
+  Object.freeze({ singleSaleShare: 0.65, vatRate: null, paymentFeeRate: null, paymentFeeFixedMinor: null });
 
 /**
  * The author's share of one single sale, in minor units, net of VAT and

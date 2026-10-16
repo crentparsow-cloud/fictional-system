@@ -13,7 +13,7 @@ export type ShelfId = (typeof SHELF_IDS)[number];
 
 export const DIRECTION_IDS = ["paper-and-ink", "bright-editorial", "quiet-confidence"] as const;
 export type DirectionId = (typeof DIRECTION_IDS)[number];
-export const DEFAULT_DIRECTION: DirectionId = "paper-and-ink";
+export const DEFAULT_DIRECTION: DirectionId = "bright-editorial";
 
 export interface Palette {
   canvas: string;

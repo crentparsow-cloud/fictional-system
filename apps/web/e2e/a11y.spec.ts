@@ -63,6 +63,13 @@ const STATIC_PAGES: string[] = [
 /** Pages that need catalogue data. Remote only. */
 const DATA_PAGES: string[] = ["/themes", "/authors", "/explore"];
 
+/**
+ * The reader screens built from fixtures (app/dev/screens) and the player
+ * preview. They are open only outside production, so they run against a dev
+ * server: E2E_DEV=1 E2E_BASE_URL=http://localhost:3101 pnpm e2e e2e/a11y.spec.ts
+ */
+const DEV_PAGES: string[] = ["/dev/screens/today", "/dev/screens/explore", "/dev/screens/workbook", "/dev/player"];
+
 const VARIANTS = [
   { name: "light, phone", colorScheme: "light", viewport: { width: 320, height: 640 } },
   { name: "dark, phone", colorScheme: "dark", viewport: { width: 320, height: 640 } },
@@ -113,8 +120,19 @@ for (const variant of VARIANTS) {
       });
     }
 
+    test.describe("reader screens from fixtures", () => {
+      test.skip(!process.env.E2E_DEV, "needs a dev server (E2E_DEV=1)");
+      for (const route of DEV_PAGES) {
+        test(`${route} has no serious or critical violations`, async ({ page }) => {
+          await page.goto(route);
+          await page.addStyleTag({ content: "nextjs-portal{display:none!important}" });
+          expect(await blockingViolations(page, ["nextjs-portal"]), `axe violations on ${route}`).toEqual([]);
+        });
+      }
+    });
+
     test.describe("with catalogue data", () => {
-      test.skip(!process.env.E2E_BASE_URL, "needs a deployed site with catalogue data");
+      test.skip(!process.env.E2E_BASE_URL || !!process.env.E2E_DEV, "needs a deployed site with catalogue data");
 
       for (const route of DATA_PAGES) {
         test(`${route} has no serious or critical violations`, async ({ page }) => {

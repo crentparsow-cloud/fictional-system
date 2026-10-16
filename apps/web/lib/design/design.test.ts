@@ -142,16 +142,16 @@ describe("contrast (WCAG AA)", () => {
 });
 
 describe("the build-time switch", () => {
-  it("lists the same directions as the data and defaults to paper-and-ink", () => {
+  it("lists the same directions as the data and defaults to bright-editorial", () => {
     expect(MJS_IDS).toEqual([...DIRECTION_IDS]);
     expect(MJS_DEFAULT).toBe(DEFAULT_DIRECTION);
-    expect(DEFAULT_DIRECTION).toBe("paper-and-ink");
+    expect(DEFAULT_DIRECTION).toBe("bright-editorial");
   });
   it("falls back for blank or unknown values", () => {
     for (const fn of [resolveDirection, directionFromEnv]) {
-      expect(fn(undefined)).toBe("paper-and-ink");
-      expect(fn("")).toBe("paper-and-ink");
-      expect(fn("neon")).toBe("paper-and-ink");
+      expect(fn(undefined)).toBe("bright-editorial");
+      expect(fn("")).toBe("bright-editorial");
+      expect(fn("neon")).toBe("bright-editorial");
       expect(fn("quiet-confidence")).toBe("quiet-confidence");
       expect(fn(" bright-editorial ")).toBe("bright-editorial");
     }

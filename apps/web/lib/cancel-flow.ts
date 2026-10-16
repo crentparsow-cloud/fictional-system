@@ -1,3 +1,4 @@
+import { planFromPoint, type MembershipPlan } from "@/lib/membership";
 import type { SharedOffer } from "@/lib/shared-membership";
 import { PAUSE_MONTHS, canPause, pauseRefusal, pauseState, type PauseMonths, type PauseSubject } from "@/lib/membership-pause";
 
@@ -52,7 +53,7 @@ export type CancelView =
   /** Already set to end. Shows the end date and nothing to do. */
   | { kind: "ending"; endsOn: string | null }
   /** Has a membership to cancel. */
-  | { kind: "cancellable"; plan: "monthly" | "yearly" | "two_monthly" | null; pausable: boolean; pauseRunning: boolean; trialing: boolean; periodEnd: string | null };
+  | { kind: "cancellable"; plan: MembershipPlan | null; pausable: boolean; pauseRunning: boolean; trialing: boolean; periodEnd: string | null };
 
 const LIVE = new Set(["active", "trialing", "past_due"]);
 
@@ -66,7 +67,7 @@ export function pickSubject<T extends CancelSubject & { updatedAt?: string | nul
 export function cancelView(sub: CancelSubject | null, now: Date): CancelView {
   if (!sub) return { kind: "none" };
   if (sub.cancelAtPeriodEnd || sub.cancelAt) return { kind: "ending", endsOn: sub.cancelAt ?? sub.currentPeriodEnd };
-  const plan = sub.plan === "member_month" ? "monthly" : sub.plan === "member_year" ? "yearly" : sub.plan === "member_two_month" ? "two_monthly" : null;
+  const plan = planFromPoint(sub.plan);
   return {
     kind: "cancellable",
     plan,
@@ -92,7 +93,7 @@ export type Offer = { kind: "shared"; offer: SharedOffer } | { kind: "pause"; mo
  */
 export function chooseOffer(input: { reason: CancelReason | null; view: CancelView; sharedOffer: SharedOffer | null }): Offer {
   if (input.view.kind !== "cancellable") return { kind: "none" };
-  const single = input.view.plan !== "two_monthly";
+  const single = input.view.plan !== "two_monthly" && input.view.plan !== "two_yearly";
   const shared = single ? input.sharedOffer : null;
   if (input.reason === "too_expensive" && shared) return { kind: "shared", offer: shared };
   if (input.view.pausable) return { kind: "pause", months: PAUSE_MONTHS };
