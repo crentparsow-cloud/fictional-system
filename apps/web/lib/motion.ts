@@ -27,3 +27,15 @@ export function motionReduced(): boolean {
     return true;
   }
 }
+
+/**
+ * The save toast follows the autosave state (3.7, 1.6). It speaks only when a
+ * save is confirmed after something was owed, or when a save gives up. Opening
+ * a page that is already saved says nothing.
+ */
+export function toastForTransition(prev: string, next: string): "saved" | "failed" | null {
+  if (prev === next) return null;
+  if (next === "saved" && (prev === "saving" || prev === "unsaved" || prev === "retrying" || prev === "failed")) return "saved";
+  if (next === "failed") return "failed";
+  return null;
+}

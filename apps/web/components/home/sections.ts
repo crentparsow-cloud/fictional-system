@@ -33,6 +33,8 @@ export interface HomeSections {
   hero: { line: string; lead: string; primary: HomeLink; secondary: HomeLink };
   trust: { title: string; points: TrustPoint[] };
   steps: { title: string; items: HomeStep[] };
+  /** A public-domain demo title that opens with no account (5.2). */
+  tryIt: { title: string; body: string; link: HomeLink };
   library: LibrarySection;
   publishers: { title: string; body: string; link: HomeLink };
   footer: { legal: HomeLink[]; other: HomeLink[]; notice: string };
@@ -54,6 +56,9 @@ export function pickHomeCards(cards: readonly LibraryCard[], limit = HOME_CARD_L
   const demo = cards.filter((c) => c.isDemo);
   return [...real, ...demo].slice(0, Math.max(0, limit));
 }
+
+/** The demo title to try signed out: Franklin's The Way to Wealth, public domain, no wellbeing content. */
+export const TRY_DEMO_SLUG = "the-way-to-wealth-3tqx1";
 
 export const LEGAL_LINKS: HomeLink[] = [
   { href: "/legal/terms", label: "Reader terms" },
@@ -99,6 +104,11 @@ export function buildHomeSections(input: HomeInput): HomeSections {
         { title: "Open the first week free", body: "Read the introduction, see the outline and try the first exercises before you decide." },
         { title: "Work at your own pace", body: "Come back when it suits you. Your answers stay where you left them." },
       ],
+    },
+    tryIt: {
+      title: "Try one now, without an account",
+      body: "Open the first unit of The Way to Wealth, a short public domain classic, and write your first answer. It stays on your device until you choose to sign in.",
+      link: { href: `/try/${TRY_DEMO_SLUG}`, label: "Try The Way to Wealth" },
     },
     library,
     publishers: {

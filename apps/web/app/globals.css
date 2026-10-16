@@ -4,7 +4,7 @@
   This file holds structure only: type scale, spacing, measure. Every colour,
   the two type faces, the radii and the cover style come from the active
   design direction, a generated file in app/themes/ that the root layout
-  loads (NEXT_PUBLIC_DESIGN_DIRECTION, default paper-and-ink). Named reading
+  loads (NEXT_PUBLIC_DESIGN_DIRECTION, default bright-editorial). Named reading
   themes are in app/themes/reading.css. Motion is in app/motion.css. A
   tenant overrides the brand set (--brand, --brand-ink, --brand-wash,
   --hero-bg, --hero-ink, --focus) from its own record; everything else is
@@ -30,7 +30,7 @@
   --lh-read: 1.4;
 
   --gutter: 16px;
-  --measure: 62ch;
+  --measure: 65ch;
 }
 
 :root[data-font="atkinson"] { --f-sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif; --f-read: var(--f-sans); }
@@ -313,7 +313,7 @@ details.help-group summary { cursor: pointer; font-weight: 600; min-block-size: 
 .btn.home-btn-ghost { color: inherit; border-color: currentColor; }
 .home-section { padding-block: clamp(2rem, 5vw, 3.25rem); }
 .home-band { background: var(--surface-2); }
-.home-trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.home-trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr)); }
 .home-trust h3 { font-size: 1.05rem; margin-block-end: 0.35rem; }
 .home-trust p { margin: 0; }
 .home-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
@@ -1443,3 +1443,134 @@ button.um-row:hover, a.um-row:hover { background: var(--brand-wash); }
 .pick-list { display: grid; gap: 0.5rem; }
 .pricing-faq details { border-block-start: 1px solid var(--line); padding-block: 0.6rem; }
 .pricing-faq summary { cursor: pointer; font-weight: 600; }
+
+/* ---------- Bright editorial visual pass (direction B) ----------
+   Tokens only. White canvas, sans interface, serif content, one vermilion for
+   key actions, pastel shelf tiles, 18px pills, 16px cards. The reading floor
+   (.ak-player-body) is untouched apart from the 65 character line. */
+.eyebrow { color: var(--brand-text); font-weight: 600; }
+.hero .eyebrow, .help-head .eyebrow { color: inherit; }
+.card { box-shadow: none; }
+.badge { border-radius: var(--pill); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; background: var(--surface-2); color: var(--ink-soft); }
+.badge.programme { background: var(--shelf-tint, var(--surface-2)); color: var(--shelf-accent, var(--ink-soft)); }
+.badge.demo { border-radius: var(--pill); }
+.home-hero { padding-block: clamp(2rem, 6vw, 4.5rem); }
+.home-hero h1 { font-weight: 700; letter-spacing: -0.015em; max-inline-size: 18ch; }
+.btn.home-btn-light { background: var(--brand); color: var(--brand-ink); }
+.btn.secondary, .btn.home-btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+.btn.home-btn-ghost { color: var(--ink); border-color: var(--ink); }
+.home-band { background: var(--surface-2); }
+.home-step-n { background: var(--surface); color: var(--brand-text); border: 2px solid var(--brand-text); }
+.home-trust .card { border-radius: var(--radius); }
+.wb-card-title, .wb-card-title a, .home-shelf-item .wb-card-title { font-family: var(--f-serif); font-weight: 700; }
+.wb-card-author { color: var(--ink-soft); }
+.wb-hero .wb-title, .wb-hero h1 { font-weight: 700; }
+.shelf-hero { background: var(--shelf-tint, var(--hero-bg)); color: var(--shelf-accent, var(--hero-ink)); border-block-end: 0; }
+.shelf-hero .muted, .shelf-hero p { color: inherit; opacity: 0.9; }
+.shelf-hero a { color: inherit; }
+
+/* Shelf tiles: pastel fill, icon and name in the shelf's deep colour. */
+.shelf-tile {
+  border: 0; border-radius: var(--radius-sm); background: var(--shelf-tint, var(--surface-2)); color: var(--shelf-accent, var(--ink));
+  grid-template-columns: auto 1fr; align-items: center; padding: 0.7rem 0.8rem; column-gap: 0.6rem;
+}
+.shelf-tile:hover { border: 0; }
+.shelf-tile .shelf-icon { grid-row: 1 / span 3; padding: 0; background: transparent; color: inherit; inline-size: 24px; block-size: 24px; }
+.shelf-tile-name, .shelf-tile-line, .shelf-tile-count { color: inherit; }
+.shelf-tile-name { font-size: 0.95rem; line-height: 1.2; }
+.shelf-tile-line { display: none; }
+.shelf-tile-count { font-size: 0.78rem; opacity: 0.9; }
+.shelf-tiles { grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr)); gap: 0.5rem; }
+@media (min-width: 48rem) { .shelf-tile-line { display: block; font-size: 0.85rem; } }
+.editor-line { border-radius: var(--radius); border-inline-start: 0; background: var(--shelf-tint, var(--brand-wash)); color: var(--shelf-accent, var(--ink)); }
+.editor-line-label { color: inherit; }
+
+/* Four-tab bar: quiet, the active tab in brand text. */
+.reader-nav { background: var(--surface); }
+.reader-nav a[aria-current="page"] { color: var(--brand-text); }
+.reader-nav a[aria-current="page"] svg { background: transparent; }
+.reader-nav svg { padding: 2px; }
+@media (min-width: 48rem) { .reader-nav a[aria-current="page"] { border-block-end: 2px solid var(--brand-text); border-radius: 0; } }
+
+/* Read-aloud mini-bar: a floating card with one round brand button. */
+.ra-bar { margin-inline: 10px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--lift); padding: 0.5rem 0.7rem; }
+.ra-opt, .ra-btn { border-radius: var(--pill); border-color: var(--line-strong); }
+.ra-play { border-radius: 999px; }
+.ra-opt[aria-pressed="true"], .ra-main { background: var(--brand); color: var(--brand-ink); }
+.ra-now { background: var(--highlight); color: var(--ink); }
+
+/* Save toast and status line: a dark pill, two words; a brand dot before the quiet line. */
+.save-toast > span { background: var(--ink); color: var(--canvas); border-radius: var(--pill); }
+.save-status > span::before { content: ""; display: inline-block; inline-size: 7px; block-size: 7px; border-radius: 50%; background: var(--brand-text); margin-inline-end: 0.45rem; vertical-align: 1px; }
+.save-status[data-state="idle"] > span::before, .save-status[data-state="unsaved"] > span::before { background: var(--ink-soft); }
+.save-status[data-state="retrying"] > span::before, .save-status[data-state="failed"] > span::before { background: var(--rose); }
+
+/* Unit screen: calm floor. Serif content, 65 character line, quiet interface. */
+:where(.ak-player-body) { max-inline-size: calc(var(--measure) + 2rem); }
+:where(.ak-player-body) :is(p, li) { max-inline-size: var(--measure); }
+mark, .mark { background: var(--highlight); color: var(--ink); border-radius: 2px; padding-inline: 2px; }
+.um-mark { border-color: var(--line-strong); }
+.um-node[data-state="done"] .um-mark, .um-node[data-state="today"] .um-mark { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
+.um-node[data-state="today"] .um-row { background: var(--brand-wash); }
+.reveal { background: var(--brand-wash); border-radius: var(--radius); }
+
+/* Forms: 10px fields, pills for buttons. */
+.auth-card input[type="email"], .contact-field input, .contact-field textarea, .contact-field select { border-radius: var(--radius-sm); }
+.auth-card { border-radius: var(--radius); }
+details > summary { font-weight: 600; }
+.footer a, .info-footer a { color: var(--ink-soft); }
+
+/* Today, Explore and the workbook page in the direction. */
+.today-cards { display: grid; gap: 0.75rem; }
+.today-with-cover { grid-template-columns: auto 1fr; align-items: start; gap: 0.9rem; }
+.today-card h2 { font-size: 1.15rem; line-height: 1.25; margin-block-end: 0.25rem; }
+.pips { display: flex; gap: 0.4rem; }
+.pip { flex: 1; min-block-size: 44px; border: 1px solid var(--line-strong); background: var(--surface-2); color: var(--ink); border-radius: var(--pill); font: inherit; font-size: 0.9rem; cursor: pointer; }
+.pip:hover { border-color: var(--ink); }
+.search-pill { display: flex; align-items: center; background: var(--surface-2); border-radius: var(--pill); padding: 0.1rem 1rem; margin-block: 0.5rem 1rem; }
+.search-pill input { flex: 1; border: 0; background: transparent; font: inherit; color: var(--ink); min-block-size: 44px; outline: 0; }
+.search-pill:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.eyebrow-h { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); font-weight: 600; }
+.wb-split { display: flex; gap: 1.25rem; align-items: flex-end; }
+.wb-split > div { flex: 1; min-inline-size: 0; }
+.wb-split h1 { font-family: var(--f-serif); }
+.buy-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-block: 1.5rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.buy-price { margin: 0; display: flex; flex-direction: column; }
+.buy-price strong { font-size: 1.3rem; }
+.today-card { background: var(--surface); }
+.pip { white-space: nowrap; }
+.shelf-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 40rem) { .shelf-tiles { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); } }
+.rail-row > li > .wb-card { padding: 0.9rem; }
+.rail-row .wb-card-line, .rail-row .wb-card-foot .muted.small:first-child { display: none; }
+
+/* ---------- Marketing site (1.8) ---------- */
+.mk-shot { margin: 0; }
+.mk-shot img { display: block; inline-size: 100%; block-size: auto; border: 1px solid var(--line); background: var(--surface); }
+.mk-shot[data-kind="phone"] { inline-size: min(100%, 15rem); }
+.mk-shot[data-kind="phone"] img { border-radius: 1.6rem; box-shadow: var(--lift); }
+.mk-shot[data-kind="desktop"] img { border-radius: var(--radius); box-shadow: var(--lift); }
+.mk-hero-grid { display: grid; gap: 2rem; align-items: center; }
+.mk-hero-shots { display: flex; gap: 1rem; justify-content: center; align-items: flex-start; }
+.mk-hero-shots .mk-shot:nth-child(2) { margin-block-start: 2.5rem; display: none; }
+@media (min-width: 48rem) {
+  .mk-hero-grid { grid-template-columns: 1.1fr 1fr; }
+  .mk-hero-shots .mk-shot:nth-child(2) { display: block; }
+  .mk-hero-shots .mk-shot[data-kind="phone"] { inline-size: min(100%, 13rem); }
+}
+.mk-shots { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); justify-items: center; }
+.mk-shot-cap { text-align: center; font-size: 0.9rem; color: var(--ink-soft); margin: 0.6rem 0 0; }
+.mk-promises { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+.mk-promises li { padding: 1rem; border-radius: var(--radius); background: var(--shelf-tint, var(--surface)); color: var(--shelf-accent, var(--ink)); }
+.mk-promises strong { display: block; font-size: 1.1rem; margin-block-end: 0.25rem; }
+.mk-promises span { font-size: 0.95rem; }
+.mk-try { display: grid; gap: 1.5rem; align-items: center; padding: 1.5rem; border-radius: var(--radius); background: var(--shelf-tint, var(--brand-wash)); color: var(--shelf-accent, var(--ink)); }
+.mk-try h2, .mk-try p { color: inherit; }
+.mk-try .btn { background: var(--ink); color: var(--canvas); }
+@media (min-width: 48rem) { .mk-try { grid-template-columns: 1fr auto; } }
+.info-head { padding: clamp(1.25rem, 4vw, 2rem); border-radius: var(--radius); background: var(--brand-wash); }
+.info-head .eyebrow { color: var(--brand-text); }
+.info-split { display: grid; gap: 1.5rem; align-items: center; margin-block-start: 1.5rem; }
+@media (min-width: 48rem) { .info-split { grid-template-columns: 1fr 1fr; } }
+.shelf-tiles > li { display: flex; }
+.shelf-tiles > li > .shelf-tile { flex: 1; }

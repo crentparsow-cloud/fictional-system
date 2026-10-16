@@ -20,8 +20,8 @@
   --brand-text: #b8320c;
   --brand-wash: #fbeae4;
   --highlight: #ffe58a;
-  --hero-bg: #141414;
-  --hero-ink: #ffffff;
+  --hero-bg: #fbeae4;
+  --hero-ink: #141414;
   --focus: #b8320c;
   --scrim: rgba(20, 20, 20, 0.42);
   --shadow: 0 1px 2px rgba(20, 20, 20, 0.04), 0 6px 20px rgba(20, 20, 20, 0.05);
@@ -86,8 +86,8 @@
     --brand-text: #ff9b78;
     --brand-wash: #3a1d12;
     --highlight: #8a6b12;
-    --hero-bg: #f3f3f0;
-    --hero-ink: #121212;
+    --hero-bg: #3a1d12;
+    --hero-ink: #f3f3f0;
     --focus: #ff9b78;
     --scrim: rgba(243, 243, 240, 0.6);
     --shadow: none;
@@ -154,8 +154,8 @@
   --brand-text: #ff9b78;
   --brand-wash: #3a1d12;
   --highlight: #8a6b12;
-  --hero-bg: #f3f3f0;
-  --hero-ink: #121212;
+  --hero-bg: #3a1d12;
+  --hero-ink: #f3f3f0;
   --focus: #ff9b78;
   --scrim: rgba(243, 243, 240, 0.6);
   --shadow: none;

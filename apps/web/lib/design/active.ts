@@ -3,7 +3,7 @@ import { DEFAULT_DIRECTION, DIRECTIONS, isDirectionId, type Direction, type Dire
 /**
  * The direction this build ships (plan 1.1). Read from
  * NEXT_PUBLIC_DESIGN_DIRECTION, which Next.js inlines at build time; blank or
- * unknown means paper-and-ink. app/themes/<id>.css is chosen by the same
+ * unknown means bright-editorial. app/themes/<id>.css is chosen by the same
  * variable in next.config.ts (design-direction.mjs).
  */
 export function directionFromEnv(value: string | undefined | null): DirectionId {

@@ -4,11 +4,11 @@
 //
 //   NEXT_PUBLIC_DESIGN_DIRECTION = paper-and-ink | bright-editorial | quiet-confidence
 //
-// Blank or unknown values fall back to paper-and-ink. Next.js inlines the
+// Blank or unknown values fall back to bright-editorial. Next.js inlines the
 // variable at build time, so a deploy carries exactly one direction's CSS.
 
 export const DIRECTION_IDS = ["paper-and-ink", "bright-editorial", "quiet-confidence"];
-export const DEFAULT_DIRECTION = "paper-and-ink";
+export const DEFAULT_DIRECTION = "bright-editorial";
 
 /**
  * @param {string | undefined | null} value
