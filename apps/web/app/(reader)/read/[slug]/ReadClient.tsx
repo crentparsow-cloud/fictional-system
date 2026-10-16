@@ -17,6 +17,7 @@ import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
 import { ReadAloud } from "@/components/reader/ReadAloud";
 import { ResumeCard } from "@/components/reader/ResumeCard";
 import { SaveStatus } from "@/components/reader/SaveStatus";
+import { AutosaveToast } from "@/components/motion/SaveToast";
 import { UnitMap } from "@/components/reader/UnitMap";
 import { useReadingChrome } from "@/components/reader/useReadingChrome";
 import { buildPath, celebrationFor, pathChange, type PathNode } from "@/lib/reading/path";
@@ -313,6 +314,7 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
     <section className="read-page">
       <div className="read-head">
         <SaveStatus state={saveState} cause={saveDetail.cause} savedAt={saveDetail.savedAt} onRetry={() => store.retryNow()} keptOnDevice={saveState === "device"} />
+        <AutosaveToast state={saveState} />
         <ReadingSettingsPanel />
         {missing.length ? <span className="muted" style={{ fontSize: "0.85rem" }}>Some parts open with the full workbook.</span> : null}
       </div>
