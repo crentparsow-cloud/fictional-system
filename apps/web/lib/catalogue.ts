@@ -139,7 +139,7 @@ async function withUnitCounts(supabase: Awaited<ReturnType<typeof createUserClie
  */
 export async function firstUnitGapsFor(
   supabase: Awaited<ReturnType<typeof createUserClient>>,
-  rows: readonly { id: string; current_version_id: string | null }[],
+  rows: readonly { id: string; current_version_id: string | null; is_demo?: boolean }[],
 ): Promise<Map<string, FirstUnitGap>> {
   const versionIds = [...new Set(rows.map((r) => r.current_version_id).filter((v): v is string => v !== null))];
   let units: { version_id: string; body: unknown }[] = [];
@@ -171,7 +171,7 @@ export interface LibraryFilter {
  * page, and a catalogue past that size gets paging in week 3.
  *
  * Policy 7.9: a live title whose first unit is not complete (lib/first-unit.ts)
- * is left out here, so the library, Explore, the Theme, author and publisher
+ * is left out here (a demo title is exempt and lists without a sample), so the library, Explore, the Theme, author and publisher
  * pages, the home page and the sitemap all follow one rule. Staff see such
  * titles, with the reason, on /admin/workbooks.
  */
