@@ -1409,7 +1409,7 @@ button.um-row:hover, a.um-row:hover { background: var(--brand-wash); }
 .um-start { flex: none; }
 .um-cheer { margin: 0 0 0.5rem; padding: 0.6rem 0.9rem; border-radius: var(--radius-sm); background: var(--brand-wash); font-weight: 700; }
 /* Confetti and the programme-end reveal are in app/motion.css. */
-.um-strip ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.um-strip ol { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.7rem; flex-wrap: wrap; }
 .um-strip p { margin: 0.25rem 0 0; }
 .um-dot { display: inline-block; inline-size: 14px; block-size: 14px; border-radius: 50%; border: 2px solid var(--line-strong); background: var(--surface); position: relative; }
 .um-dot::after { content: ""; position: absolute; inset: -15px; }
