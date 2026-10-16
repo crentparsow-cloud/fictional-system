@@ -57,7 +57,9 @@ export default async function TryPage({ params }: { params: Promise<Params> }) {
   const supabase = await createUserClient();
   const { data } = await supabase.from("workbooks").select("id, code, tenant_id, safety_tier, current_version_id").eq("slug", slug).maybeSingle();
   const wb = data as Row | null;
-  if (!wb || !wb.current_version_id || wb.tenant_id !== tenantId) notFound();
+  if (!wb || wb.tenant_id !== tenantId) notFound();
+  // A demo title with no sample written is listed but has nothing to try: the public page says so.
+  if (!wb.current_version_id) redirect(`/w/${slug}`);
   if (wb.safety_tier !== "none") redirect(`/sign-in?next=${encodeURIComponent(`/read/${slug}`)}`);
 
   const { data: sectionRows } = await supabase.from("workbook_sections").select("kind, unit_number, body, free").eq("version_id", wb.current_version_id);

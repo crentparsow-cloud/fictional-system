@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import focus from "../../../content/workbooks/v3/focus.json";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { firstUnitGap, firstUnitGaps, NO_UNIT_ROW_REASON, NO_VERSION_REASON } from "./first-unit";
 
 /**
@@ -76,5 +78,53 @@ describe("firstUnitGaps", () => {
     expect(gaps.get("b")).toEqual({ complete: false, reason: NO_VERSION_REASON });
     expect(gaps.get("c")).toEqual({ complete: false, reason: NO_UNIT_ROW_REASON });
     expect(gaps.get("d")).toMatchObject({ complete: false, reason: expect.stringContaining("Unit 1 is incomplete") });
+  });
+
+  it("lists a demo title with no version, marked as having no sample, and keeps a non-demo title with none hidden", () => {
+    const rows = [
+      { id: "demo", current_version_id: null, is_demo: true },
+      { id: "real", current_version_id: null, is_demo: false },
+      { id: "plain", current_version_id: null },
+    ];
+    const gaps = firstUnitGaps(rows, []);
+    expect(gaps.get("demo")).toEqual({ complete: true, demoNoSample: true });
+    expect(gaps.get("real")).toEqual({ complete: false, reason: NO_VERSION_REASON });
+    expect(gaps.get("plain")).toEqual({ complete: false, reason: NO_VERSION_REASON });
+    expect(rows.filter((r) => gaps.get(r.id)?.complete === true).map((r) => r.id)).toEqual(["demo"]); // what onlyComplete does
+  });
+
+  it("exempts a demo title with a missing or broken unit 1, and leaves a complete one unmarked", () => {
+    const gaps = firstUnitGaps(
+      [
+        { id: "no-row", current_version_id: "v1", is_demo: true },
+        { id: "broken", current_version_id: "v2", is_demo: true },
+        { id: "good", current_version_id: "v3", is_demo: true },
+        { id: "real-broken", current_version_id: "v2", is_demo: false },
+      ],
+      [
+        { version_id: "v2", body: { number: 1 } },
+        { version_id: "v3", body: unitRow() },
+      ],
+    );
+    expect(gaps.get("no-row")).toEqual({ complete: true, demoNoSample: true });
+    expect(gaps.get("broken")).toEqual({ complete: true, demoNoSample: true });
+    expect(gaps.get("good")).toEqual({ complete: true });
+    expect(gaps.get("real-broken")).toMatchObject({ complete: false });
+  });
+});
+
+describe("the five classics", () => {
+  const dir = join(__dirname, "../../../content/workbooks/classics");
+  const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
+
+  it("has five files", () => {
+    expect(files).toHaveLength(5);
+  });
+
+  it.each(files)("%s has a complete unit 1, so it lists once published", (file) => {
+    const doc = JSON.parse(readFileSync(join(dir, file), "utf8")) as { units: Obj[]; exercises: Obj[] };
+    const unit = doc.units.find((u) => u.number === 1)!;
+    const exercises = (unit.exercise_ids as string[]).map((id) => doc.exercises.find((e) => e.id === id)!);
+    expect(firstUnitGap({ ...unit, exercises })).toEqual({ complete: true });
   });
 });

@@ -9,6 +9,12 @@ import { z } from "zod";
  * all present and each parse as a v3 Exercise. A title with no published
  * version has no unit 1 and fails for that reason.
  *
+ * Demo titles (is_demo) are exempt for listing. They were always catalogue
+ * listings (cover, outline, card line) with no content behind them, they are
+ * unbuyable, and they are labelled demo. One with no complete first unit
+ * lists with `demoNoSample` set, and its Start button reads "Sample not
+ * written yet". A non-demo title keeps the rule exactly.
+ *
  * The check runs in the query layer (lib/catalogue.ts) on the unit 1 rows,
  * which are free and so readable by anyone for a public title. Staff see the
  * reason on /admin/workbooks; the public pages see nothing of a title that
@@ -18,7 +24,7 @@ import { z } from "zod";
 /** The unit 1 section body: the unit object plus its resolved exercises, in exercise_ids order. */
 const PublishedUnit = ProgrammeUnit.extend({ exercises: z.array(Exercise).min(1) }).strict();
 
-export type FirstUnitGap = { complete: true } | { complete: false; reason: string };
+export type FirstUnitGap = { complete: true; demoNoSample?: true } | { complete: false; reason: string };
 
 export const NO_VERSION_REASON = "No published version, so no first unit";
 export const NO_UNIT_ROW_REASON = "The published version has no unit 1";
@@ -48,17 +54,18 @@ export function firstUnitGap(body: unknown): FirstUnitGap {
  * The gap for each workbook from its current version and the unit 1 rows
  * the caller read. Keyed by workbook id. A workbook with no current version
  * fails with NO_VERSION_REASON; one whose version has no unit 1 row fails
- * with NO_UNIT_ROW_REASON.
+ * with NO_UNIT_ROW_REASON. A demo workbook that would fail is listed anyway,
+ * marked `demoNoSample`.
  */
 export function firstUnitGaps(
-  workbooks: readonly { id: string; current_version_id: string | null }[],
+  workbooks: readonly { id: string; current_version_id: string | null; is_demo?: boolean }[],
   unitRows: readonly { version_id: string; body: unknown }[],
 ): Map<string, FirstUnitGap> {
   const byVersion = new Map(unitRows.map((r) => [r.version_id, r.body]));
   const out = new Map<string, FirstUnitGap>();
   for (const w of workbooks) {
-    if (!w.current_version_id) out.set(w.id, { complete: false, reason: NO_VERSION_REASON });
-    else out.set(w.id, firstUnitGap(byVersion.get(w.current_version_id)));
+    const gap: FirstUnitGap = w.current_version_id ? firstUnitGap(byVersion.get(w.current_version_id)) : { complete: false, reason: NO_VERSION_REASON };
+    out.set(w.id, !gap.complete && w.is_demo === true ? { complete: true, demoNoSample: true } : gap);
   }
   return out;
 }
