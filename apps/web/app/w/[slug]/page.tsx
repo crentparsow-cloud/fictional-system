@@ -256,7 +256,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
             signedIn={Boolean(session)}
             returnTo={returnTo}
             start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
-            outlineOnlyLabel={t("library.outlineOnly")}
+            outlineOnlyLabel={card.isDemo ? t("library.sampleNotWritten") : t("library.outlineOnly")}
             code={paidLines ? code : null}
             paidLines={paidLines}
           />
