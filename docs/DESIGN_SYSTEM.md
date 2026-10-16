@@ -1,13 +1,13 @@
 # Design system
 
-How the design tokens, directions, reading themes, motion, covers and the component kit fit together (plan 1.1 to 1.9). Crent has not yet chosen between the three directions. Everything here is built so that choosing is one setting.
+How the design tokens, directions, reading themes, motion, covers and the component kit fit together (plan 1.1 to 1.9). Crent chose bright editorial, which is the default. The other two stay available as one setting.
 
 ## Choosing a direction
 
 Set `NEXT_PUBLIC_DESIGN_DIRECTION` at build time to one of:
 
-- `paper-and-ink` (the default when blank or unknown)
-- `bright-editorial`
+- `paper-and-ink`
+- `bright-editorial` (the default when blank or unknown)
 - `quiet-confidence`
 
 `next.config.ts` points `@theme-active` at `app/themes/<direction>.css`, so only that file's CSS reaches the browser. The same value picks the preloaded fonts, the manifest and browser colours, the share image and the covers. Nothing else changes.
@@ -50,7 +50,7 @@ Named reading themes are Paper, Mist (deep blue at night) and Plain, each with a
 
 `app/motion.css`. Page changes fade through the View Transitions API where the browser supports it. Cards lift on hover and focus. The save toast is two words ("Answer saved", "Not saved") in one fixed spot above the tabs. One burst of confetti ends a unit, a larger reveal ends a programme. `prefers-reduced-motion` and the reader's Reduce motion setting both remove all movement. `lib/motion.ts` mirrors the durations for scripts, and a test keeps them in step.
 
-`SaveToast` is built and shown in the kit. The reader's existing autosave line (`SaveStatus`) is not yet wired to it.
+`SaveToast` follows the reader's autosave state through `AutosaveToast` (in `ReadClient` and `TryClient`). It says "Answer saved" when a save is confirmed after something was owed, and "Not saved" when a save gives up. `toastForTransition` in `lib/motion.ts` holds the rule.
 
 ## Covers and share images
 
@@ -61,3 +61,11 @@ Named reading themes are Paper, Mist (deep blue at night) and Plain, each with a
 ## Component kit
 
 `/dev/kit` shows every shared component in every state, light and dark, in the active direction. The switcher injects another direction's token file to preview it. In production it needs a staff session with a second factor, like `/admin`. Elsewhere it is open.
+
+## Reader screens without a database
+
+`/dev/screens/today`, `/dev/screens/explore` and `/dev/screens/workbook` build the reader screens from the real components and fixture data, and `/dev/player` shows a real unit. They are open outside production and gated like `/dev/kit`. The a11y spec runs them with `E2E_DEV=1 E2E_BASE_URL=http://localhost:3101` against `next dev`.
+
+## Marketing screenshots
+
+`node scripts/screens.mjs` (with `next dev` running) renders the screenshots in `apps/web/public/screens` at phone (390 by 750, 2x) and desktop (1280 by 800) width as WebP under 150 KB each. `components/MarketingShot.tsx` lists them and carries the alt text.

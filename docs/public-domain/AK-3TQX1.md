@@ -97,6 +97,8 @@ Tier: A. Research 4 Tier A: published before 1931 and every author and translato
 
 ## Review
 
+Signer: Crent Parsow, owner. The signature line below is left to sign.
+
 Reviewed by: ______
 
 Date: ______

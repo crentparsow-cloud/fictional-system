@@ -13,10 +13,11 @@ import { membershipPriceId } from "@/lib/membership";
  * entitlement. Answers, enrolments and settings stay each person's own, and
  * row level security keeps it that way.
  *
- * PLACEHOLDER: the price. The plan point member_two_month is seeded at about
- * 1.5 times the single monthly price. Until Crent creates the recurring price
- * in Stripe and puts its id in STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY, the
- * two-person checkout says "not open yet" and every offer below stays hidden.
+ * The prices are decided (migrations 0041 and 0046): GBP 11.99 a month
+ * (member_two_month) and GBP 104.99 a year (member_two_year). Until the
+ * recurring price is in Stripe and its id is in STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY
+ * (or _TWO_YEARLY for the annual plan), that plan's checkout says "not open
+ * yet" and its offer stays hidden. The two-person plans have no trial.
  */
 
 /** The line used wherever the plan is offered. */
@@ -30,9 +31,14 @@ export const INVITE_DAYS = 14;
 
 type Env = Partial<Record<string, string | undefined>>;
 
-/** True when the two-person plan can be bought: its Stripe price id is set. */
+/** True when the monthly two-person plan can be bought: its Stripe price id is set. */
 export function sharedPlanOpen(env: Env = process.env): boolean {
   return membershipPriceId("two_monthly", env) !== null;
+}
+
+/** True when the annual two-person plan can be bought: its Stripe price id is set. */
+export function sharedYearlyPlanOpen(env: Env = process.env): boolean {
+  return membershipPriceId("two_yearly", env) !== null;
 }
 
 /** The sentence the buyer's own share sheet carries. It names no workbook. */
@@ -198,7 +204,7 @@ function monthsBetween(from: Date, to: Date): number {
  * and only while the membership is running and not ending.
  */
 export function isMonthThree(sub: { plan: string | null; status: string; cancelAtPeriodEnd: boolean; startedAt: string }, now: Date): boolean {
-  if (sub.plan === "member_two_month") return false;
+  if (sub.plan === "member_two_month" || sub.plan === "member_two_year") return false;
   if (sub.status !== "active" && sub.status !== "trialing") return false;
   if (sub.cancelAtPeriodEnd) return false;
   return monthsBetween(new Date(sub.startedAt), now) === 3;

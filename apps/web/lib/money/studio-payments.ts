@@ -44,7 +44,7 @@ export function channelRate(schedule: Pick<PayoutSchedule, "sale_rate_author" | 
   return Number.isFinite(n) ? n : 0;
 }
 
-/** "50%" from 0.5, with the word placeholder while D1 to D5 are open. */
+/** "65%" from 0.65. Marked as a placeholder only if a placeholder row is ever in force again. */
 export function shareLabel(rate: number | string, placeholder: boolean): string {
   const n = Number(rate);
   const pct = Number.isFinite(n) ? `${Math.round(n * 1000) / 10}%` : "";
@@ -131,38 +131,36 @@ function shortDay(d: Date): string {
   return new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" }).format(d);
 }
 
-export interface CalendarWeek {
-  /** Monday of the sales week, UTC midnight. */
-  weekStart: Date;
-  /** Sunday of the sales week. */
-  weekEnd: Date;
-  /** The payout day: the configured weekday of the following week. */
+export interface PayoutDate {
+  /** The payout day, UTC midnight, a London calendar date. */
   payDay: Date;
-  /** "Sales from 5 to 11 October are paid on Friday 16 October 2026." */
+  /** Sales made on or before this day have passed the refund window by the payout day. */
+  salesUpTo: Date;
+  /** "Friday 16 October 2026 pays sales made up to 2 October." */
   sentence: string;
-  current: boolean;
+  /** True for the first date in the list. */
+  next: boolean;
 }
 
 /**
- * The weekly calendar: sales in a Monday to Sunday week are paid on the
- * configured weekday of the week after. London dates. The first row is the
- * week that holds `now`.
+ * The weekly calendar: the next payout days on the configured weekday, London
+ * dates, the first on or after today. A sale is paid on the first payout day
+ * after its refund window ends (migration 0046), so each date also says which
+ * sales it covers.
  */
-export function weeklyCalendar(now: Date, payoutWeekday: number, weeks = 4): CalendarWeek[] {
+export function weeklyCalendar(now: Date, payoutWeekday: number, count = 4, refundWindowDays = 14): PayoutDate[] {
   const { day, isoWeekday } = londonDate(now);
-  const monday = addDays(day, -(isoWeekday - 1));
   const wd = payoutWeekday >= 1 && payoutWeekday <= 7 ? payoutWeekday : 5;
-  const out: CalendarWeek[] = [];
-  for (let i = 0; i < weeks; i++) {
-    const weekStart = addDays(monday, i * 7);
-    const weekEnd = addDays(weekStart, 6);
-    const payDay = addDays(weekStart, 7 + (wd - 1));
+  const first = addDays(day, (wd - isoWeekday + 7) % 7);
+  const out: PayoutDate[] = [];
+  for (let i = 0; i < count; i++) {
+    const payDay = addDays(first, i * 7);
+    const salesUpTo = addDays(payDay, -Math.max(0, refundWindowDays));
     out.push({
-      weekStart,
-      weekEnd,
       payDay,
-      sentence: `Sales from ${shortDay(weekStart)} to ${shortDay(weekEnd)} are paid on ${weekdayName(wd)} ${dayLabel(payDay)}.`,
-      current: i === 0,
+      salesUpTo,
+      sentence: `${weekdayName(wd)} ${dayLabel(payDay)} pays sales made up to ${shortDay(salesUpTo)}.`,
+      next: i === 0,
     });
   }
   return out;

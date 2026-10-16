@@ -20,7 +20,7 @@ import { trialLabel, type TrialConfig } from "@/lib/membership-trial";
  *    membership card.
  */
 
-export type PlanId = "annual" | "monthly" | "two" | "workbook";
+export type PlanId = "annual" | "monthly" | "two" | "two_annual" | "workbook";
 
 export interface PlanCard {
   id: PlanId;
@@ -35,7 +35,7 @@ export interface PlanCard {
   /** The key terms, together. */
   terms: string[];
   /** The checkout plan the Join button starts, or null for a card that links elsewhere. */
-  checkout: "yearly" | "monthly" | "two_monthly" | null;
+  checkout: "yearly" | "monthly" | "two_monthly" | "two_yearly" | null;
   /** For the workbook card: where to look at the library. */
   href: string | null;
 }
@@ -43,8 +43,10 @@ export interface PlanCard {
 export interface PricingInput {
   rows: readonly PricePointRowLike[] | null | undefined;
   trial: TrialConfig;
-  /** The two-person plan can be bought now (its Stripe price id is set). */
+  /** The monthly two-person plan can be bought now (its Stripe price id is set). */
   sharedOpen: boolean;
+  /** The annual two-person plan can be bought now (its Stripe price id is set). Defaults to false. */
+  sharedYearlyOpen?: boolean;
   /** The single-person plans that can be bought now. */
   open: { monthly: boolean; yearly: boolean };
 }
@@ -71,6 +73,7 @@ export function planCards(input: PricingInput): PlanCard[] {
   const monthlyMinor = minorFor(rows, "member_month");
   const yearlyMinor = minorFor(rows, "member_year");
   const twoMinor = minorFor(rows, "member_two_month");
+  const twoYearMinor = minorFor(rows, "member_two_year");
   const cards: PlanCard[] = [];
 
   if (yearlyMinor !== null) {
@@ -127,6 +130,25 @@ export function planCards(input: PricingInput): PlanCard[] {
         CANCEL_TERMS,
       ],
       checkout: "two_monthly",
+      href: null,
+    });
+  }
+  if (twoYearMinor !== null && input.sharedYearlyOpen) {
+    const total = formatPrice(twoYearMinor, gb);
+    cards.push({
+      id: "two_annual",
+      heading: "Membership for two people, annual",
+      badge: null,
+      primary: `${total} a year`,
+      secondary: `${formatPrice(monthlyEquivalentMinor(twoYearMinor), gb)} a month`,
+      billing: `${total} once a year for two people, until you cancel. The monthly figure is the yearly price divided by twelve.`,
+      terms: [
+        "One person pays and owns the membership. The second person joins from a link, and each of you keeps your own sealed answers.",
+        "Renews once a year, automatically, until you cancel. We email you before each renewal. If the person who pays cancels, you both lose access at the end of the paid period.",
+        COOLING,
+        CANCEL_TERMS,
+      ],
+      checkout: "two_yearly",
       href: null,
     });
   }
