@@ -58,6 +58,16 @@ begin
   execute 'set local role service_role';
 end $$;
 
+-- Fixture (added with 0046): this file tests the monthly ledger rules on the
+-- original placeholder figures. 0046 has since set the real ones, so the
+-- original row goes back in as the newest config for this transaction only.
+insert into public.royalty_config (effective_from, is_placeholder, sale_rate_author, sale_rate_author_link, pool_share_author,
+  pool_step_cap, pool_activity_floor, fee_treatment, refund_window_days, first_payout_hold_days,
+  min_payout_minor, approval_above_minor, payout_day, payout_cadence, payout_weekday, note)
+values (now(), true, 0.5000, 0.5000, 0.5000, 20, 1, 'deduct', 14, 30,
+  '{"GBP": 2500, "USD": 2500, "EUR": 2500}'::jsonb, '{"GBP": 100000, "USD": 100000, "EUR": 100000}'::jsonb, 15, 'monthly', 5,
+  'Test fixture: the 0021 placeholder figures, monthly.');
+
 -- ---------------------------------------------------------------------------
 -- 1. Config is seeded as a placeholder and readable by staff only.
 -- ---------------------------------------------------------------------------
