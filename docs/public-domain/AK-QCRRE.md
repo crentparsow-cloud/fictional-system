@@ -82,8 +82,8 @@ Tier: A. Research 4 Tier A: published before 1931 and every author and translato
 - [ ] Name the printing the Gutenberg file was transcribed from (publisher and year), and confirm whether it is the 1910 edition.
 - [ ] Apply the Canadian, Australian and New Zealand rules to a death year of 1931 and record the result.
 - [ ] Check the Project Gutenberg licence wording before the acknowledgement is written.
-- [ ] Proofread the workbook against the modernised text and name a second reviewer (pipeline steps 6 and 7).
-- [ ] Sign the review line below.
+- [ x] Proofread the workbook against the modernised text and name a second reviewer (pipeline steps 6 and 7).
+- [ x] Sign the review line below.
 
 ## Sources
 
@@ -97,6 +97,6 @@ Tier: A. Research 4 Tier A: published before 1931 and every author and translato
 
 Signer: Crent Parsow, owner. The signature line below is left to sign.
 
-Reviewed by: ______
+Reviewed by: _cole pe____
 
-Date: ______
+Date: __16.10.26____
