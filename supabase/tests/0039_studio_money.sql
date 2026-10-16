@@ -49,8 +49,8 @@ begin
 end $$;
 
 -- ---------------------------------------------------------------------------
--- 1. The config in force is weekly on Fridays with a 10.00 GBP floor, still
--- a placeholder. The channel column refuses anything but the two values.
+-- 1. The config in force is weekly on Fridays with a 10.00 GBP floor. Since
+-- 0046 it is decided, not a placeholder. The channel column refuses anything but the two values.
 -- ---------------------------------------------------------------------------
 do $$ declare c public.royalty_config; begin
   c := app.royalty_config();
@@ -58,7 +58,7 @@ do $$ declare c public.royalty_config; begin
     raise exception 'calendar default wrong: % %', c.payout_cadence, c.payout_weekday;
   end if;
   if (c.min_payout_minor ->> 'GBP')::bigint <> 1000 then raise exception 'GBP floor is %', c.min_payout_minor ->> 'GBP'; end if;
-  if not c.is_placeholder then raise exception 'the seeded calendar must stay a placeholder'; end if;
+  if c.is_placeholder then raise exception 'the calendar is decided since 0046'; end if;
   begin
     insert into public.purchases (user_id, tenant_id, workbook_id, kind, stripe_checkout_session_id, currency, status, channel)
     values ('a0390000-0000-0000-0000-000000000005', '00000000-0000-0000-0000-00000000000a', 'a0390000-0000-0000-0000-0000000000d1',

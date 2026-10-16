@@ -8,29 +8,44 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * subscription maps to the row in public.subscriptions (migration 0009),
  * and what the You page says about a reader's membership.
  *
- * PLACEHOLDER: the membership prices are not set (questions C4 and D1 to D4
- * are open). Until Crent creates the two recurring prices in Stripe and puts
- * their ids in STRIPE_PRICE_MEMBERSHIP_MONTHLY and _YEARLY, the membership
- * checkout says "not open yet" and the paywall button stays disabled.
+ * The prices are decided (15 October 2026, migration 0046). A plan opens when
+ * its recurring Stripe price id is in the environment: STRIPE_PRICE_MEMBERSHIP_MONTHLY,
+ * _YEARLY, _TWO_MONTHLY or _TWO_YEARLY. While one is unset, that plan's
+ * checkout says "not open yet" and its button stays disabled.
  *
  * Stripe never sees a title. The membership product in Stripe is named
  * "Akana membership", so statements, receipts and Stripe's own emails carry
  * the plan only (F-098).
  */
 
-export type MembershipPlan = "monthly" | "yearly" | "two_monthly";
-export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly", "two_monthly"];
+export type MembershipPlan = "monthly" | "yearly" | "two_monthly" | "two_yearly";
+export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly", "two_monthly", "two_yearly"];
+
+/** The two-person plans share one membership between two people (0041, 0046). */
+export function isSharedPlan(plan: MembershipPlan): boolean {
+  return plan === "two_monthly" || plan === "two_yearly";
+}
+
+/** The plans that renew once a year. */
+export function isYearlyPlan(plan: MembershipPlan): boolean {
+  return plan === "yearly" || plan === "two_yearly";
+}
 
 export const MEMBERSHIP_PLAN_POINT: Readonly<Record<MembershipPlan, MembershipPricePointId>> = {
   monthly: "member_month",
   yearly: "member_year",
   two_monthly: "member_two_month",
+  two_yearly: "member_two_year",
 };
 
-export const MEMBERSHIP_PRICE_ENV: Readonly<Record<MembershipPlan, "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY">> = {
+export const MEMBERSHIP_PRICE_ENV: Readonly<Record<
+  MembershipPlan,
+  "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY"
+>> = {
   monthly: "STRIPE_PRICE_MEMBERSHIP_MONTHLY",
   yearly: "STRIPE_PRICE_MEMBERSHIP_YEARLY",
   two_monthly: "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY",
+  two_yearly: "STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY",
 };
 
 /** What the checkout and paywall say while no membership price is configured. */
@@ -39,7 +54,7 @@ export const MEMBERSHIP_NOT_OPEN_MESSAGE = "Membership is not open yet. Please t
 type Env = Partial<Record<string, string | undefined>>;
 
 export function isMembershipPlan(value: unknown): value is MembershipPlan {
-  return value === "monthly" || value === "yearly" || value === "two_monthly";
+  return value === "monthly" || value === "yearly" || value === "two_monthly" || value === "two_yearly";
 }
 
 /** The Stripe price id for a plan, or null when it is unset or not a price id. */
@@ -59,10 +74,10 @@ export function membershipPlansOpen(env: Env = process.env): { monthly: boolean;
 
 /** The line shown on Stripe's page above the pay button: the auto-renewal consent (F-097). */
 export function autoRenewNotice(plan: MembershipPlan, yearlyTotal?: string | null): string {
-  const period = plan === "yearly" ? "year" : "month";
+  const period = isYearlyPlan(plan) ? "year" : "month";
   // R6: the yearly total is stated on the pay screen, not only the monthly equivalent.
-  const total = plan === "yearly" && yearlyTotal ? `You pay ${yearlyTotal} a year, taken once. ` : "";
-  const who = plan === "two_monthly" ? " It covers you and one person you invite. You can remove them at any time." : "";
+  const total = isYearlyPlan(plan) && yearlyTotal ? `You pay ${yearlyTotal} a year, taken once. ` : "";
+  const who = isSharedPlan(plan) ? " It covers you and one person you invite. You can remove them at any time." : "";
   return `${total}Your membership renews automatically each ${period} until you cancel. You can cancel at any time: go to the You page, then Cancel membership. You keep access until the end of the period you have paid for.${who}`;
 }
 
@@ -175,9 +190,17 @@ function idOf(ref: string | { id: string } | null | undefined): string | null {
  * price is the configured one, or when checkout stamped it in the metadata.
  */
 function sharedPlanOf(priceId: string | null | undefined, metaPlan: MembershipPricePointId | null, env: Env): MembershipPricePointId | null {
-  const configured = membershipPriceId("two_monthly", env);
-  if (configured && priceId === configured) return "member_two_month";
-  return metaPlan === "member_two_month" ? "member_two_month" : null;
+  const monthly = membershipPriceId("two_monthly", env);
+  if (monthly && priceId === monthly) return "member_two_month";
+  const yearly = membershipPriceId("two_yearly", env);
+  if (yearly && priceId === yearly) return "member_two_year";
+  return metaPlan === "member_two_month" || metaPlan === "member_two_year" ? metaPlan : null;
+}
+
+/** The plan name for a stored price point id, or null. */
+export function planFromPoint(point: string | null | undefined): MembershipPlan | null {
+  for (const plan of MEMBERSHIP_PLANS) if (MEMBERSHIP_PLAN_POINT[plan] === point) return plan;
+  return null;
 }
 
 export function planFromInterval(interval: string | null | undefined): MembershipPricePointId | null {
@@ -222,7 +245,8 @@ export function subscriptionStateFrom(
   if (!customerId) return null;
   const item = sub.items?.data?.[0];
   const meta = (sub.metadata ?? {}) as Record<string, string | undefined>;
-  const metaPlan = meta.plan === "member_month" || meta.plan === "member_year" || meta.plan === "member_two_month" ? meta.plan : null;
+  const metaPlan =
+    meta.plan === "member_month" || meta.plan === "member_year" || meta.plan === "member_two_month" || meta.plan === "member_two_year" ? meta.plan : null;
   return {
     subscriptionId: sub.id,
     customerId,
@@ -260,7 +284,7 @@ export interface SubscriptionRow {
 
 export type MembershipSummary =
   | { kind: "none" }
-  | { kind: "active"; plan: "monthly" | "yearly" | "two_monthly" | null; renewsOn: string | null }
+  | { kind: "active"; plan: MembershipPlan | null; renewsOn: string | null }
   | { kind: "ending"; endsOn: string | null }
   | { kind: "paused"; until: string }
   | { kind: "pause_ahead"; from: string; until: string }
@@ -285,7 +309,7 @@ export function membershipSummary(rows: readonly SubscriptionRow[] | null | unde
   const pause = pauseState({ pausedFrom: live.paused_from ?? null, pausedUntil: live.paused_until ?? null }, now);
   if (pause.kind === "running") return { kind: "paused", until: pause.until };
   if (pause.kind === "ahead") return { kind: "pause_ahead", from: pause.from, until: pause.until };
-  const plan = live.plan === "member_month" ? "monthly" : live.plan === "member_year" ? "yearly" : live.plan === "member_two_month" ? "two_monthly" : null;
+  const plan = planFromPoint(live.plan);
   return { kind: "active", plan, renewsOn: live.current_period_end };
 }
 
@@ -314,7 +338,9 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
             ? "Monthly membership."
             : summary.plan === "two_monthly"
               ? "Monthly membership for two people."
-              : "Membership active.";
+              : summary.plan === "two_yearly"
+                ? "Annual membership for two people."
+                : "Membership active.";
       return summary.renewsOn ? `${name} Renews on ${formatDate(summary.renewsOn)}.` : name;
     }
     case "ending":
