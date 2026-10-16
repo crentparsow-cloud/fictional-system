@@ -109,7 +109,7 @@ export default async function StudioPaymentsPage({ searchParams }: { searchParam
   const sales = (salesRes.data ?? []) as unknown as SaleLineRow[];
   const provisional = schedule?.is_placeholder ?? true;
   const now = new Date();
-  const weeks = schedule ? weeklyCalendar(now, schedule.payout_weekday, 4) : [];
+  const weeks = schedule ? weeklyCalendar(now, schedule.payout_weekday, 4, schedule.refund_window_days) : [];
   const currencies = Array.from(new Set([...sales.map((s) => s.currency), ...payoutRows.map((p) => p.currency), "GBP"]));
 
   return (
@@ -133,14 +133,14 @@ export default async function StudioPaymentsPage({ searchParams }: { searchParam
             {schedule.payout_cadence === "weekly" ? (
               <>
                 <p>
-                  Payouts run every {weekdayName(schedule.payout_weekday)}. Sales in a Monday to Sunday week are paid on the {weekdayName(schedule.payout_weekday)} of the
-                  week after, London time.
+                  Payouts run every {weekdayName(schedule.payout_weekday)}, London time. A sale is paid on the first {weekdayName(schedule.payout_weekday)} after its{" "}
+                  {schedule.refund_window_days} day refund window ends.
                 </p>
                 <ul className="muted small">
                   {weeks.map((w) => (
-                    <li key={w.weekStart.toISOString()}>
+                    <li key={w.payDay.toISOString()}>
                       {w.sentence}
-                      {w.current ? " (this week)" : ""}
+                      {w.next ? " (next)" : ""}
                     </li>
                   ))}
                 </ul>
@@ -158,14 +158,11 @@ export default async function StudioPaymentsPage({ searchParams }: { searchParam
                 })
                 .filter(Boolean)
                 .join(" ")}{" "}
-              A month closes {schedule.refund_window_days} days after it ends, so late refunds can land before it is paid.
-            </p>
-            <p className="muted small">
-              {provisional ? "This schedule is a placeholder until Akana sets the final figures. " : ""}
               {schedule.payout_cadence === "weekly"
-                ? `For now the payout run itself goes out monthly on day ${schedule.payout_day}; the weekly run follows once it is switched on, and this page will say so.`
-                : ""}
+                ? "The refund window gives late refunds time to land before a sale is paid."
+                : `A month closes ${schedule.refund_window_days} days after it ends, so late refunds can land before it is paid.`}
             </p>
+            {provisional ? <p className="muted small">This schedule is provisional until Akana confirms the final figures.</p> : null}
           </>
         )}
       </section>
@@ -182,7 +179,7 @@ export default async function StudioPaymentsPage({ searchParams }: { searchParam
             </p>
             <p className="muted small">
               The net receipt is what the reader paid, less VAT{schedule.fee_treatment === "deduct" ? " and the card processing fee" : ""}.
-              {provisional ? " These rates are placeholders until Akana sets them (D1 to D5). Nothing is paid out at placeholder rates in live mode." : ""} Author
+              {provisional ? " These rates are provisional until Akana confirms them." : ""} Author
               links are not issued yet, so every sale so far is a marketplace sale.
             </p>
           </>

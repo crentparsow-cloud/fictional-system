@@ -337,7 +337,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
               <p className="muted small">
                 {estimateReady
                   ? "Your share is shown next to each point, net of VAT and payment fees."
-                  : "Your share per sale, net of VAT and payment fees, shows here once Akana has set the ladder figures and the share. They are not set yet."}
+                  : "Your share is a percentage of the net after VAT and card processing; the Payments page shows the rates. A figure for each point shows here once the VAT rate and the card fee are confirmed. Real sales always use the actual figures."}
               </p>
               {estimateReady
                 ? options.map((o) => {

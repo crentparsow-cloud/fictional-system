@@ -110,7 +110,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
 
           {provisional ? (
             <p className="studio-draft" role="note">
-              <strong>Provisional.</strong> The rates behind these figures are placeholders until Akana sets them. Nothing here is paid out at these rates.
+              <strong>Provisional.</strong> Some of these figures use rates that were provisional when the sale was recorded. Nothing here is paid out at those rates.
             </p>
           ) : null}
 

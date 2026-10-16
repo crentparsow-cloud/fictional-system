@@ -297,6 +297,29 @@ describe("the two-person plan (item 6.1)", () => {
     expect(s?.plan).toBe("member_two_month");
   });
 
+  it("has an annual version, opened by its own price id, recognised although the interval is a year", () => {
+    const yearEnv = { STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY: "price_1TwoYear" };
+    expect(membershipPriceId("two_yearly", {})).toBeNull();
+    expect(membershipPriceId("two_yearly", yearEnv)).toBe("price_1TwoYear");
+    const items = { data: [{ id: "si_3", current_period_end: 1_800_000_000, price: { id: "price_1TwoYear", recurring: { interval: "year" } } }] };
+    expect(subscriptionStateFrom(sub({ items }), at, null, yearEnv)?.plan).toBe("member_two_year");
+    // the same price id read without the env falls back to the single annual plan, unless checkout stamped it
+    expect(subscriptionStateFrom(sub({ items }), at, null, {})?.plan).toBe("member_year");
+    const stamped = subscriptionStateFrom(sub({ items, metadata: { user_id: USER, tenant_id: TENANT, plan: "member_two_year" } }), at, null, {});
+    expect(stamped?.plan).toBe("member_two_year");
+    const text = autoRenewNotice("two_yearly", "£104.99");
+    expect(text).toContain("You pay £104.99 a year, taken once.");
+    expect(text).toContain("each year");
+    expect(text).toContain("one person you invite");
+    expect(membershipPlansOpen(yearEnv)).toEqual({ monthly: false, yearly: false });
+  });
+
+  it("names the annual two-person plan on the You page", () => {
+    const summary = membershipSummary([{ status: "active", plan: "member_two_year", current_period_end: "2027-10-07T00:00:00Z", cancel_at_period_end: false, ended_at: null, stripe_customer_id: "cus_1", updated_at: "2026-10-07T00:00:00Z" }]);
+    expect(summary).toMatchObject({ kind: "active", plan: "two_yearly" });
+    expect(membershipLine(summary, () => "7 October 2027")).toBe("Annual membership for two people. Renews on 7 October 2027.");
+  });
+
   it("leaves a single monthly subscription as member_month", () => {
     expect(subscriptionStateFrom(sub(), at, null, env)?.plan).toBe("member_month");
   });
