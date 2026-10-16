@@ -794,3 +794,17 @@ Pricing and Direction B branches merged into `phase-a`. Both touched the pricing
 - Approve the Publish page copy and update `docs/legal/publish-with-akana-copy.md`.
 - Apply staging migrations 0036 to 0046 through the SQL editor (pending Chrome).
 - Pay for PITR and Resend Pro.
+
+### Day 16, first block (Thursday 16 October)
+
+**Landed.** All files are now on `origin/phase-a`. Migrations 0036 to 0046 are applied to staging, with recorded versions 20261016090100 to 20261016091000. `pg_cron` and `pg_net` are enabled. A preview deployment of `phase-a` is READY.
+
+**Vercel variables set for all environments:** `STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY`, `STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY`, `STRIPE_PORTAL_CONFIGURATION_ID` and `NEXT_PUBLIC_DESIGN_DIRECTION`.
+
+**Stripe.** Adaptive Pricing and Smart Retries are confirmed on. Failed-payment emails are turned on.
+
+**Blocked.** Google OAuth waits on Crent accepting the Google Cloud terms.
+
+**Defect found and fixed: demo titles hidden.** The first-unit rule (plan item 7.9) hid any title whose unit 1 was not a complete v3 unit. The 97 live demo titles have listings but no `workbook_versions` rows, because they were always catalogue listings (cover, outline, card line) with no content. On staging, 50 were live and none had a version, so Explore, shelves, Themes, home rails and the sitemap showed only "Coming soon". Fix: demo titles are exempt from the rule for listing. They stay unbuyable and labelled demo. With no content, the public page shows a disabled "Sample not written yet" button, and `/try/[slug]` sends the visitor to the public page. Non-demo titles keep the rule exactly. The five classics pass it on their unit 1 (checked in a test), so they list once `content:publish` has run. The admin Library column now reads "Demo listing, no sample" for the new case. Tests added for a demo title with no version (lists) and a non-demo title with no version (does not). No migration.
+
+**Advisor notes.** Unindexed foreign keys on `collections`, `funnel_visitors`, `membership_seats`, `reminder_log` and `shelves`. Index them in a follow-up migration.
