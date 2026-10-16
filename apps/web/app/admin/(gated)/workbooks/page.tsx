@@ -182,7 +182,15 @@ export default async function AdminWorkbooksPage({ searchParams }: { searchParam
 function libraryCell(status: string, gap: FirstUnitGap | undefined) {
   if (status !== "live") return <span className="muted">Not live</span>;
   if (!gap) return <span className="muted">Not checked</span>;
-  if (gap.complete) return "Shown";
+  if (gap.complete) {
+    return gap.demoNoSample ? (
+      <span>
+        Shown. <span className="muted small">Demo listing, no sample</span>
+      </span>
+    ) : (
+      "Shown"
+    );
+  }
   return (
     <span>
       Hidden. <span className="muted small">{gap.reason}</span>
