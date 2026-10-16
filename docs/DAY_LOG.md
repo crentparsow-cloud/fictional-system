@@ -606,7 +606,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
 - **Staging.** v2 loaded. 190 workbooks, 97 authors and 190 listings. The 50 live titles stayed live and 120 new titles arrived as draft.
 - **Merged.** PR #3 merged into main (ba4d735). Vercel production deployment READY.
 - **Production.** v2 loaded through the SQL editor. The Maya Vaughn versions section was left out, because production already held the same 20 versions (checked by content hash). Counts matched staging.
-- **Demo titles live.** 52 more demo titles set live in production, the approved group in `release: demo_live_after_approval`. Production now has 102 live titles: 97 demo and 5 classics. 18 faith demo titles and 50 classics stay in draft. The 20 Maya Vaughn titles stay in review. Staging was not set live.
+- **Demo titles live.** 52 more demo titles set live in production, the approved group in `release: demo_live_after_approval`. Production now has 102 live titles: 97 demo and 5 classics. 18 faith demo titles and 50 classics stay in draft. The 20 Maya Vaughn titles stay in review.
 - **Live site.** /themes now shows 25 Themes holding 77 of the live titles. A Theme shows once it has three live titles, so the rest wait for the faith titles and classics.
 
 ### Day 8, second block (Friday 9 October, late morning)
@@ -667,7 +667,7 @@ Close the week 1 features or carry them with a written reason. First end-to-end 
   - 0042 Trial lengths: `membership_trial_days_monthly` 14 and `membership_trial_days_yearly` 21 in `app_config`. A value of 0 switches a trial off.
   - 0043 Explore: shelf editor's line and featured title, collections and their items with staff-only save and delete functions, and the explore signals (starts and finishes per live title).
 
-**Checks:** `pnpm typecheck` and `pnpm lint` clean. All package tests pass and 1305 web unit tests pass (114 files). `pnpm validate --parked` 20 files, 0 failed. `pnpm check:ids` 0 findings. Web build with the CI placeholder env is clean and the CSP check is clean. Database tests on a scratch Postgres 16: 38 of 40 test files pass, including 0040 to 0043. 0006 and 0015 fail as they do on main. The lockfile did not change.
+**Checks:** `pnpm typecheck` and `pnpm lint` clean. All package tests pass and 1305 web unit tests pass (114 files). `pnpm validate --parked` 20 files, 0 failed. `pnpm check:ids` 0 findings. Web build with the CI placeholder env is clean and the CSP check is clean. Database tests on a scratch Postgres 16: 38 of 40 test files pass, including 0040 to 0043. 0006 and 0015 fail as they do on main.
 
 **Only Crent can:**
 
@@ -758,3 +758,39 @@ Design system branch merged into `phase-a`. It covers items 1.1 (scaffold), 1.2,
 - The reading font default is the direction's serif.
 
 **Not done:** SaveToast is not yet wired to autosave.
+
+### Day 15, first block (Wednesday 15 October)
+
+Pricing and Direction B branches merged into `phase-a`. Both touched the pricing page, the membership plan map and `.env.example`. Both sets of changes are kept.
+
+**Crent's decisions of 15 October.**
+
+- Direction B, bright editorial, is the default design direction.
+- Prices: single £7.99 monthly and £69.99 annual. Two people £11.99 monthly and £104.99 annual.
+- Trials: 14 days and 21 days.
+- Author shares: 80 percent on author-link sales and 65 percent on marketplace sales. Pool share is 50 percent.
+- Payouts run weekly on Fridays with a £10 floor.
+- Crent Parsow is named as the house-record signer. The signature itself is still to do.
+
+**Migration 0046** carries the price points, trials and author shares. The weekly payout rule is in: money older than the 14-day refund window becomes payable when the cadence is weekly.
+
+**Stripe sandbox, set up through the connector.**
+
+- Prices: `price_1UNt0VBLnY1qMMTEoPpTLQXj` (member_month), `price_1UNt0YBLnY1qMMTEPV6YeWmq` (member_year), `price_1UQsrIBLnY1qMMTESJxNz2au` (member_two_month), `price_1UQsrNBLnY1qMMTEwMpmYaYd` (member_two_year).
+- Promotion code FIRSTWORKBOOK: `promo_1UQss1BLnY1qMMTEgnh6O8lS`.
+- Webhook `we_1UNfYMBLnY1qMMTEqFvBzALB` now listens for `customer.subscription.trial_will_end`.
+- Customer portal `bpc_1UNt1PBLnY1qMMTEPIWCVN9g` is set to cards and invoices only. Link was already on.
+
+**Staging.** `pg_cron` 1.6.4 and `pg_net` 0.20.4 are enabled.
+
+**Direction B work.** Visual pass, marketing site with screenshots, SaveToast wired to autosave, and the email layout.
+
+**Checks on the merged branch:** typecheck and lint clean, all unit tests pass (web 1551), `validate --parked` 25 files with 0 failed, `check:ids` 0 findings, web build clean with the placeholder env, CSP check clean, database suite passes on local Postgres 16 (migrations 0001 to 0046). Local e2e project: 373 passed, 45 skipped (remote-only), 0 failed.
+
+**Only Crent can:**
+
+- Sign the five house records.
+- Switch on Adaptive Pricing and Smart Retries in the Stripe dashboard.
+- Approve the Publish page copy and update `docs/legal/publish-with-akana-copy.md`.
+- Apply staging migrations 0036 to 0046 through the SQL editor (pending Chrome).
+- Pay for PITR and Resend Pro.
