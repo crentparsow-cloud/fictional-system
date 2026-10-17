@@ -738,6 +738,28 @@ function planFromInvoiceLines(invoice: Stripe.Invoice): MembershipPricePointId |
 }
 
 /**
+ * Thrown by a MembershipRepo when two deliveries for a new subscription race
+ * to insert the same row and the database answers 23505 (unique violation).
+ * The row now exists, so one more attempt takes the update path.
+ */
+export class SubscriptionInsertRaceError extends Error {
+  constructor(message = "upsert_subscription failed: 23505") {
+    super(message);
+    this.name = "SubscriptionInsertRaceError";
+  }
+}
+
+async function upsertTolerantOfRace(membership: MembershipRepo, state: SubscriptionState): Promise<SubscriptionUpsertResult> {
+  try {
+    return await membership.upsertSubscription(state);
+  } catch (err) {
+    if (!(err instanceof SubscriptionInsertRaceError)) throw err;
+    // The other delivery won the insert. Try once more; any second failure still surfaces and alerts.
+    return membership.upsertSubscription(state);
+  }
+}
+
+/**
  * Read the subscription fresh when the repo can, else use the event's copy
  * dated by event.created. Returns null when there is nothing storable.
  */
@@ -761,7 +783,7 @@ async function upsertFresh(
   if (!sub) return null;
   const state = subscriptionStateFrom(sub, observedAt, fallbackMeta);
   if (!state) return null;
-  return { result: await membership.upsertSubscription(state), state, sub };
+  return { result: await upsertTolerantOfRace(membership, state), state, sub };
 }
 
 async function settleMembershipCheckout(session: Stripe.Checkout.Session, event: Stripe.Event, membership: MembershipRepo): Promise<void> {

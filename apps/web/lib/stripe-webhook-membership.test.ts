@@ -9,6 +9,7 @@ import {
   immediateCancellation,
   periodEndCancellation,
   renewalDedupeKey,
+  SubscriptionInsertRaceError,
   type GrantDetails,
   type InvoiceRecord,
   type InvoiceRecordResult,
@@ -194,6 +195,53 @@ describe("customer.subscription.* (F-097)", () => {
   it("acknowledges and ignores membership events when no membership repo is given", async () => {
     const out = await handleStripeEvent(event("customer.subscription.created", subscription()), new FakePurchases());
     expect(out.action).toBe("ignored");
+  });
+});
+
+describe("two deliveries racing to insert a new subscription", () => {
+  /** Behaves like the database: the first insert loses to a concurrent one and raises 23505. */
+  class RacingMembership extends FakeMembership {
+    private raced = false;
+    async upsertSubscription(s: SubscriptionState): Promise<SubscriptionUpsertResult> {
+      if (!this.raced) {
+        this.raced = true;
+        this.upserts += 1;
+        // the winning delivery has inserted the row by the time we retry
+        this.subs.set(s.subscriptionId, s);
+        throw new SubscriptionInsertRaceError();
+      }
+      return super.upsertSubscription(s);
+    }
+  }
+
+  it("treats a 23505 on the first call as unchanged and does not throw", async () => {
+    const m = new RacingMembership();
+    const out = await handleStripeEvent(event("customer.subscription.created", subscription()), new FakePurchases(), m);
+    expect(out.action).toBe("subscription_unchanged");
+    expect(out.notify).toBeUndefined();
+    expect(m.subs.get("sub_1")).toMatchObject({ userId: USER, tenantId: TENANT, status: "active" });
+  });
+
+  it("still throws when the retry also fails, so staff are alerted", async () => {
+    class AlwaysFails extends FakeMembership {
+      async upsertSubscription(): Promise<SubscriptionUpsertResult> {
+        throw new SubscriptionInsertRaceError();
+      }
+    }
+    await expect(
+      handleStripeEvent(event("customer.subscription.created", subscription()), new FakePurchases(), new AlwaysFails()),
+    ).rejects.toThrow("23505");
+  });
+
+  it("does not swallow other upsert errors", async () => {
+    class Broken extends FakeMembership {
+      async upsertSubscription(): Promise<SubscriptionUpsertResult> {
+        throw new Error("upsert_subscription failed: 42501");
+      }
+    }
+    await expect(
+      handleStripeEvent(event("customer.subscription.created", subscription()), new FakePurchases(), new Broken()),
+    ).rejects.toThrow("42501");
   });
 });
 

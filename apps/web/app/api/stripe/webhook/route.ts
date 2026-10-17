@@ -9,6 +9,7 @@ import { cancelInCoolingOff } from "@/lib/membership-refund";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
   handleStripeEvent,
+  SubscriptionInsertRaceError,
   type GrantDetails,
   type MembershipConfirmedNotice,
   type MembershipNotice,
@@ -201,7 +202,11 @@ function membershipRepo(admin: Admin): MembershipRepo {
         p_ended_at: st.endedAt,
         p_observed_at: st.observedAt,
       });
-      if (error) throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
+      if (error) {
+        // 23505: a concurrent delivery inserted the same new subscription first. The handler retries once.
+        if (error.code === "23505") throw new SubscriptionInsertRaceError();
+        throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
+      }
       const result = data as "applied" | "unchanged" | "stale" | "unlinked";
       // 14.25: the pause window (migration 0045). Recorded after the row exists; a stale or unlinked event leaves it alone.
       if (result === "applied" || result === "unchanged") {
