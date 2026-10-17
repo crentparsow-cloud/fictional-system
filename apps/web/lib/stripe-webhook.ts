@@ -1,6 +1,6 @@
 import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
-import { coolingOffOpensAt, inCoolingOff, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
+import { coolingOffOpensAt, inCoolingOff, inTrial, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
 import type { MembershipPricePointId } from "@/lib/pricing";
 import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
 
@@ -568,7 +568,10 @@ export function cancelRequestedInCoolingOff(sub: Stripe.Subscription, event: Pic
   if (sub.status !== "active" && sub.status !== "trialing") return false;
   if (!sub.cancel_at_period_end && !sub.cancel_at) return false;
   if (typeof sub.start_date !== "number") return false;
-  return inCoolingOff(coolingOffOpensAt(sub), new Date((sub.canceled_at ?? event.created) * 1000));
+  const requestedAt = new Date((sub.canceled_at ?? event.created) * 1000);
+  // A cancel in the trial just stops the subscription at the trial's end.
+  if (inTrial(sub, requestedAt)) return false;
+  return inCoolingOff(coolingOffOpensAt(sub), requestedAt);
 }
 
 /**

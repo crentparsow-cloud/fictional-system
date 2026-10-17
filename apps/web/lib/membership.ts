@@ -1,6 +1,7 @@
 import type Stripe from "stripe";
 import { pauseState, pauseWindowFromMetadata } from "@/lib/membership-pause";
-import type { MembershipPricePointId } from "@/lib/pricing";
+import { MARKETS } from "@/lib/markets";
+import { formatPrice, MEMBERSHIP_AMOUNTS, type MembershipPricePointId } from "@/lib/pricing";
 
 /**
  * Membership (F-097) as pure helpers: which Stripe prices are configured,
@@ -284,7 +285,7 @@ export interface SubscriptionRow {
 
 export type MembershipSummary =
   | { kind: "none" }
-  | { kind: "active"; plan: MembershipPlan | null; renewsOn: string | null }
+  | { kind: "active"; plan: MembershipPlan | null; renewsOn: string | null; trialing?: true }
   | { kind: "ending"; endsOn: string | null }
   | { kind: "paused"; until: string }
   | { kind: "pause_ahead"; from: string; until: string }
@@ -310,7 +311,7 @@ export function membershipSummary(rows: readonly SubscriptionRow[] | null | unde
   if (pause.kind === "running") return { kind: "paused", until: pause.until };
   if (pause.kind === "ahead") return { kind: "pause_ahead", from: pause.from, until: pause.until };
   const plan = planFromPoint(live.plan);
-  return { kind: "active", plan, renewsOn: live.current_period_end };
+  return { kind: "active", plan, renewsOn: live.current_period_end, ...(live.status === "trialing" ? { trialing: true as const } : {}) };
 }
 
 /** The Stripe customer to open the portal for: the most recent row that has one. */
@@ -341,6 +342,12 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
               : summary.plan === "two_yearly"
                 ? "Annual membership for two people."
                 : "Membership active.";
+      if (summary.trialing && summary.renewsOn) {
+        const point = summary.plan === "yearly" ? "member_year" : summary.plan === "two_monthly" ? "member_two_month" : summary.plan === "two_yearly" ? "member_two_year" : "member_month";
+        const minor = MEMBERSHIP_AMOUNTS[point].GBP;
+        const first = typeof minor === "number" ? ` the first payment of ${formatPrice(minor, MARKETS.GB)} is taken then unless you cancel` : " the first payment is taken then unless you cancel";
+        return `${name} Your trial ends on ${formatDate(summary.renewsOn)};${first}.`;
+      }
       return summary.renewsOn ? `${name} Renews on ${formatDate(summary.renewsOn)}.` : name;
     }
     case "ending":

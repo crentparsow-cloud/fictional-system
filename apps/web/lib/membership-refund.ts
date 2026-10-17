@@ -76,6 +76,17 @@ export function isFirstPaymentAfterTrial(sub: Pick<Stripe.Subscription, "trial_e
   return typeof sub.trial_end === "number" && Math.abs(periodStartSeconds - sub.trial_end) <= 3600;
 }
 
+/**
+ * True while the subscription is in its trial, whatever else the object
+ * carries. Nothing has been paid, so there is nothing to refund and nothing
+ * to end early: a cancel in the trial stops the subscription at the trial's
+ * end (cancel_at_period_end) and the reader keeps access until then.
+ */
+export function inTrial(sub: Pick<Stripe.Subscription, "status" | "trial_end">, at: Date): boolean {
+  if (sub.status === "trialing") return true;
+  return typeof sub.trial_end === "number" && sub.trial_end * 1000 > at.getTime();
+}
+
 export function proRataRefund(i: ProRataInput): ProRata {
   if (!inCoolingOff(i.windowFrom, i.requestedAt ?? i.now)) return { due: false, reason: "outside_cooling_off" };
   const periodDays = Math.round((i.periodEnd.getTime() - i.periodStart.getTime()) / DAY_MS);
@@ -124,6 +135,7 @@ export async function refundCoolingOff(
   opts: { now: Date; requestedAt?: Date; reason: RefundReason; subscription?: Stripe.Subscription },
 ): Promise<RefundOutcome> {
   const sub = opts.subscription ?? (await api.subscriptions.retrieve(subscriptionId));
+  if (inTrial(sub, opts.requestedAt ?? opts.now)) return { status: "not_due", reason: "outside_cooling_off" };
   const list = await api.invoices.list({ subscription: subscriptionId, status: "paid", limit: 1 });
   const invoice = list.data[0];
   const paidAt = invoice?.status_transitions?.paid_at;
@@ -216,6 +228,7 @@ export async function cancelInCoolingOff(
   const sub = await api.subscriptions.retrieve(subscriptionId);
   if (ENDED.has(sub.status)) return { status: "already_ended" };
   if (!sub.cancel_at_period_end && !sub.cancel_at) return { status: "not_requested" };
+  if (inTrial(sub, opts.requestedAt)) return { status: "outside_cooling_off" };
   if (!inCoolingOff(coolingOffOpensAt(sub), opts.requestedAt)) return { status: "outside_cooling_off" };
 
   const refund = await refundCoolingOff(api, subscriptionId, { now: opts.now, requestedAt: opts.requestedAt, reason: "cooling_off_cancel", subscription: sub });

@@ -212,6 +212,14 @@ describe("membership on the You page", () => {
     expect(membershipLine(membershipSummary([row({ plan: "member_year" })]), fmt)).toBe("Annual membership. Renews on 2026-11-14.");
   });
 
+  it("says a trialing reader is in a trial and what happens on the date", () => {
+    const s = membershipSummary([row({ status: "trialing", current_period_end: "2026-10-31T11:50:20Z" })]);
+    expect(s).toMatchObject({ kind: "active", trialing: true });
+    const line = membershipLine(s, fmt);
+    expect(line).toBe("Monthly membership. Your trial ends on 2026-10-31; the first payment of £7.99 is taken then unless you cancel.");
+    expect(line).not.toMatch(/free|renews/i);
+  });
+
   it("says when a cancelled membership ends", () => {
     expect(membershipLine(membershipSummary([row({ cancel_at_period_end: true })]), fmt)).toBe(
       "Your membership ends on 2026-11-14. It will not renew.",
