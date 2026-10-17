@@ -5,6 +5,7 @@ import {
   PRICE_POINT_IDS,
   PRICE_TO_BE_CONFIRMED,
   amountFor,
+  checkoutCurrencyFor,
   formatPrice,
   isPlaceholder,
   isPricePointId,
@@ -139,3 +140,20 @@ describe("pricePointFromRow", () => {
     expect(pricePointFromRow({ id: "p1", kind: "bundle", amounts: {}, stripe_price_id: null, active: false })).toBeNull();
   });
 });
+
+describe("checkoutCurrencyFor", () => {
+  const gbpOnly: PricePoint = { ...setPoint, amounts: { GBP: 799 } };
+  it("gives GBP for a GBP only point in the XX fallback market", () => {
+    expect(checkoutCurrencyFor(gbpOnly, MARKETS.XX)).toBe("GBP");
+  });
+  it("gives USD for a point with a USD amount in the XX fallback market", () => {
+    expect(checkoutCurrencyFor(setPoint, MARKETS.XX)).toBe("USD");
+  });
+  it("gives GBP in the GB market", () => {
+    expect(checkoutCurrencyFor(gbpOnly, MARKETS.GB)).toBe("GBP");
+  });
+  it("gives GBP when there is no point", () => {
+    expect(checkoutCurrencyFor(null, MARKETS.XX)).toBe("GBP");
+  });
+});
+

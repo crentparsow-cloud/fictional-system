@@ -113,12 +113,16 @@ export function trialDateLines(start: Date, days: number): { trialEnds: string; 
  * length, the first payment date and amount, the reminder date, and the way
  * to cancel. The price arrives formatted.
  */
-export function trialCheckoutNotice(plan: TrialPlan, days: number, formattedPrice: string, start: Date): string | null {
+export function trialCheckoutNotice(plan: TrialPlan, days: number, formattedPrice: string | null, start: Date): string | null {
   const lines = trialDateLines(start, days);
   if (!lines) return null;
   const every = plan === "monthly" ? "month" : "year";
+  // The trial never depends on the price formatting. Without a figure the notice says so in words.
+  const charge = formattedPrice
+    ? `On ${lines.firstPayment} we take ${formattedPrice}, and then ${formattedPrice} each ${every} until you cancel. `
+    : `On ${lines.firstPayment} we take your first payment, and then the same amount each ${every} until you cancel. The amount is shown on this page. `;
   return (
-    `Your trial lasts ${lines.days}. Nothing is taken today. On ${lines.firstPayment} we take ${formattedPrice}, and then ${formattedPrice} each ${every} until you cancel. ` +
+    `Your trial lasts ${lines.days}. Nothing is taken today. ${charge}` +
     `We email you a reminder on ${lines.reminder}. To cancel, go to the You page, then Cancel membership. If you cancel before ${lines.firstPayment}, you are not charged.`
   );
 }

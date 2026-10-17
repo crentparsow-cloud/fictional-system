@@ -210,6 +210,19 @@ export const PRICE_TO_BE_CONFIRMED = "Price to be confirmed";
  */
 export const FALLBACK_CHARGE_CURRENCY: PriceCurrency = "GBP";
 
+/**
+ * The currency a checkout charges in for a price point: the market's own
+ * currency when the point has an amount in it, otherwise GBP, the base
+ * currency (F-094). A reader with no country falls into the XX market, whose
+ * currency is USD, but the membership ladder is GBP only, so they are charged
+ * in GBP. The membership route, the single workbook route and the offer all
+ * resolve the currency through this one rule.
+ */
+export function checkoutCurrencyFor(point: Pick<PricePoint, "amounts"> | null | undefined, market: Market): PriceCurrency {
+  const local = priceCurrencyFor(market);
+  return point && isValidMinor(point.amounts[local]) ? local : FALLBACK_CHARGE_CURRENCY;
+}
+
 /** Shown under a price that is in GBP for a reader whose market uses another currency. */
 export const GBP_PRICE_NOTE = "Prices are in pounds sterling (GBP). Your card provider may convert the amount.";
 

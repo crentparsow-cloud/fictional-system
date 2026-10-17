@@ -13,7 +13,7 @@ import {
   portalCustomerId,
   type SubscriptionRow,
 } from "@/lib/membership";
-import { PRICE_LADDER, priceCurrencyFor } from "@/lib/pricing";
+import { PRICE_LADDER, checkoutCurrencyFor, isPlaceholder, pricePointFromRow, type PricePoint } from "@/lib/pricing";
 import { trialCheckoutNotice, trialEligible } from "@/lib/membership-trial";
 import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { formatMinor } from "@/lib/membership-email";
@@ -168,19 +168,19 @@ export async function POST(request: NextRequest) {
   if (consentId === null) return refuse("Could not start checkout.", 500);
 
   // 13.5: a first-time member gets the trial for the plan, card required. The
-  // pay button states the first payment date and the reminder date. A price that
-  // cannot be formatted means no trial notice can be written, so no trial.
+  // pay button states the first payment date and the reminder date. The trial
+  // never depends on a price formatting: if the renewal price cannot be
+  // formatted that is logged and the notice says so in words.
   // The two-person plan has no trial: the trial settings cover the monthly and annual plans only.
   const trialPlan = plan === "two_monthly" || plan === "two_yearly" ? null : plan;
   const trialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
-  const trialPrice = trialPlan && trialDays > 0 ? await trialRenewalPrice(supabase, trialPlan, priceCurrencyFor(market)) : null;
-  const yearlyTotal =
-    plan === "yearly"
-      ? (trialPrice ?? (await trialRenewalPrice(supabase, "yearly", priceCurrencyFor(market))))
-      : plan === "two_yearly"
-        ? await trialRenewalPrice(supabase, "two_yearly", priceCurrencyFor(market))
-        : null;
-  const trialNotice = trialPlan && trialPrice ? trialCheckoutNotice(trialPlan, trialDays, trialPrice, new Date()) : null;
+  // One currency rule for the amounts, the notice and the pending row: the market's currency where the point has a figure, else GBP.
+  const point = await loadPricePoint(supabase, plan);
+  const currency = checkoutCurrencyFor(point, market);
+  const renewalPrice = formatRenewalPrice(point, currency);
+  if (renewalPrice === null) console.warn("membership_renewal_price_unformatted", { code: "no_renewal_price", plan });
+  const yearlyTotal = plan === "yearly" || plan === "two_yearly" ? renewalPrice : null;
+  const trialNotice = trialPlan && trialDays > 0 ? trialCheckoutNotice(trialPlan, trialDays, renewalPrice, new Date()) : null;
   const trial = trialNotice ? { days: trialDays, notice: trialNotice } : null;
 
   const origin = siteOrigin(request);
@@ -226,7 +226,7 @@ export async function POST(request: NextRequest) {
     price_point_id: MEMBERSHIP_PLAN_POINT[plan],
     stripe_checkout_session_id: checkout.id,
     // The real currency and amount are copied from the session when it completes.
-    currency: priceCurrencyFor(market),
+    currency,
     amount_minor: 0,
     status: "pending",
   });
@@ -242,12 +242,17 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
 }
 
-/** The renewal price for the trial notice, "£7.99", from the price point row, else the ladder. Null when there is none. */
-async function trialRenewalPrice(supabase: Awaited<ReturnType<typeof createUserClient>>, plan: MembershipPlan, currency: string): Promise<string | null> {
-  const point = MEMBERSHIP_PLAN_POINT[plan];
-  const { data } = await supabase.from("price_points").select("amounts").eq("id", point).maybeSingle();
-  const amounts = (data?.amounts ?? PRICE_LADDER[point].amounts) as Record<string, number | undefined>;
-  const minor = amounts[currency];
+/** The plan's price point from the row, else the ladder mirror when the row is missing or holds no figure. */
+async function loadPricePoint(supabase: Awaited<ReturnType<typeof createUserClient>>, plan: MembershipPlan): Promise<PricePoint> {
+  const id = MEMBERSHIP_PLAN_POINT[plan];
+  const { data } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").eq("id", id).maybeSingle();
+  const fromRow = data ? pricePointFromRow(data as { id: string; kind: string; amounts: unknown; stripe_price_id: string | null; active: boolean }) : null;
+  return fromRow && !isPlaceholder(fromRow) ? fromRow : PRICE_LADDER[id];
+}
+
+/** The renewal price for the notice, "£7.99", in the checkout currency. Null when it cannot be formatted. */
+function formatRenewalPrice(point: PricePoint, currency: string): string | null {
+  const minor = (point.amounts as Record<string, number | undefined>)[currency];
   return typeof minor === "number" && minor > 0 ? (formatMinor(minor, currency) ?? null) : null;
 }
 
