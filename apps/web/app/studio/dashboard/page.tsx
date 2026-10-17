@@ -97,7 +97,7 @@ export default async function StudioDashboardPage({ searchParams }: { searchPara
       ) : months.length === 0 || months.every((m) => m.workbooks.length === 0) ? (
         <div className="card admin-empty">
           <h2>Nothing to show yet</h2>
-          <p className="muted">Counts appear here once a workbook has been submitted.</p>
+          <p className="muted">Counts appear here once a workbook is live. Submit one from your books.</p>
         </div>
       ) : (
         <>

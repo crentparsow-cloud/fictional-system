@@ -49,6 +49,11 @@ describe("addMonthsUtc", () => {
 });
 
 describe("the selection rule", () => {
+  it("covers the two-person plan, whose subscription belongs to the buyer", () => {
+    expect(termsReminderDue(candidate({ plan: "member_two_month" }), NOW)).toBe(true);
+    expect(termsReminderDue(candidate({ plan: "member_year" }), NOW)).toBe(false);
+  });
+
   it("is due six months after the start, with a renewal 3 to 14 days away", () => {
     expect(termsReminderDue(candidate(), NOW)).toBe(true);
     expect(termsReminderDue(candidate({ startedAt: "2026-09-10T09:00:00Z" }), NOW)).toBe(true);
@@ -259,7 +264,7 @@ describe("sendTermsReminder: the email", () => {
     expect(msg.text).toContain("£7.99 a month");
     expect(msg.text).toContain("Every month, automatically, until you cancel");
     expect(msg.text).toContain("17 March 2027");
-    expect(msg.text).toContain("go to You, then Manage membership, then Cancel");
+    expect(msg.text).toContain("go to You, then Cancel membership");
     expect(msg.text).toContain("every six months");
     expect(msg.text).toContain("https://akana.test/you#membership");
     expect(msg.text).not.toMatch(/—/);

@@ -31,6 +31,7 @@ From Vercel's documentation (Instant Rollback, checked 8 October 2026):
   - `/api/money/daily` at `13 5 * * *` (05:13)
   - `/api/ops/domain-check` at `29 6 * * *` (06:29)
   - `/api/membership/reminders` at `41 8 * * *` (08:41)
+  - `/api/membership/cancel-emails` at `11 9 * * *` (09:11)
   - `/api/org/billing-mail` at `53 8 * * *` (08:53)
   - `/api/money/payout-run` at `47 9 * * *` (09:47)
 - **The database does not move.** If the bad deployment shipped with a migration, the old code now runs against the newer schema. Migrations here only add, so the old code normally still works. Check before you roll back: if the new migration removed or renamed anything the old code reads, read section 2 first.

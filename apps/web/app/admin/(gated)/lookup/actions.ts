@@ -9,6 +9,7 @@ import {
   cleanReason,
   isUuid,
   parseCancelDeletion,
+  parseCancelMembership,
   parseResend,
   parseRestore,
   readResendContext,
@@ -16,6 +17,10 @@ import {
   supportErrorMessage,
 } from "@/lib/support-actions";
 import { sendDeletionCancelled, sendResend } from "@/lib/support-mail";
+import { runStaffCancel } from "@/lib/membership-cancel";
+import { stripeSubscriptions } from "@/lib/membership-cancel-server";
+import { cancelMailFor } from "@/lib/selling-mail";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 
 export type LookupState =
@@ -151,4 +156,45 @@ export async function cancelDeletionForReader(prev: ActionState, fd: FormData): 
   const sent = email ? await sendDeletionCancelled({ userId: v.userId, email, name: typeof j.name === "string" ? j.name : null }) : "no_address";
   const mailed = sent === "sent" || sent === "sent_test";
   return done(prev, true, mailed ? "Deletion cancelled. The reader has been emailed to confirm." : "Deletion cancelled. The confirmation email did not send, so let the reader know.");
+}
+
+/**
+ * Cancel a membership because the reader asked in writing (14.24). Any clear
+ * written statement is notice of cancellation, so the support inbox is a way
+ * to cancel. The database checks the role, the reason and that the
+ * subscription is this reader's, and writes the audit row (0045). Then the
+ * Stripe subscription is set to end at the period end, which is exactly what
+ * the reader's own Cancel button does: the webhook runs the 14-day refund if
+ * it applies and sends the cancellation email at once.
+ */
+export async function cancelMembershipForReader(prev: ActionState, fd: FormData): Promise<ActionState> {
+  const staff = await getStaffSession("/admin/lookup");
+  if (!supportAbilities(staff.roles).cancelMembership) return done(prev, false, supportErrorMessage("AKX01"));
+  const input = parseCancelMembership((k) => fd.get(k));
+  if (!input.ok) return done(prev, false, input.message);
+  const v = input.value;
+  const supabase = await createUserClient();
+  const { data, error } = await supabase.rpc("staff_cancel_membership", { p_user: v.userId, p_subscription: v.subscription, p_reason: v.reason });
+  if (error) {
+    console.error("admin_lookup_cancel_membership_failed", error.code ?? "");
+    return done(prev, false, supportErrorMessage(error.code));
+  }
+  const j = (data ?? {}) as { subscription?: unknown; paused_from?: unknown; paused_until?: unknown };
+  if (typeof j.subscription !== "string") return done(prev, false, "The cancel could not be prepared. Nothing was changed.");
+  try {
+    const admin = createAdminClient();
+    const { data: u } = await admin.auth.admin.getUserById(v.userId);
+    const email = u?.user?.email ?? "";
+    const mail = email ? cancelMailFor({ userId: v.userId, email, name: null }) : { paused: async () => null, endedNow: async () => null };
+    const how = await runStaffCancel(
+      { subscription: j.subscription, pausedFrom: typeof j.paused_from === "string" ? j.paused_from : null, pausedUntil: typeof j.paused_until === "string" ? j.paused_until : null },
+      new Date(),
+      stripeSubscriptions(),
+      mail,
+    );
+    return done(prev, true, how === "cancelled_now" ? "Cancelled. The membership was paused, so it has ended today. The reader has been emailed." : "Cancelled. It ends at the end of the paid period and the reader is emailed to confirm. A refund runs by itself if they are inside 14 days.");
+  } catch (err) {
+    console.error("admin_lookup_cancel_membership_stripe_failed", err instanceof Error ? err.name : "unknown");
+    return done(prev, false, "The check passed and is logged, but Stripe did not take the cancel. Cancel it in the Stripe dashboard, or try again.");
+  }
 }

@@ -47,6 +47,17 @@ export const THEME_SURFACES: Readonly<Record<ThemeName, { canvas: string; surfac
 };
 
 /** The two house text colours a brand fill may carry: white and house ink. */
+/**
+ * The house brand colours a white-label form starts from. Kept here with the
+ * rest of the contract the database also checks, not in a design direction:
+ * a tenant's colours are validated against fixed canvas and ink values, so a
+ * change of direction never changes what a tenant may save.
+ */
+export const HOUSE_BRAND: Record<ThemeName, BrandColours> = {
+  light: { primary: "#1f4e5a", accent: "#1f4e5a" },
+  dark: { primary: "#7fc2cf", accent: "#173c45" },
+};
+
 export const INK_CANDIDATES = ["#ffffff", "#16222b"] as const;
 
 /** WCAG 2.2 AA for body text. */

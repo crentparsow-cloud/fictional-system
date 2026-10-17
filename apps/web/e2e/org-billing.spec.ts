@@ -27,7 +27,7 @@ test("a join link with an unknown token says so and is private", async ({ page }
   const res = await page.goto("/org/link/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   expect(res?.headers()["cache-control"] ?? "").toContain("no-store");
   expect(res?.headers()["referrer-policy"] ?? "").toBe("no-referrer");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("isn't working");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("is not working");
 });
 
 test("self-serve sign-up is closed and shows no price", async ({ page }) => {

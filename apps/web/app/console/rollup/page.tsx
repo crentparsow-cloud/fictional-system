@@ -113,7 +113,7 @@ export default async function ConsoleRollupPage({ searchParams }: { searchParams
 
           <h2>Readers and sales</h2>
           {months.length === 0 ? (
-            <p className="muted">Nothing to show for these months.</p>
+            <p className="muted">Nothing to show for these months. Choose a wider range above.</p>
           ) : (
             <>
               <CsvLink href={`/console/rollup/csv?${rangeQuery(range, ctx.org.id, { ...more, kind: "counts" })}`} label="Download counts as CSV" />
@@ -146,9 +146,9 @@ export default async function ConsoleRollupPage({ searchParams }: { searchParams
 
           <h2>Earnings</h2>
           {earnings.error ? (
-            <p className="muted">{earnings.error.code === "AKD01" ? "Earnings are open to owners and finance in your organisation." : "Earnings could not be loaded. Try again."}</p>
+            <p className="muted">{earnings.error.code === "AKD01" ? "Earnings are open to owners and finance in your organisation." : "We're sorry. Earnings could not be loaded just now. Please try again."}</p>
           ) : moneyRows.length === 0 ? (
-            <p className="muted">No ledger lines in these months.</p>
+            <p className="muted">No earnings in these months. Choose a wider range above.</p>
           ) : (
             <>
               <CsvLink href={`/console/rollup/csv?${rangeQuery(range, ctx.org.id, { ...more, kind: "earnings" })}`} label="Download earnings as CSV" />

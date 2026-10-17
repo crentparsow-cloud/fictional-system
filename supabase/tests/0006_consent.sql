@@ -103,6 +103,7 @@ reset role;
 -- An authenticated role with no user id is refused too.
 do $$ begin
   perform set_config('request.jwt.claim.sub', '', true);
+  perform set_config('request.jwt.claims', '', true);
   execute 'set local role authenticated';
   begin
     perform public.set_health_consent('health-2026-10');

@@ -5,12 +5,24 @@ import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { brand } from "@/lib/brand";
-import { getWorkbookBySlug } from "@/lib/catalogue";
+import { listThemes } from "@/lib/author-theme-queries";
+import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { getWorkbookBySlug, listLibrary } from "@/lib/catalogue";
+import { relatedTitles } from "@/lib/explore";
+import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
+import { firstUnitFreeLabel } from "@/lib/free-label";
 import { getT } from "@/lib/i18n";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 import { countView } from "@/lib/funnel-server";
+import { SampleExercise } from "@/components/catalogue/SampleExercise";
+import { whoIsItFor } from "@/lib/who-for";
+import { loadSampleExercise } from "@/lib/sample-exercise";
+import { PublicBuy, type PaidLines } from "@/components/catalogue/PublicBuy";
+import { normalisePromoCode, offerSummary, PROMO_MESSAGES } from "@/lib/promo-code";
+import { lookupPromoCode } from "@/lib/promo-code-server";
+import { marketForReader, paidLinesFor, publicOffer } from "@/lib/public-offer";
 
 /**
  * The public workbook page (F-005) at /w/{slug}. Server rendered for anyone,
@@ -18,13 +30,18 @@ import { countView } from "@/lib/funnel-server";
  * through the user client, so a visitor sees only public workbooks and only
  * their listing and start sections.
  *
- * Commerce is not wired: buy and membership are disabled placeholders. The
- * book link is a placeholder until /go/ exists. Hidden Theme topics are never
- * read, so they cannot appear here; lib/catalogue-guard.ts tests that.
+ * Buy and Join open the same Stripe Checkout the reader's paywall uses
+ * (item 3.2), after sign-in for a visitor; Start opens the free first unit,
+ * which enrols the reader on first open (/read). A promotion code in ?code=
+ * from the /code page is checked with Stripe and carried into checkout, with
+ * the price paid said in plain words (item 5.9). Demo titles are not sold.
+ * The book link is a placeholder until /go/ exists. Hidden Theme topics are
+ * never read, so they cannot appear here; lib/catalogue-guard.ts tests that.
  */
 export const dynamic = "force-dynamic";
 
 type Params = { slug: string };
+type Search = { code?: string | string[] };
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
@@ -34,35 +51,73 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return {
     title: meta.title,
     description: meta.description,
+    // 1.9: one Satori renderer (app/og/[slug]/route.tsx), cached like a cover.
+    openGraph: { title: meta.title, description: meta.description, images: [{ url: `/og/${slug}`, width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", images: [`/og/${slug}`] },
     // Demo content is never indexed. Live titles follow the site rule in the root layout.
     ...(detail.card.isDemo ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
-export default async function WorkbookPage({ params }: { params: Promise<Params> }) {
+export default async function WorkbookPage({ params, searchParams }: { params: Promise<Params>; searchParams: Promise<Search> }) {
   const { slug } = await params;
+  const sp = await searchParams;
   const [detail, session, { t }] = await Promise.all([getWorkbookBySlug(slug), getReaderSession(), getT()]);
   if (!detail) notFound();
-  await countView("page_view", detail.card.id); // F-141, ids only, opt-out respected
+  await countView("page_view", detail.card.id, session?.userId ?? null); // F-141, ids only, opt-out respected
 
   const { card, listing, start } = detail;
   const wellbeing = card.safetyTier !== "none";
   const canOpen = card.hasVersion;
   const readHref = `/read/${card.slug}`;
-  const openHref = session ? readHref : `/sign-in?next=${encodeURIComponent(readHref)}`;
+  // 5.2: a visitor with no account tries the first unit at /try, where answers stay on the device
+  // until they sign in. A wellbeing title asks for consent first, which needs an account.
+  const openHref = session ? readHref : card.safetyTier === "none" ? `/try/${card.slug}` : `/sign-in?next=${encodeURIComponent(readHref)}`;
   const unit = unitWord(detail);
+  const freeLabel = firstUnitFreeLabel({ hasVersion: card.hasVersion, unit: listing?.structure?.unit ?? null, freeUnits: listing?.structure?.free_units ?? null });
+
+  // Item 3.2: the same figures the paywall and checkout use, for this reader's market.
+  const market = await marketForReader(session?.userId ?? null);
+  const offer = await publicOffer({ pricePointId: detail.pricePointId, isDemo: card.isDemo, inMembership: detail.inMembership }, market);
+
+  // Item 5.9: a code from the /code page. Checked with Stripe; the page says what is paid, never what "was".
+  const code = normalisePromoCode(Array.isArray(sp.code) ? sp.code[0] : sp.code);
+  let promoNote: string | null = null;
+  let paidLines: PaidLines | null = null;
+  if (code && !card.isDemo) {
+    const promo = await lookupPromoCode(code, session ? `user:${session.userId}` : "anon");
+    if (promo.ok) {
+      paidLines = paidLinesFor(offer, promo.offer);
+      promoNote = offerSummary(promo.offer, market);
+    } else {
+      promoNote = PROMO_MESSAGES[promo.reason];
+    }
+  }
+  const returnTo = `/w/${card.slug}${code ? `?code=${encodeURIComponent(code)}` : ""}#buy`;
   const structure = listing?.structure;
   const outline = listing?.outline ?? [];
   const language = listing?.language ?? detail.bookLanguage;
   const minutes = structure?.minutes_per_day;
   const publisher = publisherForCode(card.code);
+  const sample = canOpen ? await loadSampleExercise(card.slug, card.safetyTier) : null;
+  const forLines = whoIsItFor({ tagline: listing?.tagline, cardLine: card.cardLine, howItWorks: start?.start?.how_it_works, genre: card.genreName, theme: card.themeName, minutes });
+
+  // Item 2.6: up to six titles on the same Theme, by the same author or of the same length.
+  // The pool is listLibrary, so the first-unit rule applies. A read that fails leaves the section out.
+  let related: Awaited<ReturnType<typeof listLibrary>> = [];
+  try {
+    const [pool, themeRows] = await Promise.all([listLibrary({}), listThemes()]);
+    related = maskHiddenThemes(relatedTitles(card, pool), hiddenThemeIds(themeRows, pool));
+  } catch (err) {
+    console.error("related_titles_failed", err instanceof Error ? err.message : "");
+  }
 
   return (
     <main className="wb-page">
       <header className="wb-hero">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
-            <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/library">{t("nav.library")}</Link>
+            <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("nav.explore")}</Link>
           </nav>
           <div className="wb-card-top">
             <span className={`badge${card.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[card.badge]}</span>
@@ -76,55 +131,54 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
             <span className="chip">{card.genreName}</span>
           </div>
           <h1>{card.title}</h1>
-          {card.authorRefs?.length ? (
-            <p className="wb-author">
-              {card.authorRefs.map((a, i) => (
-                <span key={a.slug}>
-                  {i > 0 ? ", " : null}
-                  <Link className="author-link" href={`/authors/${a.slug}`}>
-                    {a.name}
-                  </Link>
-                </span>
-              ))}
-            </p>
-          ) : card.authors.length ? (
-            <p className="wb-author">{card.authors.join(", ")}</p>
-          ) : null}
           <p className="wb-line">{card.cardLine}</p>
+          {freeLabel ? <p className="wb-free">{freeLabel}</p> : null}
           <p className="muted small">{card.code}</p>
           {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
             <p className="small pd-link">
               <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
             </p>
           ) : null}
-          <div className="wb-actions">
-            {canOpen ? (
-              <Link className="btn" href={openHref}>
-                Open {unit.toLowerCase()} 1 free
-              </Link>
-            ) : (
-              <span className="btn secondary is-disabled" aria-disabled="true">
-                {t("library.outlineOnly")}
-              </span>
-            )}
-            <button type="button" className="btn secondary" disabled aria-describedby="coming-soon">
-              Buy
-            </button>
-            <button type="button" className="btn secondary" disabled aria-describedby="coming-soon">
-              Membership
-            </button>
-            {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
-          </div>
-          <p id="coming-soon" className="muted small">
-            Buying and membership are coming soon.
-          </p>
+          {wellbeing ? (
+            <div className="wb-actions">
+              <HelpNowButton label={t("help.now")} />
+            </div>
+          ) : null}
         </div>
       </header>
 
       <div className="wrap wb-body">
         {card.isDemo ? <p className="demo-note">{t("badge.demoNote")}</p> : null}
 
-        <section className="wb-facts" aria-label="About this workbook">
+        <section className="wb-section" aria-labelledby="wb-do">
+          <h2 id="wb-do">What you will do</h2>
+          {outline.length ? (
+            <ol className="wb-outline">
+              {outline.map((u) => (
+                <li key={u.number}>
+                  <span className="wb-outline-n">
+                    {unit} {u.number}
+                  </span>
+                  <span>{u.focus}</span>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p>{card.cardLine}</p>
+          )}
+        </section>
+
+        <section className="wb-section" aria-labelledby="wb-for">
+          <h2 id="wb-for">Who this is for</h2>
+          <ul className="wb-for">
+            {forLines.map((line, i) => (
+              <li key={i}>{line}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="wb-facts" aria-labelledby="wb-long">
+          <h2 id="wb-long">How long it takes</h2>
           <dl>
             {structure?.count ? (
               <div>
@@ -154,50 +208,59 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
                 </dd>
               </div>
             ) : null}
-            {detail.bookTitle ? (
-              <div>
-                <dt>Based on</dt>
-                <dd>{detail.bookTitle}</dd>
-              </div>
-            ) : null}
           </dl>
         </section>
 
-        {listing?.tagline || start?.start?.welcome ? (
-          <section className="wb-section">
-            <h2>Who it is for</h2>
-            {listing?.tagline ? <p className="wb-tagline">{listing.tagline}</p> : null}
-            {start?.start?.welcome ? <p>{start.start.welcome}</p> : null}
-            {start?.start?.how_it_works?.length ? (
-              <ul>
-                {start.start.how_it_works.map((line, i) => (
-                  <li key={i}>{line}</li>
-                ))}
-              </ul>
-            ) : null}
+        {sample ? (
+          <section className="wb-section" aria-labelledby="wb-try">
+            <h2 id="wb-try">Try one now</h2>
+            <p className="muted">This is the first exercise. Take a minute with it, or skip it.</p>
+            <SampleExercise slug={card.slug} exercise={sample.exercise} toolkitTitles={sample.toolkitTitles} />
           </section>
         ) : null}
 
-        {outline.length ? (
-          <section className="wb-section">
-            <h2>{unit} by {unit.toLowerCase()}</h2>
-            <ol className="wb-outline">
-              {outline.map((u) => (
-                <li key={u.number}>
-                  <span className="wb-outline-n">
-                    {unit} {u.number}
-                  </span>
-                  <span>{u.focus}</span>
-                </li>
+        <section className="wb-section wb-certificate" aria-label="Where you finish">
+          <p>You will finish with a certificate in your name, private unless you share it.</p>
+        </section>
+
+        <section className="wb-section wb-by" aria-labelledby="wb-author">
+          <h2 id="wb-author">The author</h2>
+          {card.authorRefs?.length ? (
+            <p>
+              {card.authorRefs.map((a, i) => (
+                <span key={a.slug}>
+                  {i > 0 ? ", " : null}
+                  <Link className="author-link" href={`/authors/${a.slug}`}>
+                    {a.name}
+                  </Link>
+                </span>
               ))}
-            </ol>
-          </section>
-        ) : (
-          <section className="wb-section">
-            <h2>Outline</h2>
-            <p className="muted">The {unit.toLowerCase()} by {unit.toLowerCase()} outline is being written. The card line above says what the workbook covers.</p>
-          </section>
-        )}
+            </p>
+          ) : card.authors.length ? (
+            <p>{card.authors.join(", ")}</p>
+          ) : (
+            <p className="muted">{brand.name}</p>
+          )}
+          {detail.bookTitle ? <p className="muted">Based on {detail.bookTitle}.</p> : null}
+        </section>
+
+        <section className="wb-section" id="buy" aria-label="Get this workbook">
+          {promoNote ? (
+            <p className="small wb-promo" role="status">
+              {promoNote}
+            </p>
+          ) : null}
+          <PublicBuy
+            slug={card.slug}
+            state={offer.state}
+            signedIn={Boolean(session)}
+            returnTo={returnTo}
+            start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
+            outlineOnlyLabel={card.isDemo ? t("library.sampleNotWritten") : t("library.outlineOnly")}
+            code={paidLines ? code : null}
+            paidLines={paidLines}
+          />
+        </section>
 
         {detail.bookTitle ? (
           <section className="wb-section">
@@ -209,6 +272,18 @@ export default async function WorkbookPage({ params }: { params: Promise<Params>
             <span className="btn secondary is-disabled" aria-disabled="true">
               Buy the book (coming soon)
             </span>
+          </section>
+        ) : null}
+
+        {related.length ? (
+          <section className="wb-section related-titles" aria-labelledby="related-heading">
+            <h2 id="related-heading">{t("related.heading")}</h2>
+            <p className="muted small">{t("related.line")}</p>
+            <div className="grid wb-grid">
+              {related.map((c) => (
+                <WorkbookCard key={c.id} card={c} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
+              ))}
+            </div>
           </section>
         ) : null}
 

@@ -3,6 +3,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { readdirSync } from "node:fs";
 import path from "node:path";
 import { LEGAL_SLUGS } from "../lib/legal-docs";
+import { discoverDataPages } from "./helpers";
 
 /**
  * Automated accessibility sweep (F-144). axe with the WCAG 2.0, 2.1 and 2.2
@@ -37,7 +38,10 @@ const STATIC_PAGES: string[] = [
   "/help",
   ...listCodes("help", ".md").map((t) => `/help/${t}`),
   "/trust",
+  "/accessibility",
   "/pricing",
+  "/start",
+  "/code",
   "/white-label",
   "/organisations",
   "/publish",
@@ -57,7 +61,14 @@ const STATIC_PAGES: string[] = [
 ];
 
 /** Pages that need catalogue data. Remote only. */
-const DATA_PAGES: string[] = ["/themes", "/authors"];
+const DATA_PAGES: string[] = ["/themes", "/authors", "/explore"];
+
+/**
+ * The reader screens built from fixtures (app/dev/screens) and the player
+ * preview. They are open only outside production, so they run against a dev
+ * server: E2E_DEV=1 E2E_BASE_URL=http://localhost:3101 pnpm e2e e2e/a11y.spec.ts
+ */
+const DEV_PAGES: string[] = ["/dev/kit", "/dev/screens/today", "/dev/screens/explore", "/dev/screens/workbook", "/dev/player"];
 
 const VARIANTS = [
   { name: "light, phone", colorScheme: "light", viewport: { width: 320, height: 640 } },
@@ -109,8 +120,19 @@ for (const variant of VARIANTS) {
       });
     }
 
+    test.describe("reader screens from fixtures", () => {
+      test.skip(!process.env.E2E_DEV, "needs a dev server (E2E_DEV=1)");
+      for (const route of DEV_PAGES) {
+        test(`${route} has no serious or critical violations`, async ({ page }) => {
+          await page.goto(route);
+          await page.addStyleTag({ content: "nextjs-portal{display:none!important}" });
+          expect(await blockingViolations(page, ["nextjs-portal"]), `axe violations on ${route}`).toEqual([]);
+        });
+      }
+    });
+
     test.describe("with catalogue data", () => {
-      test.skip(!process.env.E2E_BASE_URL, "needs a deployed site with catalogue data");
+      test.skip(!process.env.E2E_BASE_URL || !!process.env.E2E_DEV, "needs a deployed site with catalogue data");
 
       for (const route of DATA_PAGES) {
         test(`${route} has no serious or critical violations`, async ({ page }) => {
@@ -118,6 +140,17 @@ for (const variant of VARIANTS) {
           expect(await blockingViolations(page, KNOWN_DEFECTS[route]), `axe violations on ${route}`).toEqual([]);
         });
       }
+
+      test("a shelf, a live title and a try-it title have no serious or critical violations", async ({ page }) => {
+        const found = await discoverDataPages(page);
+        test.skip(!found.shelf && !found.workbook, "no shelf or title is live on this site");
+        for (const route of [found.shelf, found.workbook, found.tryTitle]) {
+          if (!route) continue;
+          await page.goto(route);
+          expect(await blockingViolations(page), `axe violations on ${route}`).toEqual([]);
+          expect(await structureViolations(page), `structure on ${route}`).toEqual([]);
+        }
+      });
 
       test("a Theme page, an author page and a workbook page have no serious or critical violations", async ({ page }) => {
         // E2E_WORKBOOK_SLUG names a workbook to check; otherwise the first

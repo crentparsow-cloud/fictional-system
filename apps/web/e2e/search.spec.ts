@@ -86,8 +86,17 @@ test("the query never leaves the device", async ({ page }) => {
   await input.press("Enter");
   await page.waitForTimeout(800);
 
-  // No request while typing or on Enter: no fetch, no prefetch, no navigation.
-  expect(seen.map((r) => `${r.resourceType()} ${r.url()}`)).toEqual([]);
+  // Typing and Enter send nothing. The site header links to /explore, and
+  // Next.js may prefetch that link in the background (an RSC fetch of a fixed
+  // path with no query), so those are set aside. Everything else, and anything
+  // that carries a trace of the query, fails the test.
+  const urls = seen.map((r) => `${r.resourceType()} ${r.url()}`);
+  const isLinkPrefetch = (r: Request) => {
+    const u = new URL(r.url());
+    return r.resourceType() === "fetch" && u.searchParams.has("_rsc") && [...u.searchParams.keys()].join() === "_rsc" && ["/explore", "/start", "/pricing"].includes(u.pathname);
+  };
+  expect(seen.filter((r) => !isLinkPrefetch(r)).map((r) => `${r.resourceType()} ${r.url()}`)).toEqual([]);
+  expect(urls.filter((u) => /kill|myself|search|q=/i.test(u))).toEqual([]);
   // And the address bar never carries the query.
   expect(new URL(page.url()).search).toBe("");
 });

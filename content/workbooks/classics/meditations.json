@@ -1,0 +1,2052 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-FN9KB",
+  "slug": "meditations-fn9kb",
+  "title": "Meditations",
+  "short_title": "Meditations",
+  "card_line": "Read one book of the Meditations a week and keep a daily reflection.",
+  "end_state": "You will have read the Meditations, one book a week for twelve weeks, in George Long's 1862 translation, lightly modernised. Each week brings a short account of the book, key ideas with examples, and two exercises for your own notebook. By the end you will have a reflection written for each book and a short page of the ideas you chose to keep. Akana wrote the guides and exercises. The words of Marcus Aurelius are his, as Long translated them.",
+  "who_for": [
+    "Readers who want to take their time with a classic",
+    "Anyone curious about Stoic ideas in plain language",
+    "People who like to think with a notebook"
+  ],
+  "letters": [
+    {
+      "id": "welcome",
+      "kind": "welcome",
+      "from": "akana",
+      "title": "A note from Akana about Marcus Aurelius",
+      "body": "{first_name}, welcome. This note is from Akana, about Marcus Aurelius. The Meditations are private notes written by a Roman emperor nearly two thousand years ago. Akana has written the guides and exercises. His words are quoted as George Long translated them.",
+      "signed": "Akana"
+    },
+    {
+      "id": "week_3",
+      "kind": "unit",
+      "at_unit": 3,
+      "from": "akana",
+      "title": "A note from Akana, week 3",
+      "body": "{first_name}, you are three books in. The emperor wrote these notes for himself, and they repeat and return to the same themes. Read them slowly. Akana suggests choosing one line each week to carry through your days.",
+      "signed": "Akana"
+    },
+    {
+      "id": "week_6",
+      "kind": "unit",
+      "at_unit": 6,
+      "from": "akana",
+      "title": "A note from Akana, week 6",
+      "body": "{first_name}, you are halfway. Look back at your notebook. Which ideas have stayed with you, and which have faded? Both answers are useful.",
+      "signed": "Akana"
+    },
+    {
+      "id": "week_9",
+      "kind": "unit",
+      "at_unit": 9,
+      "from": "akana",
+      "title": "A note from Akana, week 9",
+      "body": "{first_name}, the later books are harder and darker in places. Akana asks you to read them at your own pace. Skip a passage if you wish, and return another day.",
+      "signed": "Akana"
+    },
+    {
+      "id": "week_12",
+      "kind": "unit",
+      "at_unit": 12,
+      "from": "akana",
+      "title": "A note from Akana, week 12",
+      "body": "{first_name}, this is the last week. Akana hopes you now have a notebook of your own reflections and a short page of the ideas you chose to keep. The book is the emperor's. The page is yours.",
+      "signed": "Akana"
+    }
+  ],
+  "book": {
+    "book_id": "meditations",
+    "title": "Meditations",
+    "subtitle": "The Thoughts of Marcus Aurelius Antoninus, in George Long's translation",
+    "year": 1862
+  },
+  "author": {
+    "author_id": "AU-M0SAD",
+    "display_name": "Marcus Aurelius"
+  },
+  "genre": "personal_development",
+  "theme_id": "wisdom-for-living",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "public_domain",
+  "licence_ref": "public-domain:/public-domain/AK-FN9KB",
+  "status": "in_review",
+  "safety_tier": "none",
+  "structure": {
+    "unit": "week",
+    "count": 12,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "ground",
+        "number": 1,
+        "name": "Ground",
+        "units": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "primer": {
+          "title": "Where the book begins",
+          "body": "Marcus wrote these notes for himself, not for readers. Book 1 lists the people who taught him how to live. Books 2 to 4 turn to the day ahead, to attention, and to the place he retires to in his own mind. The first four weeks follow that lead. You name what you were given, set up a morning reminder, check where your attention goes and choose a few short principles."
+        },
+        "outcome": "A clear account of what shaped you, and a few short principles to return to."
+      },
+      {
+        "id": "practise",
+        "number": 2,
+        "name": "Practise",
+        "units": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "primer": {
+          "title": "Work and other people",
+          "body": "Books 5 to 8 are about work and other people. Marcus asks what a human being is for, how to meet those who wrong him, and what is in his power. His entries become shorter and more practical. You name your work and plan how to meet someone hard. You sort a worry into what is yours to act on, and you separate facts from what you add."
+        },
+        "outcome": "A plan for your work and for one hard relationship, based on what is yours to act on."
+      },
+      {
+        "id": "hold",
+        "number": 3,
+        "name": "Hold",
+        "units": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "primer": {
+          "title": "Change and character",
+          "body": "Books 9 to 12 return to change and to the things you cannot keep. Marcus works at the same habit throughout: look at the plain facts, act well, and expect little from praise. You look back at a change you came through and choose words for your character. You pick a reminder for hard conversations and write rules to live by."
+        },
+        "outcome": "A short set of values and rules that you can keep using after week 12."
+      }
+    ]
+  },
+  "start": {
+    "welcome": "This workbook walks through the Meditations one book a week, for twelve weeks. Each week takes about fifteen minutes. You read a short account of the book, then answer a small number of questions in your own words. The text is George Long's translation of 1862, with a few old spellings updated. Week 1 is free. No card is needed.",
+    "how_it_works": [
+      "Read the week's key ideas. Each one is a sentence you can agree or disagree with.",
+      "Answer one question for each exercise. A line is enough.",
+      "Long's English uses thou and thee. Where it sounds strange, read it as you.",
+      "Your answers build a plan you can read at the end."
+    ],
+    "why_prompt": "What made you pick up a book written eighteen centuries ago? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "ground",
+      "focus": "Marcus begins by naming everyone who taught him how to live",
+      "exercise_ids": [
+        "b1_debts",
+        "b1_carry"
+      ],
+      "intro": "Book 1 is a list of thanks. Before Marcus writes any philosophy, he sets down what he owes and to whom. The book ends with a note placing it among the Quadi, where he was on campaign. This week you make a list of your own, then choose one lesson from it to use.",
+      "ideas": [
+        {
+          "heading": "A good life starts as a list of debts.",
+          "body": "Marcus does not open with a rule. He opens with names, each followed by one thing he took from that person. A name and a gift are easier to remember than a general principle. Seventeen sections do this work. Naming a debt also makes it harder to believe you did everything alone.",
+          "example": "Marcus takes two things from his grandfather Verus. Book 1, section 1: \"good morals and the government of my temper\""
+        },
+        {
+          "heading": "The lessons that last are small and specific.",
+          "body": "Marcus rarely writes that he learned to be good. He writes that he learned to do one thing, and each of those things can be done tomorrow. A lesson you can do is a lesson you can check. When a lesson is that concrete, you can tell on any day whether you used it.",
+          "example": "Rusticus gave him a reading habit. Book 1, section 7: \"to read carefully, and not to be satisfied with a superficial understanding of a book\""
+        },
+        {
+          "heading": "Some of your best teachers showed you what to leave undone.",
+          "body": "Many entries in Book 1 are refusals. Marcus learned not to take sides at the games, not to meddle, and not to listen to slander. Learning what to leave alone saves as much effort as learning what to do.",
+          "example": "His tutor taught him to leave things alone. Book 1, section 5: \"and not to meddle with other people's affairs, and not to be ready to listen to slander\""
+        },
+        {
+          "heading": "You can learn how to correct people from the way you were corrected.",
+          "body": "Alexander the grammarian heard people use the wrong word. He did not scold them. He used the right word in his reply and went on with the subject. Marcus records this as a skill worth having. The speaker is corrected without being shamed, and the conversation carries on.",
+          "example": "Marcus thanks Alexander for a restraint. Book 1, section 10: \"to refrain from fault-finding\""
+        },
+        {
+          "heading": "Watching a person closely can teach you more than hearing them.",
+          "body": "In sections 15 and 16 Marcus describes Maximus and his adoptive father by what he saw them do. He writes that he observed it. The details are ordinary: how they handled a hurry, a delay, a flatterer.",
+          "example": "Marcus describes Maximus. Book 1, section 15: \"he never showed amazement and surprise, and was never in a hurry, and never put off doing a thing\""
+        },
+        {
+          "heading": "A teacher can be owed thanks even when you were often cross with them.",
+          "body": "Marcus lists Rusticus among the people he is grateful to, and in the last section admits he was often out of temper with him. Gratitude here does not depend on liking someone. It depends on what you were given.",
+          "example": "He says so in the closing section. Book 1, section 17: \"though I was often out of humor with Rusticus, I never did anything of which I had occasion to repent\""
+        },
+        {
+          "heading": "Gratitude can sit beside an honest account of your own faults.",
+          "body": "Section 17 thanks the gods for nearly everything good in Marcus's life. It also says he has not lived up to it. He keeps both statements in one paragraph, and neither cancels the other. He does not use his faults to cancel the thanks, or the thanks to hide his faults.",
+          "example": "He admits where he falls short. Book 1, section 17: \"I still fall short of it through my own fault\""
+        },
+        {
+          "heading": "A person can enjoy comforts and do without them with equal ease.",
+          "body": "Marcus describes his adoptive father's way with comforts. Where fortune supplied plenty, he used it without arrogance and without apology. When it did not, he did not miss it. Marcus lists this beside kindness and firmness as something to learn. It is a lesson about wanting little, and it is as useful in a lean month as in a rich one.",
+          "example": "He describes his adoptive father. Book 1, section 16: \"when he had them, he enjoyed them without affectation, and when he had them not, he did not want them\""
+        }
+      ],
+      "takeaway": "Three people are named, each with one thing you still use, and one of those lessons has a place in your week."
+    },
+    {
+      "number": 2,
+      "stage": "ground",
+      "focus": "Marcus starts each day by expecting the people who will make it hard",
+      "exercise_ids": [
+        "b2_morning",
+        "b2_putoff"
+      ],
+      "intro": "Book 2 opens with a morning reminder. Marcus tells himself that he will meet the busybody, the ungrateful and the arrogant, and he decides how to meet them before the day begins. Later sections ask what he has been putting off. This week you write a reminder of your own.",
+      "ideas": [
+        {
+          "heading": "Prepare for difficult people before you meet them.",
+          "body": "Marcus lists the types he expects: the busybody, the ungrateful, the arrogant, the deceitful, the envious. The list is about kinds of behaviour, not named individuals. Expecting the behaviour removes the surprise, and the surprise is often what throws a person off.",
+          "example": "The book opens with the reminder. Book 2, section 1: \"Begin the morning by saying to thyself, I shall meet with the busybody, the ungrateful, arrogant, deceitful, envious, unsocial.\""
+        },
+        {
+          "heading": "People behave badly because they do not know better.",
+          "body": "Marcus gives a reason for each of them and does not give a verdict. The reason is that they do not know what is good and what is bad. That makes the other person someone to understand, and it leaves less room for hatred.",
+          "example": "He puts the cause in one line. Book 2, section 1: \"All these things happen to them by reason of their ignorance of what is good and evil.\""
+        },
+        {
+          "heading": "Other people are your kin, so turning against them is turning against yourself.",
+          "body": "Marcus says people are made to work together, as hands and eyelids do. He concludes that being vexed with someone, or turning away from them, goes against that design. He says plainly that he cannot be angry with his kinsman.",
+          "example": "His picture of co-operation is physical. Book 2, section 1: \"we are made for co-operation, like feet, like hands, like eyelids, like the rows of the upper and lower teeth\""
+        },
+        {
+          "heading": "Time is a limit, and it helps only if you use it.",
+          "body": "In section 4 Marcus asks himself how long he has been putting things off. He notes how often he has been given a chance and not used it. A limit of time is fixed, he writes. If he does not use it to clear the clouds from his mind, it goes and does not come back.",
+          "example": "The warning is blunt. Book 2, section 4: \"it will go and thou wilt go, and it will never return\""
+        },
+        {
+          "heading": "Doing each act as if it were the last drops the carelessness.",
+          "body": "Marcus is not being gloomy. He gives a working instruction: do what is in hand with full attention. He lists what falls away when you do, including carelessness, hypocrisy and self-love. Each of these wastes the act in hand.",
+          "example": "His wording is exact. Book 2, section 5: \"doest every act of thy life as if it were the last, laying aside all carelessness\""
+        },
+        {
+          "heading": "Watching your own mind matters more than watching other people's.",
+          "body": "Marcus sets two kinds of attention side by side. A person can get by without knowing what is in another mind. A person who does not watch their own mind has no such luck. This sets up the work of Book 3.",
+          "example": "Marcus states it flatly. Book 2, section 8: \"those who do not observe the movements of their own minds must of necessity be unhappy\""
+        },
+        {
+          "heading": "When events pull at you, set aside time to learn one good thing.",
+          "body": "Marcus offers a practical move for days when outside things distract you. Give yourself time to learn something new and good. He adds a warning about the opposite fault: being so busy that none of your activity has an aim.",
+          "example": "The advice comes in two parts. Book 2, section 7: \"Give thyself time to learn something new and good, and cease to be whirled around.\""
+        },
+        {
+          "heading": "Marcus says anger does violence first to the angry person's own mind.",
+          "body": "In section 16 Marcus lists the ways a mind does violence to itself. The first is being vexed at what happens. The second is turning against another person, as the angry do. Others include being overpowered by pleasure or pain, acting a part, and doing things without an aim. The list works as a set of habits to watch for.",
+          "example": "The second item on the list concerns anger. Book 2, section 16: \"the soul does violence to itself when it turns away from any man\""
+        },
+        {
+          "heading": "You can only lose the present, so the present is what you have.",
+          "body": "Marcus argues that the longest life and the shortest are brought to the same by this fact: each person loses only the present. A person cannot lose the past or the future, because he does not have them. If the present is all that you have, it is the only thing worth guarding.",
+          "example": "The argument ends in a plain statement. Book 2, section 14: \"the present is the only thing of which a man can be deprived\""
+        }
+      ],
+      "takeaway": "You have a reminder for the day's hardest meeting, and one postponed task has a first step."
+    },
+    {
+      "number": 3,
+      "stage": "ground",
+      "focus": "Marcus checks what is in his mind and asks if he could say it aloud",
+      "exercise_ids": [
+        "b3_aloud",
+        "b3_plain"
+      ],
+      "intro": "Book 3 is about attention. Marcus warns himself against spending thought on what other people are doing. He offers a test: if someone asked what was in your mind, could you answer them openly? This week you run that test and learn to describe a problem in plain words.",
+      "ideas": [
+        {
+          "heading": "Thoughts about what others are doing take time from your own work.",
+          "body": "Marcus tells himself not to waste what is left of his life on thoughts about other people unless they serve some common good. He lists the kind of thoughts he means. They are questions about what someone else is doing, saying and planning.",
+          "example": "He writes the questions out. Book 3, section 4: \"What is such a person doing, and why, and what is he saying\""
+        },
+        {
+          "heading": "A thought passes the test if you could say it aloud.",
+          "body": "Marcus wants thoughts so open that you could answer at once if someone asked what was in your mind. A thought you would blush to say is the one to look at. He adds that the thoughts should be simple and kindly, as befits a person living among others.",
+          "example": "The test is a sudden question. Book 3, section 4: \"if one should suddenly ask, What hast thou now in thy thoughts? with perfect openness thou mightest immediately answer, This or That\""
+        },
+        {
+          "heading": "Describe a thing in plain words before you judge it.",
+          "body": "Marcus gives himself an exercise for anything that upsets him. Write a description of what it is, what it is made of, and how long it will last. Then name the quality you need in reply, such as gentleness or truth.",
+          "example": "He lists the qualities to reach for. Book 3, section 11: \"what virtue I have need of with respect to it, such as gentleness, manliness, truth, fidelity, simplicity, contentment, and the rest\""
+        },
+        {
+          "heading": "Ordinary things have a plain beauty if you look again.",
+          "body": "In section 2 Marcus looks at baking bread. The crust splits in ways the baker did not plan, and the split makes the loaf more tempting. He moves on to ripe figs and ripe olives. The skill is looking a second time, not changing the thing.",
+          "example": "Ripe olives are his last example. Book 3, section 2: \"in the ripe olives the very circumstance of their being near to rottenness adds a peculiar beauty to the fruit\""
+        },
+        {
+          "heading": "Stand on your own legs and do not wait for others to hold you up.",
+          "body": "Marcus tells himself to work without distraction and without needless words. He adds that he should not look for outside help or for the quiet that others can give. Help from others is welcome, but your steadiness should not depend on it. Accept support, and still check that your footing is your own.",
+          "example": "The closing line of section 5 is short. Book 3, section 5: \"A man then must stand erect, not be kept erect by others.\""
+        },
+        {
+          "heading": "Decide what you value above praise, power and pleasure.",
+          "body": "Marcus asks whether anything in life is better than justice, truth, temperance and courage. If nothing is, he says, let nothing else compete with them. He names the rivals he has in mind.",
+          "example": "These are the competitors he lists. Book 3, section 6: \"such as praise from the many, or power, or enjoyment of pleasure\""
+        },
+        {
+          "heading": "Keep your principles ready the way a doctor keeps instruments ready.",
+          "body": "A doctor does not go looking for the knife when the emergency arrives. Marcus asks you to hold your principles the same way, in advance and close to hand. Short ones are easier to reach.",
+          "example": "His comparison is with a physician. Book 3, section 13: \"As physicians have always their instruments and knives ready for cases which suddenly require their skill\""
+        },
+        {
+          "heading": "Come to your own aid while it is still in your power.",
+          "body": "Marcus scolds himself for saving the reading and the memoirs for his old age. His answer is to stop wandering, name the end he is heading for, and help himself now. The exercises this week are a small version of that: choose a thing and do it.",
+          "example": "The advice is addressed to himself. Book 3, section 14: \"come to thy own aid, if thou carest at all for thyself, while it is in thy power\""
+        }
+      ],
+      "takeaway": "You know what was in your mind and whether you could say it aloud, and one problem is described in plain words."
+    },
+    {
+      "number": 4,
+      "stage": "ground",
+      "focus": "Book 4 offers a place to retire to that you already carry with you",
+      "exercise_ids": [
+        "b4_principles",
+        "b4_unnecessary"
+      ],
+      "intro": "Book 4 begins with people who plan escapes to the country, the shore or the hills. Marcus says you can retire into your own mind at any time, and he lists the short principles to take there. The book also asks what is necessary and what is not. This week you choose your principles and drop one unnecessary thing.",
+      "ideas": [
+        {
+          "heading": "You do not need a holiday home to find somewhere to retire to.",
+          "body": "Marcus calls the wish for a retreat common. People look for houses in the country and by the sea, and he says you have always been able to do better. Nowhere is quieter than your own mind, if what you hold there is in order.",
+          "example": "He starts with the usual escapes. Book 4, section 3: \"Men seek retreats for themselves, houses in the country, sea-shores, and mountains\""
+        },
+        {
+          "heading": "Keep your principles brief enough to recall on the spot.",
+          "body": "A retreat is only useful if you can reach it quickly. Marcus asks for a few short sentences and gives two of his own. The first is that outside things stay still and our upsets come from the view we take of them. The second is that everything you see is changing.",
+          "example": "He sets the standard for length. Book 4, section 3: \"let thy principles be brief and fundamental\""
+        },
+        {
+          "heading": "Marcus claims that the complaint goes when you take away your opinion.",
+          "body": "He puts it in two lines. Remove your opinion that you have been harmed and the complaint goes. Remove the complaint and the harm goes with it. He does not deny that events happen. He points at the part that depends on you.",
+          "example": "The first line sets it out. Book 4, section 7: \"Take away thy opinion, and then there is taken away the complaint\""
+        },
+        {
+          "heading": "Most of what you say and do is unnecessary, and cutting it gives you room.",
+          "body": "Marcus corrects the philosopher who says to occupy yourself with few things. He prefers a different rule: do what is necessary. Asking whether an act or thought is necessary is a simple filter. He says it brings more leisure and less uneasiness. Try the rule on one task today and see what is left.",
+          "example": "The question is short. Book 4, section 24: \"Is this one of the unnecessary things?\""
+        },
+        {
+          "heading": "Praise does not add to the worth of good work.",
+          "body": "Marcus asks about beautiful things. An emerald is not made worse by going unpraised, and law, truth and kindness are not spoiled by blame. If your work is good, its worth does not wait on applause.",
+          "example": "His test case is a gem. Book 4, section 20: \"Is such a thing as an emerald made worse than it was, if it is not praised?\""
+        },
+        {
+          "heading": "Fame fades quickly, so aim your effort at what you can control.",
+          "body": "Marcus names people who were famous once: Camillus, Scipio, Cato, Augustus. Each name has faded a little more than the last. He asks what deserves serious effort and answers in one line. Fame also needs other people to keep remembering, and they will die too.",
+          "example": "His answer lists three things. Book 4, section 33: \"thoughts just, and acts social, and words which never lie\""
+        },
+        {
+          "heading": "Stand like a headland against the waves.",
+          "body": "Marcus pictures a promontory that waves break against while it stays put. A hard event can be seen as one more wave. He asks whether it stops you from being just, modest and free. If it does not, what matters is still in your hands.",
+          "example": "He gives the picture in one sentence. Book 4, section 49: \"Be like the promontory against which the waves continually break, but it stands firm\""
+        },
+        {
+          "heading": "Love the craft you have, however small it is.",
+          "body": "Marcus tells himself to love the art he has learned and to be content with it. He pairs this with a stance towards other people: be neither the tyrant nor the slave of anyone. A modest skill held without envy gives a person firm ground to stand on.",
+          "example": "The advice comes in section 31. Book 4, section 31: \"Love the art, poor as it may be, which thou hast learned, and be content with it\""
+        },
+        {
+          "heading": "Time carries each event away as soon as it has been seen.",
+          "body": "Marcus pictures time as a river made of events. A thing is seen, and it is carried off. Another comes in its place and is carried off too. The picture is a reason to act while an event is in front of you and not to hold on to it afterwards.",
+          "example": "His picture is a stream. Book 4, section 43: \"Time is like a river made up of the events which happen, and a violent stream\""
+        }
+      ],
+      "takeaway": "You have two short principles to return to, and one unnecessary thing has been dropped or made smaller."
+    },
+    {
+      "number": 5,
+      "stage": "practise",
+      "focus": "Marcus gets out of bed because there is human work to do",
+      "exercise_ids": [
+        "b5_work",
+        "b5_qualities"
+      ],
+      "intro": "Book 5 opens in the early morning, when Marcus does not want to get up. He answers himself with a question about what a human being is for. The rest of the book looks at work, at the qualities he can show, and at what to do with whatever stands in his way. This week you name your work and choose qualities to show.",
+      "ideas": [
+        {
+          "heading": "Reluctance to get up deserves an honest answer, not a lecture.",
+          "body": "Marcus does not pretend to feel keen. He admits that the bed is warm and pleasant. Then he asks whether he was made to stay there. He answers the feeling with a reason and gets up. He allows himself the reluctance and answers it anyway.",
+          "example": "His first reply is short. Book 5, section 1: \"I am rising to the work of a human being.\""
+        },
+        {
+          "heading": "Plants, birds and bees do their part without being asked, and so can you.",
+          "body": "Marcus looks around and sees small creatures doing the work that is theirs. He asks why he should be less willing to do the work of a human being. The comparison is blunt, and he applies it to himself first.",
+          "example": "He lists the workers. Book 5, section 1: \"Dost thou not see the little plants, the little birds, the ants, the spiders, the bees working together\""
+        },
+        {
+          "heading": "Some qualities are in your power whatever your talents.",
+          "body": "Marcus imagines being told that he is not quick. He replies with a list of qualities that need no special gift. They are plain to name and open to anyone today. He says that staying below the mark is a choice. Staying below the mark is, he says, a choice that has been made voluntarily.",
+          "example": "The list is a working one. Book 5, section 5: \"contentment with thy portion and with few things, benevolence, frankness\""
+        },
+        {
+          "heading": "Do the good act and go on to the next, like a vine.",
+          "body": "Marcus describes three kinds of giver. The first expects credit. The second keeps a private account of who owes him. The third gives and moves on, like a vine that has made its grapes and wants nothing more. He leans towards the third.",
+          "example": "The third giver is compared to animals and plants. Book 5, section 6: \"does not call out for others to come and see, but he goes on to another act\""
+        },
+        {
+          "heading": "Go back to your principles without making a scene of it.",
+          "body": "Marcus expects to slip. He says to go back to your principles and not to take them as a harsh master. He compares it to ordinary care for sore eyes: a sponge, a plaster, some water. The aim is that most of what you do fits your nature, not all of it.",
+          "example": "His standard is modest. Book 5, section 9: \"be content if the greater part of what thou doest is consistent with man's nature\""
+        },
+        {
+          "heading": "Your habitual thoughts colour your mind, so choose them with care.",
+          "body": "Marcus uses a dyer's picture. Cloth takes the colour of the vat, and a mind takes the colour of what it thinks about most. So he suggests repeating a few useful thoughts until they stick.",
+          "example": "He puts it in a sentence. Book 5, section 16: \"Such as are thy habitual thoughts, such also will be the character of thy mind\""
+        },
+        {
+          "heading": "An obstacle can become the material for your next act.",
+          "body": "Marcus says that other people may block what you do, but they cannot block your attitude. The mind can turn a hindrance into help. What lies in the road becomes part of the road.",
+          "example": "He closes the section with this line. Book 5, section 20: \"the mind converts and changes every hindrance to its activity into an aid\""
+        },
+        {
+          "heading": "What another person does wrong is theirs to look after.",
+          "body": "Marcus gives himself a short answer for a wrong done to him. Let the other person look to it. He has his own disposition and his own activity. Meanwhile Marcus has what nature now gives him and does what his nature now asks. The attention returns to his next act.",
+          "example": "The answer is a question and a reply. Book 5, section 25: \"Does another do me wrong? Let him look to it.\""
+        }
+      ],
+      "takeaway": "You have named today's work, and three qualities have a place to show this week."
+    },
+    {
+      "number": 6,
+      "stage": "practise",
+      "focus": "Marcus decides that the best answer to a wrong is not to copy it",
+      "exercise_ids": [
+        "b6_seems",
+        "b6_answer"
+      ],
+      "intro": "Book 6 is full of other people: the angry, the flattering, the foolish. Marcus keeps asking what he owes them and what they cannot take from him. His answers are short and several are practical. This week you pick one person and plan an answer that does not copy their behaviour.",
+      "ideas": [
+        {
+          "heading": "The best answer to a wrong is not to become like the wrongdoer.",
+          "body": "Marcus makes revenge a test of character. If someone is rude and you become rude, they have set your behaviour. If you stay as you were, they have not changed you. Staying yourself is the whole of the reply.",
+          "example": "He puts it in one line. Book 6, section 6: \"The best way of avenging thyself is not to become like [the wrong-doer].\""
+        },
+        {
+          "heading": "People pursue what looks good to them, so teach them instead of resenting them.",
+          "body": "Marcus says it is cruel to stop people reaching for what seems suitable and useful to them. They do wrong because they take it to be right. He asks for teaching, not anger. The aim is to change the next act, not to win the argument.",
+          "example": "His instruction is short. Book 6, section 27: \"Teach them then, and show them without being angry.\""
+        },
+        {
+          "heading": "Take the knocks of daily life as you would in the gym.",
+          "body": "Marcus pictures a training partner who has scratched you or butted you. You do not hold it against him afterwards. You stay on your guard and step aside. He asks you to take the rest of life that way and to overlook a good deal in people who behave like opponents.",
+          "example": "The sporting picture is plain. Book 6, section 20: \"we quietly get out of his way\""
+        },
+        {
+          "heading": "Applause tells you little about whether you did the right thing.",
+          "body": "Marcus calls the praise of the many a clapping of tongues. He asks what is left to value once fame is set aside. His answer is to move yourself and to hold yourself back as your own nature requires. The crowd cannot judge that for you.",
+          "example": "He dismisses the crowd in a line. Book 6, section 16: \"the praise which comes from the many is a clapping of tongues\""
+        },
+        {
+          "heading": "Return to yourself quickly after you are thrown off.",
+          "body": "Marcus does not promise to stay undisturbed. He says to be disturbed only as long as the cause lasts, then return. He adds that you get better at the return by making it often. The exercise is short: notice, return, carry on.",
+          "example": "His advice is about timing. Book 6, section 11: \"quickly return to thyself, and do not continue out of tune longer than the compulsion lasts\""
+        },
+        {
+          "heading": "Strip the labels from impressive things and look at what they are.",
+          "body": "At a meal Marcus says that this is the dead body of a fish and that is a bird. He says the same of the robe and the wine. Plain words show what a thing is made of. He warns that show cheats you most when you are surest that something is worth the trouble.",
+          "example": "His examples are a drink and a robe. Book 6, section 13: \"this purple robe some sheep's wool dyed with the blood of a shell-fish\""
+        },
+        {
+          "heading": "The good qualities of the people around you are worth looking at.",
+          "body": "When Marcus wants to be pleased, he thinks of the virtues of the people he lives with. Nothing delights so much, he says, as examples of virtue in those close to us. So he keeps them in view.",
+          "example": "He lists one quality each for four people. Book 6, section 48: \"the activity of one, and the modesty of another, and the liberality of a third\""
+        },
+        {
+          "heading": "Being shown that you are wrong is a gain.",
+          "body": "Marcus is open to correction. He says he seeks the truth, and no one was ever harmed by it. The person who is harmed is the one who stays in his error. This sits beside his advice to teach others without anger, because he would want to be corrected in the same spirit.",
+          "example": "He says he will change gladly. Book 6, section 21: \"I will gladly change; for I seek the truth, by which no man was ever injured\""
+        }
+      ],
+      "takeaway": "One hard person is seen as someone reaching for what looks good to them, and you have an answer that does not copy them."
+    },
+    {
+      "number": 7,
+      "stage": "practise",
+      "focus": "Marcus keeps returning to the small part of any problem that is his",
+      "exercise_ids": [
+        "b7_sort",
+        "b7_have"
+      ],
+      "intro": "Book 7 is a notebook of short entries. One idea runs through them: what happens to you is outside, and the view you take of it is yours. Marcus also allows himself to accept help and to count what he has. This week you sort a current worry into what you can act on and what you cannot.",
+      "ideas": [
+        {
+          "heading": "A principle stays alive when you keep feeding it.",
+          "body": "Marcus says principles die only when the thoughts that feed them are allowed to go out. They can be kept alive by repeating them. He adds that he can hold whatever opinion he ought to hold about any matter.",
+          "example": "He uses the image of a fire. Book 7, section 2: \"it is in thy power continuously to fan these thoughts into a flame\""
+        },
+        {
+          "heading": "You are worth the things you give your time to.",
+          "body": "After a list of idle shows, herds and ants at work, Marcus says to keep good humour and not to put on airs. His measure of a person is the worth of what they busy themselves with. So ask what you are busy with, and whether it deserves the effort.",
+          "example": "The measure is stated plainly. Book 7, section 3: \"every man is worth just so much as the things are worth about which he busies himself\""
+        },
+        {
+          "heading": "Accepting help is part of doing your duty.",
+          "body": "Marcus pictures a soldier who is lame and cannot climb the wall alone. With another's help he can. The point is that the job matters more than doing it unaided. Asking is part of the work.",
+          "example": "He puts it in military terms. Book 7, section 7: \"Be not ashamed to be helped; for it is thy business to do thy duty like a soldier\""
+        },
+        {
+          "heading": "Your character does not have to change because someone else's did.",
+          "body": "Marcus pictures a gem that stays what it is whatever is said about it. Praise does not improve the emerald and blame does not spoil it. He applies the picture to himself: whatever others do or say, he must be good.",
+          "example": "He speaks as the gem would. Book 7, section 15: \"Whatever anyone does or says, I must be good\""
+        },
+        {
+          "heading": "Nothing useful happens without something changing.",
+          "body": "Marcus asks whether anyone is afraid of change. He points to the bath and the meal. Water is heated because wood is burned, and you are nourished because food is changed. If your own life changes, he adds, it is as needed as any of these.",
+          "example": "His examples are domestic. Book 7, section 18: \"canst thou take a bath unless the wood undergoes a change? and canst thou be nourished, unless the food undergoes a change?\""
+        },
+        {
+          "heading": "Count what you have before you count what you lack.",
+          "body": "Marcus asks for a simple selection. From what you already have, choose the best. Then imagine how eagerly you would have sought each of them if you did not have it. He adds a caution against overvaluing them.",
+          "example": "The instruction is at the start of the section. Book 7, section 27: \"Think not so much of what thou hast not as of what thou hast\""
+        },
+        {
+          "heading": "Ask what the person believed was good before you judge their act.",
+          "body": "Marcus gives a first question for any wrong done to you. What did this person think was good? Often it is something you also value, or something near to it. He says that if you see it, you will feel pity and not anger.",
+          "example": "He puts the question first. Book 7, section 26: \"immediately consider with what opinion about good or evil he has done wrong\""
+        },
+        {
+          "heading": "Living well is more like wrestling than dancing.",
+          "body": "A dancer works to a set pattern. A wrestler answers what the opponent does. Marcus says the art of life is of the second kind, because the blows are sudden and unexpected. So prepare to respond, not to repeat a routine.",
+          "example": "He makes the comparison in section 61. Book 7, section 61: \"The art of life is more like the wrestler's art than the dancer's\""
+        },
+        {
+          "heading": "Examine each thought before you let it settle.",
+          "body": "Marcus names three things that are in your power at any time and in any place. You can accept your present condition. You can behave justly to those around you. And you can test your thoughts before they settle. The third is a gatekeeper's job.",
+          "example": "The third task is the gatekeeper's. Book 7, section 54: \"to exert thy skill upon thy present thoughts, that nothing shall steal into them without being well examined\""
+        }
+      ],
+      "takeaway": "One worry is sorted into what is yours to act on and what is not, and you have named what you would miss."
+    },
+    {
+      "number": 8,
+      "stage": "practise",
+      "focus": "Marcus tests his first reaction against what has actually been reported",
+      "exercise_ids": [
+        "b8_first",
+        "b8_today"
+      ],
+      "intro": "Book 8 reads like a working notebook. Marcus catches himself adding to the facts, putting off the good he could do now, and complaining about hindrances. His fixes are short. This week you separate what happened from what you added, and choose one good act for today.",
+      "ideas": [
+        {
+          "heading": "Add nothing to the first report.",
+          "body": "Marcus gives a test case. You are told that someone speaks ill of you. That is the report, and it does not say that you have been injured. Stay with what was reported and add nothing yourself. The check takes a few seconds and can be done in the moment.",
+          "example": "He spells out the gap. Book 8, section 49: \"This has been reported; but that thou hast been injured, that has not been reported.\""
+        },
+        {
+          "heading": "Do the good thing today, not tomorrow.",
+          "body": "Marcus scolds himself for waiting to become better. The scolding is brief. His point is that a good act is available now, and starting tomorrow is a choice not to start. He does not say what the good act should be, because that depends on the person and the day.",
+          "example": "The line is blunt. Book 8, section 22: \"thou choosest rather to become good tomorrow than to be good today\""
+        },
+        {
+          "heading": "A hindrance sends your effort somewhere else rather than stopping it.",
+          "body": "Marcus knows that outside things block plans. He says nothing can stop you acting justly, soberly and with thought. If one action is blocked, accept that and move your effort to what is allowed.",
+          "example": "He promises a replacement. Book 8, section 32: \"another opportunity of action is immediately put before thee in place of that which was hindered\""
+        },
+        {
+          "heading": "Look at one thing at a time, not the whole of your life.",
+          "body": "Marcus warns against taking in every trouble you might meet. He asks you to look at one thing and ask what in it cannot be borne. He adds that neither the past nor the future is happening to you now.",
+          "example": "His question is narrow. Book 8, section 36: \"on every occasion ask thyself, What is there in this which is intolerable and past bearing?\""
+        },
+        {
+          "heading": "Speak to everyone in the same plain way.",
+          "body": "Marcus tells himself to speak in the senate and to anyone else in the same way, without affectation. The notebook itself is written like this. The entries are short and each gives a direct instruction. Plain speech leaves nothing for the listener to decode, and nothing for the speaker to hide behind.",
+          "example": "The instruction is four words. Book 8, section 30: \"use plain discourse\""
+        },
+        {
+          "heading": "Teach people or put up with them, because resentment does neither.",
+          "body": "Marcus sets out two options for other people's mistakes. You can teach them, or you can bear with them. Resentment is not on his list because it does not teach anyone and does not make the wait any easier.",
+          "example": "He puts the options in order. Book 8, section 59: \"Men exist for the sake of one another. Teach them then, or bear with them.\""
+        },
+        {
+          "heading": "Action is a better use of discontent than complaint.",
+          "body": "Marcus asks what lies behind a grievance. If it is that you are not doing something you think right, then do it. If an obstacle truly blocks you, he says not to grieve, because the cause is out of your hands.",
+          "example": "He asks the question of himself. Book 8, section 47: \"why dost thou not rather act than complain?\""
+        },
+        {
+          "heading": "Insults cannot foul a spring that keeps running.",
+          "body": "Marcus pictures a person cursing a clear spring. The spring goes on sending up water, and if clay is thrown in, it disperses and washes out. He asks how to keep a fountain and not a mere well. His answer is to form yourself hourly to freedom, contentment, simplicity and modesty.",
+          "example": "The picture is a spring. Book 8, section 51: \"the spring never ceases sending up potable water\""
+        },
+        {
+          "heading": "Ask before you act whether you will be glad of it afterwards.",
+          "body": "Marcus gives himself a short test before any act. How is this for me, and will I repent of it? He follows it with the reminder that a little time and he is gone, so the question is what the act is worth now. The test is cheap and quick.",
+          "example": "The test is two questions. Book 8, section 2: \"On the occasion of every act ask thyself, How is this with respect to me? Shall I repent of it?\""
+        }
+      ],
+      "takeaway": "You can tell the report from your additions, and one good act is set for today."
+    },
+    {
+      "number": 9,
+      "stage": "hold",
+      "focus": "Marcus counts change and other people's faults as ordinary facts",
+      "exercise_ids": [
+        "b9_changes",
+        "b9_expect"
+      ],
+      "intro": "Book 9 returns to change and to the people who let you down. Marcus tells himself that things change, that some people will always behave badly, and that a good turn needs no payment. This week you look at a change you have already come through and decide what to expect from a difficult person before you meet them.",
+      "ideas": [
+        {
+          "heading": "Leave another person's wrong where it was done.",
+          "body": "Marcus tells himself not to carry other people's wrongs around. He says that whoever acts unjustly acts unjustly to himself, so the harm is his own. Taking it home gives it a second life in your head. The wrong stays with the person who did it, and your part is to carry on with yours.",
+          "example": "His instruction is a duty. Book 9, section 20: \"It is thy duty to leave another man's wrongful act there where it is\""
+        },
+        {
+          "heading": "Do not ask the world for what cannot be.",
+          "body": "Marcus applies this to the shameless, the faithless and the knave. Some people like this must exist, so expecting them to be otherwise is asking for the impossible. He says that if you expect them, you meet each one with more kindness. The expectation is not approval of their conduct.",
+          "example": "The test is a short question. Book 9, section 42: \"Do not, then, require what is impossible.\""
+        },
+        {
+          "heading": "A good turn needs no payment, any more than the eye needs paying for seeing.",
+          "body": "Marcus asks why you would want to be paid for a kindness. Eyes see and feet walk without being rewarded. A person who is made for kindness has acted as such a person acts. The act is the whole of the reward.",
+          "example": "He compares it to two parts of the body. Book 9, section 42: \"just as if the eye demanded a recompense for seeing, or the feet for walking\""
+        },
+        {
+          "heading": "You have already come through many changes in your own life.",
+          "body": "Marcus asks you to look back over the stages of your life: child, youth, adult. Each one ended and the next began. He ties it to the people in Book 1 by naming his early households. Then he asks whether any of those changes was something to fear.",
+          "example": "He walks back through his own life. Book 9, section 21: \"Turn thy thoughts now to thy life under thy grandfather, then to thy life under thy mother\""
+        },
+        {
+          "heading": "Marcus calls loss another name for change, which you may or may not accept.",
+          "body": "He claims that loss is nothing else than change, and that nature delights in change. This is hard to hear when you have lost something that mattered. Read it as his position, one you can test against your own experience, not as a rule that settles your case.",
+          "example": "The sentence is flat. Book 9, section 35: \"Loss is nothing else than change.\""
+        },
+        {
+          "heading": "What disturbs you often lies in your own view of the thing.",
+          "body": "Marcus writes this entry as a report to himself at the end of a day. His claim is that the trouble he cast out was in his opinions, not in events. You can try it as a test on one problem and see what is left when the opinion is set aside.",
+          "example": "He reports it as a result. Book 9, section 13: \"for it was not outside, but within and in my opinions\""
+        },
+        {
+          "heading": "Be content when the smallest thing goes well.",
+          "body": "Marcus tells himself not to wait for an ideal republic or for anyone to notice. He asks for what the day requires, and he counts a small success as no small matter. This keeps effort going when large change is out of reach.",
+          "example": "The advice is modest. Book 9, section 29: \"be content if the smallest thing goes on well, and consider such an event to be no small matter\""
+        },
+        {
+          "heading": "Work without asking to be pitied or admired.",
+          "body": "Marcus tells himself to labour neither as one who is wretched nor as one who wants admiration. He directs his will to a single thing: to start moving and to hold himself back as the common good requires. The line helps on a day when a task feels either heavy or showy.",
+          "example": "The instruction comes in section 12. Book 9, section 12: \"Labor not as one who is wretched, nor yet as one who would be pitied or admired\""
+        }
+      ],
+      "takeaway": "One change you came through is on record, and you know what you will expect of someone difficult."
+    },
+    {
+      "number": 10,
+      "stage": "hold",
+      "focus": "Marcus tells himself to stop describing a good person and be one",
+      "exercise_ids": [
+        "b10_names",
+        "b10_act"
+      ],
+      "intro": "Book 10 is about character. Marcus asks his own soul whether it will ever be simple and content. He chooses a few names to deserve, and he tells himself to be a good person and to stop talking about one. This week you choose your words and do one thing you have only talked about.",
+      "ideas": [
+        {
+          "heading": "Choose a few words for your character and keep to them.",
+          "body": "Marcus lists the names he wants to deserve: good, modest, true, rational, even-tempered and large-minded. He tells himself to keep them, and to return to them quickly if he loses them. He adds that he does not need others to call him by these names.",
+          "example": "The instruction covers loss too. Book 10, section 8: \"take care that thou dost not change these names; and if thou shouldst lose them, quickly return to them\""
+        },
+        {
+          "heading": "What counts is what you do, not what you say about yourself.",
+          "body": "Marcus has been writing about good conduct for nine books. Now he tells himself to stop talking about it. The instruction is aimed at himself, and it applies to the reader of this workbook as well. An answer counts when it changes something you do.",
+          "example": "The line is an order to himself. Book 10, section 16: \"No longer talk at all about the kind of man that a good man ought to be, but be such.\""
+        },
+        {
+          "heading": "When someone's fault offends you, turn to yourself first.",
+          "body": "Marcus gives himself two questions for when another person's act annoys him. What is this person trying to achieve? And in what way do I err in the same manner? In both he starts with himself. The second question is the harder one.",
+          "example": "He asks for a quick turn inward. Book 10, section 30: \"forthwith turn to thyself and reflect in what like manner thou dost err thyself\""
+        },
+        {
+          "heading": "Welcome the day you have, not the one you would order.",
+          "body": "Marcus compares the mind to an eye. A healthy eye takes in whatever there is to see. An eye that asks for green things only has something wrong with it. He applies the picture to wishes, such as the wish that all men praise whatever he does.",
+          "example": "The picture is an eye. Book 10, section 35: \"The healthy eye ought to see all visible things and not to say, I wish for green things\""
+        },
+        {
+          "heading": "When you can see what to do, go on. When you cannot, stop and ask.",
+          "body": "Marcus gives a decision rule. If the way is clear, go on without turning back. If it is not clear, stop and take the best advisers. If other things oppose you, keep going with care towards what looks just.",
+          "example": "The rule has two halves. Book 10, section 12: \"if thou seest clear, go by this way content, without turning back\""
+        },
+        {
+          "heading": "Ask three plain questions of your own judgement.",
+          "body": "Marcus uses the term ruling faculty for the part of you that decides. In section 24 he puts three questions to it. Together they make a short review that you can run in a minute, whenever you have time to stop.",
+          "example": "The three questions run together. Book 10, section 24: \"What is my ruling faculty now to me? and of what nature am I now making it? and for what purpose am I now using it?\""
+        },
+        {
+          "heading": "Do what is right whether or not anyone else does.",
+          "body": "The morning question strips away a familiar excuse: they would not have, so I need not. Marcus asks himself whether it makes any difference to him if another person does what is just and right. He answers that it makes none.",
+          "example": "He asks it on waking. Book 10, section 13: \"whether it will make any difference to thee if another does what is just and right\""
+        },
+        {
+          "heading": "Stop making excuses that something is hindering you.",
+          "body": "Marcus asks what could be done or said in the way most in line with reason. He tells himself that whatever it is, he can do it or say it. He warns against the excuse that he was hindered. The test is to ask what the next possible act is, and then do it.",
+          "example": "The line comes in section 33. Book 10, section 33: \"it is in thy power to do it or to say it, and do not make excuses that thou art hindered\""
+        }
+      ],
+      "takeaway": "Three words describe the person you want to be, and one thing you have talked about has been acted on."
+    },
+    {
+      "number": 11,
+      "stage": "hold",
+      "focus": "Marcus gives himself nine reminders to use before he answers someone who wronged him",
+      "exercise_ids": [
+        "b11_pick",
+        "b11_aim"
+      ],
+      "intro": "Book 11 opens with the mind looking at itself and choosing what to make of itself. Its longest passage is a list of nine reminders for when someone has wronged you. Marcus offers them to himself like a gift from the Muses. This week you choose the reminder that would most change your next reply.",
+      "ideas": [
+        {
+          "heading": "Your mind can examine itself and choose what to become.",
+          "body": "Marcus opens Book 11 with the properties of a rational mind. It can look at itself and decide what it will make of itself. This is the capacity the rest of the book relies on, because without it the nine reminders would have no one to use them.",
+          "example": "The first sentence names three things the mind does. Book 11, section 1: \"it sees itself, analyzes itself, and makes itself such as it chooses\""
+        },
+        {
+          "heading": "Remember that you do wrong things too.",
+          "body": "The fourth reminder is humbling. Marcus notes that you may avoid a given fault only from fear or concern for your name. You may still be inclined to it. He does not use this to excuse the other person. He uses it to keep his own judgement honest.",
+          "example": "The fourth reminder is plain. Book 11, section 18: \"consider that thou also doest many things wrong, and that thou art a man like others\""
+        },
+        {
+          "heading": "You may not know enough to say that they did wrong.",
+          "body": "The fifth reminder is that many acts are done with reference to circumstances you cannot see. A correct view of another person's act takes a good deal of learning. Marcus tells himself to hold his verdict until he has it.",
+          "example": "He sets a high bar for judging. Book 11, section 18: \"a man must learn a great deal to enable him to pass a correct judgment on another man's acts\""
+        },
+        {
+          "heading": "The anger often costs more than the act.",
+          "body": "The eighth reminder is a comparison of costs. The act took a moment, and the anger can last a whole evening. Marcus asks whether the anger is worth what it takes from you. It is a question you can ask in the middle of an argument.",
+          "example": "He weighs the two. Book 11, section 18: \"how much more pain is brought on us by the anger and vexation caused by such acts\""
+        },
+        {
+          "heading": "Gentleness takes more strength than temper does.",
+          "body": "Marcus rejects the idea that anger shows strength. He says whoever yields to anger, like whoever yields to pain, has been wounded and has submitted. A mild reply is, in his view, the one that takes courage. He calls mildness the manlier course, which is a claim you can test against your own experience.",
+          "example": "His claim is bold. Book 11, section 18: \"mildness and gentleness, as they are more agreeable to human nature, so also are they more manly\""
+        },
+        {
+          "heading": "A kind reply is hard to beat if it is real.",
+          "body": "The ninth reminder says a kind disposition cannot be overcome if it is genuine. Marcus describes how to speak to a person who means harm. Speak gently, with no double meaning, not as a lecture and not so that bystanders will admire you. The warmth has to be real or it will be seen through.",
+          "example": "He adds a condition. Book 11, section 18: \"a good disposition is invincible if it be genuine, and not an affected smile and acting a part\""
+        },
+        {
+          "heading": "One steady aim keeps your acts pointing the same way.",
+          "body": "Marcus says that to stay the same person across a life you need one steady aim. The aim has to be of a common kind, aimed at the good of others. Then all your acts point the same way.",
+          "example": "He states the condition first. Book 11, section 21: \"He who has not one and always the same object in life\""
+        },
+        {
+          "heading": "Stay firm in action and gentle in manner at the same time.",
+          "body": "Marcus says people who stand in your way cannot turn you from what you are doing. Do not let them turn you from kindness either. Guard both. He calls vexation a weakness, and he says giving way through fear is the same kind of weakness.",
+          "example": "He sets the second guard beside the first. Book 11, section 9: \"neither let them drive thee from thy benevolent feelings toward them\""
+        }
+      ],
+      "takeaway": "You know which reminder would change your reply, and one aim shapes the month."
+    },
+    {
+      "number": 12,
+      "stage": "hold",
+      "focus": "Marcus closes with the things you can have now if you stop refusing them",
+      "exercise_ids": [
+        "b12_rules",
+        "b12_carry"
+      ],
+      "intro": "Book 12 begins by saying that what you want to reach by a long road is open to you now. Marcus gives three conditions: leave the past, trust the future, and act well in the present. The book ends on short rules and a picture of life as a play. This week you write rules of your own and choose what to carry forward.",
+      "ideas": [
+        {
+          "heading": "What you are reaching for may be available now.",
+          "body": "Marcus gives three conditions. Take no notice of the past. Trust the future to providence. Direct the present to piety and justice. In plain terms: put down what is behind you, stop rehearsing what is ahead, and act well today.",
+          "example": "The opening promise is direct. Book 12, section 1: \"All those things at which thou wishest to arrive by a circuitous road thou canst have now\""
+        },
+        {
+          "heading": "Most people care more what others think of them than what they think of themselves.",
+          "body": "Marcus has often wondered at this. He imagines a wise teacher who asks you to say aloud every thought as soon as you have it. Nobody, he says, could bear it for a day. People give more respect to their neighbours' opinion than to their own.",
+          "example": "He expresses his surprise. Book 12, section 4: \"sets less value on his own opinion of himself than on the opinion of others\""
+        },
+        {
+          "heading": "Practise even what you despair of accomplishing.",
+          "body": "Marcus notes that the left hand is weak at most things for want of training. Yet it holds the bridle better than the right, because it has been trained at that. Skill follows repetition. He wants effort put somewhere, even when success looks unlikely.",
+          "example": "His sentence names the left hand. Book 12, section 6: \"Practise thyself even in the things which thou despairest of accomplishing.\""
+        },
+        {
+          "heading": "Hold your principles like a hand, not like a sword that can be dropped.",
+          "body": "A gladiator can lose his sword. A pancratiast, who fights with the body, always has his hand and only needs to use it. Marcus asks you to keep your principles in the second way. They should be part of you and not equipment.",
+          "example": "The comparison ends on the hand. Book 12, section 9: \"the other always has his hand, and needs to do nothing else than use it\""
+        },
+        {
+          "heading": "Do not do what is not right, and do not say what is not true.",
+          "body": "Marcus's rule has two lines, and each has a test and an action. The tests are right and true. The rule is easy to remember and hard to bend. It gives you a short check to run before an act or a sentence.",
+          "example": "He gives the full rule. Book 12, section 17: \"If it is not right, do not do it: if it is not true, do not say it.\""
+        },
+        {
+          "heading": "Be proud of nothing, including your lack of pride.",
+          "body": "Marcus lists the famous and the unlucky and asks where they are now. He then offers a better use of any chance: show yourself just, temperate and simple. He ends with a warning about pride in your own humility.",
+          "example": "The warning is brief. Book 12, section 27: \"the pride which is proud of its want of pride is the most intolerable of all\""
+        },
+        {
+          "heading": "Enjoy life by joining one good act to the next.",
+          "body": "In section 29 Marcus sums up the work. Look at everything for what it is, do justice with your whole soul, and tell the truth. Then enjoy life by putting one good act next to another with no gaps.",
+          "example": "His summary ends with a question. Book 12, section 29: \"to enjoy life by joining one good thing to another so as not to leave even the smallest intervals between\""
+        },
+        {
+          "heading": "When you are troubled, you have usually forgotten something you already know.",
+          "body": "Marcus lists what he forgets when something troubles him. He forgets that things happen according to nature. He forgets that another person's wrong is nothing to him, that the same things have always happened, and that each person lives only the present. Naming the forgotten fact is the fix he offers himself.",
+          "example": "The list starts with nature. Book 12, section 26: \"When thou art troubled about anything, thou hast forgotten this, that all things happen according to the universal nature\""
+        },
+        {
+          "heading": "Everything depends on how you use your own judgement.",
+          "body": "Late in Book 12, Marcus asks a single question: how does the ruling faculty make use of itself? He says that all lies in this, and that everything else is outside the power of the will. The question connects back to Book 10, where he asks it of himself.",
+          "example": "The question is a short one. Book 12, section 33: \"How does the ruling faculty make use of itself? for all lies in this.\""
+        }
+      ],
+      "takeaway": "You have two rules and one lesson to carry on, and a plan to read."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b1_debts",
+      "title": "List the people who shaped you",
+      "purpose": "A short list of the people who taught you something you still use.",
+      "why": "Book 1 is a list of thanks, written as a reminder of what Marcus had been given. Each entry names a person and one thing learned. Yours can include family, teachers, colleagues or anyone else. Keep each entry to a few words.",
+      "source": {
+        "chapter": "Book 1, sections 1 to 17"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the week's key ideas first, then come back here."
+        },
+        {
+          "text": "Think of three people who taught you something. Family, teachers and colleagues all count."
+        },
+        {
+          "text": "Beside each name, write one thing they taught you that you still use."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "two_column",
+          "label": "Who taught you, and what do you still use from them?",
+          "columns": [
+            "The person",
+            "What they taught you"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "Three people are named, each with one thing you still use.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one person who taught you something."
+          },
+          {
+            "text": "Write their name and what you still use."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "reflect": "Which of these lessons did you take for granted until you wrote it down?"
+    },
+    {
+      "id": "b1_carry",
+      "title": "Choose one lesson to carry",
+      "purpose": "One lesson from your list, chosen on purpose, to pay attention to this week.",
+      "why": "Marcus kept his list so that the lessons stayed in use. A list of six is for reading and one line is for living. Pick the lesson you have been neglecting, not the one you are proudest of.",
+      "source": {
+        "chapter": "Book 1, section 17"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Read your list from the first exercise."
+        },
+        {
+          "text": "Choose one lesson you have let slip."
+        },
+        {
+          "text": "Decide where in this week it will show."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lesson",
+          "type": "short_text",
+          "label": "Which lesson will you pay attention to this week, and where will it show?",
+          "prefill_from": "people"
+        }
+      ],
+      "done_when": "One lesson is written down with a place it will show this week.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one lesson from your list."
+          }
+        ],
+        "field_ids": [
+          "lesson"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "lesson",
+          "plan_section": "carry"
+        }
+      ]
+    },
+    {
+      "id": "b2_morning",
+      "title": "Write your own morning reminder",
+      "purpose": "A sentence you can say before the day's most likely difficulty.",
+      "why": "Marcus names the people he expects to meet and the reason they behave as they do. Do the same for the day ahead, in your own words. Name a type of behaviour, not a person you dislike.",
+      "source": {
+        "chapter": "Book 2, section 1"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of the day ahead. Where is friction most likely?"
+        },
+        {
+          "text": "Name the behaviour, such as interrupting, blame or delay."
+        },
+        {
+          "text": "Write one sentence to say to yourself before it arrives."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reminder",
+          "type": "long_text",
+          "label": "Which difficult behaviour do you expect today, and what will you tell yourself before it arrives?"
+        }
+      ],
+      "done_when": "A behaviour is named and one sentence is ready.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one difficulty you expect today."
+          },
+          {
+            "text": "Write one sentence to say first."
+          }
+        ],
+        "field_ids": [
+          "reminder"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "reminder",
+          "plan_section": "morning"
+        }
+      ]
+    },
+    {
+      "id": "b2_putoff",
+      "title": "Name what you keep putting off",
+      "purpose": "One postponed task with a first step small enough to take today.",
+      "why": "Marcus asks himself how long he has been putting things off. A limit of time is fixed. Pick one thing you keep postponing and shrink the first step until you can take it today.",
+      "source": {
+        "chapter": "Book 2, section 4"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "List two or three things you keep postponing."
+        },
+        {
+          "text": "Choose the one that weighs most."
+        },
+        {
+          "text": "Cut the first step down to ten minutes or less."
+        }
+      ],
+      "fields": [
+        {
+          "id": "first_step",
+          "type": "short_text",
+          "label": "What have you been putting off, and what is the first step you will take today?"
+        }
+      ],
+      "done_when": "One task is named with a first step you can take today.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you have been putting off."
+          },
+          {
+            "text": "Write its first small step."
+          }
+        ],
+        "field_ids": [
+          "first_step"
+        ]
+      }
+    },
+    {
+      "id": "b3_aloud",
+      "title": "Run the say-it-aloud test",
+      "purpose": "Three samples of your own thinking, checked against one question.",
+      "why": "Marcus holds each thought up to one question: could you say it aloud to anyone who asked? Pick three moments from your day and note what was in your mind. Then mark which thoughts you could have said openly.",
+      "source": {
+        "chapter": "Book 3, section 4"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose three moments from today, such as a commute, a meeting and an evening."
+        },
+        {
+          "text": "Beside each, write what was in your mind."
+        },
+        {
+          "text": "Mark the ones you could have said aloud without blushing."
+        }
+      ],
+      "fields": [
+        {
+          "id": "thoughts",
+          "type": "two_column",
+          "label": "What was in your mind at three moments today, and could you have said it aloud?",
+          "columns": [
+            "The moment",
+            "What was in my mind"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Three moments are written down and each is marked.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one moment from today."
+          },
+          {
+            "text": "Write what was in your mind then."
+          }
+        ],
+        "field_ids": [
+          "thoughts"
+        ]
+      }
+    },
+    {
+      "id": "b3_plain",
+      "title": "Describe a problem in plain words",
+      "purpose": "One problem described by what you can see, with no judgement added.",
+      "why": "Marcus tells himself to describe a thing as it is, naming what it is made of and what it does. Pick one thing that is bothering you. Write what you could see and measure, and leave out how it feels.",
+      "source": {
+        "chapter": "Book 3, section 11"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Pick one thing that is bothering you."
+        },
+        {
+          "text": "Write what happened or what exists, in plain facts."
+        },
+        {
+          "text": "Cross out any word that is a verdict."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plain",
+          "type": "long_text",
+          "label": "How would you describe the thing that is bothering you, with no judgement added?"
+        }
+      ],
+      "done_when": "The description holds facts only.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the problem in one sentence of facts."
+          }
+        ],
+        "field_ids": [
+          "plain"
+        ]
+      }
+    },
+    {
+      "id": "b4_principles",
+      "title": "Choose short principles to return to",
+      "purpose": "Two sentences, short enough to recall when the day pulls at you.",
+      "why": "Marcus asks for principles brief enough to recall at once, and he offers two of his own. Write yours as two plain sentences. Each should be short enough to say in one go.",
+      "source": {
+        "chapter": "Book 4, section 3"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of two ideas from the last three weeks that you want close to hand."
+        },
+        {
+          "text": "Write each as one short sentence in your own words."
+        },
+        {
+          "text": "Cut each until it is easy to say."
+        }
+      ],
+      "fields": [
+        {
+          "id": "principles",
+          "type": "long_text",
+          "label": "Which two short sentences will you return to when the day pulls at you?"
+        }
+      ],
+      "done_when": "Two sentences are written and each is short.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one short sentence you want to remember."
+          }
+        ],
+        "field_ids": [
+          "principles"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "principles",
+          "plan_section": "morning"
+        }
+      ]
+    },
+    {
+      "id": "b4_unnecessary",
+      "title": "Find one unnecessary thing to drop",
+      "purpose": "One task, habit or worry named and dealt with.",
+      "why": "Marcus gives himself a plain question for any act or thought: is this one of the unnecessary things? Look at today's list or this week's commitments. Choose one item that nobody needs from you, and drop it or shrink it.",
+      "source": {
+        "chapter": "Book 4, section 24"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "List what is on your plate this week."
+        },
+        {
+          "text": "Cross out anything that nobody needs from you."
+        },
+        {
+          "text": "Choose one to drop or shrink."
+        }
+      ],
+      "fields": [
+        {
+          "id": "unneeded",
+          "type": "short_text",
+          "label": "Which task, habit or worry on your list is unnecessary, and what will you do with it?"
+        }
+      ],
+      "done_when": "One unnecessary item is named with a decision.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one unnecessary item."
+          },
+          {
+            "text": "Decide to drop it or shrink it."
+          }
+        ],
+        "field_ids": [
+          "unneeded"
+        ]
+      }
+    },
+    {
+      "id": "b5_work",
+      "title": "Name your work for today",
+      "purpose": "One piece of work you owe today, with a first action.",
+      "why": "Marcus gets up because there is work for a human being to do. Work here means what you owe to other people and to your own craft, not only paid work. Name it before you start, and begin with the first step.",
+      "source": {
+        "chapter": "Book 5, section 1"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of the people and tasks that depend on you today."
+        },
+        {
+          "text": "Pick the one that matters most."
+        },
+        {
+          "text": "Write the first action, small enough to start within ten minutes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "work",
+          "type": "short_text",
+          "label": "What is the work you owe today, and what is the first thing you will do?"
+        }
+      ],
+      "done_when": "One piece of work is named with a first action.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the one thing you owe today."
+          }
+        ],
+        "field_ids": [
+          "work"
+        ]
+      }
+    },
+    {
+      "id": "b5_qualities",
+      "title": "Choose qualities you can show now",
+      "purpose": "Three qualities, each with a place you will show it this week.",
+      "why": "Marcus tells himself that some qualities need no special talent. Sincerity, seriousness and kindness are open to anyone today. Choose three and say where you will show each one.",
+      "source": {
+        "chapter": "Book 5, section 5"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Marcus's list: sincerity, gravity, endurance of labour, contentment with a little, kindness, frankness."
+        },
+        {
+          "text": "Choose three that you can show this week."
+        },
+        {
+          "text": "Beside each, name the place or person."
+        }
+      ],
+      "fields": [
+        {
+          "id": "qualities",
+          "type": "two_column",
+          "label": "Which three qualities will you show this week, and where?",
+          "columns": [
+            "The quality",
+            "Where I will show it"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "done_when": "Three qualities are chosen, each with a place.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one quality."
+          },
+          {
+            "text": "Name where you will show it."
+          }
+        ],
+        "field_ids": [
+          "qualities"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "qualities",
+          "plan_section": "values"
+        }
+      ]
+    },
+    {
+      "id": "b6_seems",
+      "title": "See what the other person wants",
+      "purpose": "One hard relationship looked at from the other side.",
+      "why": "Marcus says people reach for what seems suitable and useful to them, even when they do wrong. Think of one person who is hard to deal with now. Ask what they seem to want, and how that could look reasonable from where they stand.",
+      "source": {
+        "chapter": "Book 6, section 27"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one person who is hard to deal with at the moment."
+        },
+        {
+          "text": "Write what they seem to be after."
+        },
+        {
+          "text": "Write how that might look reasonable to them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wants",
+          "type": "long_text",
+          "label": "What does the person who is hard to deal with seem to want, and how might it look reasonable to them?"
+        }
+      ],
+      "done_when": "You have written what they want and how it looks from their side.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the person."
+          },
+          {
+            "text": "Write what they seem to want."
+          }
+        ],
+        "field_ids": [
+          "wants"
+        ]
+      }
+    },
+    {
+      "id": "b6_answer",
+      "title": "Plan a reply that is yours",
+      "purpose": "A plan for your next contact with this person.",
+      "why": "Marcus calls it the best revenge not to become like the wrongdoer. Decide what you will do or say, so that their behaviour does not set yours. It can be firm. It does not need to be cold.",
+      "source": {
+        "chapter": "Book 6, section 6"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Picture your next contact with this person."
+        },
+        {
+          "text": "Write what they might do that usually sets you off."
+        },
+        {
+          "text": "Write what you will do or say instead."
+        }
+      ],
+      "fields": [
+        {
+          "id": "answer",
+          "type": "long_text",
+          "label": "How will you answer this person without becoming like them?"
+        }
+      ],
+      "done_when": "You have one planned reply that is yours.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you will do or say instead."
+          }
+        ],
+        "field_ids": [
+          "answer"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "answer",
+          "plan_section": "others"
+        }
+      ]
+    },
+    {
+      "id": "b7_sort",
+      "title": "Sort a worry into two lists",
+      "purpose": "One live worry divided into what you can act on and what you cannot.",
+      "why": "Marcus returns again and again to the line between what happens to you and the view you take of it. Pick one live worry. Write what you can act on, and what you cannot, and decide what to do with each.",
+      "source": {
+        "chapter": "Book 7, sections 2 and 14"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name one live worry."
+        },
+        {
+          "text": "In the left column, list what you can act on."
+        },
+        {
+          "text": "In the right column, list what is outside your control."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sorted",
+          "type": "two_column",
+          "label": "Which parts of your current worry are yours to act on, and which are not?",
+          "columns": [
+            "Mine to act on",
+            "Not mine to control"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "Both columns have at least one item and you have chosen a first action.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one worry."
+          },
+          {
+            "text": "Write one part you can act on."
+          }
+        ],
+        "field_ids": [
+          "sorted"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "sorted",
+          "plan_section": "mine"
+        }
+      ]
+    },
+    {
+      "id": "b7_have",
+      "title": "Name what you would miss",
+      "purpose": "Three things you have now, valued as if you did not have them.",
+      "why": "Marcus asks you to think less about what you lack and more about what you have. Select the best of it. Then imagine how eagerly you would have sought each one if you did not have it.",
+      "source": {
+        "chapter": "Book 7, section 27"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "List what you have that matters to you."
+        },
+        {
+          "text": "Choose the best three."
+        },
+        {
+          "text": "For each, say why you would have chased it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "have",
+          "type": "long_text",
+          "label": "Which three things you have now would you have chased hard if you did not have them?"
+        }
+      ],
+      "done_when": "Three things are named with a reason each.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you have and would have chased."
+          }
+        ],
+        "field_ids": [
+          "have"
+        ]
+      }
+    },
+    {
+      "id": "b8_first",
+      "title": "Separate the report from your additions",
+      "purpose": "One recent event split into what happened and what you added.",
+      "why": "Marcus tells himself to say nothing beyond what the first appearances report. Pick one event from this week that upset you. Write what actually happened, in plain facts. Then write what you added.",
+      "source": {
+        "chapter": "Book 8, section 49"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one event from this week that upset you."
+        },
+        {
+          "text": "Write what happened, as a camera would record it."
+        },
+        {
+          "text": "Write what you added: motives, meanings, predictions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "report",
+          "type": "two_column",
+          "label": "What happened in one recent event, and what did you add to it?",
+          "columns": [
+            "What happened",
+            "What I added"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "The facts and your additions are in separate columns.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what happened in one line."
+          },
+          {
+            "text": "Write one thing you added."
+          }
+        ],
+        "field_ids": [
+          "report"
+        ]
+      }
+    },
+    {
+      "id": "b8_today",
+      "title": "Choose one good act for today",
+      "purpose": "One small act of use to someone, set for today.",
+      "why": "Marcus catches himself choosing to be good tomorrow rather than today. Look for one act that is available now, such as a message, a repair or a plain word. Pick one small enough to finish before the day ends.",
+      "source": {
+        "chapter": "Book 8, section 22"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of someone who would be glad of a small act today."
+        },
+        {
+          "text": "Choose one you can finish today."
+        },
+        {
+          "text": "Decide when you will do it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "good_act",
+          "type": "short_text",
+          "label": "Which good act will you do today instead of leaving it for tomorrow?"
+        }
+      ],
+      "done_when": "One act is chosen with a time.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one good act."
+          },
+          {
+            "text": "Set a time for it."
+          }
+        ],
+        "field_ids": [
+          "good_act"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "good_act",
+          "plan_section": "carry"
+        }
+      ]
+    },
+    {
+      "id": "b9_changes",
+      "title": "Recall a change you came through",
+      "purpose": "One past change, with what ended and what you kept.",
+      "why": "Marcus looks back over his life as a child, a youth and an adult, and sees that each stage ended and another began. Choose one change you have already come through. Say what ended and what you kept.",
+      "source": {
+        "chapter": "Book 9, section 21"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a change you have already come through."
+        },
+        {
+          "text": "Write what ended."
+        },
+        {
+          "text": "Write what you kept from it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "change",
+          "type": "two_column",
+          "label": "What ended in one change you came through, and what did you keep?",
+          "columns": [
+            "What ended",
+            "What I kept"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Both columns are filled for one change.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one change."
+          },
+          {
+            "text": "Write one thing you kept."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "change",
+          "plan_section": "change"
+        }
+      ]
+    },
+    {
+      "id": "b9_expect",
+      "title": "Plan for a difficult person",
+      "purpose": "A realistic expectation and a ready response for one person.",
+      "why": "Marcus tells himself that some difficult people must exist, and that expecting them lets him meet each with kindness. Think of someone you will meet this week who often behaves badly. Decide what you will expect, and how you will respond.",
+      "source": {
+        "chapter": "Book 9, section 42"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Name one difficult person you will meet this week."
+        },
+        {
+          "text": "Write what you expect from them."
+        },
+        {
+          "text": "Write how you will respond when it happens."
+        }
+      ],
+      "fields": [
+        {
+          "id": "expect",
+          "type": "long_text",
+          "label": "What will you expect from this person, and how will you respond when it happens?"
+        }
+      ],
+      "done_when": "You have an expectation and a response written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the person and what you expect."
+          }
+        ],
+        "field_ids": [
+          "expect"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "expect",
+          "plan_section": "others"
+        }
+      ]
+    },
+    {
+      "id": "b10_names",
+      "title": "Choose three words for your character",
+      "purpose": "Three words to deserve, each with a task for this week.",
+      "why": "Marcus gives himself a few names to deserve and tells himself to return to them quickly if he loses them. Choose three words you would want a close friend to use about you. Beside each, write what it asks of you this week.",
+      "source": {
+        "chapter": "Book 10, section 8"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of how a close friend would describe you at your best."
+        },
+        {
+          "text": "Choose three words you want to deserve."
+        },
+        {
+          "text": "Beside each, write what it asks of you this week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "words",
+          "type": "two_column",
+          "label": "Which three words describe the person you want to be, and what does each ask of you this week?",
+          "columns": [
+            "The word",
+            "What it asks of me this week"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "done_when": "Three words are chosen and each has a task.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one word."
+          },
+          {
+            "text": "Write what it asks of you this week."
+          }
+        ],
+        "field_ids": [
+          "words"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "words",
+          "plan_section": "values"
+        }
+      ]
+    },
+    {
+      "id": "b10_act",
+      "title": "Act instead of talking",
+      "purpose": "One thing you have talked about, now done or scheduled.",
+      "why": "After nine books of reflection, Marcus tells himself to stop talking about the good person and be one. Find one thing you have said you would do, or have often explained, and act on it. Choose something you can do within the week.",
+      "source": {
+        "chapter": "Book 10, section 16"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "List things you have said you would do."
+        },
+        {
+          "text": "Pick one that you can do within the week."
+        },
+        {
+          "text": "Set the day and time."
+        }
+      ],
+      "fields": [
+        {
+          "id": "act",
+          "type": "short_text",
+          "label": "What have you often talked about doing, and what will you do about it this week?"
+        }
+      ],
+      "done_when": "One act is chosen with a day.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you have talked about."
+          },
+          {
+            "text": "Set a day for it."
+          }
+        ],
+        "field_ids": [
+          "act"
+        ]
+      }
+    },
+    {
+      "id": "b11_pick",
+      "title": "Choose the reminder you need most",
+      "purpose": "One reminder picked from Marcus's nine, matched to a real situation.",
+      "why": "Marcus lists nine things to remember about people who wrong you. Think of a recent or coming situation with someone who has wronged you. Choose the reminder that fits it best, and say how it would change what you say or do.",
+      "source": {
+        "chapter": "Book 11, section 18"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of a recent or coming situation with someone who wronged you."
+        },
+        {
+          "text": "Read the nine reminders listed in the field."
+        },
+        {
+          "text": "Choose the one that would change your reply most."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reminder_pick",
+          "type": "checklist",
+          "label": "Which of Marcus's reminders would change your next reply?",
+          "options": [
+            "People are made for one another.",
+            "People act under pressures you cannot see.",
+            "Most wrong is done without knowing it.",
+            "You do wrong things too.",
+            "You may not know that they did wrong.",
+            "Life is short for both of you.",
+            "Your opinion disturbs you more than the act.",
+            "The anger costs more than the act.",
+            "A genuine kind reply is hard to beat."
+          ],
+          "max_items": 1
+        }
+      ],
+      "done_when": "One reminder is chosen and you have said what it changes.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one reminder from the list."
+          }
+        ],
+        "field_ids": [
+          "reminder_pick"
+        ]
+      },
+      "reflect": "How would it change what you say or do next?"
+    },
+    {
+      "id": "b11_aim",
+      "title": "Name one aim for your acts",
+      "purpose": "One aim broad enough to shape most of what you do this month.",
+      "why": "Marcus says a person with no single aim cannot stay the same across a life. His aim is the common good, not private gain. Name one aim that could shape most of what you do this month. It should be broad enough to apply on most days.",
+      "source": {
+        "chapter": "Book 11, section 21"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Look back at your plan so far."
+        },
+        {
+          "text": "Write the aim that links most of your answers."
+        },
+        {
+          "text": "Check that it applies to a normal week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "aim",
+          "type": "short_text",
+          "label": "What one aim could shape most of what you do this month?"
+        }
+      ],
+      "done_when": "One aim is written in a sentence.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one aim in a few words."
+          }
+        ],
+        "field_ids": [
+          "aim"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "aim",
+          "plan_section": "values"
+        }
+      ]
+    },
+    {
+      "id": "b12_rules",
+      "title": "Write your two rules",
+      "purpose": "One thing you will not do and one thing you will not say.",
+      "why": "Marcus gives himself two plain rules: if it is not right, do not do it, and if it is not true, do not say it. Write your own pair. Base them on what you have learned in these weeks.",
+      "source": {
+        "chapter": "Book 12, section 17"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look back over your answers from the last eleven weeks."
+        },
+        {
+          "text": "Write one thing you will not do because it is not right."
+        },
+        {
+          "text": "Write one thing you will not say because it is not true."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "two_column",
+          "label": "What will you not do, and what will you not say, because it is not right or not true?",
+          "columns": [
+            "What I will not do",
+            "What I will not say"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "done_when": "Each column has at least one rule.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you will not do."
+          },
+          {
+            "text": "Write one thing you will not say."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "values"
+        }
+      ]
+    },
+    {
+      "id": "b12_carry",
+      "title": "Choose what you will take forward",
+      "purpose": "One lesson from these weeks, with a date to practise it.",
+      "why": "Twelve weeks of notes now sit in your plan. Marcus ends by saying what he can have now. Choose the lesson from these weeks that you most want to keep, and decide when you will next practise it.",
+      "source": {
+        "chapter": "Book 12, sections 1 and 6"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Read through your plan."
+        },
+        {
+          "text": "Choose the lesson you most want to keep."
+        },
+        {
+          "text": "Pick a day this month to practise it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "carry_on",
+          "type": "short_text",
+          "label": "Which lesson from these twelve weeks will you keep, and when will you practise it next?"
+        }
+      ],
+      "done_when": "One lesson and one day are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one lesson."
+          },
+          {
+            "text": "Set one day to practise it."
+          }
+        ],
+        "field_ids": [
+          "carry_on"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "carry_on",
+          "plan_section": "carry"
+        }
+      ]
+    }
+  ],
+  "toolkit": [],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "week_one",
+      "trigger": "unit_complete:1",
+      "message": "Book 1 done. Marcus took a lifetime over his list. A week is a fair start."
+    },
+    {
+      "id": "ground_done",
+      "trigger": "stage_complete:ground",
+      "message": "Four books done. You have a list of debts, a morning reminder and a few short principles."
+    },
+    {
+      "id": "practise_done",
+      "trigger": "stage_complete:practise",
+      "message": "Eight books done. You have named your work and planned how to meet someone hard."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Twelve books done. Your plan is ready to read."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "carry",
+      "title": "Lessons to carry"
+    },
+    {
+      "id": "morning",
+      "title": "Your morning reminder"
+    },
+    {
+      "id": "mine",
+      "title": "What is yours to act on"
+    },
+    {
+      "id": "others",
+      "title": "How you meet other people"
+    },
+    {
+      "id": "change",
+      "title": "What you hold loosely"
+    },
+    {
+      "id": "values",
+      "title": "Your values and rules"
+    }
+  ],
+  "finish": {
+    "summary": "Twelve books, twelve weeks, and a plan built from your own answers.",
+    "book_bridge": "The Meditations is in the public domain. Long's translation of 1862 is the one used here, so you can read any book in full beside this workbook."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which lesson from this workbook did you use this month, and where?",
+      "When did you add to the facts this month, and what did you do when you noticed?",
+      "Which of your two rules did you keep, and what will you change about the other?"
+    ],
+    "refresher_ids": [
+      "b1_carry",
+      "b7_sort",
+      "b12_rules"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "docs/content/sources/AK-FN9KB/long-1862.txt",
+    "cut_log": [
+      {
+        "item": "George Long's introduction and essay on the philosophy of Antoninus",
+        "chapter": "Front matter",
+        "reason": "The workbook draws on the twelve books only."
+      },
+      {
+        "item": "Long's footnotes, Greek variants and cross references",
+        "chapter": "All books",
+        "reason": "Text-critical notes are not reader content. Quotations start after any footnote marker."
+      },
+      {
+        "item": "Indexes of terms and names",
+        "chapter": "Back matter",
+        "reason": "Not used."
+      },
+      {
+        "item": "Passages with dash-to-comma artefacts from the reversible modernisation (for example Book 8, section 50)",
+        "chapter": "Books 2 to 12",
+        "reason": "Not quoted, so no reader sees a doubled comma. See the modernisation log in the house record."
+      }
+    ],
+    "notes": "Written to docs/content/UNIT_SPEC.md. Quotations are from the modernised copy of Long (Gutenberg #15877, sha1 c81cb6289cadfb030dffb8d34ecb2191684e74ff) and checked against it by section. Status in_review until the house record is signed (C10) and a second named reviewer approves."
+  }
+}

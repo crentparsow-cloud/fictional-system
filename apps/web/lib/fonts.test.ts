@@ -16,7 +16,7 @@ const faces = [...CSS.matchAll(/@font-face\s*{([^}]*)}/g)].map((m) => m[1]!);
 describe("self-hosted fonts", () => {
   it("declares latin and latin-ext faces for each family the CSS uses", () => {
     const families = faces.map((f) => /font-family:\s*"([^"]+)"/.exec(f)?.[1]);
-    for (const family of ["Atkinson Hyperlegible Next", "Bricolage Grotesque", "Lexend"]) {
+    for (const family of ["Atkinson Hyperlegible Next", "Bricolage Grotesque", "Lexend", "Akana Dyslexia Friendly"]) {
       expect(families.filter((f) => f === family)).toHaveLength(2);
     }
   });
@@ -39,14 +39,12 @@ describe("self-hosted fonts", () => {
 
   it("ships an OFL text for each family and keeps the files small", () => {
     const licences = readdirSync(resolve(FONTS_DIR, "LICENCES"));
-    for (const slug of ["atkinson-hyperlegible-next", "bricolage-grotesque", "lexend"]) {
+    for (const slug of ["atkinson-hyperlegible-next", "bricolage-grotesque", "lexend", "opendyslexic"]) {
       const file = `${slug}-OFL.txt`;
       expect(licences).toContain(file);
       expect(readFileSync(resolve(FONTS_DIR, "LICENCES", file), "utf8")).toMatch(/SIL OPEN FONT LICENSE Version 1\.1/i);
     }
-    const total = readdirSync(FONTS_DIR)
-      .filter((f) => f.endsWith(".woff2"))
-      .reduce((sum, f) => sum + statSync(resolve(FONTS_DIR, f)).size, 0);
-    expect(total).toBeLessThan(250_000);
+    // The budget is per design direction (lib/design/design.test.ts). Here: each file stays modest.
+    for (const f of readdirSync(FONTS_DIR).filter((n) => n.endsWith(".woff2"))) expect(statSync(resolve(FONTS_DIR, f)).size, f).toBeLessThan(60_000);
   });
 });

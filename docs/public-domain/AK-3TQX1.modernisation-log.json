@@ -1,0 +1,142 @@
+[
+  {
+    "line": 120,
+    "col": 6,
+    "from": "&c.",
+    "to": "etc.",
+    "note": "ampersand c"
+  },
+  {
+    "line": 163,
+    "col": 24,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 163,
+    "col": 26,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 186,
+    "col": 44,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 188,
+    "col": 26,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 206,
+    "col": 62,
+    "from": "to-day",
+    "to": "today",
+    "note": "hyphenated to-day"
+  },
+  {
+    "line": 217,
+    "col": 14,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 224,
+    "col": 24,
+    "from": "to-day",
+    "to": "today",
+    "note": "hyphenated to-day"
+  },
+  {
+    "line": 225,
+    "col": 25,
+    "from": "to-day",
+    "to": "today",
+    "note": "hyphenated to-day"
+  },
+  {
+    "line": 225,
+    "col": 9,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 226,
+    "col": 50,
+    "from": "to-morrow",
+    "to": "tomorrow",
+    "note": "hyphenated to-morrow"
+  },
+  {
+    "line": 227,
+    "col": 7,
+    "from": "to-day",
+    "to": "today",
+    "note": "hyphenated to-day"
+  },
+  {
+    "line": 227,
+    "col": 14,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 279,
+    "col": 40,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 337,
+    "col": 53,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 370,
+    "col": 46,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 390,
+    "col": 55,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 447,
+    "col": 21,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  },
+  {
+    "line": 450,
+    "col": 11,
+    "from": "any one",
+    "to": "anyone",
+    "note": "two-word any one (not before 'of')"
+  },
+  {
+    "line": 457,
+    "col": 8,
+    "from": "--",
+    "to": ", ",
+    "note": "double hyphen to comma"
+  }
+]

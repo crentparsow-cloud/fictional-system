@@ -1,11 +1,13 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { buildSeed, themeStatus } from "./build";
+import { attachClassic, buildSeed, classicFiles, repoRoot, themeStatus } from "./build";
 import { canonicalJson, contentHash, stableUuid } from "./ids";
 import { renderSeedSql } from "./sql";
 import { chunk } from "./apply";
 import { AKANA_HOUSE_ORG_ID, MARKETPLACE_TENANT_ID, MAYA_VAUGHN_AUTHOR_CODE } from "./rows";
 
 const seed = buildSeed({ catalogue: "v1" });
+const written = new Set(classicFiles(repoRoot()).map((f) => (JSON.parse(readFileSync(f, "utf8")) as { code: string }).code));
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 
 describe("buildSeed with the v1 catalogue", () => {
@@ -20,11 +22,18 @@ describe("buildSeed with the v1 catalogue", () => {
       expect(w.depth).toBe("full");
       expect(w.is_demo).toBe(false);
     }
-    expect(seed.workbook_versions).toHaveLength(20);
+    // 20 Maya Vaughn versions plus one for each classic written up in content/workbooks/classics.
+    expect(seed.workbook_versions).toHaveLength(20 + written.size);
 
     const catalogue = seed.workbooks.filter((w) => !maya.includes(w));
     expect(catalogue).toHaveLength(50);
     for (const w of catalogue) {
+      if (written.has(w.code)) {
+        expect(w.current_version_id).not.toBeNull();
+        expect(versionsByWorkbook.has(w.id)).toBe(true);
+        expect(w.status).toBe("in_review");
+        continue;
+      }
       expect(w.current_version_id).toBeNull();
       expect(versionsByWorkbook.has(w.id)).toBe(false);
       expect(w.status).toBe("draft");
@@ -124,9 +133,12 @@ describe("buildSeed with the v1 catalogue", () => {
     const maya = seed.authors.find((a) => a.code === MAYA_VAUGHN_AUTHOR_CODE);
     expect(maya?.org_id).toBe(AKANA_HOUSE_ORG_ID);
     expect(maya?.is_demo).toBe(false);
-    for (const v of seed.workbook_versions) {
+    const mayaIds = new Set(seed.workbooks.filter((w) => w.badge === "official").map((w) => w.id));
+    for (const v of seed.workbook_versions.filter((x) => mayaIds.has(x.workbook_id))) {
       expect(v.semver).toBe("1.0.0");
       expect(v.schema_version).toBe("3.0");
+    }
+    for (const v of seed.workbook_versions) {
       expect((v.content as Record<string, unknown>).internal).toBeUndefined();
       expect(v.content_hash).toBe(contentHash(v.content));
     }
@@ -136,6 +148,55 @@ describe("buildSeed with the v1 catalogue", () => {
     const genreIds = new Set(seed.genres.map((g) => g.id));
     expect(genreIds.size).toBe(11);
     for (const w of seed.workbooks) expect(genreIds.has(w.genre_id)).toBe(true);
+  });
+});
+
+describe("classics folder (10.10)", () => {
+  const classicRow = () => {
+    const code = [...written][0]!;
+    return seed.workbooks.find((w) => w.code === code)!;
+  };
+
+  it("attaches each written classic to its catalogue row, in review and never live", () => {
+    expect(written.size).toBeGreaterThan(0);
+    for (const code of written) {
+      const row = seed.workbooks.find((w) => w.code === code)!;
+      expect(row.badge).toBe("public_domain");
+      expect(row.is_demo).toBe(false);
+      expect(row.org_id).toBe(AKANA_HOUSE_ORG_ID);
+      expect(row.status).toBe("in_review");
+      expect(row.licence_ref).toBe(`public-domain:/public-domain/${code}`);
+      expect(seed.workbook_versions.filter((v) => v.workbook_id === row.id)).toHaveLength(1);
+    }
+  });
+
+  it("builds without the folder when asked, leaving every classic a bare draft", () => {
+    const bare = buildSeed({ catalogue: "v1", classics: false });
+    expect(bare.workbook_versions).toHaveLength(20);
+    expect(bare.workbooks.filter((w) => w.badge === "public_domain").every((w) => w.status === "draft" && w.current_version_id === null)).toBe(true);
+  });
+
+  it("refuses a classic whose status is live or approved, or missing", () => {
+    const row = classicRow();
+    const file = classicFiles(repoRoot())[0]!;
+    const doc = JSON.parse(readFileSync(file, "utf8"));
+    for (const status of ["live", "approved", "paused", undefined]) {
+      const bare = buildSeed({ catalogue: "v1", classics: false });
+      const w = bare.workbooks.find((x) => x.id === row.id)!;
+      expect(w.status).toBe("draft");
+      expect(() =>
+        attachClassic({ file, doc: { ...doc, status }, workbooks: bare.workbooks, workbook_versions: bare.workbook_versions, books: bare.books, authors: [{ id: doc.author.author_id, name: "x" }] }),
+      ).toThrow(/not allowed for a classic/);
+    }
+  });
+
+  it("refuses a classic whose code is not in the catalogue", () => {
+    const file = classicFiles(repoRoot())[0]!;
+    const doc = JSON.parse(readFileSync(file, "utf8"));
+    const bare = buildSeed({ catalogue: "v1", classics: false });
+    expect(() =>
+      attachClassic({ file, doc: { ...doc, code: "AK-00000" }, workbooks: bare.workbooks, workbook_versions: bare.workbook_versions, books: bare.books, authors: [] }),
+    ).toThrow(/not in the catalogue/);
   });
 });
 

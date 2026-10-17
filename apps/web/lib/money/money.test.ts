@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { formatMinor, parseMajorToMinor, periodLabel, plainMinor, rateLabel } from "@/lib/money/format";
 import { disputeInfo, feeFromBalanceTxn } from "@/lib/money/ledger";
 import { buildPdf, paginate, pdfStringBytes } from "@/lib/money/pdf";
-import { executePayouts, isPayoutDay, runPayouts, stripeErrorCode, type PayoutStore, type PendingPayout, type TransferApi } from "@/lib/money/payout-run";
+import { executePayouts, isPayoutDay, isPayoutDue, londonIsoWeekday, runPayouts, stripeErrorCode, type PayoutStore, type PendingPayout, type TransferApi } from "@/lib/money/payout-run";
 import { moneyAbilities } from "@/lib/money/permissions";
 import { isTestKey, reconcile, reconciliationWindow, type ReceiptRow, type StripeTxn } from "@/lib/money/reconcile";
 import { classifyPurchaseQuery, parseRefundForm, reclaimAmount, refundableMinor, stripeRefundReason } from "@/lib/money/refund";
@@ -279,6 +279,30 @@ describe("payout run", () => {
     expect(isPayoutDay(new Date("2026-10-14T23:30:00Z"), 15)).toBe(true);
     expect(isPayoutDay(new Date("2026-10-14T12:00:00Z"), 15)).toBe(false);
   });
+
+  it("knows the weekday in London", () => {
+    // 16 October 2026 is a Friday; 23:30 UTC on Thursday 15 October is already Friday in London (BST)
+    expect(londonIsoWeekday(new Date("2026-10-16T12:00:00Z"))).toBe(5);
+    expect(londonIsoWeekday(new Date("2026-10-15T23:30:00Z"))).toBe(5);
+    expect(londonIsoWeekday(new Date("2026-10-15T12:00:00Z"))).toBe(4);
+    expect(londonIsoWeekday(new Date("2026-10-18T12:00:00Z"))).toBe(7);
+  });
+
+  it("acts on the configured weekday when the cadence is weekly", () => {
+    const weekly = { payout_cadence: "weekly" as const, payout_weekday: 5, payout_day: 15 };
+    expect(isPayoutDue(new Date("2026-10-16T09:00:00Z"), weekly)).toBe(true);
+    expect(isPayoutDue(new Date("2026-10-15T09:00:00Z"), weekly)).toBe(false);
+    // the monthly day does not matter to a weekly config
+    expect(isPayoutDue(new Date("2026-10-15T09:00:00Z"), { ...weekly, payout_day: 15 })).toBe(false);
+    expect(isPayoutDue(new Date("2026-10-19T09:00:00Z"), { ...weekly, payout_weekday: 1 })).toBe(true);
+  });
+
+  it("keeps the monthly path for a monthly config", () => {
+    const monthly = { payout_cadence: "monthly" as const, payout_weekday: 5, payout_day: 15 };
+    expect(isPayoutDue(new Date("2026-10-15T09:00:00Z"), monthly)).toBe(true);
+    // a Friday that is not the 15th is not a monthly payout day
+    expect(isPayoutDue(new Date("2026-10-16T09:00:00Z"), monthly)).toBe(false);
+  });
 });
 
 describe("statements", () => {
@@ -415,6 +439,8 @@ describe("royalty figures form", () => {
     refund_window_days: "14",
     first_payout_hold_days: "30",
     payout_day: "15",
+    payout_cadence: "weekly",
+    payout_weekday: "5",
     min_GBP: "25",
     approve_GBP: "1000",
     note: "Agreed at the D1 to D5 meeting",
@@ -428,8 +454,12 @@ describe("royalty figures form", () => {
       p_min_payout_minor: { GBP: 2500 },
       p_approval_above_minor: { GBP: 100000 },
       p_payout_day: 15,
+      p_payout_cadence: "weekly",
+      p_payout_weekday: 5,
     });
     expect(parseConfigForm((k) => ({ ...base, sale_rate: "101" })[k])).toBeNull();
+    expect(parseConfigForm((k) => ({ ...base, payout_cadence: "daily" })[k])).toBeNull();
+    expect(parseConfigForm((k) => ({ ...base, payout_weekday: "8" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, payout_day: "31" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, fee_treatment: "split" })[k])).toBeNull();
     expect(parseConfigForm((k) => ({ ...base, note: "" })[k])).toBeNull();

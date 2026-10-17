@@ -6,6 +6,7 @@ import { currentConfig, type RoyaltyConfig } from "@/lib/money/db";
 import { formatMinor, plainMinor, rateLabel } from "@/lib/money/format";
 import { moneyAbilities } from "@/lib/money/permissions";
 import { isTestKey } from "@/lib/money/reconcile";
+import { weekdayName } from "@/lib/money/studio-payments";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../_components/Bits";
@@ -225,13 +226,13 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
             <dl className="admin-dl">
               <div>
                 <dt>Status</dt>
-                <dd>{config.is_placeholder ? "PLACEHOLDER: not a decision (D1 to D5)" : `Set ${formatAdminDate(config.effective_from)}`}</dd>
+                <dd>{config.is_placeholder ? "Provisional: not yet decided" : `Set ${formatAdminDate(config.effective_from)}`}</dd>
               </div>
               <div>
                 <dt>Single sale, author share</dt>
                 <dd>
-                  {rateLabel(config.sale_rate_author)} of net receipts (second rate for the author&apos;s own link: {rateLabel(config.sale_rate_author_link)},
-                  not used yet)
+                  {rateLabel(config.sale_rate_author)} of net receipts on marketplace sales; {rateLabel(config.sale_rate_author_link)} on sales through the
+                  author&apos;s own link (0039: the channel is recorded per sale, author links are not issued yet)
                 </dd>
               </div>
               <div>
@@ -262,8 +263,12 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
                 <dd>{Object.entries(config.approval_above_minor).map(([c, v]) => formatMinor(v, c)).join(", ") || "None set"}</dd>
               </div>
               <div>
-                <dt>Payout day</dt>
-                <dd>Day {config.payout_day} of each month, London time</dd>
+                <dt>Payout calendar</dt>
+                <dd>
+                  {config.payout_cadence === "weekly"
+                    ? `Weekly on ${weekdayName(config.payout_weekday)}s, London time. Money past the ${config.refund_window_days} day refund window is paid; the floor carries forward.`
+                    : `Monthly on day ${config.payout_day}, London time`}
+                </dd>
               </div>
             </dl>
             {config.note ? <p className="muted">{config.note}</p> : null}
@@ -276,8 +281,7 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
           <details className="card money-config">
             <summary>Set new figures</summary>
             <p className="muted">
-              New figures apply to lines written from now on. Earlier lines keep the rate they used. Saving marks the figures as decided, not
-              placeholders.
+              New figures apply to lines written from now on. Earlier lines keep the rate they used. Saving marks the figures as decided.
             </p>
             <form action={saveRoyaltyConfig} className="admin-form">
               <label htmlFor="cfg-sale">Single sale, author share (%)</label>
@@ -299,7 +303,20 @@ export default async function MoneyPage({ searchParams }: { searchParams: Promis
               <input id="cfg-window" name="refund_window_days" inputMode="numeric" defaultValue={String(config.refund_window_days)} required />
               <label htmlFor="cfg-hold">First payout hold (days)</label>
               <input id="cfg-hold" name="first_payout_hold_days" inputMode="numeric" defaultValue={String(config.first_payout_hold_days)} required />
-              <label htmlFor="cfg-day">Payout day (1 to 28)</label>
+              <label htmlFor="cfg-cadence">Payout calendar</label>
+              <select id="cfg-cadence" name="payout_cadence" defaultValue={config.payout_cadence}>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+              <label htmlFor="cfg-weekday">Weekly payout day</label>
+              <select id="cfg-weekday" name="payout_weekday" defaultValue={String(config.payout_weekday)}>
+                {[1, 2, 3, 4, 5, 6, 7].map((d) => (
+                  <option key={d} value={String(d)}>
+                    {weekdayName(d)}
+                  </option>
+                ))}
+              </select>
+              <label htmlFor="cfg-day">Monthly payout day (1 to 28), the day the run acts on for now</label>
               <input id="cfg-day" name="payout_day" inputMode="numeric" defaultValue={String(config.payout_day)} required />
               {CONFIG_CURRENCIES.map((c) => (
                 <div key={c} className="money-pair">

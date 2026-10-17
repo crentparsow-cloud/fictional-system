@@ -1,5 +1,7 @@
-// The one layout every Akana email shares (Daylight Blocks), ported from
-// legacy/functions/_shared/emails.ts.
+// The one layout every Akana email shares, ported from
+// legacy/functions/_shared/emails.ts and brought to the bright editorial
+// direction (plan 10.6): white page, one vermilion button, pastel header bands,
+// serif headings (Georgia, safe in every client), light and text-first.
 //
 // Voice: understanding, helpful, calm. Second person, short sentences, plain
 // words. No dashes, no emojis. Subject lines never name a title, a theme, a
@@ -22,6 +24,7 @@ export type FooterKind =
   | "partner_stopped"
   | "deleted"
   | "signin"
+  | "reminder"
   | "author";
 export type Panel = {
   title?: string;
@@ -65,24 +68,24 @@ export const stageHero = (index: number): Hero => `stage-${((Math.max(0, index) 
 
 // ---------- colour ----------
 const C = {
-  page: "#F7F5F0",
+  page: "#FFFFFF",
   card: "#FFFFFF",
-  ink: "#16222B",
-  soft: "#4A5864",
-  brand: "#1F4E5A",
-  marigold: "#F2B84B",
-  tint: "#F4F2EC",
-  rule: "#E4E0D7",
+  ink: "#141414",
+  soft: "#55554F",
+  brand: "#C2360F",
+  marigold: "#FFE58A",
+  tint: "#F4F4F2",
+  rule: "#E4E4E0",
 };
 const BANDS: Record<Hero, { bg: string; ink: string; darkBg: string; darkInk: string }> = {
-  "stage-1": { bg: "#DCEBE2", ink: "#2D6A4F", darkBg: "#1C3027", darkInk: "#9FD3B6" },
-  "stage-2": { bg: "#F8E0D0", ink: "#9C4A25", darkBg: "#38241A", darkInk: "#F0B391" },
-  "stage-3": { bg: "#F6EAC0", ink: "#6E520F", darkBg: "#332A12", darkInk: "#E8C873" },
-  "stage-4": { bg: "#D6E6F3", ink: "#1F5A85", darkBg: "#172A3A", darkInk: "#9CC6EA" },
-  service: { bg: "#D6E6F3", ink: "#1F5A85", darkBg: "#172A3A", darkInk: "#9CC6EA" },
-  partner: { bg: "#EFE7DA", ink: "#6B5232", darkBg: "#2E2820", darkInk: "#D9C3A3" },
-  brand: { bg: "#E1ECEE", ink: "#1F4E5A", darkBg: "#16303A", darkInk: "#9FCBD6" },
-  author: { bg: "#E1ECEE", ink: "#1F4E5A", darkBg: "#16303A", darkInk: "#9FCBD6" },
+  "stage-1": { bg: "#C9F0DC", ink: "#0D5A39", darkBg: "#143F2C", darkInk: "#9FE3C0" },
+  "stage-2": { bg: "#FFD9C7", ink: "#7A2E0E", darkBg: "#4A2615", darkInk: "#FFC7AD" },
+  "stage-3": { bg: "#FFF0B8", ink: "#5A4500", darkBg: "#433A0E", darkInk: "#FFE28A" },
+  "stage-4": { bg: "#D4E6FF", ink: "#1E3F80", darkBg: "#1C2F4F", darkInk: "#B7D0FF" },
+  service: { bg: "#F4F4F2", ink: "#141414", darkBg: "#242423", darkInk: "#F3F3F0" },
+  partner: { bg: "#E2E0FF", ink: "#3B2F8A", darkBg: "#2A2552", darkInk: "#CBC6FF" },
+  brand: { bg: "#FBEAE4", ink: "#8F2709", darkBg: "#3A1D12", darkInk: "#FF9B78" },
+  author: { bg: "#FBEAE4", ink: "#8F2709", darkBg: "#3A1D12", darkInk: "#FF9B78" },
 };
 
 // Mix a colour toward a background, so the mark needs no opacity (Outlook ignores it).
@@ -162,6 +165,14 @@ export function footerText(kind: FooterKind, links: FooterLinks, postal?: string
         company,
         safety: false,
       };
+    case "reminder":
+      return {
+        buttons: settings,
+        textLinks: [],
+        lines: [`You are getting this because you chose to be reminded in ${BRAND}. You can change the days or stop the reminders any time.`],
+        company,
+        safety: true,
+      };
     case "author":
       return {
         buttons: settings,
@@ -185,6 +196,7 @@ export function footerText(kind: FooterKind, links: FooterLinks, postal?: string
 // ---------- rendering ----------
 export const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
+const SERIF = "'Source Serif 4',Georgia,'Times New Roman',serif";
 const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 const F = `font-family:${FONT};`;
 
@@ -196,22 +208,23 @@ function css(hero: Hero, tones: Hero[]): string {
       return `.pn-${t}{background:${x.darkBg}!important}.pt-${t}{color:${x.darkInk}!important}`;
     })
     .join("");
-  const dark = `.bg-page{background:#0F1519!important}.card{background:#1A2329!important}
-.ink{color:#E9EEF1!important}.soft{color:#AEBBC4!important}.brandtxt{color:#9FCBD6!important}
+  const dark = `.bg-page{background:#121212!important}.card{background:#1B1B1B!important}
+.ink{color:#F3F3F0!important}.soft{color:#B5B5AD!important}.brandtxt{color:#FF9B78!important}
 .hero{background:${b.darkBg}!important}.hink{color:${b.darkInk}!important}
 .mk1{background:${mix(b.darkInk, b.darkBg, 0.55)}!important}.mk2{background:${mix(b.darkInk, b.darkBg, 0.78)}!important}.mk3{background:${b.darkInk}!important}
-.pn-tint{background:#222D35!important}.pn-terms{background:#1A2329!important;border-color:#3A4650!important}
-.rule{border-color:#33404A!important}.seg-off{background:#33404A!important}
-.pill{border-color:#5C6B75!important}.pill a{color:#D3DCE2!important}
-.btn2{background:#1A2329!important;border-color:#9FCBD6!important}.btn2 a{color:#9FCBD6!important}
+.pn-tint{background:#242423!important}.pn-terms{background:#1B1B1B!important;border-color:#333331!important}
+.rule{border-color:#333331!important}.seg-off{background:#333331!important}
+.pill{border-color:#71716F!important}.pill a{color:#F3F3F0!important}
+.btn1{background:#FF8A62!important}.btn1 a{color:#2A0E04!important}
+.btn2{background:#1B1B1B!important;border-color:#FF9B78!important}.btn2 a{color:#FF9B78!important}
 ${toneCss}`;
   return `:root{color-scheme:light dark;supported-color-schemes:light dark}
 body{margin:0;padding:0;-webkit-text-size-adjust:100%}
 a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important}
 @media (max-width:600px){.px{padding-left:20px!important;padding-right:20px!important}.h1{font-size:26px!important}.big{font-size:24px!important}}
 @media (prefers-color-scheme:dark){${dark}}
-[data-ogsc] .ink{color:#E9EEF1!important}[data-ogsc] .soft{color:#AEBBC4!important}[data-ogsc] .hink{color:${b.darkInk}!important}
-[data-ogsb] .bg-page{background:#0F1519!important}[data-ogsb] .card{background:#1A2329!important}[data-ogsb] .hero{background:${b.darkBg}!important}`;
+[data-ogsc] .ink{color:#F3F3F0!important}[data-ogsc] .soft{color:#B5B5AD!important}[data-ogsc] .hink{color:${b.darkInk}!important}
+[data-ogsb] .bg-page{background:#121212!important}[data-ogsb] .card{background:#1B1B1B!important}[data-ogsb] .hero{background:${b.darkBg}!important}`;
 }
 
 function mark(hero: Hero): string {
@@ -252,18 +265,18 @@ function button(b: Button, style: "primary" | "secondary"): string {
   const width = Math.max(160, Math.round(b.label.length * 9.5 + 56));
   const vml = `<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${esc(
     b.url,
-  )}" style="height:48px;v-text-anchor:middle;width:${width}px" arcsize="25%" ${
+  )}" style="height:48px;v-text-anchor:middle;width:${width}px" arcsize="50%" ${
     primary ? 'stroke="f"' : `strokecolor="${C.brand}" strokeweight="1.5px"`
   } fillcolor="${bg}"><w:anchorlock/><center style="color:${fg};font-family:Arial,sans-serif;font-size:17px;font-weight:bold">${esc(
     b.label,
   )}</center></v:roundrect><![endif]-->`;
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 0 12px"><tr><td>${vml}<!--[if !mso]><!--><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-<td ${primary ? "" : 'class="btn2" '}align="center" bgcolor="${bg}" style="border-radius:12px;background:${bg};${
+<td ${primary ? 'class="btn1" ' : 'class="btn2" '}align="center" bgcolor="${bg}" style="border-radius:999px;background:${bg};${
     primary ? "" : `border:1.5px solid ${C.brand};`
   }">
 <a href="${esc(
     b.url,
-  )}" style="display:inline-block;padding:0 26px;height:48px;line-height:48px;${F}font-size:17px;font-weight:600;color:${fg};text-decoration:none;border-radius:12px">${esc(
+  )}" style="display:inline-block;padding:0 26px;height:48px;line-height:48px;${F}font-size:17px;font-weight:600;color:${fg};text-decoration:none;border-radius:999px">${esc(
     b.label,
   )}</a></td></tr></table><!--<![endif]--></td></tr></table>`;
 }
@@ -387,7 +400,7 @@ ${
     ? `<p class="hink" style="margin:0 0 8px;${F}font-size:14px;line-height:1.4;font-weight:700;color:${band.ink}">${esc(email.eyebrow)}</p>`
     : ""
 }
-<h1 class="ink h1" style="margin:0;${F}font-size:28px;line-height:1.25;font-weight:700;color:${C.ink};letter-spacing:-0.2px">${esc(email.headline)}</h1>
+<h1 class="ink h1" style="margin:0;font-family:${SERIF};font-size:28px;line-height:1.25;font-weight:700;color:${C.ink};letter-spacing:-0.2px">${esc(email.headline)}</h1>
 ${email.strip ? strip(email.strip) : ""}
 </td>`;
 
@@ -453,7 +466,7 @@ ${small(`<strong>${BRAND}</strong> &middot; ${esc(foot.company)}`, "margin-botto
 <!--[if mso]><table role="presentation" width="560" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;margin:0 auto">
 <tr><td style="padding:4px 8px 14px"><span class="brandtxt" style="${F}font-size:20px;line-height:1.2;font-weight:700;letter-spacing:-0.2px;color:${C.brand}">${BRAND}</span></td></tr>
-<tr><td class="card" bgcolor="${C.card}" style="background:${C.card};border-radius:16px">
+<tr><td class="card" bgcolor="${C.card}" style="background:${C.card};border:1px solid ${C.rule};border-radius:16px">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>${hero}</tr>
 <tr>${body}</tr>

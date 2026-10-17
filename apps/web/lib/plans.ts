@@ -1,4 +1,5 @@
 import { MARKETS } from "@/lib/markets";
+import { monthlyEquivalentMinor } from "@/lib/price-display";
 import { PRICE_TO_BE_CONFIRMED, amountFor, formatPrice, pricePointFromRow } from "@/lib/pricing";
 
 /**
@@ -6,7 +7,7 @@ import { PRICE_TO_BE_CONFIRMED, amountFor, formatPrice, pricePointFromRow } from
  * that is not decided" rule is unit tested.
  *
  * Only the membership may show a figure, and only from public.price_points
- * (the interim figures from migration 0010 until Crent sets the real ones).
+ * (decided 15 October 2026, migration 0046).
  * Single workbooks, publisher plans, white-label plans and organisation
  * plans have no decided prices, so every one of them says "talk to us" or
  * "price to be confirmed". Nothing here invents a figure.
@@ -28,7 +29,7 @@ export interface MembershipDisplay {
 }
 
 /**
- * The membership lines for the pricing page, in GBP because the interim
+ * The membership lines for the pricing page, in GBP because the decided
  * prices are set for the GBP market only. A missing, inactive or
  * placeholder row shows "Price to be confirmed".
  */
@@ -42,8 +43,25 @@ export function membershipDisplay(rows: readonly PricePointRowLike[] | null | un
     return minor === null ? null : `${formatPrice(minor, gb)} ${per}`;
   };
   const monthly = line("member_month", "a month");
-  const yearly = line("member_year", "a year");
+  // 14.21: the annual plan as a monthly equivalent with the yearly total beside it, at the same size.
+  const yearlyRow = (rows ?? []).find((r) => r.id === "member_year");
+  const yearlyPoint = yearlyRow ? pricePointFromRow(yearlyRow) : null;
+  const yearlyMinor = yearlyPoint && yearlyPoint.active && yearlyPoint.kind === "membership" ? amountFor(yearlyPoint, gb) : null;
+  const yearly = yearlyMinor === null ? null : `${formatPrice(monthlyEquivalentMinor(yearlyMinor), gb)} a month, ${formatPrice(yearlyMinor, gb)} a year`;
   return { monthly: monthly ?? PRICE_TO_BE_CONFIRMED, yearly: yearly ?? PRICE_TO_BE_CONFIRMED, hasPrice: monthly !== null || yearly !== null };
+}
+
+/**
+ * The line for the two-person membership (0041), in GBP like the others.
+ * A missing, inactive or placeholder row gives null: the pricing page leaves
+ * the plan out rather than say "to be confirmed" about something it cannot sell yet.
+ */
+export function sharedPlanDisplay(rows: readonly PricePointRowLike[] | null | undefined): string | null {
+  const row = (rows ?? []).find((r) => r.id === "member_two_month");
+  const point = row ? pricePointFromRow(row) : null;
+  if (!point || !point.active || point.kind !== "membership") return null;
+  const minor = amountFor(point, MARKETS.GB);
+  return minor === null ? null : `${formatPrice(minor, MARKETS.GB)} a month for two people`;
 }
 
 /** Where every "talk to us" button goes: the enquiry form on /publish. */

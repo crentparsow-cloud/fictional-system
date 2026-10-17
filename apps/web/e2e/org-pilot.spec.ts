@@ -25,7 +25,7 @@ for (const path of [
     const h = response!.headers();
     expect(h["referrer-policy"]).toBe("no-referrer");
     expect(h["cache-control"]).toMatch(/no-store/);
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link isn't working");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("This link is not working");
     await expect(page.getByRole("button", { name: /accept|take the place/i })).toHaveCount(0);
     expect(await page.locator('meta[name="robots"]').getAttribute("content")).toMatch(/noindex/);
   });

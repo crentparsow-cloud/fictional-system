@@ -1,12 +1,17 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
+import { CANCEL_EMAIL_FAILED, confirmationNotSent } from "@/lib/cancellation-confirm";
 import { sendMembershipNotice } from "@/lib/membership-email";
-import { sendPurchaseEmail } from "@/lib/purchase-email";
+import { sendPurchaseEmail, type TrialExtras } from "@/lib/purchase-email";
+import { loadFirstWeekPlan } from "@/lib/first-week-plan-server";
+import { PRICE_LADDER } from "@/lib/pricing";
 import { cancelInCoolingOff } from "@/lib/membership-refund";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
   handleStripeEvent,
+  SubscriptionInsertRaceError,
   type GrantDetails,
+  type MembershipConfirmedNotice,
   type MembershipNotice,
   type MembershipRepo,
   type PurchaseRef,
@@ -14,7 +19,7 @@ import {
   type ReaderMailNotice,
 } from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { countFunnelEvent } from "@/lib/funnel";
+import { countFunnelEvent, membershipFunnelEvent } from "@/lib/funnel";
 import { mailLog } from "@/lib/mail-ops";
 import { reportOps } from "@/lib/ops-alerts";
 import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
@@ -106,6 +111,7 @@ export async function POST(request: NextRequest) {
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
     for (const n of mail ?? []) await sendMail(admin, n, siteOrigin(request));
     if (outcome.action === "granted") await countPurchase(admin, event);
+    if (outcome.action === "subscription_applied" || outcome.action === "cooling_off_cancelled") await countMembership(admin, event);
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });
@@ -196,8 +202,22 @@ function membershipRepo(admin: Admin): MembershipRepo {
         p_ended_at: st.endedAt,
         p_observed_at: st.observedAt,
       });
-      if (error) throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
-      return data as "applied" | "unchanged" | "stale" | "unlinked";
+      if (error) {
+        // 23505: a concurrent delivery inserted the same new subscription first. The handler retries once.
+        if (error.code === "23505") throw new SubscriptionInsertRaceError();
+        throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
+      }
+      const result = data as "applied" | "unchanged" | "stale" | "unlinked";
+      // 14.25: the pause window (migration 0045). Recorded after the row exists; a stale or unlinked event leaves it alone.
+      if (result === "applied" || result === "unchanged") {
+        const { error: pauseError } = await admin.rpc("record_subscription_pause", {
+          p_subscription: st.subscriptionId,
+          p_from: st.pausedFrom,
+          p_until: st.pausedUntil,
+        });
+        if (pauseError) throw new Error(`record_subscription_pause failed: ${pauseError.code ?? pauseError.message}`);
+      }
+      return result;
     },
     async syncMembership(userId, tenantId) {
       const { error } = await admin.rpc("sync_membership_entitlement", { p_user: userId, p_tenant: tenantId });
@@ -253,7 +273,7 @@ function membershipRepo(admin: Admin): MembershipRepo {
 async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Promise<void> {
   try {
     const env = process.env;
-    await sendMembershipNotice(n, origin, {
+    const result = await sendMembershipNotice(n, origin, {
       env: {
         RESEND_API_KEY: env.RESEND_API_KEY,
         EMAIL_FROM: env.EMAIL_FROM,
@@ -273,8 +293,11 @@ async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Pr
       },
       log: mailLog("api/stripe/webhook", "membership_email"),
     });
+    // R9: a cancellation the reader was not told about is raised at once; the daily run tries again.
+    if (n.template === "cancellation" && confirmationNotSent(result)) await reportOps(admin, "webhook_failure", "api/stripe/webhook", CANCEL_EMAIL_FAILED);
   } catch (err) {
     console.error("membership_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
+    if (n.template === "cancellation") await reportOps(admin, "webhook_failure", "api/stripe/webhook", CANCEL_EMAIL_FAILED);
   }
 }
 
@@ -286,6 +309,8 @@ async function sendNotice(admin: Admin, n: MembershipNotice, origin: string): Pr
 async function sendMail(admin: Admin, n: ReaderMailNotice, origin: string): Promise<void> {
   try {
     const env = process.env;
+    // 14.20: the day-zero email of a trial carries the first week's plan and the renewal price.
+    const extras = n.template === "purchase_membership" && n.trial ? await trialExtras(admin, n) : {};
     const status = await sendPurchaseEmail(n, origin, {
       env: {
         RESEND_API_KEY: env.RESEND_API_KEY,
@@ -305,11 +330,21 @@ async function sendMail(admin: Admin, n: ReaderMailNotice, origin: string): Prom
         if (error) console.error("purchase_email_release_failed", { code: error.code ?? "unknown" });
       },
       log: mailLog("api/stripe/webhook", "purchase_email"),
-    });
+    }, extras);
     if (status === "no_figures") console.warn("purchase_email_no_figures", { template: n.template });
   } catch (err) {
     console.error("purchase_email_failed", { template: n.template, reason: err instanceof Error ? err.name : "unknown" });
   }
+}
+
+/** The first week's plan and the price the trial renews at, for the day-zero email. Best effort. */
+async function trialExtras(admin: Admin, n: MembershipConfirmedNotice): Promise<TrialExtras> {
+  const firstWeek = await loadFirstWeekPlan(admin, n.userId);
+  const point = n.plan;
+  const { data } = await admin.from("price_points").select("amounts").eq("id", point).maybeSingle();
+  const amounts = (data?.amounts ?? PRICE_LADDER[point].amounts) as Record<string, number | undefined>;
+  const renewalMinor = amounts[n.currency] ?? null;
+  return { firstWeek, renewalMinor };
 }
 
 /** The public origin for links in the email, from the proxy's headers. */
@@ -322,11 +357,25 @@ function siteOrigin(request: NextRequest): string {
 /**
  * F-141: count a completed purchase. Server to server, so there is no
  * visitor opt-out to read; the count carries the tenant and workbook ids
- * from the session metadata and nothing about the buyer. Best effort.
+ * from the session metadata and nothing about the buyer beyond the daily
+ * hash of their id (0036), so one buyer is one unique. Best effort.
  */
 async function countPurchase(admin: Admin, event: Stripe.Event): Promise<void> {
   const obj = event.data.object as { metadata?: Record<string, string> | null };
   const tenantId = obj.metadata?.tenant_id;
   if (!tenantId) return;
-  await countFunnelEvent(admin, "purchase", { tenantId, workbookId: obj.metadata?.workbook_id ?? null, headers: null });
+  await countFunnelEvent(admin, "purchase", { tenantId, workbookId: obj.metadata?.workbook_id ?? null, headers: null, userId: obj.metadata?.user_id ?? null });
+}
+
+/**
+ * 0036: trial_started, trial_cancelled or membership_cancelled from a
+ * subscription event that changed our row. Counts only, the same way.
+ */
+async function countMembership(admin: Admin, event: Stripe.Event): Promise<void> {
+  const kind = membershipFunnelEvent(event as unknown as Parameters<typeof membershipFunnelEvent>[0]);
+  if (!kind) return;
+  const obj = event.data.object as { metadata?: Record<string, string> | null };
+  const tenantId = obj.metadata?.tenant_id;
+  if (!tenantId) return;
+  await countFunnelEvent(admin, kind, { tenantId, workbookId: null, headers: null, userId: obj.metadata?.user_id ?? null });
 }

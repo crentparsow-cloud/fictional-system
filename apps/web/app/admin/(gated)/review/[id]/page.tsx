@@ -425,7 +425,7 @@ export default async function ReviewVersionPage({
                 Decline
               </button>
             </div>
-            <p className="muted small">The ladder figures are placeholders until Crent sets them. Approving records the point; nothing sells at a placeholder.</p>
+            <p className="muted small">The ladder runs from GBP 7.99 to GBP 14.99 in six steps. Approving records the point the author chose.</p>
           </form>
         ) : null}
       </section>

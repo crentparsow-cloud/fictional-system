@@ -1,13 +1,13 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { NEVER_COLLECT, TRUST_CLAIMS } from "@/lib/trust";
+import { ANALYTICS_RULE, EXPORT_PROMISE, NEVER_COLLECT, statusPageUrl, TRUST_CLAIMS, TRUST_COMPARISON } from "@/lib/trust";
 
 // vitest runs from apps/web; the repo root is two levels up.
 const ROOT = path.join(process.cwd(), "..", "..");
 
 describe("trust page claims (F-121)", () => {
-  const all = [...TRUST_CLAIMS, ...NEVER_COLLECT];
+  const all = [...TRUST_CLAIMS, ...NEVER_COLLECT, ...TRUST_COMPARISON.map((c) => ({ title: c.practice, body: `${c.others} ${c.akana}`, enforcedBy: c.enforcedBy })), ANALYTICS_RULE, EXPORT_PROMISE];
 
   it("names at least one enforcing file for every claim", () => {
     for (const c of all) expect(c.enforcedBy.length, c.title).toBeGreaterThan(0);
@@ -25,5 +25,45 @@ describe("trust page claims (F-121)", () => {
       expect(text).not.toMatch(/—/);
       expect(text).not.toMatch(/\b(cure|treat|therapy|diagnos|guarantee|100%|military-grade|unhackable)/i);
     }
+  });
+});
+
+describe("trust comparison (11.1)", () => {
+  it("covers the five practices and names no product", () => {
+    expect(TRUST_COMPARISON.map((c) => c.practice)).toEqual([
+      "Trackers",
+      "Selling your data",
+      "Reading your answers",
+      "Countdowns and made-up scarcity",
+      "Dark patterns",
+    ]);
+    const text = TRUST_COMPARISON.map((c) => `${c.others} ${c.akana}`).join(" ");
+    expect(text).not.toMatch(/\b(duolingo|headspace|calm|blinkist|readwise|audible|kindle|amazon|google|meta|facebook)\b/i);
+  });
+
+  it("states the daily-rotating id rule without promising a profile", () => {
+    expect(ANALYTICS_RULE.body).toMatch(/changes every day/);
+    expect(ANALYTICS_RULE.body).toMatch(/no profile/);
+    expect(ANALYTICS_RULE.body).toMatch(/no cookie/);
+  });
+
+  it("keeps the export promise and the deletion period the account code uses", () => {
+    expect(EXPORT_PROMISE.body).toMatch(/download everything you wrote/);
+    expect(EXPORT_PROMISE.body).toMatch(/7 days/);
+  });
+});
+
+describe("statusPageUrl", () => {
+  it("is null while STATUS_PAGE_URL is blank, missing, not a URL or not https", () => {
+    expect(statusPageUrl({})).toBeNull();
+    expect(statusPageUrl({ STATUS_PAGE_URL: "" })).toBeNull();
+    expect(statusPageUrl({ STATUS_PAGE_URL: "   " })).toBeNull();
+    expect(statusPageUrl({ STATUS_PAGE_URL: "status.example.com" })).toBeNull();
+    expect(statusPageUrl({ STATUS_PAGE_URL: "http://status.example.com" })).toBeNull();
+    expect(statusPageUrl({ STATUS_PAGE_URL: "javascript:alert(1)" })).toBeNull();
+  });
+
+  it("returns an https address", () => {
+    expect(statusPageUrl({ STATUS_PAGE_URL: " https://status.example.com " })).toBe("https://status.example.com/");
   });
 });

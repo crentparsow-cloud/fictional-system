@@ -14,19 +14,21 @@ import { formatMoney, type Market } from "@/lib/markets";
  * they change, update this ladder, the database rows and the Stripe prices
  * together.
  *
- * INTERIM: the two membership points carry test-mode prices for the GBP
- * market until Crent confirms them: GBP 7.99 a month and GBP 69.99 a year,
- * VAT inclusive, no free trial (migration 0010). Their Stripe prices come
- * from STRIPE_PRICE_MEMBERSHIP_MONTHLY and _YEARLY, not from this file, so
- * stripePriceId stays null here and in price_points.
+ * MEMBERSHIP PRICES (decided 15 October 2026, migration 0046), GBP, VAT
+ * inclusive: one person GBP 7.99 a month or GBP 69.99 a year (GBP 5.83 a month
+ * billed yearly); two people GBP 11.99 a month or GBP 104.99 a year. Trials
+ * are 14 days monthly and 21 days annual for one person, none for two. The
+ * Stripe prices come from STRIPE_PRICE_MEMBERSHIP_MONTHLY, _YEARLY,
+ * _TWO_MONTHLY and _TWO_YEARLY, not from this file, so stripePriceId stays
+ * null here and in price_points.
  *
- * When the figures arrive they go in two places at once: here, and in
- * public.price_points (plus the Stripe price ids). The database row wins at
+ * When a figure changes it goes in two places at once: here, and in
+ * public.price_points (plus the Stripe price id). The database row wins at
  * checkout time; this file is for display and tests.
  */
 
 export type WorkbookPricePointId = "p1" | "p2" | "p3" | "p4" | "p5" | "p6";
-export type MembershipPricePointId = "member_month" | "member_year";
+export type MembershipPricePointId = "member_month" | "member_year" | "member_two_month" | "member_two_year";
 export type PricePointId = WorkbookPricePointId | MembershipPricePointId;
 export type PricePointKind = "workbook" | "membership";
 
@@ -79,12 +81,15 @@ const workbookPoint = (id: WorkbookPricePointId, label: string): PricePoint => (
 });
 
 /**
- * INTERIM membership prices in minor units, GBP market only, VAT inclusive.
- * Mirrors public.price_points after migration 0010. Change both together.
+ * Membership prices in minor units, GBP market only, VAT inclusive. Mirrors
+ * public.price_points after migration 0046. Change both together.
  */
-export const INTERIM_MEMBERSHIP_AMOUNTS: Readonly<Record<MembershipPricePointId, Amounts>> = Object.freeze({
+export const MEMBERSHIP_AMOUNTS: Readonly<Record<MembershipPricePointId, Amounts>> = Object.freeze({
   member_month: Object.freeze({ GBP: 799 }) as Amounts,
   member_year: Object.freeze({ GBP: 6999 }) as Amounts,
+  // The two-person plans: about 1.5 times the single price (migrations 0041 and 0046).
+  member_two_month: Object.freeze({ GBP: 1199 }) as Amounts,
+  member_two_year: Object.freeze({ GBP: 10499 }) as Amounts,
 });
 
 /** The ladder. p1 is the shortest workbook, p6 the longest. */
@@ -95,8 +100,10 @@ export const PRICE_LADDER: Readonly<Record<PricePointId, PricePoint>> = {
   p4: workbookPoint("p4", "Ladder point 4, GBP 11.99"),
   p5: workbookPoint("p5", "Ladder point 5, GBP 12.99"),
   p6: workbookPoint("p6", "Ladder point 6, GBP 14.99 (longest)"),
-  member_month: { ...placeholder("member_month", "membership", "Membership, monthly"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_month, active: true },
-  member_year: { ...placeholder("member_year", "membership", "Membership, annual"), amounts: INTERIM_MEMBERSHIP_AMOUNTS.member_year, active: true },
+  member_month: { ...placeholder("member_month", "membership", "Membership, monthly"), amounts: MEMBERSHIP_AMOUNTS.member_month, active: true },
+  member_year: { ...placeholder("member_year", "membership", "Membership, annual"), amounts: MEMBERSHIP_AMOUNTS.member_year, active: true },
+  member_two_month: { ...placeholder("member_two_month", "membership", "Membership for two people, monthly"), amounts: MEMBERSHIP_AMOUNTS.member_two_month, active: true },
+  member_two_year: { ...placeholder("member_two_year", "membership", "Membership for two people, annual"), amounts: MEMBERSHIP_AMOUNTS.member_two_year, active: true },
 };
 
 export const PRICE_POINT_IDS = Object.keys(PRICE_LADDER) as PricePointId[];
@@ -202,6 +209,19 @@ export const PRICE_TO_BE_CONFIRMED = "Price to be confirmed";
  * used only where public.price_points holds a figure for it.
  */
 export const FALLBACK_CHARGE_CURRENCY: PriceCurrency = "GBP";
+
+/**
+ * The currency a checkout charges in for a price point: the market's own
+ * currency when the point has an amount in it, otherwise GBP, the base
+ * currency (F-094). A reader with no country falls into the XX market, whose
+ * currency is USD, but the membership ladder is GBP only, so they are charged
+ * in GBP. The membership route, the single workbook route and the offer all
+ * resolve the currency through this one rule.
+ */
+export function checkoutCurrencyFor(point: Pick<PricePoint, "amounts"> | null | undefined, market: Market): PriceCurrency {
+  const local = priceCurrencyFor(market);
+  return point && isValidMinor(point.amounts[local]) ? local : FALLBACK_CHARGE_CURRENCY;
+}
 
 /** Shown under a price that is in GBP for a reader whose market uses another currency. */
 export const GBP_PRICE_NOTE = "Prices are in pounds sterling (GBP). Your card provider may convert the amount.";

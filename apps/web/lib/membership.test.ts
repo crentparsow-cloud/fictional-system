@@ -57,6 +57,12 @@ describe("membershipCheckoutParams", () => {
     expect("managed_payments" in p).toBe(false);
   });
 
+  it("pins a promotion code from the /code page as the session's discount and turns the code box off (item 5.9)", () => {
+    const p = membershipCheckoutParams({ ...base, promotionCodeId: "promo_First" });
+    expect(p.discounts).toEqual([{ promotion_code: "promo_First" }]);
+    expect(p.allow_promotion_codes).toBeUndefined();
+  });
+
   it("starts no free trial: the free first unit is the trial (0010)", () => {
     for (const plan of ["monthly", "yearly"] as const) {
       const p = membershipCheckoutParams({ ...base, plan });
@@ -85,9 +91,18 @@ describe("membershipCheckoutParams", () => {
     expect(p.custom_text?.submit).toEqual({ message: autoRenewNotice("yearly") });
     expect(autoRenewNotice("yearly")).toContain("renews automatically each year until you cancel");
     expect(autoRenewNotice("monthly")).toContain("each month");
-    expect(autoRenewNotice("monthly")).toContain("on the You page, under Manage membership");
+    expect(autoRenewNotice("monthly")).toContain("go to the You page, then Cancel membership");
     for (const plan of ["monthly", "yearly"] as const) expect(autoRenewNotice(plan)).not.toMatch(/—|–/);
     expect(JSON.stringify(p)).not.toMatch(/title/i);
+  });
+
+  it("states the yearly total on the pay screen for the annual plan (R6)", () => {
+    expect(autoRenewNotice("yearly", "£69.99")).toMatch(/^You pay £69\.99 a year, taken once\. /);
+    const p = membershipCheckoutParams({ ...base, plan: "yearly", yearlyTotal: "£69.99" });
+    expect(JSON.stringify(p.custom_text?.submit)).toContain("£69.99 a year");
+    // Monthly and two-person plans carry no yearly sentence.
+    expect(autoRenewNotice("monthly", "£69.99")).not.toContain("a year, taken once");
+    expect(autoRenewNotice("yearly")).not.toContain("taken once");
   });
 });
 
@@ -124,8 +139,27 @@ describe("subscriptionStateFrom", () => {
       cancelAt: null,
       canceledAt: null,
       endedAt: null,
+      pausedFrom: null,
+      pausedUntil: null,
       observedAt: at.toISOString(),
     });
+  });
+
+  it("carries a pause window from the metadata while Stripe holds the pause (14.25)", () => {
+    const meta = { user_id: USER, tenant_id: TENANT, pause_from: "2026-11-01T00:00:00.000Z", pause_until: "2026-12-01T00:00:00.000Z" };
+    const held = subscriptionStateFrom(sub({ metadata: meta, pause_collection: { behavior: "void", resumes_at: 1 } }), at);
+    expect(held?.pausedFrom).toBe("2026-11-01T00:00:00.000Z");
+    expect(held?.pausedUntil).toBe("2026-12-01T00:00:00.000Z");
+  });
+
+  it("keeps the window for the day after Stripe resumes, and clears it if collection was resumed early", () => {
+    const meta = { user_id: USER, tenant_id: TENANT, pause_from: "2026-11-01T00:00:00.000Z", pause_until: "2026-12-01T00:00:00.000Z" };
+    const dayBefore = new Date("2026-11-30T12:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), dayBefore)?.pausedUntil).toBe("2026-12-01T00:00:00.000Z");
+    const early = new Date("2026-11-10T12:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), early)?.pausedUntil).toBeNull();
+    const after = new Date("2026-12-02T00:00:00Z");
+    expect(subscriptionStateFrom(sub({ metadata: meta, pause_collection: null }), after)?.pausedFrom).toBeNull();
   });
 
   it("reads the plan from the price interval and the customer from an expanded object", () => {
@@ -178,6 +212,14 @@ describe("membership on the You page", () => {
     expect(membershipLine(membershipSummary([row({ plan: "member_year" })]), fmt)).toBe("Annual membership. Renews on 2026-11-14.");
   });
 
+  it("says a trialing reader is in a trial and what happens on the date", () => {
+    const s = membershipSummary([row({ status: "trialing", current_period_end: "2026-10-31T11:50:20Z" })]);
+    expect(s).toMatchObject({ kind: "active", trialing: true });
+    const line = membershipLine(s, fmt);
+    expect(line).toBe("Monthly membership. Your trial ends on 2026-10-31; the first payment of £7.99 is taken then unless you cancel.");
+    expect(line).not.toMatch(/free|renews/i);
+  });
+
   it("says when a cancelled membership ends", () => {
     expect(membershipLine(membershipSummary([row({ cancel_at_period_end: true })]), fmt)).toBe(
       "Your membership ends on 2026-11-14. It will not renew.",
@@ -214,5 +256,94 @@ describe("membership on the You page", () => {
     expect(lines).not.toMatch(/—|–/);
     for (const w of ["hurry", "last chance", "only today", "don't miss"]) expect(lines.toLowerCase()).not.toContain(w);
     expect(membershipNotice("other")).toBeNull();
+  });
+});
+
+describe("the two-person plan (item 6.1)", () => {
+  const at = new Date("2026-10-07T10:00:00Z");
+  const env = { STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY: "price_1Two" };
+  const twoItems = { data: [{ id: "si_2", current_period_end: 1_800_000_000, price: { id: "price_1Two", recurring: { interval: "month" } } }] };
+
+  it("opens on its own price id and does not change the other two", () => {
+    expect(membershipPriceId("two_monthly", {})).toBeNull();
+    expect(membershipPriceId("two_monthly", env)).toBe("price_1Two");
+    expect(membershipPlansOpen(env)).toEqual({ monthly: false, yearly: false });
+  });
+
+  it("stamps its own plan point on the session and the subscription", () => {
+    const p = membershipCheckoutParams({
+      plan: "two_monthly",
+      priceId: "price_1Two",
+      userId: USER,
+      tenantId: TENANT,
+      email: "reader@example.com",
+      customerId: null,
+      successUrl: "https://akana.test/you",
+      cancelUrl: "https://akana.test/you",
+    });
+    expect(p.mode).toBe("subscription");
+    expect(p.metadata?.plan).toBe("member_two_month");
+    expect(p.subscription_data?.metadata?.plan).toBe("member_two_month");
+    expect(p.subscription_data?.trial_period_days).toBeUndefined();
+    expect(p.line_items).toEqual([{ price: "price_1Two", quantity: 1 }]);
+  });
+
+  it("renews each month and says the second person can be removed", () => {
+    const text = autoRenewNotice("two_monthly");
+    expect(text).toContain("each month");
+    expect(text).toContain("one person you invite");
+    expect(text).toContain("remove them at any time");
+    expect(text).not.toMatch(/—|–/);
+  });
+
+  it("is recognised by its price id even though its interval is monthly", () => {
+    expect(subscriptionStateFrom(sub({ items: twoItems }), at, null, env)?.plan).toBe("member_two_month");
+  });
+
+  it("is recognised by the checkout metadata when the price id is not configured here", () => {
+    const s = subscriptionStateFrom(sub({ items: twoItems, metadata: { user_id: USER, tenant_id: TENANT, plan: "member_two_month" } }), at, null, {});
+    expect(s?.plan).toBe("member_two_month");
+  });
+
+  it("has an annual version, opened by its own price id, recognised although the interval is a year", () => {
+    const yearEnv = { STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY: "price_1TwoYear" };
+    expect(membershipPriceId("two_yearly", {})).toBeNull();
+    expect(membershipPriceId("two_yearly", yearEnv)).toBe("price_1TwoYear");
+    const items = { data: [{ id: "si_3", current_period_end: 1_800_000_000, price: { id: "price_1TwoYear", recurring: { interval: "year" } } }] };
+    expect(subscriptionStateFrom(sub({ items }), at, null, yearEnv)?.plan).toBe("member_two_year");
+    // the same price id read without the env falls back to the single annual plan, unless checkout stamped it
+    expect(subscriptionStateFrom(sub({ items }), at, null, {})?.plan).toBe("member_year");
+    const stamped = subscriptionStateFrom(sub({ items, metadata: { user_id: USER, tenant_id: TENANT, plan: "member_two_year" } }), at, null, {});
+    expect(stamped?.plan).toBe("member_two_year");
+    const text = autoRenewNotice("two_yearly", "£104.99");
+    expect(text).toContain("You pay £104.99 a year, taken once.");
+    expect(text).toContain("each year");
+    expect(text).toContain("one person you invite");
+    expect(membershipPlansOpen(yearEnv)).toEqual({ monthly: false, yearly: false });
+  });
+
+  it("names the annual two-person plan on the You page", () => {
+    const summary = membershipSummary([{ status: "active", plan: "member_two_year", current_period_end: "2027-10-07T00:00:00Z", cancel_at_period_end: false, ended_at: null, stripe_customer_id: "cus_1", updated_at: "2026-10-07T00:00:00Z" }]);
+    expect(summary).toMatchObject({ kind: "active", plan: "two_yearly" });
+    expect(membershipLine(summary, () => "7 October 2027")).toBe("Annual membership for two people. Renews on 7 October 2027.");
+  });
+
+  it("leaves a single monthly subscription as member_month", () => {
+    expect(subscriptionStateFrom(sub(), at, null, env)?.plan).toBe("member_month");
+  });
+
+  it("is described plainly on the You page", () => {
+    const row = {
+      status: "active",
+      plan: "member_two_month",
+      current_period_end: "2026-11-14T10:00:00Z",
+      cancel_at_period_end: false,
+      ended_at: null,
+      stripe_customer_id: "cus_1",
+      updated_at: "2026-10-07T10:00:00Z",
+    };
+    const summary = membershipSummary([row]);
+    expect(summary).toEqual({ kind: "active", plan: "two_monthly", renewsOn: "2026-11-14T10:00:00Z" });
+    expect(membershipLine(summary, (iso) => iso.slice(0, 10))).toBe("Monthly membership for two people. Renews on 2026-11-14.");
   });
 });

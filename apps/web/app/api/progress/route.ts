@@ -40,6 +40,8 @@ const Body = z
       .string()
       .regex(/^[a-z0-9][a-z0-9_:~.-]{0,79}$/)
       .optional(),
+    /** The unit the step was done in. Used only for the daily count (0036); never stored with the event. */
+    unit: z.number().int().min(1).max(999).optional(),
   })
   .strict();
 
@@ -64,10 +66,19 @@ export async function POST(request: NextRequest) {
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
 
   // F-141: daily counts with ids only. The first opening of unit 1 starts the
-  // free week; the first check-in on a unit completes a week. Skipped when the
-  // reader has opted out.
+  // free week; the first check-in on a unit completes a week; the first time
+  // a step is done it is a step finished, counted against its unit (0036, the
+  // drop-off signal beside fields answered). Skipped when the reader has
+  // opted out. The reader's id goes in as a daily hash only (lib/visitor-id.ts).
   try {
-    const funnelEvent = parsed.data.kind === "checkin_done" ? "week_completed" : parsed.data.kind === "unit_opened" && parsed.data.ref === "1" ? "free_week_started" : null;
+    const funnelEvent =
+      parsed.data.kind === "checkin_done"
+        ? "week_completed"
+        : parsed.data.kind === "unit_opened" && parsed.data.ref === "1"
+          ? "free_week_started"
+          : parsed.data.kind === "step_done"
+            ? "step_finished"
+            : null;
     const firstTime =
       funnelEvent &&
       parsed.data.ref &&
@@ -83,8 +94,10 @@ export async function POST(request: NextRequest) {
       await countFunnelEvent(check.supabase, funnelEvent, {
         tenantId: check.enrolment.tenant_id,
         workbookId: check.enrolment.workbook_id,
+        unit: funnelEvent === "step_finished" ? (parsed.data.unit ?? null) : null,
         headers: request.headers,
         cookies: request.cookies,
+        userId: check.enrolment.user_id,
       });
     }
   } catch {

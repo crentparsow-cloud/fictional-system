@@ -94,3 +94,78 @@ export const NEVER_COLLECT: readonly TrustClaim[] = [
     enforcedBy: ["apps/web/app/(auth)/sign-in/action.ts"],
   },
 ];
+
+/**
+ * The comparison on /trust (11.1): what Akana never does that other apps do.
+ * "Others" is deliberately general. No product is named. Each Akana line is
+ * something the code, a test or a build check enforces, and names where.
+ * lib/trust.test.ts checks the files exist.
+ */
+export interface TrustComparison {
+  practice: string;
+  others: string;
+  akana: string;
+  enforcedBy: readonly string[];
+}
+
+export const TRUST_COMPARISON: readonly TrustComparison[] = [
+  {
+    practice: "Trackers",
+    others: "Load ad pixels, analytics scripts and session recorders from other companies, which follow you from site to site.",
+    akana: "Loads scripts from Akana only. Stripe's payment page is the one outside page you reach, and only when you pay. A check in every build fails if another script source is added.",
+    enforcedBy: ["apps/web/next.config.ts", "scripts/check-csp.mjs", "apps/web/e2e/third-party.spec.ts"],
+  },
+  {
+    practice: "Selling your data",
+    others: "Share what they learn about you with advertisers and data brokers.",
+    akana: "Has no ad network to send anything to, and your answers are sealed, so there is nothing readable to hand over. The privacy notice says we do not sell your data.",
+    enforcedBy: ["packages/seal/src/index.ts", "apps/web/next.config.ts", "docs/legal/privacy-notice.md"],
+  },
+  {
+    practice: "Reading your answers",
+    others: "Let staff, authors or partners open what you write, often for product research.",
+    akana: "Has no screen or tool that shows your answers to an author, a publisher, a check-in partner or Akana staff. Only the secure server can unlock them, and only to show them to you.",
+    enforcedBy: ["packages/seal/src/index.ts", "apps/web/lib/sealing.ts", "supabase/migrations/0003_answers.sql"],
+  },
+  {
+    practice: "Countdowns and made-up scarcity",
+    others: "Run timers, show crossed-out prices, or say a deal ends soon or stock is low.",
+    akana: "Shows no countdown timer and no crossed-out price. A seasonal launch shows its dates. A price is the price you pay, with every charge in it.",
+    enforcedBy: ["apps/web/components/reader/paywall.test.ts", "apps/web/lib/price-display.test.ts", "docs/REVIEW_GATE.md"],
+  },
+  {
+    practice: "Dark patterns",
+    others: "Pre-tick boxes, bundle several consents into one, shame you for missing a day, or reward streaks.",
+    akana: "Never pre-ticks a box, and asks for each consent on its own. Workbooks that count streaks or missed days fail our checks and are not published. Emails never name your workbook.",
+    enforcedBy: ["apps/web/lib/checkout-consent.ts", "packages/validate/src/index.ts", "packages/emails/src/reader.test.ts", "docs/REVIEW_GATE.md"],
+  },
+];
+
+/** The analytics id rule, stated on /trust and enforced in lib/visitor-id.ts. */
+export const ANALYTICS_RULE = {
+  title: "How we count visits",
+  body: "We count visits to see which pages help people, with no cookie and no profile. A visitor gets an id that is made from a secret, the date and their connection, then hashed. The date is part of the hash, so the id changes every day and one day can never be joined to the next. The ids are deleted when the day ends, and we keep only the counts. Counts under five are not shown.",
+  enforcedBy: ["apps/web/lib/visitor-id.ts", "apps/web/lib/funnel.ts"],
+} as const;
+
+/** The export promise, stated on /trust. */
+export const EXPORT_PROMISE = {
+  title: "Your work leaves with you",
+  body: "You can download everything you wrote, as a data file or as a page you can print, at any time from your account. It does not depend on being a member. If you ask us to delete your account, it is deleted 7 days later.",
+  enforcedBy: ["apps/web/app/api/export/route.ts", "apps/web/lib/account.ts"],
+} as const;
+
+/**
+ * The public status page address from STATUS_PAGE_URL. Blank, missing or
+ * anything other than an https address gives null, and /trust hides the link.
+ */
+export function statusPageUrl(env: Record<string, string | undefined> = process.env): string | null {
+  const raw = env.STATUS_PAGE_URL?.trim();
+  if (!raw) return null;
+  try {
+    const u = new URL(raw);
+    return u.protocol === "https:" ? u.toString() : null;
+  } catch {
+    return null;
+  }
+}

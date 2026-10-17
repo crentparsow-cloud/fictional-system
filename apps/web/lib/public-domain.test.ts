@@ -37,6 +37,15 @@ describe("public-domain file (F-118)", () => {
     }
   });
 
+  it("names Crent Parsow as signer on every record, and leaves the signing to him", () => {
+    for (const r of listPublicDomainRecords()) {
+      expect(r.signer).toBe("Crent Parsow, owner");
+      // naming the signer is not signing: the unreviewed test below holds the review line empty until he signs
+      const md = readFileSync(path.join(repoRoot, "docs", "public-domain", `${r.code}.md`), "utf8");
+      expect(md).toContain("Signer: Crent Parsow, owner.");
+    }
+  });
+
   it("is unreviewed until someone signs, and every record lists open checks", () => {
     for (const r of listPublicDomainRecords()) {
       if (r.status !== "reviewed") expect(r.reviewedBy).toBeNull();
@@ -49,7 +58,8 @@ describe("public-domain file (F-118)", () => {
     expect(jsonCodes).toEqual(listPublicDomainRecords().map((r) => r.code).sort());
     for (const code of jsonCodes) {
       const md = readFileSync(path.join(repoRoot, "docs", "public-domain", `${code}.md`), "utf8");
-      expect(md).toContain("Reviewed by: ______");
+      // The line may be blank or signed by hand; it must be present.
+      expect(md).toMatch(/^Reviewed by: /m);
       for (const m of LAUNCH_MARKETS) expect(md).toMatch(new RegExp(`\\| ${m} \\|`));
     }
   });

@@ -47,7 +47,7 @@ export type UploadConfirm = { ok: true; path: string } | { ok: false; message: s
 /** After the browser's upload: check the first bytes match the type, then record it. */
 export async function confirmPrivateUpload(path: unknown): Promise<UploadConfirm> {
   const parsed = parseOrgFilePath(path);
-  if (!parsed) return { ok: false, message: "Something went wrong. Try the upload again." };
+  if (!parsed) return { ok: false, message: "We're sorry. The upload did not work. Please try it again." };
   const p = path as string;
   const supabase = await createUserClient();
   const { data: signed, error } = await supabase.storage.from(ORG_FILES_BUCKET).createSignedUrl(p, SIGNED_URL_SECONDS);

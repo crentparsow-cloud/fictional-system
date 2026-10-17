@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CsvLink, DashError, MonthRangeForm, rangeQuery } from "@/components/dashboards/DashBits";
+import { ConnectHoldBanner } from "@/components/studio/ConnectHoldBanner";
 import { OrgSwitcher } from "@/components/studio/StudioBits";
 import { dashboardError, groupEarnings, money, monthLabel, parseMonthRange, rateText, type EarningsRow } from "@/lib/dashboards";
 import { requireStudio } from "@/lib/studio-server";
@@ -79,6 +80,7 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
     <div className="admin-page studio-page dash-page">
       <OrgSwitcher ctx={ctx} path="/studio/earnings" />
       <h1>Earnings</h1>
+      <ConnectHoldBanner ctx={ctx} />
 
       {earnings.error && dashboardError(earnings.error.code) === "denied" ? (
         <DashError state="denied" />
@@ -108,13 +110,13 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
 
           {provisional ? (
             <p className="studio-draft" role="note">
-              <strong>Provisional.</strong> The rates behind these figures are placeholders until Akana sets them. Nothing here is paid out at these rates.
+              <strong>Provisional.</strong> Some of these figures use rates that were provisional when the sale was recorded. Nothing here is paid out at those rates.
             </p>
           ) : null}
 
           <h2>Balance</h2>
           {bal.length === 0 ? (
-            <p className="muted">No earnings yet.</p>
+            <p className="muted">No earnings yet. The first appears after a paid sale.</p>
           ) : (
             <div className="admin-table-wrap">
               <table className="admin-table">
@@ -151,7 +153,8 @@ export default async function StudioEarningsPage({ searchParams }: { searchParam
             </div>
           )}
           <p className="muted small">
-            Payouts go to the bank account on your <Link href="/payouts">payouts</Link> page.
+            Payouts go to the bank account on your <Link href="/payouts">payouts</Link> page. The payout calendar, each payout and each sale are on{" "}
+            <Link href="/studio/payments">Payments</Link>.
           </p>
 
           <h2>Statements</h2>

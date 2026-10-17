@@ -24,7 +24,7 @@ export function Steps({ steps, heading }: { steps: ReadonlyArray<Step | string>;
                 {i + 1}
               </span>
               <div className="ak-step-body">
-                <p>{text}</p>
+                <p data-ra>{text}</p>
                 {figure ? <FigurePlaceholder figure={figure} size="sm" /> : null}
               </div>
             </li>

@@ -272,5 +272,6 @@ export function searchLabels(t: Translate) {
     helpCta: t("search.helpCta"),
     results: t("search.results"),
     empty: t("search.empty"),
+    emptyCta: t("library.explore"),
   };
 }

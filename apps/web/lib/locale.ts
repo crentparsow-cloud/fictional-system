@@ -40,6 +40,11 @@ export function localeFromAcceptLanguage(header: string | null | undefined): Loc
   return english.tag === "en-us" ? "en-US" : "en-GB";
 }
 
+/** Whether the interface strings carry this key. For keys built from data, such as a shelf id. */
+export function hasMessage(key: string): key is MessageKey {
+  return Object.hasOwn(enGB, key);
+}
+
 export type Translate = (key: MessageKey, vars?: Record<string, string | number>) => string;
 
 /** Builds a t() for a locale. Placeholders are written {name}. */

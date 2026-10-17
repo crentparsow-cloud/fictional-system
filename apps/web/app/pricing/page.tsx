@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
+import { MarketingShot } from "@/components/MarketingShot";
 import { brand } from "@/lib/brand";
-import { ENQUIRY_HREF, membershipDisplay, type PricePointRowLike } from "@/lib/plans";
+import { TrustStrip } from "@/components/TrustStrip";
+import { membershipPlansOpen } from "@/lib/membership";
+import { ENQUIRY_HREF, type PricePointRowLike } from "@/lib/plans";
+import { FAQ, WHICH_TO_PICK, planCards } from "@/lib/pricing-page";
+import { sharedPlanOpen, sharedYearlyPlanOpen } from "@/lib/shared-membership";
+import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * Pricing (F-009). Readers see the membership price from public.price_points
- * (interim figures until Crent sets them) and "Price to be confirmed" for
+ * (decided 15 October 2026) and "Price to be confirmed" for
  * anything without a decided figure. Publishers, white-label sites and
  * organisations have no plans yet, so each says "talk to us" and links to
  * the enquiry form on /publish.
@@ -26,7 +32,7 @@ async function membershipRows(): Promise<PricePointRowLike[]> {
     const { data, error } = await supabase
       .from("price_points")
       .select("id, kind, amounts, stripe_price_id, active")
-      .in("id", ["member_month", "member_year"]);
+      .in("id", ["member_month", "member_year", "member_two_month", "member_two_year"]);
     if (error) throw new Error(error.message);
     return (data ?? []) as PricePointRowLike[];
   } catch (err) {
@@ -36,38 +42,87 @@ async function membershipRows(): Promise<PricePointRowLike[]> {
 }
 
 export default async function PricingPage() {
-  const m = membershipDisplay(await membershipRows());
+  const rows = await membershipRows();
+  const trial = await loadTrialConfig();
+  const cards = planCards({ rows, trial, sharedOpen: sharedPlanOpen(), sharedYearlyOpen: sharedYearlyPlanOpen(), open: membershipPlansOpen() });
+  const anyMembership = cards.some((c) => c.id !== "workbook");
   return (
     <main className="wrap info-page">
       <header className="info-head">
         <p className="eyebrow muted">{brand.name}</p>
         <h1>Pricing</h1>
-        <p className="info-lead">Plain prices. No free trial that turns into a charge. The first unit of a workbook is free to read before you decide.</p>
+        <p className="info-lead">
+          Plain prices, VAT included. Week 1 of any workbook is free to read, with no card, before you decide.
+        </p>
       </header>
+
+      <div className="info-split">
+        <MarketingShot name="workbook-phone" alt="A workbook page with its price, the note that week 1 is free and a Start week 1 button." />
+        <div>
+          <h2>See the price before you start</h2>
+          <p>Every workbook page shows its own price, VAT included, and a button to start week 1 free. No card is asked for until you decide to carry on.</p>
+        </div>
+      </div>
 
       <section className="info-section" aria-labelledby="pricing-readers">
         <h2 id="pricing-readers">For readers</h2>
         <div className="info-plans">
-          <div className="card info-plan">
-            <h3>Membership</h3>
-            <p className="info-price">{m.monthly}</p>
-            <p className="info-price">{m.yearly}</p>
-            <p className="muted">
-              Opens every workbook included in membership. Renews until you cancel. Cancel within 14 days of starting, or of a yearly
-              renewal, and the unused days are refunded.
-            </p>
-            {m.hasPrice ? <p className="small muted">UK prices, VAT included. These prices may change before launch.</p> : null}
-          </div>
-          <div className="card info-plan">
-            <h3>Single workbooks</h3>
-            <p className="info-price">Price to be confirmed</p>
-            <p className="muted">Buy one workbook and keep it. Each workbook page will show its price once it is set. The first unit is free to read.</p>
-          </div>
+          {cards.map((c) => (
+            <div className="card info-plan" key={c.id} id={c.id === "two" ? "two-people" : undefined}>
+              {c.badge ? <p className="plan-badge">{c.badge}</p> : null}
+              <h3>{c.heading}</h3>
+              <p className="plan-line">
+                <span>{c.primary}</span>
+                {c.secondary ? <span>{c.secondary}</span> : null}
+              </p>
+              <p className="muted">{c.billing}</p>
+              <ul className="small muted">
+                {c.terms.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              {c.href || c.checkout ? (
+                <Link className={c.badge ? "btn" : "btn secondary"} href={c.href ?? "/explore"}>
+                  {c.id === "workbook" ? "Look at the library" : "Start from the library"}
+                </Link>
+              ) : null}
+            </div>
+          ))}
+          {!anyMembership ? (
+            <div className="card info-plan">
+              <h3>Membership</h3>
+              <p className="info-price">Price to be confirmed</p>
+              <p className="muted">The membership price is not set yet.</p>
+            </div>
+          ) : null}
         </div>
+        <p className="small muted">UK prices.</p>
+        <TrustStrip kind="both" />
         <p className="small">
           Demo workbooks are examples and cannot be bought. See <Link href="/help/membership">membership</Link>,{" "}
           <Link href="/help/cancelling">cancelling</Link> and the <Link href="/legal/refunds">refund policy</Link>.
         </p>
+      </section>
+
+      <section className="info-section" aria-labelledby="pricing-pick">
+        <h2 id="pricing-pick">Which should I pick?</h2>
+        <div className="pick-list">
+          {WHICH_TO_PICK.map((w) => (
+            <p key={w.label}>
+              <strong>{w.label}.</strong> {w.text}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="info-section pricing-faq" aria-labelledby="pricing-faq">
+        <h2 id="pricing-faq">Questions</h2>
+        {FAQ.map((f) => (
+          <details key={f.q}>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
       </section>
 
       <section className="info-section" aria-labelledby="pricing-business">

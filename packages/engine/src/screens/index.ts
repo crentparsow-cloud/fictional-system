@@ -7,6 +7,7 @@ export { CheckInScreen, type CheckInScreenProps, type CheckIn } from "./CheckIn"
 export { SelfCheckScreen, type SelfCheckScreenProps, type SelfCheckAnswers, type SelfCheck } from "./SelfCheck";
 export { FinishScreen, type FinishScreenProps } from "./Finish";
 export { KeepGoingScreen, type KeepGoingScreenProps } from "./KeepGoing";
+export { LetterCard, fillLetter, lettersAt, type Letter } from "./Letter";
 export { FigurePlaceholder, Steps, unitLabel } from "./parts";
 export { PlanScreen, type PlanScreenProps } from "./Plan";
 export { ProgressScreen, type ProgressScreenProps } from "./Progress";

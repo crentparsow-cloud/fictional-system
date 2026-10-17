@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { ToolkitCardView, type ToolkitCard } from "@akana/engine";
+import { setSavedTool } from "@/app/(reader)/today/actions";
 
 export interface ToolkitGroup {
   enrolmentId: string;
@@ -16,8 +17,23 @@ export interface ToolkitGroup {
  * records a toolkit_used event (the tool id and a time, nothing else) and
  * shows no count.
  */
-export function ToolkitTab({ groups }: { groups: ToolkitGroup[] }) {
+export function ToolkitTab({ groups, saved: savedKeys = [], readOnly = false }: { groups: ToolkitGroup[]; saved?: string[]; readOnly?: boolean }) {
   const [used, setUsed] = useState<string | null>(null);
+  const [saved, setSaved] = useState<Set<string>>(() => new Set(savedKeys));
+  const [failed, setFailed] = useState<string | null>(null);
+  const toggle = useCallback(async (enrolmentId: string, toolId: string) => {
+    const key = `${enrolmentId}:${toolId}`;
+    const want = !saved.has(key);
+    setFailed(null);
+    if (await setSavedTool(enrolmentId, toolId, want)) {
+      setSaved((prev) => {
+        const next = new Set(prev);
+        if (want) next.add(key);
+        else next.delete(key);
+        return next;
+      });
+    } else setFailed(key);
+  }, [saved]);
   const record = useCallback((enrolmentId: string, toolId: string) => {
     setUsed(`${enrolmentId}:${toolId}`);
     void fetch("/api/progress", {
@@ -40,7 +56,17 @@ export function ToolkitTab({ groups }: { groups: ToolkitGroup[] }) {
           </summary>
           <div className="toolkit-cards">
             {g.cards.map((t) => (
-              <ToolkitCardView key={t.id} tool={t} onUse={(id) => record(g.enrolmentId, id)} used={used === `${g.enrolmentId}:${t.id}`} />
+              <div key={t.id}>
+                <ToolkitCardView tool={t} onUse={(id) => record(g.enrolmentId, id)} used={used === `${g.enrolmentId}:${t.id}`} />
+                {readOnly ? null : (
+                  <p>
+                    <button type="button" className="linklike" aria-pressed={saved.has(`${g.enrolmentId}:${t.id}`)} onClick={() => void toggle(g.enrolmentId, t.id)}>
+                      {saved.has(`${g.enrolmentId}:${t.id}`) ? "Saved for Today. Remove" : "Save for Today"}
+                    </button>
+                    {failed === `${g.enrolmentId}:${t.id}` ? <span className="muted small"> That did not save just now.</span> : null}
+                  </p>
+                )}
+              </div>
             ))}
           </div>
         </details>

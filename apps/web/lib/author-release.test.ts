@@ -4,7 +4,7 @@ import focus from "../../../content/workbooks/v3/focus.json";
 import {
   EDITOR_MAX_BYTES,
   RELEASE_NOTICES,
-  SHARE_ESTIMATE_INPUTS,
+  estimateVatRate,
   authorStatus,
   isContentHash,
   ladderOptions,
@@ -96,18 +96,36 @@ describe("pricing (F-040)", () => {
     expect(parsePriceChoice(form({ workbook: W, price_point: "member_month" }))).toEqual({ ok: false });
   });
 
-  it("shows no share estimate while any input is a placeholder", () => {
-    expect(Object.values(SHARE_ESTIMATE_INPUTS).every((v) => v === null)).toBe(true);
-    expect(shareEstimate(999)).toBeNull();
+  it("works the estimate out as share x (price - VAT - card fee), rounded to the penny", () => {
+    // 20% VAT, 1.5% + 20p card fee. Each case worked by hand in pence.
+    // 799: VAT 133.17, fee 31.99, net 633.85. 999: VAT 166.50, fee 34.99, net 797.51. 1499: VAT 249.83, fee 42.49, net 1206.68.
+    const cases: [number, number, number][] = [
+      [799, 0.8, 507],
+      [799, 0.65, 412],
+      [999, 0.8, 638],
+      [999, 0.65, 518],
+      [1499, 0.8, 965],
+      [1499, 0.65, 784],
+    ];
+    for (const [gross, rate, want] of cases) expect(shareEstimate(gross, rate, 0.2)).toBe(want);
   });
 
-  it("works the estimate out when every input is set", () => {
-    // Test inputs only, not Akana's figures: 50% share, 20% VAT, 2% plus 20p fee.
-    const inputs = { singleSaleShare: 0.5, vatRate: 0.2, paymentFeeRate: 0.02, paymentFeeFixedMinor: 20 };
-    // 1200 gross: 1000 ex VAT, fee 24 + 20 = 44, 956 net, half is 478.
-    expect(shareEstimate(1200, inputs)).toBe(478);
-    expect(shareEstimate(0, inputs)).toBeNull();
-    expect(shareEstimate(1200, { ...inputs, singleSaleShare: 1.5 })).toBeNull();
+  it("never goes negative and never guesses", () => {
+    expect(shareEstimate(10, 0.8, 0.2)).toBe(0);
+    expect(shareEstimate(0, 0.8, 0.2)).toBeNull();
+    expect(shareEstimate(799.5, 0.8, 0.2)).toBeNull();
+    expect(shareEstimate(null, 0.8, 0.2)).toBeNull();
+    expect(shareEstimate(799, 1.5, 0.2)).toBeNull();
+    expect(shareEstimate(799, 0.8, 1)).toBeNull();
+  });
+
+  it("reads the VAT rate from ESTIMATE_VAT_RATE and falls back to 0.20", () => {
+    expect(estimateVatRate({})).toBe(0.2);
+    expect(estimateVatRate({ ESTIMATE_VAT_RATE: "" })).toBe(0.2);
+    expect(estimateVatRate({ ESTIMATE_VAT_RATE: "0" })).toBe(0);
+    expect(estimateVatRate({ ESTIMATE_VAT_RATE: "0.05" })).toBe(0.05);
+    expect(estimateVatRate({ ESTIMATE_VAT_RATE: "20" })).toBe(0.2);
+    expect(estimateVatRate({ ESTIMATE_VAT_RATE: "abc" })).toBe(0.2);
   });
 });
 

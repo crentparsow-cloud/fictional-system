@@ -159,7 +159,7 @@ export function partnerView(row: PartnerRow | null | undefined, now: Date): Part
   if (row.status === "accepted") return { kind: "active", row };
   if (row.status === "invited") {
     if (new Date(row.invite_expires_at).getTime() > now.getTime()) return { kind: "invited", row };
-    return { kind: "ended", row, line: `${name} didn't answer the invitation in time. You can invite them, or someone else, again.` };
+    return { kind: "ended", row, line: `${name} did not answer the invitation in time. You can invite them, or someone else, again.` };
   }
   if (row.status === "declined") return { kind: "ended", row, line: `${name} said no thanks. That's fine. You can invite someone else.` };
   if (row.stopped_by === "partner") return { kind: "ended", row, line: `${name} stopped the updates. You can invite someone else if you like.` };
@@ -175,12 +175,12 @@ export const PARTNER_NOTICES = {
   "check-form": "Please check the names and the email address.",
   "pick-level": "Please choose what to share.",
   self: "Please invite someone other than yourself.",
-  blocked: "An invitation can't be sent to that address.",
+  blocked: "An invitation cannot be sent to that address.",
   exists: "You already have a check-in partner. Stop sharing first to invite someone new.",
   "deletion-pending": "Your account is scheduled for deletion, so new invitations are off.",
   "rate-limited": "You can send three invitations a month. Please try again later.",
   "note-invalid": "Please keep the note short, with no links, email addresses or phone numbers.",
-  failed: "That didn't work just now. Nothing has changed. Please try again.",
+  failed: "We're sorry. That did not work just now. Nothing has changed. Please try again.",
 } as const;
 export type PartnerNotice = keyof typeof PARTNER_NOTICES;
 
@@ -248,11 +248,11 @@ export function calmLinkPage(state: Exclude<LinkState, "ok"> | "inactive"): Calm
       return { title: "This link has expired", body: "Nothing has changed. If you want to stop hearing from us, use the link in the most recent email." };
     case "revoked":
     case "inactive":
-      return { title: "This link is no longer active", body: "Nothing has changed, and you won't hear from us about it again." };
+      return { title: "This link is no longer active", body: "Nothing has changed, and you will not hear from us about it again." };
     case "used":
       return { title: "Already done", body: "This link has been used, so there's nothing more to do here." };
     default:
-      return { title: "This link isn't working", body: "It may have been copied only in part, or it may have ended. Nothing has changed." };
+      return { title: "This link is not working", body: "It may have been copied only in part, or it may have ended. Nothing has changed." };
   }
 }
 
@@ -263,11 +263,11 @@ export function outcomeMessage(outcome: RespondOutcome, reader: string): Calm {
     case "accepted":
       return { title: "Thank you", body: `You'll get a short note when ${who} reaches a new stage. Every email has a link to stop.` };
     case "declined":
-      return { title: "No problem", body: "You won't hear from us again, and no more invitations will reach this address." };
+      return { title: "No problem", body: "You will not hear from us again, and no more invitations will reach this address." };
     case "reported":
       return { title: "Reported and blocked", body: "Thank you for telling us. No more invitations will reach your address." };
     case "stopped":
-      return { title: "Updates stopped", body: "You won't get any more updates." };
+      return { title: "Updates stopped", body: "You will not get any more updates." };
     case "replied":
       return { title: "Sent", body: `${who.charAt(0).toUpperCase() + who.slice(1)} will see your message in the app. Thank you.` };
     case "already":
@@ -283,7 +283,7 @@ export function outcomeMessage(outcome: RespondOutcome, reader: string): Calm {
     case "unknown":
       return calmLinkPage("unknown");
     default:
-      return { title: "Something went wrong", body: "Nothing has changed. Please try again in a moment." };
+      return { title: "That did not work", body: "We're sorry. Nothing has changed. Please try again in a moment." };
   }
 }
 

@@ -1,21 +1,23 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { cronAuthorised } from "@/lib/cron-auth";
 import { currentConfig, payoutStore } from "@/lib/money/db";
-import { isPayoutDay, runPayouts } from "@/lib/money/payout-run";
+import { isPayoutDue, runPayouts } from "@/lib/money/payout-run";
 import { isTestKey } from "@/lib/money/reconcile";
 import { reportOps } from "@/lib/ops-alerts";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
- * Monthly payout run (F-103), TEST MODE ONLY.
+ * Payout run (F-103), weekly or monthly as royalty_config says, TEST MODE ONLY.
  *
  *   GET or POST /api/money/payout-run
  *   Authorization: Bearer <CRON_SECRET>
  *   -> { skipped } or { run_id, paid, failed, errors }
  *
  * Vercel Hobby allows a daily cron at most, so this runs every day and acts
- * only on the payout day in public.royalty_config (London date). It decides
+ * only on the payout day in public.royalty_config (London date): the
+ * configured weekday when the cadence is weekly (Fridays since 0046), day
+ * payout_day of the month when it is monthly. It decides
  * per organisation and currency (holds, verification, minimum, first-payout
  * hold, approval threshold; migration 0021), then makes one Stripe transfer
  * per payout with the payout id as the idempotency key.
@@ -47,8 +49,11 @@ async function run(request: NextRequest) {
   try {
     const config = await currentConfig(admin);
     if (!config) return NextResponse.json({ skipped: "no_config" }, { headers: NO_STORE });
-    if (!isPayoutDay(new Date(), config.payout_day)) {
-      return NextResponse.json({ skipped: "not_payout_day", payout_day: config.payout_day }, { headers: NO_STORE });
+    if (!isPayoutDue(new Date(), config)) {
+      return NextResponse.json(
+        { skipped: "not_payout_day", cadence: config.payout_cadence, payout_weekday: config.payout_weekday, payout_day: config.payout_day },
+        { headers: NO_STORE },
+      );
     }
     const result = await runPayouts(payoutStore(admin), getStripe().transfers, false, "cron");
     if (result.failed > 0 || result.errors > 0) {

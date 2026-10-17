@@ -6,16 +6,17 @@ import { CommentThread } from "@/components/workbook-thread/CommentThread";
 import { versionUnderReview, type QueueVersion } from "@/lib/admin/review";
 import {
   PRICE_CHOICE_LABELS,
-  SHARE_ESTIMATE_INPUTS,
   STUDIO_SIGNOFF_LABELS,
   authorRequirementLabel,
   authorStatus,
   isUuid,
   ladderOptions,
+  estimateVatRate,
   shareEstimate,
   shortHash,
   studioSignoffKinds,
 } from "@/lib/author-release";
+import { channelRate, type PayoutSchedule } from "@/lib/money/studio-payments";
 import { pricePointFromRow, type PricePoint } from "@/lib/pricing";
 import { roleCan, withOrg } from "@/lib/studio";
 import { requireStudio } from "@/lib/studio-server";
@@ -85,7 +86,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
   const q = (p: string) => withOrg(p, ctx.org.id, ctx.multi);
   const date = (s: string) => new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/London" }).format(new Date(s));
 
-  const [versionsRes, submissionRes, choiceRes, pointsRes, profileRes, allowsRes, comments] = await Promise.all([
+  const [versionsRes, submissionRes, choiceRes, pointsRes, profileRes, allowsRes, scheduleRes, comments] = await Promise.all([
     supabase
       .from("workbook_versions")
       .select("id, workbook_id, semver, content_hash, created_at, published_at, validated_at")
@@ -96,6 +97,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
     supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").eq("kind", "workbook"),
     supabase.from("profiles").select("display_name").eq("user_id", ctx.userId).maybeSingle(),
     supabase.rpc("licence_allows_membership", { p_workbook: id }),
+    supabase.rpc("payout_schedule"),
     loadThread(id),
   ]);
   const versions = (versionsRes.data ?? []) as QueueVersion[];
@@ -132,7 +134,10 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
   const status = authorStatus(w.status);
   const signable = Boolean(version && !version.published_at && w.status !== "retired" && kinds.length);
   const myName = ((profileRes.data as { display_name?: string | null } | null)?.display_name ?? "").trim();
-  const estimateReady = Object.values(SHARE_ESTIMATE_INPUTS).every((v) => v !== null);
+  // The share rates come from the royalty config in force, the same figures the Payments page shows.
+  const schedule = ((scheduleRes.data ?? []) as PayoutSchedule[])[0] ?? null;
+  const vatRate = estimateVatRate();
+  const gbp = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" });
   const pointLabel = (pid: string | null) => options.find((o) => o.id === pid)?.label ?? pid ?? "";
 
   return (
@@ -334,22 +339,24 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
               ) : (
                 <p className="muted small">Your licence for this book does not include the membership, so it is sold on its own.</p>
               )}
-              <p className="muted small">
-                {estimateReady
-                  ? "Your share is shown next to each point, net of VAT and payment fees."
-                  : "Your share per sale, net of VAT and payment fees, shows here once Akana has set the ladder figures and the share. They are not set yet."}
-              </p>
-              {estimateReady
-                ? options.map((o) => {
+              {schedule ? (
+                <div className="small">
+                  <p className="muted">
+                    <strong>Estimate.</strong> Your share of each sale, worked out from the price less VAT and the card fee.
+                  </p>
+                  {options.map((o) => {
                     const p = points.find((x) => x.id === o.id);
-                    const est = shareEstimate(p?.amounts.GBP);
-                    return est === null ? null : (
-                      <p key={o.id} className="small">
-                        {o.label}: about {new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" }).format(est / 100)} a sale.
+                    const market = shareEstimate(p?.amounts.GBP, channelRate(schedule, "marketplace"), vatRate);
+                    const link = shareEstimate(p?.amounts.GBP, channelRate(schedule, "author_link"), vatRate);
+                    return market === null || link === null ? null : (
+                      <p key={o.id}>
+                        {o.label}: {gbp.format(market / 100)} on a marketplace sale, {gbp.format(link / 100)} through your own link.
                       </p>
                     );
-                  })
-                : null}
+                  })}
+                  <p className="muted">Real sales use the actual VAT and card fee.</p>
+                </div>
+              ) : null}
               <div className="admin-actions">
                 <button type="submit" className="btn secondary">
                   Send price choice

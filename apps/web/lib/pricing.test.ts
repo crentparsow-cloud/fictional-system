@@ -5,6 +5,7 @@ import {
   PRICE_POINT_IDS,
   PRICE_TO_BE_CONFIRMED,
   amountFor,
+  checkoutCurrencyFor,
   formatPrice,
   isPlaceholder,
   isPricePointId,
@@ -24,8 +25,8 @@ const setPoint: PricePoint = {
 };
 
 describe("the ladder", () => {
-  it("mirrors the eight price_points rows and every workbook point carries its GBP figure", () => {
-    expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year"]);
+  it("mirrors the ten price_points rows and every workbook point carries its GBP figure", () => {
+    expect(PRICE_POINT_IDS).toEqual(["p1", "p2", "p3", "p4", "p5", "p6", "member_month", "member_year", "member_two_month", "member_two_year"]);
     for (const id of PRICE_POINT_IDS) {
       expect(PRICE_LADDER[id].stripePriceId).toBeNull();
       if (PRICE_LADDER[id].kind !== "workbook") continue;
@@ -34,6 +35,20 @@ describe("the ladder", () => {
     }
     expect(PRICE_LADDER.member_month.kind).toBe("membership");
     expect(PRICE_LADDER.p1.kind).toBe("workbook");
+  });
+
+  it("puts the two-person points at about 1.5 times the single prices (0041, 0046)", () => {
+    const single = PRICE_LADDER.member_month.amounts.GBP ?? 0;
+    const two = PRICE_LADDER.member_two_month.amounts.GBP ?? 0;
+    expect(PRICE_LADDER.member_two_month.kind).toBe("membership");
+    expect(two).toBe(1199);
+    expect(two / single).toBeGreaterThan(1.4);
+    expect(two / single).toBeLessThan(1.6);
+    const singleYear = PRICE_LADDER.member_year.amounts.GBP ?? 0;
+    const twoYear = PRICE_LADDER.member_two_year.amounts.GBP ?? 0;
+    expect(twoYear).toBe(10499);
+    expect(twoYear / singleYear).toBeGreaterThan(1.4);
+    expect(twoYear / singleYear).toBeLessThan(1.6);
   });
 
   it("carries the workbook ladder set on 9 October 2026: GBP 7.99 to GBP 14.99, in pence", () => {
@@ -49,7 +64,7 @@ describe("the ladder", () => {
     expect(priceFor({ pricePointId: "p3" }, MARKETS.IE)).toBeNull();
   });
 
-  it("carries the interim membership prices from migration 0010: GBP only, in pence", () => {
+  it("carries the membership prices decided on 15 October 2026 (migration 0046): GBP only, in pence", () => {
     expect(PRICE_LADDER.member_month).toMatchObject({ active: true, amounts: { GBP: 799 } });
     expect(PRICE_LADDER.member_year).toMatchObject({ active: true, amounts: { GBP: 6999 } });
     expect(priceFor({ pricePointId: "member_month" }, MARKETS.GB)?.formatted).toBe("£7.99");
@@ -125,3 +140,20 @@ describe("pricePointFromRow", () => {
     expect(pricePointFromRow({ id: "p1", kind: "bundle", amounts: {}, stripe_price_id: null, active: false })).toBeNull();
   });
 });
+
+describe("checkoutCurrencyFor", () => {
+  const gbpOnly: PricePoint = { ...setPoint, amounts: { GBP: 799 } };
+  it("gives GBP for a GBP only point in the XX fallback market", () => {
+    expect(checkoutCurrencyFor(gbpOnly, MARKETS.XX)).toBe("GBP");
+  });
+  it("gives USD for a point with a USD amount in the XX fallback market", () => {
+    expect(checkoutCurrencyFor(setPoint, MARKETS.XX)).toBe("USD");
+  });
+  it("gives GBP in the GB market", () => {
+    expect(checkoutCurrencyFor(gbpOnly, MARKETS.GB)).toBe("GBP");
+  });
+  it("gives GBP when there is no point", () => {
+    expect(checkoutCurrencyFor(null, MARKETS.XX)).toBe("GBP");
+  });
+});
+

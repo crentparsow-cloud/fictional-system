@@ -19,8 +19,9 @@ describe("appearance settings on this device", () => {
     expect(parseAppearance(null)).toEqual(DEFAULT_APPEARANCE);
     expect(parseAppearance("not json")).toEqual(DEFAULT_APPEARANCE);
     expect(parseAppearance(JSON.stringify({ textSize: 9, font: "comic", dimAtNight: "yes" }))).toEqual(DEFAULT_APPEARANCE);
-    const a = { textSize: 2 as const, font: "lexend" as const, dimAtNight: true, reduceMotion: true };
+    const a = { textSize: 2 as const, font: "lexend" as const, dimAtNight: true, reduceMotion: true, theme: "mist" as const };
     expect(parseAppearance(serialiseAppearance(a))).toEqual(a);
+    expect(parseAppearance(JSON.stringify({ theme: "neon" })).theme).toBe("default");
   });
 
   it("sets no attributes for the defaults, so the page is unchanged", () => {
@@ -28,8 +29,8 @@ describe("appearance settings on this device", () => {
   });
 
   it("maps each setting to an attribute the CSS knows, dimming only at night", () => {
-    const a = { textSize: 3 as const, font: "lexend" as const, dimAtNight: true, reduceMotion: true };
-    expect(appearanceAttributes(a, night)).toEqual({ "data-text-size": "3", "data-font": "lexend", "data-motion": "reduce", "data-dim": "night" });
+    const a = { textSize: 3 as const, font: "lexend" as const, dimAtNight: true, reduceMotion: true, theme: "paper" as const };
+    expect(appearanceAttributes(a, night)).toEqual({ "data-text-size": "3", "data-font": "lexend", "data-motion": "reduce", "data-dim": "night", "data-reading-theme": "paper" });
     expect(appearanceAttributes(a, day)["data-dim"]).toBeNull();
     expect(isNight(new Date(2026, 9, 7, 4, 59))).toBe(true);
     expect(isNight(new Date(2026, 9, 7, 5, 0))).toBe(false);

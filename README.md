@@ -14,7 +14,7 @@ packages/validate/   Validator: structure, house style, claims by genre, limits,
 packages/seal/       AES-256-GCM sealing for reader answers, key ring
 packages/engine/     Reader components for every field type and screen
 packages/emails/     Email templates and the mailer with its guards
-packages/seed/       Builds the seed rows from the catalogue and the v3 workbooks
+packages/seed/       Builds the seed rows from the catalogue, the v3 workbooks and the classics, and runs the content publish pipeline
 content/             Workbook JSON, catalogue, registry, help and studio help pages
 supabase/            Migrations, database tests, seed SQL
 scripts/             Migration, validation, seeding, key generation, database test runner, checks
@@ -59,7 +59,7 @@ pnpm check                   # typecheck, lint, unit tests and content validatio
 
 ```
 pnpm migrate:v1 --check      # the 20 Maya Vaughn v1 files convert cleanly
-pnpm validate --parked       # every v3 workbook validates
+pnpm validate --parked       # every v3 and classics workbook validates
 pnpm check:ids               # live workbooks keep their ids
 pnpm tsx scripts/harness-all.ts   # every screen of every workbook renders
 ```
@@ -115,6 +115,10 @@ Migrations are applied by hand in the Supabase SQL editor, staging first, then p
 7. Note the migration, project, time and advisor result in `docs/DAY_LOG.md`.
 
 The seed file is too large for the SQL editor. Load it on Crent's machine with `SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... pnpm tsx scripts/seed.ts --apply`, or with `psql "<connection string>" -f supabase/seed/seed.sql`.
+
+## Publish content
+
+`pnpm content:publish --to staging` validates every workbook under `content/workbooks` (v3 and classics), checks the classic gates, compares content hashes with the target database, and applies the rows through the seed. Add `--dry-run` to see the plan and write nothing. Production needs `--to production --yes`. Each target reads its own `STAGING_` or `PRODUCTION_` pair of `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` variables. A title already live stays live, and a classic goes in at its catalogue status (`in_review`) and is never set live by this command. Full steps are in `docs/content/CLASSICS_PIPELINE.md`.
 
 ## Pushing when git push is blocked
 

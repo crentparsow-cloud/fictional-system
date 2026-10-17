@@ -35,7 +35,7 @@ test("/go/ with an unknown workbook goes back into Akana, never elsewhere", asyn
   const res = await request.get("/go/not-a-real-workbook-slug", { maxRedirects: 0 });
   expect(res.status()).toBe(302);
   const location = res.headers()["location"] ?? "";
-  expect(new URL(location, "https://x.example").pathname).toBe("/library");
+  expect(new URL(location, "https://x.example").pathname).toBe("/explore");
   expect(res.headers()["cache-control"] ?? "").toMatch(/no-store/);
 });
 

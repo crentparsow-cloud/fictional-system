@@ -5,6 +5,7 @@ import { currentConfig } from "@/lib/money/db";
 import { formatMinor, labelOf, PAYOUT_REASON_LABELS } from "@/lib/money/format";
 import { moneyAbilities } from "@/lib/money/permissions";
 import { isTestKey } from "@/lib/money/reconcile";
+import { weekdayName } from "@/lib/money/studio-payments";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
@@ -102,8 +103,9 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Prom
       <MoneyNotice code={sp.notice} />
       <ModeBanner livemode={livemode} placeholder={config?.is_placeholder ?? true} />
       <p className="muted">
-        The run happens on day {config?.payout_day ?? "?"} of each month, London time. Only money in closed months is paid, never more than the whole
-        balance. Each payout is one Stripe transfer to the organisation&apos;s Connect account.
+        {config?.payout_cadence === "weekly"
+          ? `The run happens every ${weekdayName(config.payout_weekday)}, London time. Money past the ${config.refund_window_days} day refund window is paid, never more than the whole balance.`
+          : `The run happens on day ${config?.payout_day ?? "?"} of each month, London time. Only money in closed months is paid, never more than the whole balance.`}{" "} Each payout is one Stripe transfer to the organisation&apos;s Connect account.
       </p>
 
       {can.runPayouts ? (

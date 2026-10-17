@@ -50,7 +50,7 @@ export default async function ConsoleAuthorsPage({ searchParams }: { searchParam
       <StudioNotice code={sp.notice} />
 
       <h2>Authors</h2>
-      {rows.length === 0 ? <p className="muted">No authors on the roster yet.</p> : null}
+      {rows.length === 0 ? <p className="muted">No authors on the roster yet. {can.writeBooks ? "Add the first author in the form below." : "An owner or editor adds authors."}</p> : null}
       <ul className="studio-list">
         {rows.map((a) => (
           <li key={a.id} className="card">
@@ -98,7 +98,7 @@ export default async function ConsoleAuthorsPage({ searchParams }: { searchParam
       <h2>Imprints</h2>
       <p className="muted">Imprints are labels for your books and statements. They do not change who can see what.</p>
       {imps.length === 0 ? (
-        <p className="muted">None yet.</p>
+        <p className="muted">No imprints yet. {can.writeBooks ? "Add one below if your books appear under a label." : "An owner or editor adds imprints."}</p>
       ) : (
         <ul className="studio-plain">
           {imps.map((i) => (

@@ -35,6 +35,7 @@ describe("adminAbilities", () => {
         createOrganisations: true,
         readReviewQueue: true,
         releaseVersions: true,
+        curateCatalogue: true,
         readFunnel: true,
         readOps: true,
         acknowledgeOps: true,

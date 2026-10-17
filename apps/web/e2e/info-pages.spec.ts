@@ -15,6 +15,7 @@ const PAGES = [
   "/help/help-now",
   "/help/check-in-partner",
   "/trust",
+  "/accessibility",
   "/pricing",
   "/white-label",
   "/organisations",
@@ -49,6 +50,17 @@ test("the trust page lists what is enforced and what is never collected", async 
   await page.goto("/trust");
   await expect(page.getByRole("heading", { name: "Your answers are sealed" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "What we never collect" })).toBeVisible();
+  // 11.1: the comparison table and the analytics id rule.
+  await expect(page.getByRole("heading", { name: "What we never do" })).toBeVisible();
+  await expect(page.getByRole("table", { name: /never do/i }).or(page.getByRole("region", { name: /never do/i })).first()).toBeVisible();
+  await expect(page.getByRole("heading", { name: "How we count visits" })).toBeVisible();
+});
+
+test("the accessibility statement names WCAG 2.2 AA and a contact route", async ({ page }) => {
+  await page.goto("/accessibility");
+  await expect(page.getByRole("heading", { level: 1, name: "Accessibility statement" })).toBeVisible();
+  await expect(page.locator("main")).toContainText("WCAG 2.2");
+  await expect(page.locator("main a[href^='mailto:'], main a[href='/contact']").first()).toBeVisible();
 });
 
 test("canonical links are absolute", async ({ page }) => {

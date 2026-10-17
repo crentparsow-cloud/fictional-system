@@ -4,7 +4,7 @@ import { useActionState, type ReactNode } from "react";
 import { canRestoreRow, type LookupResult } from "@/lib/account-lookup";
 import { REFUND_REASONS } from "@/lib/money/refund";
 import type { SupportAbilities } from "@/lib/support-actions";
-import { cancelDeletionForReader, refundFromLookup, resendEmail, restoreAccess, type ActionState } from "./actions";
+import { cancelDeletionForReader, cancelMembershipForReader, refundFromLookup, resendEmail, restoreAccess, type ActionState } from "./actions";
 
 const INITIAL: ActionState = { status: "idle", attempt: 0, message: "" };
 
@@ -22,6 +22,7 @@ function ActionForm({
   userId,
   id,
   reasonName = "reason",
+  defaultReason,
   children,
 }: {
   action: Action;
@@ -30,6 +31,8 @@ function ActionForm({
   userId: string;
   id: string;
   reasonName?: string;
+  /** Prefilled so the action is one click. The ticket number can be added. */
+  defaultReason?: string;
   children: ReactNode;
 }) {
   const [state, run, pending] = useActionState(action, INITIAL);
@@ -38,7 +41,7 @@ function ActionForm({
       <input type="hidden" name="user" value={userId} />
       {children}
       <label htmlFor={`${id}-reason`}>Reason</label>
-      <input id={`${id}-reason`} name={reasonName} type="text" minLength={5} maxLength={500} required placeholder="Ticket number and a few words" />
+      <input id={`${id}-reason`} name={reasonName} type="text" minLength={5} maxLength={500} required defaultValue={defaultReason} placeholder="Ticket number and a few words" />
       <button type="submit" className="btn" disabled={pending}>
         {pending ? busy : label}
       </button>
@@ -51,9 +54,9 @@ function ActionForm({
   );
 }
 
-function Panel({ summary, children }: { summary: string; children: ReactNode }) {
+function Panel({ summary, children, open }: { summary: string; children: ReactNode; open?: boolean }) {
   return (
-    <details className="lookup-action">
+    <details className="lookup-action" open={open}>
       <summary>{summary}</summary>
       {children}
     </details>
@@ -113,17 +116,42 @@ export function PurchaseActions({ userId, purchase, can }: { userId: string; pur
   );
 }
 
-/** Resend for a current membership. */
+/** Resend for a current membership, and cancel it when the reader has asked in writing. */
 export function MembershipActions({ userId, sub, can }: { userId: string; sub: LookupResult["subscriptions"][number]; can: SupportAbilities }) {
-  if (!can.resend || !sub.subscriptionId || !["active", "trialing", "past_due"].includes(sub.status)) return null;
+  const live = Boolean(sub.subscriptionId) && ["active", "trialing", "past_due"].includes(sub.status);
+  if (!live) return null;
+  const canCancel = can.cancelMembership && !sub.cancelAtPeriodEnd;
+  if (!can.resend && !canCancel) return null;
   return (
-    <Panel summary="Resend the membership email">
-      <ActionForm action={resendEmail} label="Resend" busy="Sending" userId={userId} id={`rm-${sub.subscriptionId}`}>
-        <input type="hidden" name="kind" value="membership" />
-        <input type="hidden" name="ref" value={sub.subscriptionId} />
-        <p className="muted small">Sends the membership terms again: price, how often, next payment and how to cancel.</p>
-      </ActionForm>
-    </Panel>
+    <>
+      {can.resend ? (
+        <Panel summary="Resend the membership email">
+          <ActionForm action={resendEmail} label="Resend" busy="Sending" userId={userId} id={`rm-${sub.subscriptionId}`}>
+            <input type="hidden" name="kind" value="membership" />
+            <input type="hidden" name="ref" value={sub.subscriptionId ?? ""} />
+            <p className="muted small">Sends the membership terms again: price, how often, next payment and how to cancel.</p>
+          </ActionForm>
+        </Panel>
+      ) : null}
+      {canCancel ? (
+        <Panel summary="Cancel the membership" open>
+          <ActionForm
+            action={cancelMembershipForReader}
+            label="Cancel the membership"
+            busy="Cancelling"
+            userId={userId}
+            id={`cm-${sub.subscriptionId}`}
+            defaultReason="Reader asked to cancel in writing"
+          >
+            <input type="hidden" name="subscription" value={sub.subscriptionId ?? ""} />
+            <p className="muted small">
+              Use this when the reader has written to the support inbox asking to stop. Any clear written statement counts as notice, so there is nothing else to check or ask. Add the ticket number to the reason if you have it, then
+              press the button. It does what the reader&rsquo;s own Cancel button does: the membership ends when the paid period ends, a refund runs by itself inside the first 14 days, and the reader is emailed at once.
+            </p>
+          </ActionForm>
+        </Panel>
+      ) : null}
+    </>
   );
 }
 

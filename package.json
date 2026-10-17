@@ -14,8 +14,10 @@
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
     "validate": "tsx scripts/validate-content.ts",
+    "content:publish": "tsx scripts/content-publish.ts",
     "migrate:v1": "tsx scripts/migrate-v1.ts",
     "check:ids": "tsx scripts/check-id-stability.ts",
+    "design:themes": "tsx scripts/build-themes.ts",
     "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm validate --parked"
   },
   "devDependencies": {

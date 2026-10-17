@@ -1,0 +1,1121 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-QCRRE",
+  "slug": "how-to-live-on-24-hours-a-day-qcrre",
+  "title": "How to Live on 24 Hours a Day",
+  "short_title": "24 Hours a Day",
+  "card_line": "Use Bennett's plan for the hours outside work, one evening at a time.",
+  "book": {
+    "book_id": "how-to-live-on-24-hours-a-day",
+    "title": "How to Live on Twenty-Four Hours a Day",
+    "subtitle": "Arnold Bennett's guide to the hours outside work",
+    "year": 1910
+  },
+  "author": {
+    "author_id": "AU-7FGRT",
+    "display_name": "Arnold Bennett"
+  },
+  "genre": "productivity",
+  "theme_id": "purposeful-time",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "public_domain",
+  "licence_ref": "public-domain:/public-domain/AK-QCRRE",
+  "status": "in_review",
+  "safety_tier": "none",
+  "structure": {
+    "unit": "week",
+    "count": 6,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "count",
+        "number": 1,
+        "name": "Count",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "Where the book begins",
+          "body": "Bennett begins by comparing time with money. Every reader has the same twenty-four hours, and no one can borrow from tomorrow. He then warns that there is no easy method and sets out to count a typical day. The first two weeks follow him. You name something you keep putting off, account for the hours outside work, and look for pockets of time you already have."
+        },
+        "outcome": "A clear account of where your hours go, and one small step towards what you put off."
+      },
+      {
+        "id": "spend",
+        "number": 2,
+        "name": "Spend",
+        "units": [
+          3,
+          4
+        ],
+        "primer": {
+          "title": "Evenings and commutes",
+          "body": "Weeks 3 and 4 follow Bennett into the practical chapters. He proposes ninety minutes on alternate evenings and keeps them like an appointment. He proposes the trip to work as a place to hold one subject in mind. He proposes the trip home as a place to review the day. You choose your evenings, your reply, your subject and your daily question."
+        },
+        "outcome": "Chosen evenings, a ready reply, one subject for the morning and one question for the end of the day."
+      },
+      {
+        "id": "keep",
+        "number": 3,
+        "name": "Keep",
+        "units": [
+          5,
+          6
+        ],
+        "primer": {
+          "title": "Reading, work and keeping it modest",
+          "body": "The last two weeks cover what to put in the evenings and how to keep the plan alive. Bennett says you need not like literature. He suggests studying your own work. His closing chapter and his preface are cautious. They warn against doing too much, against talking about it, and against making the plan into a rule. You finish with a small plan you could keep."
+        },
+        "outcome": "A subject to stay with, a question about your work, and a plan small enough to keep."
+      }
+    ]
+  },
+  "start": {
+    "welcome": "This workbook follows Arnold Bennett's essay on daily time over six weeks. Each week takes about fifteen minutes. You read a short account of two chapters, then answer a small number of questions in your own words. The text is from a public-domain edition, with a few old spellings updated. Week 1 is free. No card is needed.",
+    "how_it_works": [
+      "Read the week's key ideas. Each one is a sentence you can agree or disagree with.",
+      "Answer one question for each exercise. A line is enough.",
+      "Bennett wrote for office workers in London. Where an example is dated, use your own day instead.",
+      "Your answers build a plan you can read at the end."
+    ],
+    "why_prompt": "What would you like more of in the hours outside work? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "count",
+      "focus": "Bennett begins by saying that every reader already has all the time there is",
+      "exercise_ids": [
+        "b1_later",
+        "b1_start"
+      ],
+      "intro": "Bennett opens by comparing time with money. Nobody receives more than twenty-four hours a day, and nobody can borrow against tomorrow. The first two chapters ask why so many people feel their lives are not arranged as they meant them to be. This week you name the thing you keep saving for later, and you choose one small step towards it.",
+      "ideas": [
+        {
+          "heading": "A good income does not mean that anyone gets much out of it.",
+          "body": "Chapter I opens with a man who has a good situation and a regular income, and who is always in difficulties. His flat is half empty and his hat is shabby. Bennett uses him to show that having enough is different from spending well, and that time works the same way.",
+          "example": "A neighbour describes the man. Chapter I: \"Somehow he gets nothing out of his money.\""
+        },
+        {
+          "heading": "Time is the one thing every reader has in the same amount.",
+          "body": "Bennett starts with money because everyone argues about it. Incomes differ widely, but the supply of time does not. A rich person cannot buy an extra minute, and a clever one is not given one. He wants you to think of the day as a fixed sum, and to ask how well it is spent.",
+          "example": "Bennett on who receives what. Chapter I: \"In the realm of time there is no aristocracy of wealth, and no aristocracy of intellect\""
+        },
+        {
+          "heading": "You cannot spend tomorrow's hours today, so you cannot run into debt with time.",
+          "body": "Money can be borrowed, and time cannot. Each day arrives whole, whatever you did with the last one. Bennett finds this reassuring. A wasted morning does not use up the afternoon, and the next hour is as good as any you have had. A fresh start is always available.",
+          "example": "He makes the point about the future. Chapter I: \"you cannot draw on the future\""
+        },
+        {
+          "heading": "Newspapers explain how to live on a sum of money, and none explain how to live on a day.",
+          "body": "Bennett notices that advice on managing a small income is everywhere. Advice on managing twenty-four hours is not. He suggests the same care could be given to the hours, because a muddled day makes a muddled life. Money, he says, is the commoner of the two.",
+          "example": "He imagines the missing article. Chapter I: \"How to live on a given income of time\""
+        },
+        {
+          "heading": "Waiting for more time is a way of not starting.",
+          "body": "Most people tell themselves they will change something when they have a little more time. Bennett says that moment never arrives, because you already have all the time there is. The useful question is what you do with it. He calls this a profound truth that people neglect.",
+          "example": "He answers the usual excuse. Chapter I: \"We never shall have any more time. We have, and we have always had, all the time there is\""
+        },
+        {
+          "heading": "The restless feeling of owing yourself more is common, and Bennett takes it seriously.",
+          "body": "Chapter II describes a low, steady uneasiness: the years pass, and your life has not yet been put in order. He pictures it as a skeleton at the feast. He does not ask you to ignore it. He asks you to look at what it is asking for, and then to answer it.",
+          "example": "The skeleton speaks at the station. Chapter II: \"O man, what hast thou done with thy youth?\""
+        },
+        {
+          "heading": "Leaving home counts, even if you never arrive.",
+          "body": "Bennett compares two people who want to visit Mecca. One sets out and may never get there. The other stays at home, troubled all the while by the wish. He says the first is better off, because something has begun. Most of us, he adds, have not yet left Brixton.",
+          "example": "He sets the two travellers side by side. Chapter II: \"It is something to have left Brixton.\""
+        },
+        {
+          "heading": "Reading is only one way of using the hours, and the wish to do more takes many forms.",
+          "body": "Bennett expects most readers to think first of books. He reminds them that the wish to learn, and to do something beyond the daily round, can be met in other ways. This matters later, when he suggests what to do with the evenings. For now he only widens the choice.",
+          "example": "He closes the chapter with a warning against narrowness. Chapter II: \"literature is not the only well\""
+        }
+      ],
+      "takeaway": "You have named something you keep saving for later, and one small step towards it has a day attached."
+    },
+    {
+      "number": 2,
+      "stage": "count",
+      "focus": "Bennett asks you to find the hours outside work that you have not counted",
+      "exercise_ids": [
+        "b2_account",
+        "b2_pockets"
+      ],
+      "intro": "Chapters III and IV begin the practical work. Bennett warns that there is no easy method, and that eager starts tend to end early. He then does some arithmetic with a typical office worker and finds sixteen hours the worker does not count. This week you do the same sums for yourself.",
+      "ideas": [
+        {
+          "heading": "Bennett says first that there is no secret method.",
+          "body": "Readers who expect a trick are disappointed in Chapter III. He says the task is hard and asks for a calm view of how hard. A time-table drawn on paper will not do it alone. What is needed is the willingness to carry on after the first dull days, with little to show for them.",
+          "example": "He rules out the shortcut. Chapter III: \"there is no easy way, no royal road\""
+        },
+        {
+          "heading": "There is no magic method of beginning, only the beginning.",
+          "body": "Bennett asks how a person starts to jump into cold water. The answer is that they jump. He applies this to the day. Putting off the start until next week gains nothing, since the water will not be warmer then. It will be colder.",
+          "example": "He answers the question about how to begin. Chapter III: \"Just jump.\""
+        },
+        {
+          "heading": "A small result for a big effort has to be acceptable.",
+          "body": "Bennett does not promise quick returns. He says plainly that the effort will be large and the first result small. If that is not acceptable, he advises not beginning at all. His aim is to have you start with your eyes open, so that a dull week comes as no surprise.",
+          "example": "He sets the condition for beginning. Chapter III: \"if you will not be content with a small result for a big effort, then do not begin\""
+        },
+        {
+          "heading": "Your own enthusiasm is the first thing to be careful of.",
+          "body": "Bennett calls ardour treacherous. It asks for more and more at the start and then gives up, often without saying so. He advises beginning with less than feels necessary, and leaving room for accidents and for human nature, especially your own.",
+          "example": "He warns against the opening burst. Chapter III: \"Beware of undertaking too much at the start. Be content with quite a little.\""
+        },
+        {
+          "heading": "A modest success is worth more than an ambitious attempt that collapses.",
+          "body": "Bennett argues that an early setback costs more than time. It costs confidence, and confidence is what the whole plan runs on. He says he prefers the petty success, because it can lead on to one that is not petty. He will not agree that a grand attempt is better.",
+          "example": "He states his preference. Chapter III: \"I am all for the petty success.\""
+        },
+        {
+          "heading": "Count the hours you cannot account for.",
+          "body": "Bennett adds up a typical day: about seven hours of paid work, seven of sleep, and two more to be generous. That leaves eight hours that most people cannot describe. He asks the reader to try, and to expect a surprise. The count is the first step, and no plan is needed yet.",
+          "example": "He challenges the reader directly. Chapter III: \"I will defy you to account to me on the spur of the moment for the other eight hours\""
+        },
+        {
+          "heading": "Think of the hours outside work as a day of their own.",
+          "body": "In Chapter IV Bennett says the worker thinks of the hours from ten to six as the real day and the rest as margin. He proposes a day within a day, running from six in the evening to ten in the morning. In that day, he says, you are free of the wage-earner's role.",
+          "example": "He describes the inner day. Chapter IV: \"he must, in his mind, arrange a day within a day\""
+        },
+        {
+          "heading": "Small losses of minutes add up when they happen every day.",
+          "body": "Bennett follows his typical man to the station and counts the minutes spent waiting. He compares each day's time to a coin that has to be changed. The man accepts a poor rate without noticing it. Bennett says he is dealing in small amounts on purpose, and promises to justify it later.",
+          "example": "He uses the image of a coin. Chapter IV: \"He has a solid coin of time to spend every day\""
+        }
+      ],
+      "takeaway": "You have counted yesterday's hours and found at least one pocket of time you already have."
+    },
+    {
+      "number": 3,
+      "stage": "spend",
+      "focus": "Bennett asks for ninety minutes, three evenings a week, kept like an appointment",
+      "exercise_ids": [
+        "b3_evenings",
+        "b3_appointment"
+      ],
+      "intro": "Chapters V and VI move from counting to spending. Bennett looks at a typical evening and proposes a small, firm change: ninety minutes, three evenings a week. He is careful about how much to ask. This week you choose your own evenings and decide what you will say when something else asks for them.",
+      "ideas": [
+        {
+          "heading": "Bennett suspects the tired feeling is partly a habit of the evening.",
+          "body": "He pictures the worker building up weariness on the way home. His claim is about habit, not health, and in the preface he accepts that some readers really are tired. Take it as a question to test against your own evenings. It is not a fact about you.",
+          "example": "He describes the trip home. Chapter V: \"you have been gradually working up the tired feeling\""
+        },
+        {
+          "heading": "The evening looks full because nobody planned it.",
+          "body": "Bennett lists what fills the hours after work: a meal, cards, a stroll, a book started and put down. Then comes a late hour and a surprise. Six or more hours have gone without a trace. The hours were not used badly. They were not used on anything in particular.",
+          "example": "He adds up the evening. Chapter V: \"Six hours, probably more, have gone since you left the office\""
+        },
+        {
+          "heading": "People give full energy to evenings that have a fixed purpose.",
+          "body": "Bennett points to the theatre and to the amateur operatic society. People rush about for them without complaint. A definite plan seems to bring energy with it, and the day around it seems to gain from it. He expects an evening given to something chosen to work the same way.",
+          "example": "He recalls an old commitment. Chapter V: \"the thought of that something gives a glow and a more intense vitality to the whole day\""
+        },
+        {
+          "heading": "Start with ninety minutes every other evening.",
+          "body": "He does not ask for every night. He suggests an hour and a half on alternate evenings, leaving three evenings free for friends, games and rest. The amount is modest on purpose, because it is meant to be kept. If it goes well, he expects you to want more.",
+          "example": "He sets the starting size. Chapter V: \"employ an hour and a half every other evening in some important and consecutive cultivation of the mind\""
+        },
+        {
+          "heading": "A set time only works if you keep it like an appointment.",
+          "body": "Bennett compares the ninety minutes with a rehearsal or a match. You would not cancel those on a whim, and he asks for the same respect here. He admits that telling a friend you cannot come because you have work to do is hard to say.",
+          "example": "He gives the time a rank. Chapter V: \"They must be sacred, quite as sacred as a dramatic rehearsal or a tennis match.\""
+        },
+        {
+          "heading": "Count the whole week, not just the evenings.",
+          "body": "Chapter VI adds up the savings so far: half an hour on six mornings and ninety minutes on three evenings. He calls the total small and says he will be content with it for now. He expects even this much to change how the rest of the week feels.",
+          "example": "He gives the weekly total. Chapter VI: \"Total, seven hours and a half a week.\""
+        },
+        {
+          "heading": "Extra effort counts as a windfall, not as a new baseline.",
+          "body": "Bennett advises keeping the formal plan to six days. If you want to do more, do it, but count the extra as a bonus. That way you can go back to the smaller plan without feeling poorer or behind, and the weekly rest stays what it is.",
+          "example": "He explains how to count extra time. Chapter VI: \"count the time extra as a windfall, not as regular income\""
+        },
+        {
+          "heading": "Allow more time than the task needs.",
+          "body": "Evenings run late and interruptions happen. Bennett suggests setting aside a long slot for a short task, so that a delay does not break the habit. His own example is two and a half hours for ninety minutes of work. The spare time is the margin that protects the rest.",
+          "example": "He closes the chapter with a practical rule. Chapter VI: \"allow much more than an hour and a half in which to do the work of an hour and a half\""
+        }
+      ],
+      "takeaway": "You have chosen your evenings and decided what you will say when something else asks for them."
+    },
+    {
+      "number": 4,
+      "stage": "spend",
+      "focus": "Bennett uses the walk to work to train attention and the trip home to review the day",
+      "exercise_ids": [
+        "b4_morning",
+        "b4_review"
+      ],
+      "intro": "Chapters VII and VIII turn to the commute. Bennett suggests that the trip to work is time for holding one subject in mind. He suggests that the trip home is time for looking at what you did and what you meant to do. This week you choose a subject for the first and a question for the second.",
+      "ideas": [
+        {
+          "heading": "Bennett says the first business of the day is the mind.",
+          "body": "He compares care for the body with care for the mind. People give plenty of attention to one and little to the other. He proposes a short, regular exercise for the mind before the working day. He fits it into the time between leaving home and arriving at the office.",
+          "example": "He opens Chapter VII. Chapter VII: \"the first business of the day should be to put the mind through its paces\""
+        },
+        {
+          "heading": "The power to concentrate can be acquired, and Bennett thinks most people have not tried.",
+          "body": "People say they cannot help their thoughts. Bennett disagrees. He says the same people complain of a lack of concentration without realising they could build it. Since all that pleases or hurts us is felt in the mind, he thinks control of attention is worth some daily effort.",
+          "example": "He answers the common complaint. Chapter VII: \"they may acquire the power, if they choose\""
+        },
+        {
+          "heading": "The exercise needs no equipment and no one's permission.",
+          "body": "He lists what he does not need: a desk, a quiet room, even a book. A person on a platform or in a crowded carriage can do it unseen. He counts this in its favour. Nobody around you will notice, and nothing needs to be bought or set up beforehand.",
+          "example": "He answers the objection about the commute. Chapter VII: \"Not even a book.\""
+        },
+        {
+          "heading": "The mind will wander, and bringing it back is the exercise.",
+          "body": "Bennett says you will not have gone ten yards before the mind has gone elsewhere. He does not take that as a sign you are doing it wrongly. Each return is the exercise. He asks the reader to expect many returns on the way to the station, and to keep going.",
+          "example": "He gives the instruction. Chapter VII: \"Bring it back by the scruff of the neck.\""
+        },
+        {
+          "heading": "You have concentrated before, when something mattered.",
+          "body": "To show it can be done, Bennett recalls a day when a worrying letter had to be answered with care. The reader held the wording in mind from the front door to the desk. The skill was already there. The occasion called it up, and he asks you to call it up on purpose.",
+          "example": "He reminds the reader of a past case. Chapter VII: \"How you kept your mind steadily on the subject of the answer\""
+        },
+        {
+          "heading": "A short passage read the night before gives the morning something to hold.",
+          "body": "He does not mind what you concentrate on to begin with. If you want a suggestion, he offers a short chapter of Marcus Aurelius or Epictetus. Read it in the evening and carry it through the next morning's walk. He says the chapters are short.",
+          "example": "He suggests what to read. Chapter VII: \"concentrate on it the next morning\""
+        },
+        {
+          "heading": "Reflection is a separate act from reading.",
+          "body": "Chapter VIII says people read about how to live and seldom stop to look at how they are living. He puts the habit at the centre. Books help with principles, but nothing replaces a daily, honest look at your own conduct, even when the sight is uncomfortable.",
+          "example": "He names what is missing. Chapter VIII: \"daily examination, reflection, and resolution\""
+        },
+        {
+          "heading": "Ask reason before you get cross.",
+          "body": "Bennett's example is an over-cooked steak. Anger at the waiter changes nothing about the steak. If you stop and ask reason, he says, you will politely ask for another and keep your temper. The gain is small and real, and it comes from having asked first.",
+          "example": "He imagines the scene. Chapter VIII: \"ask reason to step into the cabinet-room of your mind, and consult her\""
+        },
+        {
+          "heading": "The trip home is where he puts the review.",
+          "body": "He chooses the end of the day for looking back. The effort of earning a living is over, and the mind is ready to turn to itself. A newspaper can wait until dinner. The review needs only a few quiet minutes and a plain question.",
+          "example": "He assigns the time. Chapter VIII: \"A reflective mood naturally follows the exertion of having earned the day's living.\""
+        }
+      ],
+      "takeaway": "You have chosen one subject for your morning walk and one question for the end of the day."
+    },
+    {
+      "number": 5,
+      "stage": "keep",
+      "focus": "Bennett says you do not have to love literature to use your evenings well",
+      "exercise_ids": [
+        "b5_subject",
+        "b5_work"
+      ],
+      "intro": "Chapters IX to XI deal with what to do with the ninety minutes. Bennett argues that the evenings can go to music, to your own work, or to books. None of these needs a taste for literature. This week you choose a subject and pick one question about your own job.",
+      "ideas": [
+        {
+          "heading": "Nobody has to like literature to use an evening well.",
+          "body": "Bennett begins Chapter IX by reassuring readers who think the only alternative to idleness is reading novels or poetry. He says a lack of taste for literature is not a fault, and that those who sneer at it are only being impudent. A reader who dislikes it can find another subject.",
+          "example": "He releases the reader. Chapter IX: \"It is not a crime not to love literature.\""
+        },
+        {
+          "heading": "Knowing how a thing works makes it more interesting to watch.",
+          "body": "Bennett uses the concert hall. A listener who enjoys the symphony but cannot name the instruments hears a blur. A little study gives the same hour much more in it. He says the same is true of the other arts, and of games and sports.",
+          "example": "He describes the casual listener. Chapter IX: \"You do not listen for details because you have never trained your ears to listen to details.\""
+        },
+        {
+          "heading": "A subject can start from something you already enjoy.",
+          "body": "He observes that a person who wants to understand bridge or sailing will read the best books on it. Interest in the subject carries the reader past any dislike of books in general. Begin where you already care, and let the books follow the interest.",
+          "example": "He gives two examples. Chapter IX: \"reading the best books on bridge or boat-sailing\""
+        },
+        {
+          "heading": "Your own job is a subject you can study.",
+          "body": "Chapter X argues that nothing is humdrum. He takes an estate agent's clerk and shows how a cheap new railway line led to a rise in rents. The same work looks different once you ask why things happen. Dull work becomes a puzzle with causes behind it.",
+          "example": "He states the claim directly. Chapter X: \"Nothing is humdrum.\""
+        },
+        {
+          "heading": "Curiosity about ordinary things is open to anyone.",
+          "body": "Bennett ends Chapter X with a mild joke. A town-bound reader who loves the countryside could walk to the nearest gas lamp with a butterfly net and study the moths. The point is that the subject does not matter. What matters is the habit of looking closely and writing down what you find.",
+          "example": "He ends the chapter on a note of curiosity. Chapter X: \"The whole field of daily habit and scene is waiting to satisfy that curiosity which means life\""
+        },
+        {
+          "heading": "Serious reading is reading that takes effort.",
+          "body": "In Chapter XI Bennett sets it apart from novels. A good novel carries the reader along, and that is its merit. For the mind to be exercised it has to meet some resistance. He wants the ninety minutes to include some, even if part of you would rather skip it.",
+          "example": "He names what the hour should feel like. Chapter XI: \"the feeling of strain, of difficulty\""
+        },
+        {
+          "heading": "Choose a limited subject and stay with it for a set period.",
+          "body": "He asks the reader to define the direction and scope of the effort. Name a period, a subject or an author and keep to it until the time is up. Bennett says there is a pleasure in being a specialist, and that a narrow field is easier to finish.",
+          "example": "He gives the first of two suggestions. Chapter XI: \"Choose a limited period, or a limited subject, or a single author.\""
+        },
+        {
+          "heading": "Reading without thinking is only motion.",
+          "body": "His second suggestion is to think as well as read. He knows people who read a great deal and keep nothing, and who can say how many books they got through in a year. He asks for much of the ninety minutes to go on reflection, which is slower and harder.",
+          "example": "He gives the second suggestion. Chapter XI: \"to think as well as to read\""
+        },
+        {
+          "heading": "Slow progress is the expected pace.",
+          "body": "Reflection makes the pace slow, and Bennett says never mind. Watching the finish line spoils the walk. He expects a steady reader to arrive somewhere good without having aimed at it. The arrival comes when it is least expected.",
+          "example": "He ends the chapter with a picture. Chapter XI: \"Forget the goal; think only of the surrounding country\""
+        }
+      ],
+      "takeaway": "You have chosen one subject to stay with and one question about your own work to find out."
+    },
+    {
+      "number": 6,
+      "stage": "keep",
+      "focus": "Bennett ends with the dangers of the plan itself, and a preface he asks you to read last",
+      "exercise_ids": [
+        "b6_smallest",
+        "b6_slips"
+      ],
+      "intro": "Chapter XII lists the risks that come with trying to use time well. The preface, which Bennett says should be read at the end, answers readers who found the plan hard to follow after a full working day. This week you bring the programme down to its smallest honest form and decide what to cut when it slips.",
+      "ideas": [
+        {
+          "heading": "Bennett asks for the preface to be read last.",
+          "body": "The book opens with a preface he wrote after the first reactions came in. He tells the reader to read it at the end. It answers critics, and it is more careful than the chapters it introduces. It is the best place to finish, because it admits what the plan costs.",
+          "example": "He gives the instruction. Preface: \"should be read at the end of the book\""
+        },
+        {
+          "heading": "A reader who is truly tired is not the reader he first described.",
+          "body": "A correspondent told Bennett that the plan assumed more energy at half past six in the evening than he had. Bennett does not dismiss this. He says such readers should do what they can, such as using the morning commute and the weekend, and leave the rest.",
+          "example": "A reader wrote to him. Preface: \"I am not anything like so fresh as you seem to imagine\""
+        },
+        {
+          "heading": "Your own time is the only material you are managing.",
+          "body": "Chapter XII warns against taking the new interest too far. Bennett says the world got on well before you balanced your hours and will go on without your advice. Looking after your own time is enough work for one person, and it leaves no room for lecturing others.",
+          "example": "He turns the point inward. Chapter XII: \"one's own time, and not other people's time, is the material with which one has to deal\""
+        },
+        {
+          "heading": "Talking about your plan too much is a risk of its own.",
+          "body": "He calls the person who makes a discovery and expects everyone to share it a prig. The remedy is plain. Keep the plan to yourself, and do not look sadly at others for wasting their hours. He thinks you will have quite enough to do looking after yourself.",
+          "example": "He describes the temptation. Chapter XII: \"It is as well not to chatter too much about what one is doing\""
+        },
+        {
+          "heading": "A programme is a tool and not a religion.",
+          "body": "Bennett says a plan has to be respected or it becomes a joke, and not worshipped or it becomes a trap. His example is a man who takes the dog out at eight and cannot be moved from the habit. His family pays for it.",
+          "example": "He draws the line. Chapter XII: \"A programme of daily employ is not a religion.\""
+        },
+        {
+          "heading": "If the plan keeps overflowing, make it smaller.",
+          "body": "Breaking the programme now and then does not help. Bennett locates the fault in the original plan, which tried to do too much. The remedy he gives is to rebuild it with less in it, which sounds dull and works better than willpower.",
+          "example": "He explains where the fault lies. Chapter XII: \"from originally attempting too much, from filling one's programme till it runs over\""
+        },
+        {
+          "heading": "It is allowed to waste five minutes on purpose.",
+          "body": "For a plan that has begun to feel oppressive, Bennett suggests a pause between its parts. Five minutes of doing nothing, done knowingly, between one part and the next. He calls it an excellent palliative, and he is half joking.",
+          "example": "He offers a small relief. Chapter XII: \"to waste five minutes with the entire consciousness of wasting them\""
+        },
+        {
+          "heading": "The pace of the first lap should be absurdly slow.",
+          "body": "A bad start is the danger he returns to most often. He asks for a regular pace over a fast one, and says that a task once chosen should be finished, however dull. The confidence it gives is worth the tedium.",
+          "example": "He repeats his main warning. Chapter XII: \"Let the pace of the first lap be even absurdly slow, but let it be as regular as possible.\""
+        },
+        {
+          "heading": "Let your own taste decide what goes in the evenings.",
+          "body": "His last advice is to choose the first occupation by inclination. A person with no liking for philosophy should not start there. Better to follow a real interest, even a minor one, than to keep to a plan for the sake of how it looks.",
+          "example": "He ends the book. Chapter XII: \"be guided by nothing whatever but your taste and natural inclination\""
+        }
+      ],
+      "takeaway": "You have a smallest version of the plan you would still keep, and a decision about what to cut when it slips."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "b1_later",
+      "title": "Name what you keep putting off",
+      "purpose": "One thing you have been saving for the day when you have more time.",
+      "why": "Bennett's reader says, \"I shall alter that when I have a little more time.\" He answers that more time never comes. Before you plan anything, write down what that sentence has been covering for you. It can be large or small. It only has to be true.",
+      "source": {
+        "chapter": "Chapter I"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the week's key ideas first, then come back here."
+        },
+        {
+          "text": "Finish the sentence \"I will do it when I have more time\" three ways."
+        },
+        {
+          "text": "Underline the one you think about most often."
+        }
+      ],
+      "fields": [
+        {
+          "id": "later",
+          "type": "long_text",
+          "label": "What have you been saving for the day when you have more time?"
+        }
+      ],
+      "done_when": "Three unfinished wishes are written down and one is marked.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you keep putting off."
+          }
+        ],
+        "field_ids": [
+          "later"
+        ]
+      },
+      "reflect": "Which of these wishes has been waiting longest?",
+      "feeds_plan": [
+        {
+          "field_id": "later",
+          "plan_section": "start"
+        }
+      ]
+    },
+    {
+      "id": "b1_start",
+      "title": "Choose one small step",
+      "purpose": "One small step towards what you put off, with a day attached.",
+      "why": "In Chapter II the traveller who leaves Brixton is better off than the one who stays. Bennett wants a start, not a plan for a whole life. Pick the smallest step towards your unfinished wish. Then give it a day.",
+      "source": {
+        "chapter": "Chapter II"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Read what you wrote in the first exercise."
+        },
+        {
+          "text": "Think of a step that takes under half an hour."
+        },
+        {
+          "text": "Pick a day this week for it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "step",
+          "type": "short_text",
+          "label": "What is one small step towards it that you will take this week, and on which day?",
+          "prefill_from": "later"
+        }
+      ],
+      "done_when": "One step is written down with a day beside it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one step and a day."
+          }
+        ],
+        "field_ids": [
+          "step"
+        ]
+      },
+      "reflect": "What would make this step smaller still?",
+      "feeds_plan": [
+        {
+          "field_id": "step",
+          "plan_section": "start"
+        }
+      ]
+    },
+    {
+      "id": "b2_account",
+      "title": "Account for yesterday's hours",
+      "purpose": "A rough record of how yesterday's hours outside work and sleep were spent.",
+      "why": "Bennett counts a working day and a night's sleep, then asks where the other eight hours went. Try it with yesterday. Work from memory and make no attempt to judge what you find. The aim is to see the shape of the day.",
+      "source": {
+        "chapter": "Chapter III"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write down roughly when you started and finished work yesterday."
+        },
+        {
+          "text": "Mark the hours you were asleep."
+        },
+        {
+          "text": "List what filled the rest, in order."
+        }
+      ],
+      "fields": [
+        {
+          "id": "hours",
+          "type": "two_column",
+          "label": "What did you do with yesterday's hours outside work and sleep?",
+          "columns": [
+            "Roughly when",
+            "What you did"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "done_when": "The hours outside work and sleep have been listed, in order.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "List what you did last evening."
+          }
+        ],
+        "field_ids": [
+          "hours"
+        ]
+      },
+      "reflect": "Which part of the list surprised you?",
+      "feeds_plan": [
+        {
+          "field_id": "hours",
+          "plan_section": "hours"
+        }
+      ]
+    },
+    {
+      "id": "b2_pockets",
+      "title": "Find the pockets of time",
+      "purpose": "A short list of places where you wait or travel in a normal week.",
+      "why": "In Chapter IV Bennett watches a man stroll up and down a platform while the minutes go. Most weeks hold pockets like this. They are too short to feel useful, and they add up. Look for yours.",
+      "source": {
+        "chapter": "Chapter IV"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of the places you wait or travel in a normal week."
+        },
+        {
+          "text": "Beside each, write about how long it takes."
+        },
+        {
+          "text": "Mark the one that is most reliable."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pockets",
+          "type": "two_column",
+          "label": "Where do you wait or travel in a normal week, and for about how long?",
+          "columns": [
+            "Where",
+            "About how long"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "At least two pockets of time are listed, with lengths.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one place you wait or travel."
+          }
+        ],
+        "field_ids": [
+          "pockets"
+        ]
+      },
+      "reflect": "Which of these could you use without any new equipment?",
+      "feeds_plan": [
+        {
+          "field_id": "pockets",
+          "plan_section": "hours"
+        }
+      ]
+    },
+    {
+      "id": "b3_evenings",
+      "title": "Choose your evenings",
+      "purpose": "Two or three evenings this week, with a start and finish time for each.",
+      "why": "Bennett asks for ninety minutes on three evenings. The number matters less than the choice. Look at your own week and pick the evenings most likely to hold. Give each a start and a finish, and leave a margin at the end.",
+      "source": {
+        "chapter": "Chapter V"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look at your week and cross out evenings that are already taken."
+        },
+        {
+          "text": "Pick two or three from those left."
+        },
+        {
+          "text": "Write a start and finish time for each, with a margin."
+        }
+      ],
+      "fields": [
+        {
+          "id": "evenings",
+          "type": "two_column",
+          "label": "Which evenings this week will you set aside, and from when to when?",
+          "columns": [
+            "Evening",
+            "From and to"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Two or three evenings are chosen, each with a start and finish.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Pick one evening and a start time."
+          }
+        ],
+        "field_ids": [
+          "evenings"
+        ]
+      },
+      "reflect": "Which of these evenings is most likely to be interrupted?",
+      "feeds_plan": [
+        {
+          "field_id": "evenings",
+          "plan_section": "evenings"
+        }
+      ]
+    },
+    {
+      "id": "b3_appointment",
+      "title": "Decide your reply in advance",
+      "purpose": "One sentence ready for the moment when something else asks for your evening.",
+      "why": "Bennett says the hard part is telling a friend you cannot come because you have work to do. A sentence decided in advance is easier to use than one made up under pressure. Write yours in your own voice.",
+      "source": {
+        "chapter": "Chapter V"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of the request most likely to cut across your evenings."
+        },
+        {
+          "text": "Write the sentence you would say in reply."
+        },
+        {
+          "text": "Say it aloud once."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reply",
+          "type": "short_text",
+          "label": "What will you say when something else asks for one of those evenings?",
+          "prefill_from": "evenings"
+        }
+      ],
+      "done_when": "One reply is written in your own words.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence you could say."
+          }
+        ],
+        "field_ids": [
+          "reply"
+        ]
+      },
+      "reflect": "Does the sentence sound like you?",
+      "feeds_plan": [
+        {
+          "field_id": "reply",
+          "plan_section": "evenings"
+        }
+      ]
+    },
+    {
+      "id": "b4_morning",
+      "title": "Choose a subject for the walk",
+      "purpose": "One subject, chosen in advance, to hold in mind on your commute or walk.",
+      "why": "Bennett says it does not matter what you concentrate on to begin with, so long as you do. Choose something short that you will not need to look up. A line, a problem, or a name and what you know about it will all do. Pick it the evening before.",
+      "source": {
+        "chapter": "Chapter VII"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of the first stretch of your day, before you reach work."
+        },
+        {
+          "text": "List two or three possible subjects."
+        },
+        {
+          "text": "Choose one for tomorrow."
+        }
+      ],
+      "fields": [
+        {
+          "id": "subject",
+          "type": "short_text",
+          "label": "What one subject will you hold in mind on the way to work this week?"
+        }
+      ],
+      "done_when": "One subject is chosen for the first morning.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one subject."
+          }
+        ],
+        "field_ids": [
+          "subject"
+        ]
+      },
+      "reflect": "How many times do you expect your mind to wander?",
+      "feeds_plan": [
+        {
+          "field_id": "subject",
+          "plan_section": "journeys"
+        }
+      ]
+    },
+    {
+      "id": "b4_review",
+      "title": "Review the day by your values",
+      "purpose": "A short note on where today's conduct matched what you value and where it did not.",
+      "why": "Bennett wants conduct and principles to agree, and says that happens only through a daily look. Keep the look short and plain. Name one thing you did that matched what you value and one that did not. Neither needs a verdict.",
+      "source": {
+        "chapter": "Chapter VIII"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think back over today."
+        },
+        {
+          "text": "Find one moment that matched what you value."
+        },
+        {
+          "text": "Find one moment that did not."
+        }
+      ],
+      "fields": [
+        {
+          "id": "review",
+          "type": "two_column",
+          "label": "Where today did your conduct match what you value, and where did it not?",
+          "columns": [
+            "Matched what I value",
+            "Did not match"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "One moment of each kind is written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one moment that matched."
+          }
+        ],
+        "field_ids": [
+          "review"
+        ]
+      },
+      "reflect": "What would you do differently in the second moment?",
+      "feeds_plan": [
+        {
+          "field_id": "review",
+          "plan_section": "journeys"
+        }
+      ]
+    },
+    {
+      "id": "b5_subject",
+      "title": "Choose a subject to stay with",
+      "purpose": "One subject, period or author to stay with for the rest of the programme.",
+      "why": "Bennett advises a limited subject and a set period. Choose something you already like, or something you are curious about, and give it a time limit. Do not worry whether it is worthy. His rule is to follow your taste.",
+      "source": {
+        "chapter": "Chapter XI"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List three things you are curious about."
+        },
+        {
+          "text": "Choose the one you would give an evening to."
+        },
+        {
+          "text": "Set a period, such as six weeks."
+        }
+      ],
+      "fields": [
+        {
+          "id": "subject_pick",
+          "type": "short_text",
+          "label": "What subject, period or author will you stay with for your ninety minutes?"
+        }
+      ],
+      "done_when": "One subject and a period are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one subject."
+          }
+        ],
+        "field_ids": [
+          "subject_pick"
+        ]
+      },
+      "reflect": "What would make this subject harder to give up?",
+      "feeds_plan": [
+        {
+          "field_id": "subject_pick",
+          "plan_section": "subject"
+        }
+      ]
+    },
+    {
+      "id": "b5_work",
+      "title": "Find the question in your work",
+      "purpose": "One question about your job that you cannot yet answer.",
+      "why": "Bennett says nothing is humdrum, and he looks for the cause behind an ordinary fact. Try it on your own work. Pick one thing that happens there that you take for granted. Then write the question underneath it.",
+      "source": {
+        "chapter": "Chapter X"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of something in your work that always happens the same way."
+        },
+        {
+          "text": "Ask why it happens."
+        },
+        {
+          "text": "Write the question in one line."
+        }
+      ],
+      "fields": [
+        {
+          "id": "work_q",
+          "type": "short_text",
+          "label": "What is one thing about your own work that you cannot yet explain?"
+        }
+      ],
+      "done_when": "One question about your work is written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question."
+          }
+        ],
+        "field_ids": [
+          "work_q"
+        ]
+      },
+      "reflect": "Where could you start looking for the answer?",
+      "feeds_plan": [
+        {
+          "field_id": "work_q",
+          "plan_section": "subject"
+        }
+      ]
+    },
+    {
+      "id": "b6_smallest",
+      "title": "Write the smallest plan to keep",
+      "purpose": "A short plan for the next three months, made as small as you honestly can.",
+      "why": "Bennett says that after three months of steady work you may begin to talk bigger, and not before. Look back over your answers. Choose the smallest set of habits you would still keep in a busy week. Write them as one short plan.",
+      "source": {
+        "chapter": "Chapter VI"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read your answers from weeks 1 to 5."
+        },
+        {
+          "text": "Pick the habits you would keep in a busy week."
+        },
+        {
+          "text": "Write them as a plan of a few lines."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan_small",
+          "type": "long_text",
+          "label": "What is the smallest version of your plan that you would still carry out for three months?"
+        }
+      ],
+      "done_when": "A short plan is written, small enough to keep.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write the one habit you would keep."
+          }
+        ],
+        "field_ids": [
+          "plan_small"
+        ]
+      },
+      "reflect": "What would you add after three months if it went well?",
+      "feeds_plan": [
+        {
+          "field_id": "plan_small",
+          "plan_section": "plan"
+        }
+      ]
+    },
+    {
+      "id": "b6_slips",
+      "title": "Decide what to cut first",
+      "purpose": "Two short lists: what you will cut back and what you will protect.",
+      "why": "Bennett says a plan that overflows should be rebuilt, not forced. Decide now, when you are calm, what you would cut first and what you would protect. Then a slipped week is a reason to adjust, not to stop.",
+      "source": {
+        "chapter": "Chapter XII"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "List the parts of your plan."
+        },
+        {
+          "text": "Mark what you would cut back first."
+        },
+        {
+          "text": "Mark what you would protect."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slip",
+          "type": "two_column",
+          "label": "When the plan slips, what will you cut back and what will you keep?",
+          "columns": [
+            "Cut back",
+            "Keep"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "At least one thing is marked to cut and one to protect.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing to protect."
+          }
+        ],
+        "field_ids": [
+          "slip"
+        ]
+      },
+      "reflect": "Who could you tell if the plan stopped working?",
+      "feeds_plan": [
+        {
+          "field_id": "slip",
+          "plan_section": "plan"
+        }
+      ]
+    }
+  ],
+  "toolkit": [],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "week_one",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Bennett says a small start is the right one."
+    },
+    {
+      "id": "count_done",
+      "trigger": "stage_complete:count",
+      "message": "Two weeks done. You have counted your hours and chosen a first step."
+    },
+    {
+      "id": "spend_done",
+      "trigger": "stage_complete:spend",
+      "message": "Four weeks done. Your evenings, your reply and your two daily questions are set."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Six weeks done. Your plan is ready to read."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "start",
+      "title": "What you are putting off"
+    },
+    {
+      "id": "hours",
+      "title": "Where your hours go"
+    },
+    {
+      "id": "evenings",
+      "title": "Your evenings"
+    },
+    {
+      "id": "journeys",
+      "title": "Your two daily trips"
+    },
+    {
+      "id": "subject",
+      "title": "Your subject and your question"
+    },
+    {
+      "id": "plan",
+      "title": "Your smallest plan"
+    }
+  ],
+  "finish": {
+    "summary": "Six weeks, and a plan built from your own answers. It holds a first step, your hours, your evenings, your two daily trips and a smallest plan to keep.",
+    "book_bridge": "How to Live on Twenty-Four Hours a Day is in the public domain. The edition used here includes Bennett's preface, which he asks to be read last, so you can read the whole book beside this workbook."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which evening did you keep this month, and what did you do with it?",
+      "What did you hold in mind on your way to work, and how often did it wander?",
+      "What did you cut back or protect this month, and what will you change next month?"
+    ],
+    "refresher_ids": [
+      "b3_evenings",
+      "b4_review",
+      "b6_slips"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "docs/content/sources/AK-QCRRE/bennett-24hours.txt",
+    "cut_log": [
+      {
+        "item": "Contents list and chapter epigraphs",
+        "chapter": "Front matter",
+        "reason": "Not reader content."
+      },
+      {
+        "item": "Bennett's remarks on sleep, early rising and bodily health",
+        "chapter": "Preface; Chapters VI and VII",
+        "reason": "The product makes no health claims, so the workbook does not repeat them."
+      },
+      {
+        "item": "Bennett's claim that concentration cures worry",
+        "chapter": "Chapter VII",
+        "reason": "A wellbeing claim. Not used."
+      },
+      {
+        "item": "Period references to books, concerts and shops (Krehbiel, Hazlitt, Lyons, Carter Patterson and others)",
+        "chapter": "Chapters V, IX to XI",
+        "reason": "Dated, and not needed for the reader's own exercise."
+      },
+      {
+        "item": "Passages with dash-to-comma artefacts from the reversible modernisation",
+        "chapter": "Throughout",
+        "reason": "Not quoted across a dash, so no reader sees a doubled comma."
+      }
+    ],
+    "notes": "Written to docs/content/UNIT_SPEC.md. Quotations are from the modernised copy of the Gutenberg #2274 text (sha1 636781674bc0ae23bc1be5b24dbd74cef091ac09) and checked against it. Status in_review until the house record is signed (C10) and a second named reviewer approves."
+  }
+}
