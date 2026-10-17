@@ -18,7 +18,7 @@ export const metadata: Metadata = { title: `Publish with ${brand.name}` };
 const STEPS: { title: string; body: string }[] = [
   {
     title: "Enquire",
-    body: "Tell us about the book. We reply within [enquiry response time] and say honestly whether it suits the format.",
+    body: "Tell us about the book. We reply by email and say honestly whether it suits the format.",
   },
   {
     title: "Licence",
@@ -30,7 +30,7 @@ const STEPS: { title: string; body: string }[] = [
   },
   {
     title: "Sell and pay",
-    body: `The workbook goes into the ${brand.name} library. Readers buy it or read it through membership. You are paid every Friday for the week before, with a monthly statement and exact figures for your records.`,
+    body: `The workbook goes into the ${brand.name} library. Readers buy it or read it through membership. You are paid every Friday. A sale is paid on the first Friday after its 14 day refund window ends, and a monthly statement gives the exact figures for your records.`,
   },
 ];
 
@@ -105,7 +105,7 @@ export default function PublishPage() {
         <div className="wrap mk-hero-grid">
           <div>
             <p className="eyebrow">For authors and publishers</p>
-            <h1>Turn your book into a workbook readers finish</h1>
+            <h1>Turn your book into a guided workbook</h1>
             <p>
               {brand.name} builds interactive guided workbooks from published books. Readers work through your ideas a
               week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and
@@ -135,7 +135,7 @@ export default function PublishPage() {
           </li>
           <li style={shelfStyleVars("learning-and-skills")}>
             <strong>Paid every Friday</strong>
-            <span>Each week&apos;s sales, paid on the Friday after.</span>
+            <span>A sale is paid on the first Friday after its 14 day refund window. Balances under £10 carry forward.</span>
           </li>
           <li style={shelfStyleVars("love-and-relationships")}>
             <strong>We answer your readers&apos; questions</strong>
@@ -155,7 +155,7 @@ export default function PublishPage() {
             <strong>Authors</strong>
             <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>
               With a published non-fiction book that teaches something: a method, a set of habits, a way of thinking.
-              Across the eleven shelves, from wellbeing to life skills.
+              Across the ten shelves, from Mind and Mood to Creativity and Making.
             </p>
           </div>
           <div className="card">

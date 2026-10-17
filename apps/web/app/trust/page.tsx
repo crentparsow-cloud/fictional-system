@@ -123,8 +123,8 @@ export default function TrustPage() {
       <section className="info-section" aria-labelledby="trust-company">
         <h2 id="trust-company">Who we are</h2>
         <p>
-          {brand.name} is the seller of every workbook and membership on the {brand.name} marketplace. Company name, registered number and
-          registered address: [company details to follow].
+          {brand.name} is the seller of every workbook and membership on the {brand.name} marketplace. Registered address: 128 City Road,
+          London EC1V 2NX. Company name and registered number: [company details to follow].
         </p>
         <p>
           The documents behind these points are the <Link href="/legal/terms">reader terms</Link>, the{" "}

@@ -100,11 +100,12 @@ end $$;
 -- ---------------------------------------------------------------------------
 do $$ begin
   perform test_as('a4300000-0000-0000-0000-000000000003');
-  if (select count(*) from public.collections) <> 1 then raise exception 'a reader sees live collections only'; end if;
-  if (select count(*) from public.collection_items) <> 1 then raise exception 'a reader sees items of live collections only'; end if;
+  -- Scoped to this test's own slugs: 0048 adds launch collections to a migrated database.
+  if (select count(*) from public.collections where slug in ('calm-starts','quiet-drafts')) <> 1 then raise exception 'a reader sees live collections only'; end if;
+  if (select count(*) from public.collection_items i join public.collections c on c.id = i.collection_id where c.slug in ('calm-starts','quiet-drafts')) <> 1 then raise exception 'a reader sees items of live collections only'; end if;
   reset role;
   perform test_as('a4300000-0000-0000-0000-000000000001', array['editor']);
-  if (select count(*) from public.collections) <> 2 then raise exception 'staff see drafts'; end if;
+  if (select count(*) from public.collections where slug in ('calm-starts','quiet-drafts')) <> 2 then raise exception 'staff see drafts'; end if;
   reset role;
 end $$;
 
