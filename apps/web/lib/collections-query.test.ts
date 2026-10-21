@@ -66,6 +66,8 @@ describe("collections query", () => {
         coverGenre: "wellbeing",
         coverPattern: "waves",
         sort: 2,
+        startsOn: null,
+        endsOn: null,
         items: [
           { workbookId: "w2", position: 2 },
           { workbookId: "w1", position: 1 },
@@ -94,5 +96,15 @@ describe("collections query", () => {
     expect(await fetchCollectionBySlug(stub([]).db, "nothing-here")).toBeNull();
     await expect(fetchLiveCollections(stub([], { message: "boom" }).db)).rejects.toThrow("fetchLiveCollections: boom");
     await expect(fetchCollectionBySlug(stub([], { message: "boom" }).db, "x")).rejects.toThrow("fetchCollectionBySlug: boom");
+  });
+  it("hides a collection outside its seasonal window, for staff too (12.5)", async () => {
+    const past = { ...raw, id: "c2", slug: "past", starts_on: "2020-12-01", ends_on: "2020-12-24" };
+    const open = { ...raw, id: "c3", slug: "open", starts_on: "2020-01-01", ends_on: "2999-12-31" };
+    const future = { ...raw, id: "c4", slug: "future", starts_on: "2999-01-01", ends_on: null };
+    const { db } = stub([raw, past, open, future]);
+    const out = await fetchLiveCollections(db);
+    expect(out.map((c) => c.slug)).toEqual(["calm-starts", "open"]);
+    expect(await fetchCollectionBySlug(stub([past]).db, "past")).toBeNull();
+    expect((await fetchCollectionBySlug(stub([open]).db, "open"))?.endsOn).toBe("2999-12-31");
   });
 });

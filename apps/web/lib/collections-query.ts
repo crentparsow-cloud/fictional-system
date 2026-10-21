@@ -1,5 +1,6 @@
 import type { createUserClient } from "@/lib/supabase/server";
 import type { CollectionRow } from "@/lib/explore";
+import { inWindow } from "@/lib/seasonal";
 
 /**
  * The collections read (build list 2.3). No server-only import, so the test
@@ -13,7 +14,7 @@ import type { CollectionRow } from "@/lib/explore";
  */
 type Db = Awaited<ReturnType<typeof createUserClient>>;
 
-const COLUMNS = "id, slug, name, line, cover_genre, cover_pattern, sort, collection_items(workbook_id, position)";
+const COLUMNS = "id, slug, name, line, cover_genre, cover_pattern, sort, starts_on, ends_on, collection_items(workbook_id, position)";
 
 interface Row {
   id: string;
@@ -23,6 +24,8 @@ interface Row {
   cover_genre: string;
   cover_pattern: string | null;
   sort: number;
+  starts_on?: string | null;
+  ends_on?: string | null;
   collection_items: { workbook_id: string; position: number }[] | null;
 }
 
@@ -35,6 +38,8 @@ function toRow(r: Row): CollectionRow {
     coverGenre: r.cover_genre,
     coverPattern: r.cover_pattern,
     sort: r.sort,
+    startsOn: r.starts_on ?? null,
+    endsOn: r.ends_on ?? null,
     items: (r.collection_items ?? []).map((i) => ({ workbookId: i.workbook_id, position: i.position })),
   };
 }
@@ -45,7 +50,8 @@ const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 export async function fetchLiveCollections(db: Db): Promise<CollectionRow[]> {
   const { data, error } = await db.from("collections").select(COLUMNS).eq("status", "live").order("sort").order("name").limit(100);
   if (error) throw new Error(`fetchLiveCollections: ${error.message}`);
-  return ((data ?? []) as unknown as Row[]).map(toRow);
+  // Staff can read every collection under RLS, so the seasonal window (12.5) is applied here as well.
+  return ((data ?? []) as unknown as Row[]).map(toRow).filter((c) => inWindow(c.startsOn, c.endsOn));
 }
 
 /** One live collection by slug, or null. */
@@ -53,5 +59,6 @@ export async function fetchCollectionBySlug(db: Db, slug: string): Promise<Colle
   if (!SLUG.test(slug)) return null;
   const { data, error } = await db.from("collections").select(COLUMNS).eq("slug", slug).eq("status", "live").maybeSingle();
   if (error) throw new Error(`fetchCollectionBySlug: ${error.message}`);
-  return data ? toRow(data as unknown as Row) : null;
+  const row = data ? toRow(data as unknown as Row) : null;
+  return row && inWindow(row.startsOn, row.endsOn) ? row : null;
 }
