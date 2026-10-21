@@ -4,6 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { WorkbookV3 } from "@akana/schema";
 import { Player, type PlayerView, type ProgressEvent } from "@akana/engine";
 import { HelpNowButton } from "@/components/HelpNowButton";
+import { FriendStrip } from "@/components/friends/FriendStrip";
+import type { PairView } from "@/lib/friends/pair";
 import { SupabaseAnswerStore, type SaveDetail, type SaveState } from "@/components/reader/AnswerStore";
 import { DraftTransfer } from "@/components/reader/DraftTransfer";
 import { HardestAnswerCard } from "@/components/reader/HardestAnswerCard";
@@ -15,6 +17,7 @@ import { paywallState, unitCountPhrase, type PaywallInput } from "@/components/r
 import { PauseBar } from "@/components/reader/PauseBar";
 import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
 import { ReadAloud } from "@/components/reader/ReadAloud";
+import { ReadingTools } from "@/components/reader/ReadingTools";
 import { ResumeCard } from "@/components/reader/ResumeCard";
 import { SaveStatus } from "@/components/reader/SaveStatus";
 import { AutosaveToast } from "@/components/motion/SaveToast";
@@ -28,9 +31,14 @@ import type { OpenAt } from "@/lib/today/links";
 import { doneExerciseIds, nextStep, stepsFromWorkbook } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type StepEvent } from "@/lib/today/week";
 import { acknowledgeHigherTier, saveReadingPlace, type PlaceInput } from "./actions";
+import { FinishRecommendations, type RecommendedAuthor } from "@/components/reader/FinishRecommendations";
 
 interface Props {
   workbook: WorkbookV3;
+  /** 6.9: the affiliate disclosure beside "Get the book". Undefined when no retailer tag is set. */
+  buyNote?: string;
+  /** 14.12: the authors this workbook's author recommends, shown on the Finish screen. */
+  recommendations?: RecommendedAuthor[];
   /** The reader's first name for author letters; letters read fine without it. */
   firstName?: string;
   enrolmentId: string;
@@ -52,6 +60,10 @@ interface Props {
   place?: OpenAt | null;
   /** Where the reader last was, as a link to the exact field and a plain line (3.7). */
   resume?: { href: string; where: string } | null;
+  /** Rendered after the reader, such as the optional end-of-programme question (8.5). */
+  children?: React.ReactNode;
+  /** The reader's active pairing on this workbook, when they do it with a friend (6.2). */
+  pair?: PairView | null;
 }
 
 function readLocal(key: string): string | null {
@@ -78,7 +90,7 @@ function writeLocal(key: string, value: string): void {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null, resume = null }: Props) {
+export function ReadClient({ buyNote, recommendations = [], firstName, workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null, resume = null, children, pair = null }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
@@ -93,6 +105,7 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
   const [recovered, setRecovered] = useState(0);
   const [draftIssue, setDraftIssue] = useState<"quota" | "unavailable" | null>(null);
   const markFirstExercise = useFirstExerciseMark();
+  const stageRef = useRef<HTMLDivElement | null>(null);
   const lastUnit = useRef<number | null>(null);
   const placeRef = useRef<PlaceInput | null>(null);
   const placeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -324,6 +337,7 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
           marked={thisWeekMarked(finishes, new Date(), browserZone)}
         />
       ) : null}
+      {pair ? <FriendStrip pair={pair} justFinished={liveEvents.some((e) => e.kind === "step_done")} stepNumber={doneIds.size} /> : null}
       {resume && !place ? <ResumeCard href={resume.href} where={resume.where} withLine /> : <p className="small muted">{LEAVE_LINE}</p>}
       <details className="um-details" open>
         <summary>Your path</summary>
@@ -342,6 +356,8 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
         </p>
       ) : null}
       {hardest ? <HardestAnswerCard market={helpMarket} onClose={() => setHardest(false)} /> : null}
+      <div className="rd-stage" ref={stageRef}>
+      <ReadingTools enrolmentId={enrolmentId} readOnly={readOnly} title={workbook.title} stage={stageRef} />
       <Player
         workbook={workbook}
         firstName={firstName}
@@ -357,6 +373,8 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
         onFinished={onFinished}
         events={events}
         buyHref={paywall.demo ? undefined : `/go/${encodeURIComponent(slug)}`}
+        buyNote={paywall.demo ? undefined : buyNote}
+        finishExtra={recommendations.length > 0 ? <FinishRecommendations authors={recommendations} /> : undefined}
         initialView={initialView}
         requireAcknowledge={higher}
         acknowledged={acknowledged}
@@ -368,7 +386,9 @@ export function ReadClient({ firstName, workbook, enrolmentId, lockedUnits, miss
         unitEstimate={estimate}
         navigateTo={navigateTo}
       />
+      </div>
       <PauseBar onPause={pause} disabled={readOnly} />
+      {children}
     </section>
   );
 }

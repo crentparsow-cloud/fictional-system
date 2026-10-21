@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
 import { parseCancelForm, pickSubject } from "@/lib/cancel-flow";
+import { runResume } from "@/lib/membership-resume";
 import { runCancelEvent, type CancelOutcome } from "@/lib/membership-cancel";
 import { loadSubjects, stripeSubscriptions } from "@/lib/membership-cancel-server";
 import { amountFor, pricePointFromRow } from "@/lib/pricing";
@@ -57,4 +58,23 @@ export async function submitCancel(formData: FormData): Promise<void> {
     console.error("membership_cancel_failed", { reason: err instanceof Error ? err.name : "unknown" });
   }
   return back(NOTICE[outcome]);
+}
+
+/** The Resume button on You (14.25). Same rules as above: the subscription comes from the reader's own rows. */
+export async function resumeMembership(): Promise<void> {
+  const session = await getReaderSession();
+  if (!session) redirect("/sign-in?next=/you");
+  const tenantId = await tenantIdForRequest();
+  let code = "cancel_failed";
+  try {
+    if (tenantId) {
+      const supabase = await createUserClient();
+      const subject = pickSubject(await loadSubjects(supabase, session.userId, tenantId));
+      const outcome = await runResume(subject ? { ...subject, stripeSubscriptionId: subject.stripeSubscriptionId } : null, new Date(), stripeSubscriptions());
+      code = outcome === "resumed" ? "resumed" : "unchanged";
+    }
+  } catch (err) {
+    console.error("membership_resume_failed", { reason: err instanceof Error ? err.name : "unknown" });
+  }
+  redirect(`/you?membership=${code}#membership`);
 }
