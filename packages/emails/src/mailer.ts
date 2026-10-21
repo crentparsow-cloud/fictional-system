@@ -17,6 +17,8 @@ import { type Rendered, isPostalPlaceholder } from "./layout";
 import { type AuthorProps, type AuthorTemplateName, renderAuthor } from "./author";
 import { type ReaderProps, type ReaderTemplateName, renderReader } from "./reader";
 import { type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
+import { type GiftProps, renderGift } from "./gift";
+import { type NewsletterProps, type NewsletterTemplateName, renderNewsletter } from "./newsletter";
 import type { FooterLinks } from "./layout";
 
 export type SendCategory = "transactional" | "progress" | "marketing" | "partner";
@@ -237,10 +239,25 @@ export function createMailer(o: MailerOptions) {
       return deliver(r, "transactional", "author", template, s);
     },
 
+    /**
+     * The weekly newsletter (6.11). The sign-up confirmation is transactional; an issue is marketing, so the
+     * mailer refuses it without a real postal address and an unsubscribe link. Logged under the reader audience.
+     */
+    async sendNewsletter<K extends NewsletterTemplateName>(template: K, props: NewsletterProps[K], s: SendOptions): Promise<SendResult> {
+      const r = renderNewsletter(template, props, s.links ?? {}, env.POSTAL_ADDRESS, s.lang);
+      return deliver(r, r.category, "reader", `newsletter_${template}`, s);
+    },
+
     /** Akana for organisations (F-203). Logged under the reader audience: the recipient is, or may become, a reader. */
     async sendOrganisation<K extends OrganisationTemplateName>(template: K, props: OrganisationProps[K], s: SendOptions): Promise<SendResult> {
       const r = renderOrganisation(template, props, env.POSTAL_ADDRESS, s.lang);
       return deliver(r, "transactional", "reader", `organisation_${template}`, s);
+    },
+
+    /** "Send this workbook" (14.14): to the person receiving the gift. Never names a title or the giver. */
+    async sendGift(props: GiftProps, s: SendOptions): Promise<SendResult> {
+      const r = renderGift(props, env.POSTAL_ADDRESS, s.lang);
+      return deliver(r, "transactional", "reader", "gift_workbook", s);
     },
   };
 }

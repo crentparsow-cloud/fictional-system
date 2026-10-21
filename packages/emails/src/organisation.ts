@@ -38,6 +38,19 @@ export type OrganisationProps = {
   org_licence_ended: OrganisationBase & BillingLink & { endedOn: string; refundAmount?: string; refundStatus?: "pending" | "succeeded" | "failed" };
   /** DMCC reminder notice, consumer organisers only: what they pay, how often, the next payment and how to cancel. */
   org_terms_reminder: OrganisationBase & BillingLink & { price: string; yearly: boolean; nextDate: string; seats: number };
+  /**
+   * Monthly report (9.3): to owners and finance contacts. Counts only. The
+   * started figure is null when it is under the reporting threshold, and then
+   * the email says "fewer than N" instead of a number.
+   */
+  org_monthly_report: OrganisationBase & {
+    reportsUrl: string;
+    month: string;
+    seatsTaken: number;
+    peopleStarted: number | null;
+    groupsMeeting: number;
+    threshold: number;
+  };
 };
 type BillingLink = { billingUrl: string };
 export type OrganisationTemplateName = keyof OrganisationProps;
@@ -65,6 +78,9 @@ const CANCEL_LINE = "To cancel, go to Billing in your organisation console and c
 const REFUND_STATUS: Record<string, string> = { pending: "On its way", succeeded: "Sent", failed: "Delayed, and being retried" };
 const billingButtons = (x: BillingLink, payUrl?: string) =>
   payUrl ? [{ label: "View or pay the invoice", url: payUrl }, { label: "Open Billing", url: x.billingUrl }] : [{ label: "Open Billing", url: x.billingUrl }];
+
+/** Aggregate report mail: counts only, owners and finance. Not an invitation, so it carries no invitee wording. */
+export const ORGANISATION_REPORT_TEMPLATES = ["org_monthly_report"] as const satisfies readonly OrganisationTemplateName[];
 
 export const ORGANISATION_TEMPLATES: { [K in OrganisationTemplateName]: (props: OrganisationProps[K]) => Email } = {
   seat_invite: (x) => {
@@ -268,6 +284,39 @@ export const ORGANISATION_TEMPLATES: { [K in OrganisationTemplateName]: (props: 
       ],
       after: [`If you cancel before ${nextDate}, you will not be charged again. If you want to keep your plan, there is nothing to do.`],
       buttons: billingButtons(x),
+      footer: "service",
+    };
+  },
+
+  org_monthly_report: (x) => {
+    const org = clean(x.organisationName, "your organisation");
+    const t = Math.max(2, Math.trunc(x.threshold || 5));
+    const count = (n: number) => String(Math.max(0, Math.trunc(n)));
+    const started = x.peopleStarted === null ? `Fewer than ${t}` : count(x.peopleStarted);
+    return {
+      subject: `Your ${BRAND} monthly summary`,
+      preheader: "Counts only. Nothing anyone wrote.",
+      hero: "service",
+      eyebrow: "Monthly summary",
+      headline: `${clean(x.month, "Last month")} at ${org}`,
+      greeting: "Hello,",
+      paragraphs: [
+        `Here is how ${org} used ${BRAND} last month. These are counts only.`,
+        `A number under ${t} is not shown, so no one can be picked out.`,
+      ],
+      panels: [
+        {
+          rows: [
+            ["Places taken", count(x.seatsTaken)],
+            ["People who started a workbook", started],
+            [`Groups with ${t} or more members`, count(x.groupsMeeting)],
+          ],
+          tone: "tint",
+        },
+        { title: "What stays private", lines: [ORGANISATION_PRIVACY_LINE], tone: "tint" },
+      ],
+      after: ["You can switch this email off on the Reports page of your console."],
+      buttons: [{ label: "Open Reports", url: x.reportsUrl }],
       footer: "service",
     };
   },

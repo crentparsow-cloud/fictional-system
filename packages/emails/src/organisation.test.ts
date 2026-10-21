@@ -3,7 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { createMailer } from "./mailer";
-import { ORGANISATION_BILLING_TEMPLATES, ORGANISATION_PRIVACY_LINE, ORGANISATION_TEMPLATES, type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
+import { ORGANISATION_BILLING_TEMPLATES, ORGANISATION_PRIVACY_LINE, ORGANISATION_REPORT_TEMPLATES, ORGANISATION_TEMPLATES, type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
 
 /**
  * Organisation emails (F-203). An invitation from an employer or a church
@@ -79,10 +79,21 @@ const sample: { [K in OrganisationTemplateName]: OrganisationProps[K] } = {
     nextDate: "20 October 2026",
     seats: 6,
   },
+  org_monthly_report: {
+    organisationName: "Harbour Logistics",
+    supportEmail: "support@example.test",
+    reportsUrl: "https://example.test/org/reports",
+    month: "September 2026",
+    seatsTaken: 18,
+    peopleStarted: null,
+    groupsMeeting: 2,
+    threshold: 5,
+  },
 };
 const names = Object.keys(ORGANISATION_TEMPLATES) as OrganisationTemplateName[];
 const billing = [...ORGANISATION_BILLING_TEMPLATES] as OrganisationTemplateName[];
-const invites = names.filter((n) => !billing.includes(n));
+const reports = [...ORGANISATION_REPORT_TEMPLATES] as OrganisationTemplateName[];
+const invites = names.filter((n) => !billing.includes(n) && !reports.includes(n));
 
 describe("organisation emails", () => {
   it("has titles to test against", () => {
@@ -120,6 +131,18 @@ describe("organisation emails", () => {
     const r = renderOrganisation(name, sample[name] as never);
     expect(r.text).toContain("https://example.test/org/billing");
     expect(r.text).not.toMatch(/holder|@work\.example/);
+  });
+
+  it("the monthly report shows counts only, hides a small number and can be switched off", () => {
+    const r = renderOrganisation("org_monthly_report", sample.org_monthly_report as never);
+    expect(r.subject).toBe("Your Akana monthly summary");
+    expect(r.text).toContain("Fewer than 5");
+    expect(r.text).toContain("18");
+    expect(r.text).toContain("switch this email off");
+    expect(r.text).toContain("https://example.test/org/reports");
+    const shown = renderOrganisation("org_monthly_report", { ...sample.org_monthly_report, peopleStarted: 9 } as never);
+    expect(shown.text).toContain("9");
+    expect(shown.text).not.toContain("Fewer than");
   });
 
   it("the invoice email gives the number, amount, due date and pay link", () => {

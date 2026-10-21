@@ -40,6 +40,12 @@ export const READER_TEMPLATE_CATALOGUE: { [K in ReaderTemplateName]: string } = 
   partner_update: "To a check-in partner: a short update on how far the reader has got.",
   partner_stopped: "To a check-in partner: the updates have stopped.",
   refund_confirmed: "Confirms a single-workbook refund made by Akana: the amount and whether access ended. No title.",
+  gift_received: "A gift of membership to its recipient: length, the buyer's message and a claim link. No title.",
+  gift_sent: "Tells the buyer the gift has gone out and when it can be claimed until. Not a receipt.",
+  student_verify: "The link that confirms an academic email address for the student price (14.22).",
+  student_recheck: "A month before the yearly student check: confirm again to keep the price.",
+  student_ended: "The student price has ended because the address was not confirmed again.",
+  winback: "One plain note to a lapsed monthly member or one-off buyer, once a season at most. No title.",
   deletion_cancelled: "Confirms that Akana support cancelled a pending account deletion at the reader's request.",
   step_reminder: "A reminder on the reader's chosen days (4.7). Starts \"Akana today:\", names the unit, never the title.",
   reminders_stopping: "The one email after unanswered reminders (14.3): they are stopping, and how to restart.",
@@ -78,4 +84,5 @@ export const ORGANISATION_TEMPLATE_CATALOGUE: { [K in OrganisationTemplateName]:
   org_licence_ending: "Owner and finance: the licence will not renew, and access lasts until the date shown.",
   org_licence_ended: "Owner and finance: the licence ended, with any cooling-off refund. Members keep their work.",
   org_terms_reminder: "Consumer organisers: price, how often, next payment and how to cancel, before renewals.",
+  org_monthly_report: "Owner and finance: last month as counts only, with small numbers hidden. Can be switched off.",
 };
