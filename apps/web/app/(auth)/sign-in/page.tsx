@@ -74,8 +74,9 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   return (
     <main className="auth-page wrap">
       <section className="card auth-card">
-        <p className="eyebrow">{brand.name}</p>
-        <h1>{t("signIn.title")}</h1>
+        <p className="eyebrow">{t("signIn.title")}</p>
+        <h1>Welcome back</h1>
+        <p className="muted">Pick up where you left off.</p>
         {/* Google One Tap (13.1): renders only while NEXT_PUBLIC_GOOGLE_CLIENT_ID is set. */}
         <GoogleSignIn next={next} label={t("signIn.google")} divider={t("signIn.or")} />
         <p>{t("signIn.lead")}</p>
@@ -103,6 +104,9 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
             {t("signIn.submit")}
           </button>
         </form>
+        <p className="c-auth-new">
+          New here? <a href="/library">Start with a free week</a>
+        </p>
         <p className="muted small">{t("signIn.privacy")}</p>
       </section>
     </main>
