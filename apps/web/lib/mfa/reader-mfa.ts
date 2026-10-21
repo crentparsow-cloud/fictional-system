@@ -20,6 +20,8 @@ export const SECURITY_NOTICES = {
   off: "Two-step sign-in is off. Your authenticator app no longer works for Akana, and your recovery codes are gone.",
   recovered: "You signed in with a recovery code, so two-step sign-in has been turned off. Set it up again when you have a new authenticator.",
   "off-failed": "Two-step sign-in could not be turned off just now. Try again in a moment.",
+  "passkey-removed": "That passkey is removed.",
+  "passkey-remove-failed": "The passkey could not be removed just now. Check it is you with a passkey you still have, then try again.",
 } as const;
 
 export type SecurityNotice = keyof typeof SECURITY_NOTICES;

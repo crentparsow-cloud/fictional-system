@@ -32,7 +32,7 @@ describe("help centre (F-010)", () => {
   });
 
   it("links only to pages that exist", () => {
-    const known = new Set(["/legal/terms", "/legal/privacy", "/legal/cookies", "/legal/refunds", "/pricing", "/help-now", ...HELP_TOPICS.map((t) => `/help/${t}`)]);
+    const known = new Set(["/legal/terms", "/legal/privacy", "/legal/cookies", "/legal/refunds", "/pricing", "/help-now", "/newsletter", "/book-clubs", "/tell-your-minister", "/organisations", ...HELP_TOPICS.map((t) => `/help/${t}`)]);
     for (const p of pages) {
       for (const m of p.html.matchAll(/href="([^"]+)"/g)) expect(known.has(m[1] ?? ""), `${p.slug}: ${m[1]}`).toBe(true);
     }
