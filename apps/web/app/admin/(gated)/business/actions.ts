@@ -139,6 +139,28 @@ export async function createLicence(formData: FormData): Promise<void> {
   to(path, "licence_created");
 }
 
+/**
+ * Staff start a time-limited pilot for a larger buyer (9.4). The length and
+ * the smallest size come from config (0060), not from this form. A small team
+ * gets the refund window on self-serve instead, so this refuses small sizes.
+ */
+export async function startPilot(formData: FormData): Promise<void> {
+  const org = String(formData.get("org") ?? "");
+  if (!UUID.test(org)) to("/admin/business", "invalid");
+  const path = `/admin/business/${org}`;
+  await staffWriter(path);
+  const seats = Number(String(formData.get("seats") ?? "").trim());
+  if (!Number.isInteger(seats) || seats < 1 || seats > 10000) to(path, "invalid");
+  const supabase = await createUserClient();
+  const { error } = await supabase.rpc("org_pilot_start", { p_org: org, p_seats: seats });
+  if (error) {
+    console.error("admin_pilot_start_failed", error.code ?? "");
+    to(path, orgErrorNotice(error.code));
+  }
+  revalidatePath(path);
+  to(path, "pilot_started");
+}
+
 export async function updateLicence(formData: FormData): Promise<void> {
   const org = String(formData.get("org") ?? "");
   const licence = String(formData.get("licence") ?? "");

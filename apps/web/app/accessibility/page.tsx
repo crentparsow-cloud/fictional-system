@@ -59,6 +59,11 @@ export default function AccessibilityPage() {
       <section className="info-section" aria-labelledby="a11y-report">
         <h2 id="a11y-report">Conformance report for organisations</h2>
         <p>{A.conformance}</p>
+        <p>
+          <Link className="btn secondary" href={A.conformancePath}>
+            Read the conformance report
+          </Link>
+        </p>
       </section>
 
       <section className="info-section" aria-labelledby="a11y-contact">

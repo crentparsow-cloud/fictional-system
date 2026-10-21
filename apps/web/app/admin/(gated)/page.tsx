@@ -138,6 +138,15 @@ export default async function AdminHomePage() {
       noCount: true,
     },
     {
+      href: "/admin/requests",
+      title: "Title requests",
+      line: "Books readers have asked us to add, the most asked first.",
+      count: null,
+      unit: "",
+      closed: !can.readSupport,
+      noCount: true,
+    },
+    {
       href: "/admin/support",
       title: "Support inbox",
       line: "Messages from the contact form, with saved replies.",
@@ -152,6 +161,15 @@ export default async function AdminHomePage() {
       count: openAlerts,
       unit: "open",
       closed: false,
+    },
+    {
+      href: "/admin/flags",
+      title: "Feature flags",
+      line: "Switch a new feature on for a share of readers. Each starts off.",
+      count: null,
+      unit: "",
+      closed: !staff.roles.includes("owner"),
+      noCount: true,
     },
     {
       href: "/admin/white-label",
@@ -206,6 +224,24 @@ export default async function AdminHomePage() {
       unit: "open",
       closed: !dash.readTakedowns,
     },
+    {
+      href: "/admin/newsletter",
+      title: "Newsletter",
+      line: "Write, schedule and cancel the weekly issue. Sign-up counts only, never addresses.",
+      count: null,
+      unit: "",
+      closed: !can.curateCatalogue,
+      noCount: true,
+    },
+    {
+      href: "/admin/editorial",
+      title: "Editorial",
+      line: "The weekly feature, Theme intros, seasonal collection dates and author bios.",
+      count: null,
+      unit: "",
+      closed: !can.curateCatalogue,
+      noCount: true,
+    },
   ];
 
   return (
@@ -238,7 +274,7 @@ export default async function AdminHomePage() {
                 <p className="muted">{c.line}</p>
                 <p className="admin-card-count">
                   {"noCount" in c && c.noCount ? (
-                    <span className="muted">{c.href === "/admin/lookup" ? "Open the lookup" : c.href === "/admin/money" ? "Open the ledger" : c.href === "/admin/guides" ? "Open the guides" : "Open the counts"}</span>
+                    <span className="muted">{c.href === "/admin/lookup" ? "Open the lookup" : c.href === "/admin/money" ? "Open the ledger" : c.href === "/admin/guides" ? "Open the guides" : c.href === "/admin/newsletter" || c.href === "/admin/editorial" ? "Open the editor" : "Open the counts"}</span>
                   ) : c.count === null ? (
                     <span className="muted">Count unavailable</span>
                   ) : (

@@ -23,7 +23,7 @@ import { createUserClient } from "@/lib/supabase/server";
 import { AdminBack } from "../../_components/Bits";
 import { LicenceBillingAdmin } from "@/components/org/LicenceBillingAdmin";
 import { OrgBuyerTypeAdmin } from "@/components/org/OrgBuyerTypeAdmin";
-import { createLicence, inviteCustomerAdmin, saveCustomerProfile, setLicenceTitles, updateLicence } from "../actions";
+import { createLicence, inviteCustomerAdmin, saveCustomerProfile, setLicenceTitles, startPilot, updateLicence } from "../actions";
 
 export const metadata: Metadata = { title: "Customer", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -284,6 +284,24 @@ export default async function AdminCustomerPage({ params, searchParams }: { para
           </section>
         );
       })}
+
+      {write && org.status !== "closed" ? (
+        <section className="card admin-create" aria-labelledby="pilot-h">
+          <h2 id="pilot-h">Start a pilot</h2>
+          <p className="muted small">
+            For a buyer of more than 50 seats. It runs for the pilot length in the config table (30 days to begin with) and ends by itself. Each
+            organisation can have one. Small teams use the 14-day refund window when they sign up themselves, so they do not need a pilot.
+          </p>
+          <form className="admin-form" action={startPilot}>
+            <input type="hidden" name="org" value={org.id} />
+            <label htmlFor="pilot-seats">Seats for the pilot</label>
+            <input id="pilot-seats" name="seats" type="number" inputMode="numeric" min={1} max={10000} required />
+            <button type="submit" className="btn secondary">
+              Start the pilot
+            </button>
+          </form>
+        </section>
+      ) : null}
 
       {write && org.status !== "closed" ? (
         <section className="card admin-create" aria-labelledby="new-licence-h">

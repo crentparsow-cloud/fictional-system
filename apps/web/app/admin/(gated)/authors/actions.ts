@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { adminAbilities } from "@/lib/admin/permissions";
+import { bioReviewFlags } from "@/lib/house-style";
 import { originFrom } from "@/lib/partner";
 import { getStaffSession } from "@/lib/staff";
 import { bioClaimFlags, cleanEmail, isUuid, parseOrgRole, str, studioErrorNotice, type StudioNotice } from "@/lib/studio";
@@ -60,7 +61,7 @@ export async function reviewBio(formData: FormData): Promise<void> {
   const { data } = await supabase.rpc("staff_pending_bios");
   const row = ((data ?? []) as { author_id: string; bio_draft: string | null }[]).find((r) => r.author_id === author);
   if (!row) back("failed");
-  const flags = bioClaimFlags(row.bio_draft ?? "");
+  const flags = bioReviewFlags(row.bio_draft ?? "", bioClaimFlags(row.bio_draft ?? ""));
   const { error } = await supabase.rpc("author_bio_review", {
     p_author: author,
     p_approve: approve,
