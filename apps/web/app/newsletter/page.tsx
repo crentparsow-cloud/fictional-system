@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { InfoFooter } from "@/components/InfoFooter";
 import { brand } from "@/lib/brand";
 import { publicRobots } from "@/lib/indexing";
 import { signupReadiness } from "@/lib/newsletter";
@@ -25,36 +24,38 @@ export function generateMetadata(): Metadata {
 export default function NewsletterPage() {
   const open = signupReadiness().ok;
   return (
-    <main className="wrap info-page">
-      <header className="info-head">
-        <p className="eyebrow muted">{brand.name}</p>
-        <h1>The weekly newsletter</h1>
-        <p className="info-lead">One email a week with one short exercise you can try in a few minutes.</p>
+    <main className="b-news">
+      <header className="b-band-hero">
+        <div className="wrap b-centre">
+          <h1>The weekly newsletter</h1>
+          <p className="b-lead">One email a week with one short exercise you can try in a few minutes.</p>
+        </div>
       </header>
 
-      {open ? (
-        <section className="info-section" aria-labelledby="nl-join">
-          <h2 id="nl-join">Sign up</h2>
-          <SignupForm />
-        </section>
-      ) : (
-        <section className="info-section" aria-labelledby="nl-soon">
-          <h2 id="nl-soon">Opening soon</h2>
-          <p>The newsletter is not open yet. This page will have the sign-up form when it is.</p>
-        </section>
-      )}
+      <div className="wrap b-narrow">
+        {open ? (
+          <section aria-labelledby="nl-join">
+            <h2 id="nl-join">Sign up</h2>
+            <SignupForm />
+          </section>
+        ) : (
+          <section aria-labelledby="nl-soon">
+            <h2 id="nl-soon">Opening soon</h2>
+            <p>The newsletter is not open yet. This page will have the sign-up form when it is.</p>
+          </section>
+        )}
 
-      <section className="info-section" aria-labelledby="nl-how">
-        <h2 id="nl-how">How it works</h2>
-        <ul>
-          <li>You give your email address and we send one message to check it is yours. Nothing else comes until you press the button in it.</li>
-          <li>Each issue has one exercise. It never needs an account.</li>
-          <li>Every email has an unsubscribe link, and it works at once.</li>
-          <li>Sometimes a note from another author appears in an issue. It is always marked Sponsored, and we are paid to include it.</li>
-          <li>There are no tracking pixels. We use your address for the newsletter and for nothing else.</li>
-        </ul>
-      </section>
-      <InfoFooter />
+        <section className="b-psec" aria-labelledby="nl-how">
+          <h2 id="nl-how">How it works</h2>
+          <ul className="b-for">
+            <li>You give your email address and we send one message to check it is yours. Nothing else comes until you press the button in it.</li>
+            <li>Each issue has one exercise. It never needs an account.</li>
+            <li>Every email has an unsubscribe link, and it works at once.</li>
+            <li>Sometimes a note from another author appears in an issue. It is always marked Sponsored, and we are paid to include it.</li>
+            <li>There are no tracking pixels. We use your address for the newsletter and for nothing else.</li>
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }

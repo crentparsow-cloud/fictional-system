@@ -53,12 +53,12 @@ export default async function LegalDocPage({ params }: { params: Promise<{ doc: 
   const { banner, body } = readDoc(doc);
   const html = markdownToHtml(body);
   return (
-    <main className="wrap info-page">
-      <p className="badge demo info-draft" role="note">
+    <main className="wrap d-page-pad d-narrow">
+      <p className="badge demo info-draft d-draft" role="note">
         {banner}
       </p>
       {doc === "terms" ? <p className="small muted">Version {READER_TERMS_VERSION}. This is the version readers agree to at sign-up and checkout.</p> : null}
-      <article className="legal-doc" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="legal-doc d-prose" dangerouslySetInnerHTML={{ __html: html }} />
       <InfoFooter />
     </main>
   );

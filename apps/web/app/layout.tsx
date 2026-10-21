@@ -4,10 +4,18 @@ import { preload } from "react-dom";
 import "./fonts.css";
 import "./globals.css";
 import "./motion.css";
+import "./site-chrome.css";
+import "./redesign-a.css";
+import "./redesign-b.css";
+import "./redesign-c.css";
+import "./redesign-d.css";
 import "./themes/reading.css";
 import "./themes/marks.css";
 import "@theme-active";
 import { brand } from "@/lib/brand";
+import { SiteChrome } from "@/components/site/SiteChrome";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import { DeviceVisit } from "@/components/DeviceVisit";
 import { siteUrl } from "@/lib/site-url";
 import { ACTIVE_DIRECTION_ID, activeDirection, preloadFonts } from "@/lib/design/active";
@@ -44,7 +52,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en-GB" data-tenant={tenant} data-tenant-kind={kind} data-direction={ACTIVE_DIRECTION_ID}>
       <body>
-        {children}
+        <SiteChrome header={<SiteHeader />} footer={<SiteFooter />} enabled={kind === "marketplace"}>
+          {children}
+        </SiteChrome>
         <DeviceVisit />
       </body>
     </html>
