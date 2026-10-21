@@ -48,18 +48,18 @@ export default async function BookClubProgrammePage({ params }: { params: Promis
   ]);
 
   return (
-    <main className="wb-page">
-      <header className="wb-hero">
-        <div className="wrap">
-          <nav className="wb-crumbs" aria-label="Breadcrumb">
+    <main className="b-clubs">
+      <header className="b-band-hero">
+        <div className="wrap b-centre">
+          <nav className="b-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/book-clubs">Book clubs</Link>
           </nav>
           <h1>Run this with your book club</h1>
-          <p className="wb-line">{card.title}</p>
-          <p className="muted small">
+          <p className="b-lead">{card.title}</p>
+          <p className="b-soft">
             {card.cardLine} {meetings.length ? meetingCount(meetings.length) + "." : ""}
           </p>
-          <p className="wb-actions">
+          <p className="b-actions b-actions-centre">
             <Link className="btn" href={`/w/${card.slug}`}>
               See the programme
             </Link>
@@ -67,51 +67,49 @@ export default async function BookClubProgrammePage({ params }: { params: Promis
         </div>
       </header>
 
-      <div className="wrap wb-body">
-        <section className="wb-section" aria-labelledby="bcp-how">
+      <div className="wrap b-body b-narrow-body">
+        <section className="b-psec" aria-labelledby="bcp-how">
           <h2 id="bcp-how">How to run it</h2>
-          <ol className="wb-outline">
+          <ol className="b-list b-list-n">
             {RUN_STEPS.map((s) => (
-              <li key={s}>
-                <span>{s}</span>
-              </li>
+              <li key={s}>{s}</li>
             ))}
           </ol>
         </section>
 
         {meetings.length ? (
-          <section className="wb-section" aria-labelledby="bcp-plan">
+          <section className="b-psec" aria-labelledby="bcp-plan">
             <h2 id="bcp-plan">Meeting by meeting</h2>
-            <ol className="wb-outline">
+            <ol className="b-weeks b-weeks-one">
               {meetings.map((m) => (
-                <li key={m.number}>
-                  <span className="wb-outline-n">{meetingLabel(m, word)}</span>
-                  <span>{m.units.map((u) => u.focus).join("; ")}</span>
+                <li key={m.number} className="b-week">
+                  <h3>{meetingLabel(m, word)}</h3>
+                  <p>{m.units.map((u) => u.focus).join("; ")}</p>
                 </li>
               ))}
             </ol>
           </section>
         ) : null}
 
-        <section className="wb-section" aria-labelledby="bcp-rules">
+        <section className="b-psec" aria-labelledby="bcp-rules">
           <h2 id="bcp-rules">Ground rules</h2>
-          <ul className="wb-for">
+          <ul className="b-list">
             {GROUND_RULES.map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
         </section>
 
-        <section className="wb-section" aria-labelledby="bcp-questions">
+        <section className="b-psec" aria-labelledby="bcp-questions">
           <h2 id="bcp-questions">Questions for each meeting</h2>
-          <ul className="wb-for">
+          <ul className="b-list">
             {DISCUSSION_PROMPTS.map((s) => (
               <li key={s}>{s}</li>
             ))}
           </ul>
         </section>
 
-        <section className="wb-section" aria-labelledby="bcp-start">
+        <section className="b-psec" aria-labelledby="bcp-start">
           <h2 id="bcp-start">Before you meet</h2>
           <p>
             The first {word.toLowerCase()} is free for everyone, so each member can try it before the group decides. Each person opens it from the programme page.
@@ -121,7 +119,7 @@ export default async function BookClubProgrammePage({ params }: { params: Promis
           </p>
         </section>
 
-        <footer className="footer wb-footer">
+        <footer className="b-notes">
           <p>{brand.wellnessNotice}</p>
         </footer>
         <NeedSupportFooter label={t("help.needSupport")} />

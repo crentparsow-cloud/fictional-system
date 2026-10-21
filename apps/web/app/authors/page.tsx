@@ -29,7 +29,7 @@ export default async function AuthorsPage() {
 
   return (
     <main className="wb-page browse-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -89,9 +89,6 @@ export default async function AuthorsPage() {
           <Link href="/themes">Browse by Theme</Link>
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>
