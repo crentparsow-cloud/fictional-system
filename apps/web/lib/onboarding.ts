@@ -102,16 +102,23 @@ export interface OfferContext {
   isMember: boolean;
   /** At least one membership plan can be bought right now. */
   plansOpen: boolean;
+  /**
+   * The reader has used the product for real: a first week with steps done,
+   * or a second workbook sample (lib/offer-timing.ts). Worked out on the
+   * server from the reader's own rows.
+   */
+  usedEnough: boolean;
 }
 
 /**
- * The membership offer (13.4): after the quiz and the first exercise, once,
- * and never on the first visit. Dismissed means gone for good; the library
- * and the You page still carry the same membership terms.
+ * The membership offer (13.4, timed by 5.5): once the reader has used the
+ * product for real, never on a first visit, and shown once. The Phase A
+ * trigger (the quiz and one exercise) was too soon and is gone. Dismissed
+ * means gone for good; the library and the You page still carry the same
+ * membership terms.
  */
 export function offerDue(state: OnboardingState, ctx: OfferContext): boolean {
-  if (ctx.isMember || !ctx.plansOpen) return false;
+  if (ctx.isMember || !ctx.plansOpen || !ctx.usedEnough) return false;
   if (state.visits < MIN_VISITS_FOR_PROMPTS) return false;
-  if (!state.quizDoneAt || !state.firstExerciseAt) return false;
   return !state.offerDismissedAt;
 }

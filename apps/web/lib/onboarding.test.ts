@@ -51,11 +51,11 @@ describe("visit counting", () => {
   });
 });
 
-describe("membership offer timing (13.4)", () => {
-  const ready = { quizDoneAt: 1, firstExerciseAt: 2, visits: 2 };
-  const ctx = { isMember: false, plansOpen: true };
+describe("membership offer timing (13.4, 5.5)", () => {
+  const ready = { visits: 2 };
+  const ctx = { isMember: false, plansOpen: true, usedEnough: true };
 
-  it("is due after the quiz and the first exercise, on the second visit", () => {
+  it("is due on the second visit once the reader has used the product for real", () => {
     expect(offerDue(ready, ctx)).toBe(true);
   });
 
@@ -64,9 +64,8 @@ describe("membership offer timing (13.4)", () => {
     expect(offerDue({ ...ready, visits: 1 }, ctx)).toBe(false);
   });
 
-  it("needs both the quiz and the first exercise", () => {
-    expect(offerDue({ ...ready, quizDoneAt: undefined }, ctx)).toBe(false);
-    expect(offerDue({ ...ready, firstExerciseAt: undefined }, ctx)).toBe(false);
+  it("no longer comes just from the quiz and one exercise", () => {
+    expect(offerDue({ ...ready, quizDoneAt: 1, firstExerciseAt: 2 }, { ...ctx, usedEnough: false })).toBe(false);
   });
 
   it("goes away for good once dismissed, and for members, and when no plan can be bought", () => {

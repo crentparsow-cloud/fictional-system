@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type Stripe from "stripe";
-import { handleOrgBillingEvent, type OrgBillingRepo, type OrgSignup } from "@/lib/org-billing-events";
+import { handleOrgBillingEvent, isSignupPlan, type OrgBillingRepo, type OrgPackSale, type OrgSignup } from "@/lib/org-billing-events";
 import type { OrgInvoiceArgs, OrgSubscriptionArgs } from "@/lib/org-billing";
 
 const LICENCE = "a0300000-0000-0000-0000-0000000000e1";
@@ -21,8 +21,8 @@ function sub(over: Record<string, unknown> = {}): Stripe.Subscription {
   } as unknown as Stripe.Subscription;
 }
 
-function fakeRepo(opts: { fresh?: Stripe.Subscription | null; provision?: "closed" } = {}) {
-  const calls = { apply: [] as OrgSubscriptionArgs[], invoices: [] as OrgInvoiceArgs[], receipts: [] as string[], provisions: [] as OrgSignup[], seats: [] as string[] };
+function fakeRepo(opts: { fresh?: Stripe.Subscription | null; provision?: "closed"; pack?: "closed" } = {}) {
+  const calls = { apply: [] as OrgSubscriptionArgs[], invoices: [] as OrgInvoiceArgs[], receipts: [] as string[], provisions: [] as OrgSignup[], seats: [] as string[], packs: [] as OrgPackSale[] };
   const repo: OrgBillingRepo = {
     retrieveSubscription: async () => (opts.fresh === undefined ? sub() : opts.fresh),
     apply: async (a) => {
@@ -44,6 +44,10 @@ function fakeRepo(opts: { fresh?: Stripe.Subscription | null; provision?: "close
     seatOrganiser: async (licence, user) => {
       calls.seats.push(`${licence}:${user}`);
       return "seat_1";
+    },
+    provisionPack: async (s) => {
+      calls.packs.push(s);
+      return opts.pack ?? { licenceId: LICENCE };
     },
   };
   return { repo, calls };
@@ -142,11 +146,74 @@ describe("handleOrgBillingEvent", () => {
   it("ignores a session without a usable plan and anything else", async () => {
     const { repo, calls } = fakeRepo();
     const out = await handleOrgBillingEvent(
-      event("checkout.session.completed", { mode: "subscription", payment_status: "paid", subscription: "sub_SS", metadata: { akana_kind: "org_signup", user_id: USER, plan: "church_band_1", quantity: "1" } }),
+      event("checkout.session.completed", { mode: "subscription", payment_status: "paid", subscription: "sub_SS", metadata: { akana_kind: "org_signup", user_id: USER, plan: "church_band_9", quantity: "1" } }),
       repo,
     );
     expect(out.action).toBe("ignored");
     expect((await handleOrgBillingEvent(event("invoice.upcoming", {}), repo)).action).toBe("ignored");
     expect(calls.provisions).toHaveLength(0);
+  });
+
+  it("provisions the small-organisation plan and a church band as self-serve plans", async () => {
+    for (const [plan, kind, qty] of [["small_org_year", "business", "12"], ["church_band_4", "church", "1"]] as const) {
+      const session = {
+        id: "cs_p",
+        mode: "subscription",
+        payment_status: "paid",
+        subscription: "sub_SS",
+        metadata: { akana_kind: "org_signup", user_id: USER, plan, org_kind: kind, org_name: "Name", quantity: qty },
+      };
+      const { repo, calls } = fakeRepo({ fresh: sub({ id: "sub_SS", metadata: { akana_kind: "org_signup" } }) });
+      const out = await handleOrgBillingEvent(event("checkout.session.completed", session), repo);
+      expect(out.action).toBe("signup_provisioned");
+      expect(calls.provisions[0]).toMatchObject({ plan, orgKind: kind, quantity: Number(qty) });
+    }
+    expect(isSignupPlan("church_band_4")).toBe(true);
+    expect(isSignupPlan("church_band_5")).toBe(false);
+    expect(isSignupPlan("group_licence_six")).toBe(false);
+  });
+
+  it("makes a six-seat group licence from a paid one-off session, once per session", async () => {
+    const WB = "a0300000-0000-0000-0000-0000000000c1";
+    const session = {
+      id: "cs_pack1",
+      mode: "payment",
+      payment_status: "paid",
+      payment_intent: "pi_pack1",
+      amount_total: 3900,
+      total_details: { amount_tax: 650 },
+      currency: "gbp",
+      customer_details: { email: "b@home.example", address: { country: "gb" } },
+      metadata: { akana_kind: "org_pack", user_id: USER, workbook_id: WB, org_name: "Tuesday group", plan: "group_licence_six" },
+    };
+    const { repo, calls } = fakeRepo();
+    const out = await handleOrgBillingEvent(event("checkout.session.completed", session), repo);
+    expect(out.action).toBe("pack_provisioned");
+    expect(calls.packs[0]).toEqual({
+      userId: USER,
+      workbookId: WB,
+      name: "Tuesday group",
+      sessionId: "cs_pack1",
+      paymentIntent: "pi_pack1",
+      amountMinor: 3900,
+      taxMinor: 650,
+      currency: "GBP",
+      livemode: false,
+      country: "GB",
+    });
+    expect(calls.apply).toHaveLength(0);
+  });
+
+  it("waits for an unpaid group licence, ignores a bad one, and reports a closed shop", async () => {
+    const meta = { akana_kind: "org_pack", user_id: USER, workbook_id: "a0300000-0000-0000-0000-0000000000c1", org_name: "G" };
+    const waiting = fakeRepo();
+    expect((await handleOrgBillingEvent(event("checkout.session.completed", { id: "cs_x", mode: "payment", payment_status: "unpaid", metadata: meta }), waiting.repo)).action).toBe("signup_awaiting_payment");
+    expect(waiting.calls.packs).toHaveLength(0);
+    const bad = fakeRepo();
+    expect((await handleOrgBillingEvent(event("checkout.session.completed", { id: "cs_y", mode: "payment", payment_status: "paid", metadata: { ...meta, workbook_id: "nope" } }), bad.repo)).action).toBe("ignored");
+    expect((await handleOrgBillingEvent(event("checkout.session.completed", { id: "cs_z", mode: "subscription", payment_status: "paid", metadata: meta }), bad.repo)).action).toBe("ignored");
+    expect(bad.calls.packs).toHaveLength(0);
+    const closed = fakeRepo({ pack: "closed" });
+    expect((await handleOrgBillingEvent(event("checkout.session.completed", { id: "cs_w", mode: "payment", payment_status: "paid", payment_intent: "pi_w", amount_total: 3900, metadata: meta }), closed.repo)).action).toBe("self_serve_closed");
   });
 });

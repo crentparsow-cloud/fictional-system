@@ -20,10 +20,12 @@ import { plainMinor } from "@/lib/money/format";
 export const ORG_PLAN_IDS = [
   "teams_seat_month",
   "teams_seat_year",
+  "small_org_year",
   "group_member_month",
   "church_band_1",
   "church_band_2",
   "church_band_3",
+  "church_band_4",
 ] as const;
 export type OrgPlanId = (typeof ORG_PLAN_IDS)[number];
 
@@ -43,10 +45,12 @@ export interface OrgPlan {
 export const ORG_PLANS: Record<OrgPlanId, OrgPlan> = {
   teams_seat_month: { id: "teams_seat_month", label: "Teams, per seat, monthly", licenceKind: "teams", env: "STRIPE_PRICE_ORG_SEAT_MONTHLY", perSeat: true, selfServe: true },
   teams_seat_year: { id: "teams_seat_year", label: "Teams, per seat, yearly", licenceKind: "teams", env: "STRIPE_PRICE_ORG_SEAT_YEARLY", perSeat: true, selfServe: true },
+  small_org_year: { id: "small_org_year", label: "Small organisation, per seat, yearly", licenceKind: "teams", env: "STRIPE_PRICE_ORG_SMALL_YEARLY", perSeat: true, selfServe: true },
   group_member_month: { id: "group_member_month", label: "Group, per member, monthly", licenceKind: "group", env: "STRIPE_PRICE_ORG_GROUP_MEMBER_MONTHLY", perSeat: true, selfServe: true },
-  church_band_1: { id: "church_band_1", label: "Church, smallest band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_1", perSeat: false, selfServe: false },
-  church_band_2: { id: "church_band_2", label: "Church, middle band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_2", perSeat: false, selfServe: false },
-  church_band_3: { id: "church_band_3", label: "Church, largest band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_3", perSeat: false, selfServe: false },
+  church_band_1: { id: "church_band_1", label: "Church, smallest band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_1", perSeat: false, selfServe: true },
+  church_band_2: { id: "church_band_2", label: "Church, second band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_2", perSeat: false, selfServe: true },
+  church_band_3: { id: "church_band_3", label: "Church, third band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_3", perSeat: false, selfServe: true },
+  church_band_4: { id: "church_band_4", label: "Church, largest band", licenceKind: "church", env: "STRIPE_PRICE_ORG_CHURCH_BAND_4", perSeat: false, selfServe: true },
 };
 
 export function isOrgPlanId(v: unknown): v is OrgPlanId {
@@ -70,24 +74,37 @@ export function orgPlanForPrice(priceId: string | null | undefined, env: Env = p
 }
 
 /** Plans staff may put on a licence of this kind, with whether each has a price yet. */
-export function plansForLicenceKind(kind: string, env: Env = process.env): { plan: OrgPlan; priced: boolean }[] {
+export function plansForLicenceKind(kind: string, env: Env = process.env, tablePriced: ReadonlySet<string> = new Set()): { plan: OrgPlan; priced: boolean }[] {
   return ORG_PLAN_IDS.map((id) => ORG_PLANS[id])
     .filter((p) => p.licenceKind === kind)
-    .map((plan) => ({ plan, priced: orgPriceId(plan.id, env) !== null }));
+    .map((plan) => ({ plan, priced: planIsPriced(plan.id, tablePriced, env) }));
+}
+
+/**
+ * A plan can be sold when an env price id is set or the price table (0060)
+ * has an active row for it. The older monthly teams plans and the group plan
+ * are env only.
+ */
+export function planIsPriced(plan: OrgPlanId, tablePriced: ReadonlySet<string>, env: Env = process.env): boolean {
+  return orgPriceId(plan, env) !== null || tablePriced.has(plan);
 }
 
 export const TALK_TO_US = "Talk to us";
 
 /** Church bands, smallest first (0031: a band change is a price swap with proration). */
-export const CHURCH_BAND_PLANS = ["church_band_1", "church_band_2", "church_band_3"] as const satisfies readonly OrgPlanId[];
+export const CHURCH_BAND_PLANS = ["church_band_1", "church_band_2", "church_band_3", "church_band_4"] as const satisfies readonly OrgPlanId[];
 export type ChurchBandPlan = (typeof CHURCH_BAND_PLANS)[number];
 
 export function isBandPlan(v: unknown): v is ChurchBandPlan {
   return typeof v === "string" && (CHURCH_BAND_PLANS as readonly string[]).includes(v);
 }
 
-/** Band sizes, placeholders kept in step with 0031's app_config rows. */
-export const CHURCH_BAND_SEATS: Record<ChurchBandPlan, number> = { church_band_1: 50, church_band_2: 150, church_band_3: 400 };
+/**
+ * Room in each band. A band is priced for the congregation, not per person,
+ * so every band has the most places the licence allows. Kept in step with
+ * the org_church_band_<n>_seats rows that 0060 sets in app_config.
+ */
+export const CHURCH_BAND_SEATS: Record<ChurchBandPlan, number> = { church_band_1: 10000, church_band_2: 10000, church_band_3: 10000, church_band_4: 10000 };
 
 /** Up, down or the same, from one band to another. */
 export function bandDirection(from: ChurchBandPlan, to: ChurchBandPlan): "up" | "down" | "same" {
@@ -114,7 +131,7 @@ export const SELF_SERVE_BOUNDS = { group: { min: 4, max: 15 }, teams: { min: 2, 
 // ---------------------------------------------------------------------------
 
 /** What akana_kind in Stripe metadata marks as organisation billing. */
-export const ORG_META_KINDS = ["org_licence", "org_signup"] as const;
+export const ORG_META_KINDS = ["org_licence", "org_signup", "org_pack"] as const;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function isOrgMeta(meta: Record<string, string> | null | undefined): boolean {
@@ -457,6 +474,8 @@ export const BILLING_NOTICES = {
   band_same: { tone: "ok", text: "No change: that is the band you have." },
   cooled_off: { tone: "ok", text: "Cancelled. Access has ended, and the days you had not used are being refunded to your card." },
   cooling_off_closed: { tone: "error", text: "The 14 days to cancel for a refund have passed. You can still cancel at the end of the period you have paid for." },
+  report_on: { tone: "ok", text: "The monthly summary email is on." },
+  report_off: { tone: "ok", text: "The monthly summary email is off. You can still read Reports here." },
   buyer_saved: { tone: "ok", text: "Buyer type saved." },
   not_priced: { tone: "error", text: "That plan has no price yet. Talk to us." },
   stripe_off: { tone: "error", text: "Stripe is not set up here, or it is not in test mode. Nothing changed." },
