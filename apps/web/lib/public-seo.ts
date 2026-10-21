@@ -56,5 +56,5 @@ export function personLd(input: { origin: string; path: string; name: string; bi
 
 /** JSON for a script tag. "<" is escaped so content can never close the tag. */
 export function ldString(data: Ld | readonly Ld[]): string {
-  return JSON.stringify(data).replace(/</g, "\\\\u003c");
+  return JSON.stringify(data).replace(/</g, "\\u003c");
 }

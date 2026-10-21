@@ -69,7 +69,7 @@ export function orgPrivacyLine(brandName: string): string {
 type Get = (name: string) => unknown;
 const text = (get: Get, k: string, max: number) => {
   const v = get(k);
-  return typeof v === "string" ? v.replace(/[\\u0000-\\u001f\\u007f]/g, " ").trim().slice(0, max + 1) : "";
+  return typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max + 1) : "";
 };
 
 /** A URL slug from a display name, matching the organisations.slug check. */

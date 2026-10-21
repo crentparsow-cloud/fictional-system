@@ -19,7 +19,7 @@ export interface QuestionInput {
 export type ParsedQuestion = { ok: true; value: QuestionInput | null } | { ok: false; message: string };
 
 function tidy(s: string, max: number): string {
-  return s.replace(/[\\u0000-\\u001f\\u007f]+/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
+  return s.replace(/[\u0000-\u001f\u007f]+/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
 /** An empty question clears it. Otherwise the wording and two to five different answers are needed. */

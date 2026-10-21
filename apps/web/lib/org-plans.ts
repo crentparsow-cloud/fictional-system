@@ -189,7 +189,7 @@ export { TALK_TO_US };
 // Forms
 // ---------------------------------------------------------------------------
 
-const clean = (v: unknown, max = 120) => String(v ?? "").replace(/[\\u0000-\\u001f\\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
+const clean = (v: unknown, max = 120) => String(v ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
 
 export interface SmallOrgInput {
   orgKind: "business" | "charity";
