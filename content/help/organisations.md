@@ -1,6 +1,6 @@
-# Organisations and seats
+# Organisations and places
 
-An employer, church, charity or community group can give you a place on Akana. We call that place a seat. This page explains how it works and what your organisation can and cannot see.
+An employer, church, charity or community group can give you a place on Akana. This page explains how it works and what your organisation can and cannot see.
 
 ## Getting a place
 
@@ -21,11 +21,11 @@ While your organisation's licence is active, you can open the workbooks it cover
 
 ## What stays private
 
-Your organisation can see how many people have started, never who wrote what. Your answers are sealed. No one at your organisation, the author or Akana staff can read them.
+Your organisation can see how many people have started, never who wrote what. Your answers are private to you. No one at your organisation, the author or Akana staff can read them.
 
 Taking part is your choice. Nobody should ask you to show what you wrote.
 
-If your organisation uses an email invitation or a domain join link, it sees the address that holds a seat and the date it was taken. With an open join link, it sees only that a place was taken, and when.
+If your organisation uses an email invitation or a domain join link, it sees the address that holds a place and the date it was taken. With an open join link, it sees only that a place was taken, and when.
 
 ## When a place ends
 
@@ -35,10 +35,10 @@ When a licence ends, You shows a short note saying when your access through that
 
 If your account is set to be deleted, it cannot take a new place. Cancel the deletion in You first. See [your account](/help/account).
 
-## If you manage seats
+## If you manage places
 
-Owners of an organisation manage seats in the organisation console. It shows, for each licence, the seats bought, seats taken, invitations waiting and how many people have started. People started is counted up to the start of the week, so it changes once a week, and small numbers are not shown, so no one can be picked out.
+Owners of an organisation manage places in the organisation console. It shows, for each licence, the places bought, places taken, invitations waiting and how many people have started. People started is counted up to the start of the week, so it changes once a week, and small numbers are not shown, so no one can be picked out.
 
-From the console an owner can invite someone by email, send an invitation again, cancel an invitation to free its place, and release a seat. Releasing a seat frees it for someone else. The person keeps their account and everything they wrote.
+From the console an owner can invite someone by email, send an invitation again, cancel an invitation to free its place, and release a place. Releasing a place frees it for someone else. The person keeps their account and everything they wrote.
 
-There are limits. One address can be invited at most three times in 30 days, one invitation can be sent at most five times, and each organisation has a daily limit. To change the number of seats or end a licence, use Billing in the console. To change titles or add a licence, contact the Akana team.
+There are limits. One address can be invited at most three times in 30 days, one invitation can be sent at most five times, and each organisation has a daily limit. To change the number of places or end a licence, use Billing in the console. To change titles or add a licence, contact the Akana team.

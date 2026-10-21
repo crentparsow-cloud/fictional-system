@@ -1,8 +1,8 @@
-DRAFT for the lawyer. Not published. Prepared [date] by the build team for review.
+DRAFT for the lawyer. Not published. Proposed wording prepared 21 October 2026 for review by Akana Holdings and a solicitor.
 
 # Refund policy
 
-This policy applies to readers who buy a workbook or take out membership on the Akana marketplace. It is part of the reader terms. Your legal rights as a consumer are not affected by anything here.
+Akana is run by Akana Holdings, 128 City Road, London EC1V 2NX. This policy applies to readers who buy a workbook or take out membership on the Akana marketplace. It is part of the reader terms. Your legal rights as a consumer are not affected by anything here.
 
 ## 1. Your right to cancel
 
@@ -24,7 +24,7 @@ We record which wording you agreed to, and when.
 
 **Membership.** If you cancel within 14 days of your membership starting, it ends at once and we refund the unused time pro rata: the amount you paid, multiplied by the unused whole days, divided by the days in the period, rounded down to the smallest unit of your currency. The 14-day window is a setting we may lengthen but not shorten. If you cancel after 14 days, your membership stops renewing and you keep access until the end of the period you have paid for. No refund is due for that period.
 
-**Single workbooks.** [To confirm by Crent and the lawyer. The build team proposes a short goodwill window of [goodwill window length] days after purchase during which we refund a single workbook on request, as a matter of goodwill rather than legal right. The length of that window is Crent's decision, question C6.]
+**Single workbooks.** Changed your mind? Ask us within 14 days of buying. If you have not gone beyond week 1, we will refund you. This is goodwill, on top of your legal rights. [Proposed by the build team. Akana Holdings to confirm the 14 days and the week 1 limit.]
 
 **Faulty or misdescribed workbooks.** If a workbook does not work, is not what the listing described, or is withdrawn after a valid copyright complaint, you are entitled to a repair, replacement or refund under the Consumer Rights Act 2015. In the case of a withdrawal we refund you and you keep your own answers and your export.
 
@@ -34,11 +34,11 @@ We record which wording you agreed to, and when.
 
 Membership cancellation is self-service. Go to You, then Manage membership, then Cancel. No questions asked. If you are within 14 days the refund is issued automatically.
 
-For anything else, email [support email] from the email address on your account. Tell us which purchase it is about and what went wrong. We aim to reply within [support response time] and to decide on a refund within [refund decision time].
+For anything else, email [support email] from the email address on your account. Tell us which purchase it is about and what went wrong. We aim to reply within 2 working days and to decide on a refund within 3 working days of your reply.
 
 ## 4. How refunds are paid
 
-Refunds go back to the payment method you used. Once we issue a refund, your bank or card provider usually shows it within [refund settlement time]. We cannot speed up your bank.
+Refunds go back to the payment method you used. Once we issue a refund, your bank or card provider usually shows it within 5 to 10 working days. We cannot speed up your bank.
 
 If we refund a purchase in full, access to that workbook ends. Your own answers stay in your account and you can still export them.
 
@@ -60,12 +60,8 @@ We may change this policy. Changes do not affect purchases made before the chang
 
 ## Placeholders
 
-- [date]
-- [support email]
-- [goodwill window length]
-- [support response time]
-- [refund decision time]
-- [refund settlement time]
-- [To confirm by Crent and the lawyer] single workbook goodwill refund, question C6
-- [For the lawyer] the two immediate-access consents
-- [to confirm: question D6] claw back from the next statement
+- [support email]: set when Akana Holdings has a support mailbox. The site reads it from EMAIL_REPLY_TO.
+- Single workbook goodwill window of 14 days and the week 1 limit: proposed, Akana Holdings to confirm (question C6).
+- Reply, decision and settlement times: proposed, confirm they can be met before publishing.
+- [For the lawyer] the two immediate-access consents.
+- [to confirm: question D6] claw back from the next statement.

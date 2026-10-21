@@ -4,7 +4,7 @@ A group follows one workbook together, run through your organisation. This page 
 
 ## Joining a group
 
-Groups are part of a place from your organisation. See [organisations and seats](/help/organisations). If your organisation runs a group you can join, Home and Today show a line that says so, and the group appears on the Groups page. Nobody is added to a group without pressing a button. Joining is your choice.
+Groups are part of a place from your organisation. See [organisations and places](/help/organisations). If your organisation runs a group you can join, Home and Today show a line that says so, and the group appears on the Groups page. Nobody is added to a group without pressing a button. Joining is your choice.
 
 A group run by a church, or on a faith workbook, asks for your faith consent before you join, because joining can show your religious beliefs. You can withdraw it in You.
 
@@ -24,7 +24,7 @@ Each week you can answer "How was this week?" with one of three choices: Doing f
 
 You choose whether your check-ins count in the group's totals. In groups run by a business this is off unless you turn it on. In other groups it starts on, and you can turn it off. If your check-ins do not count, they are kept for you only. The leader sees how many chose each answer, never who, and nothing until at least 5 have counted.
 
-Under Your choices for this group you can change whether you count, delete your check-ins for the group, or leave the group. Leaving keeps your seat, your workbook and everything you wrote.
+Under Your choices for this group you can change whether you count, delete your check-ins for the group, or leave the group. Leaving keeps your place, your workbook and everything you wrote.
 
 ## Reporting a concern
 
