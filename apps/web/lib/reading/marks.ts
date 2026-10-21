@@ -208,6 +208,36 @@ const refOrder = (ref: string): [string, number] => {
   return [i < 0 ? ref : ref.slice(0, i), i < 0 ? 0 : Number(ref.slice(i + 1)) || 0];
 };
 
+/** One workbook's marks, for the all-highlights page (/you/highlights). */
+export interface MarkGroup {
+  enrolmentId: string;
+  title: string;
+  marks: Mark[];
+}
+
+/**
+ * Group a reader's marks by workbook for the highlights page. Workbooks are
+ * ordered by their most recent mark, newest first. Within a workbook the
+ * marks follow the same order as the export (screen, then paragraph).
+ */
+export function groupMarksByWorkbook(items: ReadonlyArray<{ enrolmentId: string; title: string; mark: Mark }>): MarkGroup[] {
+  const groups = new Map<string, MarkGroup>();
+  for (const { enrolmentId, title, mark } of items) {
+    const g = groups.get(enrolmentId) ?? { enrolmentId, title, marks: [] };
+    g.marks.push(mark);
+    groups.set(enrolmentId, g);
+  }
+  const latest = (g: MarkGroup) => Math.max(...g.marks.map((m) => Date.parse(m.updatedAt) || 0));
+  for (const g of groups.values()) {
+    g.marks.sort((a, b) => {
+      const [sa, ia] = refOrder(a.ref);
+      const [sb, ib] = refOrder(b.ref);
+      return sa === sb ? ia - ib : sa.localeCompare(sb, "en", { numeric: true });
+    });
+  }
+  return [...groups.values()].sort((a, b) => latest(b) - latest(a) || a.title.localeCompare(b.title));
+}
+
 export interface ExportInput {
   title: string;
   marks: readonly Mark[];

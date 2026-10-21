@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookGrid } from "@/components/site/BookCard";
+import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
 import { CollectionCover } from "@/components/explore/CollectionCover";
 import { Rail } from "@/components/explore/Rail";
 import { EditorialSlot } from "@/components/explore/EditorialSlot";
-import { ShelfTile } from "@/components/explore/ShelfTile";
+import { ShelfTile, shelfStyleVars } from "@/components/explore/ShelfTile";
+import { categoryChips } from "@/lib/categories";
 import { LibraryBrowse } from "@/components/catalogue/LibraryBrowse";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { ReaderTabs } from "@/components/ReaderTabs";
@@ -109,6 +110,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
   const filtered = length ? rankByEngagement(filterByLength(cards, length), signals) : [];
   const because = becauseYouRead(cards, seeds, base.shelfOfTheme, signals);
   const themeShelves = themeIndex(base.themeRows, cards);
+  const categories = categoryChips(base.themeRows, cards);
 
   const outlineOnly = t("library.outlineOnly");
   const open = t("library.open");
@@ -118,7 +120,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
   return (
     <>
     <main className={session ? "wb-page browse-page explore-page has-tabs" : "wb-page browse-page explore-page"}>
-      <header className="wb-hero a-head">
+      <header className="wb-hero">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -142,7 +144,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           <h2 id="explore-shelves" className="browse-heading">
             {t("explore.shelves")}
           </h2>
-          <ul className="shelf-tiles a-tiles">
+          <ul className="shelf-tiles">
             {tiles.map((s) => (
               <li key={s.id}>
                 <ShelfTile id={s.id} name={s.name} line={lineFor(s.id)} countLabel={countLabel(s.count)} />
@@ -150,6 +152,24 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
             ))}
           </ul>
         </section>
+        )}
+
+        {browse || length || categories.length === 0 ? null : (
+          <section aria-labelledby="explore-categories">
+            <h2 id="explore-categories" className="browse-heading">
+              {t("explore.categories")}
+            </h2>
+            <p className="muted small">{t("explore.categoriesLine")}</p>
+            <ul className="category-chips">
+              {categories.map((c) => (
+                <li key={c.id}>
+                  <Link className="category-chip" href={c.href} style={shelfStyleVars(c.shelfId ?? "")}>
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         {browse ? null : options.length > 1 || length ? (
@@ -178,7 +198,11 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
               {t("explore.filteredHeading", { length: t(LENGTH_KEYS[length]) })}
             </h2>
             {filtered.length ? (
-              <BookGrid cards={filtered} />
+              <div className="grid wb-grid">
+                {filtered.map((card) => (
+                  <WorkbookCard key={card.id} card={card} outlineOnlyLabel={outlineOnly} openLabel={open} />
+                ))}
+              </div>
             ) : (
               <div className="card empty-state">
                 <p>{t("explore.emptyFiltered")}</p>
@@ -263,23 +287,6 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           </>
         )}
 
-        <section className="a-asks" aria-label="More from us">
-          <div>
-            <h2>Missing a book you love?</h2>
-            <p>Tell us which one. It helps us choose what to build next.</p>
-            <Link className="btn secondary" href="/request-title">
-              Suggest a book
-            </Link>
-          </div>
-          <div>
-            <h2>Are you an author?</h2>
-            <p>Turn your book into a workbook readers finish.</p>
-            <Link className="btn secondary" href="/publish">
-              Publish with {brand.name}
-            </Link>
-          </div>
-        </section>
-
         <p className="browse-more explore-links">
           {browse ? <Link href="/explore">{t("explore.title")}</Link> : <Link href="/explore?all=1#all">{t("explore.fullLibrary")}</Link>}
           {session ? (
@@ -290,6 +297,9 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           ) : null}
         </p>
 
+        <footer className="footer wb-footer">
+          <p>{brand.wellnessNotice}</p>
+        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>
