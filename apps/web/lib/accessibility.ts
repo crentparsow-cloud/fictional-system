@@ -48,7 +48,8 @@ export const ACCESSIBILITY = {
       body: "Authors write the words inside a workbook. We check structure, but we do not yet check every author's choice of wording for plain language.",
     },
   ],
-  conformance: "A written conformance report, in the VPAT format, will follow once the manual pass is done. We will share it with organisations that ask for one before they buy.",
+  conformance: "A conformance report in the VPAT layout is published, criterion by criterion. It is partial: it says Partially supports where the manual pass has not yet confirmed a criterion. We share it with organisations that ask for a conformance report before they buy, and we will update it when the manual pass is done.",
+  conformancePath: "/accessibility/conformance",
   contact: {
     route: "/contact",
     howTo: "Open the contact form, choose \"Something else\" and start your message with the word Accessibility. Say which page you were on and what stopped you. You do not need to give a diagnosis or any health detail.",

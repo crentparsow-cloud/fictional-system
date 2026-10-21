@@ -9,7 +9,11 @@ import {
   COLOUR_LABELS,
   DEFAULT_READING,
   FONTS,
+  FOCUS,
+  FOCUS_LABELS,
   FONT_LABELS,
+  THENNOW,
+  THENNOW_LABELS,
   MARGINS,
   MARGIN_LABELS,
   PROGRESS,
@@ -145,6 +149,9 @@ export function ReadingSettingsPanel({ variant = "popover" }: { variant?: "popov
       <Choice id={`${id}-colour`} label="Light or dark" values={COLOURS} labels={COLOUR_LABELS} value={s.colour} onChange={(colour) => commit({ ...s, colour })} />
       <Choice id={`${id}-margin`} label="Margins" values={MARGINS} labels={MARGIN_LABELS} value={s.margin} onChange={(margin) => commit({ ...s, margin })} />
       <Choice id={`${id}-progress`} label="Progress" values={PROGRESS} labels={PROGRESS_LABELS} value={s.progress} onChange={(progress) => commit({ ...s, progress })} />
+
+      <Choice id={`${id}-focus`} label="Focus mode" values={FOCUS} labels={FOCUS_LABELS} value={s.focus} onChange={(focus) => commit({ ...s, focus })} />
+      <Choice id={`${id}-thennow`} label="Then and now check-in" values={THENNOW} labels={THENNOW_LABELS} value={s.thennow} onChange={(thennow) => commit({ ...s, thennow })} />
 
       <div className="rs-foot">
         <p className="rs-where small muted" role="status" aria-live="polite">

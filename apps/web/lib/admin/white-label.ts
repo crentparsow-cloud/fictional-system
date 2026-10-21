@@ -75,6 +75,8 @@ export function parseBrandForm(get: Get): { name: string; brand: Record<string, 
   if (lp || la || dp || da) brand.colours = { light: { primary: lp, accent: la }, dark: { primary: dp, accent: da } };
   const font = text(get, "font");
   if (font) brand.font = font;
+  const shape = text(get, "shape");
+  if (shape) brand.shape = shape;
   const logoSrc = text(get, "logo_src");
   if (logoSrc) brand.logo = { src: logoSrc, alt: text(get, "logo_alt") };
   const favicon = text(get, "favicon");

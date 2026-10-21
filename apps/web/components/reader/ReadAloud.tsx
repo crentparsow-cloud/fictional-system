@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { LISTEN_MODE_KEY, LISTEN_RATE_KEY, listenPositionKey, makePosition, nextRate, parsePosition, resumeIndex, screenKey, type ListenMode } from "@/lib/reading/listen";
 import { chunkSentences, type Chunk } from "@/lib/reading/sentences";
+import { sourceWordRange } from "@/lib/reading/words";
 import { DEFAULT_RATE, Speaker, clampRate, platformOf, type SpeakerState, type SynthLike, type UtteranceLike } from "@/lib/reading/speech";
 
 /** One sentence on the page, with the element it came from. */
@@ -72,6 +73,7 @@ const registry = (): HighlightRegistry | null => (typeof CSS !== "undefined" && 
 
 function clearMarks(): void {
   registry()?.delete("ak-reading");
+  registry()?.delete("ak-word");
   document.querySelectorAll(".ra-now").forEach((e) => e.classList.remove("ra-now"));
 }
 
@@ -155,6 +157,20 @@ export function ReadAloud({ enrolmentId, lang }: { enrolmentId: string; lang: st
     [enrolmentId],
   );
 
+  // Word by word (extends the sentence highlight). Voices that report word
+  // boundaries drive it; a voice that sends none leaves the sentence
+  // highlight on its own, which is the fallback and needs no code.
+  const markWord = useCallback((index: number, charIndex: number) => {
+    const line = lines.current[index];
+    const reg = registry();
+    const H = (window as unknown as { Highlight?: new (...r: Range[]) => unknown }).Highlight;
+    if (!line || !reg || !H) return;
+    const w = sourceWordRange(line.el.textContent ?? "", line.start, line.text, charIndex);
+    const range = w ? rangeFor(line.el, w.start, w.end) : null;
+    if (range) reg.set("ak-word", new H(range));
+    else reg.delete("ak-word");
+  }, []);
+
   const ensure = useCallback(async (): Promise<Speaker | null> => {
     if (speaker.current) return speaker.current;
     const synth = window.speechSynthesis as unknown as SynthLike;
@@ -164,6 +180,7 @@ export function ReadAloud({ enrolmentId, lang }: { enrolmentId: string; lang: st
       platform: platformOf(navigator.userAgent, navigator.maxTouchPoints),
       lang,
       onSentence: mark,
+      onWord: markWord,
       onState: (st) => {
         setState(st);
         if (st === "idle") {
@@ -177,7 +194,7 @@ export function ReadAloud({ enrolmentId, lang }: { enrolmentId: string; lang: st
     setVoice(v ? "ok" : "none");
     speaker.current = s;
     return s;
-  }, [lang, mark]);
+  }, [lang, mark, markWord]);
 
   useEffect(() => {
     return () => {

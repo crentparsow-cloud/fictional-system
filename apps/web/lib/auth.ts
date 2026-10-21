@@ -1,4 +1,5 @@
 import "server-only";
+import { passkeyEnabled } from "@/lib/mfa/role-mfa-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -16,7 +17,10 @@ export async function getReaderSession(): Promise<ReaderSession | null> {
   if (!user) return null;
   const { data: profile } = await supabase.from("profiles").select("adult_confirmed_at").eq("user_id", user.id).maybeSingle();
   const factors = (user as { factors?: { factor_type?: string; status?: string }[] }).factors ?? [];
-  const mfaEnrolled = factors.some((f) => f.status === "verified");
+  const verified = factors.filter((f) => f.status === "verified");
+  // A passkey counts only while passkeys are switched on, so turning the
+  // switch off can never lock out a reader whose only factor is a passkey.
+  const mfaEnrolled = verified.some((f) => f.factor_type !== "webauthn") || (verified.length > 0 && (await passkeyEnabled()));
   return { userId: user.id, email: user.email ?? null, adultConfirmedAt: (profile?.adult_confirmed_at as string | null | undefined) ?? null, mfaEnrolled };
 }
 
