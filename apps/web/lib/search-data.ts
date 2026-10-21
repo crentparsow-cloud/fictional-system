@@ -1,6 +1,6 @@
 import "server-only";
 import type { LibraryCard } from "@/lib/catalogue-types";
-import { cleanTopics, entryFromCard, topicHashes, type SearchEntry } from "@/lib/search";
+import { authorEntries, cleanTopics, collectionEntries, entryFromCard, themeEntries, topicHashes, type SearchEntry } from "@/lib/search";
 import { createUserClient } from "@/lib/supabase/server";
 import { isRetiredStatus } from "@/lib/theme-visibility";
 
@@ -18,9 +18,13 @@ import { isRetiredStatus } from "@/lib/theme-visibility";
  * device, and the hidden topics stay out of the page source.
  *
  * Any failure falls back to the cards alone, so search still works on
- * titles, authors, Themes and codes.
+ * titles, authors, Themes and codes. Authors, Themes and collections are
+ * added as their own entries for the grouped results.
  */
-export async function searchEntriesFor(cards: readonly LibraryCard[]): Promise<SearchEntry[]> {
+export async function searchEntriesFor(
+  cards: readonly LibraryCard[],
+  groups: { themes?: readonly { id: string; name: string; line?: string | null }[]; collections?: readonly { slug: string; name: string; line?: string | null }[] } = {},
+): Promise<SearchEntry[]> {
   const ids = cards.map((c) => c.id);
   const extras = new Map<string, { topicHashes: string[]; publisher: string | null }>();
   if (ids.length) {
@@ -39,5 +43,9 @@ export async function searchEntriesFor(cards: readonly LibraryCard[]): Promise<S
       // Fall back to the cards alone.
     }
   }
-  return cards.map((c) => entryFromCard(c, extras.get(c.id)));
+  const titles = cards.map((c) => entryFromCard(c, extras.get(c.id)));
+  // Authors, Themes and collections for the grouped results (2.7). Each comes
+  // from what the reader can already see: a Theme or collection with no
+  // visible title is not passed in by the page.
+  return [...titles, ...authorEntries(cards), ...themeEntries(groups.themes ?? [], cards), ...collectionEntries(groups.collections ?? [])];
 }

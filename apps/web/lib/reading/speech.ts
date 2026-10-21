@@ -1,4 +1,5 @@
 import type { Chunk } from "./sentences";
+import { readBoundary } from "./words";
 
 /**
  * Read aloud with the browser's own voice (3.5). Nothing is sent anywhere:
@@ -140,6 +141,12 @@ export interface SpeakerEvents {
   /** The sentence about to be spoken, by index in the list. */
   onSentence?: (index: number) => void;
   onState?: (state: SpeakerState) => void;
+  /**
+   * The voice reached a word: the sentence index and the character position
+   * in the spoken text. Only sent by voices that report boundaries; others
+   * simply never call it, and the sentence highlight stands alone.
+   */
+  onWord?: (index: number, charIndex: number) => void;
   /** The last sentence has been spoken. */
   onEnd?: () => void;
   /** The browser refused or failed. Not a normal stop. */
@@ -255,6 +262,11 @@ export class Speaker {
         this.index = 0;
         this.o.onEnd?.();
       }
+    };
+    u.onboundary = (ev) => {
+      if (mine !== this.run) return;
+      const b = readBoundary(ev);
+      if (b) this.o.onWord?.(i, b.charIndex);
     };
     u.onerror = (ev) => {
       if (mine !== this.run) return;
