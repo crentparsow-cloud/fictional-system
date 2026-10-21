@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
 import { brand } from "@/lib/brand";
+import { DHero } from "@/components/info/DHero";
 import { NoticeForm } from "./NoticeForm";
 
 export const metadata: Metadata = {
@@ -18,14 +19,13 @@ export const metadata: Metadata = {
  */
 export default function TakedownPage() {
   return (
-    <main className="wrap info-page contact-page">
-      <header className="info-head">
-        <p className="eyebrow muted">{brand.name}</p>
-        <h1>Report content</h1>
-        <p className="info-lead">
-          Use this form if a workbook on {brand.name} copies your work without permission, uses your trade mark, or is unlawful in another way.
-        </p>
-      </header>
+    <main className="d-page">
+      <DHero
+        eyebrow={brand.name}
+        title="Report content"
+        lead={`Use this form if a workbook on ${brand.name} copies your work without permission, uses your trade mark, or is unlawful in another way.`}
+      />
+      <div className="wrap contact-page d-formpage">
 
       <p>
         A person reads every notice. If it is complete and valid, we take the workbook off sale and tell the author or publisher why. They can reply with a
@@ -44,6 +44,7 @@ export default function TakedownPage() {
 
       <NoticeForm kind="notice" />
       <InfoFooter />
+      </div>
     </main>
   );
 }

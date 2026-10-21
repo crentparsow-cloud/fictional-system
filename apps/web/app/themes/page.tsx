@@ -32,7 +32,7 @@ export default async function ThemesPage() {
 
   return (
     <main className="wb-page browse-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -73,9 +73,6 @@ export default async function ThemesPage() {
           <Link href="/authors">Browse by author</Link>
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>

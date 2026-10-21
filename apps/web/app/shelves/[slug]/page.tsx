@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { LibraryBookCard } from "@/components/site/BookCard";
 import { Rail } from "@/components/explore/Rail";
 import { ShelfIcon, shelfStyleVars } from "@/components/explore/ShelfTile";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
@@ -79,7 +79,7 @@ export default async function ShelfPage({ params }: { params: Promise<Params> })
 
   return (
     <main className="wb-page browse-page shelf-page" style={shelfStyleVars(slug)}>
-      <header className="wb-hero shelf-hero">
+      <header className="wb-hero shelf-hero a-head a-shelf-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("explore.title")}</Link>
@@ -112,8 +112,8 @@ export default async function ShelfPage({ params }: { params: Promise<Params> })
                 <h2 id="shelf-featured" className="browse-heading">
                   {t("shelf.featured")}
                 </h2>
-                <div className="grid wb-grid shelf-featured">
-                  <WorkbookCard card={featured} outlineOnlyLabel={outlineOnly} openLabel={open} />
+                <div className="a-editorial-card">
+                  <LibraryBookCard card={featured} />
                 </div>
               </section>
             ) : null}
@@ -146,9 +146,6 @@ export default async function ShelfPage({ params }: { params: Promise<Params> })
         <p className="browse-more">
           <Link href="/explore">{t("shelf.back")}</Link>
         </p>
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldString(ld) }} />
