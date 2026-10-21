@@ -1,5 +1,6 @@
 import { overrideBand, startBilling } from "@/app/admin/(gated)/business/billing-actions";
-import { billingNotice, billingStateText, CHURCH_BAND_PLANS, isBandPlan, ORG_PLANS, isOrgPlanId, orgPriceId, plansForLicenceKind, TALK_TO_US } from "@/lib/org-billing";
+import { billingNotice, billingStateText, CHURCH_BAND_PLANS, isBandPlan, ORG_PLANS, isOrgPlanId, planIsPriced, plansForLicenceKind, TALK_TO_US } from "@/lib/org-billing";
+import { tablePricedPlans } from "@/lib/org-plans-server";
 import { formatOrgDate } from "@/lib/org-pilot";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -17,6 +18,7 @@ export async function LicenceBillingAdmin(props: {
   write: boolean;
   notice?: string | string[];
 }) {
+  const tablePriced = await tablePricedPlans();
   const supabase = await createUserClient();
   const { data } = await supabase
     .from("org_subscriptions")
@@ -71,9 +73,9 @@ export async function LicenceBillingAdmin(props: {
               <label htmlFor={`oband-${props.licenceId}`}>Band</label>
               <select id={`oband-${props.licenceId}`} name="plan" defaultValue={sub.plan ?? undefined} required>
                 {CHURCH_BAND_PLANS.map((b) => (
-                  <option key={b} value={b} disabled={orgPriceId(b) === null}>
+                  <option key={b} value={b} disabled={!planIsPriced(b, tablePriced)}>
                     {ORG_PLANS[b].label}
-                    {orgPriceId(b) === null ? " (no price id)" : ""}
+                    {!planIsPriced(b, tablePriced) ? " (no price id)" : ""}
                   </option>
                 ))}
               </select>
@@ -95,7 +97,7 @@ export async function LicenceBillingAdmin(props: {
   }
 
   if (!props.write || props.status === "ended") return <p className="muted small">Billed by hand. Not in Stripe.</p>;
-  const plans = plansForLicenceKind(props.kind);
+  const plans = plansForLicenceKind(props.kind, process.env, tablePriced);
   return (
     <details className="org-billing-admin">
       <summary>Bill this licence in Stripe (test mode)</summary>

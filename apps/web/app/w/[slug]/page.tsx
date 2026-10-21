@@ -13,12 +13,16 @@ import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
 import { firstUnitFreeLabel } from "@/lib/free-label";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
+import { bookClubEligible, bookClubPath } from "@/lib/book-club";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 import { countView } from "@/lib/funnel-server";
 import { SampleExercise } from "@/components/catalogue/SampleExercise";
 import { whoIsItFor } from "@/lib/who-for";
 import { loadSampleExercise } from "@/lib/sample-exercise";
+import { tenantIdForRequest } from "@/lib/tenant-id";
+import { workbookProof } from "@/lib/social-proof-server";
 import { PublicBuy, type PaidLines } from "@/components/catalogue/PublicBuy";
 import { normalisePromoCode, offerSummary, PROMO_MESSAGES } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
@@ -54,8 +58,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     // 1.9: one Satori renderer (app/og/[slug]/route.tsx), cached like a cover.
     openGraph: { title: meta.title, description: meta.description, images: [{ url: `/og/${slug}`, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", images: [`/og/${slug}`] },
-    // Demo content is never indexed. Live titles follow the site rule in the root layout.
-    ...(detail.card.isDemo ? { robots: { index: false, follow: false } } : {}),
+    // 6.10: one canonical address, and an index request only for a live title with a published first unit.
+    // Demo content is never indexed. While SEARCH_INDEXING is not "on" every page stays out (lib/indexing.ts).
+    alternates: { canonical: `/w/${slug}` },
+    robots: publicRobots({ isDemo: detail.card.isDemo || !detail.card.hasVersion }),
   };
 }
 
@@ -73,6 +79,8 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
   // 5.2: a visitor with no account tries the first unit at /try, where answers stay on the device
   // until they sign in. A wellbeing title asks for consent first, which needs an account.
   const openHref = session ? readHref : card.safetyTier === "none" ? `/try/${card.slug}` : `/sign-in?next=${encodeURIComponent(readHref)}`;
+  // 5.12: a real count, only above the threshold, never for a wellbeing title or a demo.
+  const proof = !wellbeing && !card.isDemo ? await workbookProof((await tenantIdForRequest()) ?? "", card.id).catch(() => null) : null;
   const unit = unitWord(detail);
   const freeLabel = firstUnitFreeLabel({ hasVersion: card.hasVersion, unit: listing?.structure?.unit ?? null, freeUnits: listing?.structure?.free_units ?? null });
 
@@ -149,6 +157,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
 
       <div className="wrap wb-body">
         {card.isDemo ? <p className="demo-note">{t("badge.demoNote")}</p> : null}
+        {proof ? <p className="muted small">{proof}</p> : null}
 
         <section className="wb-section" aria-labelledby="wb-do">
           <h2 id="wb-do">What you will do</h2>
@@ -272,6 +281,15 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
             <span className="btn secondary is-disabled" aria-disabled="true">
               Buy the book (coming soon)
             </span>
+          </section>
+        ) : null}
+
+        {bookClubEligible(card) ? (
+          <section className="wb-section" aria-labelledby="wb-club">
+            <h2 id="wb-club">With a group</h2>
+            <p>
+              Working through this with friends? <Link href={bookClubPath(card.slug)}>Run this with your book club</Link>.
+            </p>
           </section>
         ) : null}
 

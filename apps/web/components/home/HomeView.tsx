@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { Cover } from "@/components/Cover";
 import { MarketingShot } from "@/components/MarketingShot";
@@ -10,7 +11,18 @@ import type { HomeSections } from "@/components/home/sections";
  * component, no client JavaScript. The library row falls back to a plain
  * empty state when no workbook is live.
  */
-export function HomeView({ s, outlineOnlyLabel, openLabel }: { s: HomeSections; outlineOnlyLabel: string; openLabel: string }) {
+export function HomeView({
+  s,
+  outlineOnlyLabel,
+  openLabel,
+  editorial,
+}: {
+  s: HomeSections;
+  outlineOnlyLabel: string;
+  openLabel: string;
+  /** The weekly editorial slot (7.10), when there is one. */
+  editorial?: ReactNode;
+}) {
   return (
     <main className="home">
       <section className="hero home-hero" aria-labelledby="home-line">
@@ -45,6 +57,8 @@ export function HomeView({ s, outlineOnlyLabel, openLabel }: { s: HomeSections; 
           </Link>
         </div>
       </section>
+
+      {editorial ? <div className="wrap home-section">{editorial}</div> : null}
 
       <section className="wrap home-section" aria-labelledby="home-trust">
         <h2 id="home-trust">{s.trust.title}</h2>

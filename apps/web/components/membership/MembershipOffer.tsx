@@ -20,8 +20,9 @@ function local(): KeyValueStore | null {
 }
 
 /**
- * The membership offer inside onboarding (13.4). One screen, after the quiz
- * and the first exercise, never on a first visit, shown once. Everything a
+ * The membership offer inside onboarding (13.4, timed by 5.5). One screen,
+ * after a first week of use or a second workbook sample, never on a first
+ * visit, shown once. Everything a
  * reader needs to decide is on it together: the plan, the billing period,
  * the trial length, the price it renews at, the exact day the reminder email
  * arrives, the day the first payment is taken, how to cancel, and a way to
@@ -42,8 +43,8 @@ export function MembershipOffer({ plans, library }: { plans: OfferPlan[]; librar
   // Dates are worked out from the moment the screen opens, in the browser, so "today" is the reader's today.
   const [now] = useState(() => new Date());
 
-  // The server only renders this for a reader who is not a member and has a plan to buy.
-  const due = !dismissed && offerDue(device, { isMember: false, plansOpen: plans.length > 0 });
+  // The server only renders this for a reader who is not a member, has a plan to buy and has used the product for real (5.5).
+  const due = !dismissed && offerDue(device, { isMember: false, plansOpen: plans.length > 0, usedEnough: true });
 
   const chosen = plans.find((p) => p.plan === plan) ?? plans[0];
   const dates = useMemo(() => (chosen ? trialDateLines(now, chosen.trialDays) : null), [chosen, now]);

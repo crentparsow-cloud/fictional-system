@@ -1,0 +1,34 @@
+/* Highlighter colours for reading marks (3.4). Hand written, not generated: the
+   generator only writes the direction files and reading.css. Colour values live
+   here and in the theme files, nowhere else.
+
+   Light page: a bright marker with near-black ink. Dark page: a deep marker with
+   warm white ink. Every pair passes 4.5 to 1 (checked in lib/reading/marks.test.ts).
+   Three blocks, in this order: light, dark by device setting, dark by the reader's
+   choice. The two dark blocks must match. */
+:root {
+  --mark-ink: #1a1a1a;
+  --mark-yellow: #ffe45e;
+  --mark-green: #a8f0a0;
+  --mark-pink: #ffb3d1;
+  --mark-blue: #9fd8ff;
+  --mark-orange: #ffc27a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mark-ink: #f5f2ea;
+    --mark-yellow: #6b5a00;
+    --mark-green: #1f5a2b;
+    --mark-pink: #7a2a52;
+    --mark-blue: #1f4f7a;
+    --mark-orange: #7a4010;
+  }
+}
+:root[data-theme="dark"] {
+  --mark-ink: #f5f2ea;
+  --mark-yellow: #6b5a00;
+  --mark-green: #1f5a2b;
+  --mark-pink: #7a2a52;
+  --mark-blue: #1f4f7a;
+  --mark-orange: #7a4010;
+}
