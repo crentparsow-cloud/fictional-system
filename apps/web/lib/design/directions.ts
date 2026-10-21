@@ -226,18 +226,18 @@ export const DIRECTIONS: Record<DirectionId, Direction> = {
     cover: {radius: 10, frame: "none", motif: "circle"},
     fontFiles: ["akana-serif-latin-wght-normal.woff2","akana-serif-latin-wght-italic.woff2","bricolage-grotesque-latin-wght-normal.woff2"],
     light: {
-      "canvas": "#ffffff",
-      "surface": "#ffffff",
-      "surface-2": "#f4f4f2",
-      "line": "#e4e4e0",
-      "line-strong": "#898989",
-      "ink": "#141414",
-      "ink-soft": "#55554f",
+      "canvas": "#fbf6ec",
+      "surface": "#fffdf8",
+      "surface-2": "#f3ebdb",
+      "line": "#e7dac2",
+      "line-strong": "#8a7762",
+      "ink": "#2a1e18",
+      "ink-soft": "#5b4a40",
       "brand": "#c2360f",
       "brand-ink": "#ffffff",
-      "brand-text": "#b8320c",
+      "brand-text": "#a82e0b",
       "brand-wash": "#fbeae4",
-      "highlight": "#ffe58a"
+      "highlight": "#e3aa45"
     },
     dark: {
       "canvas": "#121212",
