@@ -46,16 +46,16 @@ export function GiftForm({ options, messageMax }: { options: Option[]; messageMa
   }
 
   return (
-    <form className="card" onSubmit={(e) => void start(e)}>
-      <fieldset className="plan-toggle">
+    <form className="b-card b-form" onSubmit={(e) => void start(e)}>
+      <fieldset className="b-opts">
         <legend>How long should it last?</legend>
-        <div className="plan-toggle-options">
+        <div className="b-opts-grid">
           {options.map((o) => (
-            <label key={o.months} className="plan-option" data-selected={months === o.months ? "true" : "false"}>
+            <label key={o.months} className="b-opt" data-selected={months === o.months ? "true" : "false"}>
               <input type="radio" name="gift-months" value={o.months} checked={months === o.months} onChange={() => setMonths(o.months)} />
-              <span className="plan-option-name">{o.label}</span>
-              <span className="plan-price">
-                <span className="plan-price-figure">{o.price}</span>
+              <span className="b-opt-name">{o.label}</span>
+              <span className="b-opt-price">
+                <span className="b-opt-fig">{o.price}</span>
               </span>
             </label>
           ))}
@@ -69,8 +69,8 @@ export function GiftForm({ options, messageMax }: { options: Option[]; messageMa
       <input id="gift-from-name" type="text" maxLength={60} autoComplete="given-name" value={senderName} onChange={(e) => setSenderName(e.currentTarget.value)} />
       <label htmlFor="gift-message">A message (optional)</label>
       <textarea id="gift-message" rows={4} maxLength={messageMax} value={message} onChange={(e) => setMessage(e.currentTarget.value)} />
-      <p className="small muted">Up to {messageMax} characters. We put it in the email as you write it. We do not name any workbook.</p>
-      <p className="small muted">
+      <p className="b-small">Up to {messageMax} characters. We put it in the email as you write it. We do not name any workbook.</p>
+      <p className="b-small">
         You pay once. Nothing renews. By continuing to payment you agree to our{" "}
         {READER_TERMS_LINKS.map((l, i) => (
           <span key={l.href}>
@@ -86,7 +86,7 @@ export function GiftForm({ options, messageMax }: { options: Option[]; messageMa
         Continue to payment
       </button>
       {problem ? (
-        <p className="muted" role="alert">
+        <p className="b-error" role="alert">
           {problem}
         </p>
       ) : null}
