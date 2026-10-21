@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import type { LibraryCard } from "@/lib/catalogue-types";
+import { bookClubEligible, bookClubPath } from "@/lib/book-club";
 import { authorIndex, isSlug, themeIndex, type Publisher, type ThemeInput } from "@/lib/author-theme-pages";
 import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { siteOrigin } from "@/lib/site-url";
@@ -9,7 +10,8 @@ import { siteOrigin } from "@/lib/site-url";
  * kept out is unit tested.
  *
  * Listed: the public marketing, plans, help, trust and legal pages, Themes
- * with live workbooks, live non-demo workbooks, authors and imprints that
+ * with live workbooks, shelves and collections that readers can see, live
+ * non-demo workbooks and their book club pages, authors and imprints that
  * are not demo, and the public-domain evidence pages.
  * Never listed: demo workbooks, demo authors and demo imprints (their pages
  * are noindex), and anything behind sign-in or for staff.
@@ -32,6 +34,11 @@ export const STATIC_PUBLIC_PATHS = [
   "/themes",
   "/authors",
   "/publishers",
+  "/request-title",
+  "/how-to-write",
+  "/book-clubs",
+  "/newsletter",
+  "/tell-your-minister",
 ] as const;
 
 /** Paths crawlers are asked not to visit: signed-in, staff, API and one-time link routes. */
@@ -52,6 +59,8 @@ export const PRIVATE_PATH_PREFIXES = [
   "/admin",
   "/respond/",
   "/dev/",
+  "/newsletter/confirm",
+  "/newsletter/unsubscribe",
 ] as const;
 
 export interface SitemapInput {
@@ -62,6 +71,10 @@ export interface SitemapInput {
   publicDomainCodes: readonly string[];
   helpTopics: readonly string[];
   legalDocs: readonly string[];
+  /** Shelves with a public page (2.11): the ids Explore shows as tiles. */
+  shelfIds?: readonly string[];
+  /** Live collections inside their seasonal window with enough titles to show (2.3, 12.5). */
+  collectionSlugs?: readonly string[];
 }
 
 const LOCALES = ["en-GB", "en-US"] as const;
@@ -88,6 +101,13 @@ export function sitemapPaths(input: Omit<SitemapInput, "origin">): string[] {
 
   const live = input.cards.filter((c) => !c.isDemo && isSlug(c.slug));
   for (const c of live) out.add(`/w/${c.slug}`);
+
+  // 6.10 and 14.16: the book club page of every programme that suits a group.
+  for (const c of live) if (bookClubEligible(c)) out.add(bookClubPath(c.slug));
+
+  // 2.11: public shelf and collection pages.
+  for (const id of input.shelfIds ?? []) if (isSlug(id)) out.add(`/shelves/${id}`);
+  for (const slug of input.collectionSlugs ?? []) if (isSlug(slug)) out.add(`/collections/${slug}`);
 
   for (const a of authorIndex(input.cards)) if (!a.isDemo && isSlug(a.slug)) out.add(`/authors/${a.slug}`);
 
