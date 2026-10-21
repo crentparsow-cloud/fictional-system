@@ -69,7 +69,7 @@ export function orgPrivacyLine(brandName: string): string {
 type Get = (name: string) => unknown;
 const text = (get: Get, k: string, max: number) => {
   const v = get(k);
-  return typeof v === "string" ? v.replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, max + 1) : "";
+  return typeof v === "string" ? v.replace(/[\\u0000-\\u001f\\u007f]/g, " ").trim().slice(0, max + 1) : "";
 };
 
 /** A URL slug from a display name, matching the organisations.slug check. */
@@ -288,6 +288,7 @@ export const ORG_NOTICES = {
   created: { tone: "ok", text: "Organisation created." },
   saved: { tone: "ok", text: "Saved." },
   licence_created: { tone: "ok", text: "Licence recorded." },
+  pilot_started: { tone: "ok", text: "Pilot started." },
   licence_saved: { tone: "ok", text: "Licence updated." },
   titles_saved: { tone: "ok", text: "Titles updated." },
   invited: { tone: "ok", text: "Invitation sent." },
