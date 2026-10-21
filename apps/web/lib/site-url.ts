@@ -4,7 +4,8 @@
  *
  * NEXT_PUBLIC_SITE_URL wins when set (a full origin such as
  * https://akana.example). Otherwise AKANA_HOST, the host the marketplace
- * runs on, with https except on localhost. Without either, localhost:3000.
+ * runs on, with https except on localhost. Then the Vercel system
+ * address. Without any of these, localhost:3000.
  * Anything that does not parse falls back rather than throwing, so a bad
  * value never takes the site down; it only gives wrong canonicals.
  */
@@ -19,6 +20,14 @@ export function siteOrigin(env: Record<string, string | undefined> = process.env
     const proto = /^(localhost|127\.0\.0\.1)(:|$)/.test(host) ? "http" : "https";
     return `${proto}://${host.toLowerCase()}`;
   }
+  // On Vercel with neither set: the production address in production, the
+  // branch or deployment address on previews.
+  const vercel =
+    env.VERCEL_ENV === "production"
+      ? env.VERCEL_PROJECT_PRODUCTION_URL
+      : env.VERCEL_BRANCH_URL || env.VERCEL_URL;
+  const vhost = vercel?.trim();
+  if (vhost && /^[a-z0-9.-]+$/i.test(vhost)) return `https://${vhost.toLowerCase()}`;
   return "http://localhost:3000";
 }
 
