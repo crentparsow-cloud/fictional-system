@@ -26,9 +26,8 @@ We remind you by email:
 
 ## Managing your membership
 
-In You, under Membership, choose Manage membership. This opens Stripe's secure page, where you can:
+In You, under Membership, you can cancel, or pause a monthly plan for 1 to 3 months. Choose Update your card to open Stripe's secure page, where you can:
 
-- cancel
 - change your card
 - switch between monthly and yearly
 - see and download your invoices
@@ -44,3 +43,7 @@ Your card provider may decline a renewal. We keep your membership open for 14 da
 Your answers, check-ins and plans stay in your account. You can still download them. To carry on with a workbook, you can join again or buy that workbook on its own if it is sold that way.
 
 See [cancelling](/help/cancelling) and [refunds](/help/refunds) for what happens to your money.
+
+## Gifts and the student price
+
+You can give someone a membership for a set time. You pay once and it does not renew. See [gift memberships](/help/gift-memberships). Students can join at half price with an academic email address. See [student price](/help/student-price).

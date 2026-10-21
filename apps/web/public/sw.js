@@ -77,3 +77,38 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(fetch(req).catch(() => caches.match(FALLBACK).then((hit) => hit || Response.error())));
   }
 });
+
+/*
+ * Daily step notification (13.19). A push arrives with no body at all, so
+ * nothing about the reader or a workbook ever passes through a push service.
+ * The words are fixed here, the same for everyone. Tapping the notification
+ * opens Today, straight to the step. The badge (14.7) is set to 1 here as well,
+ * and Today clears it once a step is done. Nothing is cached by any of this.
+ */
+const PUSH_TITLE = "Akana";
+const PUSH_BODY = "Your step for today is ready.";
+const PUSH_URL = "/today/go";
+
+self.addEventListener("push", (event) => {
+  const show = self.registration.showNotification(PUSH_TITLE, {
+    body: PUSH_BODY,
+    tag: "daily-step",
+    icon: "/icons/icon-192.png",
+    badge: "/icons/icon-192.png",
+    data: { url: PUSH_URL },
+  });
+  const badge = self.navigator && typeof self.navigator.setAppBadge === "function" ? self.navigator.setAppBadge(1).catch(() => undefined) : Promise.resolve();
+  event.waitUntil(Promise.all([show, badge]));
+});
+
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const target = new URL(PUSH_URL, self.location.origin).href;
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((wins) => {
+      const open = wins.find((w) => new URL(w.url).origin === self.location.origin);
+      if (open && typeof open.navigate === "function") return open.navigate(target).then((w) => (w || open).focus());
+      return self.clients.openWindow(target);
+    }),
+  );
+});

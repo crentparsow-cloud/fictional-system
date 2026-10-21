@@ -126,3 +126,25 @@ describe("brandCss", () => {
     expect(mix("#6b2d5c", "#ffffff", 1)).toBe("#6b2d5c");
   });
 });
+
+describe("brand shape (1.10)", () => {
+  it("accepts the three corner sets and nothing else", () => {
+    for (const shape of ["square", "soft", "round"]) expect(validateBrand({ shape }).ok).toBe(true);
+    for (const shape of ["pill", "Round", "", 3, null]) expect(validateBrand({ shape }).ok).toBe(false);
+  });
+  it("writes the radius tokens, in the white-label scope only", () => {
+    const css = brandCss({ shape: "round" });
+    expect(css).toContain(':root[data-tenant-kind="white_label"] {');
+    expect(css).toContain("--radius: 20px;");
+    expect(css).toContain("--pill: 999px;");
+    expect(css).not.toMatch(/--brand:/);
+  });
+  it("still refuses low contrast when a shape is set", () => {
+    const bad = { shape: "soft", colours: { light: { primary: "#8a8a8a", accent: "#7a7a7a" }, dark: { primary: "#7fc2cf", accent: "#173c45" } } };
+    expect(validateBrand(bad).ok).toBe(false);
+    expect(brandCss(bad)).not.toContain("--radius");
+  });
+  it("leaves the house corners when no shape is chosen", () => {
+    expect(brandCss({ font: "serif" })).not.toContain("--radius");
+  });
+});

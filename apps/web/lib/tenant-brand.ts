@@ -24,6 +24,17 @@ export interface BrandColours {
 
 export type BrandFont = "house" | "serif" | "humanist" | "system";
 
+/**
+ * The corner sets of the design system (1.10). A tenant picks one of three;
+ * there are no free values. Migration 0064 allows the same three names.
+ */
+export type BrandShape = "square" | "soft" | "round";
+export const BRAND_SHAPES: Readonly<Record<BrandShape, { label: string; radius: string; radiusSm: string; pill: string }>> = {
+  square: { label: "Square corners", radius: "6px", radiusSm: "4px", pill: "6px" },
+  soft: { label: "Soft corners", radius: "14px", radiusSm: "10px", pill: "14px" },
+  round: { label: "Round corners", radius: "20px", radiusSm: "12px", pill: "999px" },
+};
+
 export interface BrandLink {
   label: string;
   href: string;
@@ -33,6 +44,7 @@ export interface TenantBrand {
   v?: 1;
   colours?: Record<ThemeName, BrandColours>;
   font?: BrandFont;
+  shape?: BrandShape;
   logo?: { src: string; alt: string };
   favicon?: string;
   footer_links?: BrandLink[];
@@ -71,7 +83,7 @@ export const BRAND_FONTS: Readonly<Record<BrandFont, { label: string; stack: str
   system: { label: "System sans", stack: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' },
 };
 
-const KEYS = ["v", "colours", "font", "logo", "favicon", "footer_links", "legal_links", "sender_name"] as const;
+const KEYS = ["v", "colours", "font", "shape", "logo", "favicon", "footer_links", "legal_links", "sender_name"] as const;
 const HEX = /^#[0-9a-f]{6}$/;
 const ASSET =
   /^(\/brand\/[a-z0-9]+(-[a-z0-9]+)*\/[a-z0-9][a-z0-9._-]{0,80}\.(svg|png|webp)|https:\/\/[a-z0-9-]+\.supabase\.co\/storage\/v1\/object\/public\/[A-Za-z0-9/._-]{1,200}\.(svg|png|webp))$/;
@@ -254,6 +266,11 @@ export function validateBrand(input: unknown): BrandResult {
     else brand.font = input.font as BrandFont;
   }
 
+  if ("shape" in input) {
+    if (typeof input.shape !== "string" || !(input.shape in BRAND_SHAPES)) problems.push({ field: "shape", message: "Pick square, soft or round corners." });
+    else brand.shape = input.shape as BrandShape;
+  }
+
   if ("logo" in input) {
     const l = input.logo;
     const src = isObject(l) && typeof l.src === "string" ? l.src : "";
@@ -336,6 +353,10 @@ export function brandCss(input: unknown): string {
   const font = brand.font ? BRAND_FONTS[brand.font].stack : null;
   const light = brand.colours ? themeTokens("light", brand.colours.light) : [];
   if (font) light.push(`--f-display: ${font};`);
+  if (brand.shape) {
+    const sh = BRAND_SHAPES[brand.shape];
+    light.push(`--radius: ${sh.radius};`, `--radius-sm: ${sh.radiusSm};`, `--pill: ${sh.pill};`);
+  }
   if (light.length) blocks.push(`${SCOPE} {\n  ${light.join("\n  ")}\n}`);
   if (brand.colours) {
     const dark = themeTokens("dark", brand.colours.dark).join("\n    ");
