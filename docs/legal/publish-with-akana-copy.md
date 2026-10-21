@@ -108,3 +108,4 @@ No. Nobody can. Answers are private to the reader so that only the reader can re
 
 **What happens if I want to leave?**
 The licence sets out the notice period, which is 90 days. Readers who already bought the workbook keep access to the version they bought. If a workbook is withdrawn, buyers keep access to their copy and their own answers.
+

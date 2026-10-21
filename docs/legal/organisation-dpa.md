@@ -95,3 +95,4 @@ Members keep their own Akana accounts and their Member Work. Deleting the Roster
 | Resend | Sending invitation emails | UK and EU where available, otherwise with approved safeguards |
 
 Stripe is not given Roster data. It is used only if the Organisation pays by card, as an independent controller for payment data.
+

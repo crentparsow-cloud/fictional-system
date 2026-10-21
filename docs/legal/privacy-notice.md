@@ -102,3 +102,4 @@ If you are unhappy with how we handle your data, please tell us first at [suppor
 ## 11. Changes
 
 We will tell you if we make a change to this notice that matters to you, by email or in the app, before it takes effect. The date at the top shows when it was last changed.
+

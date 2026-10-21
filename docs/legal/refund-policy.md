@@ -55,3 +55,4 @@ If you ask your bank to reverse a payment instead of asking us, we may suspend a
 ## 8. Changes
 
 We may change this policy. Changes do not affect purchases made before the change.
+
