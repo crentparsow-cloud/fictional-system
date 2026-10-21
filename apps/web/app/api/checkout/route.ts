@@ -161,7 +161,7 @@ export async function POST(request: NextRequest) {
   // it, so the reader may buy a title to keep.
   const now = Date.now();
   const covers = ((owned ?? []) as { source: string; ends_at: string | null }[]).some(
-    (e) => e.source !== "team_seat" && (!e.ends_at || Date.parse(e.ends_at) > now) && (e.source !== "membership" || workbook.in_membership),
+    (e) => e.source !== "team_seat" && (!e.ends_at || Date.parse(e.ends_at) > now) && ((e.source !== "membership" && e.source !== "gift") || workbook.in_membership),
   );
   if (covers) return refuse("You already have this workbook.");
 
@@ -242,6 +242,8 @@ export async function POST(request: NextRequest) {
   }
 
   const admin = createAdminClient();
+  // 6.4: a buyer who came through the author's own link is a sale on the author_link channel (0039, 0052).
+  const channel = await authorLinkChannel(admin, session.userId, workbook.id);
   const { error: insErr } = await admin.from("purchases").insert({
     user_id: session.userId,
     tenant_id: tenantId,
@@ -252,6 +254,7 @@ export async function POST(request: NextRequest) {
     currency: price.currency,
     amount_minor: price.amountMinor,
     status: "pending",
+    ...(channel ? { channel: "author_link" } : {}),
   });
   if (insErr) {
     // Do not leave a payable session with no purchase row behind it.
@@ -264,6 +267,19 @@ export async function POST(request: NextRequest) {
   // F-141: a daily count, ids only, unless the visitor has opted out.
   await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: workbook.id, headers: request.headers, cookies: request.cookies, userId: session.userId });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
+}
+
+/** True when this buyer used the link of the organisation that publishes the workbook. Never blocks checkout. */
+async function authorLinkChannel(admin: ReturnType<typeof createAdminClient>, userId: string, workbookId: string): Promise<boolean> {
+  try {
+    const { data: wb } = await admin.from("workbooks").select("org_id").eq("id", workbookId).maybeSingle();
+    const orgId = (wb as { org_id?: string } | null)?.org_id;
+    if (!orgId) return false;
+    const { data } = await admin.rpc("author_link_channel", { p_user: userId, p_org: orgId });
+    return data === true;
+  } catch {
+    return false;
+  }
 }
 
 async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): Promise<void> {
