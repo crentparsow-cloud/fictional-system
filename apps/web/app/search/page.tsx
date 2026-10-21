@@ -46,7 +46,7 @@ export default async function SearchPage() {
   const entries = await searchEntriesFor(sources.cards, { themes: sources.themes, collections: sources.collections });
   return (
     <main id="main" className="wb-page search-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <h1>{t("search.title")}</h1>
           <p>{t("search.line")}</p>
