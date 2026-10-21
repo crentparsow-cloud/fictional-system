@@ -68,7 +68,7 @@ create table public.newsletter_issues (
   exercise_body    text not null check (char_length(btrim(exercise_body)) between 1 and 2400),
   sponsor_name     text check (sponsor_name is null or char_length(btrim(sponsor_name)) between 1 and 80),
   sponsor_text     text check (sponsor_text is null or char_length(btrim(sponsor_text)) between 1 and 300),
-  sponsor_url      text check (sponsor_url is null or (sponsor_url ~ '^https://[^\\s]+$' and char_length(sponsor_url) <= 300)),
+  sponsor_url      text check (sponsor_url is null or (sponsor_url ~ '^https://[^\s]+$' and char_length(sponsor_url) <= 300)),
   scheduled_for    timestamptz,
   status           text not null default 'draft' check (status in ('draft','scheduled','sending','sent','cancelled')),
   sent_at          timestamptz,
@@ -139,7 +139,7 @@ begin
   if (v_sname is null) <> (v_stext is null) or (v_stext is null) <> (v_surl is null) then
     raise exception 'sponsor' using errcode = 'AKN03';
   end if;
-  if v_surl is not null and (v_surl !~ '^https://[^\\s]+$' or char_length(v_surl) > 300) then
+  if v_surl is not null and (v_surl !~ '^https://[^\s]+$' or char_length(v_surl) > 300) then
     raise exception 'sponsor_url' using errcode = 'AKN03';
   end if;
   if (v_subject || v_pre || v_intro || v_head || v_body || coalesce(v_sname, '') || coalesce(v_stext, '')) ~ '[—–‒―]' then
@@ -223,7 +223,7 @@ begin
   if not app.is_service_role() then
     raise exception 'only the service role signs people up' using errcode = 'insufficient_privilege';
   end if;
-  if v_email is null or char_length(v_email) > 254 or v_email !~ '^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$' then
+  if v_email is null or char_length(v_email) > 254 or v_email !~ '^[^\s@]+@[^\s@]+\.[^\s@]+$' then
     raise exception 'email address not valid' using errcode = 'AKN01';
   end if;
   if p_ip_hash is null or p_ip_hash !~ '^[0-9a-f]{64}$' then

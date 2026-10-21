@@ -6,6 +6,13 @@
 
 begin;
 
+-- 0060 sets every church band to the largest seat count (unlimited members
+-- within a band). These blocks test the band mechanics with finite bands, so
+-- they put back the sizes 0031 first seeded.
+update public.app_config set value = to_jsonb(50) where key = 'org_church_band_1_seats';
+update public.app_config set value = to_jsonb(150) where key = 'org_church_band_2_seats';
+update public.app_config set value = to_jsonb(400) where key = 'org_church_band_3_seats';
+
 -- ---------------------------------------------------------------------------
 -- Fixtures
 -- ---------------------------------------------------------------------------
