@@ -5,6 +5,7 @@ import { authorIndex, cardsByCodes, listPublishers, workbookCount } from "@/lib/
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
 
 /**
  * Every author and publisher with a live workbook on this storefront (F-006).
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: "Authors and publishers",
   description: `The authors and publishers behind ${brand.name} workbooks.`,
   alternates: { canonical: "/authors" },
+  robots: publicRobots(),
 };
 
 export default async function AuthorsPage() {

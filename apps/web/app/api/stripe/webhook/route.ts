@@ -25,6 +25,9 @@ import { reportOps } from "@/lib/ops-alerts";
 import { handleConnectWebhook, isConnectEvent } from "@/lib/payouts/connect-route";
 import { ledgerRepo } from "@/lib/money/ledger-repo";
 import { handleOrgBillingWebhook, isOrgBillingEvent } from "@/lib/org-billing-webhook";
+import { growthAfterStripeEvent } from "@/lib/growth-webhook";
+import { growthContext } from "@/lib/referral-stripe";
+import { handleConversionEvent } from "@/lib/conversion-webhook";
 
 /**
  * Stripe platform webhook (F-096). POST /api/stripe/webhook
@@ -102,6 +105,9 @@ export async function POST(request: NextRequest) {
   if (isConnectEvent(event)) return handleConnectWebhook(event, siteOrigin(request));
   // Organisation billing (F-220, migration 0030): lib/org-billing-webhook.ts.
   if (isOrgBillingEvent(event)) return handleOrgBillingWebhook(event);
+  // Gifts (5.6, 5.7) and Theme bundles (5.8): lib/conversion-webhook.ts. Null means the event is neither.
+  const conversion = await handleConversionEvent(event, siteOrigin(request));
+  if (conversion) return conversion;
 
   try {
     const admin = createAdminClient();
@@ -112,6 +118,9 @@ export async function POST(request: NextRequest) {
     for (const n of mail ?? []) await sendMail(admin, n, siteOrigin(request));
     if (outcome.action === "granted") await countPurchase(admin, event);
     if (outcome.action === "subscription_applied" || outcome.action === "cooling_off_cancelled") await countMembership(admin, event);
+    // Growth (6.3, 13.11, 14.13): the author share, referral rewards and credit. Throws on a failure so Stripe retries.
+    const growth = await growthAfterStripeEvent(event, growthContext(admin, getStripe()));
+    if (growth.length > 0) console.info("stripe webhook growth", { event: event.id, done: growth });
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
     console.error("stripe webhook: handler failed", { event: event.id, type: event.type, reason: err instanceof Error ? err.message : "unknown" });

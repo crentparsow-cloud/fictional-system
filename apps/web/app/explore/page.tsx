@@ -3,6 +3,7 @@ import Link from "next/link";
 import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
 import { CollectionCover } from "@/components/explore/CollectionCover";
 import { Rail } from "@/components/explore/Rail";
+import { EditorialSlot } from "@/components/explore/EditorialSlot";
 import { ShelfTile } from "@/components/explore/ShelfTile";
 import { LibraryBrowse } from "@/components/catalogue/LibraryBrowse";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
@@ -28,7 +29,12 @@ import {
   type ProgrammeLength,
 } from "@/lib/explore";
 import { loadCollections, loadExploreBase, loadReadSeeds } from "@/lib/explore-queries";
+import { personalRails, railHeadingMessage } from "@/lib/rails";
+import { loadFollowedAuthorSlugs, loadRailSignals } from "@/lib/rails-queries";
+import { loadEditorialSlot } from "@/lib/editorial-queries";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
+import { windowLabel } from "@/lib/seasonal";
 import { hasMessage, type MessageKey } from "@/lib/locale";
 
 /**
@@ -57,6 +63,7 @@ export const metadata: Metadata = {
   title: "Explore",
   description: `Explore ${brand.name} workbooks by shelf, by programme length and by what readers finish.`,
   alternates: { canonical: "/explore" },
+  robots: publicRobots(),
 };
 
 const LENGTH_KEYS: Record<ProgrammeLength, MessageKey> = {
@@ -71,16 +78,32 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
   const libraryQuery = parseLibraryQuery(sp);
   const browse = hasActiveFilters(libraryQuery) || sp.all === "1";
   const base = await loadExploreBase();
-  const [collections, seeds, shelvesWithThemes, enrolments, searchEntries] = await Promise.all([
-    loadCollections(base.cards),
+  const collectionsPromise = loadCollections(base.cards);
+  const [collections, seeds, shelvesWithThemes, enrolments, searchEntries, editorial] = await Promise.all([
+    collectionsPromise,
     session ? loadReadSeeds(session.userId) : Promise.resolve([]),
     browse ? listShelvesWithThemes() : Promise.resolve([]),
     browse && session ? myEnrolmentStatuses(session.userId) : Promise.resolve(null),
     // F-008: the on-device search index covers every visible title, whatever the filters.
-    searchEntriesFor(applyShelfMinimum(base.cards, parseShelfMinCount(process.env.SHELF_MIN_COUNT))),
+    collectionsPromise.then((cols) => searchEntriesFor(applyShelfMinimum(base.cards, parseShelfMinCount(process.env.SHELF_MIN_COUNT)), { themes: base.themes, collections: cols })),
+    // 7.10: the weekly editorial slot, only on the plain Explore view.
+    browse || length ? Promise.resolve(null) : loadEditorialSlot(base.cards, base.themes),
   ]);
 
   const { cards, signals } = base;
+  // 2.9 and 2.10: rails from what this reader did and the authors they follow.
+  // Only on the plain Explore view, and only for a signed-in reader.
+  const personal =
+    session && !browse && !length
+      ? personalRails({
+          cards,
+          signals: await loadRailSignals(),
+          seeds,
+          followedAuthors: await loadFollowedAuthorSlugs(session.userId),
+          shelfOfTheme: base.shelfOfTheme,
+          shelves: base.shelves,
+        })
+      : [];
   const tiles = shelfTiles(base.shelves, cards, base.shelfOfTheme);
   const options = lengthOptions(cards);
   const filtered = length ? rankByEngagement(filterByLength(cards, length), signals) : [];
@@ -111,6 +134,8 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
         {browse ? (
           <LibraryBrowse cards={base.cards} shelves={shelvesWithThemes} enrolments={enrolments} signedIn={Boolean(session)} query={libraryQuery} base="/explore" />
         ) : null}
+
+        <EditorialSlot slot={editorial} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
 
         {browse ? null : (
         <section aria-labelledby="explore-shelves">
@@ -169,6 +194,10 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           </section>
         ) : (
           <>
+            {personal.map((r) => {
+              const m = railHeadingMessage(r.heading);
+              return <Rail key={r.id} id={`for-you-${r.id}`} heading={t(m.key, m.values)} cards={r.cards} outlineOnlyLabel={outlineOnly} openLabel={open} />;
+            })}
             <Rail id="new" heading={t("explore.railNew")} cards={newThisWeek(cards, new Date())} outlineOnlyLabel={outlineOnly} openLabel={open} />
             <Rail
               id="short"
@@ -203,6 +232,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
                         <span className="collection-tile-name">{c.name}</span>
                         {c.line ? <span className="collection-tile-line">{c.line}</span> : null}
                         <span className="collection-tile-count">{c.cards.length === 1 ? t("collection.countOne") : t("collection.count", { count: c.cards.length })}</span>
+                        {windowLabel(c.startsOn, c.endsOn) ? <span className="collection-tile-count">{windowLabel(c.startsOn, c.endsOn)}</span> : null}
                       </Link>
                     </li>
                   ))}

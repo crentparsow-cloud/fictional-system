@@ -6,6 +6,7 @@ import { sendStageUpdate } from "@/lib/partner-flow";
 import { createPartnerMail, mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countFunnelEvent } from "@/lib/funnel";
+import { announceFinish } from "@/lib/friends/server";
 
 /**
  * Progress events (F-020): ids and timestamps only, never an answer or a
@@ -102,6 +103,24 @@ export async function POST(request: NextRequest) {
     }
   } catch {
     console.error("funnel_progress_failed");
+  }
+
+  // 4.5: marks are worked out in the database from the reader's own progress.
+  // Best effort: a failure here never fails the progress write.
+  if (parsed.data.kind === "step_done" || parsed.data.kind === "checkin_done" || parsed.data.kind === "finished") {
+    try {
+      await check.supabase.rpc("award_milestones");
+    } catch {
+      console.error("milestones_after_progress_failed");
+    }
+  }
+
+  // 6.2: a friend doing this workbook hears "something happened" over Realtime, with no payload.
+  // The finish itself was marked by the database trigger (0066). Best effort, after the response.
+  if (parsed.data.kind === "step_done") {
+    const userId = check.enrolment.user_id;
+    const workbookId = check.enrolment.workbook_id;
+    after(() => announceFinish(userId, workbookId));
   }
 
   if (parsed.data.kind === "step_done" || parsed.data.kind === "checkin_done") {

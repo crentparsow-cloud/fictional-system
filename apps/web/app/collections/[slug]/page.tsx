@@ -7,6 +7,8 @@ import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { brand } from "@/lib/brand";
 import { loadCollection, loadExploreBase } from "@/lib/explore-queries";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
+import { windowLabel } from "@/lib/seasonal";
 
 /**
  * A collection (build list 2.3): a hand-curated group of titles across
@@ -22,7 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const base = await loadExploreBase();
   const c = await loadCollection(slug, base.cards);
-  return c ? { title: c.name, description: c.line || undefined, alternates: { canonical: `/collections/${slug}` } } : { title: "Collection" };
+  return c
+    ? { title: c.name, description: c.line || undefined, alternates: { canonical: `/collections/${slug}` }, robots: publicRobots() }
+    : { title: "Collection" };
 }
 
 export default async function CollectionPage({ params }: { params: Promise<Params> }) {
@@ -43,6 +47,7 @@ export default async function CollectionPage({ params }: { params: Promise<Param
             <h1>{collection.name}</h1>
             {collection.line ? <p className="wb-line">{collection.line}</p> : null}
             <p className="small">{collection.cards.length === 1 ? t("collection.countOne") : t("collection.count", { count: collection.cards.length })}</p>
+            {windowLabel(collection.startsOn, collection.endsOn) ? <p className="small muted collection-window">{windowLabel(collection.startsOn, collection.endsOn)}</p> : null}
           </div>
           <CollectionCover slug={collection.slug} genreId={collection.coverGenre} pattern={collection.coverPattern} alt={t("collection.coverAlt", { name: collection.name })} />
         </div>
