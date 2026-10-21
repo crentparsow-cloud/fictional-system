@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { LibraryBookCard } from "@/components/site/BookCard";
 import type { LibraryCard } from "@/lib/catalogue-types";
 
 /**
@@ -12,21 +12,20 @@ export function Rail({
   heading,
   line,
   cards,
-  outlineOnlyLabel,
-  openLabel,
   seeAll,
 }: {
   id: string;
   heading: string;
   line?: string;
   cards: readonly LibraryCard[];
-  outlineOnlyLabel: string;
-  openLabel: string;
+  /** Kept so callers need not change. The card carries its own wording. */
+  outlineOnlyLabel?: string;
+  openLabel?: string;
   seeAll?: { href: string; label: string };
 }) {
   if (cards.length === 0) return null;
   return (
-    <section className="rail" aria-labelledby={`rail-${id}`}>
+    <section className="rail a-rail" aria-labelledby={`rail-${id}`}>
       <div className="rail-head">
         <h2 id={`rail-${id}`}>{heading}</h2>
         {seeAll ? (
@@ -36,10 +35,10 @@ export function Rail({
         ) : null}
       </div>
       {line ? <p className="muted small rail-line">{line}</p> : null}
-      <ul className="rail-row">
+      <ul className="rail-row a-rail-row">
         {cards.map((card) => (
           <li key={card.id}>
-            <WorkbookCard card={card} outlineOnlyLabel={outlineOnlyLabel} openLabel={openLabel} />
+            <LibraryBookCard card={card} />
           </li>
         ))}
       </ul>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { InfoFooter } from "@/components/InfoFooter";
 import { getReaderSession } from "@/lib/auth";
 import { GIFT_NOTICES, claimUrl, giftDateWords, giftLength } from "@/lib/gift";
 import { loadGiftConfig } from "@/lib/gift-server";
@@ -55,18 +54,23 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
   const origin = siteOrigin();
 
   return (
-    <>
-      <main id="main" className="tab-page">
-        <h1>Give a membership</h1>
-        <p>Give someone a membership for as long as you like. You pay once. Nothing renews. They claim it from a link in an email, and they do not need a card.</p>
-        <p>When the gift ends, their account goes back to how it was. Everything they have written stays theirs and stays readable.</p>
+    <main id="main" className="b-gift">
+      <header className="b-band-hero">
+        <div className="wrap b-centre">
+          <h1>Give a membership</h1>
+          <p className="b-lead">Give someone a membership for as long as you like. You pay once. Nothing renews. They claim it from a link in an email, and they do not need a card.</p>
+          <p className="b-soft">When the gift ends, their account goes back to how it was. Everything they have written stays theirs and stays readable.</p>
+        </div>
+      </header>
+
+      <div className="wrap b-narrow">
         {sp.thanks ? (
-          <p className="you-notice" role="status">
+          <p className="b-note" role="status">
             {GIFT_NOTICES.paying}
           </p>
         ) : null}
         {!open || options.length === 0 ? (
-          <p>Gifts are not open yet. Please check back soon.</p>
+          <p className="b-note">Gifts are not open yet. Please check back soon.</p>
         ) : !session ? (
           <p>
             <Link className="btn" href="/sign-in?next=/gift">
@@ -78,9 +82,9 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
         ) : null}
 
         {gifts.length ? (
-          <section aria-labelledby="gifts-given">
+          <section className="b-psec" aria-labelledby="gifts-given">
             <h2 id="gifts-given">Gifts you have given</h2>
-            <ul className="plain-list">
+            <ul className="b-gifts">
               {gifts.map((g) => (
                 <li key={g.id}>
                   <strong>{giftLength(g.months)}</strong>, {STATUS_WORDS[g.status] ?? g.status}
@@ -88,7 +92,7 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
                   {g.status === "paid" && g.claim_token && origin ? (
                     <>
                       {" "}
-                      <span className="small muted">Link to pass on yourself: </span>
+                      <span className="b-small">Link to pass on yourself: </span>
                       <code>{claimUrl(origin, g.claim_token)}</code>
                     </>
                   ) : null}
@@ -97,11 +101,10 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
             </ul>
           </section>
         ) : null}
-        <p className="small muted">
+        <p className="b-small">
           Questions? Read <Link href="/help/gift-memberships">how gifts work</Link>.
         </p>
-      </main>
-      <InfoFooter />
-    </>
+      </div>
+    </main>
   );
 }

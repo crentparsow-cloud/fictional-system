@@ -9,7 +9,7 @@ export function SignupForm() {
 
   if (state.status === "done") {
     return (
-      <div className="card" role="status">
+      <div className="b-card" role="status">
         <h2>Check your email</h2>
         <p>{state.message}</p>
       </div>
@@ -17,13 +17,13 @@ export function SignupForm() {
   }
 
   return (
-    <form action={action} className="contact-form" noValidate key={state.attempt}>
+    <form action={action} className="b-form b-form-inline" noValidate key={state.attempt}>
       {state.status === "error" ? (
         <p className="admin-notice admin-notice-error" role="alert">
           {state.message}
         </p>
       ) : null}
-      <div className="contact-field">
+      <div className="b-field">
         <label htmlFor="nl-email">Your email</label>
         <input id="nl-email" name="email" type="email" autoComplete="email" maxLength={254} defaultValue={state.status === "error" ? state.email : ""} required />
       </div>

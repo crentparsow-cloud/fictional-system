@@ -26,7 +26,7 @@ for (const path of PAGES) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
     await expect(page.locator("main h1")).toHaveCount(1);
-    await expect(page.locator(".info-footer-links a[href='/help-now']")).toBeVisible();
+    await expect(page.locator("footer.site-footer a[href='/help-now']").first()).toBeVisible();
   });
 }
 
@@ -48,7 +48,7 @@ test("plans pages say talk to us and link to the enquiry form", async ({ page })
 
 test("the trust page lists what is enforced and what is never collected", async ({ page }) => {
   await page.goto("/trust");
-  await expect(page.getByRole("heading", { name: "Your answers are sealed" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Your answers are private to you" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "What we never collect" })).toBeVisible();
   // 11.1: the comparison table and the analytics id rule.
   await expect(page.getByRole("heading", { name: "What we never do" })).toBeVisible();
@@ -58,7 +58,7 @@ test("the trust page lists what is enforced and what is never collected", async 
 
 test("the accessibility statement names WCAG 2.2 AA and a contact route", async ({ page }) => {
   await page.goto("/accessibility");
-  await expect(page.getByRole("heading", { level: 1, name: "Accessibility statement" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Reading your way" })).toBeVisible();
   await expect(page.locator("main")).toContainText("WCAG 2.2");
   await expect(page.locator("main a[href^='mailto:'], main a[href='/contact']").first()).toBeVisible();
 });

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LIMITS, UNIT_SPEC } from "@akana/validate";
 import { InfoFooter } from "@/components/InfoFooter";
+import { DHero } from "@/components/info/DHero";
 import { brand } from "@/lib/brand";
 
 export const metadata: Metadata = {
@@ -24,12 +25,13 @@ export default function HowToWritePage() {
   const [totalMin, totalMax] = UNIT_SPEC.totalMinutes;
 
   return (
-    <main className="wrap contact-page how-to-write">
-      <h1>How to write for {brand.name}</h1>
-      <p>
-        A {brand.name} workbook turns a book into a guided programme. A reader opens one unit at a time, reads for a few minutes, answers a small number of direct
-        questions and leaves with one thing to carry. This page says what a unit contains, the rules every workbook follows and what our checks look for.
-      </p>
+    <main className="d-page">
+      <DHero
+        eyebrow="For authors and publishers"
+        title={`How to write for ${brand.name}`}
+        lead={`A ${brand.name} workbook turns a book into a guided programme. A reader opens one unit at a time, reads for a few minutes, answers a small number of direct questions and leaves with one thing to carry. This page says what a unit contains, the rules every workbook follows and what our checks look for.`}
+      />
+      <div className="wrap contact-page how-to-write d-formpage d-howto">
       <p className="muted">
         Authors and publishers can build and edit units in the <Link href="/studio">Studio</Link>, and plan a programme with the{" "}
         <Link href="/studio/outline">outline generator</Link>. To start a workbook, <Link href="/publish">publish with {brand.name}</Link>.
@@ -117,12 +119,13 @@ export default function HowToWritePage() {
         <h2 id="after-h">What happens next</h2>
         <p>
           Your draft runs through the checks as you save it. An editor reads it, and a safety reviewer reads any workbook with a safety tier. You preview it as readers
-          will see it and sign off the exact version. Nothing goes live without your sign-off. Readers&apos; answers stay sealed, so neither you nor we can read what
+          will see it and sign off the exact version. Nothing goes live without your sign-off. Readers&apos; answers stay private to them, so neither you nor we can read what
           anyone writes. You see counts only, and any count under 10 is hidden.
         </p>
       </section>
 
       <InfoFooter />
+      </div>
     </main>
   );
 }

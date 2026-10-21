@@ -20,12 +20,12 @@ const isSlug = isLegalSlug;
 // apps/web is two levels below the repo root, where docs/legal lives.
 const LEGAL_DIR = path.join(process.cwd(), "..", "..", "docs", "legal");
 
-const DRAFT_LINE = /^DRAFT for the lawyer\./;
+const DRAFT_LINE = /^DRAFT(?: for the lawyer)?\./;
 
 function readDoc(slug: Slug) {
   const raw = readFileSync(path.join(LEGAL_DIR, DOCS[slug].file), "utf8");
   const lines = raw.split(/\r?\n/);
-  const banner = lines.find((l) => DRAFT_LINE.test(l)) ?? "DRAFT for the lawyer. Not published.";
+  const banner = lines.find((l) => DRAFT_LINE.test(l)) ?? "DRAFT. To be reviewed before launch.";
   const body = lines.filter((l) => !DRAFT_LINE.test(l)).join("\n");
   return { banner, body };
 }
@@ -53,12 +53,12 @@ export default async function LegalDocPage({ params }: { params: Promise<{ doc: 
   const { banner, body } = readDoc(doc);
   const html = markdownToHtml(body);
   return (
-    <main className="wrap info-page">
-      <p className="badge demo info-draft" role="note">
+    <main className="wrap d-page-pad d-narrow">
+      <p className="badge demo info-draft d-draft" role="note">
         {banner}
       </p>
       {doc === "terms" ? <p className="small muted">Version {READER_TERMS_VERSION}. This is the version readers agree to at sign-up and checkout.</p> : null}
-      <article className="legal-doc" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="legal-doc d-prose" dangerouslySetInnerHTML={{ __html: html }} />
       <InfoFooter />
     </main>
   );

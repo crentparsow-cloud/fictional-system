@@ -10,15 +10,19 @@ import Link from "next/link";
  */
 export default function GlobalError({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
-    <main className="wrap info-page">
-      <h1>We&apos;re sorry. That could not be loaded just now.</h1>
-      <p>Please try again. Your answers are safe.</p>
-      <p>
-        <button type="button" className="btn" onClick={() => reset()}>
-          Try again
-        </button>{" "}
-        <Link href="/">Go to Home</Link>
-      </p>
+    <main className="d-lost">
+      <div className="d-lost-inner">
+        <h1>We&apos;re sorry. That could not be loaded just now.</h1>
+        <p className="d-lead">Please try again. Your answers are safe.</p>
+        <p className="d-actions">
+          <button type="button" className="btn" onClick={() => reset()}>
+            Try again
+          </button>
+          <Link className="btn secondary" href="/">
+            Go to Home
+          </Link>
+        </p>
+      </div>
     </main>
   );
 }

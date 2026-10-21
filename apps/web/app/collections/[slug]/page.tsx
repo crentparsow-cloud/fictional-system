@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { LibraryBookCard } from "@/components/site/BookCard";
 import { CollectionCover } from "@/components/explore/CollectionCover";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { brand } from "@/lib/brand";
@@ -37,7 +37,7 @@ export default async function CollectionPage({ params }: { params: Promise<Param
 
   return (
     <main className="wb-page browse-page collection-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap collection-hero">
           <div>
             <nav className="wb-crumbs" aria-label="Breadcrumb">
@@ -54,19 +54,16 @@ export default async function CollectionPage({ params }: { params: Promise<Param
       </header>
 
       <div className="wrap wb-body">
-        <ol className="collection-list">
+        <ol className="collection-list a-books">
           {collection.cards.map((card) => (
             <li key={card.id}>
-              <WorkbookCard card={card} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
+              <LibraryBookCard card={card} />
             </li>
           ))}
         </ol>
         <p className="browse-more">
           <Link href="/explore">{t("collection.back")}</Link>
         </p>
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>

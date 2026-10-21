@@ -1,8 +1,8 @@
-DRAFT for the lawyer. Not published. Prepared [date] by the build team for review.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Publish with Akana: page copy
 
-For Crent to approve on Thursday 8 October (F-001). Process only. No revenue figures, rates, shares or prices anywhere on this page until Crent sets them. The page is rendered from this copy at `apps/web/app/publish/page.tsx`.
+Approved as draft wording. The revenue share is stated on this page: 50% of net receipts on single sales, 60% on sales through the author's own link, and 50% of the membership pool shared by reading activity. Net receipts are what we receive after tax, payment fees and refunds. The page is rendered from this copy at `apps/web/app/publish/page.tsx`.
 
 ## Hero
 
@@ -10,7 +10,7 @@ For Crent to approve on Thursday 8 October (F-001). Process only. No revenue fig
 
 **Heading:** Turn your book into a workbook readers finish
 
-**Lead:** Akana builds interactive guided workbooks from published books. Readers work through your ideas a week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and sell the workbook under licence, and pay you a share of what it earns every month.
+**Lead:** Akana builds interactive guided workbooks from published books. Readers work through your ideas a week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and sell the workbook under licence, and pay you a share of what it earns.
 
 **Button:** Start an enquiry (anchors to the form)
 
@@ -24,7 +24,7 @@ For Crent to approve on Thursday 8 October (F-001). Process only. No revenue fig
 
 ## How it works
 
-1. **Enquire.** Tell us about the book. We reply within [enquiry response time] and say honestly whether it suits the format.
+1. **Enquire.** Tell us about the book. We reply within 2 working days and say honestly whether it suits the format.
 2. **Licence.** We agree a licence for the workbook edition. You keep the copyright and every other right in the book. The licence covers the workbook only.
 3. **Build and review.** Our editors turn the book into a workbook in our format. You see every draft, correct anything, and sign off before it goes live. A workbook is never published without the author's approval.
 4. **Sell and pay.** The workbook goes into the Akana library. Readers buy it or read it through membership. You get a monthly statement and a monthly payment, with exact figures for your records.
@@ -81,7 +81,7 @@ Fields, in order. Required fields marked.
 
 Submit button: **Send enquiry**. On the preview before Thursday the button is disabled and reads "Form opens Thursday".
 
-Beneath the form: "We reply within [enquiry response time]. Your details go to the Akana team and nowhere else. See our privacy notice."
+Beneath the form: "We reply within 2 working days. Your details go to the Akana team and nowhere else. See our privacy notice."
 
 ## FAQ
 
@@ -89,7 +89,7 @@ Beneath the form: "We reply within [enquiry response time]. Your details go to t
 Yes. The licence covers the workbook edition only. You keep the copyright and every other right in the book.
 
 **What does it cost me?**
-Nothing up front. Akana is paid from the workbook's receipts. The share is set out in the licence [figures to be added by Crent].
+Nothing up front. You keep half of every sale, 60% when the reader comes through your own link, and half of the membership pool shared by reading activity. Shares are worked out on net receipts, after tax, payment fees and refunds. We agree it with you in writing before anything goes live.
 
 **How long does a build take?**
 It depends on the book. We give you a timeline after we have read it.
@@ -101,19 +101,11 @@ Not yet. At launch every workbook is built with Akana's editors so that the form
 Akana treats wellbeing workbooks with extra care. They carry no diagnosis or treatment language, Help now is on every screen, and readers give explicit consent before their answers are stored. Your book is not a medical device and your workbook will not be presented as one.
 
 **Who sells the workbook?**
-Akana is the seller on the marketplace. We handle payment, tax and refunds. You are paid from net receipts. [to confirm: seller of record decision]
+Akana is the seller on the marketplace. We handle payment, tax and refunds. You are paid from net receipts. Akana Holdings is the seller of record.
 
 **Can I see what readers write?**
-No. Nobody can. Answers are sealed so that only the reader can read them. You see counts of readers and completions, with small numbers suppressed.
+No. Nobody can. Answers are private to the reader so that only the reader can read them. You see counts of readers and completions, with small numbers suppressed.
 
 **What happens if I want to leave?**
-The licence sets out the notice period [to be set by the lawyer]. Readers who already bought the workbook keep access to the version they bought [to confirm: question D9].
+The licence sets out the notice period, which is 90 days. Readers who already bought the workbook keep access to the version they bought. If a workbook is withdrawn, buyers keep access to their copy and their own answers.
 
-## Placeholders
-
-- [date]
-- [enquiry response time]
-- [figures to be added by Crent] revenue share in the FAQ
-- [to confirm: seller of record decision]
-- [to be set by the lawyer] licence notice period
-- [to confirm: question D9] what buyers keep

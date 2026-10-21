@@ -40,64 +40,62 @@ export default async function BookClubHubPage() {
   ];
 
   return (
-    <main className="wb-page browse-page">
-      <header className="wb-hero">
-        <div className="wrap">
-          <nav className="wb-crumbs" aria-label="Breadcrumb">
+    <main className="b-clubs">
+      <header className="b-band-hero">
+        <div className="wrap b-centre">
+          <nav className="b-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
           </nav>
           <h1>Book clubs</h1>
-          <p className="wb-line">Read the book, then work through it together. Each meeting has a few questions, and nobody has to share what they wrote.</p>
+          <p className="b-lead">Read the book, then work through it together. Each meeting has a few questions, and nobody has to share what they wrote.</p>
         </div>
       </header>
 
-      <div className="wrap wb-body">
-        <section className="wb-section" aria-labelledby="bc-how">
-          <h2 id="bc-how">How a group runs one</h2>
-          <ol className="wb-outline">
-            {RUN_STEPS.map((s) => (
-              <li key={s}>
-                <span>{s}</span>
-              </li>
-            ))}
-          </ol>
-        </section>
+      <div className="wrap b-body">
+        <div className="b-three">
+          <section aria-labelledby="bc-how">
+            <h2 id="bc-how">How a group runs one</h2>
+            <ol className="b-list b-list-n">
+              {RUN_STEPS.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ol>
+          </section>
 
-        <section className="wb-section" aria-labelledby="bc-rules">
-          <h2 id="bc-rules">Ground rules</h2>
-          <ul className="wb-for">
-            {GROUND_RULES.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
-        </section>
+          <section aria-labelledby="bc-rules">
+            <h2 id="bc-rules">Ground rules</h2>
+            <ul className="b-list">
+              {GROUND_RULES.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ul>
+          </section>
 
-        <section className="wb-section" aria-labelledby="bc-questions">
-          <h2 id="bc-questions">Questions for any meeting</h2>
-          <ul className="wb-for">
-            {DISCUSSION_PROMPTS.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
-        </section>
+          <section aria-labelledby="bc-questions">
+            <h2 id="bc-questions">Questions for any meeting</h2>
+            <ul className="b-list">
+              {DISCUSSION_PROMPTS.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
 
-        <section aria-labelledby="bc-list">
-          <h2 id="bc-list" className="browse-heading">
-            Programmes for a group
-          </h2>
+        <section className="b-psec" aria-labelledby="bc-list">
+          <h2 id="bc-list">Programmes for a group</h2>
           {cards.length ? (
-            <div className="grid wb-grid">
+            <div className="b-related">
               {cards.map((card) => (
-                <div key={card.id}>
-                  <WorkbookCard card={card} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
-                  <p className="small">
+                <div key={card.id} className="b-club-item">
+                  <WorkbookCard card={card} outlineOnlyLabel="Coming soon" openLabel={t("library.open")} />
+                  <p className="b-club-link">
                     <Link href={bookClubPath(card.slug)}>Run this with your book club</Link>
                   </p>
                 </div>
               ))}
             </div>
           ) : (
-            <section className="empty-state browse-empty">
+            <section className="b-card b-empty">
               <p>No programmes are ready for groups yet. They appear here as soon as they are published.</p>
               <Link className="btn secondary" href="/explore">
                 See every programme
@@ -106,11 +104,11 @@ export default async function BookClubHubPage() {
           )}
         </section>
 
-        <p className="browse-more">
+        <p className="b-more">
           Running a group for a church or a team? <Link href="/organisations">See Akana for organisations</Link>.
         </p>
 
-        <footer className="footer wb-footer">
+        <footer className="b-notes">
           <p>{brand.wellnessNotice}</p>
         </footer>
         <NeedSupportFooter label={t("help.needSupport")} />

@@ -32,25 +32,27 @@ export default async function HelpTopicPage({ params }: { params: Promise<Params
   const page = getHelpPage(topic);
   const support = supportContact();
   return (
-    <main className="wrap info-page">
-      <nav className="wb-crumbs" aria-label="Breadcrumb">
-        <Link href="/help">Help centre</Link>
-      </nav>
-      <div className="info-help-row">
-        <HelpNowButton />
-        <p className="small muted">{brand.name} is not a crisis service. In an emergency, call your local emergency number.</p>
+    <main className="d-page">
+      <div className="wrap d-narrow d-topic">
+        <nav className="d-crumbs" aria-label="Breadcrumb">
+          <Link href="/help">Help centre</Link>
+        </nav>
+        <h1>{page.title}</h1>
+        <div className="d-helprow">
+          <HelpNowButton />
+          <p className="small d-soft">{brand.name} is not a crisis service. In an emergency, call your local emergency number.</p>
+        </div>
+        <article className="legal-doc d-prose" dangerouslySetInnerHTML={{ __html: page.html }} />
+        <section className="d-card d-after" aria-labelledby="help-contact">
+          <h2 id="help-contact">Still need help?</h2>
+          <p>
+            Email{" "}
+            {support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>} from the address on your
+            account.
+          </p>
+        </section>
+        <InfoFooter />
       </div>
-      <h1>{page.title}</h1>
-      <article className="legal-doc" dangerouslySetInnerHTML={{ __html: page.html }} />
-      <section className="info-section" aria-labelledby="help-contact">
-        <h2 id="help-contact">Still need help?</h2>
-        <p>
-          Email{" "}
-          {support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>} from the address on your
-          account.
-        </p>
-      </section>
-      <InfoFooter />
     </main>
   );
 }

@@ -1,4 +1,4 @@
-DRAFT for the lawyer. Not published. Prepared 7 October 2026 by the build team from docs/research/akana-business.md section 3. This is a new section for the privacy notice (docs/legal/privacy-notice.md), to go after section 3, with a matching short clause for the reader terms at the end. Points marked [check legal] need a view.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 ## Joining Akana through an organisation
 
@@ -9,7 +9,7 @@ Your employer, charity, church or community group (your **organisation**) may gi
 **Two separate roles.**
 
 - *Your organisation's list.* The email address your organisation invited, whether you accepted, and when your place started and ended. Your organisation decides why and how this list is used, so it is the controller. Akana keeps the list for it, as its processor, under a data processing agreement. Your organisation's own privacy notice should tell you about this.
-- *Your own account and your work.* Your Akana account, your answers, check-ins, daily checks, plans, progress and consents. Akana is the controller for these, under this privacy notice and the reader terms, exactly as for any other reader. Your organisation has no say over this data and no way to see it [check legal].
+- *Your own account and your work.* Your Akana account, your answers, check-ins, daily checks, plans, progress and consents. Akana is the controller for these, under this privacy notice and the reader terms, exactly as for any other reader. Your organisation has no say over this data and no way to see it.
 
 **What your organisation can see.**
 
@@ -19,7 +19,7 @@ Your employer, charity, church or community group (your **organisation**) may gi
 
 **What your organisation never sees.** Anything you write. Which workbook you chose. How far you have got. Your check-ins, daily checks or consents. The email address you sign in with, if it is different from the one they invited. No one at your organisation, the author or Akana staff can read your answers. They are sealed as described in section 3.
 
-**Health and faith.** If you open a wellbeing workbook, we ask for your explicit consent exactly as we do for anyone else, and you can withdraw it at any time. The same applies to faith titles. Your organisation is not told whether you gave or withdrew consent. If your organisation is a church, the fact that you were invited by it may show something about your beliefs. The church holds its own list under its own lawful basis; Akana uses that list only to run your place [check legal].
+**Health and faith.** If you open a wellbeing workbook, we ask for your explicit consent exactly as we do for anyone else, and you can withdraw it at any time. The same applies to faith titles. Your organisation is not told whether you gave or withdrew consent. If your organisation is a church, the fact that you were invited by it may show something about your beliefs. The church holds its own list under its own lawful basis; Akana uses that list only to run your place.
 
 **Adults only.** You must be 18 or over to take a place, and we ask you to confirm it.
 
@@ -35,4 +35,4 @@ Your employer, charity, church or community group (your **organisation**) may gi
 
 To go after section 1 of docs/legal/reader-terms.md.
 
-If an organisation gives you a place on Akana, these terms still govern your account and your use of Akana. The organisation's place gives you access to the workbooks its licence covers, while the place lasts. When it ends, you keep your account and your own work, and those workbooks become read only. Your organisation cannot see your work, and you never have to show it to anyone. Workbooks you use through an organisation are for your own learning and for discussion within that organisation [check legal: the author licence must grant organisational use].
+If an organisation gives you a place on Akana, these terms still govern your account and your use of Akana. The organisation's place gives you access to the workbooks its licence covers, while the place lasts. When it ends, you keep your account and your own work, and those workbooks become read only. Your organisation cannot see your work, and you never have to show it to anyone. Workbooks you use through an organisation are for your own learning and for discussion within that organisation.

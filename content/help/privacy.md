@@ -18,9 +18,9 @@ There are no ad pixels and no third-party trackers on Akana. We use only the coo
 
 What you write in a wellbeing workbook may be health information. We ask for your explicit consent before we store it, and you can withdraw it at any time. See [your account](/help/account).
 
-## Check-in partner
+## Reading buddy
 
-If you invite a check-in partner, they never see your answers, the workbook, its Theme or anything you wrote in it. See [check-in partner](/help/check-in-partner).
+If you invite a reading buddy, they never see your answers, the workbook, its Shelf or anything you wrote in it. See [reading buddy](/help/check-in-partner).
 
 ## Your rights
 

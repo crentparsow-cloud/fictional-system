@@ -10,16 +10,35 @@ import { InfoFooter } from "@/components/InfoFooter";
  */
 export default function NotFound() {
   return (
-    <main className="wrap info-page">
-      <h1>We could not find that page</h1>
-      <p>The link may be old, or the page may have moved.</p>
-      <p>
-        <Link href="/">Go to the home page</Link> or <Link href="/help">visit the help centre</Link>.
-      </p>
-      <div className="info-help-row">
-        <HelpNowButton />
+    <main className="d-lost">
+      <div className="d-lost-inner">
+        <h1>That page has wandered off</h1>
+        <p className="d-lead">It may have moved, or the link may be old. Try a search, or head back to the library.</p>
+        <p className="d-actions">
+          <Link className="btn" href="/search">
+            Search the library
+          </Link>
+          <Link className="btn secondary" href="/library">
+            Go to the library
+          </Link>
+        </p>
+        <p>
+          <Link className="d-textlink" href="/">
+            Go to the home page
+          </Link>{" "}
+          or{" "}
+          <Link className="d-textlink" href="/help">
+            visit the help centre
+          </Link>
+          .
+        </p>
+        <div className="d-helprow d-helprow-center">
+          <HelpNowButton />
+        </div>
       </div>
-      <InfoFooter />
+      <div className="wrap">
+        <InfoFooter />
+      </div>
     </main>
   );
 }

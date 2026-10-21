@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
+import { DHero } from "@/components/info/DHero";
 import { ACCESSIBILITY as A } from "@/lib/accessibility";
 import { brand } from "@/lib/brand";
 import { byPrinciple, CRITERIA, PRINCIPLES, tally, VPAT } from "@/lib/vpat";
@@ -20,20 +21,18 @@ export const metadata: Metadata = {
 export default function ConformancePage() {
   const t = tally();
   return (
-    <main className="wrap info-page">
-      <header className="info-head">
-        <p className="eyebrow muted">{brand.name}</p>
-        <h1>Accessibility conformance report</h1>
-        <p className="info-lead">{VPAT.summary}</p>
-        <p className="small muted">
+    <main className="d-page">
+      <DHero eyebrow={brand.name} title="Accessibility conformance report" lead={VPAT.summary}>
+        <p className="small d-soft">
           Standard: {VPAT.standard}. Report date: {VPAT.reportDate}. {VPAT.format}
         </p>
         <p>
           <Link href="/accessibility">Back to the accessibility statement</Link>
         </p>
-      </header>
+      </DHero>
+      <div className="wrap d-conf">
 
-      <section className="info-section" aria-labelledby="vpat-scope">
+      <section className="d-section-s" aria-labelledby="vpat-scope">
         <h2 id="vpat-scope">What this covers</h2>
         <p>{VPAT.scope}</p>
         <p>
@@ -44,7 +43,7 @@ export default function ConformancePage() {
         </p>
       </section>
 
-      <section className="info-section" aria-labelledby="vpat-terms">
+      <section className="d-section-s" aria-labelledby="vpat-terms">
         <h2 id="vpat-terms">The words we use</h2>
         <dl className="admin-dl">
           {VPAT.terms.map((x) => (
@@ -57,7 +56,7 @@ export default function ConformancePage() {
       </section>
 
       {PRINCIPLES.map((p) => (
-        <section key={p.n} className="info-section" aria-labelledby={`vpat-p${p.n}`}>
+        <section key={p.n} className="d-section-s" aria-labelledby={`vpat-p${p.n}`}>
           <h2 id={`vpat-p${p.n}`}>
             {p.n}. {p.name}
           </h2>
@@ -88,7 +87,7 @@ export default function ConformancePage() {
         </section>
       ))}
 
-      <section className="info-section" aria-labelledby="vpat-limits">
+      <section className="d-section-s" aria-labelledby="vpat-limits">
         <h2 id="vpat-limits">Limits of this report</h2>
         <ul>
           {VPAT.limits.map((l) => (
@@ -97,7 +96,7 @@ export default function ConformancePage() {
         </ul>
       </section>
 
-      <section className="info-section" aria-labelledby="vpat-contact">
+      <section className="d-section-s" aria-labelledby="vpat-contact">
         <h2 id="vpat-contact">Tell us about a problem</h2>
         <p>
           {A.contact.howTo} <Link href={VPAT.contactRoute}>Contact us</Link>.
@@ -105,6 +104,7 @@ export default function ConformancePage() {
       </section>
 
       <InfoFooter />
+      </div>
     </main>
   );
 }

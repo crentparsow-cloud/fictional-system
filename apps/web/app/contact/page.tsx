@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HelpNowButton } from "@/components/HelpNowButton";
+import { DHero } from "@/components/info/DHero";
+import { company, support } from "@/lib/company";
 import { ContactForm } from "./contact-form";
 
 export const metadata: Metadata = { title: "Contact us" };
@@ -11,11 +13,15 @@ export const metadata: Metadata = { title: "Contact us" };
  * draft for Crent; the reply time is a placeholder until he sets it.
  */
 export default function ContactPage() {
+  const contact = support();
   return (
-    <main className="wrap contact-page">
-      <h1>Contact us</h1>
-
-      <section className="card contact-crisis" aria-labelledby="crisis-h">
+    <main className="d-page">
+      <DHero
+        title="Contact us"
+        lead={`Write to us and a real person will reply. We aim to answer within ${company.replyTime}.`}
+      />
+      <div className="wrap contact-page d-formpage">
+      <section className="d-card contact-crisis d-crisis" aria-labelledby="crisis-h">
         <h2 id="crisis-h">We are not a crisis service</h2>
         <p>
           We read messages in working hours and cannot reply straight away. If you or someone else is in danger now, call 999 in the UK, or your local emergency
@@ -32,6 +38,10 @@ export default function ContactPage() {
       </p>
 
       <ContactForm />
+      <p className="d-soft small">
+        Prefer email? Write to {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}.
+      </p>
+      </div>
     </main>
   );
 }

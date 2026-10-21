@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 type Params = Promise<{ id: string }>;
 type Search = Promise<Record<string, string | string[] | undefined>>;
 
-const DRAFT_LINE = /^DRAFT for the lawyer\..*$/m;
+const DRAFT_LINE = /^DRAFT(?: for the lawyer)?\..*$/m;
 
 /** The variable terms, shared by the clickwrap and the signed upload forms. */
 function TermsFields({ prefix }: { prefix: string }) {

@@ -1,0 +1,128 @@
+/* redesign group c: free week, keep your week, sign in, reading view, your shelf, plan and certificate.
+   Tokens only. Classes prefixed c- where new; existing classes are refined in place. */
+
+/* ---------- slim top bar (reader, reading view, sign-in, welcome) ---------- */
+.c-topbar { order: -2; background: var(--canvas); border-block-end: 1px solid var(--line); }
+.c-topbar-in { inline-size: min(100% - 2 * var(--gutter), 72rem); margin-inline: auto; min-block-size: 56px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.c-topbar-brand { display: inline-flex; align-items: center; min-block-size: 44px; font-family: var(--f-display); font-weight: 800; font-size: 1.3rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+.c-topbar-link { display: inline-flex; align-items: center; min-block-size: 44px; padding-inline: 0.25rem; font-weight: 600; color: var(--brand-text); text-underline-offset: 0.2em; }
+.c-topbar-link:hover { color: var(--ink); }
+.c-topbar a:focus-visible { outline-offset: 2px; }
+:root[data-chrome="hidden"] .c-topbar { opacity: 0; pointer-events: none; }
+:root[data-chrome="hidden"] .c-topbar:focus-within { opacity: 1; pointer-events: auto; }
+@media print { .c-topbar, .c-try-bar { display: none !important; } }
+
+/* ---------- sign in and welcome ---------- */
+.c-auth-shell { min-block-size: 100dvh; display: flex; flex-direction: column; background: var(--canvas); }
+.c-auth-shell .auth-page { flex: 1; min-block-size: 0; align-content: start; padding-block: clamp(1.5rem, 6vw, 4rem) 3rem; }
+.auth-card { inline-size: min(100%, 28rem); padding: clamp(1.25rem, 4vw, 2rem); border-radius: 22px; background: var(--surface); }
+.auth-card h1 { font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.2rem); letter-spacing: -0.02em; }
+.auth-card .eyebrow { color: var(--brand-text); font-weight: 700; }
+.auth-card input[type="email"], .auth-card input[type="text"] { min-block-size: 52px; border-radius: 14px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); padding-inline: 1rem; font: inherit; }
+.auth-card input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--brand); }
+.auth-card .btn { min-block-size: 52px; justify-content: center; font-size: 1.05rem; padding-inline: 1.5rem; }
+.c-auth-new { margin-block: 1.25rem 0; font-weight: 500; }
+.c-auth-new a { font-weight: 600; }
+
+/* ---------- free week (/try) ---------- */
+.c-try { padding-block: 0 4rem; }
+.c-try-bar { background: var(--canvas); border-block-end: 1px solid var(--line); }
+.c-try-bar-in { inline-size: min(100% - 2 * var(--gutter), 48rem); margin-inline: auto; min-block-size: 56px; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
+.c-try-title { margin: 0; flex: 1; text-align: center; color: var(--ink-soft); font-size: 0.95rem; }
+.c-try-welcome { inline-size: min(100% - 2 * var(--gutter), 44rem); margin-inline: auto; padding-block: clamp(1.5rem, 5vw, 3rem) 0.5rem; }
+.c-try-welcome h1 { font-size: clamp(1.7rem, 1.3rem + 1.8vw, 2.4rem); letter-spacing: -0.02em; text-wrap: balance; }
+.c-try .read-page { inline-size: min(100% - 2 * var(--gutter), 44rem); margin-inline: auto; padding-inline: 0; }
+/* The public header and footer give way to the slim bar on the free week. */
+body:has(.c-try) .site-header, body:has(.c-try) .site-footer { display: none; }
+@media (max-width: 40rem) { .c-try-title { order: 3; flex-basis: 100%; text-align: start; padding-block-end: 0.5rem; } }
+
+/* Keep your week: the soft wall at the end of the free unit */
+.try-wall { border-radius: 22px; background: var(--surface); padding: clamp(1.25rem, 4vw, 2rem); display: grid; gap: 0.75rem; }
+.try-wall > * { margin-block: 0; }
+.try-wall h2 { font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.1rem); letter-spacing: -0.02em; }
+.try-wall .eyebrow { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 700; }
+.try-wall-form { display: grid; gap: 0.6rem; }
+.try-wall-form label { font-weight: 600; }
+.try-wall-form input[type="email"] { min-block-size: 52px; border-radius: 14px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); padding-inline: 1rem; font: inherit; }
+.try-wall-form input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-color: var(--brand); }
+.try-wall-form .btn { min-block-size: 52px; justify-content: center; font-size: 1.05rem; }
+
+/* ---------- reader shell ---------- */
+.reader-shell { background: var(--canvas); }
+.reader-main { padding-block-start: clamp(1.25rem, 3vw, 2.25rem); }
+.tab-page h1 { font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem); letter-spacing: -0.02em; font-weight: 800; }
+.tab-page > .muted:first-of-type { margin-block-end: 1.25rem; }
+.tab-page h2 { letter-spacing: -0.015em; }
+.reader-nav { border-block-start: 1px solid var(--line); box-shadow: 0 -6px 18px -14px var(--ink); }
+.reader-nav a { min-block-size: 60px; }
+@media (min-width: 48rem) { .reader-nav { box-shadow: none; } }
+
+/* ---------- your shelf: continue, workbooks, today ---------- */
+.continue-card, .mine-card, .today-card { border-radius: 22px; background: var(--surface); border: 1px solid var(--line); padding: clamp(1rem, 3vw, 1.5rem); }
+.continue-card .btn { justify-content: center; min-block-size: 52px; font-size: 1.05rem; }
+.continue-status { margin-block-end: 0.5rem; }
+.mine-list { gap: 1rem; }
+.mine-card .wb-card-title { font-size: 1.3rem; letter-spacing: -0.015em; }
+.wb-card-open { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+.library-chip-row .chip, .chips .chip { min-block-size: 44px; border-radius: 999px; background: var(--surface); border: 1.5px solid var(--line-strong); color: var(--ink); text-decoration: none; padding-inline: 1.1rem; display: inline-flex; align-items: center; }
+.chips .chip[aria-current="true"] { background: var(--ink); color: var(--canvas); border-color: var(--ink); }
+.empty-state { border-radius: 22px; text-align: start; display: grid; gap: 0.75rem; justify-items: start; }
+.empty-state > * { margin-block: 0; }
+.you-section { margin-block-start: clamp(1.5rem, 4vw, 2.5rem); }
+.you-section h2 { margin-block-end: 0.25rem; }
+.you-list, .you-actions, .you-consent, .you-confirm { border-radius: 22px; background: var(--surface); }
+.you-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.you-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.you-links a { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+.you-banner, .you-notice { border-radius: 16px; }
+.you-page .btn, .tab-page .btn { min-block-size: 48px; }
+.daily-check { border-radius: 22px; }
+
+/* ---------- reading view ---------- */
+.read-page { max-inline-size: 48rem; margin-inline: auto; gap: 1.25rem; }
+.read-head { border-block-end: 1px solid var(--line); padding-block-end: 0.75rem; }
+.um-details { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 0.25rem 1rem; }
+.um-details > summary { color: var(--ink); }
+.um-note, .um-focus { color: var(--ink-soft); }
+.rd-stage { background: transparent; }
+.ak-player { inline-size: 100%; }
+.ak-player-body { font-family: var(--f-read); font-size: var(--fs-read); line-height: 1.6; }
+.ak-h2 { font-weight: 800; letter-spacing: -0.02em; }
+.ak-eyebrow { color: var(--brand-text); letter-spacing: 0.09em; }
+.ak-card { border-radius: 22px; box-shadow: none; padding: clamp(1rem, 3vw, 1.5rem); }
+.ak-player-head { border-block-end-color: var(--line); }
+.ak-btn { min-block-size: 52px; padding-inline: 1.6rem; font-size: 1.05rem; }
+.ak-btn-secondary, .ak-nav-btn, .ak-chip { border-color: var(--line-strong); }
+.ak-textarea { border-radius: 14px; min-block-size: 200px; line-height: 36px; padding-block: 6px; font-family: var(--f-read); font-size: 1.1rem;
+  background: repeating-linear-gradient(var(--surface) 0, var(--surface) 35px, var(--line) 35px, var(--line) 36px); }
+.ak-input { border-radius: 14px; }
+.ak-note { background: var(--surface-2); }
+.ak-banner { background: var(--brand-wash); border-radius: 16px; }
+.ak-player-body blockquote, .ak-quote { border-inline-start: 4px solid var(--brand); background: var(--highlight); color: var(--ink); border-radius: 0 14px 14px 0; padding: 1rem 1.25rem; margin-inline: 0; }
+.pause-bar, .c-pause { border-radius: 22px; }
+.ra-bar { margin-block-end: 8px; }
+/* Phones: the main action stays in reach above the tab bar. */
+@media (max-width: 47.99rem) {
+  .read-page { padding-inline: 0; }
+  .ak-player-body .ak-btn { align-self: stretch; inline-size: 100%; min-block-size: 56px; }
+  .ak-textarea { min-block-size: 180px; }
+  .ak-chips-scale { grid-template-columns: repeat(6, 1fr); }
+  .ak-chips-scale .ak-chip { min-block-size: 44px; }
+  .um-details { padding-inline: 0.75rem; }
+}
+
+/* ---------- plan and certificate ---------- */
+.certificate-page { max-inline-size: 48rem; }
+.certificate { border-radius: 22px; border: 2px solid var(--line-strong); background: var(--surface); text-align: center; padding: clamp(1.5rem, 6vw, 3.5rem); display: grid; gap: 0.5rem; justify-items: center; }
+.certificate > * { margin-block: 0; }
+.certificate-line { font-family: var(--f-serif); color: var(--ink-soft); }
+.certificate-title { font-size: clamp(1.7rem, 1.2rem + 2.4vw, 2.6rem); letter-spacing: -0.02em; font-weight: 800; text-wrap: balance; }
+.certificate .eyebrow { letter-spacing: 0.09em; text-transform: uppercase; font-size: 0.8rem; }
+.certificate-page form .btn, .certificate-page .no-print .btn { min-block-size: 48px; }
+@media print {
+  .certificate { border: 2px solid var(--ink); }
+}
+
+.c-try-moment { max-inline-size: 42rem; margin: 2rem auto; padding-inline: var(--gutter, 1rem); display: grid; gap: 0.75rem; }
+.c-try-moment h2, .c-try-moment h3, .c-try-moment p { margin: 0; }
+.c-try-letter { background: var(--brand-wash); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.35rem; display: grid; gap: 0.6rem; color: var(--ink); }

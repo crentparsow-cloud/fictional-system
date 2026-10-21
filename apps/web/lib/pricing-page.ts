@@ -124,7 +124,7 @@ export function planCards(input: PricingInput): PlanCard[] {
       secondary: null,
       billing: `${price} each month for two people, until you cancel. About one and a half times the single monthly price.`,
       terms: [
-        "One person pays and owns the membership. The second person joins from a link, and each of you keeps your own sealed answers.",
+        "One person pays and owns the membership. The second person joins from a link, and each of you keeps your own answers private to you.",
         "Renews every month, automatically, until you cancel. If the person who pays cancels, you both lose access at the end of the paid period.",
         COOLING,
         CANCEL_TERMS,
@@ -143,7 +143,7 @@ export function planCards(input: PricingInput): PlanCard[] {
       secondary: `${formatPrice(monthlyEquivalentMinor(twoYearMinor), gb)} a month`,
       billing: `${total} once a year for two people, until you cancel. The monthly figure is the yearly price divided by twelve.`,
       terms: [
-        "One person pays and owns the membership. The second person joins from a link, and each of you keeps your own sealed answers.",
+        "One person pays and owns the membership. The second person joins from a link, and each of you keeps your own answers private to you.",
         "Renews once a year, automatically, until you cancel. We email you before each renewal. If the person who pays cancels, you both lose access at the end of the paid period.",
         COOLING,
         CANCEL_TERMS,
@@ -185,7 +185,7 @@ export const WHICH_TO_PICK: readonly { label: string; text: string }[] = [
   { label: "One workbook", text: "Pick this if one book is the one you want. You pay once and keep it. Nothing renews." },
   { label: "Monthly membership", text: "Pick this to try several workbooks, or if you do not know how long you will use it. You can stop at any time." },
   { label: "Annual membership", text: "Pick this if you expect to use the library for most of a year. The monthly figure is lower, and you pay once a year." },
-  { label: "Membership for two people", text: "Pick this if you and one other person would each use it. Each of you keeps your own sealed answers." },
+  { label: "Membership for two people", text: "Pick this if you and one other person would each use it. Each of you keeps your own answers private to you." },
 ];
 
 // ---------------------------------------------------------------------------
@@ -208,7 +208,7 @@ export const FAQ: readonly Faq[] = [
   },
   {
     q: "What happens to my answers if I cancel?",
-    a: "They stay yours. They are sealed with your own account, so nobody at Akana can read them. You can still read everything you wrote and download it from the You page.",
+    a: "They stay yours. They are private to you, so nobody at Akana can read them. You can still read everything you wrote and download it from the You page.",
   },
   {
     q: "Can I pause instead?",

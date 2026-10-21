@@ -71,10 +71,22 @@ export default async function TryPage({ params }: { params: Promise<Params> }) {
   await countView("sample_view", wb.id, null); // F-141, ids only, opt-out respected
 
   return (
-    <main className="wrap try-page">
-      <p className="eyebrow">
-        <Link href={`/w/${slug}`}>{brand.name}</Link>
-      </p>
+    <main className="try-page c-try">
+      <header className="c-try-bar">
+        <div className="c-try-bar-in">
+          <Link href="/" className="c-topbar-brand">
+            {brand.name}
+          </Link>
+          <p className="c-try-title">{rebuilt.workbook.title}. {rebuilt.workbook.structure.unit.charAt(0).toUpperCase() + rebuilt.workbook.structure.unit.slice(1)} 1</p>
+          <Link href={`/w/${slug}`} className="c-topbar-link">
+            Save and leave
+          </Link>
+        </div>
+      </header>
+      <div className="c-try-welcome">
+        <h1>Welcome. This will take about 10 minutes.</h1>
+        <p className="muted">You can stop at any time. Your answers are saved on this device as you type.</p>
+      </div>
       <TryClient workbook={withTitleCopy(rebuilt.workbook, titleCopyFor(wb.code))} slug={slug} lockedUnits={rebuilt.lockedUnits} missing={rebuilt.missing} wall={<TryWall slug={slug} />} />
     </main>
   );
