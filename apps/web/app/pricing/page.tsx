@@ -9,6 +9,9 @@ import { ENQUIRY_HREF, type PricePointRowLike } from "@/lib/plans";
 import { FAQ, WHICH_TO_PICK, planCards } from "@/lib/pricing-page";
 import { sharedPlanOpen, sharedYearlyPlanOpen } from "@/lib/shared-membership";
 import { loadTrialConfig } from "@/lib/membership-trial-server";
+import { siteProof } from "@/lib/social-proof-server";
+import { studentEnabled } from "@/lib/student";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -45,6 +48,7 @@ export default async function PricingPage() {
   const rows = await membershipRows();
   const trial = await loadTrialConfig();
   const cards = planCards({ rows, trial, sharedOpen: sharedPlanOpen(), sharedYearlyOpen: sharedYearlyPlanOpen(), open: membershipPlansOpen() });
+  const proof = await siteProof(MARKETPLACE_TENANT_ID).catch(() => null);
   const anyMembership = cards.some((c) => c.id !== "workbook");
   return (
     <main className="wrap info-page">
@@ -54,6 +58,7 @@ export default async function PricingPage() {
         <p className="info-lead">
           Plain prices, VAT included. Week 1 of any workbook is free to read, with no card, before you decide.
         </p>
+        {proof ? <p className="muted small">{proof}</p> : null}
       </header>
 
       <div className="info-split">
@@ -96,6 +101,16 @@ export default async function PricingPage() {
             </div>
           ) : null}
         </div>
+        <p className="small">
+          <Link href="/gift">Give a membership</Link>
+          {studentEnabled() ? (
+            <>
+              {" "}
+              or see the <Link href="/you/student">student price</Link>
+            </>
+          ) : null}
+          .
+        </p>
         <p className="small muted">UK prices.</p>
         <TrustStrip kind="both" />
         <p className="small">

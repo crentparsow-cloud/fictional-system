@@ -3,6 +3,8 @@ import { headers } from "next/headers";
 import { listPublishers } from "@/lib/author-theme-pages";
 import { listThemes } from "@/lib/author-theme-queries";
 import { listLibrary } from "@/lib/catalogue";
+import { shelfTiles } from "@/lib/explore";
+import { loadCollections, loadExploreBase } from "@/lib/explore-queries";
 import { HELP_TOPICS } from "@/lib/help";
 import { LEGAL_SLUGS } from "@/lib/legal-docs";
 import { listPublicDomainRecords } from "@/lib/public-domain";
@@ -28,7 +30,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       return [];
     }),
   ]);
+  // 2.11: shelves and collections a visitor can open. A failed read leaves them out, not the whole file.
+  let shelfIds: string[] = [];
+  let collectionSlugs: string[] = [];
+  try {
+    const base = await loadExploreBase();
+    shelfIds = shelfTiles(base.shelves, base.cards, base.shelfOfTheme).map((s) => s.id);
+    collectionSlugs = (await loadCollections(base.cards)).map((c) => c.slug);
+  } catch (err) {
+    console.error("sitemap: shelves read failed", err instanceof Error ? err.message : err);
+  }
   return buildSitemap({
+    shelfIds,
+    collectionSlugs,
     origin,
     cards,
     themes,

@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { bioReviewFlags } from "@/lib/house-style";
 import { clientIp, hashWithSalt, leadSalt } from "@/lib/leads";
 import { requireRoleMfa } from "@/lib/mfa/role-mfa-server";
 import { originFrom } from "@/lib/partner";
@@ -100,7 +101,8 @@ export async function submitBio(formData: FormData): Promise<void> {
   const author = String(formData.get("author") ?? "");
   const bio = String(formData.get("bio") ?? "").trim().slice(0, 1200);
   if (!isUuid(author) || !bio || /[<>]/.test(bio)) back("/studio/profile", "invalid", ctx.org.id, ctx.multi);
-  const flags = bioClaimFlags(bio);
+  // 7.6: claim phrases plus house style notes. They go to staff as flags; the author's text is kept.
+  const flags = bioReviewFlags(bio, bioClaimFlags(bio));
   const supabase = await createUserClient();
   const { error } = await supabase.rpc("author_bio_submit", {
     p_author: author,

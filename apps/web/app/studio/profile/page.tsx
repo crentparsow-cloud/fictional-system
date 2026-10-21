@@ -104,7 +104,7 @@ export default async function ProfilePage({ searchParams }: { searchParams: Sear
               <p className="muted">{BIO_STATUS[me.bio_status] ?? ""}</p>
               {me.bio_status === "pending" && me.bio_flags.length > 0 ? (
                 <div className="admin-note">
-                  <p>These phrases were flagged for the team. Bios cannot promise health results or guaranteed outcomes.</p>
+                  <p>These points were flagged for the team. Bios cannot promise health results or guaranteed outcomes, and they follow our house style.</p>
                   <ul>
                     {me.bio_flags.map((f, i) => (
                       <li key={i}>{f.phrase}</li>
@@ -119,7 +119,7 @@ export default async function ProfilePage({ searchParams }: { searchParams: Sear
                   <input type="hidden" name="author" value={me.id} />
                   <label htmlFor="b-bio">Bio, up to 1,200 characters</label>
                   <textarea id="b-bio" name="bio" rows={6} maxLength={1200} required defaultValue={me.bio_draft ?? me.bio ?? ""} />
-                  <p className="muted small">Write about you and your work. Leave out claims that a book cures, treats or guarantees anything.</p>
+                  <p className="muted small">Write about you and your work in the third person, such as &quot;Sam writes about habits&quot;. Use 40 to 700 characters, plain punctuation with no dashes, and UK spelling. Leave out claims that a book cures, treats or guarantees anything.</p>
                   <button type="submit" className="btn">
                     Send for approval
                   </button>

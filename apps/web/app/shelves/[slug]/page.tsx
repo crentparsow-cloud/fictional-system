@@ -10,7 +10,10 @@ import { brand } from "@/lib/brand";
 import { cardsOnShelf, featuredTitle, mostStarted, newThisWeek, shelfTiles, shortProgrammes, themesOnShelf } from "@/lib/explore";
 import { loadExploreBase } from "@/lib/explore-queries";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
 import { hasMessage, type MessageKey } from "@/lib/locale";
+import { breadcrumbLd, collectionPageLd, ldString } from "@/lib/public-seo";
+import { siteOrigin } from "@/lib/site-url";
 
 /**
  * A shelf page (build list 2.2) repeats the Explore pattern for one shelf:
@@ -30,9 +33,16 @@ const LIST_SIZE = 4;
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
   if (!SLUG.test(slug)) return { title: "Shelf" };
-  const base = await loadExploreBase();
+  const [{ t }, base] = await Promise.all([getT(), loadExploreBase()]);
   const shelf = base.shelves.find((s) => s.id === slug);
-  return shelf ? { title: shelf.name, alternates: { canonical: `/shelves/${slug}` } } : { title: "Shelf" };
+  if (!shelf) return { title: "Shelf" };
+  const line = hasMessage(`shelf.line.${slug}`) ? t(`shelf.line.${slug}` as MessageKey) : null;
+  return {
+    title: shelf.name,
+    description: shelf.editorsLine?.trim() || line || `Guided workbooks on the ${shelf.name} shelf.`,
+    alternates: { canonical: `/shelves/${slug}` },
+    robots: publicRobots(),
+  };
 }
 
 export default async function ShelfPage({ params }: { params: Promise<Params> }) {
@@ -52,6 +62,17 @@ export default async function ShelfPage({ params }: { params: Promise<Params> })
   const open = t("library.open");
   const lineKey = `shelf.line.${slug}`;
   const shelfLine = hasMessage(lineKey) ? t(lineKey as MessageKey) : null;
+  const origin = siteOrigin();
+  const ld = [
+    breadcrumbLd(origin, [{ name: brand.name, path: "/" }, { name: t("explore.title"), path: "/explore" }, { name: shelf.name, path: `/shelves/${slug}` }]),
+    collectionPageLd({
+      origin,
+      path: `/shelves/${slug}`,
+      name: shelf.name,
+      description: shelf.editorsLine?.trim() || shelfLine,
+      items: cards.filter((c) => !c.isDemo).map((c) => ({ name: c.title, path: `/w/${c.slug}` })),
+    }),
+  ];
   const list = (id: string, heading: string, items: typeof cards) => (
     <Rail id={id} heading={heading} cards={items.slice(0, LIST_SIZE)} outlineOnlyLabel={outlineOnly} openLabel={open} />
   );
@@ -130,6 +151,7 @@ export default async function ShelfPage({ params }: { params: Promise<Params> })
         </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldString(ld) }} />
     </main>
   );
 }

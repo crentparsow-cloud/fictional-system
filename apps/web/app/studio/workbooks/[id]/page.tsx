@@ -131,6 +131,7 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
   const allowsMembership = allowsRes.data === true;
   const kinds = studioSignoffKinds(ctx.org.role, ctx.org.kind);
   const canPrice = roleCan(ctx.org.role).writeWorkbooks && w.status !== "retired";
+  const canBuild = canPrice;
   const status = authorStatus(w.status);
   const signable = Boolean(version && !version.published_at && w.status !== "retired" && kinds.length);
   const myName = ((profileRes.data as { display_name?: string | null } | null)?.display_name ?? "").trim();
@@ -170,6 +171,21 @@ export default async function StudioWorkbookPage({ params, searchParams }: { par
               </li>
             ))}
           </ul>
+        </section>
+      ) : null}
+
+      {canBuild ? (
+        <section className="card admin-create" aria-labelledby="build-h">
+          <h2 id="build-h">Edit and ask</h2>
+          <p>
+            <Link className="btn secondary" href={q(`/studio/workbooks/${w.id}/build`)}>
+              Build in the form
+            </Link>{" "}
+            <Link className="btn secondary" href={q(`/studio/workbooks/${w.id}/question`)}>
+              End-of-programme question
+            </Link>
+          </p>
+          <p className="muted small">The form edits units, key ideas and exercises and saves a draft version. The question is one optional line for readers who finish.</p>
         </section>
       ) : null}
 
