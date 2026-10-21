@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import type { WorkbookV3 } from "@akana/schema";
 import { Card, Eyebrow } from "./parts";
 
@@ -12,6 +13,10 @@ export interface FinishScreenProps {
    * store link is built in the browser (F-017). Left out, no button shows.
    */
   buyHref?: string;
+  /** A plain line beside "Get the book", for example an affiliate disclosure (6.9). Left out, nothing shows. */
+  buyNote?: string;
+  /** Extra content after the book card, for example the author's recommendations (14.12). */
+  extra?: ReactNode;
   /** Called when the reader marks the workbook finished. */
   onFinished?: () => void;
   finished?: boolean;
@@ -22,7 +27,7 @@ export interface FinishScreenProps {
  * its author, with a link to get it. This screen is the author's main
  * reward, so it names both plainly. After that, Keep going.
  */
-export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHref, onFinished, finished }: FinishScreenProps) {
+export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHref, buyNote, extra, onFinished, finished }: FinishScreenProps) {
   const count = doc.structure.count;
   const unitWord = { week: "weeks", day: "days", module: "modules", chapter: "chapters" }[doc.structure.unit];
   return (
@@ -61,7 +66,9 @@ export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHr
             Get the book
           </a>
         ) : null}
+        {buyHref && buyNote ? <p className="ak-small ak-muted">{buyNote}</p> : null}
       </Card>
+      {extra}
       <div className="ak-row">
         {onOpenPlan && doc.plan_sections.length ? (
           <button type="button" className="ak-btn ak-btn-secondary" onClick={onOpenPlan}>

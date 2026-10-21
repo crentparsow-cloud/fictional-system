@@ -207,6 +207,19 @@ export const KeyIdea = z
   .strict();
 export type KeyIdea = z.infer<typeof KeyIdea>;
 
+/**
+ * 3.12: a link from one unit to the matching part of the author's book. The
+ * label is plain words ("Chapter 3 of the book"). The address must be https.
+ * Optional, so nothing written before this field changes.
+ */
+export const CompanionLink = z
+  .object({
+    label: z.string().min(1).max(80),
+    url: z.string().url().max(500).refine((u) => u.startsWith("https://"), { message: "A companion link must start with https://" }),
+  })
+  .strict();
+export type CompanionLink = z.infer<typeof CompanionLink>;
+
 export const ProgrammeUnit = z
   .object({
     number: z.number().int().min(1),
@@ -220,6 +233,8 @@ export const ProgrammeUnit = z
     intro: z.string().optional(),
     ideas: z.array(KeyIdea).max(10).optional(),
     takeaway: z.string().optional(),
+    // Added in 3.2, optional. The companion book link for this unit (build list 3.12).
+    companion: CompanionLink.optional(),
   })
   .strict();
 
