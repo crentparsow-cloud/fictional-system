@@ -17,6 +17,9 @@ const fake = {
   limited: false,
   recordFails: false,
   linkFails: false,
+  seatHeld: false,
+  country: "GB" as string | null,
+  subRows: [] as Record<string, unknown>[],
   purchases: [] as Record<string, unknown>[],
   created: [] as Record<string, unknown>[],
   expired: [] as string[],
@@ -26,6 +29,9 @@ const fake = {
     this.limited = false;
     this.recordFails = false;
     this.linkFails = false;
+    this.seatHeld = false;
+    this.country = "GB";
+    this.subRows = [];
     this.purchases = [];
     this.created = [];
     this.expired = [];
@@ -52,10 +58,11 @@ class Query {
     return this;
   }
   maybeSingle() {
-    return Promise.resolve(this.table === "profiles" ? { data: { country: "GB" }, error: null } : { data: null, error: null });
+    return Promise.resolve(this.table === "profiles" ? { data: { country: fake.country }, error: null } : { data: null, error: null });
   }
   then<T>(res: (v: unknown) => T, rej?: (e: unknown) => T) {
-    return Promise.resolve({ data: [], error: null }).then(res, rej);
+    const rows = this.table === "membership_seats" ? (fake.seatHeld ? [{ id: "seat-1" }] : []) : this.table === "subscriptions" ? fake.subRows : [];
+    return Promise.resolve({ data: rows, error: null }).then(res, rej);
   }
 }
 
@@ -179,4 +186,123 @@ describe("POST /api/checkout/membership: pro rata refund consent", () => {
     expect(fake.expired).toEqual(["cs_test_member1"]);
     expect(fake.purchases).toEqual([]);
   });
+
+  it("takes the two-person plan: its own price, its own consent plan, its own metadata", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(200);
+    expect(fake.rpcs[0]?.args).toMatchObject({ p_kind: "membership", p_plan: "member_two_month" });
+    const params = fake.created[0] as { line_items: { price: string }[]; metadata: Record<string, string>; subscription_data: { metadata: Record<string, string> } };
+    expect(params.line_items[0]?.price).toBe("price_test_two");
+    expect(params.metadata.plan).toBe("member_two_month");
+    expect(params.subscription_data.metadata.plan).toBe("member_two_month");
+    expect(fake.purchases[0]).toMatchObject({ kind: "membership", price_point_id: "member_two_month" });
+  });
+
+  it("takes the annual two-person plan with no trial and the yearly total on the pay screen", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY", "price_test_two_year");
+    const res = await post({ ...good, plan: "two_yearly" });
+    expect(res.status).toBe(200);
+    expect(fake.rpcs[0]?.args).toMatchObject({ p_kind: "membership", p_plan: "member_two_year" });
+    const params = fake.created[0] as {
+      line_items: { price: string }[];
+      metadata: Record<string, string>;
+      subscription_data: { metadata: Record<string, string>; trial_period_days?: number };
+      custom_text: { submit: { message: string } };
+    };
+    expect(params.line_items[0]?.price).toBe("price_test_two_year");
+    expect(params.metadata.plan).toBe("member_two_year");
+    expect(params.subscription_data.trial_period_days).toBeUndefined();
+    expect(params.custom_text.submit.message).toMatch(/renews automatically each year/);
+    expect(fake.purchases[0]).toMatchObject({ kind: "membership", price_point_id: "member_two_year" });
+  });
+
+  it("says not open yet while the annual two-person price is unset", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    const res = await post({ ...good, plan: "two_yearly" });
+    expect(res.status).toBe(409);
+    expect(fake.created).toEqual([]);
+  });
+
+  it("says not open yet while the two-person price is unset, and opens nothing", async () => {
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(409);
+    expect(fake.created).toEqual([]);
+  });
+
+  it("refuses a person who already holds the second place on someone else's membership", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two");
+    fake.seatHeld = true;
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(409);
+    expect(((await res.json()) as { error: string }).error).toMatch(/shared membership/);
+    expect(fake.created).toEqual([]);
+    expect(fake.rpcs).toEqual([]);
+  });
 });
+
+describe("POST /api/checkout/membership: the trial does not depend on the reader's country", () => {
+  type Params = {
+    custom_text: { submit: { message: string } };
+    subscription_data: { trial_period_days?: number };
+    payment_method_collection?: string;
+  };
+  beforeEach(() => {
+    fake.reset();
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_MONTHLY", "price_test_monthly");
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_YEARLY", "price_test_yearly");
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.spyOn(console, "warn").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it("gives a reader with no country a 14 day trial on monthly, with the notice in GBP", async () => {
+    fake.country = null;
+    const res = await post(good);
+    expect(res.status).toBe(200);
+    const params = fake.created[0] as unknown as Params;
+    expect(params.subscription_data.trial_period_days).toBe(14);
+    expect(params.payment_method_collection).toBe("always");
+    expect(params.custom_text.submit.message).toContain("Your trial lasts 14 days");
+    expect(params.custom_text.submit.message).toContain("£7.99");
+    expect(fake.purchases[0]?.currency).toBe("GBP");
+  });
+
+  it("gives a reader with no country a 21 day trial on yearly, with the notice in GBP", async () => {
+    fake.country = null;
+    const res = await post({ ...good, plan: "yearly" });
+    expect(res.status).toBe(200);
+    const params = fake.created[0] as unknown as Params;
+    expect(params.subscription_data.trial_period_days).toBe(21);
+    expect(params.custom_text.submit.message).toContain("Your trial lasts 21 days");
+    expect(params.custom_text.submit.message).toContain("£69.99");
+  });
+
+  it("gives a UK reader the same trial", async () => {
+    const res = await post(good);
+    expect(res.status).toBe(200);
+    expect((fake.created[0] as unknown as Params).subscription_data.trial_period_days).toBe(14);
+  });
+
+  it("gives no trial to a reader with an earlier subscription row, whatever the country", async () => {
+    fake.country = null;
+    fake.subRows = [{ status: "canceled", plan: "member_month", ended_at: "2026-01-01T00:00:00Z", stripe_customer_id: "cus_1", updated_at: "2026-01-01T00:00:00Z" }];
+    const res = await post(good);
+    expect(res.status).toBe(200);
+    const params = fake.created[0] as unknown as Params;
+    expect(params.subscription_data.trial_period_days).toBeUndefined();
+    expect(params.custom_text.submit.message).not.toContain("Your trial lasts");
+  });
+
+  it("gives no trial on a two-person plan", async () => {
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY", "price_test_two_monthly");
+    fake.country = null;
+    const res = await post({ ...good, plan: "two_monthly" });
+    expect(res.status).toBe(200);
+    expect((fake.created[0] as unknown as Params).subscription_data.trial_period_days).toBeUndefined();
+  });
+});
+

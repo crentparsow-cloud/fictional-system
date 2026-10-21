@@ -141,6 +141,6 @@ export function payoutErrorMessage(code: string | null | undefined): string {
     case "AKY29":
       return "There have been a lot of payout changes today. Try again tomorrow, or contact support.";
     default:
-      return "Something went wrong. Nothing was changed. Try again in a moment.";
+      return "We're sorry. That did not work. Nothing was changed. Try again in a moment.";
   }
 }

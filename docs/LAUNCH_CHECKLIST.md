@@ -165,6 +165,7 @@ The eight crons in `apps/web/vercel.json`. Vercel runs them on UTC, once a day e
 | `/api/money/daily` | `13 5 * * *` | 05:13 | Stripe reconciliation, then closes pool and statement months |
 | `/api/ops/domain-check` | `29 6 * * *` | 06:29 | Checks each white-label host's verification record |
 | `/api/membership/reminders` | `41 8 * * *` | 08:41 | Six-monthly terms reminder for monthly members |
+| `/api/membership/cancel-emails` | `11 9 * * *` | 09:11 | Retries a cancellation confirmation that failed to send, and raises an ops alert |
 | `/api/org/billing-mail` | `53 8 * * *` | 08:53 | Organisation billing emails and consumer terms reminders |
 | `/api/money/payout-run` | `47 9 * * *` | 09:47 | Payout run; acts only on the payout day (test mode only) |
 

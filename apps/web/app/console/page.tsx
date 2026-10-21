@@ -146,7 +146,7 @@ export default async function ConsolePage({ searchParams }: { searchParams: Sear
         <>
           <h2>Open invitations</h2>
           {invites.length === 0 ? (
-            <p className="muted">None.</p>
+            <p className="muted">No open invitations. Invite someone below.</p>
           ) : (
             <ul className="studio-list">
               {invites.map((i) => {

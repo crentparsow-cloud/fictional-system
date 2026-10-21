@@ -14,6 +14,8 @@ import { acceptReaderTerms } from "@/lib/terms-server";
 import { CHECKOUT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
 import { WORKBOOK_SUBMIT_NOTICE, checkoutConsentDecision, consentMetadata } from "@/lib/checkout-consent";
 import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
+import { PROMO_MESSAGES, discountedMinor } from "@/lib/promo-code";
+import { lookupPromoCode } from "@/lib/promo-code-server";
 
 /**
  * Single workbook checkout (F-096). POST /api/checkout { workbook: slug }
@@ -42,6 +44,13 @@ import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-conse
  * code as its description, so statements and receipts carry the code only
  * (F-092, F-098). Stripe Tax, promotion codes and the tax id field are on.
  *
+ * The body may carry a promotion code from the /code page (item 5.9). It is
+ * looked up in Stripe again here, never trusted from the page, and pinned to
+ * the session as its discount, so the total the page showed is the total
+ * charged. Stripe does not allow a pinned discount and the code box
+ * together, so the box is off for that session. An unknown code is refused
+ * (409, code promo_invalid) rather than quietly charging full price.
+ *
  * Why the admin client: readers have no insert grant on public.purchases
  * (0004). The pending row is written here with the service role after the
  * session and tenant checks above have passed under RLS, so the webhook can
@@ -59,6 +68,8 @@ const Body = z
     workbook: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
     terms: z.string().max(40).optional(),
     consent: z.string().max(60).optional(),
+    // A promotion code from the /code page (item 5.9), checked again against Stripe.
+    code: z.string().max(40).optional(),
   })
   .strict();
 
@@ -154,6 +165,19 @@ export async function POST(request: NextRequest) {
   );
   if (covers) return refuse("You already have this workbook.");
 
+  // Item 5.9: the code the page showed, looked up again so the page cannot name a discount Stripe would not give.
+  let promotionCodeId: string | null = null;
+  if (parsed.data.code) {
+    const promo = await lookupPromoCode(parsed.data.code, `checkout:${session.userId}`);
+    if (!promo.ok) {
+      return NextResponse.json({ error: PROMO_MESSAGES[promo.reason], code: "promo_invalid" }, { status: 409, headers: NO_STORE });
+    }
+    if (discountedMinor(price, promo.offer) === null) {
+      return NextResponse.json({ error: PROMO_MESSAGES.notForThis, code: "promo_invalid" }, { status: 409, headers: NO_STORE });
+    }
+    promotionCodeId = promo.offer.id;
+  }
+
   // F-143: at most 10 Checkout Sessions an hour per reader (0027), counted before anything is recorded.
   if (!(await hitSelf(supabase, "checkout_user"))) {
     return NextResponse.json({ error: CHECKOUT_BUSY_MESSAGE, code: "rate_limited" }, { status: 429, headers: NO_STORE });
@@ -188,7 +212,7 @@ export async function POST(request: NextRequest) {
       },
     ],
     automatic_tax: { enabled: true },
-    allow_promotion_codes: true,
+    ...(promotionCodeId ? { discounts: [{ promotion_code: promotionCodeId }] } : { allow_promotion_codes: true }),
     tax_id_collection: { enabled: true },
     custom_text: { submit: { message: WORKBOOK_SUBMIT_NOTICE } },
     customer_email: session.email ?? undefined,
@@ -238,7 +262,7 @@ export async function POST(request: NextRequest) {
 
   if (!checkout.url) return refuse("Could not start checkout.", 500);
   // F-141: a daily count, ids only, unless the visitor has opted out.
-  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: workbook.id, headers: request.headers, cookies: request.cookies });
+  await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: workbook.id, headers: request.headers, cookies: request.cookies, userId: session.userId });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
 }
 

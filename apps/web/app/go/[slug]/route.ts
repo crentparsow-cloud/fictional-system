@@ -26,7 +26,7 @@ const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const home = new URL("/library", request.nextUrl.origin);
+  const home = new URL("/explore", request.nextUrl.origin);
   if (!SLUG.test(slug)) return NextResponse.redirect(home, { status: 302, headers: HEADERS });
   const back = new URL(`/w/${slug}`, request.nextUrl.origin);
 

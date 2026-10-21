@@ -31,7 +31,7 @@ export function CheckInPartner({ row, replies, notice, now }: Props) {
     <section className="you-section partner-section" id="check-in-partner" aria-labelledby="you-partner">
       <h2 id="you-partner">{FEATURE_NAME}</h2>
       <p>
-        Choose someone you trust to get a short note when you reach a new stage, so they can cheer you on. They don&apos;t need an account. {NEVER_SHARED}
+        Choose someone you trust to get a short note when you reach a new stage, so they can cheer you on. They do not need an account. {NEVER_SHARED}
       </p>
       {notice ? (
         <p className="you-notice" role="status">
@@ -44,7 +44,7 @@ export function CheckInPartner({ row, replies, notice, now }: Props) {
           <p>
             <b>Invitation sent to {view.row.partner_name}</b> <span className="you-wrap muted">({view.row.partner_email})</span> on {longDate(view.row.invited_at)}.
           </p>
-          <p className="small muted">It lasts until {longDate(view.row.invite_expires_at)}. If they say no, or don&apos;t answer, nothing is shared.</p>
+          <p className="small muted">It lasts until {longDate(view.row.invite_expires_at)}. If they say no, or do not answer, nothing is shared.</p>
           <SettingsForm row={view.row} />
           <StopForm name={view.row.partner_name} invited />
         </div>
@@ -144,7 +144,7 @@ function InviteForm() {
       <button type="submit" className="btn">
         Send invitation
       </button>
-      <p className="small muted">They&apos;ll get one email asking if they&apos;d like updates. You can send three invitations a month. If someone says no, we won&apos;t ask them again.</p>
+      <p className="small muted">They&apos;ll get one email asking if they&apos;d like updates. You can send three invitations a month. If someone says no, we will not ask them again.</p>
     </form>
   );
 }

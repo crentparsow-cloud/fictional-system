@@ -177,6 +177,12 @@ export const LIMITS: Record<string, number> = {
   "milestones[].message": 25,
   "selfcheck.items[].text": 20,
   "checkin.fields[].label": 12,
+  // Schema 3.1 unit parts (docs/content/UNIT_SPEC.md). Idea totals are checked in checkUnits.
+  "units[].intro": 90,
+  "units[].ideas[].heading": 20,
+  "units[].ideas[].body": 90,
+  "units[].ideas[].example": 90,
+  "units[].takeaway": 40,
   "start.welcome": 80,
   "tagline": 14,
   "card_line": 18,
@@ -238,6 +244,19 @@ export function genreProfile(genre: Genre, tier: SafetyTier): GenreProfile {
     requiresSafetyHub: false,
     requiresCheckin: false,
     requiresAdviceGuardrail: money,
-    readerWordsPerUnit: [250, 1200],
+    readerWordsPerUnit: [250, 1500], // 1,200 before schema 3.1 added intro, ideas and takeaway
   };
 }
+
+/** Unit spec figures (docs/content/UNIT_SPEC.md). Change both together. */
+export const UNIT_SPEC = {
+  ideas: [5, 10] as [number, number],
+  ideaWords: [60, 120] as [number, number],
+  headingMinWords: 5,
+  introSentences: [2, 4] as [number, number],
+  takeawaySentences: [1, 2] as [number, number],
+  wordsPerMinute: 200,
+  readingMinutes: [4, 6] as [number, number],
+  totalMinutes: [10, 20] as [number, number],
+  maxFieldsPerExercise: 3,
+};

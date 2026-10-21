@@ -33,7 +33,7 @@ export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHr
         </Eyebrow>
         <h2 className="ak-h2">{finished ? "You did it" : "The finish"}</h2>
       </header>
-      {doc.finish.summary ? <p>{doc.finish.summary}</p> : null}
+      {doc.finish.summary ? <p data-ra>{doc.finish.summary}</p> : null}
       {onFinished && !finished ? (
         <Card>
           <p>When you have done the {unitWord} you want to do, mark this workbook finished. Everything you wrote stays here.</p>
@@ -55,7 +55,7 @@ export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHr
           <br />
           by {doc.author.display_name}
         </p>
-        {doc.finish.book_bridge ? <p>{doc.finish.book_bridge}</p> : null}
+        {doc.finish.book_bridge ? <p data-ra>{doc.finish.book_bridge}</p> : null}
         {buyHref ? (
           <a className="ak-btn ak-btn-secondary" href={buyHref} rel="noopener noreferrer" target="_blank">
             Get the book

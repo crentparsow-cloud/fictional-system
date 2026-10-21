@@ -11,32 +11,37 @@
  * Pure: no Next or Supabase imports, so it runs in tests and in the route.
  */
 
+import { activeDirection } from "@/lib/design/active";
+import { FUNCTIONAL } from "@/lib/design/tokens";
+
 /**
- * Light theme token values, copied from :root in app/globals.css. An SVG
- * served as an image cannot read CSS variables, so the values live here.
- * Keep in step with globals.css when the tokens change.
+ * Light theme token values for the active design direction. An SVG served as
+ * an image cannot read CSS variables, so the values are resolved here from
+ * lib/design (the one place colours live) instead of being copied by hand.
  */
+const P = activeDirection.light;
+const F = FUNCTIONAL.light;
 export const COVER_TOKENS = {
-  canvas: "#f7f5f0",
-  surface: "#ffffff",
-  surface2: "#efece4",
-  line: "#e2ded3",
-  ink: "#16222b",
-  inkSoft: "#4a5864",
-  brand: "#1f4e5a",
-  brandWash: "#e3edee",
-  marigold: "#f2b84b",
-  marigoldInk: "#3b2a05",
-  rose: "#8a2846",
-  roseSoft: "#f6e3e9",
-  stage1t: "#dcebe2",
-  stage1i: "#2d6a4f",
-  stage2t: "#f8e0d0",
-  stage2i: "#9c4a25",
-  stage3t: "#f6eac0",
-  stage3i: "#6e520f",
-  stage4t: "#d6e6f3",
-  stage4i: "#1f5a85",
+  canvas: P.canvas,
+  surface: P.surface,
+  surface2: P["surface-2"],
+  line: P.line,
+  ink: P.ink,
+  inkSoft: P["ink-soft"],
+  brand: P.brand,
+  brandWash: P["brand-wash"],
+  marigold: F.marigold,
+  marigoldInk: F["marigold-ink"],
+  rose: F.rose,
+  roseSoft: F["rose-soft"],
+  stage1t: F["stage-1-t"],
+  stage1i: F["stage-1-i"],
+  stage2t: F["stage-2-t"],
+  stage2i: F["stage-2-i"],
+  stage3t: F["stage-3-t"],
+  stage3i: F["stage-3-i"],
+  stage4t: F["stage-4-t"],
+  stage4i: F["stage-4-i"],
 } as const;
 
 const T = COVER_TOKENS;
@@ -216,6 +221,31 @@ export function buildCoverSvg(input: CoverInput): string {
   parts.push(`<rect x="40" y="860" width="520" height="2" fill="${T.line}"/>`);
   parts.push(`</svg>`);
   return parts.join("");
+}
+
+export const COVER_PATTERNS: readonly CoverPattern[] = ["waves", "steps", "rings", "dots", "diagonals", "chevrons", "grid", "bars", "columns", "arcs", "crosses"];
+
+/**
+ * A pattern-only cover for a collection (build list 2.3): the same tint,
+ * accent and pattern family as a workbook cover, with no title or author on
+ * it. The genre picks the tint and accent; an explicit pattern overrides the
+ * genre's own. Returns the inner SVG markup for a 600 x 420 viewBox, to be
+ * placed inside an <svg> the caller labels.
+ */
+export function buildPatternCover(genreId: string | null | undefined, patternOverride?: string | null, clipId = "collection-panel"): string {
+  const style = genreStyle(genreId);
+  const kind = (COVER_PATTERNS as readonly string[]).includes(patternOverride ?? "") ? (patternOverride as CoverPattern) : style.pattern;
+  const panel = { x: 20, y: 20, w: 560, h: 380 };
+  return [
+    `<rect width="600" height="420" fill="${T.canvas}"/>`,
+    `<rect x="${panel.x}" y="${panel.y}" width="${panel.w}" height="${panel.h}" rx="14" fill="${style.tint}"/>`,
+    `<g clip-path="url(#${clipId})" fill="none" stroke="${style.accent}" stroke-width="6" stroke-linecap="round" opacity="0.32">${pattern(kind, panel, style.accent)}</g>`,
+    `<rect x="${panel.x}" y="${panel.y + panel.h - 6}" width="${panel.w}" height="6" fill="${style.accent}" clip-path="url(#${clipId})"/>`,
+  ].join("");
+}
+
+export function collectionPanelClip(clipId = "collection-panel"): string {
+  return `<clipPath id="${clipId}"><rect x="20" y="20" width="560" height="380" rx="14"/></clipPath>`;
 }
 
 // ---------------------------------------------------------------------------

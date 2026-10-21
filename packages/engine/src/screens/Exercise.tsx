@@ -52,6 +52,15 @@ export interface ExerciseScreenProps {
   onClose?: () => void;
   /** Paged only: the words on that button, for example "Back to Week 2". */
   closeLabel?: string;
+  /** Paged only: open on this part (pause and save, 14.5). Falls back to the first part if the exercise has no such part. */
+  initialPage?: ExercisePage;
+  /** Paged only: put the cursor in this field on open, when the part is Your turn. */
+  initialFieldId?: string;
+  /**
+   * Paged only: tells the app where the reader is. Called when the part
+   * changes and when a field takes focus. Ids only, never a value.
+   */
+  onPlace?: (place: { page: ExercisePage; fieldId: string | null }) => void;
 }
 
 export type ExercisePage = "purpose" | "steps" | "example" | "yours" | "done";
@@ -96,9 +105,18 @@ export function ExerciseScreen({
   paged,
   onClose,
   closeLabel = "Back",
+  initialPage,
+  initialFieldId,
+  onPlace,
 }: ExerciseScreenProps) {
   const [modeState, setModeState] = useState<ExerciseMode>(defaultMode);
-  const [pageIndex, setPageIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(() => {
+    if (!initialPage) return 0;
+    const at = exercisePages(e, e.short_version ? defaultMode : "full").indexOf(initialPage);
+    return at < 0 ? 0 : at;
+  });
+  const lastField = useRef<string | null>(initialFieldId ?? null);
+  const answersRef = useRef<HTMLDivElement>(null);
   const pageHeading = useRef<HTMLHeadingElement>(null);
   const turned = useRef(false);
   const sv = e.short_version;
@@ -153,6 +171,22 @@ export function ExerciseScreen({
     turned.current = true;
     setPageIndex(Math.max(0, Math.min(pages.length - 1, to)));
   };
+  // Pause and save (14.5): report the part the reader is on, and put the
+  // cursor back in the field they left when they come back to Your turn.
+  const fieldPrefix = scope.replace(/[^a-z0-9_-]/gi, "_") + "-";
+  useEffect(() => {
+    if (!paged) return;
+    onPlace?.({ page, fieldId: page === "yours" ? lastField.current : null });
+    // Reported when the part changes, not on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paged, page]);
+  useEffect(() => {
+    if (!paged || page !== "yours" || !initialFieldId || turned.current) return;
+    const el = answersRef.current?.querySelector<HTMLElement>(`[id="${fieldPrefix}${initialFieldId}"]`);
+    el?.focus({ preventScroll: false });
+    // Once, on open.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const fieldsBlock = (
     <>
@@ -263,7 +297,7 @@ export function ExerciseScreen({
               {isRepeat ? "comes back, " : ""}
               {mode === "short" ? "short version, " : ""}about {minutesWord(minutes)}
             </Eyebrow>
-            <h2 className="ak-h2">{e.title}</h2>
+            <h2 className="ak-h2" data-ra>{e.title}</h2>
           </div>
         </header>
 
@@ -284,12 +318,12 @@ export function ExerciseScreen({
 
           {page === "purpose" ? (
             <>
-              <p className="ak-purpose">
+              <p className="ak-purpose" data-ra>
                 <b>You will have:</b> {e.purpose}
               </p>
               <details className="ak-card ak-card-flat ak-details">
                 <summary>Why this step</summary>
-                <p className="ak-muted">{e.why}</p>
+                <p className="ak-muted" data-ra>{e.why}</p>
               </details>
             </>
           ) : null}
@@ -298,7 +332,7 @@ export function ExerciseScreen({
 
           {page === "example" && e.example ? (
             <Card>
-              <p>{e.example.text}</p>
+              <p data-ra>{e.example.text}</p>
             </Card>
           ) : null}
 
@@ -308,13 +342,26 @@ export function ExerciseScreen({
                 <summary>{mode === "short" ? "The short version" : "The steps"}</summary>
                 <Steps steps={steps} />
               </details>
-              <div className="ak-answers">{fieldsBlock}</div>
+              <div
+                className="ak-answers"
+                ref={answersRef}
+                onFocusCapture={(ev) => {
+                  const id = (ev.target as HTMLElement).id;
+                  if (!id || !id.startsWith(fieldPrefix)) return;
+                  const fieldId = id.slice(fieldPrefix.length);
+                  if (!e.fields.some((f) => f.id === fieldId)) return;
+                  lastField.current = fieldId;
+                  onPlace?.({ page: "yours", fieldId });
+                }}
+              >
+                {fieldsBlock}
+              </div>
             </>
           ) : null}
 
           {page === "done" ? (
             <>
-              <p className="ak-done-when">
+              <p className="ak-done-when" data-ra>
                 <b>{e.done_when}</b>
               </p>
               {done ? (

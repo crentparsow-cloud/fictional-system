@@ -101,7 +101,7 @@ export async function claimSeat(formData: FormData): Promise<void> {
     console.error("org_seat_claim_failed", error.code ?? "");
     redirect(`${path}?e=${claimErrorCode(error.code)}`);
   }
-  revalidatePath("/library");
+  revalidatePath("/explore");
   redirect(`${path}?done=claimed`);
 }
 

@@ -238,8 +238,10 @@ end $$;
 reset role;
 
 -- ---------------------------------------------------------------------------
--- 5. The go-live gate. Run as the database owner, like the release
--- function and server code: the gate holds for every caller.
+-- 5. Going live and payouts. 0014 gated a paid title on verified payouts
+-- (AKY10). 0039 removed that gate: the title goes live while Connect is
+-- pending and the money waits instead (0039's test covers the hold). This
+-- block checks the title is not blocked.
 -- ---------------------------------------------------------------------------
 -- Other release gates (licences, the release function) are switched off for
 -- this block, inside the rolled-back transaction, so only this one is tested.
@@ -252,10 +254,11 @@ do $$ declare t record; begin
 end $$;
 update public.organisations set connect_status = 'pending' where id = 'a0140000-0000-0000-0000-0000000000a1';
 do $$ begin
-  begin
-    update public.workbooks set status = 'live' where id = 'a0140000-0000-0000-0000-0000000000d1';
-    raise exception 'paid workbook went live without verified payouts';
-  exception when sqlstate 'AKY10' then null; end;
+  update public.workbooks set status = 'live' where id = 'a0140000-0000-0000-0000-0000000000d1';
+  if (select status from public.workbooks where id = 'a0140000-0000-0000-0000-0000000000d1') <> 'live' then
+    raise exception 'paid workbook was held back by the removed payout gate';
+  end if;
+  update public.workbooks set status = 'draft' where id = 'a0140000-0000-0000-0000-0000000000d1';
   update public.workbooks set status = 'live' where id = 'a0140000-0000-0000-0000-0000000000d2';
   update public.workbooks set status = 'live' where id = 'a0140000-0000-0000-0000-0000000000d3';
   update public.workbooks set status = 'paused' where id = 'a0140000-0000-0000-0000-0000000000d2';

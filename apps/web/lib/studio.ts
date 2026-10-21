@@ -401,7 +401,7 @@ export const STUDIO_NOTICES = {
   "rate-limited": { tone: "error", text: "That's the limit for today. Please try again tomorrow." },
   invalid: { tone: "error", text: "Please check the form. Nothing changed." },
   denied: { tone: "error", text: "Your role cannot do that. Nothing changed." },
-  failed: { tone: "error", text: "That didn't work just now. Nothing changed. Please try again." },
+  failed: { tone: "error", text: "We're sorry. That did not work just now. Nothing changed. Please try again." },
 } as const;
 export type StudioNotice = keyof typeof STUDIO_NOTICES;
 
@@ -449,7 +449,7 @@ export function inviteLinkCopy(state: Exclude<InviteState, "ok">): { title: stri
     case "revoked":
       return { title: "This invitation was cancelled", body: "Ask the person who invited you if you think this is a mistake." };
     default:
-      return { title: "This link isn't working", body: "It may have been copied only in part. Try the link in the email again." };
+      return { title: "This link is not working", body: "It may have been copied only in part. Try the link in the email again." };
   }
 }
 

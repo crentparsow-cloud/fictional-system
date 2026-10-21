@@ -1,0 +1,96 @@
+/*
+  Motion rules (plan 1.6). Durations and easings are tokens; nothing else in
+  the app names a number of milliseconds for movement. lib/motion.ts mirrors
+  the durations the scripts need, and a test keeps the two in step.
+
+  Rules in one place:
+  - Moves are short and quiet. Page changes fade, they do not slide far.
+  - Cards lift a little on hover and focus. They never bounce.
+  - Saving is a two-word toast in one fixed spot. It is never a modal.
+  - One burst of confetti when a unit ends (never on a wellbeing title).
+    A larger reveal when the whole programme ends.
+  - prefers-reduced-motion, and the reader's own Reduce motion setting
+    (data-motion="reduce"), remove all of it. Words still appear.
+*/
+
+:root {
+  --dur-instant: 80ms;
+  --dur-quick: 150ms;
+  --dur-base: 200ms;
+  --dur-slow: 300ms;
+  --dur-page: 260ms;
+  --dur-toast: 2200ms;
+  --dur-confetti: 1300ms;
+  --dur-reveal: 900ms;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --lift-distance: -2px;
+  --toast-offset: calc(56px + env(safe-area-inset-bottom, 0px) + 12px);
+}
+
+/* Page transitions. Browsers without cross-document view transitions simply navigate. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: mo-page-out var(--dur-page) var(--ease-in) both; }
+::view-transition-new(root) { animation: mo-page-in var(--dur-page) var(--ease-out) both; }
+@keyframes mo-page-out { to { opacity: 0; } }
+@keyframes mo-page-in { from { opacity: 0; transform: translateY(6px); } }
+
+/* Card lift. */
+.lift, .shelf-tile, .card-link {
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.lift:hover, .lift:focus-visible, .shelf-tile:hover, .shelf-tile:focus-visible, .card-link:hover, .card-link:focus-visible {
+  transform: translateY(var(--lift-distance));
+  box-shadow: var(--lift);
+}
+
+/* The save toast: two words, one fixed spot, announced politely. */
+.save-toast {
+  position: fixed; inset-inline: 0; inset-block-end: var(--toast-offset); z-index: 30;
+  display: flex; justify-content: center; pointer-events: none;
+}
+.save-toast > span {
+  padding: 0.5rem 1rem; border-radius: var(--pill); background: var(--ink); color: var(--canvas);
+  font-weight: 600; font-size: 0.95rem; box-shadow: var(--lift);
+  animation: mo-toast var(--dur-toast) var(--ease) both;
+}
+/* Inline: /dev/kit shows the toast in the page flow, always visible. */
+.save-toast[data-inline] { position: static; inset: auto; justify-content: flex-start; }
+.save-toast[data-inline] > span { animation: none; }
+@keyframes mo-toast {
+  0% { opacity: 0; transform: translateY(8px); }
+  12%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+/* Confetti: one burst at unit end. Pieces take their colours from the direction. */
+.um-confetti, .confetti { position: absolute; inset-inline: 0; inset-block-start: 0; block-size: 0; pointer-events: none; overflow: visible; }
+.um-confetti i, .confetti i {
+  position: absolute; inline-size: 8px; block-size: 12px; border-radius: 2px; opacity: 0;
+  animation: mo-fall var(--dur-confetti) var(--ease) forwards;
+}
+.confetti[data-size="programme"] i { inline-size: 10px; block-size: 14px; animation-name: mo-fall-far; }
+@keyframes mo-fall { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(160px) rotate(300deg); } }
+@keyframes mo-fall-far { 0% { opacity: 1; transform: translateY(0) rotate(0deg); } 100% { opacity: 0; transform: translateY(300px) rotate(540deg); } }
+
+/* Programme-end reveal: the panel opens, then the confetti falls. */
+.reveal { position: relative; display: grid; gap: 0.5rem; justify-items: center; text-align: center; padding: 2rem 1rem; border-radius: var(--radius); background: var(--brand-wash); }
+.reveal > * { animation: mo-reveal var(--dur-reveal) var(--ease) both; }
+.reveal > :nth-child(2) { animation-delay: 120ms; }
+.reveal > :nth-child(3) { animation-delay: 240ms; }
+@keyframes mo-reveal { from { opacity: 0; transform: translateY(12px) scale(0.98); } }
+
+/* Reduced motion: the system setting and the reader's own switch. Nothing moves; everything is still said. */
+@media (prefers-reduced-motion: reduce) {
+  .um-confetti, .confetti { display: none; }
+  .save-toast > span, .reveal > * { animation: none; }
+  .lift:hover, .lift:focus-visible, .shelf-tile:hover, .shelf-tile:focus-visible, .card-link:hover, .card-link:focus-visible { transform: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
+:root[data-motion="reduce"] .um-confetti, :root[data-motion="reduce"] .confetti { display: none; }
+:root[data-motion="reduce"] .save-toast > span, :root[data-motion="reduce"] .reveal > * { animation: none; }
+:root[data-motion="reduce"] .lift:hover, :root[data-motion="reduce"] .shelf-tile:hover, :root[data-motion="reduce"] .card-link:hover { transform: none; }

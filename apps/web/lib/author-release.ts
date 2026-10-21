@@ -5,6 +5,7 @@
  * share one answer. Migration 0020 enforces every rule again.
  */
 import { WorkbookV3, stripInternal } from "@akana/schema";
+import { CARD_FEE_FIXED_MINOR, CARD_FEE_RATE } from "@/lib/card-fee";
 import { PRICE_LADDER, isPlaceholder, type PricePoint, type WorkbookPricePointId } from "@/lib/pricing";
 
 // ---------------------------------------------------------------------------
@@ -165,30 +166,33 @@ export function parsePriceChoice(get: (name: string) => unknown): { ok: true; va
 }
 
 /**
- * PLACEHOLDER. The inputs to the author's share estimate. Each is null until
- * Crent sets it (questions C4, D2 and D3, and the accountant on VAT for an
- * interactive workbook). While any is null the Studio says the estimate is
- * not available, rather than showing an invented figure.
+ * The VAT rate behind the Studio share estimate. It comes from the env var
+ * ESTIMATE_VAT_RATE and defaults to 0.20. The accountant has not yet confirmed
+ * the rate for interactive workbooks. A value that is not a number from 0 up
+ * to 1 is ignored and the default is used.
  */
-export const SHARE_ESTIMATE_INPUTS: Readonly<{ singleSaleShare: number | null; vatRate: number | null; paymentFeeRate: number | null; paymentFeeFixedMinor: number | null }> =
-  Object.freeze({ singleSaleShare: null, vatRate: null, paymentFeeRate: null, paymentFeeFixedMinor: null });
+export const DEFAULT_ESTIMATE_VAT_RATE = 0.2;
+
+export function estimateVatRate(env: Partial<Record<string, string | undefined>> = process.env): number {
+  const raw = env.ESTIMATE_VAT_RATE?.trim();
+  if (!raw) return DEFAULT_ESTIMATE_VAT_RATE;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 && n < 1 ? n : DEFAULT_ESTIMATE_VAT_RATE;
+}
 
 /**
- * The author's share of one single sale, in minor units, net of VAT and
- * payment fees: gross less the VAT inside it, less the fee, times the share.
- * Null when any input is missing, so nothing is ever guessed.
+ * The author's estimated share of one sale, in pence: the share rate times
+ * the price less the VAT inside it, less the card fee. Rounded to the penny and
+ * never negative. Null when the price or the share rate is not usable, so
+ * nothing is ever guessed. Real sales use the actual VAT and card fee.
  */
-export function shareEstimate(
-  grossMinor: number | null | undefined,
-  inputs: { singleSaleShare: number | null; vatRate: number | null; paymentFeeRate: number | null; paymentFeeFixedMinor: number | null } = SHARE_ESTIMATE_INPUTS,
-): number | null {
-  const { singleSaleShare, vatRate, paymentFeeRate, paymentFeeFixedMinor } = inputs;
+export function shareEstimate(grossMinor: number | null | undefined, shareRate: number, vatRate: number = estimateVatRate()): number | null {
   if (typeof grossMinor !== "number" || !Number.isInteger(grossMinor) || grossMinor <= 0) return null;
-  if (singleSaleShare === null || vatRate === null || paymentFeeRate === null || paymentFeeFixedMinor === null) return null;
-  if (singleSaleShare < 0 || singleSaleShare > 1 || vatRate < 0 || paymentFeeRate < 0 || paymentFeeFixedMinor < 0) return null;
-  const exVat = grossMinor / (1 + vatRate);
-  const fee = grossMinor * paymentFeeRate + paymentFeeFixedMinor;
-  return Math.max(0, Math.floor((exVat - fee) * singleSaleShare));
+  if (!Number.isFinite(shareRate) || shareRate < 0 || shareRate > 1) return null;
+  if (!Number.isFinite(vatRate) || vatRate < 0 || vatRate >= 1) return null;
+  const vat = grossMinor - grossMinor / (1 + vatRate);
+  const fee = grossMinor * CARD_FEE_RATE + CARD_FEE_FIXED_MINOR;
+  return Math.max(0, Math.round((grossMinor - vat - fee) * shareRate));
 }
 
 export const PRICE_CHOICE_LABELS: Record<string, string> = {
@@ -211,7 +215,7 @@ export const RELEASE_NOTICES = {
   "rate-limited": { tone: "error", text: "That's the limit for today. Please try again tomorrow." },
   invalid: { tone: "error", text: "Please check the form. Nothing changed." },
   denied: { tone: "error", text: "Your role cannot do that. Nothing changed." },
-  failed: { tone: "error", text: "That didn't work just now. Nothing changed. Please try again." },
+  failed: { tone: "error", text: "We're sorry. That did not work just now. Nothing changed. Please try again." },
 } as const;
 export type ReleaseNotice = keyof typeof RELEASE_NOTICES;
 

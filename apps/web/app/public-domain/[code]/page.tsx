@@ -134,6 +134,7 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
 
         <section className="wb-section">
           <h2>Review</h2>
+          {record.signer ? <p>Signer: {record.signer}</p> : null}
           <p>Reviewed by: {record.reviewedBy ?? "______"}</p>
           <p>Date: {record.reviewedOn ?? "______"}</p>
         </section>

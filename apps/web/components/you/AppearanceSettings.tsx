@@ -9,12 +9,8 @@ import {
   parseAppearance,
   saveAppearance,
   type Appearance,
-  type ReadingFont,
-  type TextSize,
 } from "@/lib/appearance";
-
-const SIZES: TextSize[] = [0, 1, 2, 3];
-const SIZE_NAMES = ["Standard", "Larger", "Large", "Largest"] as const;
+import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
 
 const subscribe = (on: () => void) => {
   window.addEventListener(APPEARANCE_EVENT, on);
@@ -33,8 +29,9 @@ const readRaw = (): string | null => {
 };
 
 /**
- * Appearance on You: text size, reading font, dim after 9 p.m. and reduced
- * motion. Saved on this device only. Every control is a real button or
+ * Appearance on You: the reading settings panel (font, text size, page colour,
+ * margins, progress; kept on the account), then dim after 9 p.m. and reduced
+ * motion, which stay on this device only. Every control is a real button or
  * checkbox, at least 44px, with its state announced.
  */
 export function AppearanceSettings() {
@@ -64,39 +61,12 @@ export function AppearanceSettings() {
   return (
     <section className="you-section" aria-labelledby={`${id}-h`}>
       <h2 id={`${id}-h`}>Appearance</h2>
-      <p className="muted">Saved on this device only.</p>
+      <p className="muted">Dimming and motion are saved on this device only.</p>
       <div className="card appearance">
-        <div className="appearance-group" role="group" aria-labelledby={`${id}-size`}>
-          <p className="appearance-label" id={`${id}-size`}>
-            Text size
-          </p>
-          <div className="appearance-sizes">
-            {SIZES.map((n) => (
-              <button
-                key={n}
-                type="button"
-                className={`appearance-size appearance-size-${n}`}
-                aria-pressed={a.textSize === n}
-                aria-label={`Text size: ${SIZE_NAMES[n]}`}
-                onClick={() => change({ ...a, textSize: n })}
-              >
-                A
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="appearance-group" role="group" aria-labelledby={`${id}-font`}>
-          <p className="appearance-label" id={`${id}-font`}>
-            Reading font
-          </p>
-          <div className="appearance-seg">
-            {(["atkinson", "lexend"] as ReadingFont[]).map((f) => (
-              <button key={f} type="button" className={`appearance-font-${f}`} aria-pressed={a.font === f} onClick={() => change({ ...a, font: f })}>
-                {f === "atkinson" ? "Atkinson" : "Lexend"}
-              </button>
-            ))}
-          </div>
+        <div className="appearance-group">
+          <p className="appearance-label">Reading</p>
+          <p className="small muted">Font, text size, page colour, margins and progress. Saved to your account, so they follow you.</p>
+          <ReadingSettingsPanel variant="inline" />
         </div>
 
         <div className="appearance-toggle">
@@ -104,7 +74,7 @@ export function AppearanceSettings() {
           <label htmlFor={`${id}-dim`}>
             <b>Dim after 9 p.m.</b>
             <span className="small muted" id={`${id}-dim-d`}>
-              Softer colours late in the evening, until 5 a.m.
+              Dark colours and softer light late in the evening, until 5 a.m. Choosing Light in the reading settings keeps the page light.
             </span>
           </label>
         </div>

@@ -1,0 +1,786 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-3TQX1",
+  "slug": "the-way-to-wealth-3tqx1",
+  "title": "The Way to Wealth",
+  "short_title": "The Way to Wealth",
+  "card_line": "Test Franklin's sayings on industry and thrift against your own week.",
+  "book": {
+    "book_id": "the-way-to-wealth",
+    "title": "The Way to Wealth",
+    "subtitle": "Father Abraham's speech, from Poor Richard Improved",
+    "year": 1758
+  },
+  "author": {
+    "author_id": "AU-BXMPD",
+    "display_name": "Benjamin Franklin"
+  },
+  "genre": "finance",
+  "theme_id": "considered-spending",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "public_domain",
+  "licence_ref": "public-domain:/public-domain/AK-3TQX1",
+  "status": "in_review",
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "week",
+    "count": 4,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "work",
+        "number": 1,
+        "name": "Time and work",
+        "units": [
+          1,
+          2
+        ],
+        "primer": {
+          "title": "The speech begins",
+          "body": "Franklin gives the speech to Father Abraham, an old man at an auction, and lets him quote Poor Richard's sayings throughout. The first two weeks follow his argument on time and on industry. Father Abraham says people are taxed most by their own habits. You look at where your time goes and move one job to today. You name a job you are avoiding. You choose one thing to check for yourself."
+        },
+        "outcome": "A clear view of where your time goes, one job done today and one thing checked for yourself."
+      },
+      {
+        "id": "money",
+        "number": 2,
+        "name": "Spending and borrowing",
+        "units": [
+          3,
+          4
+        ],
+        "primer": {
+          "title": "Keeping and owing",
+          "body": "The second half of the speech moves from earning to keeping. Father Abraham warns about small costs that repeat, about buying for show, and about borrowing. He ends with limits: careful habits can still be undone, and a crowd can hear good advice and carry on as before. You list your small costs and choose a question to ask before buying. You sort the sayings and make one small decision."
+        },
+        "outcome": "A list of small costs, a question to ask before buying and one small decision of your own."
+      }
+    ]
+  },
+  "start": {
+    "welcome": "This workbook reads Benjamin Franklin's The Way to Wealth over four weeks. Each week takes about fifteen minutes. You read a short account of one part of the speech, then answer a few questions in your own words. The text is an 1810 London printing with a few old spellings updated. This is a reading of an old essay, not financial advice. Week 1 is free. No card is needed.",
+    "how_it_works": [
+      "Read the week's key ideas. Each one is a sentence you can agree or disagree with.",
+      "Answer one question for each exercise. A line is enough.",
+      "Franklin wrote for people in a different economy. Weigh each saying against your own circumstances.",
+      "Your answers build a plan you can read at the end. Nothing in it is advice on what to do with your money."
+    ],
+    "why_prompt": "What made you pick up an essay on money written in the eighteenth century? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "work",
+      "focus": "Father Abraham answers a question about taxes by pointing to how the crowd spends its time",
+      "exercise_ids": [
+        "f1_where",
+        "f1_today"
+      ],
+      "intro": "The Way to Wealth is a speech given at an auction. A crowd asks old Father Abraham what to do about heavy taxes. He answers that idleness, pride and folly tax them more than any government does. This week you read his first section, on time, and look at where yours goes.",
+      "ideas": [
+        {
+          "heading": "Father Abraham answers a complaint about taxes by turning to the crowd's own habits.",
+          "body": "The crowd asks for advice on the government's taxes. Father Abraham agrees they are heavy, then says there are heavier ones that no commissioner can reduce. Those are set by the people themselves. The speech opens by turning a complaint about others into a question for each listener.",
+          "example": "He names the three taxes. Opening address: \"taxed twice as much by our idleness, three times as much by our pride, and four times as much by our folly\""
+        },
+        {
+          "heading": "Franklin sets a price on time by comparing idleness with a government that took a tenth of it.",
+          "body": "Everyone would call a government hard if it demanded a tenth of their time. Father Abraham says idleness takes much more. The comparison puts a cost on time, which is the first step towards spending it on purpose.",
+          "example": "He makes the comparison in Section I. Section I: \"It would be thought a hard government that should tax its people one-tenth part of their time\""
+        },
+        {
+          "heading": "Time is the material life is made of, so wasting it is the costliest waste.",
+          "body": "The speech turns on this point. Franklin says lost time is never found again. He does not describe time as a possession to guard. He describes it as the stuff of which a person's days consist. He asks the listener whether they love life enough to spend it with care.",
+          "example": "Poor Richard puts it as a question. Section I: \"do not squander time, for that is the stuff life is made of\""
+        },
+        {
+          "heading": "What feels like plenty of time usually proves to be too little.",
+          "body": "Father Abraham is wary of the phrase time enough. People say it when they put something off, and the date arrives sooner than they expected. His advice is to do the thing now and do it well, so that diligence replaces hurry and there is less to untangle later.",
+          "example": "He warns against delay. Section I: \"what we call time enough, always proves little enough\""
+        },
+        {
+          "heading": "Tools and skills that are not used wear away faster than those that are.",
+          "body": "Franklin gives an image for idleness. A key that is used every day stays bright, and one left alone goes to rust. He means more than time. He means that the hand, the habit and the skill all fade when they are left idle.",
+          "example": "The image of the key. Section I: \"Sloth, like rust, consumes faster than labour wears, while the used key is always bright\""
+        },
+        {
+          "heading": "Wishing for better times is not a plan for them.",
+          "body": "Father Abraham has no patience for hoping. He says people can improve the times by stirring themselves, and that they have more power over them than they admit. The sentence is short, and it puts the work back in the listener's hands.",
+          "example": "He answers the hope for better times. Section I: \"We may make these times better, if we bestir ourselves\""
+        },
+        {
+          "heading": "Today's work has a better claim than tomorrow's.",
+          "body": "Delay is the speech's most frequent target. Father Abraham says a day is worth more than the promise of two, because tomorrow may bring hindrances. The advice is practical. A job started today is a job that may be finished.",
+          "example": "Father Abraham gives the reason. Section I: \"Work while it is called today, for you know not how much you may be hindered tomorrow\""
+        },
+        {
+          "heading": "Franklin separates leisure from laziness.",
+          "body": "A listener objects that a person must have some leisure. Father Abraham agrees. He says leisure is time for something useful, and that it comes to those who use their time well. He is not against rest. He is against rest that has not been earned or chosen.",
+          "example": "He answers the objection. Section I: \"A life of leisure and a life of laziness are two things\""
+        }
+      ],
+      "takeaway": "You have looked at where yesterday's time went, and one job has been moved from tomorrow to today."
+    },
+    {
+      "number": 2,
+      "stage": "work",
+      "focus": "Father Abraham ties steady work to looking after your own affairs with your own eyes",
+      "exercise_ids": [
+        "f2_avoid",
+        "f2_check"
+      ],
+      "intro": "The second half of Section I is about industry, and Section II is about attending to your own affairs. Father Abraham ties the two together. Work has to be done, and it has to be watched. This week you name a job you are avoiding and choose one thing to check for yourself.",
+      "ideas": [
+        {
+          "heading": "Steady small effort wears down large obstacles.",
+          "body": "Franklin gives two images. A drip of water wears away stone, and a mouse gnaws through a cable. Both are slow and neither looks like much on any one day. The speech answers the listener who feels weak-handed by saying that sticking to it steadily has great effects.",
+          "example": "Poor Richard on persistence. Section I: \"Constant dropping wears away stones\""
+        },
+        {
+          "heading": "Franklin links every gain to some effort that came first.",
+          "body": "Father Abraham does not say effort always pays. He says the reverse, that there is no gain without it. The distinction matters. The saying makes no promise about results. It only closes off the idea that results arrive without any work behind them.",
+          "example": "He puts it in four words. Section I: \"There are no gains without pains\""
+        },
+        {
+          "heading": "A trade is worth something only while it is worked at.",
+          "body": "Franklin says a person with a trade has something as good as an estate. Then he adds a condition. The trade has to be used, and the calling followed with attention. Without that, neither the trade nor the position will cover a person's costs.",
+          "example": "He sets the condition. Section I: \"the trade must be worked at, and the calling well followed\""
+        },
+        {
+          "heading": "Caution that never touches the work achieves nothing.",
+          "body": "Poor Richard tells listeners to handle their tools without mittens. A cat in gloves is too careful to catch anything. It is a fair description of preparation that goes on for ever. The saying does not tell anyone to be careless. It tells them to grip the task.",
+          "example": "He uses the image of the cat. Section I: \"The cat in gloves catches no mice\""
+        },
+        {
+          "heading": "Being your own master raises the standard, because nobody else is checking.",
+          "body": "Father Abraham asks the listener whether they would be ashamed if a good master found them idle. If they work for themselves, he says, the shame should apply to them. The test is a plain one. It asks what you would do if you could see yourself.",
+          "example": "He turns the question on the listener. Section I: \"be ashamed to catch yourself idle\""
+        },
+        {
+          "heading": "If you want a thing done, go and look yourself.",
+          "body": "In Section II Father Abraham advises overseeing your own affairs with your own eyes and not trusting too much to others. He applies this to the shop and the plough. He does not say others cannot be trusted. He says the owner sees what a messenger misses.",
+          "example": "He gives the rule of thumb. Section II: \"If you would have your business done, go; if not, send.\""
+        },
+        {
+          "heading": "Staying with one line of work gives it time to repay the attention.",
+          "body": "Father Abraham prefers the settled to the restless. In verse, he says an often-moved tree or family does not thrive as well as one that stays put. The point is about attention more than place. A shop looked after by its owner is a shop that is known, and its owner can see what needs mending.",
+          "example": "Poor Richard on staying put. Section II: \"Keep thy shop, and thy shop will keep thee\""
+        },
+        {
+          "heading": "A lack of care does more damage than a lack of knowledge.",
+          "body": "The saying is easy to pass over. Most people worry about what they do not know. Franklin worries about what they do not attend to. Knowing a lot, and then not checking, is a common way to lose something.",
+          "example": "Poor Richard weighs the two. Section II: \"Want of care does us more damage than want of knowledge\""
+        },
+        {
+          "heading": "A small neglect can set off a large loss.",
+          "body": "The proverb of the nail runs in a chain. A nail is missing, so a shoe is lost, so a horse is lost, so the rider is lost. Franklin finishes it with a rider overtaken by an enemy. The cause is a nail. The point is that small checks are cheap compared with what they prevent.",
+          "example": "He lengthens the chain one link at a time. Section II: \"for want of a nail the shoe was lost\""
+        }
+      ],
+      "takeaway": "You have named one job you are avoiding and chosen one thing to check for yourself this week."
+    },
+    {
+      "number": 3,
+      "stage": "money",
+      "focus": "Father Abraham adds saving to earning and warns about small costs that repeat",
+      "exercise_ids": [
+        "f3_costs",
+        "f3_pause"
+      ],
+      "intro": "Section III turns from earning to keeping. Franklin says industry is made more certain by frugality. The section is long and full of small examples: tea, punch, silks and bargains at an auction. This week you look at your own small, regular spending and choose a question to ask before a purchase.",
+      "ideas": [
+        {
+          "heading": "Earning is half of the matter, and keeping is the other half.",
+          "body": "Father Abraham says industry alone is not enough. A person can work hard all their life and still end with nothing. His remedy is not to earn more but to attend to what goes out. The idea is old and plain, and it sits at the centre of the speech.",
+          "example": "He opens Section III. Section III: \"If you would be wealthy, think of saving, as well as of getting.\""
+        },
+        {
+          "heading": "Spending that outruns income is a problem at any size.",
+          "body": "Franklin uses Spain as his example. A country with access to great wealth stays poor if it spends more than it receives. He expects his listeners to apply the point to a household. The size of the income is not the issue. The gap between income and outgoings is.",
+          "example": "Poor Richard explains Spain. Section III: \"her out-goes are greater than her incomes\""
+        },
+        {
+          "heading": "Small costs deserve attention because they repeat.",
+          "body": "Father Abraham lists a little tea, a little punch, finer clothes and a little entertainment. None looks like much, and he agrees. Then he says many small amounts make a large one. A small leak is dangerous because nobody is watching it.",
+          "example": "He gives the image of the ship. Section III: \"A small leak will sink a great ship\""
+        },
+        {
+          "heading": "Something you do not need is dear at any price.",
+          "body": "The auction has crowds, low prices and fine goods. Father Abraham says cheapness is no reason to buy. If you have no use for a thing, it costs you its full price in money you could have kept. The judgement is on need, not on price.",
+          "example": "He addresses the crowd at the sale. Section III: \"if you have no occasion for them, they must be dear to you\""
+        },
+        {
+          "heading": "Pause before a bargain, because cheapness may be only apparent.",
+          "body": "Franklin gives the pause a name in a single line from Poor Richard. A bargain can look cheap and still strain your means. The pause gives time to ask which, before the price is paid and the choice is made.",
+          "example": "He recommends a short wait. Section III: \"At a great pennyworth pause a while\""
+        },
+        {
+          "heading": "The first want is easier to refuse than the ones that follow.",
+          "body": "Father Abraham notes that one fine thing makes ten more seem needed, so that the whole appearance matches. The first purchase starts the chain. Franklin says to refuse at the first link, since it costs less than meeting every one after it.",
+          "example": "Poor Dick counts the cost. Section III: \"It is easier to suppress the first desire, than to satisfy all that follow it\""
+        },
+        {
+          "heading": "Spending on show can come out of the kitchen.",
+          "body": "The speech is blunt about this. Some people, for the sake of finery on the back, go with a hungry belly. Father Abraham calls such goods neither necessaries nor conveniences. They are things bought because they look pretty. He asks how many people want them for that reason alone.",
+          "example": "Poor Richard puts a price on finery. Section III: \"Silks and satins, scarlet and velvets, put out the kitchen fire\""
+        },
+        {
+          "heading": "Pride asks for more than want does.",
+          "body": "Father Abraham says that the wish to appear well off is a heavier demand than poverty makes. He adds that pride dines on vanity and sups on contempt. Pride, in his words, is a louder beggar than want, and it does not stop asking when it is given something.",
+          "example": "Poor Richard compares the two. Section III: \"Pride is as loud a beggar as Want, and a great deal more saucy\""
+        },
+        {
+          "heading": "The cost of keeping something often outlasts the cost of getting it.",
+          "body": "Franklin's example is a chimney. Building two is easier than keeping one fed with fuel. A purchase brings running costs with it, and those arrive month after month. Gain may be temporary, he says. Expense is not.",
+          "example": "Poor Richard compares building with keeping. Section III: \"It is easier to build two chimneys, than to keep one in fuel\""
+        }
+      ],
+      "takeaway": "You have listed your small regular costs and chosen a question to ask before your next purchase."
+    },
+    {
+      "number": 4,
+      "stage": "money",
+      "focus": "Father Abraham says debt gives another person power over you, then reminds the careful to stay kind",
+      "exercise_ids": [
+        "f4_sayings",
+        "f4_decide"
+      ],
+      "intro": "The last part of the speech is about borrowing for show and about the limits of thrift. Franklin has Father Abraham say that debt takes away liberty and truth. He then adds that industry and prudence are not enough on their own, and the essay ends with an audience that nods and keeps buying. This week you test the sayings against your own life.",
+      "ideas": [
+        {
+          "heading": "Borrowing, in Franklin's account, gives another person power over you.",
+          "body": "Father Abraham pictures a government forbidding a person to dress as they like, and calls it tyranny. He says debt does the same thing by consent. In his day the power was literal, since a creditor could have a debtor jailed or sold into service. The principle he draws is about liberty.",
+          "example": "He addresses the buyers at the sale. Section III: \"you give to another power over your liberty\""
+        },
+        {
+          "heading": "Debt can lead to excuses and then to untruths.",
+          "body": "Franklin follows the debtor's path. First comes shame at meeting the creditor, then fear, then poor excuses, and by degrees plain lying. Father Abraham says a free person should not be afraid to speak to anyone. The cost of debt, on his account, is more than money.",
+          "example": "Poor Richard ranks the vices. Section III: \"Lying rides upon Debt's back\""
+        },
+        {
+          "heading": "A creditor keeps the date better than the debtor does.",
+          "body": "The person who owes forgets the day, and the person who is owed does not. Father Abraham warns that the demand comes round before you are ready. This is a plain observation about memory and attention, and it applies to any date that someone else is watching.",
+          "example": "He describes the creditor. Section III: \"Creditors have better memories than debtors\""
+        },
+        {
+          "heading": "A term that seems long when you borrow seems short when payment is due.",
+          "body": "Father Abraham says the time to pay looks distant on the day of the loan. As it shrinks, it appears extremely short. Poor Richard makes the same point with the calendar. Lent is forty days, and a person who owes money at Easter feels every one of them.",
+          "example": "Poor Richard reaches for the calendar. Section III: \"Those have a short Lent, who owe money to be paid at Easter.\""
+        },
+        {
+          "heading": "Gain is uncertain and expense is constant.",
+          "body": "This is perhaps the most practical line in the speech. Income can stop or fall, and spending goes on. Franklin follows it with a blunt rule: go to bed without supper rather than rise in debt. Bear the imbalance in mind before committing to an outlay that depends on good times lasting.",
+          "example": "He states the imbalance. Section III: \"Gain may be temporary and uncertain; but ever, while you live, expense is constant and certain\""
+        },
+        {
+          "heading": "Careful habits can still be undone, and Franklin asks the careful to stay kind.",
+          "body": "Section IV tempers all that went before. Father Abraham says industry, frugality and prudence are excellent but may be blasted without the blessing of Heaven. He asks the listener to ask that blessing humbly, and to comfort and help those who have not got it.",
+          "example": "He closes the argument with a limit. Section IV: \"do not depend too much upon your own industry, and frugality, and prudence, though excellent things\""
+        },
+        {
+          "heading": "Hearing good advice and acting on it are different things.",
+          "body": "Poor Richard then steps out of the speech. The crowd heard Father Abraham, approved, and began to buy at once. Franklin does not scold them, and sees it as the common outcome of every sermon. The advice is tested by what happens next, not by agreement.",
+          "example": "The author describes the crowd. Closing paragraph: \"approved the doctrine, and immediately practised the contrary\""
+        },
+        {
+          "heading": "Advice can be given, but conduct cannot.",
+          "body": "Near the end Father Abraham admits the limit of his own speech. He can say what he thinks is wise. He cannot make anyone act on it. People who will not be counselled cannot be helped, he adds. The sentence puts the whole weight of change on the listener.",
+          "example": "Poor Richard in his closing lines. Section IV: \"We may give advice, but we cannot give conduct\""
+        },
+        {
+          "heading": "The author's own response is one small decision.",
+          "body": "Franklin admits that the speech flattered his vanity, and that most of its wisdom was not his own. He had meant to buy cloth for a new coat. He decided to wear the old coat a little longer. The decision is small and specific, which may be why it is credible.",
+          "example": "He ends with himself. Closing paragraph: \"resolved to wear my old one a little longer\""
+        }
+      ],
+      "takeaway": "You have sorted the sayings by what fits your life now, and made one small decision of your own."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "f1_where",
+      "title": "List where yesterday's time went",
+      "purpose": "A rough list of what filled yesterday, with the parts you would not choose again marked.",
+      "why": "Father Abraham says idleness taxes people more than any government. Look at yesterday. Write down what filled it in broad blocks, from waking to bed. Then mark any block you would not choose to spend again. The mark is a note, not a judgement.",
+      "source": {
+        "chapter": "Section I"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the blocks of yesterday in order."
+        },
+        {
+          "text": "Beside each, say what it went on."
+        },
+        {
+          "text": "Mark any block you would not choose again."
+        }
+      ],
+      "fields": [
+        {
+          "id": "blocks",
+          "type": "two_column",
+          "label": "Which parts of yesterday would you not choose to spend again?",
+          "columns": [
+            "Part of the day",
+            "What it went on"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "done_when": "Yesterday is listed in blocks and at least one is marked.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "List three blocks of yesterday."
+          }
+        ],
+        "field_ids": [
+          "blocks"
+        ]
+      },
+      "reflect": "Which block surprised you most?",
+      "feeds_plan": [
+        {
+          "field_id": "blocks",
+          "plan_section": "time"
+        }
+      ]
+    },
+    {
+      "id": "f1_today",
+      "title": "Choose one job for today",
+      "purpose": "One job you have been putting off, set for today.",
+      "why": "Poor Richard says, \"Never leave that till tomorrow, which you can do today.\" Father Abraham counts delay as a tax that grows. Pick one job that has waited too long. It can be small. Then give it a time today.",
+      "source": {
+        "chapter": "Section I"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of a job you have moved to tomorrow more than once."
+        },
+        {
+          "text": "Choose one that takes under an hour."
+        },
+        {
+          "text": "Set a time for it today."
+        }
+      ],
+      "fields": [
+        {
+          "id": "today_job",
+          "type": "short_text",
+          "label": "What is one job you have been putting off that you will do today?"
+        }
+      ],
+      "done_when": "One job is chosen and given a time today.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one job and a time."
+          }
+        ],
+        "field_ids": [
+          "today_job"
+        ]
+      },
+      "reflect": "What stopped you doing it before?",
+      "feeds_plan": [
+        {
+          "field_id": "today_job",
+          "plan_section": "time"
+        }
+      ]
+    },
+    {
+      "id": "f2_avoid",
+      "title": "Name the job you are avoiding",
+      "purpose": "One job you have been handling with gloves on, and its first step.",
+      "why": "Poor Richard says the cat in gloves catches no mice. Preparing, planning and tidying can all be ways of staying clear of the job itself. Name the job you keep getting ready for and not doing. Then write only its first step.",
+      "source": {
+        "chapter": "Section I"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of work you keep preparing for."
+        },
+        {
+          "text": "Name the job itself, not the preparation."
+        },
+        {
+          "text": "Write the first step, in a few words."
+        }
+      ],
+      "fields": [
+        {
+          "id": "avoid_job",
+          "type": "short_text",
+          "label": "Which job are you avoiding, and what is its first step?"
+        }
+      ],
+      "done_when": "One job and its first step are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the job."
+          }
+        ],
+        "field_ids": [
+          "avoid_job"
+        ]
+      },
+      "reflect": "What would the first step look like if it took ten minutes?",
+      "feeds_plan": [
+        {
+          "field_id": "avoid_job",
+          "plan_section": "work"
+        }
+      ]
+    },
+    {
+      "id": "f2_check",
+      "title": "Pick one thing to check yourself",
+      "purpose": "One task you will see to personally this week.",
+      "why": "Father Abraham says that if you want your business done, go yourself. Some tasks are passed on, assumed finished or left to chance. Pick one that matters to you. Plan to look at it with your own eyes before the week is out.",
+      "source": {
+        "chapter": "Section II"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of a task you have passed on or assumed was done."
+        },
+        {
+          "text": "Choose the one that would cost most if it were wrong."
+        },
+        {
+          "text": "Decide when you will look."
+        }
+      ],
+      "fields": [
+        {
+          "id": "check_task",
+          "type": "short_text",
+          "label": "Which task will you check for yourself this week instead of assuming it is done?"
+        }
+      ],
+      "done_when": "One task is chosen with a time to look at it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one task."
+          }
+        ],
+        "field_ids": [
+          "check_task"
+        ]
+      },
+      "reflect": "What do you expect to find?",
+      "feeds_plan": [
+        {
+          "field_id": "check_task",
+          "plan_section": "work"
+        }
+      ]
+    },
+    {
+      "id": "f3_costs",
+      "title": "List your small regular costs",
+      "purpose": "A short list of the small costs that come round again and again in your week or month.",
+      "why": "Father Abraham says a small leak will sink a great ship. Look at your own week or month. List the small costs that repeat, such as drinks, subscriptions or snacks. Write only what comes to mind. This is a list to look at, not a total to judge.",
+      "source": {
+        "chapter": "Section III"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of the last few weeks."
+        },
+        {
+          "text": "Write down the small costs that came round more than once."
+        },
+        {
+          "text": "Add roughly how often each comes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "small_costs",
+          "type": "two_column",
+          "label": "Which small costs come round regularly in your week or month?",
+          "columns": [
+            "The cost",
+            "How often"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "done_when": "At least three small costs are listed, each with how often.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List two small costs."
+          }
+        ],
+        "field_ids": [
+          "small_costs"
+        ]
+      },
+      "reflect": "Which of these would you miss least?",
+      "feeds_plan": [
+        {
+          "field_id": "small_costs",
+          "plan_section": "spending"
+        }
+      ]
+    },
+    {
+      "id": "f3_pause",
+      "title": "Choose a question to ask first",
+      "purpose": "One question you will ask yourself before your next non-essential purchase.",
+      "why": "Poor Richard says to pause a while at a great pennyworth. A pause needs a question to fill it. Franklin's own is whether you have occasion for the thing. Choose that one, or write one of your own, and keep it short enough to remember.",
+      "source": {
+        "chapter": "Section III"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of the last purchase you regretted or doubted."
+        },
+        {
+          "text": "Write the question that would have helped."
+        },
+        {
+          "text": "Keep it to one line."
+        }
+      ],
+      "fields": [
+        {
+          "id": "buy_question",
+          "type": "short_text",
+          "label": "What question will you ask yourself before your next non-essential purchase?"
+        }
+      ],
+      "done_when": "One question is written, short enough to remember.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question."
+          }
+        ],
+        "field_ids": [
+          "buy_question"
+        ]
+      },
+      "reflect": "Where will you see this question when you need it?",
+      "feeds_plan": [
+        {
+          "field_id": "buy_question",
+          "plan_section": "spending"
+        }
+      ]
+    },
+    {
+      "id": "f4_sayings",
+      "title": "Sort the sayings against your life",
+      "purpose": "A short list of Poor Richard's sayings, each marked as fitting your life now or not.",
+      "why": "Franklin admits that not a tenth of the wisdom was his own, since he gathered it from many ages and nations. Some sayings still fit and some belong to his time. Pick three or four you met in this workbook. Say which fit and which do not, and why.",
+      "source": {
+        "chapter": "Sections I to IV"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look back over the sayings in the key ideas."
+        },
+        {
+          "text": "Pick three or four that stood out."
+        },
+        {
+          "text": "For each, say whether it fits your life now and why."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sayings",
+          "type": "two_column",
+          "label": "Which of Poor Richard's sayings still fit your life, and which do not?",
+          "columns": [
+            "The saying",
+            "Fits or not, and why"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "At least three sayings are sorted, each with a reason.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Pick one saying and say if it fits."
+          }
+        ],
+        "field_ids": [
+          "sayings"
+        ]
+      },
+      "reflect": "Which saying surprised you by how well it fits?",
+      "feeds_plan": [
+        {
+          "field_id": "sayings",
+          "plan_section": "sayings"
+        }
+      ]
+    },
+    {
+      "id": "f4_decide",
+      "title": "Make one small decision",
+      "purpose": "One small decision of your own, with a date.",
+      "why": "Franklin ends with himself. He had meant to buy cloth for a new coat and decided to wear the old one a little longer. A single small decision is easier to keep than a list of resolutions. Choose yours from the last four weeks and put a date on it.",
+      "source": {
+        "chapter": "Closing paragraph"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Look back at your answers from weeks 1 to 4."
+        },
+        {
+          "text": "Pick the one decision that feels most workable."
+        },
+        {
+          "text": "Put a date on it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "decision",
+          "type": "short_text",
+          "label": "What one small decision will you make from this workbook, and by when?"
+        }
+      ],
+      "done_when": "One decision is written down with a date.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one decision."
+          }
+        ],
+        "field_ids": [
+          "decision"
+        ]
+      },
+      "reflect": "What would make it easy to keep?",
+      "feeds_plan": [
+        {
+          "field_id": "decision",
+          "plan_section": "decision"
+        }
+      ]
+    }
+  ],
+  "toolkit": [],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "week_one",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. Father Abraham would count a job moved to today as a good start."
+    },
+    {
+      "id": "work_done",
+      "trigger": "stage_complete:work",
+      "message": "Two weeks done. You have looked at your time and your work."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four weeks done. Your plan is ready to read."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "time",
+      "title": "Your time"
+    },
+    {
+      "id": "work",
+      "title": "Your work"
+    },
+    {
+      "id": "spending",
+      "title": "Your small costs"
+    },
+    {
+      "id": "sayings",
+      "title": "Sayings that fit"
+    },
+    {
+      "id": "decision",
+      "title": "Your small decision"
+    }
+  ],
+  "finish": {
+    "summary": "Four weeks, and a plan built from your own answers. It holds your time, your work, your small costs, the sayings that fit and one small decision.",
+    "book_bridge": "The Way to Wealth is in the public domain. The 1810 London printing used here is short enough to read in one sitting beside this workbook."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which job did you move to today this month, and what happened?",
+      "Which small cost did you look at again this month?",
+      "Which of Poor Richard's sayings did you use this month, and where?"
+    ],
+    "refresher_ids": [
+      "f1_today",
+      "f3_pause",
+      "f4_decide"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "docs/content/sources/AK-3TQX1/darton-1810.txt",
+    "cut_log": [
+      {
+        "item": "The publisher's advertisements for other books, and the editor's introduction",
+        "chapter": "Front matter",
+        "reason": "Not Franklin's text and not reader content."
+      },
+      {
+        "item": "Plate captions and illustration notes",
+        "chapter": "Throughout",
+        "reason": "Not part of the speech."
+      },
+      {
+        "item": "Passages on sloth and disease, and on the benefits of rising early",
+        "chapter": "Section I",
+        "reason": "The product makes no health claims."
+      },
+      {
+        "item": "Passages with dash-to-comma artefacts from the reversible modernisation",
+        "chapter": "Throughout",
+        "reason": "Not quoted across a dash, so no reader sees a doubled comma."
+      }
+    ],
+    "notes": "Written to docs/content/UNIT_SPEC.md. Quotations are from the modernised copy of the Darton 1810 printing (Gutenberg #43855, sha1 28ca5dec58c290fa0922b7cff7fe97fc2ebf579a) and checked against it. The Darton text may differ from the wording Franklin first published in 1758. Status in_review until the house record is signed (C10) and a second named reviewer approves."
+  }
+}

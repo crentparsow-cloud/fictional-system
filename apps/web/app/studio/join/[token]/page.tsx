@@ -51,7 +51,7 @@ export default async function JoinPage({ params, searchParams }: { params: Param
 
   const session = await getReaderSession();
   const role = parseOrgRole(view.role);
-  const error = sp.e === "other-address" ? "This invitation is for a different email address." : sp.e === "closed" ? "This invitation can no longer be used." : sp.e ? "That didn't work just now. Please try again." : null;
+  const error = sp.e === "other-address" ? "This invitation is for a different email address." : sp.e === "closed" ? "This invitation can no longer be used." : sp.e ? "We're sorry. That did not work just now. Please try again." : null;
 
   return (
     <section className="card auth-card studio-join">

@@ -1,3 +1,7 @@
+import { SHARED_PLAN_POSITIONING } from "@/lib/shared-membership";
+import type { Market } from "@/lib/markets";
+import { trialLabel } from "@/lib/membership-trial";
+import { yearlyPlanLine } from "@/lib/price-display";
 import { GBP_PRICE_NOTE, PRICE_TO_BE_CONFIRMED, type Price } from "@/lib/pricing";
 
 /**
@@ -30,8 +34,27 @@ export interface PaywallInput {
   membershipYearlyPrice?: Price | null;
   /** Whether the annual plan has a Stripe price configured. */
   membershipYearlyReady?: boolean;
+  /** The two-person membership price, or null while it is a placeholder (0041). */
+  membershipTwoPrice?: Price | null;
+  /** Whether the two-person plan has a Stripe price configured. */
+  membershipTwoReady?: boolean;
+  /** The annual two-person price, or null while it is a placeholder. */
+  membershipTwoYearlyPrice?: Price | null;
+  /** Whether the annual two-person plan has a Stripe price configured. */
+  membershipTwoYearlyReady?: boolean;
   /** Whether this workbook is in the membership catalogue (0009). Defaults to true. */
   inMembership?: boolean;
+  /**
+   * The trial this reader would get at checkout, in days per plan (13.5), or
+   * omitted when they are not eligible. Labels read "14 days, then £7.99 a
+   * month", never "free" (5.3).
+   */
+  membershipTrial?: { monthly: number; yearly: number };
+  /**
+   * The reader's market. With it, the annual line shows the monthly
+   * equivalent and the yearly total at the same size (14.21).
+   */
+  market?: Market;
 }
 
 export interface PaywallButton {
@@ -46,10 +69,19 @@ export interface PaywallYearly {
   label: string;
 }
 
+/** The quiet third way to join: one membership shared by two people (0041). Shown only when it can be used. */
+export interface PaywallShared {
+  positioning: string;
+  /** The monthly offer. Absent while only the annual two-person plan is open. */
+  label?: string;
+  /** The annual offer: yearly total and monthly equivalent at the same size. Absent while the annual plan is not open. */
+  yearlyLabel?: string;
+}
+
 export type PaywallState =
   | { kind: "open" }
   | { kind: "demo"; message: string }
-  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton; yearly?: PaywallYearly; currencyNote?: string };
+  | { kind: "offer"; buy: PaywallButton; membership: PaywallButton; yearly?: PaywallYearly; shared?: PaywallShared; currencyNote?: string; trialDays?: number };
 
 export const DEMO_NOT_FOR_SALE = "This is a demo title. Demo titles cannot be bought.";
 export const MEMBERSHIP_NOT_OPEN = "Membership is not open yet";
@@ -68,18 +100,69 @@ export function paywallState(input: PaywallInput): PaywallState {
   if (!included) membership = { enabled: false, label: "Join the membership", note: NOT_IN_MEMBERSHIP };
   else if (!input.membershipPrice) membership = { enabled: false, label: "Join the membership", note: PRICE_TO_BE_CONFIRMED };
   else if (!input.membershipCheckoutReady) membership = { enabled: false, label: "Join the membership", note: MEMBERSHIP_NOT_OPEN };
-  else membership = { enabled: true, label: "Join the membership", note: `${input.membershipPrice.formatted} a month` };
+  else {
+    const days = input.membershipTrial?.monthly ?? 0;
+    membership = { enabled: true, label: "Join the membership", note: trialLabel("monthly", days, input.membershipPrice.formatted) };
+  }
 
   const yearlyShown = included && !!input.membershipYearlyPrice && !!input.membershipYearlyReady;
   // F-094: a price shown in GBP to a reader whose market uses another currency says so.
+  const sharedMonthlyShown = included && !!input.membershipTwoPrice && !!input.membershipTwoReady;
+  const sharedYearlyShown = included && !!input.membershipTwoYearlyPrice && !!input.membershipTwoYearlyReady;
   const inGbp =
-    !!input.workbookPrice?.inGbp || (membership.enabled && !!input.membershipPrice?.inGbp) || (yearlyShown && !!input.membershipYearlyPrice?.inGbp);
-  const extra = inGbp ? { currencyNote: GBP_PRICE_NOTE } : {};
+    !!input.workbookPrice?.inGbp ||
+    (membership.enabled && !!input.membershipPrice?.inGbp) ||
+    (yearlyShown && !!input.membershipYearlyPrice?.inGbp) ||
+    (sharedMonthlyShown && !!input.membershipTwoPrice?.inGbp) ||
+    (sharedYearlyShown && !!input.membershipTwoYearlyPrice?.inGbp);
+  const trialDays = membership.enabled ? (input.membershipTrial?.monthly ?? 0) : 0;
+  const extra = {
+    ...(sharedMonthlyShown || sharedYearlyShown
+      ? {
+          shared: {
+            positioning: SHARED_PLAN_POSITIONING,
+            ...(sharedMonthlyShown && input.membershipTwoPrice
+              ? { label: `Share a membership, ${input.membershipTwoPrice.formatted} a month for two people` }
+              : {}),
+            ...(sharedYearlyShown && input.membershipTwoYearlyPrice
+              ? { yearlyLabel: sharedYearlyLabel(input.membershipTwoYearlyPrice, input.market) }
+              : {}),
+          },
+        }
+      : {}),
+    ...(inGbp ? { currencyNote: GBP_PRICE_NOTE } : {}),
+    ...(trialDays > 0 ? { trialDays } : {}),
+  };
 
   if (yearlyShown && input.membershipYearlyPrice) {
-    return { kind: "offer", buy, membership, yearly: { label: `Or pay ${input.membershipYearlyPrice.formatted} a year` }, ...extra };
+    return { kind: "offer", buy, membership, yearly: { label: yearlyLabel(input.membershipYearlyPrice, input.market, input.membershipTrial?.yearly ?? 0) }, ...extra };
   }
   return { kind: "offer", buy, membership, ...extra };
+}
+
+/**
+ * The annual line under the monthly button. With a market it is the monthly
+ * equivalent and the yearly total side by side, the total first, and the
+ * trial first when there is one: "21 days, then £69.99 a year, £5.83 a month". Without one it
+ * is the older "Or pay £69.99 a year".
+ */
+function yearlyLabel(price: Price, market: Market | undefined, trialDays: number): string {
+  if (!market) return `Or pay ${price.formatted} a year`;
+  const line = yearlyPlanLine(price, market);
+  const prices = `${line.primary}, ${line.secondary}`;
+  return trialDays > 0 ? `Or ${trialDays} days, then ${prices}` : `Or ${prices}`;
+}
+
+/**
+ * The annual two-person line. Same rule as the single annual plan (14.21): the
+ * yearly total and the monthly equivalent side by side at the same size, the
+ * total first. The two-person plans have no trial. Without a market it is the
+ * plain "Or pay £104.99 a year for two people".
+ */
+function sharedYearlyLabel(price: Price, market: Market | undefined): string {
+  if (!market) return `Or pay ${price.formatted} a year for two people`;
+  const line = yearlyPlanLine(price, market);
+  return `Or ${line.primary}, ${line.secondary} for two people`;
 }
 
 /** "8 weeks", "1 module": the unit count from the listing in plain words. */

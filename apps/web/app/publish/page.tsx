@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { brand } from "@/lib/brand";
+import { MarketingShot } from "@/components/MarketingShot";
+import { shelfStyleVars } from "@/components/explore/ShelfTile";
 import { EnquiryForm } from "./enquiry-form";
 
 export const metadata: Metadata = { title: `Publish with ${brand.name}` };
@@ -16,7 +18,7 @@ export const metadata: Metadata = { title: `Publish with ${brand.name}` };
 const STEPS: { title: string; body: string }[] = [
   {
     title: "Enquire",
-    body: "Tell us about the book. We reply within [enquiry response time] and say honestly whether it suits the format.",
+    body: "Tell us about the book. We reply by email and say honestly whether it suits the format.",
   },
   {
     title: "Licence",
@@ -28,7 +30,7 @@ const STEPS: { title: string; body: string }[] = [
   },
   {
     title: "Sell and pay",
-    body: `The workbook goes into the ${brand.name} library. Readers buy it or read it through membership. You get a monthly statement and a monthly payment, with exact figures for your records.`,
+    body: `The workbook goes into the ${brand.name} library. Readers buy it or read it through membership. You are paid every Friday. A sale is paid on the first Friday after its 14 day refund window ends, and a monthly statement gives the exact figures for your records.`,
   },
 ];
 
@@ -68,7 +70,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "What does it cost me?",
-    a: `Nothing up front. ${brand.name} is paid from the workbook's receipts. The share is set out in the licence.`,
+    a: `Nothing. There is no monthly fee and no set-up charge. ${brand.name} only earns when a reader pays, from that payment. The share is set out in the licence.`,
   },
   {
     q: "How long does a build take?",
@@ -100,21 +102,51 @@ export default function PublishPage() {
   return (
     <main>
       <section className="hero">
-        <div className="wrap">
-          <p className="eyebrow">For authors and publishers</p>
-          <h1>Turn your book into a workbook readers finish</h1>
-          <p>
-            {brand.name} builds interactive guided workbooks from published books. Readers work through your ideas a
-            week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and
-            sell the workbook under licence, and pay you a share of what it earns every month.
-          </p>
-          <p>
-            <a className="btn secondary" href="#enquiry" style={{ borderColor: "currentColor", color: "inherit" }}>
-              Start an enquiry
-            </a>
-          </p>
+        <div className="wrap mk-hero-grid">
+          <div>
+            <p className="eyebrow">For authors and publishers</p>
+            <h1>Turn your book into a guided workbook</h1>
+            <p>
+              {brand.name} builds interactive guided workbooks from published books. Readers work through your ideas a
+              week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and
+              sell the workbook under licence.
+            </p>
+            <p>
+              <a className="btn" href="#enquiry">
+                Start an enquiry
+              </a>
+            </p>
+          </div>
+          <div className="mk-hero-shots">
+            <MarketingShot name="workbook-phone" alt="What your readers see: the workbook page with its cover, a short description and the path through the weeks." priority />
+          </div>
         </div>
       </section>
+
+      <div className="wrap" style={{ paddingBlockStart: "2rem" }}>
+        <ul className="mk-promises" aria-label="How we work with authors">
+          <li style={shelfStyleVars("money")}>
+            <strong>No monthly fee</strong>
+            <span>Nothing to pay to list a book or keep it live.</span>
+          </li>
+          <li style={shelfStyleVars("health-and-body")}>
+            <strong>You pay only when a reader does</strong>
+            <span>We take our share from a reader&apos;s payment, never from you.</span>
+          </li>
+          <li style={shelfStyleVars("learning-and-skills")}>
+            <strong>Paid every Friday</strong>
+            <span>A sale is paid on the first Friday after its 14 day refund window. Balances under £10 carry forward.</span>
+          </li>
+          <li style={shelfStyleVars("love-and-relationships")}>
+            <strong>We answer your readers&apos; questions</strong>
+            <span>Support for your readers is ours to handle, not yours.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div className="wrap" style={{ paddingBlockStart: "1.5rem" }}>
+        <MarketingShot name="explore-desktop" alt="The Explore page on a laptop: ten pastel shelves and rows of workbooks, where readers find your book." />
+      </div>
 
       <div className="wrap" style={{ paddingBlock: "2.5rem" }}>
         <h2>Who it is for</h2>
@@ -123,7 +155,7 @@ export default function PublishPage() {
             <strong>Authors</strong>
             <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>
               With a published non-fiction book that teaches something: a method, a set of habits, a way of thinking.
-              Across the eleven shelves, from wellbeing to life skills.
+              Across the ten shelves, from Mind and Mood to Creativity and Making.
             </p>
           </div>
           <div className="card">

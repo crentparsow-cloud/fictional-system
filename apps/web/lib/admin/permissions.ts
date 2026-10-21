@@ -16,6 +16,7 @@ import { knownRoles, type PlatformRole } from "@/lib/staff-access";
  *   kill switch     0008 public.set_workbook_paused: owner, editor
  *   review queue    0016 app.is_reviewer: owner, editor, safety_reviewer
  *   assign, release 0016 review_assign, release_version, overrides: owner, editor
+ *   collections     0043 save_collection, delete_collection, set_shelf_editorial: owner, editor
  *   funnel counts   0016 funnel_summary: owner, editor, finance
  *   ops alerts      0016 ops_alerts_read: any staff; acknowledge: owner, editor, support
  *   support inbox   0016 support_messages_staff_read / _update: owner, editor, support
@@ -32,6 +33,8 @@ export interface AdminAbilities {
   readReviewQueue: boolean;
   /** Assign reviews, record licences, ask for and approve overrides, release (0016). */
   releaseVersions: boolean;
+  /** Collections, shelf editor's lines and featured titles (0043): owner, editor. */
+  curateCatalogue: boolean;
   readFunnel: boolean;
   readOps: boolean;
   acknowledgeOps: boolean;
@@ -62,6 +65,7 @@ export function adminAbilities(rawRoles: readonly unknown[] | null | undefined):
     createOrganisations: hasAny(roles, ORG_CREATE_ROLES),
     readReviewQueue: hasAny(roles, REVIEW_ROLES),
     releaseVersions: hasAny(roles, WORKBOOK_WRITE_ROLES),
+    curateCatalogue: hasAny(roles, WORKBOOK_WRITE_ROLES),
     readFunnel: hasAny(roles, FUNNEL_ROLES),
     readOps: staff,
     acknowledgeOps: hasAny(roles, SUPPORT_ROLES),

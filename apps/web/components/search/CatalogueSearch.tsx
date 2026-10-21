@@ -38,6 +38,8 @@ export interface SearchLabels {
   helpCta: string;
   results: string;
   empty: string;
+  /** The next step shown under an empty result, a link to Explore. */
+  emptyCta: string;
 }
 
 export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headingLevel = 2 }: { entries: SearchEntry[]; labels: SearchLabels; helpHref?: string; headingLevel?: 2 | 3 }) {
@@ -138,7 +140,12 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
               </ul>
             </>
           ) : (
-            <p className="muted search-empty">{labels.empty}</p>
+            <div className="search-empty-block">
+              <p className="muted search-empty">{labels.empty}</p>
+              <Link className="btn secondary" href="/explore">
+                {labels.emptyCta}
+              </Link>
+            </div>
           )
         ) : null}
       </div>

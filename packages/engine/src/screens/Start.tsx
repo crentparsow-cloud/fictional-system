@@ -2,6 +2,7 @@
 
 import type { WorkbookV3 } from "@akana/schema";
 import { Card, Eyebrow } from "./parts";
+import { LetterCard, lettersAt } from "./Letter";
 import { ToolkitCardView } from "./Toolkit";
 
 export interface StartScreenProps {
@@ -16,6 +17,8 @@ export interface StartScreenProps {
   onOpenSelfCheck?: () => void;
   /** Shows the first Toolkit tool, "for tonight", as the legacy Start flow did. */
   showFirstTool?: boolean;
+  /** The reader's first name, for author letters. Letters read fine without it. */
+  firstName?: string;
 }
 
 /**
@@ -23,7 +26,7 @@ export interface StartScreenProps {
  * prompt. Ends with one button. The self-check that the legacy app ran here
  * is its own screen now.
  */
-export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly, onOpenSelfCheck, showFirstTool }: StartScreenProps) {
+export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly, onOpenSelfCheck, showFirstTool, firstName }: StartScreenProps) {
   const firstTool = showFirstTool ? doc.toolkit[0] : undefined;
   const wellbeing = doc.safety_tier !== "none";
   return (
@@ -32,13 +35,17 @@ export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, re
         <Eyebrow>{doc.short_title ?? doc.title}</Eyebrow>
         <h2 className="ak-h2">Welcome</h2>
       </header>
-      <p>{doc.start.welcome}</p>
+      <p data-ra>{doc.start.welcome}</p>
+
+      {lettersAt(doc).map((l) => (
+        <LetterCard key={l.id} letter={l} firstName={firstName} />
+      ))}
 
       <Card>
         <Eyebrow>How it works</Eyebrow>
         <ul className="ak-list">
           {doc.start.how_it_works.map((x, i) => (
-            <li key={i}>{x}</li>
+            <li key={i} data-ra>{x}</li>
           ))}
         </ul>
       </Card>
@@ -46,7 +53,7 @@ export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, re
       {doc.start.author_note ? (
         <Card flat>
           <Eyebrow>A note from {doc.author.display_name}</Eyebrow>
-          <p>{doc.start.author_note}</p>
+          <p data-ra>{doc.start.author_note}</p>
         </Card>
       ) : null}
 

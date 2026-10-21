@@ -43,6 +43,8 @@ const fixture: WorkbookDetail = {
     start: { welcome: "Welcome. This workbook takes one small step each week.", how_it_works: ["One exercise a week.", "Your answers stay private."] },
     daily_check: { question: "How did this evening feel?" },
   },
+  pricePointId: "p3",
+  inMembership: true,
 };
 
 describe("catalogue guard", () => {

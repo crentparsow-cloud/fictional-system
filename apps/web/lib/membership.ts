@@ -1,5 +1,7 @@
 import type Stripe from "stripe";
-import type { MembershipPricePointId } from "@/lib/pricing";
+import { pauseState, pauseWindowFromMetadata } from "@/lib/membership-pause";
+import { MARKETS } from "@/lib/markets";
+import { formatPrice, MEMBERSHIP_AMOUNTS, type MembershipPricePointId } from "@/lib/pricing";
 
 /**
  * Membership (F-097) as pure helpers: which Stripe prices are configured,
@@ -7,27 +9,44 @@ import type { MembershipPricePointId } from "@/lib/pricing";
  * subscription maps to the row in public.subscriptions (migration 0009),
  * and what the You page says about a reader's membership.
  *
- * PLACEHOLDER: the membership prices are not set (questions C4 and D1 to D4
- * are open). Until Crent creates the two recurring prices in Stripe and puts
- * their ids in STRIPE_PRICE_MEMBERSHIP_MONTHLY and _YEARLY, the membership
- * checkout says "not open yet" and the paywall button stays disabled.
+ * The prices are decided (15 October 2026, migration 0046). A plan opens when
+ * its recurring Stripe price id is in the environment: STRIPE_PRICE_MEMBERSHIP_MONTHLY,
+ * _YEARLY, _TWO_MONTHLY or _TWO_YEARLY. While one is unset, that plan's
+ * checkout says "not open yet" and its button stays disabled.
  *
  * Stripe never sees a title. The membership product in Stripe is named
  * "Akana membership", so statements, receipts and Stripe's own emails carry
  * the plan only (F-098).
  */
 
-export type MembershipPlan = "monthly" | "yearly";
-export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly"];
+export type MembershipPlan = "monthly" | "yearly" | "two_monthly" | "two_yearly";
+export const MEMBERSHIP_PLANS: readonly MembershipPlan[] = ["monthly", "yearly", "two_monthly", "two_yearly"];
+
+/** The two-person plans share one membership between two people (0041, 0046). */
+export function isSharedPlan(plan: MembershipPlan): boolean {
+  return plan === "two_monthly" || plan === "two_yearly";
+}
+
+/** The plans that renew once a year. */
+export function isYearlyPlan(plan: MembershipPlan): boolean {
+  return plan === "yearly" || plan === "two_yearly";
+}
 
 export const MEMBERSHIP_PLAN_POINT: Readonly<Record<MembershipPlan, MembershipPricePointId>> = {
   monthly: "member_month",
   yearly: "member_year",
+  two_monthly: "member_two_month",
+  two_yearly: "member_two_year",
 };
 
-export const MEMBERSHIP_PRICE_ENV: Readonly<Record<MembershipPlan, "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY">> = {
+export const MEMBERSHIP_PRICE_ENV: Readonly<Record<
+  MembershipPlan,
+  "STRIPE_PRICE_MEMBERSHIP_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_YEARLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY" | "STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY"
+>> = {
   monthly: "STRIPE_PRICE_MEMBERSHIP_MONTHLY",
   yearly: "STRIPE_PRICE_MEMBERSHIP_YEARLY",
+  two_monthly: "STRIPE_PRICE_MEMBERSHIP_TWO_MONTHLY",
+  two_yearly: "STRIPE_PRICE_MEMBERSHIP_TWO_YEARLY",
 };
 
 /** What the checkout and paywall say while no membership price is configured. */
@@ -36,7 +55,7 @@ export const MEMBERSHIP_NOT_OPEN_MESSAGE = "Membership is not open yet. Please t
 type Env = Partial<Record<string, string | undefined>>;
 
 export function isMembershipPlan(value: unknown): value is MembershipPlan {
-  return value === "monthly" || value === "yearly";
+  return value === "monthly" || value === "yearly" || value === "two_monthly" || value === "two_yearly";
 }
 
 /** The Stripe price id for a plan, or null when it is unset or not a price id. */
@@ -45,15 +64,22 @@ export function membershipPriceId(plan: MembershipPlan, env: Env = process.env):
   return v && /^price_[A-Za-z0-9_]+$/.test(v) ? v : null;
 }
 
-/** Which plans can be bought right now. */
-export function membershipPlansOpen(env: Env = process.env): Record<MembershipPlan, boolean> {
+/**
+ * Which single-person plans can be bought right now. The two-person plan is
+ * asked about separately (sharedPlanOpen in lib/shared-membership.ts), so
+ * the paywall's two buttons stay as they were.
+ */
+export function membershipPlansOpen(env: Env = process.env): { monthly: boolean; yearly: boolean } {
   return { monthly: membershipPriceId("monthly", env) !== null, yearly: membershipPriceId("yearly", env) !== null };
 }
 
 /** The line shown on Stripe's page above the pay button: the auto-renewal consent (F-097). */
-export function autoRenewNotice(plan: MembershipPlan): string {
-  const period = plan === "monthly" ? "month" : "year";
-  return `Your membership renews automatically each ${period} until you cancel. You can cancel at any time on the You page, under Manage membership. You keep access until the end of the period you have paid for.`;
+export function autoRenewNotice(plan: MembershipPlan, yearlyTotal?: string | null): string {
+  const period = isYearlyPlan(plan) ? "year" : "month";
+  // R6: the yearly total is stated on the pay screen, not only the monthly equivalent.
+  const total = isYearlyPlan(plan) && yearlyTotal ? `You pay ${yearlyTotal} a year, taken once. ` : "";
+  const who = isSharedPlan(plan) ? " It covers you and one person you invite. You can remove them at any time." : "";
+  return `${total}Your membership renews automatically each ${period} until you cancel. You can cancel at any time: go to the You page, then Cancel membership. You keep access until the end of the period you have paid for.${who}`;
 }
 
 export interface MembershipCheckoutInput {
@@ -67,6 +93,16 @@ export interface MembershipCheckoutInput {
   customerId: string | null;
   successUrl: string;
   cancelUrl: string;
+  /** A promotion code (promo_...) to pin to the session (item 5.9). The code box is then off, as Stripe requires. */
+  promotionCodeId?: string | null;
+  /**
+   * A trial (13.5): its length in days and the sentence for the pay button,
+   * which states the first payment date and the reminder date
+   * (lib/membership-trial.ts). The card is always collected. Omit for no trial.
+   */
+  trial?: { days: number; notice: string } | null;
+  /** The formatted yearly total, stated on the pay screen for the annual plan. */
+  yearlyTotal?: string | null;
 }
 
 /**
@@ -82,15 +118,21 @@ export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Che
     mode: "subscription",
     line_items: [{ price: i.priceId, quantity: 1 }],
     automatic_tax: { enabled: true },
-    allow_promotion_codes: true,
+    ...(i.promotionCodeId ? { discounts: [{ promotion_code: i.promotionCodeId }] } : { allow_promotion_codes: true }),
     tax_id_collection: { enabled: true },
     ...(i.customerId
       ? { customer: i.customerId, customer_update: { name: "auto", address: "auto" } }
       : { customer_email: i.email ?? undefined }),
     client_reference_id: i.userId,
     metadata,
-    subscription_data: { metadata },
-    custom_text: { submit: { message: autoRenewNotice(i.plan) } },
+    subscription_data: {
+      metadata,
+      // 13.5: the card is taken at the start, and a trial that reaches its end
+      // without a card on file is cancelled rather than left running.
+      ...(i.trial ? { trial_period_days: i.trial.days, trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } } : {}),
+    },
+    ...(i.trial ? { payment_method_collection: "always" as const } : {}),
+    custom_text: { submit: { message: i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan, i.yearlyTotal)}` : autoRenewNotice(i.plan, i.yearlyTotal) } },
     success_url: i.successUrl,
     cancel_url: i.cancelUrl,
   };
@@ -121,6 +163,9 @@ export interface SubscriptionState {
   cancelAt: string | null;
   canceledAt: string | null;
   endedAt: string | null;
+  /** 14.25: the pause window, both dates or neither. See pauseWindowOf. */
+  pausedFrom: string | null;
+  pausedUntil: string | null;
   /** When this state was read from Stripe. Older observations never overwrite newer ones. */
   observedAt: string;
 }
@@ -140,10 +185,48 @@ function idOf(ref: string | { id: string } | null | undefined): string | null {
   return typeof ref === "string" ? ref : ref.id;
 }
 
+/**
+ * The two-person plan has the same interval as the single monthly one, so the
+ * interval cannot tell them apart. It is the two-person plan when the item's
+ * price is the configured one, or when checkout stamped it in the metadata.
+ */
+function sharedPlanOf(priceId: string | null | undefined, metaPlan: MembershipPricePointId | null, env: Env): MembershipPricePointId | null {
+  const monthly = membershipPriceId("two_monthly", env);
+  if (monthly && priceId === monthly) return "member_two_month";
+  const yearly = membershipPriceId("two_yearly", env);
+  if (yearly && priceId === yearly) return "member_two_year";
+  return metaPlan === "member_two_month" || metaPlan === "member_two_year" ? metaPlan : null;
+}
+
+/** The plan name for a stored price point id, or null. */
+export function planFromPoint(point: string | null | undefined): MembershipPlan | null {
+  for (const plan of MEMBERSHIP_PLANS) if (MEMBERSHIP_PLAN_POINT[plan] === point) return plan;
+  return null;
+}
+
 export function planFromInterval(interval: string | null | undefined): MembershipPricePointId | null {
   if (interval === "month") return "member_month";
   if (interval === "year") return "member_year";
   return null;
+}
+
+/**
+ * The pause window to store (14.25). The dates live in the subscription's
+ * metadata, written when the member paused. The window holds while Stripe's
+ * pause_collection is set, and for the day between Stripe resuming
+ * collection (one day before the first payment) and that payment. If
+ * collection has been resumed earlier than that, by hand in the dashboard,
+ * the window is cleared.
+ */
+export function pauseWindowOf(sub: Stripe.Subscription, observedAt: Date): { pausedFrom: string; pausedUntil: string } | { pausedFrom: null; pausedUntil: null } {
+  const none = { pausedFrom: null, pausedUntil: null } as const;
+  const win = pauseWindowFromMetadata((sub.metadata ?? {}) as Record<string, string | undefined>);
+  if (!win) return none;
+  const until = new Date(win.until).getTime();
+  if (until <= observedAt.getTime()) return none;
+  const stripeResumed = !sub.pause_collection;
+  if (stripeResumed && observedAt.getTime() < until - 86_400_000 - 60_000) return none;
+  return { pausedFrom: win.from, pausedUntil: win.until };
 }
 
 /**
@@ -156,26 +239,29 @@ export function subscriptionStateFrom(
   sub: Stripe.Subscription,
   observedAt: Date,
   fallbackMeta?: { user_id?: string | null; tenant_id?: string | null } | null,
+  sharedPriceEnv: Env = process.env,
 ): SubscriptionState | null {
   if (!isSubscriptionStatus(sub.status)) return null;
   const customerId = idOf(sub.customer as string | { id: string } | null);
   if (!customerId) return null;
   const item = sub.items?.data?.[0];
   const meta = (sub.metadata ?? {}) as Record<string, string | undefined>;
-  const metaPlan = meta.plan === "member_month" || meta.plan === "member_year" ? meta.plan : null;
+  const metaPlan =
+    meta.plan === "member_month" || meta.plan === "member_year" || meta.plan === "member_two_month" || meta.plan === "member_two_year" ? meta.plan : null;
   return {
     subscriptionId: sub.id,
     customerId,
     userId: uuidOrNull(meta.user_id) ?? uuidOrNull(fallbackMeta?.user_id),
     tenantId: uuidOrNull(meta.tenant_id) ?? uuidOrNull(fallbackMeta?.tenant_id),
     status: sub.status,
-    plan: planFromInterval(item?.price?.recurring?.interval) ?? metaPlan,
+    plan: sharedPlanOf(item?.price?.id, metaPlan, sharedPriceEnv) ?? planFromInterval(item?.price?.recurring?.interval) ?? metaPlan,
     priceId: item?.price?.id ?? null,
     currentPeriodEnd: iso(item?.current_period_end),
     cancelAtPeriodEnd: Boolean(sub.cancel_at_period_end),
     cancelAt: iso(sub.cancel_at),
     canceledAt: iso(sub.canceled_at),
     endedAt: iso(sub.ended_at),
+    ...pauseWindowOf(sub, observedAt),
     observedAt: observedAt.toISOString(),
   };
 }
@@ -192,12 +278,17 @@ export interface SubscriptionRow {
   ended_at: string | null;
   stripe_customer_id: string | null;
   updated_at?: string | null;
+  /** 14.25: the pause window (migration 0045). Absent on older selects. */
+  paused_from?: string | null;
+  paused_until?: string | null;
 }
 
 export type MembershipSummary =
   | { kind: "none" }
-  | { kind: "active"; plan: "monthly" | "yearly" | null; renewsOn: string | null }
+  | { kind: "active"; plan: MembershipPlan | null; renewsOn: string | null; trialing?: true }
   | { kind: "ending"; endsOn: string | null }
+  | { kind: "paused"; until: string }
+  | { kind: "pause_ahead"; from: string; until: string }
   | { kind: "payment_issue" }
   | { kind: "ended" };
 
@@ -207,7 +298,7 @@ const LIVE = new Set(["active", "trialing", "past_due"]);
  * The one line the You page shows. A live subscription wins over ended ones;
  * among several live ones the most recently updated wins.
  */
-export function membershipSummary(rows: readonly SubscriptionRow[] | null | undefined): MembershipSummary {
+export function membershipSummary(rows: readonly SubscriptionRow[] | null | undefined, now: Date = new Date()): MembershipSummary {
   if (!rows || rows.length === 0) return { kind: "none" };
   const sorted = [...rows].sort((a, b) => String(b.updated_at ?? "").localeCompare(String(a.updated_at ?? "")));
   const live = sorted.find((r) => LIVE.has(r.status));
@@ -216,8 +307,11 @@ export function membershipSummary(rows: readonly SubscriptionRow[] | null | unde
   }
   if (live.status === "past_due") return { kind: "payment_issue" };
   if (live.cancel_at_period_end) return { kind: "ending", endsOn: live.current_period_end };
-  const plan = live.plan === "member_month" ? "monthly" : live.plan === "member_year" ? "yearly" : null;
-  return { kind: "active", plan, renewsOn: live.current_period_end };
+  const pause = pauseState({ pausedFrom: live.paused_from ?? null, pausedUntil: live.paused_until ?? null }, now);
+  if (pause.kind === "running") return { kind: "paused", until: pause.until };
+  if (pause.kind === "ahead") return { kind: "pause_ahead", from: pause.from, until: pause.until };
+  const plan = planFromPoint(live.plan);
+  return { kind: "active", plan, renewsOn: live.current_period_end, ...(live.status === "trialing" ? { trialing: true as const } : {}) };
 }
 
 /** The Stripe customer to open the portal for: the most recent row that has one. */
@@ -238,13 +332,32 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
     case "none":
       return "You are not a member at the moment.";
     case "active": {
-      const name = summary.plan === "yearly" ? "Annual membership." : summary.plan === "monthly" ? "Monthly membership." : "Membership active.";
+      const name =
+        summary.plan === "yearly"
+          ? "Annual membership."
+          : summary.plan === "monthly"
+            ? "Monthly membership."
+            : summary.plan === "two_monthly"
+              ? "Monthly membership for two people."
+              : summary.plan === "two_yearly"
+                ? "Annual membership for two people."
+                : "Membership active.";
+      if (summary.trialing && summary.renewsOn) {
+        const point = summary.plan === "yearly" ? "member_year" : summary.plan === "two_monthly" ? "member_two_month" : summary.plan === "two_yearly" ? "member_two_year" : "member_month";
+        const minor = MEMBERSHIP_AMOUNTS[point].GBP;
+        const first = typeof minor === "number" ? ` the first payment of ${formatPrice(minor, MARKETS.GB)} is taken then unless you cancel` : " the first payment is taken then unless you cancel";
+        return `${name} Your trial ends on ${formatDate(summary.renewsOn)};${first}.`;
+      }
       return summary.renewsOn ? `${name} Renews on ${formatDate(summary.renewsOn)}.` : name;
     }
     case "ending":
       return summary.endsOn
         ? `Your membership ends on ${formatDate(summary.endsOn)}. It will not renew.`
         : "Your membership will not renew.";
+    case "paused":
+      return `Your membership is paused. Nothing is charged. Payments restart on ${formatDate(summary.until)}, and the library opens again then. Everything you wrote is still here.`;
+    case "pause_ahead":
+      return `Your membership pauses on ${formatDate(summary.from)}. Nothing is charged while it is paused. Payments restart on ${formatDate(summary.until)}.`;
     case "payment_issue":
       return "Your last payment did not go through. Please update your payment details so your membership carries on.";
     case "ended":
@@ -256,6 +369,11 @@ export function membershipLine(summary: MembershipSummary, formatDate: (iso: str
 export const MEMBERSHIP_NOTICES = {
   unavailable: "Managing your membership is not available just now. Please try again later.",
   welcome: "Thank you for joining. Your membership may take a minute to show here.",
+  cancelled: "Your membership is set to end. We have emailed you to confirm.",
+  cancelled_now: "Your membership has ended. We have emailed you to confirm.",
+  paused: "Your membership is paused. We have emailed you the dates.",
+  unchanged: "Nothing was changed.",
+  cancel_failed: "That did not work and nothing was changed. Please try again, or write to support.",
 } as const;
 
 export function membershipNotice(code: string | string[] | undefined): string | null {

@@ -365,11 +365,11 @@ export function joinLinkCopy(state: Exclude<JoinLinkState, "ok">): { title: stri
     case "revoked":
       return { title: "This link was closed", body: "Ask your organisation for a new one if you still need a place." };
     case "closed":
-      return { title: "This link can't be used now", body: "Your organisation's access is paused or has ended." };
+      return { title: "This link cannot be used now", body: "Your organisation's access is paused or has ended." };
     case "full":
       return { title: "No places left on this link", body: "Ask your organisation whether more places can be added." };
     default:
-      return { title: "This link isn't working", body: "It may have been copied only in part. Try the link again." };
+      return { title: "This link is not working", body: "It may have been copied only in part. Try the link again." };
   }
 }
 
@@ -399,12 +399,12 @@ export function linkClaimErrorCode(code: string | undefined): "adult" | "closed"
 export const LINK_CLAIM_ERRORS: Record<string, string> = {
   adult: "Tick the box to confirm you are 18 or over.",
   closed: "This link can no longer be used.",
-  deletion: "Your account is set to be deleted, so it can't take a place. Cancel the deletion on the You page first.",
+  deletion: "Your account is set to be deleted, so it cannot take a place. Cancel the deletion on the You page first.",
   full: "There are no places left. Ask your organisation.",
   domain: "This link is for one email domain. Sign in with your address on that domain.",
   blocked: "This address asked not to be invited by this organisation.",
   busy: "Many people used this link in the last hour. Please try again later.",
-  failed: "That didn't work just now. Please try again.",
+  failed: "We're sorry. That did not work just now. Please try again.",
 };
 
 // ---------------------------------------------------------------------------

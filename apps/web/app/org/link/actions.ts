@@ -22,6 +22,6 @@ export async function claimWithLink(formData: FormData): Promise<void> {
     console.error("org_join_link_claim_failed", error.code ?? "");
     redirect(`${path}?e=${linkClaimErrorCode(error.code)}`);
   }
-  revalidatePath("/library");
+  revalidatePath("/explore");
   redirect(`${path}?done=claimed`);
 }

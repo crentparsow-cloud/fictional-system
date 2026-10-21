@@ -9,6 +9,7 @@ import {
   readerBase,
   refundProps,
   resendProps,
+  parseCancelMembership,
   supportAbilities,
   supportErrorMessage,
 } from "@/lib/support-actions";
@@ -19,12 +20,24 @@ const form = (o: Record<string, string>) => (k: string) => o[k] ?? null;
 
 describe("lookup action abilities (F-087)", () => {
   it("mirror the 0021 and 0027 roles", () => {
-    expect(supportAbilities(["owner"])).toEqual({ refund: true, resend: true, restore: true, cancelDeletion: true });
-    expect(supportAbilities(["support"])).toEqual({ refund: false, resend: true, restore: true, cancelDeletion: true });
-    expect(supportAbilities(["editor"])).toEqual({ refund: false, resend: true, restore: false, cancelDeletion: false });
+    expect(supportAbilities(["owner"])).toEqual({ refund: true, resend: true, restore: true, cancelDeletion: true, cancelMembership: true });
+    expect(supportAbilities(["support"])).toEqual({ refund: false, resend: true, restore: true, cancelDeletion: true, cancelMembership: true });
+    expect(supportAbilities(["editor"])).toEqual({ refund: false, resend: true, restore: false, cancelDeletion: false, cancelMembership: false });
     // finance refunds from Money, Refunds: it cannot open the lookup at all
-    expect(supportAbilities(["finance"])).toEqual({ refund: false, resend: false, restore: false, cancelDeletion: false });
-    expect(supportAbilities(["safety_reviewer", "nonsense"])).toEqual({ refund: false, resend: false, restore: false, cancelDeletion: false });
+    expect(supportAbilities(["finance"])).toEqual({ refund: false, resend: false, restore: false, cancelDeletion: false, cancelMembership: false });
+    expect(supportAbilities(["safety_reviewer", "nonsense"])).toEqual({ refund: false, resend: false, restore: false, cancelDeletion: false, cancelMembership: false });
+  });
+});
+
+describe("cancel membership input (14.24)", () => {
+  it("needs a reader, a subscription id and a reason", () => {
+    expect(parseCancelMembership(form({ user: U, subscription: "sub_1Abc", reason: "Wrote in, ticket 12" }))).toEqual({
+      ok: true,
+      value: { userId: U, subscription: "sub_1Abc", reason: "Wrote in, ticket 12" },
+    });
+    expect(parseCancelMembership(form({ user: U, subscription: "price_1", reason: "Wrote in, ticket 12" })).ok).toBe(false);
+    expect(parseCancelMembership(form({ user: "x", subscription: "sub_1Abc", reason: "Wrote in, ticket 12" })).ok).toBe(false);
+    expect(parseCancelMembership(form({ user: U, subscription: "sub_1Abc", reason: "no" })).ok).toBe(false);
   });
 });
 

@@ -206,7 +206,7 @@ export function EnquiryForm({ brandName }: { brandName: string }) {
         </button>
       </div>
       <p id="enquiry-note" className="small muted" style={{ margin: 0 }}>
-        We reply within [enquiry response time]. Your details go to the {brandName} team and nowhere else. See our{" "}
+        We reply by email. Your details go to the {brandName} team and nowhere else. See our{" "}
         <Link href="/legal/privacy">privacy notice</Link>.
       </p>
     </form>

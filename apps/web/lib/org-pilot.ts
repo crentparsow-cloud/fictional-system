@@ -276,11 +276,11 @@ export function seatLinkCopy(state: Exclude<SeatLinkState, "ok">): { title: stri
     case "revoked":
       return { title: "This invitation was cancelled", body: "Ask the person who invited you if you think this is a mistake." };
     case "declined":
-      return { title: "You said no to this invitation", body: "You won't get another one from this organisation." };
+      return { title: "You said no to this invitation", body: "You will not get another one from this organisation." };
     case "closed":
-      return { title: "This invitation can't be used now", body: "The organisation's access is paused or has ended. Ask the person who invited you." };
+      return { title: "This invitation cannot be used now", body: "The organisation's access is paused or has ended. Ask the person who invited you." };
     default:
-      return { title: "This link isn't working", body: "It may have been copied only in part. Try the link in the email again." };
+      return { title: "This link is not working", body: "It may have been copied only in part. Try the link in the email again." };
   }
 }
 
@@ -359,9 +359,9 @@ export function claimErrorCode(code: string | undefined): "adult" | "closed" | "
 export const CLAIM_ERRORS: Record<string, string> = {
   adult: "Tick the box to confirm you are 18 or over.",
   closed: "This invitation can no longer be used.",
-  deletion: "Your account is set to be deleted, so it can't take a place. Cancel the deletion on the You page first.",
+  deletion: "Your account is set to be deleted, so it cannot take a place. Cancel the deletion on the You page first.",
   full: "There are no places left. Ask the person who invited you.",
-  failed: "That didn't work just now. Please try again.",
+  failed: "We're sorry. That did not work just now. Please try again.",
 };
 
 export function formatOrgDate(iso: string | null | undefined): string {

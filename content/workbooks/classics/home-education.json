@@ -1,0 +1,1437 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-B9XEG",
+  "slug": "home-education-b9xeg",
+  "title": "Home Education",
+  "short_title": "Home Education",
+  "card_line": "Try Mason's outdoor hours, short lessons and narration at home.",
+  "book": {
+    "book_id": "home-education",
+    "title": "Home Education",
+    "subtitle": "A Workbook on Charlotte Mason's First Volume",
+    "year": 1886
+  },
+  "author": {
+    "author_id": "AU-P0Q91",
+    "display_name": "Charlotte M. Mason"
+  },
+  "genre": "parenting",
+  "theme_id": "raising-with-care",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": false,
+  "depth": "full",
+  "badge": "public_domain",
+  "licence_ref": "public-domain:/public-domain/AK-B9XEG",
+  "status": "in_review",
+  "safety_tier": "none",
+  "structure": {
+    "unit": "week",
+    "count": 8,
+    "free_units": 1,
+    "stages": [
+      {
+        "id": "outdoors",
+        "number": 1,
+        "name": "Outdoors",
+        "units": [
+          1,
+          2,
+          3
+        ],
+        "primer": {
+          "title": "Time in the open air",
+          "body": "Mason opens her programme outdoors. Part II is about time spent in the open air, about looking carefully at what is there, and about writing it down. The first three weeks follow her order. You plan an outdoor stretch, look at one place in full and start a nature notebook. All of it is about your own time and attention."
+        },
+        "outcome": "An outdoor stretch in your week, a way of looking, and a notebook with a first few entries."
+      },
+      {
+        "id": "habit",
+        "number": 2,
+        "name": "Habit",
+        "units": [
+          4,
+          5,
+          6
+        ],
+        "primer": {
+          "title": "Habit, attention and telling back",
+          "body": "Parts III to V move indoors to the work of the day. Mason says habit does most of daily life. Attention is the habit she puts first. Telling back a page read once is, in her view, a natural skill. You choose one habit and plan for its first lapse, test your attention, and retell a page."
+        },
+        "outcome": "One habit with a plan for its first lapse, a short work block, and a method of reading once and telling back."
+      },
+      {
+        "id": "home",
+        "number": 3,
+        "name": "Home",
+        "units": [
+          7,
+          8
+        ],
+        "primer": {
+          "title": "The atmosphere of home, and what to keep",
+          "body": "Mason's preface puts the atmosphere of the home first among her three instruments. The last two weeks turn to your own household, then to reading and to a plan. You notice what an ordinary hour says. You choose one thing to keep and one to change. You pick a book to read well and write down what you will carry on."
+        },
+        "outcome": "A short list of what you will keep, written in your own words."
+      }
+    ]
+  },
+  "start": {
+    "welcome": "This workbook takes selected chapters of Charlotte Mason's Home Education over eight weeks. Each week takes about fifteen minutes. You read a short account of the chapters, then answer a small number of questions in your own words. The text is the fifth edition of 1906, with a few old spellings updated. Week 1 is free. No card is needed.",
+    "how_it_works": [
+      "Read the week's key ideas. Each one is a sentence you can agree or disagree with.",
+      "Answer one question for each exercise. A line is enough.",
+      "Mason wrote in 1906 and says mother throughout. Read it as parent.",
+      "Every question is about your own time, attention and plans. None is about a child's health or progress."
+    ],
+    "why_prompt": "What made you pick up a book on home education written in 1906? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "stage": "outdoors",
+      "focus": "Mason asks the parent to protect a long stretch of time outdoors",
+      "exercise_ids": [
+        "w1_hours",
+        "w1_rule"
+      ],
+      "intro": "Part II of Home Education opens in the open air. Mason puts time outdoors first among the things a parent arranges, and she says the parent's own part is to be there and say little. This week you look at your own week and plan one stretch outside. The plan is about your time and nobody else's.",
+      "ideas": [
+        {
+          "heading": "A quiet growing time comes before any lesson.",
+          "body": "Mason calls the early years a time of \"passive receptive life\", and she wants the waking part of it spent mostly in the open air. Her first request to a parent is to arrange that time, before any teaching begins. The rest of Part II grows out of this one request, and so does the plan you make this week.",
+          "example": "Mason puts it first among a parent's duties. Part II, chapter 1: \"perhaps a mother's first duty to her children is to secure for them a quiet growing time\""
+        },
+        {
+          "heading": "A rule of life can be as short as one sentence.",
+          "body": "Mason offers a rule that anyone could write on a card. The word rightly carries the weight, because it leaves room for work, weather and other duties. She asks for a settled habit of going out, not for a heroic effort on one fine day. A short rule is easy to remember and easy to check.",
+          "example": "Her rule, in full. Part II, chapter 1: \"Never be within doors when you can rightly be without.\""
+        },
+        {
+          "heading": "Moving a meal outside adds no new task.",
+          "body": "Mason does not begin with a long expedition. She begins by asking why a meal already on the table should not be eaten in the garden. Moving something you already do is the smallest change on offer, and it needs no extra time in the day.",
+          "example": "She starts with meals. Part II, chapter 1: \"why should not tea and breakfast, everything but a hot dinner, be served out of doors?\""
+        },
+        {
+          "heading": "Mason says openly that her plan is the ideal, not the minimum.",
+          "body": "A tired parent in a town says \"impossible\", and Mason answers by separating what is best from what is practicable. She then offers a smaller version, a day in the country by rail or omnibus with a luncheon basket. Each reader decides where on that scale to start, and Mason leaves the decision to the reader.",
+          "example": "She names the gap herself. Part II, chapter 1: \"not what is practicable in any household, but what seems to me absolutely best\""
+        },
+        {
+          "heading": "Outdoors, the adult's job is mostly to say very little.",
+          "body": "Mason pictures the parent with a book or some knitting, not leading an activity. A name given, a remark a dozen words long, and nothing more. She says the parent's real difficulty is keeping quiet, and that the quiet is part of the plan.",
+          "example": "On what the parent does outdoors. Part II, chapter 10: \"the less she says the better\""
+        },
+        {
+          "heading": "Silence and space are part of the plan, as well as hours.",
+          "body": "Mason complains of the talk that fills every gap and leaves no room for looking. She asks for time and also for room, an open space in which a person can look at something without being addressed. For a parent planning an outing, that means deciding what not to say.",
+          "example": "Her complaint about constant talk. Part II, chapter 1: \"not a moment of time, nor an inch of space, wherein to wonder, and grow\""
+        },
+        {
+          "heading": "Pointing something out is allowed, though rarely.",
+          "body": "Mason lets the parent act as interpreter between nature and everyone else, but only once a week or once a month. The gesture is a look of delight at some touch of colour or grouping, with no flow of explanation. Rare remarks carry more because they are rare.",
+          "example": "How she wants it done. Part II, chapter 10: \"with look and gesture of delight rather than with flow of improving words\""
+        },
+        {
+          "heading": "Winter and wet days count as much as summer ones.",
+          "body": "Mason argues that outdoor time in winter is the harder question, because summer takes care of itself. She adds that winter has its own reward for the observer. With fewer things in view, each one is easier to see.",
+          "example": "On looking in the cold months. Part II, chapter 12: \"it is possible to see the more in winter, because the things to be seen do not crowd each other out.\""
+        }
+      ],
+      "takeaway": "You have one stretch of your week set aside for the open air and a short rule of your own to go with it."
+    },
+    {
+      "number": 2,
+      "stage": "outdoors",
+      "focus": "Mason asks you to look at one place fully before you talk about it",
+      "exercise_ids": [
+        "w2_look",
+        "w2_check"
+      ],
+      "intro": "Chapters 2 and 3 of Part II are about seeing. Mason describes games of looking and describing, and she says the parent can learn off a scene and describe it as well. This week you do both halves yourself. You look at a place, close your eyes, and say what you saw.",
+      "ideas": [
+        {
+          "heading": "Seeing in full is a skill the parent can practise first.",
+          "body": "Mason does not leave the looking to others. She has the parent learn a scene or two and describe it with closed eyes. The skill is the parent's before it is anyone's. A parent who has done it knows what the exercise asks, and how much of a scene slips past on the first look.",
+          "example": "She gives the parent a part in the game. Part II, chapter 3: \"She will even herself learn off two or three scenes, and describe them with closed eyes\""
+        },
+        {
+          "heading": "Looking becomes a game when it has a question to answer.",
+          "body": "Mason's first form of the exercise is a single question put at the start of an outing. Who can see the most, and tell the most, about one hillock or brook? The question gives the looking an object. It also gives the telling afterwards something to measure. A looker with a question sees more than one who is told only to look.",
+          "example": "Her opening question. Part II, chapter 2: \"Who can see the most, and tell the most, about yonder hillock or brook, hedge or copse.\""
+        },
+        {
+          "heading": "A game of looking can still be exact.",
+          "body": "Mason wants the game kept light and the answers kept careful. She says it can be varied endlessly, as long as the facts are got right. A description that is playful but wrong has missed the point of the exercise.",
+          "example": "Her standard for the game. Part II, chapter 2: \"in the spirit of a game, and yet with the exactness and carefulness of a lesson\""
+        },
+        {
+          "heading": "A description should give the fact without omission or exaggeration.",
+          "body": "Mason sets a plain test. Say what is there, no more and no less. A tall tree with rough bark and roundish leaves is a description. The word tree alone is not. The test is as useful to an adult describing a scene as to anyone else.",
+          "example": "The test for a description. Part II, chapter 2: \"to see the fact and to state it exactly, without omission or exaggeration\""
+        },
+        {
+          "heading": "Most memories are blurred because the thing was never fully seen.",
+          "body": "Mason compares ordinary recollections to a broken cup or a torn garment. Her explanation is plain. The scenes are not forgotten, they were never looked at in detail. The remedy she offers is to look, once, properly.",
+          "example": "On why memories blur. Part II, chapter 2: \"the reason is, not that the old scenes are forgotten, but that they were never fully seen\""
+        },
+        {
+          "heading": "A good description gives the features one by one.",
+          "body": "Mason's sample is a pond. It is shallow on one side, trees come to the edge, lilies grow round the far bank and cows have come down to drink. Every feature can be checked by looking again, which is what makes it a description and not an impression.",
+          "example": "The sample begins like this. Part II, chapter 3: \"I see a pond; it is shallow on this side, but deep on the other\""
+        },
+        {
+          "heading": "The near and small come easily, the wide and distant take effort.",
+          "body": "Mason notes that the near and small are seen without trying. A wide view or a far one needs a deliberate effort. If your own description is full of small things and thin on the wide view, that is the usual pattern.",
+          "example": "On where the effort goes. Part II, chapter 3: \"can only be made with an effort to look at the wide and the distant\""
+        },
+        {
+          "heading": "If part of the picture is blurred, look again.",
+          "body": "Mason sets one rule for the exercise. You look, you shut your eyes, and you describe. Where the picture goes dim, you go back to the place and look at that part. The rule turns a gap into a task.",
+          "example": "The rule for checking. Part II, chapter 3: \"if any bit of it is blurred, they had better look again\""
+        }
+      ],
+      "takeaway": "You have looked at one place in full, described it from memory, and found out which parts you had not seen."
+    },
+    {
+      "number": 3,
+      "stage": "outdoors",
+      "focus": "Mason keeps a calendar of firsts and a notebook of what she sees",
+      "exercise_ids": [
+        "w3_notebook",
+        "w3_return"
+      ],
+      "intro": "Part II, chapters 4 and 5 describe two simple records, a calendar of first sightings and a nature diary. Mason writes about children keeping them, and the method works the same for an adult. This week you start your own on a patch near home. Each entry says what you saw, where and when.",
+      "ideas": [
+        {
+          "heading": "A calendar of firsts gives a daily walk an object.",
+          "body": "Mason lists the first oak leaf, the first tadpole, the first cowslip and the first blackberry. Each is entered with where it was seen and when. Next year the entries tell you where and when to look. A walk that has an object is easier to start.",
+          "example": "Her list of firsts. Part II, chapter 4: \"the first oak-leaf, the first tadpole, the first cowslip, the first catkin, the first ripe blackberries, where seen, and when\""
+        },
+        {
+          "heading": "An entry needs only what you saw, where and when.",
+          "body": "Mason's sample entries are short and particular. A number, a creature, a place, what it was doing. Nothing in them needs expert knowledge, and nothing in them needs a name. A plain entry made on the day is worth more than a good one never made.",
+          "example": "Her sample entries. Part II, chapter 4: \"three squirrels in a larch tree, a jay flying across such a field, a caterpillar climbing up a nettle\""
+        },
+        {
+          "heading": "A drawing records more than a word does.",
+          "body": "Mason wants careful drawings of a plant, the whole plant where possible, beside the written entry. A drawing makes you look at the parts, because you cannot draw what you have not seen. A rough sketch is enough for a notebook.",
+          "example": "On drawing the whole plant. Part II, chapter 4: \"careful brush drawings of the flowers that interest them, of the whole plant where possible\""
+        },
+        {
+          "heading": "Pick a few trees and keep them as company for a year.",
+          "body": "Mason chooses half a dozen trees and follows them through bare winter, buds, flower and fruit. A small number kept up all year beats a long list seen once. For one adult, two or three is enough.",
+          "example": "Her advice on trees. Part II, chapter 4: \"pick out half a dozen trees, oak, elm, ash, beech, in their winter nakedness\""
+        },
+        {
+          "heading": "Notice the spot as well as the plant.",
+          "body": "After a wild flower has been learned, Mason asks that the place be examined. The ground tells you where to look next time and in which month. A plant is easier to find again when you know what kind of ground it grows in.",
+          "example": "Her model of noticing the place. Part II, chapter 4: \"Oh, this is the very spot for marsh marigolds; we must come here in the spring.\""
+        },
+        {
+          "heading": "Watching quietly shows what a glance misses.",
+          "body": "Mason asks for patient, quiet watching of bee, ant, wasp and spider. A creature seen for ten seconds has no habits. One watched for ten minutes does, and the notebook is where those habits get written.",
+          "example": "On how long to watch. Part II, chapter 5: \"watch, patiently and quietly, until they learn something of the habits and history of bee, ant, wasp, spider\""
+        },
+        {
+          "heading": "Town dwellers can begin with sparrows.",
+          "body": "Mason does not require a meadow. She notes that town children get a great deal of pleasure from the ways of sparrows. She quotes a friend who watched a man in a Paris garden feeding and naming them. A window sill or a yard is a place to start.",
+          "example": "Her advice for towns. Part II, chapter 5: \"Town children may get a great deal of pleasure in watching the ways of sparrows\""
+        },
+        {
+          "heading": "Keep the notebook in your own hands.",
+          "body": "Mason says the diary should be left to the keeper's own initiative. Help with materials is fine, and help with principles is fine. Direction on what to write is not. In a notebook of your own, the only rule is that each entry is true to what you saw.",
+          "example": "On who runs the notebook. Part II, chapter 4: \"his nature-diary should be left to his own initiative\""
+        },
+        {
+          "heading": "Present nothing as stale knowledge, even if you have seen it before.",
+          "body": "Mason says a common sight can be put before a person as if it were new. She asks the adult to wonder along with whoever is looking. The same applies when the only person looking is you.",
+          "example": "She names it as a secret of the craft. Part II, chapter 4: \"to present nothing as stale knowledge\""
+        }
+      ],
+      "takeaway": "You have a notebook with dated entries, and one place to return to as the weeks go on."
+    },
+    {
+      "number": 4,
+      "stage": "habit",
+      "focus": "Mason says habit does the daily work that willpower cannot",
+      "exercise_ids": [
+        "w4_choose",
+        "w4_slip"
+      ],
+      "intro": "Part III rests on one claim, that most of daily life already runs on habit. Mason writes about training children, but she says the same of adults, and she gives a worked example in the chapter on shutting the door. This week you look at habit as your own tool. You choose one small habit and plan for the day it slips.",
+      "ideas": [
+        {
+          "heading": "Deciding costs more effort than doing.",
+          "body": "Mason says the hardest part of a task is often choosing which one to do first. Hesitation, not the work, is what wears a person out. Anyone who has put off a small job for a week will know the feeling. A habit takes the choice away, because the task has its place in the day before the day begins. What remains is to do the next thing, which is the motto the chapter opens with.",
+          "example": "On where the effort goes. Part III, chapter 7: \"not the doing of the thing, but the making up of one's mind as to which thing to do first\""
+        },
+        {
+          "heading": "Most of daily life already runs on habit.",
+          "body": "Mason reminds the reader that nobody deliberates over each small action. She presents this as a relief, not a complaint. If every act needed a decision, she says, life would not be worth having. The question is which habits you have, not whether you have them.",
+          "example": "On how much already runs by habit. Part III, chapter 5: \"We think our accustomed thoughts, make our usual small talk, go through the trivial round\""
+        },
+        {
+          "heading": "A habit is laid down by repeating one thing without lapses.",
+          "body": "Mason's account is mechanical. An action done again and again in unbroken sequence becomes easy to follow. Continued over years, it becomes hard to shake off. The word that matters is unbroken, since a lapse sends the count back towards the start.",
+          "example": "Her account of how it forms. Part III, chapter 5: \"the doing of a certain action a score or two of times in unbroken sequence forms a habit\""
+        },
+        {
+          "heading": "Habit is the rails a day runs on.",
+          "body": "Mason's picture is a locomotive. It is easier for it to keep to the rails than to leave them, and the habits laid down are the rails. A parent who lays them smooth and easy gets the daily run with little jolting.",
+          "example": "Her image for habit. Part III, chapter 5: \"it is on the whole easier for the locomotive to pursue its way on the rails\""
+        },
+        {
+          "heading": "Take one habit at a time.",
+          "body": "Mason knows that a list of habits is tiring to read. Her answer is to work on one and only watch over those already formed. If the load feels heavy, she says, shorten the list.",
+          "example": "Her answer to overload. Part IV, introduction: \"The mother devotes herself to the formation of one habit at a time\""
+        },
+        {
+          "heading": "Tact, watchfulness and persistence belong to the parent.",
+          "body": "In her example of shutting a door, the parent reminds with a pleasant call and not a sharp order to come back. Mason makes the parent a friendly ally. The method rests on the parent's tone and patience as much as on the habit.",
+          "example": "What the method asks of the adult. Part III, chapter 7: \"Tact, watchfulness, and persistence are the qualities she must cultivate in herself\""
+        },
+        {
+          "heading": "The dangerous stage comes when the habit is almost formed.",
+          "body": "In Mason's story the habit has held for weeks. Then the parent feels sorry for the effort and lets one lapse go. The next lapses follow quickly. Her lesson for a plan is to decide beforehand what you will do when the habit slips.",
+          "example": "The end of her story. Part III, chapter 7: \"The mother's mis-timed easiness has lost for her every foot of the ground she had gained.\""
+        },
+        {
+          "heading": "Forming a habit takes weeks and guarding it takes steady care.",
+          "body": "Mason sets two different jobs side by side. The forming is the work of a few weeks. The guarding is incessant, but she adds that it is by no means anxious. A settled habit asks for attention, not worry.",
+          "example": "Her estimate of the effort. Part III, chapter 7: \"to guard it is a work of incessant, but by no means anxious care\""
+        }
+      ],
+      "takeaway": "You have one small habit chosen, with a plan for the day it slips."
+    },
+    {
+      "number": 5,
+      "stage": "habit",
+      "focus": "Mason names attention as the habit to put first and keeps tasks short",
+      "exercise_ids": [
+        "w5_window",
+        "w5_block"
+      ],
+      "intro": "Part IV puts the habit of attention first among the habits of mind. Mason gives a glimpse of a well-run morning, with a written timetable, short blocks and a change of task before the mind goes dull. This week you test your own attention with a quick game, then give one task a short block with an end.",
+      "ideas": [
+        {
+          "heading": "Attention comes first among the habits of mind.",
+          "body": "Mason argues that every other gift depends on it. A good mind that cannot hold a thing still is limited by that. She describes attention as something practised, not a trait a person is born with.",
+          "example": "Her case for putting it first. Part IV, chapter 1: \"the highest intellectual gifts depend for their value upon the measure in which their owner has cultivated the habit of attention\""
+        },
+        {
+          "heading": "Attention is the whole mind applied to the task in hand.",
+          "body": "Mason takes the mystery out of the word. It is not a special faculty, she says, but an act. The whole force of the mind is brought to bear on one subject. That makes it something you can do on purpose, and also something you can drop.",
+          "example": "Her definition. Part IV, chapter 1: \"the act by which the whole mental force is applied to the subject in hand\""
+        },
+        {
+          "heading": "Most thoughts arrive on their own, and you steer only a few.",
+          "body": "Mason says we take a great deal too much on ourselves when we think we are the authors of our thoughts. Ideas pass through the mind all day, one calling up the next. The most a person can do is give direction to them in the moments when they are paying attention.",
+          "example": "On who writes your thoughts. Part IV, chapter 1: \"the authors and intenders of the thoughts we think\""
+        },
+        {
+          "heading": "Thoughts run on by association unless you steer them.",
+          "body": "Mason explains that one idea calls up the next, and that this is useful in recalling the past. It becomes a problem when thoughts only follow what happens to come to mind. Attention is what lets you choose.",
+          "example": "Her image for the habit of mind. Part IV, chapter 1: \"this law of association of ideas is a good servant and a bad master\""
+        },
+        {
+          "heading": "A set task with a set end gives work its shape.",
+          "body": "Mason's schoolroom has a written timetable, so that everyone knows what is to be done and how long it lasts. A fixed end is part of what holds the attention, since the time left is known. The same plan works for a task of your own.",
+          "example": "On the value of a fixed end. Part IV, chapter 1: \"definite work to be finished in a given time\""
+        },
+        {
+          "heading": "Short blocks keep the mind alert.",
+          "body": "Mason gives a figure for the youngest, lessons of twenty minutes at most. Her reason is that little time keeps the wits on the alert. For an adult the length will differ, but the idea of a limit can be tested on any task.",
+          "example": "Her figure for the youngest. Part IV, chapter 1: \"the lessons are short, seldom more than twenty minutes in length for children under eight\""
+        },
+        {
+          "heading": "A change of task rests the mind better than pushing on.",
+          "body": "When attention goes dull, Mason does not push through. She switches to something as unlike the last as possible and returns later. The unfinished task gets fresher thinking when it is picked up again.",
+          "example": "Her remedy for a dull spell. Part IV, chapter 1: \"another lesson as unlike the last as possible, and then go back with freshened wits to his unfinished task\""
+        },
+        {
+          "heading": "Finishing early makes the time yours.",
+          "body": "Mason's reward for work done quickly is the time that is left. Two sums done in ten minutes out of twenty leave ten minutes free. For an adult the same rule gives a block its point, since the end is also a start of something else.",
+          "example": "Her view of a fair reward. Part IV, chapter 1: \"What is the natural consequence of work well and quickly done? Is it not the enjoyment of ampler leisure?\""
+        },
+        {
+          "heading": "Counting what you passed turns a walk into a test.",
+          "body": "Mason retells the conjurer Robert Houdin's game. He and his son glanced at a shop window as they passed, then wrote down what they remembered. The score, and the check on the way back, is the point.",
+          "example": "Houdin's game as she tells it. Part II, chapter 12: \"tried which could enumerate the greater number of the objects momentarily seen in passing\""
+        }
+      ],
+      "takeaway": "You have tested your attention once and set one task a short block with a clear end."
+    },
+    {
+      "number": 6,
+      "stage": "habit",
+      "focus": "Mason says telling back what you have read once is a natural skill",
+      "exercise_ids": [
+        "w6_tell",
+        "w6_gap"
+      ],
+      "intro": "Part V, chapter 9 is on narrating. Mason says the power to tell is present from the start and is best used in place of questions. She writes about children, but her method is plain: read a portion once, then tell it back. This week you do it yourself with a page of your own choosing.",
+      "ideas": [
+        {
+          "heading": "Narrating is an art that people already have.",
+          "body": "Mason calls it an art, like poetry or painting, because it is there waiting to be found. It is not the product of drilling or of rules. Her interest is in using what is already present, and in getting out of its way. For an adult reader this is a relief, since the skill needs finding, not building.",
+          "example": "Her opening claim. Part V, chapter 9: \"Narrating is an art, like poetry-making or painting, because it is there, in every child's mind, waiting to be discovered\""
+        },
+        {
+          "heading": "Everyday retellings already show the skill, if someone listens.",
+          "body": "Mason notes that a child's account of a fight between dogs in the street is full of detail and vigour. Grown-ups tend to wave it away as childish. She takes it as the ground plan of the method, and a reminder to listen properly to whoever is telling.",
+          "example": "Her example of a plain retelling. Part V, chapter 9: \"he tells everything with splendid vigour in the true epic vein\""
+        },
+        {
+          "heading": "One slow reading is meant to be enough.",
+          "body": "Mason wants a single, careful reading, because the reader knows they will have to tell it back. That keeps the attention on the full meaning of each clause. She does not want a second read as a safety net, since a safety net lets the attention slacken the first time through.",
+          "example": "What she asks of the reader. Part V, chapter 8: \"slow, careful reading, intelligent even when it is silent\""
+        },
+        {
+          "heading": "Telling back replaces questions about the passage.",
+          "body": "Mason dislikes riddle-style questions on what has been read. She asks instead that the reader narrate it or some part of it. For your own reading, a retelling shows what you took in better than a quiz would.",
+          "example": "Her alternative to questions. Part V, chapter 8: \"Let him narrate what he has read, or some part of it.\""
+        },
+        {
+          "heading": "Read one episode, then stop and tell.",
+          "body": "Mason sets a size for the portion. It is two or three pages, enough to hold one episode, and the telling follows at once. Reading further before telling would blur the episode and make the telling harder.",
+          "example": "Her size for a portion. Part V, chapter 9: \"she may read two or three pages, enough to include an episode\""
+        },
+        {
+          "heading": "Hold back from explaining before the reading starts.",
+          "body": "Mason allows a few words about the last passage and about what comes next, so that the reader looks forward to it. She warns against explanation and against giving away the story. Curiosity is the point, and a summary in advance removes it.",
+          "example": "On what to say beforehand. Part V, chapter 9: \"she should beware of explanation, and, especially, of forestalling the narrative\""
+        },
+        {
+          "heading": "Hold back corrections while the telling finds its shape.",
+          "body": "Mason says rough narrations improve without being corrected. They start with an endless chain of ands and soon leave it off. In your own telling, the first attempt will be rough, and that is expected.",
+          "example": "On correcting too soon. Part V, chapter 9: \"It is not wise to tease them with corrections\""
+        },
+        {
+          "heading": "Choose a book that is worth telling.",
+          "body": "Mason asks that the book be deeply interesting and read in order, a few pages at a time. A thin or chopped-up text gives little to tell back. For your own telling, pick a book that holds an episode you will want to remember.",
+          "example": "Her rule for the book. Part V, chapter 9: \"In every case the reading should be consecutive from a well-chosen book.\""
+        },
+        {
+          "heading": "Keep the session short, about a quarter of an hour.",
+          "body": "Mason sets a firm limit. A narration lesson takes no more than fifteen minutes. Short sessions keep the attention fresh and make a daily habit realistic. They also leave you wanting the next one.",
+          "example": "Her time limit. Part V, chapter 9: \"This sort of narration lesson should not occupy more than a quarter of an hour.\""
+        }
+      ],
+      "takeaway": "You have read a page once, told it back, and seen what you kept and what you dropped."
+    },
+    {
+      "number": 7,
+      "stage": "home",
+      "focus": "Mason says the habits of a household come mostly from its atmosphere",
+      "exercise_ids": [
+        "w7_hour",
+        "w7_keep"
+      ],
+      "intro": "Mason's preface names atmosphere as the first of three instruments, and Part IV adds that the habits fixed deepest are picked up from home. This week you look at your own home as plainly as you looked at a pond. The exercises ask what you say and do, not what anyone else becomes.",
+      "ideas": [
+        {
+          "heading": "Atmosphere is the first of three instruments.",
+          "body": "Mason limits herself to three. They are the atmosphere of the environment, the discipline of habit and the presentation of living ideas. Weeks 4 to 6 looked at habit and at ideas taken in by reading and telling. This week is the first of the three.",
+          "example": "Her list, in full. Preface, principle 5: \"we are limited to three educational instruments, the atmosphere of environment, the discipline of habit, and the presentation of living ideas\""
+        },
+        {
+          "heading": "Atmosphere means the natural home, not a staged one.",
+          "body": "Mason does not want a special environment built for the occasion. She wants the home as it is, with its people and things, taken seriously for what it already teaches. Nothing needs to be bought or arranged to start.",
+          "example": "What she means by it. Preface, principle 6: \"we should take into account the educational value of his natural home atmosphere, both as regards persons and things\""
+        },
+        {
+          "heading": "A household is watched closely, so what is said and done carries.",
+          "body": "Mason notes that the habits fixed deepest are the ones nobody set out to teach. They come from close observation of the home. That puts weight on small things, such as how a request is made and how a mistake is met.",
+          "example": "Her list of what is observed. Part IV, introduction: \"all that is said and done, felt and thought, in his home\""
+        },
+        {
+          "heading": "Mason names gentleness, courtesy, kindness, candour and respect.",
+          "body": "She says these habits, or their opposites, are taken in as the air of a house. She does not list them as rules to enforce. She lists them as qualities a home either has or does not have, and the adult's own conduct is the first place to look.",
+          "example": "Her list of habits of the air. Part IV, introduction: \"habits of gentleness, courtesy, kindness, candour, respect for other people\""
+        },
+        {
+          "heading": "The question 'how will it look' is a different habit from being.",
+          "body": "Mason warns about a household run on appearances. In her phrase, the habits are those of seeming and not of being. She asks the parent to notice which question is behind a decision, the one about what is right or the one about the neighbours.",
+          "example": "The three questions she warns about. Part III, chapter 4: \"What will people say? what will people think? how will it look?\""
+        },
+        {
+          "heading": "Say less, because the surroundings do most of the work.",
+          "body": "Mason's image is a gardener. He digs, prunes and trains, which takes a small part of the tree's life. The rest of the time the weather does the work. She asks the parent to give fewer orders and to trust the arrangement.",
+          "example": "Her image of the gardener. Part III, chapter 9: \"all the rest of the time the sweet airs and sunshine, the rains and dews, play about it\""
+        },
+        {
+          "heading": "A method uses the ordinary events of the day.",
+          "body": "Mason says a good method needs no extra equipment. Meals, comings and goings and play are all material. The parent who sees this does not need a separate programme, only a clearer view of the day as it runs.",
+          "example": "On where the method happens. Part I, chapter 1: \"Does the child eat or drink, does he come, or go, or play, all the time he is being educated\""
+        },
+        {
+          "heading": "The best arrangement lets the adult stop issuing orders.",
+          "body": "Mason ends her chapter on habit with a measure of success. If habits are well laid, the parent need no longer keep up a running fire of commands. The aim is a quieter house, which asks for a plan made once and kept up.",
+          "example": "Her measure of success. Part III, chapter 9: \"the education of habit is successful in so far as it enables the mother to let her children alone\""
+        }
+      ],
+      "takeaway": "You have noticed what one hour of your home says, and chosen one thing to keep and one to change in what you do."
+    },
+    {
+      "number": 8,
+      "stage": "home",
+      "focus": "Mason ends with books worth reading and questions you answer yourself",
+      "exercise_ids": [
+        "w8_book",
+        "w8_plan"
+      ],
+      "intro": "Mason's chapters on reading ask for books written with care, and her chapter on lessons opens with three questions a parent should answer. This last week you choose one book to read with attention and write your own plan from the seven weeks. The plan is a short list of what you will keep.",
+      "ideas": [
+        {
+          "heading": "The aim is the habit of using books for interest and delight.",
+          "body": "Mason sets the habit above any single book. She names it as the thing that is easy to lose. Where it is lost, she says, knowledge arrives by talk and lessons and stops there. Her view is that a reader of this kind goes on learning without being taught.",
+          "example": "What she hopes for. Part V, chapter 8: \"the studious habit of using books as a means of interest and delight\""
+        },
+        {
+          "heading": "Books for learning should be written with literary power.",
+          "body": "Mason has little patience with books that talk down. She asks that a book offering knowledge also be a pleasure to read. When you choose a book for yourself, that is a fair test. A book that is hard to read well is worth setting aside.",
+          "example": "Her test for a book. Part V, chapter 8: \"they should be written with literary power\""
+        },
+        {
+          "heading": "Mason distrusts books that dilute an idea in a flood of talk.",
+          "body": "She says writers and teachers often give a grain of knowledge in a gallon of talk. The reader then has to find and extract the grain. A book that gives the grain at once saves that labour, and leaves the reader's attention for the idea.",
+          "example": "Her complaint about diluted books. Part V, chapter 1: \"to present a single grain of pure knowledge in a whole gallon of talk\""
+        },
+        {
+          "heading": "An idea is a germ, and it keeps turning up once it is planted.",
+          "body": "Mason notes that after a new idea is received, you find it everywhere. The reading and talk around you seem to bear on it. That is the idea growing, and you can watch it happen in your own weeks.",
+          "example": "Her definition. Part V, chapter 1: \"An idea is more than an image or a picture; it is, so to speak, a spiritual germ\""
+        },
+        {
+          "heading": "Being read to is a pleasure, and Mason wants it kept occasional.",
+          "body": "Mason admits that being read to is a pleasure. She also worries it can crowd out reading for oneself. She says most of us like to be fed our reading, and would read and think more if we were not.",
+          "example": "Her caution about being read to. Part V, chapter 8: \"we all like to be spoon-fed with our intellectual meat, or we should read and think more for ourselves\""
+        },
+        {
+          "heading": "Mason asks the parent for definite answers to why, what and how.",
+          "body": "She says a parent who takes the trouble to answer three questions will find a great deal of time was being wasted. They are why anyone should learn, what should be learned, and how it should be learned. Each answer should be definite and in the parent's own words.",
+          "example": "Her three questions. Part V, chapter 1: \"She must ask herself seriously, Why must the children learn at all? What should they learn? And, How should they learn it?\""
+        },
+        {
+          "heading": "A method is a way to an end, and it needs an end in view.",
+          "body": "Mason separates a method from a system. A method has a goal and steps towards it, and the parent has to decide the goal. This workbook has no goal of its own for you. The plan you write is the nearest thing to one.",
+          "example": "Her definition of method. Part I, chapter 1: \"Method implies two things, a way to an end, and step-by-step progress in that way.\""
+        },
+        {
+          "heading": "Mason expects each parent to weigh the principles and choose a method.",
+          "body": "She does not hand over a finished system. She says that when old customs no longer hold, the parent must weigh the principles and decide. That is what this workbook asks you to do with the eight weeks.",
+          "example": "On who decides. Part I, chapter 1: \"absolutely must weigh principles, and adopt a method, of education for themselves\""
+        }
+      ],
+      "takeaway": "You have a book to read with attention and a plan made of the things you chose to keep."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "w1_hours",
+      "title": "Find your outdoor stretches",
+      "purpose": "Two or three parts of your week that could move outside.",
+      "why": "Mason starts with meals and short outings, not a new timetable. Look at the week ahead as it stands. Find the stretches where an ordinary task, such as a meal, a break or an errand on foot, could take place outdoors.",
+      "source": {
+        "chapter": "Part II, chapter 1"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the week's key ideas first, then come back here."
+        },
+        {
+          "text": "Look at the next seven days as they are already planned."
+        },
+        {
+          "text": "Mark two or three stretches that could move outside."
+        }
+      ],
+      "fields": [
+        {
+          "id": "stretches",
+          "type": "two_column",
+          "label": "Which two or three stretches of your week could move outdoors, and when?",
+          "columns": [
+            "Day and time",
+            "What could take place outside"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "done_when": "Two stretches are named, each with a day and a time.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Think of one ordinary task."
+          },
+          {
+            "text": "Write the day and time it could move outside."
+          }
+        ],
+        "field_ids": [
+          "stretches"
+        ]
+      },
+      "reflect": "Which stretch looks easiest, and what makes it so?",
+      "feeds_plan": [
+        {
+          "field_id": "stretches",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w1_rule",
+      "title": "Write your own outdoor rule",
+      "purpose": "One sentence of your own, in the form of Mason's rule.",
+      "why": "Mason's rule is a single sentence, and the word rightly makes it workable. Write one for your own household. Say what rightly means in your week, such as weather, work or hours of daylight.",
+      "source": {
+        "chapter": "Part II, chapter 1"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Read Mason's rule from the key ideas again."
+        },
+        {
+          "text": "Write your version in one sentence."
+        },
+        {
+          "text": "Add what rightly means for you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rule",
+          "type": "short_text",
+          "label": "What is your own rule about time outdoors, and what does rightly mean in your week?",
+          "prefill_from": "stretches"
+        }
+      ],
+      "done_when": "Your rule is one sentence and it names what rightly means.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence as your rule."
+          }
+        ],
+        "field_ids": [
+          "rule"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "rule",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w2_look",
+      "title": "Look, close your eyes, describe",
+      "purpose": "A written description of one place, from memory.",
+      "why": "Choose a small patch you can reach this week, such as a garden bed, a hedge or a pond. Look at it for a few minutes, close your eyes and call it up. Then write what you see, feature by feature.",
+      "source": {
+        "chapter": "Part II, chapter 3"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Pick one small patch of ground you can reach."
+        },
+        {
+          "text": "Look at it closely, then close your eyes."
+        },
+        {
+          "text": "Write what you see, one feature at a time."
+        }
+      ],
+      "fields": [
+        {
+          "id": "picture",
+          "type": "long_text",
+          "label": "What do you see, feature by feature, with your eyes closed?"
+        }
+      ],
+      "done_when": "You have written at least five features of the place.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Look at one thing for one minute."
+          },
+          {
+            "text": "Write what you remember of it."
+          }
+        ],
+        "field_ids": [
+          "picture"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "picture",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w2_check",
+      "title": "Check the picture against the place",
+      "purpose": "A short note on what you missed and what to look at next.",
+      "why": "Mason says a blurred part of the picture means going back to look again. Go back to the place, or look at a photograph, and compare. Note what you left out or got wrong.",
+      "source": {
+        "chapter": "Part II, chapter 3"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Look at the place again beside your description."
+        },
+        {
+          "text": "Mark one thing you missed or got wrong."
+        }
+      ],
+      "fields": [
+        {
+          "id": "gap",
+          "type": "short_text",
+          "label": "What did you leave out or get wrong, and what will you look at next time?"
+        }
+      ],
+      "done_when": "One gap is named and one thing to look at next is written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing you missed."
+          }
+        ],
+        "field_ids": [
+          "gap"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "gap",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w3_notebook",
+      "title": "Start your nature notebook",
+      "purpose": "A first page of dated entries from a patch near home.",
+      "why": "Mason's calendar and diary are plain records. Take a small notebook or the notes on your phone. On three separate days this week, write down one thing you saw, where it was and the date.",
+      "source": {
+        "chapter": "Part II, chapter 4"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick the notebook or the notes app you will use."
+        },
+        {
+          "text": "On three days, write one entry each."
+        },
+        {
+          "text": "Give each entry a date and a place."
+        }
+      ],
+      "fields": [
+        {
+          "id": "entries",
+          "type": "two_column",
+          "label": "What did you see on three separate days, and where?",
+          "columns": [
+            "Date and place",
+            "What I saw"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "Three entries are written, each with a date and a place.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one entry for today."
+          }
+        ],
+        "field_ids": [
+          "entries"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "entries",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w3_return",
+      "title": "Choose a place to return to",
+      "purpose": "One tree, hedge or patch you will look at again each month.",
+      "why": "Mason follows a few trees through the year. Pick one tree, hedge or patch of ground that is easy to reach. Say where it is and how often you will look at it.",
+      "source": {
+        "chapter": "Part II, chapter 4"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of one tree or patch within a short walk."
+        },
+        {
+          "text": "Decide how often you will look at it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Which tree or patch will you look at again each month, and where is it?"
+        }
+      ],
+      "done_when": "One place is chosen and the first return visit has a date.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one tree or patch."
+          }
+        ],
+        "field_ids": [
+          "place"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "place",
+          "plan_section": "outdoors"
+        }
+      ]
+    },
+    {
+      "id": "w4_choose",
+      "title": "Choose one habit to lay down",
+      "purpose": "One small habit, in its smallest form, with a trigger.",
+      "why": "Mason's example is shutting a door, a habit of no great consequence. Choose something equally small, such as a routine in your household or a habit of your own. It should be something you can do the same way each day.",
+      "source": {
+        "chapter": "Part III, chapter 7"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Think of two or three small habits you could start."
+        },
+        {
+          "text": "Choose the one that is easiest to do in the same way each day."
+        },
+        {
+          "text": "Write its smallest form and when it happens."
+        }
+      ],
+      "fields": [
+        {
+          "id": "habit",
+          "type": "short_text",
+          "label": "Which one small habit will you lay down, and when will it happen each day?"
+        }
+      ],
+      "done_when": "One habit is named with a time or trigger.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one habit."
+          },
+          {
+            "text": "Write when it happens."
+          }
+        ],
+        "field_ids": [
+          "habit"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "habit",
+          "plan_section": "habit"
+        }
+      ]
+    },
+    {
+      "id": "w4_slip",
+      "title": "Plan for the day it slips",
+      "purpose": "A plan for the first lapse, written in advance.",
+      "why": "Mason's story turns on the first lapse, when the parent lets it go out of pity. Decide now what you will do on that day. Choose your tone, your words and whether you will say anything at all.",
+      "source": {
+        "chapter": "Part III, chapter 7"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Imagine the first day the habit slips."
+        },
+        {
+          "text": "Write what you will do and say."
+        },
+        {
+          "text": "Write what you will avoid doing."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slip",
+          "type": "long_text",
+          "label": "What will you do on the first day the habit slips, and what will you leave unsaid?",
+          "prefill_from": "habit"
+        }
+      ],
+      "done_when": "You have written a plan for the first lapse, including tone.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you will do when it slips."
+          }
+        ],
+        "field_ids": [
+          "slip"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "slip",
+          "plan_section": "habit"
+        }
+      ]
+    },
+    {
+      "id": "w5_window",
+      "title": "Try the shop-window test",
+      "purpose": "A list from memory, checked against the window.",
+      "why": "Houdin and his son passed a shop window, glanced once and wrote down what they had seen. Do the same with a shop window, a shelf or a room. Look once, walk on, write a list, then go back and check.",
+      "source": {
+        "chapter": "Part II, chapter 12"
+      },
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Glance once at a window or a shelf."
+        },
+        {
+          "text": "Walk on and write a list of what you saw."
+        },
+        {
+          "text": "Go back and count what you missed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "window",
+          "type": "short_text",
+          "label": "How many things could you list, and what had you missed when you checked?"
+        }
+      ],
+      "done_when": "Your list and your count of misses are both written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Glance at a shelf and write what you remember."
+          }
+        ],
+        "field_ids": [
+          "window"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "window",
+          "plan_section": "attention"
+        }
+      ]
+    },
+    {
+      "id": "w5_block",
+      "title": "Give one task a short block",
+      "purpose": "One task, a start time and an end time.",
+      "why": "Mason's timetable works because every task has a start and an end. Choose one task you often put off or stretch out. Give it a block of twenty minutes or less and decide when it ends.",
+      "source": {
+        "chapter": "Part IV, chapter 1"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one task that tends to drift."
+        },
+        {
+          "text": "Choose a block of twenty minutes or less."
+        },
+        {
+          "text": "Write the start and the end."
+        }
+      ],
+      "fields": [
+        {
+          "id": "block",
+          "type": "short_text",
+          "label": "Which task will you give a short block this week, and when does it end?"
+        }
+      ],
+      "done_when": "One task has a start time and an end time.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one task and an end time."
+          }
+        ],
+        "field_ids": [
+          "block"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "block",
+          "plan_section": "attention"
+        }
+      ]
+    },
+    {
+      "id": "w6_tell",
+      "title": "Read once and tell it back",
+      "purpose": "A retelling in your own words, after one reading.",
+      "why": "Choose a page or two from a book you like, enough for one episode. Read it once, slowly, knowing you will tell it back. Then close the book and write or say what happened, in your own words.",
+      "source": {
+        "chapter": "Part V, chapter 9"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Choose a page or two from a book you like."
+        },
+        {
+          "text": "Read it once, slowly, then close the book."
+        },
+        {
+          "text": "Write or say what happened, in order."
+        }
+      ],
+      "fields": [
+        {
+          "id": "telling",
+          "type": "long_text",
+          "label": "What happened in the passage, told back in your own words after one reading?"
+        }
+      ],
+      "done_when": "You have told the whole episode back without reopening the book.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Read one paragraph once."
+          },
+          {
+            "text": "Tell it back in two sentences."
+          }
+        ],
+        "field_ids": [
+          "telling"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "telling",
+          "plan_section": "attention"
+        }
+      ]
+    },
+    {
+      "id": "w6_gap",
+      "title": "Notice what you kept and dropped",
+      "purpose": "A note on what the retelling kept and what it dropped.",
+      "why": "Now open the book and compare. Mason does not ask for corrections, so take this as noticing, not marking. See what you kept, what you dropped and what you added that was not on the page.",
+      "source": {
+        "chapter": "Part V, chapter 9"
+      },
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Reread the passage beside your retelling."
+        },
+        {
+          "text": "Note one thing kept and one thing dropped."
+        }
+      ],
+      "fields": [
+        {
+          "id": "gap_note",
+          "type": "short_text",
+          "label": "What did your retelling keep, and what did it leave out?"
+        }
+      ],
+      "done_when": "One kept detail and one dropped detail are noted.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Note one thing you left out."
+          }
+        ],
+        "field_ids": [
+          "gap_note"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "gap_note",
+          "plan_section": "attention"
+        }
+      ]
+    },
+    {
+      "id": "w7_hour",
+      "title": "Read one hour of your home",
+      "purpose": "A list of what was said and done in one ordinary hour.",
+      "why": "Mason's phrase is all that is said and done, felt and thought, in the home. Pick one ordinary hour, such as the evening meal. Notice how requests are made, how the room sounds and what is left alone. Write what you saw and heard.",
+      "source": {
+        "chapter": "Part IV, introduction"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Pick one ordinary hour this week."
+        },
+        {
+          "text": "Notice what is said, how it is said, and the order of things."
+        },
+        {
+          "text": "Write down what you noticed afterwards."
+        }
+      ],
+      "fields": [
+        {
+          "id": "noticed",
+          "type": "two_column",
+          "label": "What did you hear and see in one ordinary hour of your home?",
+          "columns": [
+            "What I noticed",
+            "Where and when"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "done_when": "At least four things are noted, each with where you noticed it.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Notice one thing in one hour."
+          },
+          {
+            "text": "Write it down."
+          }
+        ],
+        "field_ids": [
+          "noticed"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "noticed",
+          "plan_section": "home"
+        }
+      ]
+    },
+    {
+      "id": "w7_keep",
+      "title": "Choose what to keep and change",
+      "purpose": "One thing you will keep and one thing you will change in what you do.",
+      "why": "Look over your notes. Mason puts the weight on the adult's own part in the atmosphere. Choose one thing you do or say that you want to keep. Choose one you want to change, and say what you will do instead.",
+      "source": {
+        "chapter": "Part IV, introduction"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read your notes from the first exercise."
+        },
+        {
+          "text": "Choose one thing to keep."
+        },
+        {
+          "text": "Choose one thing to change, and write what you will do instead."
+        }
+      ],
+      "fields": [
+        {
+          "id": "keep_change",
+          "type": "two_column",
+          "label": "Which one thing will you keep, and which one will you change in what you do?",
+          "columns": [
+            "Keep",
+            "Change"
+          ],
+          "min_items": 1,
+          "max_items": 2
+        }
+      ],
+      "done_when": "One thing to keep and one thing to change are written down.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing to keep."
+          }
+        ],
+        "field_ids": [
+          "keep_change"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "keep_change",
+          "plan_section": "home"
+        }
+      ]
+    },
+    {
+      "id": "w8_book",
+      "title": "Choose a book to read well",
+      "purpose": "One book or chapter, read once with attention and told back.",
+      "why": "Mason asks for books with literary power and for one careful reading. Pick a book or a chapter that you want to read well. Say when you will read it and how you will tell it back, as in week 6.",
+      "source": {
+        "chapter": "Part V, chapter 8"
+      },
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of a book or chapter you have meant to read."
+        },
+        {
+          "text": "Choose one portion, about two pages."
+        },
+        {
+          "text": "Decide when you will read it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "book",
+          "type": "short_text",
+          "label": "Which one book or chapter will you read once with attention, and when?"
+        }
+      ],
+      "done_when": "One book or chapter is named with a day to read it.",
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one book."
+          }
+        ],
+        "field_ids": [
+          "book"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "book",
+          "plan_section": "plan"
+        }
+      ]
+    },
+    {
+      "id": "w8_plan",
+      "title": "Write what you will keep",
+      "purpose": "A short plan of the things you will keep.",
+      "why": "Mason leaves the choice to the parent. Look back over your answers. Choose what you want to keep, such as time outdoors, a notebook, one habit, a short block, a retelling or a change at home. Say what each looks like in your week.",
+      "source": {
+        "chapter": "Part I, chapter 1"
+      },
+      "minutes": 7,
+      "steps": [
+        {
+          "text": "Read your answers from weeks 1 to 7."
+        },
+        {
+          "text": "Choose up to four things to keep."
+        },
+        {
+          "text": "Write what each looks like in your week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan_rows",
+          "type": "two_column",
+          "label": "What will you keep from these weeks, and what does each look like in your week?",
+          "columns": [
+            "What I will keep",
+            "What it looks like in my week"
+          ],
+          "min_items": 1,
+          "max_items": 5
+        }
+      ],
+      "done_when": "At least two things are named, each with a day or a time.",
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Choose one thing to keep."
+          },
+          {
+            "text": "Write when it happens."
+          }
+        ],
+        "field_ids": [
+          "plan_rows"
+        ]
+      },
+      "feeds_plan": [
+        {
+          "field_id": "plan_rows",
+          "plan_section": "plan"
+        }
+      ]
+    }
+  ],
+  "toolkit": [],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "week_one",
+      "trigger": "unit_complete:1",
+      "message": "Week 1 done. You have a stretch of your week and a rule for it."
+    },
+    {
+      "id": "outdoors_done",
+      "trigger": "stage_complete:outdoors",
+      "message": "Three weeks done. You have an outdoor stretch, a way of looking and a notebook."
+    },
+    {
+      "id": "habit_done",
+      "trigger": "stage_complete:habit",
+      "message": "Six weeks done. You have a habit with a plan, a short block and a retelling."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Eight weeks done. Your plan is ready to read."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "outdoors",
+      "title": "Your time outdoors and how you look"
+    },
+    {
+      "id": "habit",
+      "title": "Your habit and its plan"
+    },
+    {
+      "id": "attention",
+      "title": "Your attention, short blocks and retelling"
+    },
+    {
+      "id": "home",
+      "title": "The atmosphere of your home"
+    },
+    {
+      "id": "plan",
+      "title": "Your next book and what you will keep"
+    }
+  ],
+  "finish": {
+    "summary": "Eight weeks, eight weeks of looking, habit and reading, and a plan built from your own answers.",
+    "book_bridge": "Home Education is in the public domain. The fifth edition of 1906 is the one used here, so you can read any chapter in full beside this workbook."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which of your plans did you keep this month, and what got in the way of the others?",
+      "What did you add to your notebook this month, and where?",
+      "What did you notice about the atmosphere of your home this month, and what did you change?"
+    ],
+    "refresher_ids": [
+      "w3_notebook",
+      "w4_slip",
+      "w8_plan"
+    ]
+  },
+  "internal": {
+    "manuscript_file": "docs/content/sources/AK-B9XEG/mason-1906.txt",
+    "cut_log": [
+      {
+        "item": "Front matter, series list and the Preface to the Fourth Edition",
+        "chapter": "Front matter",
+        "reason": "Only the 'synopsis' principles 5 and 6 are quoted. The rest is not reader content."
+      },
+      {
+        "item": "Part I, chapters 2 to 7 (the child's estate, the child and the law, and conditions of healthy brain activity)",
+        "chapter": "Part I",
+        "reason": "Chapter 6 is on diet, air and health, which is outside a parent-practice programme. Chapters 2 to 5 and 7 are religious and legal argument, not practice. Chapter 1 is used."
+      },
+      {
+        "item": "Part II, chapters 6, 9, 11, 13 and 14",
+        "chapter": "Part II",
+        "reason": "Field-lore books, geography, games, 'Red Indian' life and country air. Chapter 14 and parts of chapters 1 and 12 make health claims about children, so they are not used."
+      },
+      {
+        "item": "Part II, chapter 12 wet-weather clothing and cold-weather advice",
+        "chapter": "Part II",
+        "reason": "Advice on clothing and children's health. Only the winter observation and Houdin passages are used."
+      },
+      {
+        "item": "Part III, chapters 1, 3, 6 and 8",
+        "chapter": "Part III",
+        "reason": "Natural law, the physiology of habit and infant habits. Physiology and infant care are outside the programme."
+      },
+      {
+        "item": "Part III, chapter 9 (physical exercises, drill, the ear and voice)",
+        "chapter": "Part III",
+        "reason": "Only the closing 'Let Children Alone' paragraph is used."
+      },
+      {
+        "item": "Part IV, chapters 2 to 8",
+        "chapter": "Part IV",
+        "reason": "Application, thinking, imagining, remembering, execution, obedience and truthfulness. These concern training a child's conduct. Only the introduction and chapter 1 are used."
+      },
+      {
+        "item": "Part V, chapters 2 to 7 and 10 to 21",
+        "chapter": "Part V",
+        "reason": "The kindergarten, teaching reading, writing, spelling, arithmetic, history, French and the other subjects. They are teaching methods for a child. Chapters 1, 8 and 9 are used."
+      },
+      {
+        "item": "Part VI (the will, conscience and the divine life in the child)",
+        "chapter": "Part VI",
+        "reason": "Religious and moral formation of a child, outside the programme."
+      },
+      {
+        "item": "Footnotes, index and advertisements",
+        "chapter": "Back matter",
+        "reason": "Not reader content."
+      },
+      {
+        "item": "Passages with dash-to-comma artefacts from the reversible modernisation",
+        "chapter": "All parts",
+        "reason": "Not quoted, so no reader sees a doubled comma. See the modernisation log in the house record."
+      }
+    ],
+    "notes": "Written to docs/content/UNIT_SPEC.md. Quotations are from the modernised copy of the Gutenberg text (eBook #71087, sha1 dda36fdccf5723642975dba0306166bc78a5cba8, the fifth edition of 1906) and checked against it. Italic markup (underscores) is dropped inside quotations. Status in_review until the house record is signed (C10) and a second named reviewer approves."
+  }
+}

@@ -18,11 +18,11 @@
       "diedSource": "Project Gutenberg catalogue page, as recorded in docs/planning/AK_Demo_Catalogue_Plan.md section 7 and the public_domain block in docs/planning/AK_Demo_Catalogue.json. Not yet checked against a second source [to confirm]."
     }
   ],
-  "firstPublished": "Written about 170 to 180 CE. Long's translation first published 1862 [to confirm]",
+  "firstPublished": "Long's translation first published 1862 [second source to confirm]. The original was written about 170 to 180 CE",
   "edition": {
-    "name": "'Thoughts of Marcus Aurelius Antoninus', translated by George Long, Project Gutenberg eBook #15877",
+    "name": "'Thoughts of Marcus Aurelius Antoninus', translated and edited by George Long (1862), Project Gutenberg eBook #15877, released 22 May 2005, transcribed by the Online Distributed Proofreading Team",
     "url": "https://www.gutenberg.org/ebooks/15877",
-    "status": "The translation carries its own copyright, so the translator's death year decides the UK and EU term. Long died 1879. Whether the Gutenberg file adds an introduction or notes by a later hand is [to confirm]. The Gregory Hays and Robin Hard translations are in copyright and are not used."
+    "status": "The translation carries its own copyright, so the translator's death year decides the UK and EU term. Long died 1879. The file's header names Long as translator and editor. It opens with a biographical sketch and an essay on the philosophy of Antoninus, both in Long's voice, then the twelve books with Long's footnotes, then an index of terms. No introduction by another hand appears in the file. The workbook draws on the twelve books only. The file does not name the printing it was transcribed from (publisher and year are not stated). It is an illustrated edition in American spelling, which suggests a later American printing of Long's text, so the printing is [to confirm]. The Gregory Hays and Robin Hard translations are in copyright and are not used."
   },
   "tier": "A",
   "tierNote": "Research 4 Tier A: published before 1931 and every author and translator died before 1946 (docs/planning/AK_Demo_Catalogue_Plan.md section 7).",
@@ -68,18 +68,64 @@
   "projectGutenberg": "The Project Gutenberg name is a trade mark. Strip the Gutenberg header and licence before use and do not use the name in marketing. Acknowledge as \"text from a public-domain edition\" with the source in the notes [check the current licence wording].",
   "checks": [
     "Confirm George Long's death year (1879) against a second source.",
-    "Confirm the first publication year of Long's translation (1862).",
-    "Check the Gutenberg file for any introduction or notes by a later hand.",
+    "Confirm the first publication year of Long's translation (1862) against a second source.",
+    "Name the printing the Gutenberg file was transcribed from (publisher and year), and record it as the edition used.",
     "Apply the Canadian, Australian and New Zealand rules and record the result.",
     "Check the Project Gutenberg licence wording before the acknowledgement is written.",
+    "Proofread the workbook against the modernised text and name a second reviewer (pipeline steps 6 and 7).",
     "Sign the review line below."
   ],
   "sources": [
     "docs/planning/AK_Demo_Catalogue_Plan.md section 7",
     "docs/planning/AK_Demo_Catalogue.json (workbook meditations, public_domain block)",
-    "https://www.gutenberg.org/ebooks/15877"
+    "https://www.gutenberg.org/ebooks/15877",
+    "https://github.com/GITenberg/Thoughts-of-Marcus-Aurelius-Antoninus_15877 (mirror the text was fetched from)",
+    "scripts/classics-source-check.ts output, 10 October 2026"
   ],
   "status": "unreviewed",
   "reviewedBy": null,
-  "reviewedOn": null
+  "signer": "Crent Parsow, owner",
+  "reviewedOn": null,
+  "sourceFile": {
+    "ebook": 15877,
+    "obtainedFrom": "GITenberg mirror, github.com/GITenberg/Thoughts-of-Marcus-Aurelius-Antoninus_15877 (raw.githubusercontent.com)",
+    "obtainedOn": "2026-10-10",
+    "format": "UTF-8 with LF line endings, converted from the ISO-8859-1 file named in its header",
+    "sha1": "c81cb6289cadfb030dffb8d34ecb2191684e74ff",
+    "size": "8,205 lines, 443,480 bytes",
+    "keptIn": "Outside the repository. The text is not committed whole. The path docs/content/sources/AK-FN9KB/long-1862.txt is reserved for it in the workbook's internal.manuscript_file."
+  },
+  "sourceCheck": {
+    "date": "2026-10-10",
+    "tool": "scripts/classics-source-check.ts",
+    "inputs": "edition named (Long, 1862); published 1862; deaths 180 (Marcus Aurelius) and 1879 (George Long)",
+    "editionNamed": true,
+    "publishedBefore1931": true,
+    "ukLifePlus70": true,
+    "ukTermRanTo": "31 December 1949",
+    "copyright": "clear",
+    "scan": "423,779 characters after the Gutenberg header and licence were cut, 0 unusual (0.000 percent), 0 replacement characters, 0 digits inside words: ok",
+    "limits": "The script checks arithmetic, not facts. The death years and the publication year were supplied from the planning files and are not yet checked against a second source."
+  },
+  "modernisation": {
+    "rulesApplied": "Reversible rules only (MODERNISATION_RULES in packages/validate/src/classics.ts). Spelling and typography, nothing that changes a word's meaning.",
+    "changes": 203,
+    "byRule": {
+      "double hyphen to comma": 164,
+      "two-word any one (not before 'of')": 18,
+      "ampersand c (&c. to etc.)": 8,
+      "two-word every one (not before 'of')": 5,
+      "hyphenated to-morrow": 5,
+      "hyphenated to-day": 1,
+      "hyphenated To-day": 1,
+      "hyphenated To-morrow": 1
+    },
+    "revertChecked": "Reverting the log on the modernised text returns the cut source byte for byte.",
+    "modernisedSha1": "76137dd2933843d35a245dfdede6e239c589bba8",
+    "log": "docs/public-domain/AK-FN9KB.modernisation-log.json",
+    "logSha1": "a3f9fc1f0120ae105e3c7954e9ba8b08a4e2ae2b",
+    "knownIssue": "The double-hyphen rule writes a comma and a space. Where the printed text had a comma before the dash, the result is a doubled comma. There are 39 in the twelve books. No quotation in the workbook includes one. A tooling fix (consume the preceding comma) is a separate commit.",
+    "outsideTheRules": "Long's American spellings (labor, honor, favor) are not covered by the rules and stay as printed inside quotations. The workbook's own prose is en-GB.",
+    "editorial": "No [Editorial] changes were made. Quotations are exact, checked by book and section against the modernised copy."
+  }
 }

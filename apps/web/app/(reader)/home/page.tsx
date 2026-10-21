@@ -1,14 +1,18 @@
+import { Starters } from "@/components/catalogue/Starters";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContinueCardView } from "@/components/catalogue/ContinueCardView";
 import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
+import { MembershipOffer } from "@/components/membership/MembershipOffer";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { myEnrolments } from "@/lib/catalogue";
 import { anyWellbeing, splitContinueCards } from "@/lib/continue-cards";
 import { getT } from "@/lib/i18n";
+import { loadMembershipOffer } from "@/lib/membership-offer-server";
 import { joinNames, liveOrganisationNames, type OrgSeatRow } from "@/lib/org-seat-line";
+import { resumeHref, type PlaceRow } from "@/lib/reading/resume";
 import { finishedEnrolments } from "@/lib/reader-progress";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -34,7 +38,12 @@ export default async function HomePage() {
   const { shown, hidden } = splitContinueCards(cards);
   const wellbeing = anyWellbeing(cards);
   const finished = await finishedEnrolments(shown.map((c) => c.enrolmentId));
+  const places = await resumePlaces(shown.map((c) => c.enrolmentId));
   const orgNames = session ? await myOrganisationNames() : [];
+  // 13.4: the one membership offer in onboarding. The browser decides whether it is due
+  // (after the quiz and the first exercise, never on a first visit); the server only
+  // supplies the terms, and nothing when there is no offer to make.
+  const offer = session ? await loadMembershipOffer(session.userId) : null;
 
   return (
     <section className="tab-page">
@@ -43,6 +52,7 @@ export default async function HomePage() {
         {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
       </div>
       {session ? <GroupWeekLine /> : null}
+      {offer ? <MembershipOffer plans={offer.plans} library={offer.library} /> : null}
 
       {orgNames.length ? (
         <p className="org-line muted">
@@ -51,24 +61,27 @@ export default async function HomePage() {
       ) : null}
 
       {shown.length === 0 ? (
+        <>
         <div className="card empty-state">
           <p>{t("home.empty")}</p>
           <p className="muted">{t("home.line")}</p>
-          <Link className="btn" href="/library">
+          <Link className="btn" href="/explore">
             {t("home.browse")}
           </Link>
         </div>
+        <Starters />
+        </>
       ) : (
         <>
           <h2 className="section-title">{t("home.continue")}</h2>
           <div className="grid wb-grid">
             {shown.map((card) => (
-              <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} />
+              <ContinueCardView key={card.enrolmentId} card={card} t={t} finished={finished.has(card.enrolmentId)} resumeHref={places.has(card.enrolmentId) ? resumeHref(card.slug, places.get(card.enrolmentId)!) : undefined} />
             ))}
           </div>
           <p className="muted see-all">
             {hidden > 0 ? <>{t("home.moreInLibrary", { count: hidden })} </> : null}
-            <Link href="/library">{t("home.seeAll")}</Link>
+            <Link href="/explore">{t("home.seeAll")}</Link>
           </p>
         </>
       )}
@@ -87,4 +100,18 @@ async function myOrganisationNames(): Promise<string[]> {
   } catch {
     return [];
   }
+}
+
+/** The last place in each open workbook, for the Continue button (3.7). Ids only. */
+async function resumePlaces(enrolmentIds: string[]): Promise<Map<string, PlaceRow>> {
+  const out = new Map<string, PlaceRow>();
+  if (!enrolmentIds.length) return out;
+  try {
+    const supabase = await createUserClient();
+    const { data } = await supabase.from("reading_places").select("enrolment_id, unit, exercise_id, page, field_id, mode").in("enrolment_id", enrolmentIds);
+    for (const r of (data ?? []) as (PlaceRow & { enrolment_id: string })[]) out.set(r.enrolment_id, r);
+  } catch {
+    // no place, so the card opens the workbook as before
+  }
+  return out;
 }

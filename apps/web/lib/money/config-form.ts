@@ -19,6 +19,8 @@ export interface ConfigInput {
   p_min_payout_minor: Record<string, number>;
   p_approval_above_minor: Record<string, number>;
   p_payout_day: number;
+  p_payout_cadence: "weekly" | "monthly";
+  p_payout_weekday: number;
   p_note: string;
 }
 
@@ -45,9 +47,13 @@ export function parseConfigForm(get: (name: string) => unknown): ConfigInput | n
   const window = int(get("refund_window_days"), 0, 120);
   const hold = int(get("first_payout_hold_days"), 0, 365);
   const day = int(get("payout_day"), 1, 28);
+  const cadence = get("payout_cadence");
+  const weekday = int(get("payout_weekday"), 1, 7);
   const note = typeof get("note") === "string" ? String(get("note")).trim() : "";
   if (sale === null || saleLink === null || pool === null || cap === null || floor === null || window === null || hold === null || day === null) return null;
+  if (weekday === null) return null;
   if (fee !== "deduct" && fee !== "akana_carries") return null;
+  if (cadence !== "weekly" && cadence !== "monthly") return null;
   if (note.length < 3 || note.length > 500) return null;
   const min: Record<string, number> = {};
   const approve: Record<string, number> = {};
@@ -77,6 +83,8 @@ export function parseConfigForm(get: (name: string) => unknown): ConfigInput | n
     p_min_payout_minor: min,
     p_approval_above_minor: approve,
     p_payout_day: day,
+    p_payout_cadence: cadence,
+    p_payout_weekday: weekday,
     p_note: note,
   };
 }

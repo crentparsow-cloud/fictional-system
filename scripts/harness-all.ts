@@ -3,7 +3,8 @@
  *
  *   pnpm tsx scripts/harness-all.ts
  *
- * The 20 Maya Vaughn workbooks have full v3 files in content/workbooks/v3, so
+ * The 20 Maya Vaughn workbooks have full v3 files in content/workbooks/v3, and
+ * any classic with a file in content/workbooks/classics is read as well, so
  * every screen of each is rendered to static markup through the engine's
  * renderAll. The 50 demo titles exist only as catalogue entries (title,
  * weeks, a three-line outline) in docs/planning/AK_Demo_Catalogue.json, the
@@ -15,7 +16,7 @@
  * Prints a table and writes it to docs/reports/harness-<date>.md. Exits 1 on
  * any render failure or on a catalogue title with no v3 file.
  */
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { join } from "node:path";
 import { WorkbookV3, stripInternal } from "@akana/schema";
@@ -67,7 +68,21 @@ async function main(): Promise<void> {
   const files = readdirSync(v3Dir)
     .filter((f) => f.endsWith(".json"))
     .sort();
-  const docs = files.map((f) => ({ file: f, doc: WorkbookV3.parse(stripInternal(readJson(join(v3Dir, f)) as Record<string, unknown>)) }));
+  // The classics (build list 7.1) live in content/workbooks/classics. That
+  // folder is not seeded yet, so the seed and the tests that expect 20 Maya
+  // Vaughn files do not read it. The harness does, so a classic is rendered
+  // as soon as its file exists. It is checked against the catalogue only for
+  // the Maya Vaughn titles, which still come from the v3 folder alone.
+  const classicsDir = join(ROOT, "content", "workbooks", "classics");
+  const classicFiles = existsSync(classicsDir)
+    ? readdirSync(classicsDir)
+        .filter((f) => f.endsWith(".json"))
+        .sort()
+    : [];
+  const docs = [
+    ...files.map((f) => ({ file: f, doc: WorkbookV3.parse(stripInternal(readJson(join(v3Dir, f)) as Record<string, unknown>)) })),
+    ...classicFiles.map((f) => ({ file: `classics/${f}`, doc: WorkbookV3.parse(stripInternal(readJson(join(classicsDir, f)) as Record<string, unknown>)) })),
+  ];
 
   const rows: Row[] = [];
   const problems: string[] = [];
@@ -95,7 +110,9 @@ async function main(): Promise<void> {
   }
 
   const demo = readJson(join(ROOT, "docs", "planning", "AK_Demo_Catalogue.json")) as { workbooks: DemoEntry[] };
-  const standIns: ListingStandIn[] = demo.workbooks.map((w) => ({ code: w.code, title: w.title, depth: w.depth, outline: w.outline ?? [] }));
+  // A title that has a real file is rendered above, so it gets no stand-in row.
+  const rendered = new Set(docs.map((d) => d.doc.code));
+  const standIns: ListingStandIn[] = demo.workbooks.filter((w) => !rendered.has(w.code)).map((w) => ({ code: w.code, title: w.title, depth: w.depth, outline: w.outline ?? [] }));
   for (const s of [...standIns].sort((a, b) => a.code.localeCompare(b.code))) {
     rows.push({
       code: s.code,

@@ -43,7 +43,7 @@ export const INTEREST_LABELS: Record<Interest, string> = {
 /** The hidden field bots fill in. People never see it. */
 export const HONEYPOT_FIELD = "website";
 
-export const SUCCESS_MESSAGE = "Thanks. We will reply within [enquiry response time].";
+export const SUCCESS_MESSAGE = "Thanks. We will reply by email.";
 
 export type EnquiryField =
   | "name"

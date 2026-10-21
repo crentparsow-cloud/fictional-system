@@ -190,3 +190,15 @@ describe("refundStateOf", () => {
     expect(refundStateOf("canceled")).toBe("failed");
   });
 });
+
+describe("trial cooling-off start", () => {
+  it("opens at the trial end, not the subscription start", async () => {
+    const { coolingOffOpensAt, isFirstPaymentAfterTrial } = await import("./membership-refund");
+    const sub = { start_date: 1_000_000, trial_end: 1_000_000 + 14 * 86400 };
+    expect(coolingOffOpensAt(sub).getTime()).toBe(sub.trial_end * 1000);
+    expect(coolingOffOpensAt({ start_date: 5, trial_end: null }).getTime()).toBe(5000);
+    expect(isFirstPaymentAfterTrial(sub, sub.trial_end)).toBe(true);
+    expect(isFirstPaymentAfterTrial(sub, sub.trial_end + 30 * 86400)).toBe(false);
+    expect(isFirstPaymentAfterTrial({ trial_end: null }, 10)).toBe(false);
+  });
+});
