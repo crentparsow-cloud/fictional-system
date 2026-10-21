@@ -70,6 +70,10 @@ export interface PlayerProps {
   events?: readonly ProgressEvent[];
   /** The /go/ link for the book, shown on the Finish screen. */
   buyHref?: string;
+  /** A plain line beside the book link on the Finish screen (affiliate disclosure, 6.9). */
+  buyNote?: string;
+  /** Extra content on the Finish screen after the book card (author recommendations, 14.12). */
+  finishExtra?: ReactNode;
   /**
    * Higher-tier workbooks (F-022): the reader must press "I have read this"
    * on the Start screen before any unit opens. While unacknowledged the
@@ -129,6 +133,8 @@ export function Player({
   onFinished,
   events: initialEvents,
   buyHref,
+  buyNote,
+  finishExtra,
   requireAcknowledge,
   acknowledged,
   onAcknowledge,
@@ -464,6 +470,8 @@ export function Player({
           <FinishScreen
             workbook={doc}
             buyHref={buyHref}
+            buyNote={buyNote}
+            extra={finishExtra}
             finished={facts.finished}
             onFinished={
               onFinished && !readOnly

@@ -89,6 +89,18 @@ export type ReaderProps = {
   refund_confirmed: ReaderBase & { amount: string; accessEnded: boolean; refundedOn?: string };
   /** The member paused (14.25). Access runs to pauseFrom, nothing is charged until resumeDate. Names no title. */
   membership_paused: ReaderBase & { pauseFrom: string; resumeDate: string; price: string; periodWords: string };
+  /** A gift of membership, to the person it is for (5.6, 5.7). Names no title. The message is the buyer's own words. */
+  gift_received: ReaderBase & { senderName: string; months: string; claimUrl: string; claimBy: string; message?: string };
+  /** The buyer's note that the gift has gone out. Not a receipt: Stripe sends that. */
+  gift_sent: ReaderBase & { months: string; recipientName?: string; claimBy: string };
+  /** The link that confirms an academic address for the student price (14.22). */
+  student_verify: ReaderBase & { verifyUrl: string; validHours: string };
+  /** A month before the student price needs checking again. */
+  student_recheck: ReaderBase & { recheckUrl: string; endDate: string; percent: string };
+  /** The student price has ended because the address was not confirmed again. */
+  student_ended: ReaderBase & { recheckUrl: string };
+  /** One note to a lapsed monthly member or a one-off buyer. No offer, no discount, no title. */
+  winback: ReaderBase & { kind: "monthly" | "one_off"; membershipUrl: string };
   /** Akana support cancelled a pending account deletion for the reader (F-087). */
   deletion_cancelled: ReaderBase;
   /**
@@ -948,6 +960,108 @@ export const READER_TEMPLATES: { [K in ReaderTemplateName]: (props: ReaderProps[
     footer: "reminder",
   }),
 
+  // A gift of membership (5.6, 5.7). The message is the buyer's own words, shown as a quote.
+  gift_received: (x) => ({
+    subject: `A gift for you: ${x.months} of membership`,
+    preheader: "No card needed. Nothing renews.",
+    hero: "brand",
+    eyebrow: "A gift",
+    headline: "Someone has given you a membership",
+    greeting: "Hello,",
+    paragraphs: [
+      `${v(x.senderName, "Someone")} has given you ${x.months} of ${BRAND} membership.`,
+      "It opens the whole membership library. You do not need a card. Nothing renews and nothing is ever charged to you.",
+    ],
+    panels: [
+      ...(v(x.message) ? [{ title: `From ${v(x.senderName, "your friend")}`, quote: v(x.message), tone: "tint" as const }] : []),
+      { title: "Your gift", rows: [["Length", x.months], ["Claim it by", x.claimBy]], tone: "service" as const },
+    ],
+    after: [
+      "You need an account to claim it. If you do not have one, you can make one when you open the link.",
+      "When the gift ends, your account carries on as it was and your answers stay yours. If you would rather not have it, ignore this email.",
+    ],
+    buttons: [{ label: "Claim your gift", url: x.claimUrl }],
+    footer: "service",
+  }),
+
+  gift_sent: (x) => ({
+    subject: "Your gift has been sent",
+    preheader: `${x.months} of membership, sent by email.`,
+    hero: "service",
+    eyebrow: "Gift sent",
+    headline: "Your gift is on its way",
+    greeting: hi(x.name),
+    paragraphs: [`We have emailed your gift of ${x.months} of membership${v(x.recipientName) ? ` to ${v(x.recipientName)}` : ""}.`, "They do not need a card. Nothing renews."],
+    panels: [{ title: "Your gift", rows: [["Length", x.months], ["They can claim it until", x.claimBy]], tone: "tint" }],
+    after: [
+      "You paid once and nothing more will be taken. Stripe sends your receipt separately.",
+      "If it is not claimed by that date, it expires. Write to us if you need to change anything.",
+    ],
+    buttons: [{ label: "Go to your account", url: x.settingsUrl }],
+    footer: "service",
+  }),
+
+  student_verify: (x) => ({
+    subject: "Confirm your student email",
+    preheader: `The link works for ${x.validHours}.`,
+    hero: "service",
+    eyebrow: "Student price",
+    headline: "Confirm your student email",
+    greeting: hi(x.name),
+    paragraphs: [`Use this link to confirm your academic email address. It works for ${x.validHours}.`, "Open it while you are signed in to your Akana account."],
+    buttons: [{ label: "Confirm my email", url: x.verifyUrl }],
+    after: ["If you did not ask for the student price, ignore this email. Nothing changes."],
+    footer: "service",
+  }),
+
+  student_recheck: (x) => ({
+    subject: "Check your student price",
+    preheader: `Confirm your email again before ${x.endDate}.`,
+    hero: "service",
+    eyebrow: "Student price",
+    headline: "Please confirm you are still studying",
+    greeting: hi(x.name),
+    paragraphs: [`Your student price of ${x.percent} off runs to ${x.endDate}. To keep it, confirm your academic email address again before then.`],
+    buttons: [{ label: "Confirm again", url: x.recheckUrl }],
+    after: [
+      `If you do not, your payments after ${x.endDate} will be at the standard membership price. We will email you if that happens.`,
+      `You can cancel at any time: ${CANCEL_PATH}.`,
+    ],
+    footer: "service",
+  }),
+
+  student_ended: (x) => ({
+    subject: "Your student price has ended",
+    preheader: "Your next payment is at the standard price.",
+    hero: "service",
+    eyebrow: "Student price",
+    headline: "Your student price has ended",
+    greeting: hi(x.name),
+    paragraphs: [
+      "We could not confirm your academic email address again, so your next payment will be at the standard membership price.",
+      "If you are still studying, you can confirm your address now and get the student price back from your next payment.",
+    ],
+    buttons: [{ label: "Confirm my email", url: x.recheckUrl }],
+    after: [`If you would rather stop, ${CANCEL_PATH}. You do not have to give a reason.`],
+    footer: "service",
+  }),
+
+  // One plain note. No discount, no countdown, no title, no claim about what was missed.
+  winback: (x) => ({
+    subject: "Whenever you are ready",
+    preheader: "Your place and your answers are still here.",
+    hero: "brand",
+    eyebrow: BRAND,
+    headline: "Whenever you are ready",
+    greeting: hi(x.name),
+    paragraphs:
+      x.kind === "monthly"
+        ? ["Your membership ended a while ago. Everything you wrote is still yours, and you can read it any time.", "If you would like to come back, membership is open. You can start again in a minute and cancel in two taps."]
+        : ["You bought a workbook from us a while ago. It is still yours, along with everything you wrote.", "If you would like the whole library, membership is open. You can start in a minute and cancel in two taps."],
+    buttons: [{ label: "See membership", url: x.membershipUrl }],
+    footer: "marketing",
+  }),
+
   deletion_cancelled: (x) => ({
     subject: "Your account will not be deleted",
     preheader: "We cancelled the deletion you asked us to stop.",
@@ -1043,6 +1157,8 @@ export const READER_CATEGORY: Record<FooterKind, "transactional" | "progress" | 
   reminder: "transactional",
   deleted: "transactional",
   author: "transactional",
+  newsletter: "marketing",
+  newsletter_confirm: "transactional",
   progress: "progress",
   marketing: "marketing",
   partner: "partner",
