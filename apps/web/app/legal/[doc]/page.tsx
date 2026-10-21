@@ -20,12 +20,12 @@ const isSlug = isLegalSlug;
 // apps/web is two levels below the repo root, where docs/legal lives.
 const LEGAL_DIR = path.join(process.cwd(), "..", "..", "docs", "legal");
 
-const DRAFT_LINE = /^DRAFT for the lawyer\./;
+const DRAFT_LINE = /^DRAFT(?: for the lawyer)?\./;
 
 function readDoc(slug: Slug) {
   const raw = readFileSync(path.join(LEGAL_DIR, DOCS[slug].file), "utf8");
   const lines = raw.split(/\r?\n/);
-  const banner = lines.find((l) => DRAFT_LINE.test(l)) ?? "DRAFT for the lawyer. Not published.";
+  const banner = lines.find((l) => DRAFT_LINE.test(l)) ?? "DRAFT. To be reviewed before launch.";
   const body = lines.filter((l) => !DRAFT_LINE.test(l)).join("\n");
   return { banner, body };
 }

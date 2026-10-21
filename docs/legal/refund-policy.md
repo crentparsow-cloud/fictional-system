@@ -1,4 +1,4 @@
-DRAFT for the lawyer. Not published. Proposed wording prepared 21 October 2026 for review by Akana Holdings and a solicitor.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Refund policy
 
@@ -18,13 +18,11 @@ Before you pay for membership we ask you to confirm:
 
 We record which wording you agreed to, and when.
 
-[For the lawyer: these are the two consents already in use. Confirm they are sufficient for digital content and for a subscription respectively.]
-
 ## 2. What Akana promises beyond the law
 
 **Membership.** If you cancel within 14 days of your membership starting, it ends at once and we refund the unused time pro rata: the amount you paid, multiplied by the unused whole days, divided by the days in the period, rounded down to the smallest unit of your currency. The 14-day window is a setting we may lengthen but not shorten. If you cancel after 14 days, your membership stops renewing and you keep access until the end of the period you have paid for. No refund is due for that period.
 
-**Single workbooks.** Changed your mind? Ask us within 14 days of buying. If you have not gone beyond week 1, we will refund you. This is goodwill, on top of your legal rights. [Proposed by the build team. Akana Holdings to confirm the 14 days and the week 1 limit.]
+**Single workbooks.** Changed your mind? Ask us within 14 days of buying. If you have not gone beyond week 1, we will refund you. This is goodwill, on top of your legal rights.
 
 **Faulty or misdescribed workbooks.** If a workbook does not work, is not what the listing described, or is withdrawn after a valid copyright complaint, you are entitled to a repair, replacement or refund under the Consumer Rights Act 2015. In the case of a withdrawal we refund you and you keep your own answers and your export.
 
@@ -48,7 +46,7 @@ Listings marked "Demo" are examples and cannot be bought. Checkout refuses them.
 
 ## 6. Authors and publishers
 
-Authors and publishers are paid a share of net receipts: what we actually receive after tax, payment fees and refunds. When we refund a purchase, the refund is reversed on the author's or publisher's statement. If their statement for that period has already closed, the amount is taken from their next statement [to confirm: question D6]. This does not affect your right to a refund.
+Authors and publishers are paid a share of net receipts: what we actually receive after tax, payment fees and refunds. When we refund a purchase, the refund is reversed on the author's or publisher's statement. If their statement for that period has already closed, the amount is taken from their next statement. This does not affect your right to a refund.
 
 ## 7. Disputes and chargebacks
 
@@ -57,11 +55,3 @@ If you ask your bank to reverse a payment instead of asking us, we may suspend a
 ## 8. Changes
 
 We may change this policy. Changes do not affect purchases made before the change.
-
-## Placeholders
-
-- [support email]: set when Akana Holdings has a support mailbox. The site reads it from EMAIL_REPLY_TO.
-- Single workbook goodwill window of 14 days and the week 1 limit: proposed, Akana Holdings to confirm (question C6).
-- Reply, decision and settlement times: proposed, confirm they can be met before publishing.
-- [For the lawyer] the two immediate-access consents.
-- [to confirm: question D6] claw back from the next statement.

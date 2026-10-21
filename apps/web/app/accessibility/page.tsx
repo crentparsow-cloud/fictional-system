@@ -3,7 +3,7 @@ import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
 import { DHero } from "@/components/info/DHero";
 import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
-import { support } from "@/lib/company";
+import { company, support } from "@/lib/company";
 import { ACCESSIBILITY as A } from "@/lib/accessibility";
 import { brand } from "@/lib/brand";
 
@@ -69,6 +69,27 @@ export default function AccessibilityPage() {
               Standard we aim for: {A.standard}. Last reviewed {A.reviewed}. Automated sweep last run {A.sweepRun}.
             </p>
           </header>
+
+          <section aria-labelledby="a11y-plain" className="d-card d-card-roomy d-stack-s">
+            <h3 id="a11y-plain">In plain words</h3>
+            <p>
+              We want everyone to be able to use {brand.name}. We aim to meet {A.standard}, the international standard for accessible websites.
+            </p>
+            <p>
+              You can change the font, text size and page colour, and the choice stays with you. The site follows your device&apos;s light or
+              dark setting and your reduced-motion setting. Pages work with a keyboard, and buttons and links on reading screens are large
+              enough to tap.
+            </p>
+            <p>
+              We have not yet checked every screen with every screen reader, and some parts may fall short of the standard. The lists below say
+              what we know. If something does not work for you, tell us at{" "}
+              {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}. We will reply within{" "}
+              {company.replyTime} and try to put it right or offer another way to get what you need.
+            </p>
+            <p className="small d-soft">
+              This website is run by {company.legalName}, {company.address.join(", ")}.
+            </p>
+          </section>
 
           <section aria-labelledby="a11y-tested" className="d-stack-s">
             <h3 id="a11y-tested">What we have tested</h3>

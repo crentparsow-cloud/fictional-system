@@ -122,3 +122,7 @@ body:has(.c-try) .site-header, body:has(.c-try) .site-footer { display: none; }
 @media print {
   .certificate { border: 2px solid var(--ink); }
 }
+
+.c-try-moment { max-inline-size: 42rem; margin: 2rem auto; padding-inline: var(--gutter, 1rem); display: grid; gap: 0.75rem; }
+.c-try-moment h2, .c-try-moment h3, .c-try-moment p { margin: 0; }
+.c-try-letter { background: var(--brand-wash); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.35rem; display: grid; gap: 0.6rem; color: var(--ink); }

@@ -1,8 +1,8 @@
-DRAFT for the lawyer. Not published. Prepared [date] by the build team for review.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Reader terms
 
-These terms cover your use of Akana as a reader. Akana is run by [company name], a company registered in [country of registration] under number [company number], with its registered office at [registered address]. In these terms "we", "us" and "Akana" mean that company. "You" means the person using the service.
+These terms cover your use of Akana as a reader. Akana is run by Akana Holdings, a company registered in England and Wales, with its registered office at 128 City Road, London EC1V 2NX. In these terms "we", "us" and "Akana" mean that company. "You" means the person using the service.
 
 Separate terms apply to authors, publishers and white-label partners. They are not covered here.
 
@@ -30,13 +30,11 @@ Tell us straight away at [support email] if you think someone else has used your
 
 Most workbooks let you read and complete the first unit free once you have an account. The author may choose not to offer this.
 
-To go further you buy the workbook or take out membership. Prices are shown in your local currency where we support it, including any VAT or sales tax due. [Company name] is the seller for every purchase on the Akana marketplace [to confirm: seller of record decision].
+To go further you buy the workbook or take out membership. Prices are shown in your local currency where we support it, including any VAT or sales tax due. Akana Holdings is the seller of record for every purchase on the Akana marketplace.
 
 When you buy a workbook you choose to start right away. Before you pay, we ask you to confirm this in words like these:
 
 "I want access to start right now. I understand that once access starts, I lose my 14-day right to cancel and get a refund."
-
-[For the lawyer: this is the wording already in use for lifetime purchases. Confirm it meets the Consumer Contracts Regulations 2013 requirements for digital content and that it is enough to end the statutory right to cancel. Also confirm whether Akana should still offer a goodwill window on single purchases, as the build team proposes in question C6.]
 
 Our refund policy explains what we do if something goes wrong with a workbook you have bought. It is part of these terms.
 
@@ -80,7 +78,7 @@ Your work is sealed before it is stored and only you can unseal it, through your
 
 You can export your work at any time from your account, as a file and as a page you can print. Export covers your prompts and answers, not the author's teaching text.
 
-If a workbook is withdrawn from Akana, or an author's licence ends, you keep access to the version you bought and to your own work [to confirm with the lawyer: question D9]. If a workbook is removed after a valid copyright complaint, the content goes, you keep your own work and your export, and we refund you.
+If a workbook is withdrawn from Akana, or an author's licence ends, you keep access to the version you bought and to your own work. If a workbook is removed after a valid copyright complaint, the content goes, you keep your own work and your export, and we refund you.
 
 ## 9. Help now and emergencies
 
@@ -104,21 +102,8 @@ We may update these terms. If we make a change that matters to you, we will tell
 
 ## 13. Governing law
 
-These terms are governed by the law of England and Wales [to confirm]. You can bring a claim in the courts of England and Wales. If you live in Scotland or Northern Ireland you may also bring a claim in your local courts. If you live outside the UK, you keep any protection that the law of your country gives you and that cannot be excluded by agreement.
+These terms are governed by the law of England and Wales. You can bring a claim in the courts of England and Wales. If you live in Scotland or Northern Ireland you may also bring a claim in your local courts. If you live outside the UK, you keep any protection that the law of your country gives you and that cannot be excluded by agreement.
 
 ## 14. Contact
 
-[Company name], [registered address]. Email [support email].
-
-## Placeholders
-
-- [date]
-- [company name]
-- [country of registration]
-- [company number]
-- [registered address]
-- [support email]
-- [to confirm: seller of record decision]
-- [to confirm with the lawyer: question D9]
-- [to confirm] governing law
-- [For the lawyer] note in section 4 on the immediate-access wording and the goodwill window
+Akana Holdings, 128 City Road, London EC1V 2NX. Email [support email].

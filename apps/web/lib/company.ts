@@ -23,8 +23,10 @@ export function support() {
 }
 
 /**
- * Proposed revenue share (not live; the live figures sit in royalty_config
- * and are set by staff in the console). See claude/akana-revenue-share-proposal.md.
+ * Revenue share, approved as draft wording and printed on the Publish page
+ * (it may change before launch). Not live: the live figures sit in
+ * royalty_config and are set by staff in the console. See
+ * claude/akana-revenue-share-proposal.md.
  */
 export const proposedRevenueShare = {
   authorSale: 0.5,

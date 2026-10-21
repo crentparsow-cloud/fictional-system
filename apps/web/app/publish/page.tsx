@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
 import { brand } from "@/lib/brand";
-import { company, proposedRevenueShare, support } from "@/lib/company";
+import { company, support } from "@/lib/company";
 import { MarketingShot } from "@/components/MarketingShot";
 import { shelfStyleVars } from "@/components/explore/ShelfTile";
 import { EnquiryForm } from "./enquiry-form";
@@ -10,9 +10,9 @@ import { EnquiryForm } from "./enquiry-form";
 export const metadata: Metadata = { title: `Publish with ${brand.name}` };
 
 /**
- * F-001. Copy is the draft in docs/legal/publish-with-akana-copy.md, for
- * Crent to approve on Thursday 8 October. Process only. No revenue figures,
- * rates or prices until Crent sets them. The enquiry form posts to the
+ * F-001. Copy is the draft in docs/legal/publish-with-akana-copy.md. The
+ * revenue share figures are approved as draft wording (see proposedRevenueShare
+ * in lib/company.ts) and are stated in the pay section. The enquiry form posts to the
  * submitEnquiry server action: one row in public.leads through
  * public.submit_lead, then an email to the Akana team.
  */
@@ -72,7 +72,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "What does it cost me?",
-    a: `Nothing. There is no monthly fee and no set-up charge. ${brand.name} only earns when a reader pays, from that payment. The share is set out in the licence.`,
+    a: `Nothing. There is no monthly fee and no set-up charge. ${brand.name} only earns when a reader pays, from that payment. We agree the share with you in writing before anything goes live.`,
   },
   {
     q: "How long does a build take?",
@@ -133,14 +133,25 @@ export default function PublishPage() {
           <div className="d-card d-card-roomy d-money">
             <div className="d-stack-s">
               <p className="d-eyebrow">How you are paid</p>
-              <h2 id="pub-pay">You keep [REVENUE SHARE]</h2>
+              <h2 id="pub-pay">You keep half of every sale, more when your readers come from you</h2>
             </div>
             <div className="d-stack-s">
+              <ul className="d-list">
+                <li>
+                  <strong>50% of net receipts</strong> on every single sale.
+                </li>
+                <li>
+                  <strong>60% of net receipts</strong> on sales that come through your own link.
+                </li>
+                <li>
+                  <strong>50% of the membership pool</strong>, shared between authors by reading activity.
+                </li>
+              </ul>
               <p>
-                Your share is worked out on {proposedRevenueShare.basis}. You are paid every Friday. A sale is paid on the first Friday after its
-                14 day refund window ends. A monthly statement gives the exact figures for your records.
+                Net receipts means what we receive after tax, payment fees and refunds. You are paid every Friday. A sale is paid on the first
+                Friday after its 14 day refund window ends. A monthly statement gives the exact figures for your records.
               </p>
-              <p className="d-soft">The share is set out in the licence.</p>
+              <p className="d-soft">We agree the share with you in writing before anything goes live.</p>
             </div>
           </div>
           <ul className="d-promises" aria-label="How we work with authors">

@@ -33,6 +33,7 @@ interface Props {
 export function TryClient({ workbook, slug, lockedUnits, missing, wall }: Props) {
   const [store, setStore] = useState<DeviceAnswerStore | null>(null);
   const [state, setState] = useState<SaveState>("idle");
+  const [started, setStarted] = useState(false);
   const markFirstExercise = useFirstExerciseMark();
   const drafts = useMemo(() => deviceDrafts(), []);
 
@@ -74,9 +75,26 @@ export function TryClient({ workbook, slug, lockedUnits, missing, wall }: Props)
         store={store}
         lockedUnits={lockedUnits}
         lockedNotice={wall}
-        onExerciseDone={() => markFirstExercise()}
+        onExerciseDone={() => {
+          markFirstExercise();
+          setStarted(true);
+        }}
         pagedExercises
       />
+      {started ? (
+        <aside className="c-try-moment" aria-labelledby="c-try-started">
+          <h2 id="c-try-started">Nice. That is week 1 started.</h2>
+          <p>One small exercise done. Take a breath before the next step.</p>
+          <div className="c-try-letter">
+            <h3>A letter from Akana</h3>
+            <p>
+              Well done for taking the first step. Small, steady weeks are how this works. Come back when you are ready, and bring one thing
+              you noticed.
+            </p>
+            <p>The Akana team</p>
+          </div>
+        </aside>
+      ) : null}
     </section>
   );
 }

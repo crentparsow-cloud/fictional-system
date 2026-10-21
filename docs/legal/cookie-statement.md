@@ -1,4 +1,4 @@
-DRAFT for the lawyer. Not published. Prepared [date] by the build team for review.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Cookie statement
 
@@ -10,7 +10,7 @@ We use one kind of cookie: the cookie that keeps you signed in.
 
 | Name | Purpose | Set when | Lasts |
 |---|---|---|---|
-| `__Host-akana-auth` | Holds your sign-in session so you stay signed in as you move between pages | When you sign in | [session length, to confirm from the auth configuration] |
+| `__Host-akana-auth` | Holds your sign-in session so you stay signed in as you move between pages | When you sign in | 30 days, or until you sign out |
 
 The `__Host-` prefix means the cookie is sent only over a secure connection, only to the site that set it, and cannot be read by any other site or subdomain. It is marked HttpOnly, so scripts in the page cannot read it.
 
@@ -44,8 +44,3 @@ Signing out removes the sign-in cookie. To clear everything this site has stored
 ## Changes
 
 If we ever add a cookie or a store that needs your consent, we will update this statement and ask you first.
-
-## Placeholders
-
-- [date]
-- [session length, to confirm from the auth configuration]
