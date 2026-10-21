@@ -52,13 +52,13 @@ export const HELP_TASKS: readonly HelpTask[] = [
   { label: "Join a group", group: "Groups and organisations", topic: "groups", section: "Joining a group", keywords: ["invite link", "code", "team", "church"] },
   { label: "See what a group leader can see", group: "Groups and organisations", topic: "groups", section: "What the group can see", keywords: ["private", "leader", "visible"] },
   { label: "Lead a group", group: "Groups and organisations", topic: "groups", section: "If you lead a group", keywords: ["organiser", "schedule", "run a group"] },
-  { label: "Get a place from my employer, church or charity", group: "Groups and organisations", topic: "organisations", section: "Getting a place", keywords: ["seat", "work", "licence", "invitation"] },
-  { label: "Manage seats for my organisation", group: "Groups and organisations", topic: "organisations", section: "If you manage seats", keywords: ["admin", "add people", "remove people", "billing"] },
+  { label: "Get a place from my employer, church or charity", group: "Groups and organisations", topic: "organisations", section: "Getting a place", keywords: ["seat", "place", "work", "licence", "invitation"] },
+  { label: "Manage places for my organisation", group: "Groups and organisations", topic: "organisations", section: "If you manage places", keywords: ["admin", "add people", "remove people", "billing"] },
   { label: "Run a book club with a workbook", group: "Groups and organisations", topic: "book-clubs", section: "Finding a programme for a group", keywords: ["reading group", "meeting", "discussion", "friends"] },
   { label: "Ask my church to use Akana", group: "Groups and organisations", topic: "book-clubs", section: "Telling your minister", keywords: ["minister", "vicar", "pastor", "priest", "template email"] },
 
-  { label: "Invite a check-in partner", group: "Support and safety", topic: "check-in-partner", section: "Inviting someone", keywords: ["accountability", "friend", "share progress", "buddy"] },
-  { label: "Stop sharing with a check-in partner", group: "Support and safety", topic: "check-in-partner", section: "Stopping", keywords: ["remove partner", "end sharing"] },
+  { label: "Invite a reading buddy", group: "Support and safety", topic: "check-in-partner", section: "Inviting someone", keywords: ["check-in partner", "accountability", "friend", "share progress", "buddy"] },
+  { label: "Stop sharing with a reading buddy", group: "Support and safety", topic: "check-in-partner", section: "Stopping", keywords: ["remove partner", "end sharing"] },
   { label: "Find free support lines", group: "Support and safety", topic: "help-now", section: "Where to find it", keywords: ["crisis", "emergency", "samaritans", "urgent", "in danger", "struggling"] },
   { label: "Report a concern about a group", group: "Support and safety", topic: "groups", section: "Reporting a concern", keywords: ["complaint", "worried", "safeguarding", "abuse"] },
 ];
