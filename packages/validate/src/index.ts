@@ -88,7 +88,7 @@ function checkStyle(doc: Workbook, out: Finding[], opts: ValidateOptions): void 
     const wrong = wantGb ? us : gb;
     const right = wantGb ? gb : us;
     const soft = wrong === "practice" || wrong === "practise";
-    return { re: new RegExp(String.raw`\\b${wrong}\\b`, "gi"), right, soft };
+    return { re: new RegExp(String.raw`\b${wrong}\b`, "gi"), right, soft };
   });
 
   let notIsHits = 0;
@@ -103,8 +103,8 @@ function checkStyle(doc: Workbook, out: Finding[], opts: ValidateOptions): void 
 
     // Quoted speech is exempt: characters may say "I".
     const dequoted = s.replace(/"[^"]*"/g, '"q"');
-    for (const sentence of dequoted.split(/(?<=[.!?])\\s+/)) {
-      if (/^(I|We)\\b/.test(sentence.trim())) {
+    for (const sentence of dequoted.split(/(?<=[.!?])\s+/)) {
+      if (/^(I|We)\b/.test(sentence.trim())) {
         out.push({ severity: "error", category: "style", path, message: "sentence starts with I or We", excerpt: excerpt(sentence, 50) });
       }
     }
@@ -133,8 +133,8 @@ function checkStyle(doc: Workbook, out: Finding[], opts: ValidateOptions): void 
       }
     }
 
-    for (const sentence of s.split(/(?<=[.!?])\\s+/)) {
-      if (BREATH_RE.test(sentence) && !/\\bcount/i.test(sentence)) {
+    for (const sentence of s.split(/(?<=[.!?])\s+/)) {
+      if (BREATH_RE.test(sentence) && !/\bcount/i.test(sentence)) {
         out.push({ severity: "error", category: "style", path, message: "breath count without a unit ('count to four')", excerpt: excerpt(sentence, 60) });
       }
     }
@@ -249,7 +249,7 @@ function checkRefs(doc: Workbook, out: Finding[]): void {
     for (const n of s.units) if (n > doc.structure.count) err(`structure.stages.${s.id}`, `unit ${n} is beyond the programme length`);
   }
   for (const m of doc.milestones) {
-    const mm = /^unit_complete:(\\d+)$/.exec(m.trigger);
+    const mm = /^unit_complete:(\d+)$/.exec(m.trigger);
     if (mm && Number(mm[1]) > doc.structure.count) err(`milestones.${m.id}`, `unit ${mm[1]} is beyond the programme length`);
     const sm = /^stage_complete:([a-z0-9_]+)$/.exec(m.trigger);
     if (sm && !stIds.includes(sm[1]!)) err(`milestones.${m.id}`, `stage ${sm[1]} not defined`);
@@ -348,7 +348,7 @@ function checkFields(doc: Workbook, out: Finding[]): void {
 // ---------- unit parts (schema 3.1, UNIT_SPEC.md) ----------
 
 function sentenceCount(s: string): number {
-  return s.split(/(?<=[.!?])\\s+/).filter((x) => x.trim().length > 0).length;
+  return s.split(/(?<=[.!?])\s+/).filter((x) => x.trim().length > 0).length;
 }
 
 /** Words the reader reads in a unit's own parts: intro, key ideas, takeaway. Exercises are not counted. */
@@ -408,7 +408,7 @@ function checkUnits(doc: Workbook, out: Finding[]): void {
       const e = exById.get(id);
       if (!e) continue;
       const p = `exercises.${e.id}`;
-      if (/\\n\\s*\\n/.test(e.why.trim())) err(`${p}.why`, "the set-up is one paragraph");
+      if (/\n\s*\n/.test(e.why.trim())) err(`${p}.why`, "the set-up is one paragraph");
       const q = e.fields[0]?.label ?? "";
       if (!q.trim().endsWith("?")) err(`${p}.fields.${e.fields[0]?.id ?? "0"}.label`, "the direct question must be a question", q);
       if (e.fields.length > UNIT_SPEC.maxFieldsPerExercise) warn(`${p}.fields`, `${e.fields.length} fields, more than ${UNIT_SPEC.maxFieldsPerExercise} means the question is not direct`);
@@ -557,7 +557,7 @@ export function formatFindings(file: string, result: ValidationResult): string {
   for (const f of [...result.errors, ...result.warnings]) {
     lines.push(`  - ${f.severity === "warning" ? "warn " : ""}${f.category}: ${f.path ? f.path + ": " : ""}${f.message}${f.excerpt ? ` : ${JSON.stringify(f.excerpt)}` : ""}`);
   }
-  return lines.join("\\n");
+  return lines.join("\n");
 }
 export * from "./guide";
 export * from "./plain";

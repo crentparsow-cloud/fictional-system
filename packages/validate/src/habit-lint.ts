@@ -46,29 +46,29 @@ const P = (rule: HabitRule, severity: "error" | "warning", re: string, message: 
 });
 
 const PATTERNS: readonly Pattern[] = [
-  P("streak", "error", String.raw`\\bstreaks?\\b`, "streak language"),
-  P("streak", "error", String.raw`\\b(days?|weeks?|times?) in a row\\b`, "counts days in a row"),
-  P("streak", "error", String.raw`\\bconsecutive (days?|weeks?|sessions?)\\b`, "counts consecutive days"),
-  P("streak", "error", String.raw`\\b(keep|keeping|break|breaking|protect|protecting) (the|your|a) (chain|run|streak)\\b`, "chain or run language", true),
-  P("streak", "error", String.raw`\\bunbroken (run|chain|record|string|days?|weeks?)\\b`, "unbroken run language"),
-  P("daily_goal", "error", String.raw`\\bdaily (goals?|targets?|quotas?)\\b`, "daily goal"),
-  P("daily_goal", "error", String.raw`\\b(hit|meet|reach|smash|beat) (your|the|today's) (goal|target)\\b`, "goal to hit"),
-  P("daily_goal", "error", String.raw`\\bgoal (met|reached|complete|achieved)\\b`, "goal status"),
-  P("urgency", "warning", String.raw`\\bcountdowns?\\b`, "countdown (fine as a routine name, not as a timer on the reader)"),
-  P("urgency", "error", String.raw`\\b(hurry|act now|right now or|before it'?s too late|last chance|running out of time|time is running)\\b`, "hurry or urgency"),
-  P("urgency", "error", String.raw`\\bonly \\d+ (days?|hours?|minutes?|spots?|places?) (left|remaining)\\b`, "scarcity or countdown"),
-  P("urgency", "error", String.raw`\\b(expires?|expiring|expiry) (in|on|soon|today|tonight)\\b`, "something that expires"),
-  P("urgency", "error", String.raw`\\b(don'?t|do not) (miss|lose|waste)\\b`, "loss warning"),
-  P("loss_warning", "error", String.raw`\\b(lose|losing|lost) your (progress|run|momentum|place)\\b`, "loss warning"),
-  P("loss_warning", "error", String.raw`\\byou('| a)?re about to lose\\b`, "loss warning"),
-  P("loss_warning", "error", String.raw`\\bdon'?t let (it|your \\w+) (slip|lapse|die)\\b`, "loss warning"),
-  P("missed_day", "warning", String.raw`\\bmiss(ed|ing)? (a |an |the |your )?(day|days|session|sessions|week|weeks)\\b`, "talks about missed days"),
-  P("missed_day", "warning", String.raw`\\b(falling|fallen|fell|get|getting|got) behind\\b`, "talks about falling behind"),
-  P("missed_day", "warning", String.raw`\\bcatch(ing)? up on (missed|what you)\\b`, "talks about catching up"),
-  P("missed_day", "warning", String.raw`\\boverdue\\b`, "talks about overdue work"),
+  P("streak", "error", String.raw`\bstreaks?\b`, "streak language"),
+  P("streak", "error", String.raw`\b(days?|weeks?|times?) in a row\b`, "counts days in a row"),
+  P("streak", "error", String.raw`\bconsecutive (days?|weeks?|sessions?)\b`, "counts consecutive days"),
+  P("streak", "error", String.raw`\b(keep|keeping|break|breaking|protect|protecting) (the|your|a) (chain|run|streak)\b`, "chain or run language", true),
+  P("streak", "error", String.raw`\bunbroken (run|chain|record|string|days?|weeks?)\b`, "unbroken run language"),
+  P("daily_goal", "error", String.raw`\bdaily (goals?|targets?|quotas?)\b`, "daily goal"),
+  P("daily_goal", "error", String.raw`\b(hit|meet|reach|smash|beat) (your|the|today's) (goal|target)\b`, "goal to hit"),
+  P("daily_goal", "error", String.raw`\bgoal (met|reached|complete|achieved)\b`, "goal status"),
+  P("urgency", "warning", String.raw`\bcountdowns?\b`, "countdown (fine as a routine name, not as a timer on the reader)"),
+  P("urgency", "error", String.raw`\b(hurry|act now|right now or|before it'?s too late|last chance|running out of time|time is running)\b`, "hurry or urgency"),
+  P("urgency", "error", String.raw`\bonly \d+ (days?|hours?|minutes?|spots?|places?) (left|remaining)\b`, "scarcity or countdown"),
+  P("urgency", "error", String.raw`\b(expires?|expiring|expiry) (in|on|soon|today|tonight)\b`, "something that expires"),
+  P("urgency", "error", String.raw`\b(don'?t|do not) (miss|lose|waste)\b`, "loss warning"),
+  P("loss_warning", "error", String.raw`\b(lose|losing|lost) your (progress|run|momentum|place)\b`, "loss warning"),
+  P("loss_warning", "error", String.raw`\byou('| a)?re about to lose\b`, "loss warning"),
+  P("loss_warning", "error", String.raw`\bdon'?t let (it|your \w+) (slip|lapse|die)\b`, "loss warning"),
+  P("missed_day", "warning", String.raw`\bmiss(ed|ing)? (a |an |the |your )?(day|days|session|sessions|week|weeks)\b`, "talks about missed days"),
+  P("missed_day", "warning", String.raw`\b(falling|fallen|fell|get|getting|got) behind\b`, "talks about falling behind"),
+  P("missed_day", "warning", String.raw`\bcatch(ing)? up on (missed|what you)\b`, "talks about catching up"),
+  P("missed_day", "warning", String.raw`\boverdue\b`, "talks about overdue work"),
 ];
 
-const NEGATION = /\\b(no|not|never|nothing|without|none|neither|nor|isn'?t|aren'?t|won'?t|doesn'?t|don'?t|cannot|can'?t)\\b[^.;:!?]{0,40}$/i;
+const NEGATION = /\b(no|not|never|nothing|without|none|neither|nor|isn'?t|aren'?t|won'?t|doesn'?t|don'?t|cannot|can'?t)\b[^.;:!?]{0,40}$/i;
 
 /** Every habit-language match in a piece of text. Negated matches are left out. */
 export function habitLanguageHits(text: string): HabitHit[] {
