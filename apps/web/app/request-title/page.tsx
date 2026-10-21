@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DHero } from "@/components/info/DHero";
 import { RequestForm } from "./request-form";
 
 export const metadata: Metadata = {
@@ -16,16 +17,18 @@ export const metadata: Metadata = {
  */
 export default function RequestTitlePage() {
   return (
-    <main className="wrap contact-page">
-      <h1>Request a title</h1>
-      <p>
-        Is there a book you would like to work through as a guided workbook? Tell us which one. We read every request and use them to decide what to make next.
-      </p>
+    <main className="d-page">
+      <DHero
+        title="Request a title"
+        lead="Is there a book you would like to work through as a guided workbook? Tell us which one. We read every request and use them to decide what to make next."
+      />
+      <div className="wrap contact-page d-formpage">
       <p className="muted">
         A request does not promise a workbook. We need the right to use the book, and some titles need a safety review first. Looking for something that is
         already here? <Link href="/search">Search the library</Link>.
       </p>
       <RequestForm />
+      </div>
     </main>
   );
 }
