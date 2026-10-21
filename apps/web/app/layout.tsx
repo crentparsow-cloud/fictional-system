@@ -5,6 +5,7 @@ import "./fonts.css";
 import "./globals.css";
 import "./motion.css";
 import "./themes/reading.css";
+import "./themes/marks.css";
 import "@theme-active";
 import { brand } from "@/lib/brand";
 import { DeviceVisit } from "@/components/DeviceVisit";

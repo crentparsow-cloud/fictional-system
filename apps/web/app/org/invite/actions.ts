@@ -140,6 +140,25 @@ export async function createJoinLink(_prev: LinkState, formData: FormData): Prom
   return { status: "made", url: joinLinkUrl(originFrom(await headers()), token) };
 }
 
+/**
+ * The licence's one standing sign-up link (13.15). Making a new one closes the
+ * old one, so rotating it is how an owner stops a link that got out. The
+ * token is shown once. The database keeps only its hash.
+ */
+export async function rotateStandingLink(_prev: LinkState, formData: FormData): Promise<LinkState> {
+  const licence = await ownedLicence(formData, true);
+  if (!licence) return { status: "error", message: BILLING_NOTICES.denied.text };
+  const token = mintToken();
+  const supabase = await createUserClient();
+  const { error } = await supabase.rpc("org_standing_link_rotate", { p_licence: licence.id, p_token_hash: await hashToken(token) });
+  if (error) {
+    console.error("org_standing_link_rotate_failed", error.code ?? "");
+    return { status: "error", message: BILLING_NOTICES[billingErrorNotice(error.code)].text };
+  }
+  revalidatePath("/org/invite");
+  return { status: "made", url: joinLinkUrl(originFrom(await headers()), token) };
+}
+
 export async function revokeJoinLink(formData: FormData): Promise<void> {
   const ctx = await requireOrgConsole("/org/invite", String(formData.get("org") ?? ""));
   await requireRoleMfa(ctx.org.role, withOrgParam("/org/invite", ctx.org.id, ctx.multi));

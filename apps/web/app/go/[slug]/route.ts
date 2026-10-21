@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getReaderSession } from "@/lib/auth";
+import { affiliateTagsFromEnv, withRetailerTag } from "@/lib/book-affiliate";
 import { pickBookLink } from "@/lib/book-link";
 import { LAUNCH_MARKETS, isLaunchMarket } from "@/lib/markets";
 import { regionFromAcceptLanguage } from "@/lib/support-lines";
@@ -13,6 +14,10 @@ import { createUserClient } from "@/lib/supabase/server";
  * Referer, so the store never learns which workbook or which reader sent
  * them. Counting taps (as the legacy app did, without knowing who tapped)
  * needs a table and is left for later.
+ *
+ * Affiliate (6.9): when BOOK_AFFILIATE_TAGS holds a tag for the store's host,
+ * it is added to the link. Akana keeps the commission and the Finish screen
+ * shows a plain disclosure line beside the button. Still nothing recorded.
  *
  * Market: ?m= first, then the signed-in reader's profile country, then the
  * region in Accept-Language. The book block is read from the listing section
@@ -55,5 +60,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   market ??= regionFromAcceptLanguage(request.headers.get("accept-language"), LAUNCH_MARKETS);
 
   const link = pickBookLink((listing as { links?: unknown } | null)?.links, market);
-  return NextResponse.redirect(link ? new URL(link) : back, { status: 302, headers: HEADERS });
+  // 6.9: the retailer's tag, when BOOK_AFFILIATE_TAGS names one for this host. Blank leaves the link as the author gave it.
+  const tagged = link ? withRetailerTag(link, affiliateTagsFromEnv()) : null;
+  return NextResponse.redirect(tagged ? new URL(tagged) : back, { status: 302, headers: HEADERS });
 }

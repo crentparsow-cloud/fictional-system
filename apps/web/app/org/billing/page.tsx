@@ -1,3 +1,4 @@
+import { tablePricedPlans } from "@/lib/org-plans-server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { brand } from "@/lib/brand";
@@ -10,7 +11,7 @@ import {
   isBandPlan,
   ORG_PLANS,
   isOrgPlanId,
-  orgPriceId,
+  planIsPriced,
   TALK_TO_US,
   type CoolingOffState,
 } from "@/lib/org-billing";
@@ -88,6 +89,7 @@ export default async function OrgBillingPage({ searchParams }: { searchParams: S
   const isOwner = ctx.org.role === "owner";
   const notice = billingNotice(sp.notice);
   const supabase = await createUserClient();
+  const tablePriced = await tablePricedPlans();
   const q = (p: string) => withOrgParam(p, ctx.org.id, ctx.multi);
 
   let licences: Licence[] = [];
@@ -224,9 +226,9 @@ export default async function OrgBillingPage({ searchParams }: { searchParams: S
                     <label htmlFor={`band-${l.id}`}>Change band</label>
                     <select id={`band-${l.id}`} name="plan" defaultValue={plan.id} required>
                       {CHURCH_BAND_PLANS.map((b) => (
-                        <option key={b} value={b} disabled={orgPriceId(b) === null}>
+                        <option key={b} value={b} disabled={!planIsPriced(b, tablePriced)}>
                           {ORG_PLANS[b].label}
-                          {orgPriceId(b) === null ? `: ${TALK_TO_US.toLowerCase()}` : ""}
+                          {!planIsPriced(b, tablePriced) ? `: ${TALK_TO_US.toLowerCase()}` : ""}
                         </option>
                       ))}
                     </select>

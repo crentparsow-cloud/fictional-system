@@ -3,6 +3,8 @@ import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
 import { MarketingShot } from "@/components/MarketingShot";
 import { brand } from "@/lib/brand";
+import { organisationsPricing, PILOT_AND_REFUND_TEXT, type PriceCard } from "@/lib/org-plans";
+import { loadPlanPrices } from "@/lib/org-plans-server";
 import { ENQUIRY_HREF, organisationPrivacyLine } from "@/lib/plans";
 
 /**
@@ -12,7 +14,8 @@ import { ENQUIRY_HREF, organisationPrivacyLine } from "@/lib/plans";
  * adults only, and no promise of features that are not built (groups,
  * reports and branded portals come after launch).
  */
-export const dynamic = "force-static";
+// Prices come from the plan price table, so the page reads it on each request.
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: `${brand.name} for organisations`,
@@ -35,7 +38,25 @@ const HOW = [
   "Everyone taking part must be 18 or over.",
 ] as const;
 
-export default function OrganisationsPage() {
+function Card({ c }: { c: PriceCard }) {
+  return (
+    <li className="card">
+      <h3>{c.heading}</h3>
+      <p>
+        <strong>{c.primary}</strong>
+        {c.secondary ? <span className="muted small"> ({c.secondary})</span> : null}
+      </p>
+      <ul className="small">
+        {c.lines.map((l) => (
+          <li key={l}>{l}</li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
+export default async function OrganisationsPage() {
+  const pricing = organisationsPricing(await loadPlanPrices());
   return (
     <main className="wrap info-page">
       <header className="info-head">
@@ -80,10 +101,39 @@ export default function OrganisationsPage() {
 
       <section className="info-section" aria-labelledby="org-plans">
         <h2 id="org-plans">Plans and prices</h2>
-        <p>
-          We are starting with a small number of organisations. Plans and prices are not set yet, so we agree them with you. Tell us who
-          you are, roughly how many people would take part and what you hope they get from it.
-        </p>
+        {pricing ? (
+          <>
+            <p>These are the prices. You see the full amount, with any tax, before you pay.</p>
+            <ul className="info-claims" role="list">
+              {pricing.small ? <Card c={pricing.small} /> : null}
+              {pricing.group ? <Card c={pricing.group} /> : null}
+            </ul>
+            {pricing.churches.length > 0 ? (
+              <>
+                <h3>Churches</h3>
+                <p>The price depends on your usual Sunday attendance. You pick the band. Every member can have a place.</p>
+                <ul className="info-claims" role="list">
+                  {pricing.churches.map((c) => (
+                    <Card key={c.id} c={c} />
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <p>{PILOT_AND_REFUND_TEXT.larger}</p>
+            <p>{PILOT_AND_REFUND_TEXT.small}</p>
+            <p>{PILOT_AND_REFUND_TEXT.kit}</p>
+            <p className="info-ctas">
+              <Link className="btn" href="/org/start">
+                Start an organisation
+              </Link>
+            </p>
+          </>
+        ) : (
+          <p>
+            We are starting with a small number of organisations. Plans and prices are not set yet, so we agree them with you. Tell us who
+            you are, roughly how many people would take part and what you hope they get from it.
+          </p>
+        )}
         <p className="info-ctas">
           <Link className="btn" href={ENQUIRY_HREF}>
             Talk to us

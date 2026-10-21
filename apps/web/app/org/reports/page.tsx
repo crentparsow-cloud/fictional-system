@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { billingNotice } from "@/lib/org-billing";
 import { formatOrgDate, labelOf, LICENCE_KIND_LABELS } from "@/lib/org-pilot";
 import { requireOrgConsole, withOrgParam } from "@/lib/org-pilot-server";
 import { groupCountText, monthName, parseReportMonth, REPORT_METRIC_LABELS, reportMonths, type ReportRow } from "@/lib/org-groups";
 import { createUserClient } from "@/lib/supabase/server";
+import { setMonthlyReport } from "./actions";
 
 export const metadata: Metadata = { title: "Reports", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -28,6 +30,9 @@ export default async function OrgReportsPage({ searchParams }: { searchParams: S
   const canRead = ["owner", "finance", "viewer"].includes(ctx.org.role);
   const month = parseReportMonth(sp.month);
   const supabase = await createUserClient();
+  const notice = billingNotice(sp.notice);
+  const pref = ctx.org.role === "owner" ? await supabase.from("org_profiles").select("monthly_report").eq("org_id", ctx.org.id).maybeSingle() : null;
+  const emailOn = (pref?.data as { monthly_report?: boolean } | null)?.monthly_report !== false;
 
   const report = canRead ? await supabase.rpc("org_monthly_report", { p_org: ctx.org.id, p_month: month }) : { data: [], error: null };
   if (report.error) console.error("org_report_failed", report.error.code ?? "");
@@ -45,6 +50,11 @@ export default async function OrgReportsPage({ searchParams }: { searchParams: S
     <div className="admin-page studio-page org-console">
       <p className="muted studio-org">{ctx.org.displayName}</p>
       <h1>Reports</h1>
+      {notice ? (
+        <p className={`admin-notice admin-notice-${notice.tone}`} role={notice.tone === "error" ? "alert" : "status"}>
+          {notice.text}
+        </p>
+      ) : null}
       <section className="card info-privacy" aria-labelledby="rep-privacy-h">
         <h2 id="rep-privacy-h">What these numbers are</h2>
         <p>
@@ -119,6 +129,22 @@ export default async function OrgReportsPage({ searchParams }: { searchParams: S
           )}
         </>
       )}
+      {ctx.org.role === "owner" ? (
+        <section className="card" aria-labelledby="rep-mail-h">
+          <h2 id="rep-mail-h">Monthly summary email</h2>
+          <p>
+            On the 2nd of each month, owners and finance contacts get last month as counts: places taken, people who started and groups. Small numbers
+            are hidden. It never names a workbook or a person. It is {emailOn ? "on" : "off"} now.
+          </p>
+          <form className="admin-form" action={setMonthlyReport}>
+            <input type="hidden" name="org" value={ctx.org.id} />
+            <input type="hidden" name="on" value={emailOn ? "no" : "yes"} />
+            <button type="submit" className="btn secondary">
+              {emailOn ? "Switch the email off" : "Switch the email on"}
+            </button>
+          </form>
+        </section>
+      ) : null}
       <p className="muted small">
         <Link href={withOrgParam("/org/groups", ctx.org.id, ctx.multi)}>Groups</Link>
       </p>
