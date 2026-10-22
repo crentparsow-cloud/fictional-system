@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { BookGrid } from "@/components/site/BookCard";
 import { CollectionCover } from "@/components/explore/CollectionCover";
 import { Rail } from "@/components/explore/Rail";
 import { EditorialSlot } from "@/components/explore/EditorialSlot";
@@ -120,7 +120,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
   return (
     <>
     <main className={session ? "wb-page browse-page explore-page has-tabs" : "wb-page browse-page explore-page"}>
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -144,7 +144,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           <h2 id="explore-shelves" className="browse-heading">
             {t("explore.shelves")}
           </h2>
-          <ul className="shelf-tiles">
+          <ul className="shelf-tiles a-tiles">
             {tiles.map((s) => (
               <li key={s.id}>
                 <ShelfTile id={s.id} name={s.name} line={lineFor(s.id)} countLabel={countLabel(s.count)} />
@@ -198,11 +198,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
               {t("explore.filteredHeading", { length: t(LENGTH_KEYS[length]) })}
             </h2>
             {filtered.length ? (
-              <div className="grid wb-grid">
-                {filtered.map((card) => (
-                  <WorkbookCard key={card.id} card={card} outlineOnlyLabel={outlineOnly} openLabel={open} />
-                ))}
-              </div>
+              <BookGrid cards={filtered} />
             ) : (
               <div className="card empty-state">
                 <p>{t("explore.emptyFiltered")}</p>
@@ -287,6 +283,23 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           </>
         )}
 
+        <section className="a-asks" aria-label="More from us">
+          <div>
+            <h2>Missing a book you love?</h2>
+            <p>Tell us which one. It helps us choose what to build next.</p>
+            <Link className="btn secondary" href="/request-title">
+              Suggest a book
+            </Link>
+          </div>
+          <div>
+            <h2>Are you an author?</h2>
+            <p>Turn your book into a workbook readers finish.</p>
+            <Link className="btn secondary" href="/publish">
+              Publish with {brand.name}
+            </Link>
+          </div>
+        </section>
+
         <p className="browse-more explore-links">
           {browse ? <Link href="/explore">{t("explore.title")}</Link> : <Link href="/explore?all=1#all">{t("explore.fullLibrary")}</Link>}
           {session ? (
@@ -297,9 +310,6 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           ) : null}
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>
