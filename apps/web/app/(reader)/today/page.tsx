@@ -1,9 +1,15 @@
 import { Starters } from "@/components/catalogue/Starters";
+import { PasskeyPrompt } from "@/components/mfa/PasskeyPrompt";
+import { AppBadge } from "@/components/today/AppBadge";
+import { badgeCount } from "@/lib/push/badge";
+import { finishedStepToday } from "@/lib/push/badge-server";
+import { shouldShowPasskeyPrompt } from "@/lib/mfa/passkey-prompt-server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { UnitMap } from "@/components/reader/UnitMap";
 import { GroupWeekLine } from "@/components/groups/GroupWeekLine";
 import { HelpNowButton } from "@/components/HelpNowButton";
+import { HabitPanel } from "@/components/habit/HabitPanel";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { CalendarReminder } from "@/components/today/CalendarReminder";
 import { DailyQuickTap } from "@/components/today/DailyQuickTap";
@@ -15,6 +21,7 @@ import { WeekLine } from "@/components/today/WeekLine";
 import { readerDeletion } from "@/lib/account-server";
 import { getReaderSession } from "@/lib/auth";
 import { withDailyCheck } from "@/lib/continue-cards";
+import { loadHabit, loadOnThisDay } from "@/lib/habit/server";
 import { getT } from "@/lib/i18n";
 import { createUserClient } from "@/lib/supabase/server";
 import { loadTodayView, type TodayView } from "@/lib/today/server";
@@ -35,6 +42,10 @@ import { loadTodayView, type TodayView } from "@/lib/today/server";
  * review, the welcome back and every email off until the reader turns them
  * on from You.
  *
+ * The habit layer (HabitPanel) adds the companion, new marks, "On this day"
+ * and, only if the reader chose it and only for titles outside the wellbeing
+ * tiers, a quiet streak. One link leads to its settings.
+ *
  * The daily check for workbooks that carry one stays as it was (F-016). One
  * calendar reminder for everything (F-024), made on the device.
  *
@@ -54,6 +65,16 @@ export default async function TodayPage() {
   const daily = view ? withDailyCheck(view.continueCards) : [];
   const { readOnly } = session ? await readerDeletion(await createUserClient(), session.userId) : { readOnly: false };
   const wellbeing = view?.wellbeing ?? false;
+  // Habit layer (4.4 to 4.6, 11.2, On this day). Best effort: Today works without it.
+  const habit = session && view?.hasProgrammes ? await loadHabit(session.userId).catch(() => null) : null;
+  const onThisDay = session && view?.hasProgrammes ? await loadOnThisDay(session.userId, new Date(), view.review?.answerId).catch(() => null) : null;
+  const passkeyPrompt = session ? await shouldShowPasskeyPrompt(session.userId) : false;
+  // 14.7: the badge says "1" while a step is waiting and none is done today. Zero on wellbeing shelves.
+  const badge = badgeCount({
+    wellbeing,
+    stepWaiting: Boolean(view?.cards.some((c) => c.kind === "step")),
+    finishedToday: view ? await finishedStepToday(view.timeZone) : false,
+  });
 
   return (
     <section className="tab-page">
@@ -62,6 +83,8 @@ export default async function TodayPage() {
         {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
       </div>
       {session ? <GroupWeekLine /> : null}
+      {passkeyPrompt ? <PasskeyPrompt /> : null}
+      <AppBadge count={badge} />
 
       {!view || view.cards.length === 0 ? (
         <>
@@ -94,6 +117,8 @@ export default async function TodayPage() {
           ) : null}
         </>
       )}
+
+      {habit ? <HabitPanel habit={habit} onThisDay={onThisDay} readOnly={readOnly} /> : null}
 
       {view && daily.length > 0 ? (
         <section className="card daily-check" aria-labelledby="daily-check-title">

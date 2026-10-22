@@ -5,6 +5,7 @@ import {
   mergeReading,
   parseStored,
   readingAttributes,
+  sameSettings,
   sanitise,
   seedFromAppearance,
   serialiseStored,
@@ -79,12 +80,28 @@ describe("seedFromAppearance and attributes", () => {
     expect(Object.values(readingAttributes(DEFAULT_READING)).every((v) => v === null)).toBe(true);
   });
   it("sets attributes the stylesheet reads", () => {
-    expect(readingAttributes({ font: "dyslexic", size: 4, colour: "dark", margin: "wide", progress: "none" })).toEqual({
+    expect(readingAttributes({ font: "dyslexic", size: 4, colour: "dark", margin: "wide", progress: "none", focus: "both", thennow: "on" })).toEqual({
       "data-text-size": "4",
       "data-font": "dyslexic",
       "data-theme": "dark",
       "data-margin": "wide",
       "data-progress": "none",
+      "data-focus": "both",
     });
+  });
+  it("accepts the focus and then-and-now choices and drops anything else", () => {
+    expect(sanitise({ focus: "dim", thennow: "on" })).toEqual({ focus: "dim", thennow: "on" });
+    expect(sanitise({ focus: "strobe", thennow: true })).toEqual({});
+    expect(DEFAULT_READING.focus).toBe("off");
+    expect(DEFAULT_READING.thennow).toBe("off");
+  });
+  it("treats a stored copy from before focus mode as having it off", () => {
+    const stored = fromRecord({ settings: { font: "lexend" }, updatedAt: 5 });
+    expect(stored?.settings.focus).toBe("off");
+    expect(stored?.settings.thennow).toBe("off");
+  });
+  it("counts a focus change as a change", () => {
+    expect(sameSettings(DEFAULT_READING, { ...DEFAULT_READING, focus: "dim" })).toBe(false);
+    expect(sameSettings(DEFAULT_READING, { ...DEFAULT_READING, thennow: "on" })).toBe(false);
   });
 });

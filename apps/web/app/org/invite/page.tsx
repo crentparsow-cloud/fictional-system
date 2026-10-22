@@ -4,7 +4,7 @@ import { formatOrgDate, isPastIso, labelOf, LICENCE_KIND_LABELS } from "@/lib/or
 import { requireOrgConsole } from "@/lib/org-pilot-server";
 import { createUserClient } from "@/lib/supabase/server";
 import { revokeJoinLink } from "./actions";
-import { CsvInvite, JoinLinkMaker } from "./InviteTools";
+import { CsvInvite, JoinLinkMaker, StandingLinkMaker } from "./InviteTools";
 
 export const metadata: Metadata = { title: "Invite in bulk", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -27,6 +27,7 @@ interface Link {
   expires_at: string;
   revoked_at: string | null;
   created_at: string;
+  standing: boolean;
 }
 
 /**
@@ -55,7 +56,7 @@ export default async function OrgInvitePage({ searchParams }: { searchParams: Se
         .order("starts_at", { ascending: false }),
       supabase
         .from("org_join_links")
-        .select("id, licence_id, email_domain, max_uses, uses, expires_at, revoked_at, created_at")
+        .select("id, licence_id, email_domain, max_uses, uses, expires_at, revoked_at, created_at, standing")
         .eq("org_id", ctx.org.id)
         .order("created_at", { ascending: false })
         .limit(50),
@@ -92,6 +93,9 @@ export default async function OrgInvitePage({ searchParams }: { searchParams: Se
               </h2>
               <p className="muted">Until {formatOrgDate(l.ends_at)}.</p>
 
+              <h3>Sign-up link</h3>
+              <StandingLinkMaker orgId={ctx.org.id} licenceId={l.id} hasLink={mine.some((k) => k.standing && !k.revoked_at)} />
+
               <h3>Upload a list</h3>
               <CsvInvite orgId={ctx.org.id} licenceId={l.id} />
 
@@ -116,11 +120,11 @@ export default async function OrgInvitePage({ searchParams }: { searchParams: Se
                         return (
                           <tr key={k.id}>
                             <td>{formatOrgDate(k.created_at)}</td>
-                            <td>{k.email_domain ?? <span className="muted">Any address</span>}</td>
+                            <td>{k.standing ? "Sign-up link" : (k.email_domain ?? <span className="muted">Any address</span>)}</td>
                             <td>
-                              {k.uses} of {k.max_uses}
+                              {k.standing ? k.uses : `${k.uses} of ${k.max_uses}`}
                             </td>
-                            <td>{k.revoked_at ? <span className="muted">Closed</span> : open ? formatOrgDate(k.expires_at) : <span className="muted">Expired</span>}</td>
+                            <td>{k.revoked_at ? <span className="muted">Closed</span> : open ? (k.standing ? "Until you make a new one" : formatOrgDate(k.expires_at)) : <span className="muted">Expired</span>}</td>
                             <td>
                               {open ? (
                                 <form action={revokeJoinLink}>

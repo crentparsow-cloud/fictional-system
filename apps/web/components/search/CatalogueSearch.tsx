@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useId, useMemo, useState } from "react";
 import { BADGE_LABELS } from "@/lib/catalogue-guard";
-import { buildSearchIndex, queryWordHashes, search, searchStatus, type QueryHashes, type SearchEntry } from "@/lib/search";
+import { buildSearchIndex, groupResults, queryWordHashes, search, searchStatus, type QueryHashes, type SearchEntry, type SearchGroupId } from "@/lib/search";
 
 /**
  * On-device search with Help now first (F-008).
@@ -37,9 +37,16 @@ export interface SearchLabels {
   helpBody: string;
   helpCta: string;
   results: string;
+  /** Group headings for the results (2.7). */
+  groupTitles: string;
+  groupAuthors: string;
+  groupThemes: string;
+  groupCollections: string;
   empty: string;
   /** The next step shown under an empty result, a link to Explore. */
   emptyCta: string;
+  /** A second step under an empty result: ask for the title (2.8). */
+  requestCta: string;
 }
 
 export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headingLevel = 2 }: { entries: SearchEntry[]; labels: SearchLabels; helpHref?: string; headingLevel?: 2 | 3 }) {
@@ -64,6 +71,13 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
     };
   }, [query]);
   const outcome = useMemo(() => search(index, query, undefined, hashes), [index, query, hashes]);
+  const groups = useMemo(() => groupResults(outcome.results), [outcome.results]);
+  const groupLabel: Record<SearchGroupId, string> = {
+    titles: labels.groupTitles,
+    authors: labels.groupAuthors,
+    themes: labels.groupThemes,
+    collections: labels.groupCollections,
+  };
 
   // The polite status waits for a pause in typing, so a screen reader is not
   // read a new count on every key.
@@ -122,28 +136,38 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
         {outcome.active && query.trim() ? (
           outcome.results.length ? (
             <>
-              <H className="search-results-title">{labels.results}</H>
-              <ul className="search-result-list">
-                {outcome.results.map((r) => (
-                  <li key={`${r.kind}:${r.id}`} className="search-result">
-                    <Link className="search-result-link" href={r.href} prefetch={false}>
-                      <span className="search-result-name">{r.title}</span>
-                      {r.authors?.length ? <span className="muted small">{r.authors.join(", ")}</span> : null}
-                    </Link>
-                    <span className="search-result-meta small muted">
-                      {r.badge ? <span className={`badge${r.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[r.badge]}</span> : null}
-                      {r.themeName ? <span>{r.themeName}</span> : null}
-                      {r.code ? <span>{r.code}</span> : null}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              {groups.map((g) => (
+                <section key={g.id} className="search-group" aria-labelledby={`${id}-g-${g.id}`} data-testid={`search-group-${g.id}`}>
+                  <H id={`${id}-g-${g.id}`} className="search-results-title">
+                    {groupLabel[g.id]}
+                  </H>
+                  <ul className="search-result-list">
+                    {g.results.map((r) => (
+                      <li key={`${r.kind}:${r.id}`} className="search-result">
+                        <Link className="search-result-link" href={r.href} prefetch={false}>
+                          <span className="search-result-name">{r.title}</span>
+                          {r.authors?.length ? <span className="muted small">{r.authors.join(", ")}</span> : null}
+                          {r.kind !== "workbook" && r.line ? <span className="muted small">{r.line}</span> : null}
+                        </Link>
+                        <span className="search-result-meta small muted">
+                          {r.badge ? <span className={`badge${r.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[r.badge]}</span> : null}
+                          {r.themeName ? <span>{r.themeName}</span> : null}
+                          {r.code ? <span>{r.code}</span> : null}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
             </>
           ) : (
             <div className="search-empty-block">
               <p className="muted search-empty">{labels.empty}</p>
               <Link className="btn secondary" href="/explore">
                 {labels.emptyCta}
+              </Link>{" "}
+              <Link className="btn secondary" href="/request-title" prefetch={false}>
+                {labels.requestCta}
               </Link>
             </div>
           )

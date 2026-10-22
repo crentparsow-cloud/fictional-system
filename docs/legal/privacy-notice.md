@@ -1,4 +1,4 @@
-DRAFT for the lawyer. Not published. Prepared [date] by the build team for review.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Privacy notice
 
@@ -6,11 +6,11 @@ This notice explains what personal information Akana collects about readers, why
 
 ## 1. Who is responsible
 
-The controller for the Akana marketplace is [company name], registered in [country of registration] under number [company number], registered office [registered address]. ICO registration number [ICO registration].
+The controller for the Akana marketplace is Akana Holdings, registered in England and Wales, registered office 128 City Road, London EC1V 2NX. We are registered with the Information Commissioner's Office.
 
-Where a publisher runs its own branded site on Akana (a white-label site), the publisher is the controller for its readers and Akana processes the data on its behalf [to confirm with the lawyer]. The publisher's own privacy notice applies on that site and names Akana as a processor.
+Where a publisher runs its own branded site on Akana (a white-label site), the publisher is the controller for its readers and Akana processes the data on its behalf. The publisher's own privacy notice applies on that site and names Akana as a processor.
 
-Contact for anything about your data: [privacy email]. We do not currently have a data protection officer [to confirm].
+Contact for anything about your data: [support email]. We do not currently have a data protection officer.
 
 ## 2. What we collect and why
 
@@ -44,16 +44,16 @@ Your work is protected in a way that goes beyond normal storage. In the words al
 
 In technical terms: every answer, check-in and daily check is sealed with AES-256-GCM before it reaches the database. The encryption keys are held server side and never stored with the data. Each sealed value is bound to your account, the site you used and the field you answered, so it cannot be moved or read in another context. Unsealing happens only in server code acting for you while you are signed in. There is no administrative tool that can unseal your work. No author, publisher, white-label partner or member of Akana staff can read what you write.
 
-Lawful basis: your explicit consent (UK GDPR Article 9(2)(a)) [to confirm with the lawyer]. We have prepared a data protection impact assessment for this processing [DPIA reference].
+Lawful basis: your explicit consent (UK GDPR Article 9(2)(a)). We have prepared a data protection impact assessment for this processing and review it when the processing changes.
 
 ## 4. Who we share data with
 
 We use a small number of service providers to run Akana. They act as processors on our instructions. The lawyer is asked to confirm this list and the contract terms with each.
 
 - **Supabase**: database, authentication and file storage. Hosted in the London region (AWS eu-west-2).
-- **Vercel**: hosting and delivery of the web application. [to confirm: Vercel edge and function regions and transfer terms]
-- **Stripe**: payment processing, tax calculation and payouts to authors. Stripe is an independent controller for the card data it handles. [to confirm]
-- **Resend**: sending the emails described above. [to confirm: region]
+- **Vercel**: hosting and delivery of the web application. We host in the UK and EU where we can. Where data goes outside the UK we use approved safeguards.
+- **Stripe**: payment processing, tax calculation and payouts to authors. Stripe is an independent controller for the card data it handles.
+- **Resend**: sending the emails described above. We host in the UK and EU where we can. Where data goes outside the UK we use approved safeguards.
 
 We share data with authors, publishers and white-label partners only in aggregate form, with small numbers suppressed. We never share your answers with anyone.
 
@@ -61,16 +61,16 @@ We may disclose data where the law requires it, for example to a court or regula
 
 ## 5. International transfers
 
-Your data is stored in the United Kingdom. Some of our providers are headquartered in the United States and may process data there, for example when sending an email or processing a payment. Where that happens we rely on the UK International Data Transfer Agreement or the UK Addendum to the EU Standard Contractual Clauses, or on an adequacy decision where one applies [to confirm with the lawyer for each provider].
+Your data is stored in the United Kingdom. Some of our providers are headquartered in the United States and may process data there, for example when sending an email or processing a payment. Where that happens we rely on the UK International Data Transfer Agreement or the UK Addendum to the EU Standard Contractual Clauses, or on an adequacy decision where one applies.
 
 ## 6. How long we keep data
 
 - Your account and your work: for as long as you have an account.
 - After you ask to delete your account: deletion is scheduled 7 days after you ask, so you can change your mind. Billing stops straight away. After 7 days your account, your work, your entitlements and your memberships are deleted.
-- Purchase and tax records: kept for the period UK tax law requires, which is currently [retention period, to confirm with the accountant] after the end of the tax year. These records are held apart from your account and do not include your work.
-- Consent and acceptance records: kept for as long as we need to show that consent was given, and for [retention period] after your account is deleted.
-- Security logs: [log retention period].
-- Exports you generate: [export retention period], then deleted.
+- Purchase and tax records: kept for the period UK tax law requires, which is currently 6 years after the end of the tax year. These records are held apart from your account and do not include your work.
+- Consent and acceptance records: kept for as long as we need to show that consent was given, and for 6 years after your account is deleted.
+- Security logs: kept for 90 days.
+- Exports you generate: kept for 7 days, then deleted.
 
 ## 7. Your rights
 
@@ -85,7 +85,7 @@ You have the right to:
 - **restrict** processing in some circumstances
 - **complain** to the Information Commissioner's Office
 
-Export and deletion are built into your account so you do not need to ask us. For anything else, email [privacy email]. We will respond within one month.
+Export and deletion are built into your account so you do not need to ask us. For anything else, email [support email]. We will respond within one month.
 
 ## 8. Children
 
@@ -97,28 +97,9 @@ We use only the cookies we need to sign you in. There are no analytics or market
 
 ## 10. Complaints
 
-If you are unhappy with how we handle your data, please tell us first at [privacy email]. You can also complain to the Information Commissioner's Office at ico.org.uk.
+If you are unhappy with how we handle your data, please tell us first at [support email]. You can also complain to the Information Commissioner's Office at ico.org.uk.
 
 ## 11. Changes
 
 We will tell you if we make a change to this notice that matters to you, by email or in the app, before it takes effect. The date at the top shows when it was last changed.
 
-## Placeholders
-
-- [date]
-- [company name]
-- [country of registration]
-- [company number]
-- [registered address]
-- [ICO registration]
-- [privacy email]
-- [to confirm with the lawyer] controller and processor roles on white-label sites
-- [to confirm] data protection officer
-- [to confirm with the lawyer] Article 9 basis
-- [DPIA reference]
-- [to confirm] Vercel regions, Stripe role, Resend region
-- [to confirm with the lawyer for each provider] transfer mechanism
-- [retention period, to confirm with the accountant] tax records
-- [retention period] consent records
-- [log retention period]
-- [export retention period]

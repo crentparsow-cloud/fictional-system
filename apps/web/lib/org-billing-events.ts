@@ -1,5 +1,5 @@
 import type Stripe from "stripe";
-import { invoiceSubscriptionIdOf, isOrgPlanId, orgInvoiceArgs, orgSubscriptionArgs, type OrgInvoiceArgs, type OrgSubscriptionArgs } from "@/lib/org-billing";
+import { invoiceSubscriptionIdOf, orgInvoiceArgs, orgSubscriptionArgs, type OrgInvoiceArgs, type OrgSubscriptionArgs } from "@/lib/org-billing";
 
 /**
  * What the Stripe webhook does with an organisation billing event (F-220,
@@ -20,9 +20,40 @@ import { invoiceSubscriptionIdOf, isOrgPlanId, orgInvoiceArgs, orgSubscriptionAr
 export type ApplyResult = "applied" | "stale" | "unlinked";
 export type InvoiceResult = "recorded" | "updated" | "unchanged" | "stale" | "unlinked";
 
+/** The plans self-serve Checkout can start (0030, 0060). */
+export const SIGNUP_PLANS = [
+  "group_member_month",
+  "teams_seat_month",
+  "teams_seat_year",
+  "small_org_year",
+  "church_band_1",
+  "church_band_2",
+  "church_band_3",
+  "church_band_4",
+] as const;
+export type SignupPlan = (typeof SIGNUP_PLANS)[number];
+
+export function isSignupPlan(v: unknown): v is SignupPlan {
+  return typeof v === "string" && (SIGNUP_PLANS as readonly string[]).includes(v);
+}
+
+/** A paid six-seat group licence (0060), from Checkout in payment mode. */
+export interface OrgPackSale {
+  userId: string;
+  workbookId: string;
+  name: string;
+  sessionId: string;
+  paymentIntent: string | null;
+  amountMinor: number;
+  taxMinor: number;
+  currency: string;
+  livemode: boolean;
+  country: string;
+}
+
 export interface OrgSignup {
   userId: string;
-  plan: "group_member_month" | "teams_seat_month" | "teams_seat_year";
+  plan: SignupPlan;
   orgKind: string;
   name: string;
   country: string;
@@ -41,6 +72,8 @@ export interface OrgBillingRepo {
   provision(s: OrgSignup): Promise<{ licenceId: string } | "closed">;
   /** app.org_self_serve_seat_organiser (0031): the organiser asked for a seat at sign-up. Null when not given (not 18+ confirmed, no place). */
   seatOrganiser(licenceId: string, userId: string): Promise<string | null>;
+  /** app.org_pack_provision (0060): the licence for a paid group licence. "closed" when sign-up is off or the sale cannot stand. */
+  provisionPack(s: OrgPackSale): Promise<{ licenceId: string } | "closed">;
 }
 
 export type OrgBillingAction =
@@ -53,6 +86,7 @@ export type OrgBillingAction =
   | "invoice_stale"
   | "invoice_unlinked"
   | "signup_provisioned"
+  | "pack_provisioned"
   | "signup_awaiting_payment"
   | "self_serve_closed"
   | "ignored";
@@ -111,6 +145,28 @@ export async function handleOrgBillingEvent(event: Stripe.Event, repo: OrgBillin
 
   if (event.type === "checkout.session.completed" || event.type === "checkout.session.async_payment_succeeded") {
     const session = event.data.object as Stripe.Checkout.Session;
+    const packMeta = (session.metadata ?? {}) as Record<string, string | undefined>;
+    if (packMeta.akana_kind === "org_pack") {
+      if (session.mode !== "payment") return { ...base, action: "ignored", subscriptionId: null };
+      if (session.payment_status === "unpaid") return { ...base, action: "signup_awaiting_payment", subscriptionId: null };
+      if (!packMeta.user_id || !UUID.test(packMeta.user_id) || !packMeta.workbook_id || !UUID.test(packMeta.workbook_id)) {
+        return { ...base, action: "ignored", subscriptionId: null };
+      }
+      const sold = await repo.provisionPack({
+        userId: packMeta.user_id,
+        workbookId: packMeta.workbook_id,
+        name: packMeta.org_name ?? "",
+        sessionId: session.id,
+        paymentIntent: idOf(session.payment_intent as string | { id: string } | null),
+        amountMinor: Math.max(0, Math.trunc(session.amount_total ?? 0)),
+        taxMinor: Math.max(0, Math.trunc(session.total_details?.amount_tax ?? 0)),
+        currency: String(session.currency ?? "gbp").toUpperCase(),
+        livemode: Boolean(event.livemode),
+        country: (session.customer_details?.address?.country ?? "GB").toUpperCase(),
+      });
+      if (sold === "closed") return { ...base, action: "self_serve_closed", subscriptionId: null };
+      return { ...base, action: "pack_provisioned", subscriptionId: null };
+    }
     const subscriptionId = idOf(session.subscription as string | { id: string } | null);
     if (session.mode !== "subscription" || !subscriptionId) return { ...base, action: "ignored", subscriptionId: null };
     if (session.payment_status === "unpaid") return { ...base, action: "signup_awaiting_payment", subscriptionId };
@@ -120,8 +176,7 @@ export async function handleOrgBillingEvent(event: Stripe.Event, repo: OrgBillin
       meta.akana_kind !== "org_signup" ||
       !meta.user_id ||
       !UUID.test(meta.user_id) ||
-      !isOrgPlanId(meta.plan) ||
-      (meta.plan !== "group_member_month" && meta.plan !== "teams_seat_month" && meta.plan !== "teams_seat_year") ||
+      !isSignupPlan(meta.plan) ||
       !Number.isInteger(quantity)
     ) {
       return { ...base, action: "ignored", subscriptionId };

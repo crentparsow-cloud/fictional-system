@@ -1021,7 +1021,10 @@ button.btn.paywall-yearly { text-decoration: none; }
   body:has(.group-guide-print) .skip-link,
   .group-print-hide { display: none; }
   .group-guide-unit { break-inside: avoid; }
+  .group-slide { break-after: page; break-inside: avoid; border: 0; min-block-size: 90vh; }
 }
+.group-slide h2 { font-size: 2rem; }
+.group-slide li { font-size: 1.35rem; line-height: 1.5; margin-block: 0.5rem; }
 
 /* ==========================================================================
    Self-hosted fonts (appearance setting, F-015). Served from /fonts, so the
@@ -1574,3 +1577,245 @@ details > summary { font-weight: 600; }
 @media (min-width: 48rem) { .info-split { grid-template-columns: 1fr 1fr; } }
 .shelf-tiles > li { display: flex; }
 .shelf-tiles > li > .shelf-tile { flex: 1; }
+
+/* Habit and persistence (4.4 to 4.6, 11.2): quiet, nothing that blinks or counts down. */
+.habit-panel { display: grid; gap: 0.75rem; margin-block: 1rem; }
+.companion { display: flex; gap: 1rem; align-items: center; }
+.companion-text > * { margin: 0; }
+.companion-words { font-size: 1.05rem; line-height: 1.4; margin-block: 0.15rem; }
+.companion-art { flex: none; }
+.companion-soil { fill: var(--line-strong); opacity: 0.5; }
+.companion-seed { fill: var(--ink-soft); }
+.companion-stem { stroke: var(--brand-text); }
+.companion-leaf { fill: var(--brand-text); opacity: 0.85; }
+.on-this-day-text { margin: 0.25rem 0; padding-inline-start: 0.9rem; border-inline-start: 3px solid var(--line-strong); white-space: pre-wrap; }
+.run-line { margin: 0; color: var(--ink-soft); }
+.run-line b { color: var(--ink); font-weight: 600; }
+.habit-link { margin: 0; }
+.marks-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.mark-card { display: grid; gap: 0.35rem; justify-items: start; }
+.mark-card > * { margin: 0; }
+
+/* ===================================================================
+   Reading tools (Phase B, "Reading"): marks and notes (3.4), keyboard (3.8),
+   print and PDF (3.9), Then and now (3.10), focus mode (3.11). Colours come
+   from tokens; the marker colours are in app/themes/marks.css.
+   ========================================================================== */
+.rd-stage { position: relative; }
+.visually-hidden-rd { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.rd-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 0.75rem; }
+.rd-open {
+  display: inline-flex; align-items: center; gap: 0.4rem; min-block-size: 44px; padding-inline: 0.9em; border-radius: var(--pill);
+  border: 1.5px solid var(--line-strong); background: transparent; color: var(--brand-text); font: inherit; font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer;
+}
+.rd-hint { margin-block: 0 0.5rem; }
+
+/* Marked paragraphs: a marker pen across the block, with a slightly uneven edge. */
+.rd-stage [data-rd-mark] {
+  color: var(--mark-ink);
+  background-image: linear-gradient(104deg, transparent 0.4%, var(--rd-bg) 1.8%, var(--rd-bg) 98%, transparent 99.6%);
+  border-radius: 0.3em 0.8em 0.4em 0.7em;
+  padding-inline: 0.45em; margin-inline: -0.45em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.rd-stage [data-rd-mark] * { color: inherit; }
+[data-rd-mark="yellow"], .rd-note[data-colour="yellow"], .rd-swatch[data-colour="yellow"] { --rd-bg: var(--mark-yellow); }
+[data-rd-mark="green"], .rd-note[data-colour="green"], .rd-swatch[data-colour="green"] { --rd-bg: var(--mark-green); }
+[data-rd-mark="pink"], .rd-note[data-colour="pink"], .rd-swatch[data-colour="pink"] { --rd-bg: var(--mark-pink); }
+[data-rd-mark="blue"], .rd-note[data-colour="blue"], .rd-swatch[data-colour="blue"] { --rd-bg: var(--mark-blue); }
+[data-rd-mark="orange"], .rd-note[data-colour="orange"], .rd-swatch[data-colour="orange"] { --rd-bg: var(--mark-orange); }
+.rd-stage [data-rd-focus] { outline: 2px solid var(--focus); outline-offset: 6px; border-radius: 4px; }
+
+/* The bar under the marked paragraph. */
+.rd-pop { position: absolute; inset-inline: 0; z-index: 12; display: flex; justify-content: center; pointer-events: none; }
+.rd-toolbar {
+  pointer-events: auto; inline-size: min(100%, 44rem); display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--radius); box-shadow: var(--lift); padding: 0.5rem 0.6rem;
+}
+.rd-swatches { display: flex; gap: 0.35rem; }
+.rd-swatch {
+  inline-size: 44px; block-size: 44px; border-radius: 50%; border: 2px solid var(--line-strong); background: var(--rd-bg); color: var(--mark-ink);
+  font: inherit; font-size: 0.72rem; font-weight: 700; cursor: pointer; padding: 0;
+}
+.rd-swatch[aria-pressed="true"] { border-color: var(--ink); border-width: 3px; }
+.rd-swatch:focus-visible, .rd-tbtn:focus-visible, .rd-open:focus-visible, .rd-feel:focus-visible, .rd-skip:focus-visible, .rd-note-edit:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.rd-tbtn { min-block-size: 44px; padding-inline: 0.9em; border-radius: var(--pill); border: 1.5px solid var(--line-strong); background: transparent; color: var(--brand-text); font: inherit; font-weight: 600; cursor: pointer; }
+.rd-tbtn:disabled { opacity: 0.55; cursor: default; }
+.rd-pick { margin-inline-start: auto; }
+.rd-note-form { flex-basis: 100%; display: grid; gap: 0.4rem; }
+.rd-note-box { inline-size: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm); padding: 0.6em 0.8em; }
+.rd-note-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+/* Notes: stacked below on narrow screens, in the right margin when there is room. */
+.rd-margin { margin-block-start: 1rem; }
+.rd-margin-h { font-size: 1rem; margin-block: 0 0.5rem; }
+.rd-notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.rd-note { border-inline-start: 6px solid var(--rd-bg); background: var(--surface); border-radius: var(--radius-sm); padding: 0.6rem 0.8rem; color: var(--ink); }
+.rd-note p { margin: 0; max-inline-size: none; }
+.rd-note-quote { color: var(--ink-soft); margin-block-end: 0.3rem !important; }
+.rd-note-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.rd-note-edit { margin-block-start: 0.3rem; min-block-size: 44px; padding-inline: 0.6em; border: 0; background: transparent; color: var(--brand-text); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; }
+@media (min-width: 80rem) {
+  .rd-margin[data-wide="true"] { position: absolute; inset: 0; margin: 0; pointer-events: none; }
+  .rd-margin[data-wide="true"] .rd-margin-h { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .rd-margin[data-wide="true"] .rd-notes { display: block; }
+  .rd-margin[data-wide="true"] .rd-note { position: absolute; inset-inline-start: calc(50% + 23.25rem); inline-size: 15rem; pointer-events: auto; font-size: 0.92rem; }
+}
+
+/* The shortcut sheet and the command list. */
+.rd-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: start center; padding: 10vh 1rem 1rem; background: color-mix(in srgb, var(--ink) 45%, transparent); }
+.rd-dialog { inline-size: min(100%, 34rem); max-block-size: 80vh; overflow: auto; display: grid; gap: 0.75rem; align-content: start; background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong); border-radius: var(--radius); box-shadow: var(--lift); padding: 1rem 1.1rem; }
+.rd-dialog:focus { outline: none; }
+.rd-h { font-size: 1.15rem; margin: 0; }
+.rd-keys { display: grid; gap: 0.5rem; margin: 0; }
+.rd-keys div { display: grid; grid-template-columns: minmax(7rem, 11rem) 1fr; gap: 0.75rem; }
+.rd-keys dt { font-weight: 700; }
+.rd-keys dd { margin: 0; }
+.rd-input { inline-size: 100%; min-block-size: 44px; font: inherit; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm); padding: 0.5em 0.8em; }
+.rd-cmds { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.rd-cmd { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-block-size: 44px; padding: 0.4rem 0.7rem; border-radius: var(--radius-sm); cursor: pointer; }
+.rd-cmd[aria-selected="true"] { background: var(--brand); color: var(--brand-ink); }
+.rd-cmd[aria-selected="true"] .muted { color: inherit; }
+
+/* Then and now. */
+.rd-thennow { border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); padding: 0.75rem 0.9rem; margin-block-end: 0.75rem; display: grid; gap: 0.5rem; }
+.rd-thennow p { margin: 0; }
+.rd-thennow-q { font-weight: 600; }
+.rd-thennow-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.rd-feel { min-block-size: 44px; padding-inline: 1em; border-radius: var(--pill); border: 1.5px solid var(--line-strong); background: transparent; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; }
+.rd-feel:hover:not(:disabled) { background: var(--surface-2); }
+.rd-skip { min-block-size: 44px; padding-inline: 0.8em; border: 0; background: transparent; color: var(--brand-text); font: inherit; text-decoration: underline; cursor: pointer; }
+.tn-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.tn-step h3 { margin-block: 0 0.2rem; }
+.tn-step p { margin-block: 0 0.4rem; }
+.tn-line { font-weight: 600; }
+.tn-entries { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.tn-entries li { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.tn-del { min-block-size: 44px; }
+
+/* Focus mode (3.11). Other paragraphs soften to 70 percent, which keeps the text above 4.5 to 1 on the page tones. A marked paragraph is never dimmed. */
+:root:is([data-focus="dim"], [data-focus="both"]) .rd-stage .ak-player-body [data-ra]:not([data-rd-current]):not([data-rd-mark]) { opacity: 0.7; }
+:root:is([data-focus="dim"], [data-focus="both"]) .rd-stage .ak-player-body [data-ra] { transition: opacity var(--dur-base) var(--ease); }
+:root[data-motion="reduce"] .rd-stage .ak-player-body [data-ra] { transition: none !important; }
+:root:is([data-focus="typewriter"], [data-focus="both"]) .ak-player-body textarea { scroll-margin-block: 45vh; }
+
+/* Read aloud, word by word. The word sits inside the sentence highlight. */
+::highlight(ak-word) { background-color: var(--brand); color: var(--brand-ink); }
+
+/* Print and Save as PDF (3.9). The browser's own dialog does the work; nothing is sent anywhere. */
+.rd-print-head { display: none; }
+@media print {
+  .reader-nav, .reader-side, .skip-link, .read-head, .um-details, .ra-switch, .ra-bar, .rd-bar, .rd-pop, .rd-live, .rd-hint, .rd-thennow, .rd-backdrop,
+  .pause-bar, .draft-transfer, .week-line, .save-toast, .resume-card, .install-card, .help-now-btn, .ak-help-slot, .ak-pager, .ak-dots, .site-header, .footer { display: none !important; }
+  html, body { background: white !important; color: black !important; }
+  .reader-main, .read-page { padding: 0 !important; max-inline-size: none !important; }
+  .ak-player { inline-size: 100%; padding: 0; }
+  .ak-player-body p, .ak-player-body li { max-inline-size: none; font-size: 11pt; line-height: 1.45; color: black; orphans: 3; widows: 3; }
+  .ak-player-body :is(h2, h3) { break-after: avoid; color: black; }
+  .ak-player-body :is(.ak-card, .ak-idea, .ak-field, .ak-ex-card) { break-inside: avoid; box-shadow: none; }
+  .rd-print-head { display: block; border-block-end: 1px solid black; margin-block-end: 0.75rem; }
+  .rd-print-head p { margin: 0; font-size: 10pt; max-inline-size: none; }
+  .rd-print-head p:first-child { font-weight: 700; font-size: 13pt; }
+  .rd-stage [data-rd-focus] { outline: none; }
+  .rd-stage [data-rd-mark] { opacity: 1 !important; }
+  :root[data-focus] .rd-stage .ak-player-body [data-ra] { opacity: 1 !important; }
+  .ak-player-body a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.85em; word-break: break-all; }
+  /* Without my answers: prompts stay, the answer areas print empty with a ruled line. */
+  :root[data-print="clean"] .ak-field > :not(.ak-q):not(.ak-help) { visibility: hidden; }
+  :root[data-print="clean"] .ak-field::after { content: ""; display: block; border-block-end: 1px solid black; margin-block-start: 0.25rem; }
+  :root[data-print="clean"] .rd-margin { display: none !important; }
+  /* With my answers: long answers print in full and notes follow the page. */
+  :root[data-print="mine"] .ak-player-body textarea { overflow: visible; resize: none; border-color: black; color: black; }
+  .rd-margin, .rd-margin[data-wide="true"] { position: static !important; display: block; margin-block-start: 1rem; }
+  .rd-margin[data-wide="true"] .rd-margin-h { position: static; inline-size: auto; block-size: auto; clip: auto; overflow: visible; }
+  .rd-margin[data-wide="true"] .rd-note { position: static; inline-size: auto; }
+  .rd-note { border: 1px solid black; break-inside: avoid; background: white; color: black; }
+  .rd-note-edit { display: none; }
+}
+
+/* ---------- Platform (Phase B): passkey prompt, share, friends, certificate, push ---------- */
+.passkey-prompt { display: grid; gap: 0.6rem; }
+.passkey-prompt > * { margin-block: 0; }
+.passkey-prompt-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: flex-start; }
+.you-passkeys { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.you-passkeys li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.share-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.share-lines { padding-inline-start: 1.25rem; display: grid; gap: 0.5rem; }
+.share-card { display: grid; gap: 0.5rem; }
+.share-card > * { margin-block: 0; }
+.share-preview img { display: block; max-inline-size: 100%; block-size: auto; border-radius: var(--radius); }
+.share-link { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+.friend-strip { display: grid; gap: 0.6rem; }
+.friend-strip > * { margin-block: 0; }
+.friend-nudges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.friend-nudge { background: var(--brand-wash); padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); }
+.friend-talk { border-block-start: 1px solid var(--line); padding-block-start: 0.6rem; }
+.friend-talk h3 { margin-block: 0 0.25rem; }
+.friends-invite { display: grid; gap: 0.5rem; }
+.friends-invite > * { margin-block: 0; }
+.friends-pair { display: grid; gap: 0.5rem; margin-block-end: 0.75rem; }
+.friends-pair > * { margin-block: 0; }
+.certificate { text-align: center; padding: clamp(1.5rem, 6vw, 3rem); border: 2px solid var(--brand); display: grid; gap: 0.5rem; }
+.certificate > * { margin-block: 0; }
+.certificate-line { font-size: 1.25rem; }
+.certificate-title { font-family: var(--f-display, inherit); }
+.certificate-share { display: grid; gap: 0.5rem; }
+.push-toggle { display: grid; gap: 0.5rem; }
+@media print {
+  .no-print, .reader-nav, .skip-link { display: none !important; }
+  .certificate { border-color: currentcolor; break-inside: avoid; }
+}
+
+/* ---------- desktop sidebar for signed-in readers (64rem and up) ---------- */
+.reader-side { display: none; }
+@media (min-width: 64rem) {
+  .reader-nav { display: none; }
+  body:has(.reader-side) { padding-inline-start: 15rem; }
+  .reader-side {
+    display: flex; flex-direction: column; position: fixed; z-index: 10;
+    inset-block: 0; inset-inline-start: 0; inline-size: 15rem; overflow-y: auto;
+    padding: 1.25rem 0.75rem; background: var(--surface); border-inline-end: 1px solid var(--line);
+  }
+  .reader-side ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .reader-side-more { margin-block-start: 0.75rem; padding-block-start: 0.75rem; border-block-start: 1px solid var(--line); }
+  .reader-side a, .reader-side-btn {
+    position: relative; display: flex; align-items: center; gap: 0.75rem; inline-size: 100%; min-block-size: 44px;
+    padding: 0.4rem 0.75rem; border: 0; border-radius: var(--radius-sm); background: transparent;
+    color: var(--ink); font: inherit; font-size: 0.95rem; font-weight: 500; text-align: start; text-decoration: none; cursor: pointer;
+    transition: background var(--dur-quick) var(--ease);
+  }
+  .reader-side a:hover, .reader-side-btn:hover { background: var(--surface-2); }
+  .reader-side a[aria-current="page"] { color: var(--brand-text); font-weight: 700; background: var(--brand-wash); }
+  .reader-side a[aria-current="page"]::before {
+    content: ""; position: absolute; inset-block: 6px; inset-inline-start: 0; inline-size: 3px; border-radius: 3px; background: var(--brand-text);
+  }
+  .reader-side svg { flex: none; }
+  body:has(.reader-side) .ra-bar { inset-inline-start: 15rem; inset-block-end: 0; }
+  .reader-side-signout { position: relative; }
+  .reader-side-signout > svg { position: absolute; inset-inline-start: 0.75rem; inset-block-start: 50%; transform: translateY(-50%); pointer-events: none; }
+  .reader-side-signout .reader-side-btn { padding-inline-start: calc(0.75rem + 22px + 0.75rem); }
+  .reader-side a:focus-visible, .reader-side-btn:focus-visible { outline-offset: -2px; }
+}
+@media (prefers-reduced-motion: reduce) { .reader-side a, .reader-side-btn { transition: none; } }
+:root[data-motion="reduce"] .reader-side a, :root[data-motion="reduce"] .reader-side-btn { transition: none; }
+
+/* ---------- Categories on Explore: soft tinted pills, one per Theme ---------- */
+.category-chips { list-style: none; margin: 0.75rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.category-chip {
+  display: inline-flex; align-items: center; min-block-size: 44px; padding: 0.4rem 1rem; border-radius: var(--pill);
+  background: var(--shelf-tint, var(--surface-2)); color: var(--ink); border: 1px solid transparent;
+  font-size: 0.95rem; font-weight: 500; text-decoration: none;
+}
+.category-chip:hover { border-color: var(--shelf-accent, var(--line-strong)); }
+.category-chip:focus-visible { outline-offset: 2px; }
+
+/* ---------- highlights page ---------- */
+.highlights-group { margin-block: 1.75rem; }
+.highlights-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; }
+.highlights-head h2 { margin: 0; font-size: 1.2rem; }
+.highlights-list { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+.highlights-item { padding: 0.9rem 1rem; }
+.highlights-item > * { margin: 0; }
+.highlights-item > * + * { margin-block-start: 0.4rem; }
+.highlights-quote { border-inline-start: 6px solid var(--mark-colour, var(--mark-yellow)); padding-inline-start: 0.75rem; }

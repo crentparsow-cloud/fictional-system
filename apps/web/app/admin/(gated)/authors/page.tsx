@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LicenceDraftBanner, StudioNotice } from "@/components/studio/StudioBits";
 import { adminAbilities } from "@/lib/admin/permissions";
+import { bioReviewFlags } from "@/lib/house-style";
 import { bioClaimFlags, LICENCE_STATUS_LABELS, ORG_ROLE_LABELS, ORG_ROLES } from "@/lib/studio";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
@@ -136,7 +137,7 @@ export default async function AdminAuthorsPage({ searchParams }: { searchParams:
         <h2 id="bio-h">Bios waiting for approval</h2>
         {bioRows.length === 0 ? <p className="muted">None.</p> : null}
         {bioRows.map((b) => {
-          const flags = bioClaimFlags(b.bio_draft ?? "");
+          const flags = bioReviewFlags(b.bio_draft ?? "", bioClaimFlags(b.bio_draft ?? ""));
           return (
             <article key={b.author_id} className="studio-sub">
               <h3>

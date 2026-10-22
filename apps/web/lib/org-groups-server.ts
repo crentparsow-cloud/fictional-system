@@ -1,6 +1,7 @@
 import "server-only";
 import { notFound, redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
+import { parseKitSource, type KitSource } from "@/lib/group-kit";
 import { isUuidLike } from "@/lib/org-groups";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -85,4 +86,15 @@ export async function groupCheckinCounts(groupId: string, unit: number): Promise
   const { data, error } = await supabase.rpc("org_group_checkin_counts", { p_group: groupId, p_unit: unit });
   if (error) console.error("org_group_counts_failed", error.code ?? "");
   return (data ?? []) as CountRow[];
+}
+
+/** The workbook content the leader kit is made from (0061). Leaders and staff only; never any member data. */
+export async function groupKitSource(groupId: string): Promise<KitSource | null> {
+  const supabase = await createUserClient();
+  const { data, error } = await supabase.rpc("org_group_kit_source", { p_group: groupId });
+  if (error) {
+    console.error("org_group_kit_source_failed", error.code ?? "");
+    return null;
+  }
+  return parseKitSource(data);
 }

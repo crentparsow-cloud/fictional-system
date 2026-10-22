@@ -7,6 +7,9 @@ Migration 0040 adds three Supabase Cron (pg_cron) jobs. They call Today routes o
 | akana-today-reminders | every 15 minutes | /api/today/reminders |
 | akana-review-candidates | 03:05 daily | /api/today/review-candidates |
 | akana-pickup-check | 09:20 daily | /api/today/pickup |
+| akana-push-daily | every 15 minutes | /api/push/daily |
+
+The push job (migration 0065, build list 13.19) sends the daily step notification to installed readers who turned it on. It does nothing while the three VAPID variables are blank or the `web_push` flag is off. It uses each reader's own reminder days and time, sends a push with no body, skips any reader with a title above safety tier none, and stops by itself on the same limit as the email reminder. Once a day, around 04:00 UTC, it also clears old `push_log` and pairing rows.
 
 ## One-off set-up (only the owner can do this)
 

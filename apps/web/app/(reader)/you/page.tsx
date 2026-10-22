@@ -4,8 +4,11 @@ import { deletionState, longDate, noticeText, type DeletionRow } from "@/lib/acc
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
 import { SignOutButton } from "@/components/SignOutButton";
+import { PushSettings } from "@/components/push/PushSettings";
+import { PlatformLinks } from "@/components/you/PlatformLinks";
 import { AppearanceSettings } from "@/components/you/AppearanceSettings";
 import { TodaySettings } from "@/components/you/TodaySettings";
+import { ThenNowHistory } from "@/components/you/ThenNowHistory";
 import { CheckInPartner, type PartnerReply } from "@/components/you/CheckInPartner";
 import { OrgEndedNotice } from "@/components/org/OrgEndedNotice";
 import { membershipLine, membershipNotice, membershipSummary, portalCustomerId, type SubscriptionRow } from "@/lib/membership";
@@ -17,10 +20,14 @@ import {
   type BuyerSeatRow,
   type MemberSeatRow,
 } from "@/lib/shared-membership";
+import { loadWordsThisMonth } from "@/lib/habit/server";
+import { GIFT_NOTICES, giftMembershipLine } from "@/lib/gift";
+import { studentEnabled } from "@/lib/student";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { SharedSeatLink } from "@/components/you/SharedSeatLink";
 import { partnerNoticeText, type PartnerRow } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
+import { resumeMembership } from "./membership/cancel/actions";
 import { cancelDeletion, leaveSharedMembership, removeSharedMember, requestDeletion, withdrawFaithConsent, withdrawHealthConsent } from "./actions";
 
 export const dynamic = "force-dynamic";
@@ -97,6 +104,24 @@ export default async function YouPage({ searchParams }: Props) {
     : { data: null };
   const memberSeat = memberSeatLine(((memberSeatRows as MemberSeatRow[] | null) ?? [])[0]);
 
+  // A gift membership that is running (5.6): the reader's own entitlement row, under RLS.
+  // It does not renew, so the line says so. Left out if it cannot be read.
+  const { data: giftRows } =
+    session && tenantId
+      ? await supabase
+          .from("entitlements")
+          .select("ends_at, status")
+          .eq("user_id", session.userId)
+          .eq("tenant_id", tenantId)
+          .eq("source", "gift")
+          .eq("status", "active")
+          .gt("ends_at", new Date().toISOString())
+          .limit(1)
+      : { data: null };
+  const giftEndsAt = ((giftRows as { ends_at: string | null }[] | null) ?? [])[0]?.ends_at ?? null;
+  const giftNotice = params.gift === "claimed" ? GIFT_NOTICES.claimed : null;
+  const canResume = membership.kind === "paused" || membership.kind === "pause_ahead";
+
   // Check-in partner (F-030): the reader's own row and the kind words their
   // partner sent, under RLS (0012). Left out if they cannot be read.
   const { data: partnerRow, error: partnerError } = session
@@ -114,10 +139,23 @@ export default async function YouPage({ searchParams }: Props) {
       : { data: null };
   const showPartner = Boolean(session) && !partnerError;
 
+  // 12.6: a count only, worked out on the server. No answer text leaves it.
+  const words = session ? await loadWordsThisMonth(session.userId) : null;
+
   return (
     <section className="tab-page you-page">
       <h1>{t("nav.you")}</h1>
       <p className="muted">{t("you.line")}</p>
+      {words?.line ? (
+        <p className="you-words" data-testid="words-this-month">
+          {words.line}
+        </p>
+      ) : null}
+      {session ? (
+        <p className="small">
+          <Link href="/you/habit">Streak, companion and reminders</Link>
+        </p>
+      ) : null}
 
       {notice ? (
         <p className="you-notice" role="status">
@@ -170,6 +208,13 @@ export default async function YouPage({ searchParams }: Props) {
         <SignOutButton label={t("you.signOut")} />
       </section>
 
+      <section className="you-section" id="invite" aria-labelledby="you-invite">
+        <h2 id="you-invite">Invite a friend</h2>
+        <p>
+          <Link href="/you/invite">Your invitation link and gifts</Link>
+        </p>
+      </section>
+
       {showMembership ? (
         <section className="you-section" id="membership" aria-labelledby="you-membership">
           <h2 id="you-membership">Membership</h2>
@@ -178,7 +223,33 @@ export default async function YouPage({ searchParams }: Props) {
               {membershipMessage}
             </p>
           ) : null}
+          {giftNotice ? (
+            <p className="you-notice" role="status">
+              {giftNotice}
+            </p>
+          ) : null}
           <p>{memberSeat ?? membershipLine(membership, longDate)}</p>
+          {giftEndsAt ? <p>{giftMembershipLine(giftEndsAt)}</p> : null}
+          {canResume ? (
+            <form action={resumeMembership}>
+              <button type="submit" className="btn secondary">
+                {membership.kind === "paused" ? "Resume now" : "Cancel the pause"}
+              </button>
+              <p className="small muted">
+                {membership.kind === "paused" ? "Your next payment is taken today and the library opens again." : "Your membership carries on and your payment date stays the same."}
+              </p>
+            </form>
+          ) : null}
+          <p className="small">
+            <Link href="/gift">Give a membership</Link>
+            {studentEnabled() ? (
+              <>
+                {" "}
+                or see the <Link href="/you/student">student price</Link>
+              </>
+            ) : null}
+            .
+          </p>
           {buyerSeat.kind !== "none" ? (
             <div className="you-shared">
               <h3>Your second place</h3>
@@ -235,6 +306,9 @@ export default async function YouPage({ searchParams }: Props) {
       {/* Email reminders, the daily review, the welcome-back note and the calendar link (4.3, 4.7, 4.8, 4.9). */}
       {session ? <TodaySettings userId={session.userId} notice={typeof params.today === "string" ? params.today : undefined} /> : null}
 
+      {/* Then and now (3.10): the reader's own check-ins, each one deletable. */}
+      {session ? <ThenNowHistory userId={session.userId} /> : null}
+
       {/* Text size, font, dim at night, reduced motion. On this device only. */}
       <AppearanceSettings />
 
@@ -246,6 +320,12 @@ export default async function YouPage({ searchParams }: Props) {
           <Link href="/today#reminder">Set up your reminder</Link>
         </p>
       </section>
+
+      {/* Daily notification (13.19): hidden while the keys are blank or the flag is off. */}
+      <PushSettings />
+
+      {/* Share, friends and certificates (12.2, 12.3, 6.2). */}
+      {session ? <PlatformLinks userId={session.userId} /> : null}
 
       <section className="you-section" aria-labelledby="you-work">
         <h2 id="you-work">Download my work</h2>

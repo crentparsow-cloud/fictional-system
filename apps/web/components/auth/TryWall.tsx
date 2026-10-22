@@ -16,20 +16,21 @@ export function TryWall({ slug }: { slug: string }) {
   const next = `/read/${slug}`;
   return (
     <section className="card try-wall" aria-labelledby="try-wall-title">
-      <h2 id="try-wall-title">Save your answers</h2>
-      <p>Your answers are on this device only. Sign in and we will offer to keep them with your account, so you can carry on from any device.</p>
+      <p className="eyebrow">Week 1 done</p>
+      <h2 id="try-wall-title">Keep your week</h2>
+      <p>Your answers are on this device only. Create a free account and we will offer to keep them there, so you can carry on from any device.</p>
       <GoogleSignIn next={next} label="Continue with Google" divider="or" />
       <form action={requestMagicLink} noValidate className="try-wall-form">
         <input type="hidden" name="next" value={next} />
-        <label htmlFor="try-wall-email">Email address</label>
+        <label htmlFor="try-wall-email">Email</label>
         <input id="try-wall-email" name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} required maxLength={254} />
         <button type="submit" className="btn">
-          Email me a sign-in link
+          Email me a link
         </button>
       </form>
       <p className="muted small">We send one link, or a six-digit code you can type in. No password.</p>
       <p className="muted small">
-        Not now? Your answers stay on this device. <Link href={`/w/${slug}`}>Back to the workbook page</Link>
+        Not now? Your answers stay on this device and private to you. <Link href={`/w/${slug}`}>Back to the workbook page</Link>
       </p>
     </section>
   );

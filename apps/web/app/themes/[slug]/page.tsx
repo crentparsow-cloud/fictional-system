@@ -9,7 +9,17 @@ import { getTheme } from "@/lib/author-theme-queries";
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { getReaderSession } from "@/lib/auth";
+import { bundleLines } from "@/lib/bundle";
+import { loadBundleOffer } from "@/lib/bundle-server";
+import { createUserClient } from "@/lib/supabase/server";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
+import { tenantIdForRequest } from "@/lib/tenant-id";
+import { publicRobots } from "@/lib/indexing";
+import { breadcrumbLd, collectionPageLd, ldString } from "@/lib/public-seo";
+import { siteOrigin } from "@/lib/site-url";
 import { themeShown } from "@/lib/theme-visibility";
+import { BundleBuy } from "./BundleBuy";
 
 /**
  * A Theme page (F-007) at /themes/{slug}: the Theme's plain line and every
@@ -29,8 +39,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (theme.held && !themeShown(theme, cardsByTheme(await listLibrary({ theme: theme.id }), theme.id).length)) return { title: "Theme" };
   return {
     title: theme.name,
-    description: theme.line ?? `Guided workbooks on ${theme.name}, from every author on ${brand.name}.`,
+    description: theme.intro?.trim() || theme.line || `Guided workbooks on ${theme.name}, from every author on ${brand.name}.`,
     alternates: { canonical: `/themes/${theme.id}` },
+    robots: publicRobots(),
   };
 }
 
@@ -43,6 +54,22 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
   // of live titles. Launch Themes keep rendering when empty, for emails.
   if (!themeShown(theme, cards.length)) notFound();
   const wellbeing = cards.some((c) => c.safetyTier !== "none");
+  // 5.8: the bundle price beside the single prices, on the marketplace only and never for a Theme with a wellbeing title.
+  const tenantId = await tenantIdForRequest();
+  const session = tenantId === MARKETPLACE_TENANT_ID && !wellbeing ? await getReaderSession() : null;
+  const bundle = tenantId === MARKETPLACE_TENANT_ID && !wellbeing ? await loadBundleOffer(await createUserClient(), theme.id, tenantId, session?.userId ?? null).catch(() => null) : null;
+  const bundleText = bundle ? bundleLines(bundle) : null;
+  const origin = siteOrigin();
+  const ld = [
+    breadcrumbLd(origin, [{ name: brand.name, path: "/" }, { name: "Themes", path: "/themes" }, { name: theme.name, path: `/themes/${theme.id}` }]),
+    collectionPageLd({
+      origin,
+      path: `/themes/${theme.id}`,
+      name: theme.name,
+      description: theme.intro?.trim() || theme.line,
+      items: cards.filter((c) => !c.isDemo).map((c) => ({ name: c.title, path: `/w/${c.slug}` })),
+    }),
+  ];
 
   return (
     <main className="wb-page browse-page">
@@ -54,6 +81,7 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
           {theme.shelfName ? <p className="browse-eyebrow">{theme.shelfName}</p> : null}
           <h1>{theme.name}</h1>
           {theme.line ? <p className="wb-line">{theme.line}</p> : null}
+          {theme.intro?.trim() ? <p className="theme-intro">{theme.intro.trim()}</p> : null}
           <p className="muted small">{cards.length ? workbookCount(cards.length) : "New workbooks are on the way"}</p>
           {wellbeing ? (
             <div className="wb-actions">
@@ -64,6 +92,8 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
       </header>
 
       <div className="wrap wb-body">
+        {bundleText ? <BundleBuy theme={theme.id} heading={bundleText.heading} bundle={bundleText.bundle} singles={bundleText.singles} saving={bundleText.saving} signedIn={Boolean(session)} /> : null}
+
         {cards.length ? (
           <section aria-labelledby="theme-workbooks">
             <h2 id="theme-workbooks" className="browse-heading">
@@ -94,6 +124,7 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
         </footer>
         {!wellbeing ? <NeedSupportFooter label={t("help.needSupport")} /> : null}
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ldString(ld) }} />
     </main>
   );
 }

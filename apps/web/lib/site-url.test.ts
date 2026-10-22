@@ -23,4 +23,10 @@ describe("site origin (F-011)", () => {
     expect(absoluteUrl("/help", "https://akana.example")).toBe("https://akana.example/help");
     expect(absoluteUrl("help", "https://akana.example")).toBe("https://akana.example/help");
   });
+  it("uses the Vercel address when nothing else is set", () => {
+    expect(siteOrigin({ VERCEL_ENV: "production", VERCEL_PROJECT_PRODUCTION_URL: "akana-one.vercel.app" })).toBe("https://akana-one.vercel.app");
+    expect(siteOrigin({ VERCEL_ENV: "preview", VERCEL_BRANCH_URL: "akana-git-b.vercel.app", VERCEL_URL: "akana-x.vercel.app" })).toBe("https://akana-git-b.vercel.app");
+    expect(siteOrigin({ VERCEL_ENV: "preview", VERCEL_URL: "akana-x.vercel.app" })).toBe("https://akana-x.vercel.app");
+    expect(siteOrigin({ AKANA_HOST: "akana.example", VERCEL_URL: "akana-x.vercel.app" })).toBe("https://akana.example");
+  });
 });

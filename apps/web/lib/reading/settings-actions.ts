@@ -2,7 +2,7 @@
 
 import { getReaderSession } from "@/lib/auth";
 import { createUserClient } from "@/lib/supabase/server";
-import { FONTS, COLOURS, MARGINS, PROGRESS, SIZE_STEPS, sanitise, type ReadingSettings } from "./settings";
+import { FONTS, COLOURS, FOCUS, MARGINS, PROGRESS, SIZE_STEPS, THENNOW, sanitise, type ReadingSettings } from "./settings";
 
 /**
  * Saves the reading settings to the account (0044). The values are checked
@@ -18,7 +18,9 @@ export async function saveReadingSettings(input: ReadingSettings): Promise<numbe
     clean.size === undefined || !SIZE_STEPS.includes(clean.size) ||
     !clean.colour || !COLOURS.includes(clean.colour) ||
     !clean.margin || !MARGINS.includes(clean.margin) ||
-    !clean.progress || !PROGRESS.includes(clean.progress)
+    !clean.progress || !PROGRESS.includes(clean.progress) ||
+    !clean.focus || !FOCUS.includes(clean.focus) ||
+    !clean.thennow || !THENNOW.includes(clean.thennow)
   ) {
     return null;
   }

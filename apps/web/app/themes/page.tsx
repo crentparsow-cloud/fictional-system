@@ -6,6 +6,7 @@ import { listThemes } from "@/lib/author-theme-queries";
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
 import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 
 /**
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   title: "Themes",
   description: `Browse ${brand.name} workbooks by Theme. Each Theme gathers guided workbooks on one subject from every author.`,
   alternates: { canonical: "/themes" },
+  robots: publicRobots(),
 };
 
 export default async function ThemesPage() {
@@ -30,7 +32,7 @@ export default async function ThemesPage() {
 
   return (
     <main className="wb-page browse-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -71,9 +73,6 @@ export default async function ThemesPage() {
           <Link href="/authors">Browse by author</Link>
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>

@@ -38,25 +38,25 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
   const reviewed = record.status === "reviewed" && record.reviewedBy;
 
   return (
-    <main className="pd-page">
-      <header className="pd-head">
+    <main className="b-pd">
+      <header className="b-band-hero b-pd-head">
         <div className="wrap">
-          <nav className="wb-crumbs" aria-label="Breadcrumb">
+          <nav className="b-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href={`/w/${record.slug}`}>{record.title}</Link>
           </nav>
-          <p className="eyebrow">Public domain: how we checked</p>
+          <p className="b-eyebrow">Public domain: how we checked</p>
           <h1>{record.title}</h1>
-          <p className="wb-author">{record.author}</p>
-          <p className="muted small">{record.code}</p>
+          <p className="b-lead">{record.author}</p>
+          <p className="b-small">{record.code}</p>
         </div>
       </header>
 
-      <div className="wrap pd-body">
+      <div className="wrap b-body">
         <p className={reviewed ? "pd-status" : "pd-status pd-status-open"}>
           {reviewed ? `Reviewed by ${record.reviewedBy}${record.reviewedOn ? ` on ${record.reviewedOn}` : ""}.` : "This record has not yet been reviewed. Items marked [to confirm] are still open."}
         </p>
 
-        <section className="wb-section">
+        <section className="b-psec">
           <h2>The work</h2>
           <p>First published: {record.firstPublished}.</p>
           <div className="pd-table-wrap" role="region" aria-labelledby="pd-people" tabIndex={0}>
@@ -84,7 +84,7 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
           </div>
         </section>
 
-        <section className="wb-section">
+        <section className="b-psec">
           <h2>The edition we use</h2>
           <p>
             {record.edition.name}. <a href={record.edition.url} rel="noopener noreferrer">{record.edition.url}</a>
@@ -93,7 +93,7 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
           <p>{record.typographicalArrangement}</p>
         </section>
 
-        <section className="wb-section">
+        <section className="b-psec">
           <h2>By market</h2>
           <p>Tier {record.tier}. {record.tierNote}</p>
           <div className="pd-table-wrap" role="region" aria-labelledby="pd-markets" tabIndex={0}>
@@ -123,7 +123,7 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
           </div>
         </section>
 
-        <section className="wb-section">
+        <section className="b-psec">
           <h2>Still to check</h2>
           <ul>
             {record.checks.map((c) => (
@@ -132,14 +132,14 @@ export default async function PublicDomainPage({ params }: { params: Promise<Par
           </ul>
         </section>
 
-        <section className="wb-section">
+        <section className="b-psec">
           <h2>Review</h2>
           {record.signer ? <p>Signer: {record.signer}</p> : null}
           <p>Reviewed by: {record.reviewedBy ?? "______"}</p>
           <p>Date: {record.reviewedOn ?? "______"}</p>
         </section>
 
-        <footer className="footer wb-footer">
+        <footer className="b-notes">
           <p>The workbook around this text is new {brand.name} material. The text itself comes from a public-domain edition.</p>
           <p>
             <Link href={`/w/${record.slug}`}>Back to the workbook</Link>

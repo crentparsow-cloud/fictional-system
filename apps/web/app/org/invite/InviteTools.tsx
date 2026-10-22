@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { createJoinLink, previewInviteCsv, sendInviteCsv, type CsvState, type LinkState } from "./actions";
+import { createJoinLink, previewInviteCsv, rotateStandingLink, sendInviteCsv, type CsvState, type LinkState } from "./actions";
 
 /**
  * The bulk invite (upload, preview, send) and the join link maker for one
@@ -144,6 +144,38 @@ export function JoinLinkMaker({ orgId, licenceId, seats }: { orgId: string; lice
         </p>
         <button type="submit" className="btn secondary" disabled={pending}>
           Make a link
+        </button>
+      </form>
+    </div>
+  );
+}
+
+/** The one standing sign-up link for a licence. It replaces sending invitations (13.15). */
+export function StandingLinkMaker({ orgId, licenceId, hasLink }: { orgId: string; licenceId: string; hasLink: boolean }) {
+  const [state, action, pending] = useActionState<LinkState, FormData>(rotateStandingLink, { status: "idle" });
+  return (
+    <div className="org-link-maker">
+      {state.status === "made" ? (
+        <div className="admin-notice admin-notice-ok" role="status">
+          <p>Link made. Copy it now: it is shown only once. Any earlier standing link has stopped working.</p>
+          <label htmlFor={`standing-out-${licenceId}`}>Sign-up link</label>
+          <input id={`standing-out-${licenceId}`} type="text" readOnly value={state.url} className="org-link-out" />
+        </div>
+      ) : null}
+      {state.status === "error" ? (
+        <p className="admin-notice admin-notice-error" role="alert">
+          {state.message}
+        </p>
+      ) : null}
+      <form className="admin-form" action={action}>
+        <input type="hidden" name="org" value={orgId} />
+        <input type="hidden" name="licence" value={licenceId} />
+        <p className="muted small">
+          One link for your whole organisation. People who open it sign in, confirm they are 18 or over and take a seat while seats are left. Make a
+          new link if this one gets out. The old one stops at once. People already in keep their seats.
+        </p>
+        <button type="submit" className="btn secondary" disabled={pending}>
+          {hasLink ? "Make a new sign-up link" : "Make a sign-up link"}
         </button>
       </form>
     </div>

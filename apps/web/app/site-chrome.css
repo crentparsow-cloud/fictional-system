@@ -1,0 +1,32 @@
+/* Public header and footer (redesign). Tokens only, no colour values. */
+.site-header { position: sticky; inset-block-start: 0; z-index: 30; background: var(--canvas); border-block-end: 1px solid var(--line); }
+.site-header-bar { display: flex; align-items: center; gap: 1rem 2rem; min-block-size: 4.25rem; flex-wrap: wrap; padding-block: 0.25rem; }
+.site-logo { font-weight: 800; font-size: 1.6rem; letter-spacing: -0.03em; color: var(--brand-text); text-decoration: none; margin: 0; display: inline-flex; align-items: center; min-block-size: 44px; }
+.site-nav { flex: 1; }
+.site-nav ul { display: flex; gap: 0.25rem 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.site-nav a, .site-signin { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--ink); font-weight: 600; text-decoration: none; }
+.site-nav a:hover, .site-signin:hover { color: var(--brand-text); text-decoration: underline; text-underline-offset: 0.25em; }
+.site-header-actions { display: flex; align-items: center; gap: 1rem; }
+.site-cta { white-space: nowrap; }
+@media (max-width: 40rem) {
+  .site-nav { order: 3; flex-basis: 100%; }
+  .site-nav ul { gap: 0.25rem 1rem; }
+  .site-header-bar { padding-block: 0; }
+  .site-header-actions { margin-inline-start: auto; }
+  .site-signin { display: none; }
+}
+
+.site-footer { background: var(--surface-2); border-block-start: 1px solid var(--line); color: var(--ink); padding-block: 3rem 2rem; margin-block-start: 3rem; }
+.site-footer-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); }
+.site-footer-brand { grid-column: 1 / -1; }
+@media (min-width: 56rem) { .site-footer-brand { grid-column: auto; } .site-footer-grid { grid-template-columns: 1.4fr repeat(4, 1fr); } }
+.site-footer h2 { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-block: 0 0.5rem; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li a { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--ink); }
+.site-footer a { color: var(--ink); }
+.site-footer-help { margin-block-start: 1rem; }
+.site-footer-base { margin-block-start: 2rem; padding-block-start: 1.25rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: 0.9rem; }
+.site-footer-base p { max-inline-size: 60rem; }
+
+/* The old per-page footers are replaced by the site footer. */
+[data-site-chrome] .info-footer, [data-site-chrome] .need-support { display: none; }

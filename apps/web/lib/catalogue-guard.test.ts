@@ -74,13 +74,16 @@ describe("catalogue guard", () => {
     expect(workbookMeta(fixture)).toEqual({ title: "Evenings With Less Light by Maya Vaughn", description: "Six weeks of small evening habits, built from the book." });
   });
 
-  it("JSON-LD carries Book and Product with no price and no health claim", () => {
+  it("JSON-LD carries Book, Product and Course with no price and no health claim", () => {
     const ld = workbookJsonLd(fixture);
-    expect(ld.map((x) => x["@type"])).toEqual(["Book", "Product"]);
+    expect(ld.map((x) => x["@type"])).toEqual(["Book", "Product", "Course"]);
     const text = JSON.stringify(ld);
     expect(text).not.toMatch(/offers|price|treat|cure|therapy|diagnos/i);
     expect(ld[0]).toMatchObject({ author: { "@type": "Person", name: "Maya Vaughn" } });
     expect(ld[1]).toMatchObject({ sku: "AK-7Q2M4", description: fixture.card.cardLine });
+    // 6.10: the Course lists the outline focus lines and nothing from inside a unit.
+    expect(ld[2]).toMatchObject({ courseCode: "AK-7Q2M4", provider: { "@type": "Organization" } });
+    expect((ld[2]?.hasPart as { description: string }[]).map((p) => p.description)).toContain("Pick one thing to change");
   });
 
   it("page text shows the Demo badge and the outline", () => {

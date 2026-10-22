@@ -1,0 +1,167 @@
+/* redesign group d: help, accessibility, publish, organisations, trust, Help now, legal, 404, error, forms. Tokens only. */
+
+.d-page { padding-block-end: 2rem; }
+.d-page-pad { padding-block: 2.5rem; }
+.d-narrow { max-inline-size: 46rem; }
+.d-soft { color: var(--ink-soft); }
+.d-strong { font-weight: 700; font-size: 1.1rem; }
+.d-visually-hidden, .d-searchlabel { position: absolute; inline-size: 1px; block-size: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ---------- hero band ---------- */
+.d-hero { padding-block: clamp(2.5rem, 7vw, 4.5rem); color: var(--ink); }
+.d-hero-wash { background: var(--brand-wash); }
+.d-hero-plain { background: var(--canvas); }
+.d-hero-inner { display: flex; flex-direction: column; gap: 1.1rem; align-items: flex-start; }
+.d-hero-center .d-hero-inner { align-items: center; text-align: center; }
+.d-hero h1 { margin: 0; font-size: clamp(2.1rem, 1.4rem + 3.4vw, 3.6rem); letter-spacing: -0.03em; text-wrap: balance; max-inline-size: 22ch; }
+.d-hero-center h1 { max-inline-size: 26ch; }
+.d-hero p { margin: 0; }
+.d-hero a { color: var(--brand-text); }
+.d-eyebrow { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand-text); margin-block: 0; }
+.d-lead { font-size: clamp(1.05rem, 1rem + 0.5vw, 1.3rem); max-inline-size: 42rem; color: var(--ink); }
+.d-lead-s { font-size: 1.1rem; max-inline-size: var(--measure); }
+.d-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; max-inline-size: none; }
+.d-hero-grid { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 52rem) { .d-hero-grid { grid-template-columns: 1.15fr 0.85fr; } }
+.d-shot { max-inline-size: 26rem; justify-self: center; }
+.d-shot img, .d-band img { max-inline-size: 100%; block-size: auto; border-radius: var(--radius); }
+
+/* ---------- layout helpers ---------- */
+.d-section { padding-block: clamp(2rem, 5vw, 3.25rem); }
+.d-section-s { margin-block-start: 2.25rem; }
+.d-band { background: var(--surface-2); padding-block: clamp(2rem, 5vw, 3.5rem); border-block: 1px solid var(--line); }
+.d-section.d-band { padding-block: clamp(2rem, 5vw, 3.5rem); }
+.d-stack { display: grid; gap: 1.25rem; }
+.d-stack-s { display: grid; gap: 0.75rem; align-content: start; }
+.d-stack > *, .d-stack-s > * { margin-block: 0; }
+.d-stack h2, .d-stack-s h2 { margin-block-end: 0; }
+.d-split { display: grid; gap: 2rem; }
+.d-split-top { align-items: start; }
+@media (min-width: 52rem) { .d-split { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; } }
+.d-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.d-cards-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.d-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.25rem 1.35rem; }
+.d-card-roomy { padding: clamp(1.25rem, 3vw, 2rem); }
+.d-card h2, .d-card h3, .d-card h4 { margin-block: 0 0.4rem; }
+.d-card h3, .d-card h4 { font-size: 1.15rem; }
+.d-card p:last-child, .d-card ul:last-child { margin-block-end: 0; }
+.d-card-link { display: grid; gap: 0.35rem; align-content: start; min-block-size: 44px; block-size: 100%; color: inherit; text-decoration: none; }
+.d-card-link:hover, .d-card-link:focus-visible { border-color: var(--line-strong); }
+.d-card-title { font-weight: 700; font-size: 1.1rem; color: var(--brand-text); }
+.d-card-link:hover .d-card-title { text-decoration: underline; text-underline-offset: 0.2em; }
+.d-list { margin: 0; padding-inline-start: 1.2rem; max-inline-size: var(--measure); }
+.d-list li { margin-block-end: 0.45rem; }
+.d-textlink { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+.d-formwrap form { margin-block-start: 0 !important; }
+.d-crumbs { margin-block-end: 1rem; font-size: 0.9rem; }
+.d-crumbs a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.d-helprow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; margin-block: 0.5rem 1.5rem; }
+.d-helprow p { margin: 0; }
+.d-helprow-center { justify-content: center; }
+
+/* ---------- help centre ---------- */
+.d-searchform { display: flex; flex-wrap: wrap; gap: 0.75rem; inline-size: 100%; max-inline-size: 40rem; }
+.d-input { flex: 1 1 18rem; min-block-size: 52px; padding-inline: 1.25rem; border-radius: var(--pill); border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); font: inherit; }
+.d-searchform .btn { min-block-size: 52px; padding-inline: 1.75rem; }
+.d-results { inline-size: 100%; max-inline-size: 40rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.75rem 1.25rem; text-align: start; }
+.d-results ul { list-style: none; margin: 0; padding: 0; }
+.d-results li { border-block-start: 1px solid var(--line); }
+.d-results li:first-child { border-block-start: 0; }
+.d-results a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.d-tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.d-tile { display: flex; flex-direction: column; justify-content: flex-end; gap: 0.35rem; min-block-size: 8.5rem; padding: 1.4rem; border-radius: var(--radius); color: var(--ink); text-decoration: none; border: 1px solid var(--line); block-size: 100%; }
+.d-tile h2 { margin: 0; font-size: 1.4rem; letter-spacing: -0.02em; }
+.d-tile span { color: var(--ink-soft); }
+.d-tile:hover, .d-tile:focus-visible { border-color: var(--ink); }
+.d-tile-0 { background: var(--brand-wash); }
+.d-tile-1 { background: var(--surface-2); }
+.d-tile-2 { background: var(--highlight); }
+.d-tile-3 { background: var(--surface); }
+.d-tile-4 { background: var(--rose-soft); }
+.d-group h3 { font-size: 1.3rem; margin-block-end: 0.5rem; }
+.d-tasklist { list-style: none; margin: 0; padding: 0; max-inline-size: 46rem; border-block-start: 1px solid var(--line); }
+.d-tasklist li { border-block-end: 1px solid var(--line); padding-block: 0.15rem; }
+.d-tasklink { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+.d-group { scroll-margin-block-start: 6rem; }
+.d-topic { padding-block: 2rem 1rem; }
+.d-topic h1 { margin-block-end: 0.75rem; }
+.d-after { margin-block-start: 2.5rem; }
+.d-prose { max-inline-size: var(--measure); }
+.d-prose h2 { margin-block-start: 2rem; }
+.d-prose p, .d-prose li { line-height: 1.65; }
+.d-draft { margin-block-end: 1.5rem; }
+
+/* ---------- accordion (publish FAQ) ---------- */
+.d-accordion { max-inline-size: 48rem; }
+.d-accordion details { border-block-end: 1px solid var(--line); }
+.d-accordion details:first-child { border-block-start: 1px solid var(--line); }
+.d-accordion summary { min-block-size: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-weight: 600; font-size: 1.1rem; cursor: pointer; list-style: none; }
+.d-accordion summary::-webkit-details-marker { display: none; }
+.d-accordion summary::after { content: "+"; font-size: 1.6rem; font-weight: 400; color: var(--brand-text); }
+.d-accordion details[open] summary::after { content: "-"; }
+.d-accordion details p { padding-block-end: 1.25rem; margin: 0; }
+
+/* ---------- publish ---------- */
+.d-money { display: grid; gap: 1.25rem; align-items: center; background: var(--brand-wash); }
+@media (min-width: 52rem) { .d-money { grid-template-columns: 1fr 1.2fr; gap: 2.5rem; } }
+.d-money h2 { font-size: clamp(1.7rem, 1.2rem + 2vw, 2.6rem); margin: 0; }
+.d-promises { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.d-promises li { display: grid; gap: 0.3rem; align-content: start; padding: 1.1rem 1.2rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); border-inline-start: 6px solid var(--tile-c, var(--brand)); }
+.d-promises span { color: var(--ink-soft); }
+.d-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.d-steps .d-card { display: grid; gap: 0.5rem; align-content: start; }
+.d-num { display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; border-radius: 50%; background: var(--brand); color: var(--brand-ink); font-weight: 700; }
+
+/* ---------- accessibility ---------- */
+.d-preview { font-family: var(--f-read); font-size: var(--fs-read, 1.1rem); line-height: var(--lh-read, 1.6); }
+.d-preview h3 { font-family: var(--f-read); }
+.d-preview p { max-inline-size: none; }
+
+/* ---------- trust ---------- */
+.d-trust { display: grid; gap: 2rem; padding-block: 2.5rem 1rem; }
+@media (min-width: 60rem) { .d-trust { grid-template-columns: 15rem minmax(0, 1fr); gap: 3.5rem; } .d-toc { position: sticky; inset-block-start: 6rem; align-self: start; } }
+.d-toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+@media (min-width: 60rem) { .d-toc ul { flex-direction: column; flex-wrap: nowrap; gap: 0; border-inline-start: 2px solid var(--line); } .d-toc a { padding-inline-start: 1rem; } }
+.d-toc a { display: inline-flex; align-items: center; min-block-size: 44px; color: var(--ink); text-decoration: none; font-weight: 600; }
+.d-toc a:hover { color: var(--brand-text); text-decoration: underline; text-underline-offset: 0.25em; }
+.d-trust-body { display: grid; gap: 0; min-inline-size: 0; }
+.d-block { padding-block: 2rem; border-block-start: 1px solid var(--line); scroll-margin-block-start: 6rem; }
+.d-block:first-child { border-block-start: 0; padding-block-start: 0; }
+.d-block > p { max-inline-size: var(--measure); }
+.d-tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.d-table { inline-size: 100%; border-collapse: collapse; min-inline-size: 36rem; }
+.d-table th, .d-table td { padding: 0.75rem 1rem; text-align: start; vertical-align: top; border-block-end: 1px solid var(--line); }
+.d-table thead th { background: var(--surface-2); }
+.d-table tbody tr:last-child th, .d-table tbody tr:last-child td { border-block-end: 0; }
+.d-conf { padding-block-end: 1rem; }
+.d-conf .admin-table-wrap { overflow-x: auto; }
+
+/* ---------- forms and legal ---------- */
+.d-formpage { padding-block: 2rem 3rem; }
+.d-formpage-solo { padding-block-start: 3rem; }
+.d-howto { max-inline-size: 52rem; }
+.d-howto section { margin-block-start: 2.25rem; }
+.d-crisis { background: var(--rose-soft); border-color: var(--line); }
+.d-formpage .contact-form { padding: clamp(1.25rem, 3vw, 2rem); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.contact-field input[type="text"], .contact-field input[type="email"], .contact-field select, .contact-field textarea { border-width: 1.5px; }
+.d-formwrap .card { padding: clamp(1.25rem, 3vw, 2rem); }
+
+/* ---------- not found and error ---------- */
+.d-lost { background: var(--brand-wash); min-block-size: 60vh; display: grid; align-content: space-between; }
+.d-lost-inner { max-inline-size: 46rem; margin-inline: auto; padding: clamp(3rem, 9vw, 6rem) var(--gutter) 3rem; display: grid; gap: 1.25rem; justify-items: center; text-align: center; }
+.d-lost-inner h1 { margin: 0; font-size: clamp(2.2rem, 1.4rem + 3.6vw, 3.8rem); letter-spacing: -0.03em; text-wrap: balance; }
+.d-lost-inner p { margin: 0; }
+.d-lost .d-actions { justify-content: center; }
+
+/* ---------- Help now (restyle only) ---------- */
+.help-page .help-head { background: var(--help-bg); padding-block: clamp(2.5rem, 7vw, 4.5rem); }
+.help-page .help-head h1 { font-size: clamp(2.1rem, 1.4rem + 3.4vw, 3.6rem); letter-spacing: -0.03em; max-inline-size: 22ch; text-wrap: balance; }
+.help-page .help-lead { font-size: clamp(1.05rem, 1rem + 0.5vw, 1.3rem); max-inline-size: 42rem; }
+.help-page .help-body { padding-block: 2rem 3rem; gap: 1.25rem; }
+.help-page .help-group { padding: clamp(1.1rem, 3vw, 1.75rem); }
+.help-page .help-group h2 { font-size: 1.35rem; margin-block-end: 0.75rem; }
+.help-page .help-call { min-block-size: 64px; padding-block: 0.75rem; }
+.help-page .help-call:hover .help-call-label { text-decoration: underline; text-underline-offset: 0.2em; }
+.help-page .help-call-number { font-size: clamp(1.35rem, 1.1rem + 1vw, 1.8rem); }
+.help-page .help-call-emergency { box-shadow: var(--shadow); max-inline-size: 36rem; }
+.help-page .chip { min-block-size: 44px; }

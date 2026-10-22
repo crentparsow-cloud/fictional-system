@@ -113,3 +113,17 @@ function qrDataUri(qr: string): string {
   if (svg.startsWith("data:")) return svg;
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
+
+/** Remove one of the reader's own passkeys (10.8). Supabase asks for a session that passed a second factor. */
+export async function removePasskey(formData: FormData): Promise<void> {
+  const supabase = await signedInClient();
+  const factorId = String(formData.get("factorId") ?? "");
+  const { data: factors } = await supabase.auth.mfa.listFactors();
+  if (!factors?.webauthn.some((f) => f.id === factorId)) redirect(`${READER_SECURITY_PATH}?notice=passkey-remove-failed`);
+  const { error } = await supabase.auth.mfa.unenroll({ factorId });
+  if (error) {
+    console.error("reader_passkey_remove_failed", error.code ?? "");
+    redirect(`${READER_SECURITY_PATH}?notice=passkey-remove-failed`);
+  }
+  redirect(`${READER_SECURITY_PATH}?notice=passkey-removed`);
+}

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
+import { DHero } from "@/components/info/DHero";
+import { ReadingSettingsPanel } from "@/components/reader/ReadingSettingsPanel";
+import { company, support } from "@/lib/company";
 import { ACCESSIBILITY as A } from "@/lib/accessibility";
 import { brand } from "@/lib/brand";
 
@@ -18,10 +21,10 @@ export const metadata: Metadata = {
 
 function Items({ items }: { items: readonly { title: string; body: string }[] }) {
   return (
-    <ul className="info-claims" role="list">
+    <ul className="d-cards" role="list">
       {items.map((i) => (
-        <li key={i.title} className="card">
-          <h3>{i.title}</h3>
+        <li key={i.title} className="d-card">
+          <h4>{i.title}</h4>
           <p>{i.body}</p>
         </li>
       ))}
@@ -30,50 +33,109 @@ function Items({ items }: { items: readonly { title: string; body: string }[] })
 }
 
 export default function AccessibilityPage() {
+  const contact = support();
   return (
-    <main className="wrap info-page">
-      <header className="info-head">
-        <p className="eyebrow muted">{brand.name}</p>
-        <h1>Accessibility statement</h1>
-        <p className="info-lead">{A.aim}</p>
-        <p className="small muted">
-          Standard we aim for: {A.standard}. Last reviewed {A.reviewed}. Automated sweep last run {A.sweepRun}.
-        </p>
-      </header>
+    <main className="d-page">
+      <DHero
+        eyebrow="Accessibility"
+        title="Reading your way"
+        lead="Every page can be read at the size, in the font and on the page colour that suits you. Your choice stays on the device you are using, and follows you if you are signed in."
+      />
 
-      <section className="info-section" aria-labelledby="a11y-tested">
-        <h2 id="a11y-tested">What we have tested</h2>
-        <Items items={A.tested} />
+      <section className="d-section" aria-labelledby="a11y-settings">
+        <div className="wrap d-split d-split-top">
+          <div className="d-card d-card-roomy">
+            <h2 id="a11y-settings">Your reading settings</h2>
+            <p className="d-soft">Changes apply to this page straight away. The same settings are under the Aa button in any week.</p>
+            <ReadingSettingsPanel variant="inline" />
+          </div>
+          <div className="d-stack-s">
+            <p className="d-eyebrow">Live preview</p>
+            <div className="d-card d-card-roomy d-preview">
+              <h3>Read a week. Try it. Keep what works.</h3>
+              <p>This is how text will look on your reading screens. Change the font, size or page colour and watch this paragraph change.</p>
+              <p>A good font is one you can read without effort. If a different face or a bigger size helps, use it.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="info-section" aria-labelledby="a11y-not-yet">
-        <h2 id="a11y-not-yet">What we have not yet tested</h2>
-        <Items items={A.notYetTested} />
+      <section className="d-section" aria-labelledby="a11y-statement">
+        <div className="wrap d-stack">
+          <header className="d-stack-s">
+            <h2 id="a11y-statement">Our accessibility statement</h2>
+            <p className="d-lead-s">{A.aim}</p>
+            <p className="small d-soft">
+              Standard we aim for: {A.standard}. Last reviewed {A.reviewed}. Automated sweep last run {A.sweepRun}.
+            </p>
+          </header>
+
+          <section aria-labelledby="a11y-plain" className="d-card d-card-roomy d-stack-s">
+            <h3 id="a11y-plain">In plain words</h3>
+            <p>
+              We want everyone to be able to use {brand.name}. We aim to meet {A.standard}, the international standard for accessible websites.
+            </p>
+            <p>
+              You can change the font, text size and page colour, and the choice stays with you. The site follows your device&apos;s light or
+              dark setting and your reduced-motion setting. Pages work with a keyboard, and buttons and links on reading screens are large
+              enough to tap.
+            </p>
+            <p>
+              We have not yet checked every screen with every screen reader, and some parts may fall short of the standard. The lists below say
+              what we know. If something does not work for you, tell us at{" "}
+              {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}. We will reply within{" "}
+              {company.replyTime} and try to put it right or offer another way to get what you need.
+            </p>
+            <p className="small d-soft">
+              This website is run by {company.legalName}, {company.address.join(", ")}.
+            </p>
+          </section>
+
+          <section aria-labelledby="a11y-tested" className="d-stack-s">
+            <h3 id="a11y-tested">What we have tested</h3>
+            <Items items={A.tested} />
+          </section>
+
+          <section aria-labelledby="a11y-not-yet" className="d-stack-s">
+            <h3 id="a11y-not-yet">What we have not yet tested</h3>
+            <Items items={A.notYetTested} />
+          </section>
+
+          <section aria-labelledby="a11y-known" className="d-stack-s">
+            <h3 id="a11y-known">Known issues and limits</h3>
+            <Items items={A.knownIssues} />
+          </section>
+
+          <section aria-labelledby="a11y-report" className="d-stack-s">
+            <h3 id="a11y-report">Conformance report for organisations</h3>
+            <p>{A.conformance}</p>
+            <p>
+              <Link className="btn secondary" href={A.conformancePath}>
+                Read the conformance report
+              </Link>
+            </p>
+          </section>
+        </div>
       </section>
 
-      <section className="info-section" aria-labelledby="a11y-known">
-        <h2 id="a11y-known">Known issues and limits</h2>
-        <Items items={A.knownIssues} />
+      <section className="d-band" aria-labelledby="a11y-contact">
+        <div className="wrap d-stack-s">
+          <h2 id="a11y-contact">Found a barrier?</h2>
+          <p>
+            {A.contact.howTo} <Link href={A.contact.route}>Contact us</Link>.
+          </p>
+          <p>{A.contact.reply}</p>
+          <p className="d-strong">{contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}</p>
+          <p>
+            If you are not happy with our reply, you can contact the Equality Advisory and Support Service, which gives free advice on
+            discrimination and equality rights in Great Britain.
+          </p>
+        </div>
       </section>
 
-      <section className="info-section" aria-labelledby="a11y-report">
-        <h2 id="a11y-report">Conformance report for organisations</h2>
-        <p>{A.conformance}</p>
-      </section>
-
-      <section className="info-section" aria-labelledby="a11y-contact">
-        <h2 id="a11y-contact">Tell us about a problem</h2>
-        <p>
-          {A.contact.howTo} <Link href={A.contact.route}>Contact us</Link>.
-        </p>
-        <p>{A.contact.reply}</p>
-        <p>
-          If you are not happy with our reply, you can contact the Equality Advisory and Support Service, which gives free advice on
-          discrimination and equality rights in Great Britain.
-        </p>
-      </section>
-
-      <InfoFooter />
+      <div className="wrap">
+        <InfoFooter />
+      </div>
     </main>
   );
 }

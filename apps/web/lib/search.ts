@@ -23,7 +23,7 @@ import { isCrisisQuery, normaliseQuery } from "@/lib/search-safety";
  * That decision is synchronous and never waits on hashing.
  */
 
-export type SearchKind = "workbook" | "unit" | "tool";
+export type SearchKind = "workbook" | "unit" | "tool" | "author" | "theme" | "collection";
 
 /** One searchable item, as shipped to the page. Plain data, safe to serialise. */
 export interface SearchEntry {
@@ -214,7 +214,78 @@ export function search(index: SearchIndex, raw: string, limit = MAX_RESULTS, has
   return { helpNow, results: scored.slice(0, limit).map((s) => s.entry), active: true };
 }
 
-const KIND_ORDER: Record<SearchKind, number> = { workbook: 0, tool: 1, unit: 2 };
+const KIND_ORDER: Record<SearchKind, number> = { workbook: 0, author: 1, collection: 2, theme: 3, tool: 4, unit: 5 };
+
+// ---------------------------------------------------------------------------
+// Grouped results (build list 2.7)
+// ---------------------------------------------------------------------------
+
+export type SearchGroupId = "titles" | "authors" | "themes" | "collections";
+
+export interface SearchGroup {
+  id: SearchGroupId;
+  results: SearchEntry[];
+}
+
+/** The order the groups appear in, titles first. */
+export const SEARCH_GROUP_ORDER: readonly SearchGroupId[] = ["titles", "authors", "themes", "collections"];
+
+/** How many results each group shows. Titles take the whole search limit. */
+export const GROUP_LIMITS: Record<SearchGroupId, number> = { titles: MAX_RESULTS, authors: 6, themes: 6, collections: 6 };
+
+function groupOf(kind: SearchKind): SearchGroupId {
+  if (kind === "author") return "authors";
+  if (kind === "theme") return "themes";
+  if (kind === "collection") return "collections";
+  return "titles";
+}
+
+/**
+ * Splits ranked results into titles, authors, Themes and collections. Each
+ * group keeps the ranking it came in with. Empty groups are left out, and a
+ * group is capped so a common word does not push the others off the page.
+ * Tools and units sit with titles.
+ */
+export function groupResults(results: readonly SearchEntry[]): SearchGroup[] {
+  const buckets = new Map<SearchGroupId, SearchEntry[]>();
+  for (const r of results) {
+    const id = groupOf(r.kind);
+    const list = buckets.get(id) ?? [];
+    if (list.length < GROUP_LIMITS[id]) list.push(r);
+    buckets.set(id, list);
+  }
+  return SEARCH_GROUP_ORDER.filter((id) => buckets.has(id)).map((id) => ({ id, results: buckets.get(id) ?? [] }));
+}
+
+/** An author as a search entry, from the cards the reader can already see. Links to the author page. */
+export function authorEntries(cards: readonly Pick<LibraryCard, "authorRefs" | "isDemo">[]): SearchEntry[] {
+  const seen = new Map<string, SearchEntry>();
+  for (const c of cards) {
+    for (const a of c.authorRefs ?? []) {
+      if (!a.slug || !a.name || seen.has(a.slug)) continue;
+      seen.set(a.slug, { id: a.slug, kind: "author", href: `/authors/${a.slug}`, title: a.name, isDemo: c.isDemo });
+    }
+  }
+  return [...seen.values()];
+}
+
+/**
+ * A Theme as a search entry. The hidden topic words are not used here. A
+ * Theme with no visible title in `cards` is left out, so search never offers
+ * an empty page.
+ */
+export function themeEntries(
+  themes: readonly { id: string; name: string; line?: string | null }[],
+  cards?: readonly Pick<LibraryCard, "themeId">[],
+): SearchEntry[] {
+  const used = cards ? new Set(cards.map((c) => c.themeId).filter(Boolean)) : null;
+  return themes.filter((t) => !used || used.has(t.id)).map((t) => ({ id: t.id, kind: "theme", href: `/themes/${t.id}`, title: t.name, line: t.line ?? null }));
+}
+
+/** A collection as a search entry. */
+export function collectionEntries(collections: readonly { slug: string; name: string; line?: string | null }[]): SearchEntry[] {
+  return collections.map((c) => ({ id: c.slug, kind: "collection", href: `/collections/${c.slug}`, title: c.name, line: c.line ?? null }));
+}
 
 /** A library card as a search entry. Topic hashes and publisher come from the extras the server adds. */
 export function entryFromCard(card: LibraryCard, extras: { topicHashes?: string[]; publisher?: string | null } = {}): SearchEntry {
@@ -271,7 +342,12 @@ export function searchLabels(t: Translate) {
     helpBody: t("search.helpBody"),
     helpCta: t("search.helpCta"),
     results: t("search.results"),
+    groupTitles: t("search.groupTitles"),
+    groupAuthors: t("search.groupAuthors"),
+    groupThemes: t("search.groupThemes"),
+    groupCollections: t("search.groupCollections"),
     empty: t("search.empty"),
     emptyCta: t("library.explore"),
+    requestCta: t("search.requestCta"),
   };
 }

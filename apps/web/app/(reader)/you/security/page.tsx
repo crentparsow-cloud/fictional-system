@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getReaderSession } from "@/lib/auth";
-import { securityNoticeText } from "@/lib/mfa/reader-mfa";
+import { READER_SECURITY_PATH, securityNoticeText } from "@/lib/mfa/reader-mfa";
+import { PasskeyButton } from "@/app/verify/PasskeyForms";
+import { passkeyEnabled } from "@/lib/mfa/role-mfa-server";
+import { flagEnabled } from "@/lib/platform/flags-server";
 import { createUserClient } from "@/lib/supabase/server";
+import { removePasskey } from "./actions";
 import { NewCodesForm, TurnOffForm, TurnOnForm } from "./SecurityForms";
 
 export const metadata: Metadata = {
@@ -36,7 +40,10 @@ export default async function SecurityPage({ searchParams }: Props) {
   const managed = Boolean(row?.required);
 
   const { data: factors } = await supabase.auth.mfa.listFactors();
-  const on = (factors?.totp.length ?? 0) > 0 || Boolean(session?.mfaEnrolled);
+  const passkeys = factors?.webauthn ?? [];
+  const on = (factors?.totp.length ?? 0) > 0 || (Boolean(session?.mfaEnrolled) && passkeys.length === 0);
+  // 10.8: passkeys are shown while the cohort flag is on for this reader, or to remove one already added.
+  const passkeysOpen = !managed && ((await flagEnabled("reader_passkeys")) && (await passkeyEnabled()));
   const { data: leftData } = on ? await supabase.rpc("mfa_recovery_codes_left") : { data: null };
   const left = typeof leftData === "number" ? leftData : 0;
 
@@ -93,6 +100,32 @@ export default async function SecurityPage({ searchParams }: Props) {
           </section>
         </>
       )}
+
+      {!managed && (passkeysOpen || passkeys.length > 0) ? (
+        <section className="you-section" aria-labelledby="sec-passkeys">
+          <h2 id="sec-passkeys">Passkeys</h2>
+          <p>
+            A passkey is an extra check after your sign-in link, using your fingerprint, face or screen lock. It does not replace the link. Optional, and you can
+            remove it at any time.
+          </p>
+          {passkeys.length > 0 ? (
+            <ul className="you-passkeys">
+              {passkeys.map((f) => (
+                <li key={f.id}>
+                  {f.friendly_name || "Passkey"}
+                  <form action={removePasskey} className="inline-form">
+                    <input type="hidden" name="factorId" value={f.id} />
+                    <button type="submit" className="btn secondary">
+                      Remove
+                    </button>
+                  </form>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {passkeysOpen ? <PasskeyButton next={READER_SECURITY_PATH} mode="reader-add" /> : null}
+        </section>
+      ) : null}
     </section>
   );
 }

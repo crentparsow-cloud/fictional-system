@@ -242,5 +242,8 @@
 .ak-ideas { gap: 0.75rem; }
 .ak-idea { display: flex; flex-direction: column; gap: 0.4rem; }
 .ak-idea p, .ak-takeaway p { margin-block-end: 0; }
+.ak-companion { margin-block: 0.75rem 0; }
+.ak-companion a { display: inline-flex; align-items: center; min-block-size: 44px; font-weight: 600; }
+@media print { .ak-companion a::after { content: " (" attr(href) ")"; font-weight: 400; word-break: break-all; } }
 .ak-idea-example { padding-inline-start: 0.75rem; border-inline-start: 3px solid var(--line-strong); }
 .ak-estimate { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }

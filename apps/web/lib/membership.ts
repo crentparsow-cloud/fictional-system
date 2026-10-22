@@ -103,6 +103,16 @@ export interface MembershipCheckoutInput {
   trial?: { days: number; notice: string } | null;
   /** The formatted yearly total, stated on the pay screen for the annual plan. */
   yearlyTotal?: string | null;
+  /**
+   * A Stripe coupon pinned to the session as its one discount (6.3: the friend's
+   * amount off the first payment). Ignored when a promotion code is pinned,
+   * because Checkout takes one discount only. Also carries the student coupon
+   * (14.22), a Stripe coupon id from the environment, which is never combined
+   * with a promotion code.
+   */
+  couponId?: string | null;
+  /** A sentence added to the pay button's text, for example what an invitation gave. */
+  extraNotice?: string | null;
 }
 
 /**
@@ -113,12 +123,16 @@ export interface MembershipCheckoutInput {
  * customer.subscription.* event can be tied back without a lookup.
  */
 export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Checkout.SessionCreateParams {
-  const metadata = { user_id: i.userId, tenant_id: i.tenantId, plan: MEMBERSHIP_PLAN_POINT[i.plan] };
+  const metadata: Record<string, string> = { user_id: i.userId, tenant_id: i.tenantId, plan: MEMBERSHIP_PLAN_POINT[i.plan], ...(i.couponId ? { student: "1" } : {}) };
   return {
     mode: "subscription",
     line_items: [{ price: i.priceId, quantity: 1 }],
     automatic_tax: { enabled: true },
-    ...(i.promotionCodeId ? { discounts: [{ promotion_code: i.promotionCodeId }] } : { allow_promotion_codes: true }),
+    ...(i.promotionCodeId
+      ? { discounts: [{ promotion_code: i.promotionCodeId }] }
+      : i.couponId
+        ? { discounts: [{ coupon: i.couponId }] }
+        : { allow_promotion_codes: true }),
     tax_id_collection: { enabled: true },
     ...(i.customerId
       ? { customer: i.customerId, customer_update: { name: "auto", address: "auto" } }
@@ -132,7 +146,13 @@ export function membershipCheckoutParams(i: MembershipCheckoutInput): Stripe.Che
       ...(i.trial ? { trial_period_days: i.trial.days, trial_settings: { end_behavior: { missing_payment_method: "cancel" as const } } } : {}),
     },
     ...(i.trial ? { payment_method_collection: "always" as const } : {}),
-    custom_text: { submit: { message: i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan, i.yearlyTotal)}` : autoRenewNotice(i.plan, i.yearlyTotal) } },
+    custom_text: {
+      submit: {
+        message:
+          (i.trial ? `${i.trial.notice} ${autoRenewNotice(i.plan, i.yearlyTotal)}` : autoRenewNotice(i.plan, i.yearlyTotal)) +
+          (i.extraNotice ? ` ${i.extraNotice}` : ""),
+      },
+    },
     success_url: i.successUrl,
     cancel_url: i.cancelUrl,
   };
@@ -372,6 +392,7 @@ export const MEMBERSHIP_NOTICES = {
   cancelled: "Your membership is set to end. We have emailed you to confirm.",
   cancelled_now: "Your membership has ended. We have emailed you to confirm.",
   paused: "Your membership is paused. We have emailed you the dates.",
+  resumed: "Your membership is back on. If it was paused, it may take a minute to show here.",
   unchanged: "Nothing was changed.",
   cancel_failed: "That did not work and nothing was changed. Please try again, or write to support.",
 } as const;

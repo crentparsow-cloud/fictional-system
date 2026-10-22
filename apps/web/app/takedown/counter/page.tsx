@@ -17,7 +17,7 @@ export const metadata: Metadata = {
  */
 export default function CounterNoticePage() {
   return (
-    <main className="wrap info-page contact-page">
+    <main className="wrap info-page contact-page d-formpage d-formpage-solo">
       <header className="info-head">
         <p className="eyebrow muted">{brand.name}</p>
         <h1>Send a counter-notice</h1>

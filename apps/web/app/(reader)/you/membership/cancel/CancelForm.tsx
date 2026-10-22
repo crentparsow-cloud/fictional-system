@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CANCEL_COPY, CANCEL_REASONS, chooseOffer, parseCancelReason, type CancelReason, type CancelView } from "@/lib/cancel-flow";
-import type { SharedOffer } from "@/lib/shared-membership";
 import { submitCancel } from "./actions";
 
 export interface PauseLine {
@@ -14,9 +13,6 @@ export interface PauseLine {
 
 interface Props {
   view: Extract<CancelView, { kind: "cancellable" }>;
-  sharedOffer: SharedOffer | null;
-  /** The shared plan's price line, from the database. */
-  sharedPrice: string | null;
   pauseLines: PauseLine[];
   /** What happens to access when Cancel is pressed, worked out on the server. */
   consequence: string;
@@ -28,9 +24,9 @@ interface Props {
  * when the shared plan can be bought. Without script the pause shows and the
  * form still works. The Cancel button works with no reason chosen.
  */
-export function CancelForm({ view, sharedOffer, sharedPrice, pauseLines, consequence }: Props) {
+export function CancelForm({ view, pauseLines, consequence }: Props) {
   const [reason, setReason] = useState<CancelReason | null>(null);
-  const offer = chooseOffer({ reason, view, sharedOffer });
+  const offer = chooseOffer({ reason, view });
 
   return (
     <form action={submitCancel} className="cancel-form">
@@ -63,17 +59,6 @@ export function CancelForm({ view, sharedOffer, sharedPrice, pauseLines, consequ
               </li>
             ))}
           </ul>
-        </section>
-      ) : null}
-
-      {offer.kind === "shared" ? (
-        <section className="card cancel-offer" aria-labelledby="cancel-offer-title">
-          <h2 id="cancel-offer-title">{offer.offer.headline}</h2>
-          <p>{offer.offer.body}</p>
-          {sharedPrice ? <p className="info-price">{sharedPrice}</p> : null}
-          <Link className="btn secondary" href={offer.offer.href}>
-            {offer.offer.cta}
-          </Link>
         </section>
       ) : null}
 

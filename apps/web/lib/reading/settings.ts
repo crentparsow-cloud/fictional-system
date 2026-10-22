@@ -31,15 +31,29 @@ export type MarginWidth = (typeof MARGINS)[number];
 export const PROGRESS = ["both", "time", "none"] as const;
 export type ProgressDisplay = (typeof PROGRESS)[number];
 
+/**
+ * Focus mode (3.11). dim: paragraphs other than the one being read are
+ * softened. typewriter: the line being written stays near the middle of the
+ * screen in a long answer. Optional and off until the reader chooses.
+ */
+export const FOCUS = ["off", "dim", "typewriter", "both"] as const;
+export type FocusMode = (typeof FOCUS)[number];
+
+/** "Then and now" (3.10): whether the one tap check-in is offered before a step. Off until chosen. */
+export const THENNOW = ["off", "on"] as const;
+export type ThenNowChoice = (typeof THENNOW)[number];
+
 export interface ReadingSettings {
   font: ReadingFontChoice;
   size: SizeStep;
   colour: PageColour;
   margin: MarginWidth;
   progress: ProgressDisplay;
+  focus: FocusMode;
+  thennow: ThenNowChoice;
 }
 
-export const DEFAULT_READING: ReadingSettings = { font: "serif", size: 0, colour: "auto", margin: "standard", progress: "both" };
+export const DEFAULT_READING: ReadingSettings = { font: "serif", size: 0, colour: "auto", margin: "standard", progress: "both", focus: "off", thennow: "off" };
 
 /** The settings as stored, with the time they were last changed. */
 export interface StoredReading {
@@ -64,6 +78,10 @@ export function sanitise(raw: unknown): Partial<ReadingSettings> {
   if (margin) out.margin = margin;
   const progress = oneOf(PROGRESS, o.progress);
   if (progress) out.progress = progress;
+  const focus = oneOf(FOCUS, o.focus);
+  if (focus) out.focus = focus;
+  const thennow = oneOf(THENNOW, o.thennow);
+  if (thennow) out.thennow = thennow;
   return out;
 }
 
@@ -121,7 +139,7 @@ export function mergeReading(device: StoredReading | null, account: StoredReadin
 }
 
 export function sameSettings(a: ReadingSettings, b: ReadingSettings): boolean {
-  return a.font === b.font && a.size === b.size && a.colour === b.colour && a.margin === b.margin && a.progress === b.progress;
+  return a.font === b.font && a.size === b.size && a.colour === b.colour && a.margin === b.margin && a.progress === b.progress && a.focus === b.focus && a.thennow === b.thennow;
 }
 
 /**
@@ -134,7 +152,7 @@ export function seedFromAppearance(a: { textSize: number; font: string } | null)
   return { ...DEFAULT_READING, size, font: a.font === "lexend" ? "lexend" : DEFAULT_READING.font };
 }
 
-export type HtmlAttr = "data-text-size" | "data-font" | "data-theme" | "data-margin" | "data-progress";
+export type HtmlAttr = "data-text-size" | "data-font" | "data-theme" | "data-margin" | "data-progress" | "data-focus";
 
 /** The attributes to set on <html>. null removes one. The defaults remove all of them. */
 export function readingAttributes(s: ReadingSettings): Record<HtmlAttr, string | null> {
@@ -144,6 +162,7 @@ export function readingAttributes(s: ReadingSettings): Record<HtmlAttr, string |
     "data-theme": s.colour === "auto" ? null : s.colour,
     "data-margin": s.margin === "standard" ? null : s.margin,
     "data-progress": s.progress === "both" ? null : s.progress,
+    "data-focus": s.focus === "off" ? null : s.focus,
   };
 }
 
@@ -162,4 +181,6 @@ export const FONT_LABELS: Record<ReadingFontChoice, { name: string; note: string
 };
 export const COLOUR_LABELS: Record<PageColour, string> = { auto: "Match my device", light: "Light", dark: "Dark" };
 export const MARGIN_LABELS: Record<MarginWidth, string> = { narrow: "Narrow", standard: "Standard", wide: "Wide" };
+export const FOCUS_LABELS: Record<FocusMode, string> = { off: "Off", dim: "Dim other paragraphs", typewriter: "Keep my line centred", both: "Both" };
+export const THENNOW_LABELS: Record<ThenNowChoice, string> = { off: "Off", on: "Ask me before a step" };
 export const PROGRESS_LABELS: Record<ProgressDisplay, string> = { both: "Dots and time", time: "Time only", none: "Hidden" };

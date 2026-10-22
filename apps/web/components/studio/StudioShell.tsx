@@ -24,9 +24,11 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
             <Link href="/studio/dashboard">Readers</Link>
             <Link href="/studio/earnings">Earnings</Link>
             <Link href="/studio/payments">Payments</Link>
+            <Link href="/studio/growth">Growth</Link>
             <Link href="/console">Team</Link>
             <Link href="/console/rollup">Roll-up</Link>
             <Link href="/payouts">Payouts</Link>
+            <Link href="/studio/start-here">Start here</Link>
             <Link href="/studio/help">Help</Link>
           </nav>
           <SignOutButton label="Sign out" className="btn secondary admin-signout" />

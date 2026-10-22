@@ -161,3 +161,75 @@ export function buildGroupIcs(input: GroupIcsInput): string {
   lines.push("END:VCALENDAR");
   return lines.map(icsFold).join("\r\n") + "\r\n";
 }
+
+/**
+ * The leader's session scheduler (9.2): one .ics file with a timed event for
+ * each group session. Built in the browser, so Akana never learns the dates,
+ * and no calendar service is called. Times are floating local times. The
+ * default wording names no workbook and no group. There is no repeat rule:
+ * each session is its own event, so a leader can move one without the rest.
+ */
+export const SESSION_LABEL_DEFAULT = "Group session";
+
+export interface SessionIcsInput {
+  /** First session, yyyy-mm-dd. */
+  firstDate: string;
+  /** "HH:MM", 24-hour. */
+  time: string;
+  durationMinutes: number;
+  /** Days between sessions: 7 for weekly, 14 for fortnightly. */
+  everyDays: number;
+  sessions: number;
+  label: string;
+  uid: string;
+  url: string;
+  now?: Date;
+}
+
+export const SESSION_MAX = 52;
+
+/** The dates of the sessions, yyyy-mm-dd, or an empty list when the input is not usable. */
+export function sessionDates(firstDate: string, everyDays: number, sessions: number): string[] {
+  const m = ISO_DATE.exec(firstDate);
+  if (!m || !Number.isInteger(everyDays) || everyDays < 1 || everyDays > 31) return [];
+  if (!Number.isInteger(sessions) || sessions < 1 || sessions > SESSION_MAX) return [];
+  const first = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  if (Number.isNaN(first.getTime()) || first.getUTCDate() !== Number(m[3])) return [];
+  const out: string[] = [];
+  for (let i = 0; i < sessions; i++) {
+    const d = new Date(first.getTime() + i * everyDays * 86_400_000);
+    out.push(`${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`);
+  }
+  return out;
+}
+
+export function buildSessionIcs(input: SessionIcsInput): string | null {
+  const dates = sessionDates(input.firstDate, input.everyDays, input.sessions);
+  if (dates.length === 0 || !validTime(input.time)) return null;
+  const minutes = Number.isInteger(input.durationMinutes) ? Math.min(480, Math.max(10, input.durationMinutes)) : 60;
+  const [h, mm] = input.time.split(":") as [string, string];
+  const now = input.now ?? new Date();
+  const stamp = `${now.getUTCFullYear()}${pad(now.getUTCMonth() + 1)}${pad(now.getUTCDate())}T${pad(now.getUTCHours())}${pad(now.getUTCMinutes())}${pad(now.getUTCSeconds())}Z`;
+  const label = cleanCustomLabel(input.label) || SESSION_LABEL_DEFAULT;
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Akana//Group sessions//EN", "CALSCALE:GREGORIAN"];
+  dates.forEach((date, i) => {
+    const ymd = date.replace(/-/g, "");
+    const endTotal = Number(h) * 60 + Number(mm) + minutes;
+    // A session that runs past midnight ends on the next day.
+    const endDay = endTotal >= 1440 ? (allDay(date)?.end ?? ymd) : ymd;
+    const endMin = endTotal % 1440;
+    lines.push(
+      "BEGIN:VEVENT",
+      `UID:${input.uid}-${i + 1}@sessions.akana`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART:${ymd}T${h}${mm}00`,
+      `DTEND:${endDay}T${pad(Math.floor(endMin / 60))}${pad(endMin % 60)}00`,
+      `SUMMARY:${icsEscape(`${label} ${i + 1} of ${dates.length}`)}`,
+      `DESCRIPTION:${icsEscape(`Your leader kit is at ${input.url}`)}`,
+      `URL:${input.url}`,
+      "END:VEVENT",
+    );
+  });
+  lines.push("END:VCALENDAR");
+  return lines.map(icsFold).join("\r\n") + "\r\n";
+}

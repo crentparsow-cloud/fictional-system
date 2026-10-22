@@ -5,8 +5,6 @@ import { CANCEL_COPY, cancelConsequence, cancelView, pickSubject } from "@/lib/c
 import { inCoolingOff } from "@/lib/membership-refund";
 import { PAUSE_MONTHS, pauseDateWords, pauseOptionLine } from "@/lib/membership-pause";
 import { loadSubjects, type FlowSubject } from "@/lib/membership-cancel-server";
-import { sharedPlanDisplay, type PricePointRowLike } from "@/lib/plans";
-import { sharedPlanOffer } from "@/lib/shared-membership";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { CancelForm } from "./CancelForm";
@@ -16,8 +14,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * Cancel membership (14.24). Two taps from You: the link on You, then the
- * Cancel button here. One screen, one optional reason, one offer (a pause, or
- * the shared plan when cost is the reason), and a Cancel button that says
+ * Cancel button here. One screen, one optional reason, one offer (a pause), and a Cancel button that says
  * what it does. A confirmation email follows at once. Cancelling here is
  * the same as writing to support. It ends the plan at the end of the period
  * you have paid for, through the Stripe API, and never sends the reader to
@@ -77,7 +74,7 @@ export default async function CancelMembershipPage() {
           </p>
         </>
       ) : (
-        <CancelBody subject={subject!} view={view} now={now} supabase={supabase} longDate={longDate} />
+        <CancelBody subject={subject!} view={view} now={now} longDate={longDate} />
       )}
     </section>
   );
@@ -87,18 +84,13 @@ async function CancelBody({
   subject,
   view,
   now,
-  supabase,
   longDate,
 }: {
   subject: FlowSubject;
   view: Extract<ReturnType<typeof cancelView>, { kind: "cancellable" }>;
   now: Date;
-  supabase: Awaited<ReturnType<typeof createUserClient>>;
   longDate: (iso: string) => string;
 }) {
-  const { data: rows } = await supabase.from("price_points").select("id, kind, amounts, stripe_price_id, active").eq("id", "member_two_month");
-  const sharedPrice = sharedPlanDisplay((rows ?? []) as PricePointRowLike[]);
-  const sharedOffer = sharedPrice ? sharedPlanOffer("cancellation") : null;
   const periodEnd = subject.currentPeriodEnd ? new Date(subject.currentPeriodEnd) : null;
   const pauseLines = periodEnd
     ? PAUSE_MONTHS.map((m) => ({ months: m, button: m === 1 ? "Pause for 1 month" : `Pause for ${m} months`, line: pauseOptionLine(periodEnd, m).replace(/^\d+ months?: /, "") }))
@@ -109,8 +101,6 @@ async function CancelBody({
       <p>{CANCEL_COPY.lead}</p>
       <CancelForm
         view={view}
-        sharedOffer={sharedOffer}
-        sharedPrice={sharedPrice}
         pauseLines={view.pausable ? pauseLines : []}
         consequence={cancelConsequence(view, cooling, longDate)}
       />

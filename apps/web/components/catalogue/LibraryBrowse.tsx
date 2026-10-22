@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { LibraryBookCard } from "@/components/site/BookCard";
 import { getT, type MessageKey } from "@/lib/i18n";
 import type { EnrolmentStatus, LengthBucket, LibraryCard, ShelfWithThemes } from "@/lib/catalogue-types";
 import {
@@ -146,11 +146,13 @@ export async function LibraryBrowse({
             {shelf.themes.map((theme) => (
               <div key={theme.themeId ?? "none"} className="theme-group">
                 {shelf.themes.length > 1 || theme.themeId ? <h3 className="theme-title">{theme.themeName ?? t("library.noTheme")}</h3> : null}
-                <div className="grid wb-grid">
+                <ul className="a-books" role="list">
                   {theme.cards.map((card) => (
-                    <WorkbookCard key={card.id} card={card} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
+                    <li key={card.id}>
+                      <LibraryBookCard card={card} />
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </section>

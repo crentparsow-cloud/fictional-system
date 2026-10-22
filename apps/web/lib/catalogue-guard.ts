@@ -1,4 +1,5 @@
 import type { WorkbookDetail } from "@/lib/catalogue-types";
+import { brand } from "@/lib/brand";
 
 /**
  * The public workbook page (F-005) in text form, and the guard that keeps
@@ -37,9 +38,11 @@ export function workbookMeta(detail: WorkbookDetail): { title: string; descripti
 }
 
 /**
- * schema.org Book and Product. No health claims, no price, no offers yet:
- * commerce decides price and the Offer arrives with it. Author is a Person
- * by display name only.
+ * schema.org Book, Product and Course (6.10). No health claims, no price, no
+ * offers: commerce decides price and the Offer arrives with it. Author is a
+ * Person by display name only. The Course lists the programme outline, which
+ * the page already shows to everyone: the unit focus lines and nothing from
+ * inside a unit, so no exercise text and never an answer.
  */
 export function workbookJsonLd(detail: WorkbookDetail): Record<string, unknown>[] {
   const { card } = detail;
@@ -64,6 +67,28 @@ export function workbookJsonLd(detail: WorkbookDetail): Record<string, unknown>[
     category: card.genreName,
     ...(detail.bookTitle ? { isBasedOn: { "@type": "Book", name: detail.bookTitle } } : {}),
     ...(card.isDemo ? { additionalProperty: { "@type": "PropertyValue", name: "Demo", value: "true" } } : {}),
+  });
+  const outline = detail.listing?.outline ?? [];
+  const word = unitWord(detail);
+  out.push({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: card.title,
+    description: card.cardLine,
+    courseCode: card.code,
+    provider: { "@type": "Organization", name: brand.name },
+    ...(language ? { inLanguage: language } : {}),
+    ...(authors.length ? { author: authors.length === 1 ? authors[0] : authors } : {}),
+    ...(outline.length
+      ? {
+          hasPart: outline.map((u) => ({
+            "@type": "CreativeWork",
+            position: u.number,
+            name: `${word} ${u.number}`,
+            description: u.focus,
+          })),
+        }
+      : {}),
   });
   return out;
 }

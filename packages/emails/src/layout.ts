@@ -25,7 +25,9 @@ export type FooterKind =
   | "deleted"
   | "signin"
   | "reminder"
-  | "author";
+  | "author"
+  | "newsletter"
+  | "newsletter_confirm";
 export type Panel = {
   title?: string;
   big?: string; // a large single value, such as a date
@@ -178,6 +180,22 @@ export function footerText(kind: FooterKind, links: FooterLinks, postal?: string
         buttons: settings,
         textLinks: [],
         lines: [`This email is about your ${BRAND} publishing account, so it can't be turned off.`],
+        company,
+        safety: false,
+      };
+    case "newsletter":
+      return {
+        buttons: [...(unsub ? [{ label: "Unsubscribe", url: unsub }] : [])],
+        textLinks: [],
+        lines: [`You are getting this because you asked for the weekly ${BRAND} newsletter and confirmed your address. Unsubscribe any time and it stops.`],
+        company,
+        safety: true,
+      };
+    case "newsletter_confirm":
+      return {
+        buttons: [],
+        textLinks: [],
+        lines: [`Someone entered this address on the ${BRAND} newsletter page. If that was not you, do nothing. You will not hear from us again.`],
         company,
         safety: false,
       };

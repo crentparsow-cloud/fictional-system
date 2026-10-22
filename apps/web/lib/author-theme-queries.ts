@@ -57,6 +57,7 @@ type ThemeRow = {
   id: string;
   name: string;
   line: string | null;
+  intro?: string | null;
   shelf_id: string | null;
   clearance_status: string;
   min_books: number | null;
@@ -66,13 +67,14 @@ type ThemeRow = {
 };
 
 // hidden_until_min_books comes from migration 0015 (F-148); status from 0025.
-const THEME_COLUMNS = "id, name, line, shelf_id, clearance_status, min_books, hidden_until_min_books, status, shelves(name, hidden_until_min_books)";
+const THEME_COLUMNS = "id, name, line, intro, shelf_id, clearance_status, min_books, hidden_until_min_books, status, shelves(name, hidden_until_min_books)";
 
 function toTheme(row: ThemeRow): ThemeInput {
   return {
     id: row.id,
     name: row.name,
     line: row.line,
+    intro: row.intro ?? null,
     shelfId: row.shelf_id,
     shelfName: row.shelves?.name ?? null,
     held: row.hidden_until_min_books === true,

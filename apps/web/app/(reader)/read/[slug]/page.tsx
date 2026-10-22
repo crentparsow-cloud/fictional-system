@@ -18,7 +18,11 @@ import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { withTitleCopy } from "@akana/schema";
 import { firstNameOf, titleCopyFor } from "@/lib/title-copy";
+import { ProgrammeQuestionCard } from "./ProgrammeQuestionCard";
+import { loadMyPairs } from "@/lib/friends/server";
+import { flagEnabled } from "@/lib/platform/flags-server";
 import { ReadClient } from "./ReadClient";
+import { affiliateDisclosure, affiliateTagsFromEnv } from "@/lib/book-affiliate";
 
 /**
  * The reader: a published workbook in the engine with sealed answers (T3).
@@ -258,8 +262,35 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
   // Membership checkout opens per plan once its Stripe price id is set (F-097).
   const plansOpen = membershipPlansOpen();
 
+  // 6.9: the affiliate disclosure, only while a retailer tag is set. 14.12: the author's recommendations, up to three.
+  const buyNote = affiliateDisclosure(affiliateTagsFromEnv());
+  let recommendations: { name: string; slug: string }[] = [];
+  try {
+    const { data: recs } = await supabase.rpc("workbook_recommendations", { p_workbook_slug: workbook.slug });
+    recommendations = ((recs ?? []) as { display_name: string; slug: string }[]).slice(0, 3).map((r) => ({ name: r.display_name, slug: r.slug }));
+  } catch {
+    recommendations = [];
+  }
+
+  // 8.5: the author's one optional question, only after the reader has finished.
+  let programmeQuestion: { question: string; options: string[] } | null = null;
+  if (enrolment.status === "finished" && workbook.safety_tier === "none") {
+    const [{ data: q }, { data: answered }] = await Promise.all([
+      supabase.from("programme_questions").select("question, options").eq("workbook_id", workbook.id).maybeSingle(),
+      supabase.from("programme_question_answers").select("id").eq("enrolment_id", enrolment.id).maybeSingle(),
+    ]);
+    const row = q as { question: string; options: string[] } | null;
+    if (row && !answered) programmeQuestion = row;
+  }
+
+  // 6.2: the reader's pairing on this workbook, only while the cohort flag is on for them.
+  const pair = (await flagEnabled("programme_friends")) ? ((await loadMyPairs()).find((p) => p.slug === workbook.slug && p.status === "active") ?? null) : null;
+
   return (
     <ReadClient
+      pair={pair}
+      buyNote={buyNote}
+      recommendations={recommendations}
       workbook={withTitleCopy(rebuilt.workbook, titleCopyFor(workbook.code))}
       firstName={firstNameOf(profile?.display_name as string | null | undefined)}
       enrolmentId={enrolment.id}
@@ -288,6 +319,8 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
         membershipTrial,
         market,
       }}
-    />
+    >
+      {programmeQuestion ? <ProgrammeQuestionCard enrolmentId={enrolment.id} slug={workbook.slug} question={programmeQuestion.question} options={programmeQuestion.options} /> : null}
+    </ReadClient>
   );
 }

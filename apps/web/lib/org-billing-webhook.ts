@@ -122,6 +122,31 @@ export function orgBillingRepo(admin: Admin, stripe: Stripe): OrgBillingRepo {
       if (error) throw new Error(`org_self_serve_provision failed: ${error.code ?? "unknown"}`);
       return { licenceId: String(data) };
     },
+    async provisionPack(s) {
+      const fee = s.paymentIntent ? await feeOf(s.paymentIntent) : null;
+      const { data, error } = await admin.rpc("org_pack_provision", {
+        p_user: s.userId,
+        p_workbook: s.workbookId,
+        p_name: s.name,
+        p_session: s.sessionId,
+        p_payment_intent: s.paymentIntent,
+        p_amount: s.amountMinor,
+        p_tax: s.taxMinor,
+        p_currency: s.currency,
+        p_livemode: s.livemode,
+        p_country: s.country,
+        p_balance_txn: fee?.txn ?? null,
+        p_fee_minor: fee?.fee ?? null,
+      });
+      // Sign-up closed, a title that can no longer be sold, or an account set for deletion:
+      // retrying will not help. Logged with ids only; staff refund it.
+      if (error?.code === "AKO13" || error?.code === "AKO02" || error?.code === "AKO06") {
+        console.error("org_pack_refused", { code: error.code, session: s.sessionId });
+        return "closed";
+      }
+      if (error) throw new Error(`org_pack_provision failed: ${error.code ?? "unknown"}`);
+      return { licenceId: String(data) };
+    },
     async seatOrganiser(licenceId, userId) {
       const { data, error } = await admin.rpc("org_self_serve_seat_organiser", { p_licence: licenceId, p_user: userId });
       if (error) throw new Error(`org_self_serve_seat_organiser failed: ${error.code ?? "unknown"}`);

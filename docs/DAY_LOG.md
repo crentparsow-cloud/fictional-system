@@ -834,3 +834,15 @@ Pricing and Direction B branches merged into `phase-a`. Both touched the pricing
 **Checks.** typecheck and lint clean, web tests 1564 pass, `validate --parked` 25 files 0 failed, `check:ids` 0 findings, web build clean with the CI placeholder env, CSP clean, database suite passes to 0047 on local Postgres 16.
 
 **Still open.** Signed-in pages are outside the axe sweep until a signed-in fixture exists. The end to end sandbox checkout waits for Crent, because entering the test card is his to do.
+
+### Day 21 (Wednesday 21 October), Phase B integration
+
+**Merged.** Eight build branches merged into `phase-b` one at a time with no fast-forward: habit, growth, conversion, library and Studio, reading, orgs, public, platform. Migrations 0049 to 0066, no overlap. Conflicts were in shared files (checkout, Stripe webhook, You page, Today, read page, authors page, Explore, help topics, sitemap, email index, CSS, `.env.example`) and were resolved by keeping both sides.
+
+**Clash found.** Growth and conversion both built a gift at `/gift/<token>` with a `gift_preview` function. Gift memberships (conversion) keep `/gift/<token>`. Workbook gifts (growth) moved to `/send/<token>` and the function is now `workbook_gift_preview` in 0053.
+
+**Checks.** typecheck and lint clean, web build clean with placeholder env, database suite passes for all 63 test files over migrations 0001 to 0066, 0064 re-run twice without error. Two fixes after the merge: a `couponId` field declared twice in the membership checkout types, and two gift help pages missing from the help-by-task list.
+
+**Staging.** `supabase/staging/phase-b_apply_0049_0066.sql` applies 0049 to 0066 in one transaction and records versions 20261021000100 to 20261021001800. Nothing has been applied to any database.
+
+**Review.** `docs/planning/AK_Phase_B_Review_List.md` lists what Crent confirms before launch, with every new environment variable.

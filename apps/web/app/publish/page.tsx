@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { InfoFooter } from "@/components/InfoFooter";
 import { brand } from "@/lib/brand";
+import { company, support } from "@/lib/company";
 import { MarketingShot } from "@/components/MarketingShot";
 import { shelfStyleVars } from "@/components/explore/ShelfTile";
 import { EnquiryForm } from "./enquiry-form";
@@ -8,9 +10,9 @@ import { EnquiryForm } from "./enquiry-form";
 export const metadata: Metadata = { title: `Publish with ${brand.name}` };
 
 /**
- * F-001. Copy is the draft in docs/legal/publish-with-akana-copy.md, for
- * Crent to approve on Thursday 8 October. Process only. No revenue figures,
- * rates or prices until Crent sets them. The enquiry form posts to the
+ * F-001. Copy is the draft in docs/legal/publish-with-akana-copy.md. The
+ * revenue share figures are approved as draft wording (see proposedRevenueShare
+ * in lib/company.ts) and are stated in the pay section. The enquiry form posts to the
  * submitEnquiry server action: one row in public.leads through
  * public.submit_lead, then an email to the Akana team.
  */
@@ -39,7 +41,7 @@ const DOES = [
   "Hosts it, keeps it working and keeps it up to date",
   "Sells it, handles payment, tax and refunds, and pays you from net receipts",
   "Shows readers Help now on every screen of a wellbeing workbook",
-  `Seals readers' answers so that nobody, including ${brand.name}, can read them`,
+  `Keeps readers' answers private to them, so that nobody, including ${brand.name}, can read them`,
   "Gives you a dashboard with counts of readers and completions, with small numbers suppressed to protect reader privacy",
 ];
 
@@ -58,7 +60,7 @@ const RULES = [
   "Every wellbeing workbook has Help now one tap away.",
   "Nothing counts streaks or missed days. Readers are never shamed for a gap.",
   "Emails to readers never name the workbook they are using.",
-  "Reader answers are sealed before they reach the database and only the reader can unseal them.",
+  "Reader answers are encrypted before they reach the database and are private to the reader. Only the reader can read them.",
   "Readers must be 18 or over.",
   "Demo content is labelled on every surface and cannot be bought.",
 ];
@@ -70,7 +72,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "What does it cost me?",
-    a: `Nothing. There is no monthly fee and no set-up charge. ${brand.name} only earns when a reader pays, from that payment. The share is set out in the licence.`,
+    a: `Nothing. There is no monthly fee and no set-up charge. ${brand.name} only earns when a reader pays, from that payment. We agree the share with you in writing before anything goes live.`,
   },
   {
     q: "How long does a build take?",
@@ -90,7 +92,7 @@ const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "Can I see what readers write?",
-    a: "No. Nobody can. Answers are sealed so that only the reader can read them. You see counts of readers and completions, with small numbers suppressed.",
+    a: "No. Nobody can. Answers are private to the reader, so only they can read them. You see counts of readers and completions, with small numbers suppressed.",
   },
   {
     q: "What happens if I want to leave?",
@@ -99,156 +101,208 @@ const FAQ: { q: string; a: string }[] = [
 ];
 
 export default function PublishPage() {
+  const contact = support();
   return (
-    <main>
-      <section className="hero">
-        <div className="wrap mk-hero-grid">
-          <div>
-            <p className="eyebrow">For authors and publishers</p>
-            <h1>Turn your book into a guided workbook</h1>
-            <p>
-              {brand.name} builds interactive guided workbooks from published books. Readers work through your ideas a
-              week at a time, do the exercises and keep their answers. You keep your rights. We build, review, host and
-              sell the workbook under licence.
+    <main className="d-page">
+      <header className="d-hero d-hero-wash">
+        <div className="wrap d-hero-grid">
+          <div className="d-stack-s">
+            <p className="d-eyebrow">Publish with {brand.name}</p>
+            <h1>Turn your book into a workbook readers finish</h1>
+            <p className="d-lead">
+              {brand.name} builds interactive guided workbooks from published books. Readers work through your ideas a week at a time, do the
+              exercises and keep their answers. You keep your rights. We build, review, host and sell the workbook under licence.
             </p>
-            <p>
+            <p className="d-actions">
               <a className="btn" href="#enquiry">
-                Start an enquiry
+                Start a conversation
+              </a>
+              <a className="btn secondary" href="#how">
+                See how it works
               </a>
             </p>
           </div>
-          <div className="mk-hero-shots">
+          <div className="d-shot">
             <MarketingShot name="workbook-phone" alt="What your readers see: the workbook page with its cover, a short description and the path through the weeks." priority />
+          </div>
+        </div>
+      </header>
+
+      <section className="d-section" aria-labelledby="pub-pay">
+        <div className="wrap">
+          <div className="d-card d-card-roomy d-money">
+            <div className="d-stack-s">
+              <p className="d-eyebrow">How you are paid</p>
+              <h2 id="pub-pay">You keep half of every sale, more when your readers come from you</h2>
+            </div>
+            <div className="d-stack-s">
+              <ul className="d-list">
+                <li>
+                  <strong>50% of net receipts</strong> on every single sale.
+                </li>
+                <li>
+                  <strong>60% of net receipts</strong> on sales that come through your own link.
+                </li>
+                <li>
+                  <strong>50% of the membership pool</strong>, shared between authors by reading activity.
+                </li>
+              </ul>
+              <p>
+                Net receipts means what we receive after tax, payment fees and refunds. You are paid every Friday. A sale is paid on the first
+                Friday after its 14 day refund window ends. A monthly statement gives the exact figures for your records.
+              </p>
+              <p className="d-soft">We agree the share with you in writing before anything goes live.</p>
+            </div>
+          </div>
+          <ul className="d-promises" aria-label="How we work with authors">
+            <li style={shelfStyleVars("money")}>
+              <strong>No monthly fee</strong>
+              <span>Nothing to pay to list a book or keep it live.</span>
+            </li>
+            <li style={shelfStyleVars("health-and-body")}>
+              <strong>You are paid when a reader pays</strong>
+              <span>We take our share from a reader&apos;s payment, never from you.</span>
+            </li>
+            <li style={shelfStyleVars("learning-and-skills")}>
+              <strong>Paid every Friday</strong>
+              <span>A sale is paid on the first Friday after its 14 day refund window. Balances under £10 carry forward.</span>
+            </li>
+            <li style={shelfStyleVars("love-and-relationships")}>
+              <strong>We answer your readers&apos; questions</strong>
+              <span>Support for your readers is ours to handle, not yours.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="how" className="d-section" aria-labelledby="pub-how">
+        <div className="wrap d-stack">
+          <h2 id="pub-how">How it works</h2>
+          <ol className="d-steps">
+            {STEPS.map((s, i) => (
+              <li className="d-card" key={s.title}>
+                <span className="d-num" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <h3>
+                  <span className="d-visually-hidden">Step {i + 1}. </span>
+                  {s.title}
+                </h3>
+                <p className="d-soft">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="d-section d-band" aria-labelledby="pub-for">
+        <div className="wrap d-stack">
+          <h2 id="pub-for">Who it is for</h2>
+          <div className="d-cards">
+            <div className="d-card">
+              <h3>Authors</h3>
+              <p className="d-soft">
+                With a published non-fiction book that teaches something: a method, a set of habits, a way of thinking. Across the ten shelves,
+                from Mind and Mood to Creativity and Making.
+              </p>
+            </div>
+            <div className="d-card">
+              <h3>Publishers</h3>
+              <p className="d-soft">With a list of such books, who want a new format without building an app.</p>
+            </div>
+            <div className="d-card">
+              <h3>Publishers who want their own site</h3>
+              <p className="d-soft">Under their own name, built on the same platform. See below.</p>
+            </div>
+          </div>
+          <MarketingShot name="explore-desktop" alt="The Explore page on a laptop: ten pastel shelves and rows of workbooks, where readers find your book." />
+        </div>
+      </section>
+
+      <section className="d-section" aria-label="What we do and do not do">
+        <div className="wrap d-cards d-cards-2">
+          <section className="d-card d-card-roomy" aria-labelledby="pub-does">
+            <h2 id="pub-does">What {brand.name} does</h2>
+            <ul className="d-list">
+              {DOES.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          </section>
+          <section className="d-card d-card-roomy" aria-labelledby="pub-doesnot">
+            <h2 id="pub-doesnot">What {brand.name} does not do</h2>
+            <ul className="d-list">
+              {DOES_NOT.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section className="d-section" aria-labelledby="pub-rules">
+        <div className="wrap d-stack-s">
+          <h2 id="pub-rules">House rules the platform enforces</h2>
+          <p className="d-soft">These are built into the code, not just the terms.</p>
+          <ul className="d-list">
+            {RULES.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="d-section" aria-labelledby="pub-brand">
+        <div className="wrap">
+          <div className="d-card d-card-roomy d-stack-s">
+            <h2 id="pub-brand">Your own branded site</h2>
+            <p>
+              Publishers can run their list on a site under their own name and domain, built and hosted by {brand.name}. Same reader experience,
+              same house rules, your brand. Talk to us.
+            </p>
+            <p className="small">
+              <Link href="/white-label">About branded sites</Link> · <Link href="/pricing">Pricing</Link> ·{" "}
+              <Link href="/organisations">{brand.name} for organisations</Link>
+            </p>
           </div>
         </div>
       </section>
 
-      <div className="wrap" style={{ paddingBlockStart: "2rem" }}>
-        <ul className="mk-promises" aria-label="How we work with authors">
-          <li style={shelfStyleVars("money")}>
-            <strong>No monthly fee</strong>
-            <span>Nothing to pay to list a book or keep it live.</span>
-          </li>
-          <li style={shelfStyleVars("health-and-body")}>
-            <strong>You pay only when a reader does</strong>
-            <span>We take our share from a reader&apos;s payment, never from you.</span>
-          </li>
-          <li style={shelfStyleVars("learning-and-skills")}>
-            <strong>Paid every Friday</strong>
-            <span>A sale is paid on the first Friday after its 14 day refund window. Balances under £10 carry forward.</span>
-          </li>
-          <li style={shelfStyleVars("love-and-relationships")}>
-            <strong>We answer your readers&apos; questions</strong>
-            <span>Support for your readers is ours to handle, not yours.</span>
-          </li>
-        </ul>
-      </div>
-
-      <div className="wrap" style={{ paddingBlockStart: "1.5rem" }}>
-        <MarketingShot name="explore-desktop" alt="The Explore page on a laptop: ten pastel shelves and rows of workbooks, where readers find your book." />
-      </div>
-
-      <div className="wrap" style={{ paddingBlock: "2.5rem" }}>
-        <h2>Who it is for</h2>
-        <div className="grid">
-          <div className="card">
-            <strong>Authors</strong>
-            <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>
-              With a published non-fiction book that teaches something: a method, a set of habits, a way of thinking.
-              Across the ten shelves, from Mind and Mood to Creativity and Making.
+      <section id="enquiry" className="d-section d-band" aria-labelledby="pub-enquiry">
+        <div className="wrap d-split d-split-top">
+          <div className="d-stack-s">
+            <h2 id="pub-enquiry">Start a conversation</h2>
+            <p className="d-soft">Tell us about your book. We reply within {company.replyTime}.</p>
+            <p className="d-soft">
+              Prefer to write? Email {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}.
+            </p>
+            <p className="d-soft">
+              Looking to bring {brand.name} to a school, charity or workplace? <Link href="/organisations">Go to organisations</Link>.
             </p>
           </div>
-          <div className="card">
-            <strong>Publishers</strong>
-            <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>
-              With a list of such books, who want a new format without building an app.
-            </p>
-          </div>
-          <div className="card">
-            <strong>Publishers who want their own site</strong>
-            <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>
-              Under their own name, built on the same platform. See below.
-            </p>
+          <div className="d-formwrap">
+            <EnquiryForm brandName={brand.name} />
           </div>
         </div>
+      </section>
 
-        <h2 style={{ marginBlockStart: "2.5rem" }}>How it works</h2>
-        <ol className="grid" style={{ padding: 0, listStyle: "none", counterReset: "step" }}>
-          {STEPS.map((s, i) => (
-            <li className="card" key={s.title}>
-              <p className="eyebrow muted" style={{ fontSize: "0.85rem", letterSpacing: "0.08em", textTransform: "uppercase", marginBlockEnd: "0.4rem" }}>
-                Step {i + 1}
-              </p>
-              <strong>{s.title}</strong>
-              <p className="muted" style={{ marginBlockStart: "0.4rem", marginBlockEnd: 0 }}>{s.body}</p>
-            </li>
-          ))}
-        </ol>
-
-        <div className="grid" style={{ marginBlockStart: "2.5rem" }}>
-          <section className="card">
-            <h2 style={{ fontSize: "1.25rem" }}>What {brand.name} does</h2>
-            <ul style={{ paddingInlineStart: "1.2rem", margin: 0 }}>
-              {DOES.map((d) => (
-                <li key={d} style={{ marginBlockEnd: "0.4rem" }}>{d}</li>
-              ))}
-            </ul>
-          </section>
-          <section className="card">
-            <h2 style={{ fontSize: "1.25rem" }}>What {brand.name} does not do</h2>
-            <ul style={{ paddingInlineStart: "1.2rem", margin: 0 }}>
-              {DOES_NOT.map((d) => (
-                <li key={d} style={{ marginBlockEnd: "0.4rem" }}>{d}</li>
-              ))}
-            </ul>
-          </section>
+      <section className="d-section" aria-labelledby="pub-faq">
+        <div className="wrap d-stack">
+          <h2 id="pub-faq">Questions authors ask</h2>
+          <div className="d-accordion">
+            {FAQ.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p className="d-soft">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
+      </section>
 
-        <h2 style={{ marginBlockStart: "2.5rem" }}>House rules the platform enforces</h2>
-        <p className="muted">These are built into the code, not just the terms.</p>
-        <ul style={{ paddingInlineStart: "1.2rem" }}>
-          {RULES.map((r) => (
-            <li key={r} style={{ marginBlockEnd: "0.4rem", maxInlineSize: "var(--measure)" }}>{r}</li>
-          ))}
-        </ul>
-
-        <section className="card" style={{ marginBlockStart: "2.5rem" }}>
-          <h2 style={{ fontSize: "1.25rem" }}>Your own branded site</h2>
-          <p style={{ marginBlockEnd: 0 }}>
-            Publishers can run their list on a site under their own name and domain, built and hosted by {brand.name}.
-            Same reader experience, same house rules, your brand. Talk to us.
-          </p>
-          <p className="small">
-            <Link href="/white-label">About branded sites</Link> · <Link href="/pricing">Pricing</Link> ·{" "}
-            <Link href="/organisations">{brand.name} for organisations</Link>
-          </p>
-        </section>
-
-        <section id="enquiry" style={{ marginBlockStart: "2.5rem" }}>
-          <h2>Enquiry</h2>
-          <EnquiryForm brandName={brand.name} />
-        </section>
-
-        <section style={{ marginBlockStart: "2.5rem" }}>
-          <h2>Questions authors ask</h2>
-          {FAQ.map((f) => (
-            <details key={f.q} className="card" style={{ marginBlockEnd: "0.75rem" }}>
-              <summary style={{ fontWeight: 600, cursor: "pointer" }}>{f.q}</summary>
-              <p className="muted" style={{ marginBlockStart: "0.6rem", marginBlockEnd: 0 }}>{f.a}</p>
-            </details>
-          ))}
-        </section>
+      <div className="wrap">
+        <InfoFooter />
       </div>
-
-      <footer className="footer">
-        <div className="wrap">
-          <p style={{ marginBlockEnd: "0.4rem" }}>{brand.wellnessNotice}</p>
-          <p style={{ marginBlockEnd: 0 }}>
-            <Link href="/legal/terms">Terms</Link> · <Link href="/legal/privacy">Privacy</Link> ·{" "}
-            <Link href="/legal/cookies">Cookies</Link> · <Link href="/legal/refunds">Refunds</Link>
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }

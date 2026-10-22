@@ -216,6 +216,10 @@ export const RELEASE_NOTICES = {
   invalid: { tone: "error", text: "Please check the form. Nothing changed." },
   denied: { tone: "error", text: "Your role cannot do that. Nothing changed." },
   failed: { tone: "error", text: "We're sorry. That did not work just now. Nothing changed. Please try again." },
+  built: { tone: "ok", text: "Draft saved as a new version. Preview it, then sign it off when you are ready." },
+  "question-saved": { tone: "ok", text: "Question saved. Readers see it once they finish the programme." },
+  "question-cleared": { tone: "ok", text: "Question removed." },
+  "question-invalid": { tone: "error", text: "Check the question. It needs 5 to 140 characters and two to five different answers, and wellbeing titles cannot take one." },
 } as const;
 export type ReleaseNotice = keyof typeof RELEASE_NOTICES;
 

@@ -302,6 +302,9 @@ export interface CollectionRow {
   coverGenre: string;
   coverPattern: string | null;
   sort: number;
+  /** Seasonal window (12.5, migration 0062), UK dates as YYYY-MM-DD. Null means no limit. */
+  startsOn?: string | null;
+  endsOn?: string | null;
   /** Workbook ids in staff order. */
   items: { workbookId: string; position: number }[];
 }

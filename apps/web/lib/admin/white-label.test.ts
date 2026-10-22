@@ -88,3 +88,11 @@ describe("tenant price line (F-069)", () => {
     expect(tenantPriceLine({ isDemo: false, pricePointId: null })).toBe("Price to be confirmed");
   });
 });
+
+describe("parseBrandForm shape (1.10)", () => {
+  it("passes the chosen corners through for validation, and leaves them out when blank", () => {
+    const get = (v: Record<string, string>) => (k: string) => v[k] ?? null;
+    expect(parseBrandForm(get({ name: "X", shape: "soft" })).brand.shape).toBe("soft");
+    expect("shape" in parseBrandForm(get({ name: "X", shape: "" })).brand).toBe(false);
+  });
+});

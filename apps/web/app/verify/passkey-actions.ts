@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { safeNextPath } from "@/lib/auth";
 import { binaryToJson, parseCredentialJson, relyingParty, type CredentialKind } from "@/lib/mfa/passkey-json";
 import { getRoleMfaSession, passkeyEnabled } from "@/lib/mfa/role-mfa-server";
+import { flagEnabled } from "@/lib/platform/flags-server";
 import { originFrom } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -66,6 +67,41 @@ export async function startPasskeyAdd(): Promise<CeremonyState> {
     if (f.factor_type === "webauthn" && f.status === "unverified") await s.supabase.auth.mfa.unenroll({ factorId: f.id });
   }
   const { data: enrolled, error: enErr } = await s.supabase.auth.mfa.enroll({ factorType: "webauthn", friendlyName: `Akana passkey ${factors.webauthn.length + 1}` });
+  if (enErr || !enrolled) {
+    console.error("passkey_enrol_failed", enErr?.code ?? "");
+    return { status: "error", message: "Could not start adding a passkey. Try again in a moment." };
+  }
+  const { data, error: chErr } = await s.supabase.auth.mfa.challenge({ factorId: enrolled.id, webauthn: s.rp });
+  if (chErr || !data || data.webauthn.type !== "create") {
+    console.error("passkey_challenge_failed", chErr?.code ?? "");
+    await s.supabase.auth.mfa.unenroll({ factorId: enrolled.id });
+    return { status: "error", message: "Could not start adding a passkey. Try again in a moment." };
+  }
+  return { status: "ready", kind: "create", factorId: enrolled.id, challengeId: data.id, options: binaryToJson(data.webauthn.credential_options.publicKey) };
+}
+
+/**
+ * Add a passkey from a reader's own security page (10.8, 13.3), behind the
+ * reader_passkeys cohort flag as well as mfa_passkey. Unlike startPasskeyAdd
+ * it also works for a reader with no second factor yet: Supabase lets a first
+ * factor be added from an ordinary session, and asks for the second factor
+ * only to add another. A reader who already has a factor must have passed it
+ * on this session. A passkey here is an extra check after the sign-in link,
+ * never a way to skip it.
+ */
+export async function startReaderPasskeyAdd(): Promise<CeremonyState> {
+  const s = await setup();
+  if (!s) return { status: "error", message: OFF };
+  if (!(await flagEnabled("reader_passkeys"))) return { status: "error", message: "Passkeys are not available on your account yet." };
+  const { data: factors, error: listErr } = await s.supabase.auth.mfa.listFactors();
+  if (listErr) return { status: "error", message: "Could not read your sign-in settings. Try again." };
+  const hasFactor = factors.all.some((f) => f.status === "verified");
+  if (hasFactor && !(await getRoleMfaSession()).verified) return { status: "error", message: "Check it is you first, then add a passkey." };
+  if (factors.webauthn.length >= 5) return { status: "error", message: "You already have five passkeys. Remove one first." };
+  for (const f of factors.all) {
+    if (f.factor_type === "webauthn" && f.status === "unverified") await s.supabase.auth.mfa.unenroll({ factorId: f.id });
+  }
+  const { data: enrolled, error: enErr } = await s.supabase.auth.mfa.enroll({ factorType: "webauthn", friendlyName: `Passkey ${factors.webauthn.length + 1}` });
   if (enErr || !enrolled) {
     console.error("passkey_enrol_failed", enErr?.code ?? "");
     return { status: "error", message: "Could not start adding a passkey. Try again in a moment." };

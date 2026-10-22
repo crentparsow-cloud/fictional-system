@@ -1,9 +1,9 @@
 import "server-only";
 import type Stripe from "stripe";
-import { isTestKey } from "@/lib/money/reconcile";
 import { refundCoolingOff } from "@/lib/membership-refund";
 import { bandProration, billingErrorNotice, ORG_PLANS, orgPriceId, type BillingNotice, type ChurchBandPlan, type OrgPlanId, type SignupInput } from "@/lib/org-billing";
-import { getStripe } from "@/lib/stripe";
+import { loadPlanPrices, resolveStripePrice } from "@/lib/org-plans-server";
+import { testStripe } from "@/lib/org-stripe";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -15,15 +15,7 @@ import { createUserClient } from "@/lib/supabase/server";
  * never from here, so there is one writer for the mirror. No service role.
  */
 
-/** The Stripe client, only in test mode. */
-export function testStripe(): Stripe | null {
-  if (!isTestKey(process.env.STRIPE_SECRET_KEY)) return null;
-  try {
-    return getStripe();
-  } catch {
-    return null;
-  }
-}
+export { testStripe };
 
 const EU = new Set(["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"]);
 
@@ -33,6 +25,26 @@ export function vatTaxIdType(vat: string): "gb_vat" | "eu_vat" | null {
   if (prefix === "GB") return "gb_vat";
   if (EU.has(prefix) || prefix === "EL") return "eu_vat";
   return null;
+}
+
+/**
+ * The Stripe price id for a plan: an env override first, else the price from
+ * the table (0060). With no Stripe client, only an env id can be returned.
+ */
+async function priceFor(stripe: Stripe | null, plan: OrgPlanId): Promise<string | null> {
+  const env = orgPriceId(plan);
+  if (env) return env;
+  if (!stripe) {
+    // Nothing to ask Stripe with: say "not priced" only when the table has no row either.
+    const rows = await loadPlanPrices();
+    return rows.some((r) => r.id === plan) ? "pending_stripe" : null;
+  }
+  try {
+    return await resolveStripePrice(stripe, plan, await loadPlanPrices());
+  } catch (e) {
+    console.error("org_billing_price_failed", { plan, reason: e instanceof Error ? e.name : "unknown" });
+    return null;
+  }
 }
 
 interface LinkCheckRow {
@@ -55,9 +67,9 @@ interface LinkCheckRow {
  * links the subscription to the licence (metadata licence_id).
  */
 export async function startLicenceBilling(a: { licenceId: string; plan: OrgPlanId; poNumber: string | null }): Promise<BillingNotice> {
-  const price = orgPriceId(a.plan);
-  if (!price) return "not_priced";
   const stripe = testStripe();
+  const price = await priceFor(stripe, a.plan);
+  if (!price) return "not_priced";
   if (!stripe) return "stripe_off";
   const supabase = await createUserClient();
   const { data, error } = await supabase.rpc("org_billing_link_check", { p_licence: a.licenceId });
@@ -224,9 +236,9 @@ export async function changeLicenceBand(a: {
   plan: ChurchBandPlan;
   staff?: { reason: string; prorate: boolean };
 }): Promise<BillingNotice> {
-  const price = orgPriceId(a.plan);
-  if (!price) return "not_priced";
   const stripe = testStripe();
+  const price = await priceFor(stripe, a.plan);
+  if (!price) return "not_priced";
   if (!stripe) return "stripe_off";
   const supabase = await createUserClient();
   const { data, error } = await supabase.rpc("org_billing_band_change_check", {

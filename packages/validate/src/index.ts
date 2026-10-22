@@ -18,9 +18,11 @@ import {
   claimPatterns,
   genreProfile,
 } from "./rules";
+import { habitLanguageHits } from "./habit-lint";
 
 export * from "./rules";
 export * from "./stability";
+export * from "./habit-lint";
 
 export type Severity = "error" | "warning";
 export type Category = "schema" | "style" | "claims" | "limit" | "refs" | "count" | "safety" | "depth";
@@ -421,6 +423,20 @@ function checkUnits(doc: Workbook, out: Finding[]): void {
   }
 }
 
+/**
+ * 11.3: titles on the standard and higher safety tiers (tiers 1 and 2) carry
+ * no streak, daily goal, countdown or hurry language. See habit-lint.ts.
+ */
+function checkHabitLanguage(doc: Workbook, out: Finding[]): void {
+  if (doc.safety_tier === "none") return;
+  for (const [path, s] of walk(doc)) {
+    if (!isReaderCopy(path)) continue;
+    for (const h of habitLanguageHits(s)) {
+      out.push({ severity: h.severity, category: "safety", path, message: `${h.message} '${h.match}' in a mental health title`, excerpt: excerpt(s, 60) });
+    }
+  }
+}
+
 function checkSafety(doc: Workbook, out: Finding[]): void {
   const err = (path: string, message: string) => out.push({ severity: "error", category: "safety", path, message });
   const wellbeing = doc.safety_tier !== "none";
@@ -517,6 +533,7 @@ export function validateWorkbook(input: unknown, opts: ValidateOptions = {}): Va
   checkUnits(doc, findings);
   checkFields(doc, findings);
   checkSafety(doc, findings);
+  checkHabitLanguage(doc, findings);
   checkCountsAndDepth(doc, findings, opts);
 
   const errors = findings.filter((f) => f.severity === "error");

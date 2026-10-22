@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { ReaderTabs } from "@/components/ReaderTabs";
+import { ReaderTopBar } from "@/components/reader/ReaderTopBar";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 import { ReadingApply } from "@/components/reader/ReadingApply";
 import { ReadOnlyBanner } from "@/components/reader/ReadOnlyBanner";
@@ -52,6 +53,7 @@ export default async function ReaderLayout({ children }: { children: React.React
       <a className="skip-link" href="#main">
         {t("common.skipToContent")}
       </a>
+      <ReaderTopBar homeHref="/home" link={{ href: "/my-workbooks", label: "Your shelf" }} />
       <main id="main" className="reader-main wrap" tabIndex={-1}>
         {/* You has its own deletion banner with the Cancel button. */}
         {current.startsWith("/you") ? null : <ReadOnlyBanner state={deletion} />}

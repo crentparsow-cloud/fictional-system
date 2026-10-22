@@ -55,6 +55,25 @@ describe("sitemap (F-011)", () => {
     expect(paths).toContain("/publishers/real-press");
   });
 
+  it("lists shelf, collection and book club pages, and the new public pages (2.11, 6.10, 14.16, 14.34, 6.11)", () => {
+    const withExtras = sitemapPaths({ ...input, shelfIds: ["money", "../x"], collectionSlugs: ["start-here"] });
+    expect(withExtras).toContain("/shelves/money");
+    expect(withExtras).not.toContain("/shelves/../x");
+    expect(withExtras).toContain("/collections/start-here");
+    expect(withExtras).toContain("/book-clubs/real-book");
+    expect(withExtras).not.toContain("/book-clubs/demo-book");
+    for (const p of ["/book-clubs", "/newsletter", "/tell-your-minister"]) expect(withExtras).toContain(p);
+    // Without the optional lists nothing is added and nothing breaks.
+    expect(paths.some((p) => p.startsWith("/shelves/") || p.startsWith("/collections/"))).toBe(false);
+  });
+
+  it("keeps wellbeing titles off the book club list", () => {
+    const wellbeing = [card({ id: "9", slug: "mind-book", code: "AK-CCCC3", safetyTier: "standard" })];
+    const out = sitemapPaths({ ...input, cards: wellbeing });
+    expect(out).toContain("/w/mind-book");
+    expect(out).not.toContain("/book-clubs/mind-book");
+  });
+
   it("keeps out demo workbooks, demo authors and demo imprints, which are noindex", () => {
     expect(paths).not.toContain("/w/demo-book");
     expect(paths).not.toContain("/authors/demo-author");

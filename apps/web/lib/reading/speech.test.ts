@@ -198,4 +198,23 @@ describe("Speaker", () => {
     sp.play();
     expect(synth.spoken).toEqual([]);
   });
+
+  it("passes word positions on while the voice reports them, and stays quiet when it does not", async () => {
+    const synth = fakeSynth();
+    const words: Array<[number, number]> = [];
+    const sp = new Speaker({ synth, makeUtterance: make, platform: "desktop", lang: "en-GB", onWord: (i, c) => words.push([i, c]) });
+    await sp.prepare({ setTimeout: () => 0, clearTimeout: () => undefined });
+    sp.setChunks(chunks);
+    sp.play();
+    const u = synth.spoken.at(-1)!;
+    u.onboundary!({ name: "word", charIndex: 4 });
+    u.onboundary!({ name: "sentence", charIndex: 0 });
+    u.onboundary!({ name: "word" });
+    expect(words).toEqual([[0, 4]]);
+    // A voice that sends nothing leaves the sentence highlight to carry on.
+    const stale = synth.spoken.at(-1)!;
+    sp.skip(1);
+    stale.onboundary!({ name: "word", charIndex: 2 });
+    expect(words).toEqual([[0, 4]]);
+  });
 });

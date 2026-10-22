@@ -5,6 +5,7 @@ import { authorIndex, cardsByCodes, listPublishers, workbookCount } from "@/lib/
 import { brand } from "@/lib/brand";
 import { listLibrary } from "@/lib/catalogue";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
 
 /**
  * Every author and publisher with a live workbook on this storefront (F-006).
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: "Authors and publishers",
   description: `The authors and publishers behind ${brand.name} workbooks.`,
   alternates: { canonical: "/authors" },
+  robots: publicRobots(),
 };
 
 export default async function AuthorsPage() {
@@ -27,7 +29,7 @@ export default async function AuthorsPage() {
 
   return (
     <main className="wb-page browse-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link>
@@ -87,9 +89,6 @@ export default async function AuthorsPage() {
           <Link href="/themes">Browse by Theme</Link>
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         <NeedSupportFooter label={t("help.needSupport")} />
       </div>
     </main>

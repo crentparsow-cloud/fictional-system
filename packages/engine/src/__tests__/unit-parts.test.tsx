@@ -27,6 +27,17 @@ describe("unit screen, schema 3.1 parts", () => {
     expect(container.querySelector(".ak-takeaway p")?.textContent).toBe("Three people are named.");
   });
 
+  it("shows the companion book link when the unit has one, and nothing when it has not", () => {
+    const withLink = { ...first, companion: { label: "Chapter 1 of the book", url: "https://example.com/book/1" } };
+    const a = render(<UnitScreen workbook={base} unit={withLink} store={new MemoryAnswerStore()} mode="full" />);
+    const link = a.container.querySelector<HTMLAnchorElement>(".ak-companion a");
+    expect(link?.getAttribute("href")).toBe("https://example.com/book/1");
+    expect(link?.getAttribute("rel")).toContain("noopener");
+    cleanup();
+    const b = render(<UnitScreen workbook={base} unit={first} store={new MemoryAnswerStore()} mode="full" />);
+    expect(b.container.querySelector(".ak-companion")).toBeNull();
+  });
+
   it("renders the same in paged mode", () => {
     const unit = { ...first, intro: "Why.", ideas, takeaway: "Take this." };
     const { container } = render(<UnitScreen workbook={base} unit={unit} store={new MemoryAnswerStore()} paged />);

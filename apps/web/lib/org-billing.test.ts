@@ -58,6 +58,7 @@ describe("plans and prices", () => {
     expect(teams.map((p) => [p.plan.id, p.priced])).toEqual([
       ["teams_seat_month", false],
       ["teams_seat_year", true],
+      ["small_org_year", false],
     ]);
     expect(plansForLicenceKind("pilot", ENV)).toEqual([]);
   });

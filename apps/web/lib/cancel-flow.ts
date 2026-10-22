@@ -1,12 +1,11 @@
 import { planFromPoint, type MembershipPlan } from "@/lib/membership";
-import type { SharedOffer } from "@/lib/shared-membership";
 import { PAUSE_MONTHS, canPause, pauseRefusal, pauseState, type PauseMonths, type PauseSubject } from "@/lib/membership-pause";
 
 /**
  * The cancellation flow (14.24) as pure data and decisions.
  *
  * One screen at /you/membership/cancel. One optional reason. One offer, which
- * is the shared plan or a pause, never both. Then a Cancel button that says
+ * is a pause and nothing else (Phase B decision 14.25). Then a Cancel button that says
  * what it does. Nothing here asks "are you sure", nothing counts down, and
  * nothing is compulsory: the reason can be left empty and the Cancel button
  * works without it.
@@ -82,22 +81,17 @@ export function cancelView(sub: CancelSubject | null, now: Date): CancelView {
 // The one offer
 // ---------------------------------------------------------------------------
 
-export type Offer = { kind: "shared"; offer: SharedOffer } | { kind: "pause"; months: readonly PauseMonths[] } | { kind: "none" };
+export type Offer = { kind: "pause"; months: readonly PauseMonths[] } | { kind: "none" };
 
 /**
- * Exactly one offer, or none. A member who says cost is the reason, and who
- * is not already sharing, sees the shared plan when it can be bought.
- * Everyone else who can pause sees a pause. A member who cannot pause and
- * has no shared plan to be offered sees no offer, only the Cancel button.
- * `reason` null (nothing chosen) counts as not cost.
+ * A pause is the only save offer (14.25). A member who can pause sees it
+ * whatever reason they gave, including cost. A member who cannot pause (a
+ * yearly plan, a trial, a plan already ending) sees no offer, only the Cancel
+ * button. `reason` is accepted so the form can pass it, and changes nothing.
  */
-export function chooseOffer(input: { reason: CancelReason | null; view: CancelView; sharedOffer: SharedOffer | null }): Offer {
+export function chooseOffer(input: { reason: CancelReason | null; view: CancelView }): Offer {
   if (input.view.kind !== "cancellable") return { kind: "none" };
-  const single = input.view.plan !== "two_monthly" && input.view.plan !== "two_yearly";
-  const shared = single ? input.sharedOffer : null;
-  if (input.reason === "too_expensive" && shared) return { kind: "shared", offer: shared };
   if (input.view.pausable) return { kind: "pause", months: PAUSE_MONTHS };
-  if (shared) return { kind: "shared", offer: shared };
   return { kind: "none" };
 }
 

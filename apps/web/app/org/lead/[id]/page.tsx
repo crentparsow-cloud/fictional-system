@@ -124,6 +124,14 @@ export default async function LeaderViewPage({ params, searchParams }: { params:
         </p>
       </section>
 
+      <section className="card" aria-labelledby="kit-h">
+        <h2 id="kit-h">Leader kit</h2>
+        <p>A talk outline and discussion questions for each week, welcome slides to print and a session scheduler.</p>
+        <p>
+          <Link href={`/org/lead/${view.group_id}/kit`}>Open the leader kit</Link>
+        </p>
+      </section>
+
       <section className="card" aria-labelledby="guide-h">
         <h2 id="guide-h">Facilitator guide</h2>
         {!view.guide_available ? (

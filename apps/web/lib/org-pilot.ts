@@ -288,6 +288,7 @@ export const ORG_NOTICES = {
   created: { tone: "ok", text: "Organisation created." },
   saved: { tone: "ok", text: "Saved." },
   licence_created: { tone: "ok", text: "Licence recorded." },
+  pilot_started: { tone: "ok", text: "Pilot started." },
   licence_saved: { tone: "ok", text: "Licence updated." },
   titles_saved: { tone: "ok", text: "Titles updated." },
   invited: { tone: "ok", text: "Invitation sent." },

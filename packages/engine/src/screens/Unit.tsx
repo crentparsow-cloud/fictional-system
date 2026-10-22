@@ -81,6 +81,19 @@ function UnitTakeaway({ unit }: { unit: ProgrammeUnit }) {
   );
 }
 
+/** 3.12: the link to the matching part of the author's book, when the unit has one. */
+function UnitCompanion({ unit }: { unit: ProgrammeUnit }) {
+  if (!unit.companion) return null;
+  return (
+    <p className="ak-companion">
+      <a href={unit.companion.url} target="_blank" rel="noopener noreferrer">
+        {unit.companion.label}
+        <span className="ak-visually-hidden"> (opens in a new tab)</span>
+      </a>
+    </p>
+  );
+}
+
 /**
  * One unit: its focus line, the stage primer when the unit opens a stage,
  * the exercises in full, and repeats of earlier exercises as short versions.
@@ -250,6 +263,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
         </ul>
 
         <UnitTakeaway unit={unit} />
+<UnitCompanion unit={unit} />
 
         {unit.selfcheck && doc.selfcheck && onOpenSelfCheck ? (
           <Card>
@@ -360,6 +374,7 @@ export function UnitScreen({ workbook: doc, unit, store, readOnly, mode, onExerc
       })}
 
       <UnitTakeaway unit={unit} />
+<UnitCompanion unit={unit} />
 
       {unit.selfcheck && doc.selfcheck && onOpenSelfCheck ? (
         <Card>

@@ -1,7 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import { CANCEL_REASONS, CANCEL_START, cancelStep, cancelView, chooseOffer, parseCancelForm, pickSubject, type CancelSubject } from "./cancel-flow";
 import { runCancelEvent, runStaffCancel, type CancelMailApi, type StripeSubscriptionsApi } from "./membership-cancel";
-import type { SharedOffer } from "./shared-membership";
 
 const NOW = new Date("2026-10-14T09:00:00Z");
 const sub = (over: Partial<CancelSubject> = {}): CancelSubject => ({
@@ -15,7 +14,6 @@ const sub = (over: Partial<CancelSubject> = {}): CancelSubject => ({
   pausedUntil: null,
   ...over,
 });
-const OFFER: SharedOffer = { placement: "cancellation", headline: "h", body: "b", cta: "c", href: "/pricing#two-people" };
 const fakes = () => {
   const stripe = { update: vi.fn(async () => ({})), cancel: vi.fn(async () => ({})) } satisfies StripeSubscriptionsApi;
   const mail = { paused: vi.fn(async () => null), endedNow: vi.fn(async () => null) } satisfies CancelMailApi;
@@ -43,24 +41,18 @@ describe("cancel view", () => {
 describe("the one offer", () => {
   const view = cancelView(sub(), NOW);
   it("offers a pause by default", () => {
-    expect(chooseOffer({ reason: null, view, sharedOffer: OFFER }).kind).toBe("pause");
+    expect(chooseOffer({ reason: null, view }).kind).toBe("pause");
   });
-  it("offers the shared plan when cost is the reason", () => {
-    expect(chooseOffer({ reason: "too_expensive", view, sharedOffer: OFFER }).kind).toBe("shared");
+  it("offers a pause, and only a pause, when cost is the reason", () => {
+    expect(chooseOffer({ reason: "too_expensive", view }).kind).toBe("pause");
   });
-  it("falls back to a pause when the shared plan is not for sale", () => {
-    expect(chooseOffer({ reason: "too_expensive", view, sharedOffer: null }).kind).toBe("pause");
-  });
-  it("offers nothing to someone who cannot pause and has no shared plan", () => {
+  it("offers nothing to someone who cannot pause", () => {
     const yearly = cancelView(sub({ plan: "member_year" }), NOW);
-    expect(chooseOffer({ reason: null, view: yearly, sharedOffer: null }).kind).toBe("none");
+    expect(chooseOffer({ reason: null, view: yearly }).kind).toBe("none");
+    expect(chooseOffer({ reason: "too_expensive", view: yearly }).kind).toBe("none");
   });
-  it("never offers the shared plan to someone already on it", () => {
-    const two = cancelView(sub({ plan: "member_two_month" }), NOW);
-    expect(chooseOffer({ reason: "too_expensive", view: two, sharedOffer: OFFER }).kind).toBe("pause");
-    const twoYear = cancelView(sub({ plan: "member_two_year" }), NOW);
-    expect(twoYear).toMatchObject({ kind: "cancellable", plan: "two_yearly" });
-    expect(chooseOffer({ reason: "too_expensive", view: twoYear, sharedOffer: OFFER }).kind).toBe("pause");
+  it("offers nothing when the view is not cancellable", () => {
+    expect(chooseOffer({ reason: null, view: cancelView(null, NOW) }).kind).toBe("none");
   });
 });
 

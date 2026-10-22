@@ -3,6 +3,7 @@ import { listLibrary } from "@/lib/catalogue";
 import { marketFor } from "@/lib/markets";
 import { hasLiveMembership, membershipPlansOpen, type SubscriptionRow } from "@/lib/membership";
 import { offerPlans, type OfferPlan, type LibraryPeek } from "@/lib/membership-offer";
+import { offerTimingFrom, offerUseFrom, usedEnough } from "@/lib/offer-timing";
 import { trialEligible } from "@/lib/membership-trial";
 import { loadTrialConfig } from "@/lib/membership-trial-server";
 import { PRICE_LADDER, marketPriceFor, pricePointFromRow, type PricePoint, type PricePointId } from "@/lib/pricing";
@@ -17,8 +18,8 @@ export interface MembershipOfferProps {
 
 /**
  * What the onboarding offer needs for this reader, or null when there is no
- * offer to make: they already hold a live membership, no plan can be bought
- * yet, or any read fails. Best effort and quiet, because it sits on Home and
+ * offer to make: they already hold a live membership, they have not used the
+ * product for real yet (5.5), no plan can be bought yet, or any read fails. Best effort and quiet, because it sits on Home and
  * must never break it. The trial shown is only the trial this reader would
  * actually get at checkout (lib/membership-trial.ts trialEligible).
  */
@@ -31,6 +32,12 @@ export async function loadMembershipOffer(userId: string): Promise<MembershipOff
     if (error) return null;
     const rows = (subs ?? []) as SubscriptionRow[];
     if (hasLiveMembership(rows)) return null;
+
+    // 5.5: the offer waits for real use, read from the reader's own rows. No reading, no offer.
+    const { data: cfg } = await supabase.from("app_config").select("key, value").in("key", ["offer_after_steps", "offer_after_days", "offer_after_samples"]);
+    const timing = offerTimingFrom((cfg ?? []) as { key: string; value: unknown }[]);
+    const { data: use, error: useError } = await supabase.rpc("my_offer_use", { p_tenant: tenantId, p_days: timing.afterDays });
+    if (useError || !usedEnough(offerUseFrom(use), timing)) return null;
 
     const open = membershipPlansOpen();
     if (!open.monthly && !open.yearly) return null;

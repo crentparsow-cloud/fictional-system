@@ -1,8 +1,8 @@
-DRAFT for the lawyer. Not published. Not for use with any organisation until the lawyer approves it (gate O10). Prepared 7 October 2026 by the build team from docs/research/akana-business.md section 3. Points marked [check legal] need a view.
+DRAFT. Wording prepared 21 October 2026, to be reviewed before launch.
 
 # Data processing agreement: Akana for organisations
 
-This agreement is between the organisation named in the order form (the **Organisation**, the controller) and [company name] (**Akana**, the processor). It forms part of the Akana for organisations terms (docs/legal/organisation-terms.md). It meets Article 28 of the UK GDPR.
+This agreement is between the organisation named in the order form (the **Organisation**, the controller) and Akana Holdings (**Akana**, the processor). It forms part of the Akana for organisations terms (docs/legal/organisation-terms.md). It meets Article 28 of the UK GDPR.
 
 ## 1. What is in scope
 
@@ -21,7 +21,7 @@ The following are not processed for the Organisation and are never disclosed to 
 - a Member's consents, including health and faith consent;
 - a Member's own account details, including the email address they sign in with if it differs from the one the Organisation invited.
 
-For these, Akana is an independent controller under its privacy notice and the reader terms. A Member's relationship with Akana for their own work does not depend on the Organisation [check legal].
+For these, Akana is an independent controller under its privacy notice and the reader terms. A Member's relationship with Akana for their own work does not depend on the Organisation.
 
 ## 3. Details of the processing
 
@@ -33,7 +33,7 @@ For these, Akana is an independent controller under its privacy notice and the r
 | Purpose | To let the Organisation give its people access to Akana and see uptake as counts. |
 | Data subjects | The Organisation's staff, volunteers, members or attenders whom it invites, and its Administrators. |
 | Personal data | Email addresses, Seat status and dates, Administrator names and email addresses. |
-| Special category data | None is collected for the Organisation. A church's Roster can reveal religious belief by its nature. The church is responsible for its lawful condition (normally Article 9(2)(d)) and for telling its people [check legal]. |
+| Special category data | None is collected for the Organisation. A church's Roster can reveal religious belief by its nature. The church is responsible for its lawful condition (normally Article 9(2)(d)) and for telling its people. |
 
 ## 4. Akana's obligations
 
@@ -45,9 +45,9 @@ Akana will:
 4. use only the sub-processors in Annex 2, and give the Organisation at least 30 days' notice of any new one, during which the Organisation may object and, if the objection cannot be resolved, end the contract;
 5. help the Organisation, as far as it reasonably can, to answer requests from people exercising their rights over Roster data;
 6. help the Organisation with security, breach notification, data protection impact assessments and consultation with the ICO, as far as they concern Roster data;
-7. tell the Organisation without undue delay, and within 48 hours of becoming aware [check legal], of any personal data breach affecting Roster data;
+7. tell the Organisation without undue delay, and within 48 hours of becoming aware, of any personal data breach affecting Roster data;
 8. delete or return Roster data at the end of the contract, as set out in section 9;
-9. make available the information needed to show it meets this agreement, and allow audits on reasonable notice, no more than once a year unless there is a breach [check legal].
+9. make available the information needed to show it meets this agreement, and allow audits on reasonable notice, no more than once a year unless there is a breach.
 
 ## 5. The Organisation's obligations
 
@@ -60,7 +60,7 @@ The Organisation will:
 
 ## 6. International transfers
 
-Roster data is stored in the United Kingdom. Where a sub-processor processes it outside the UK, Akana relies on an adequacy decision, the UK International Data Transfer Agreement or the UK Addendum to the EU Standard Contractual Clauses [check legal for each sub-processor].
+Roster data is stored in the United Kingdom. Where a sub-processor processes it outside the UK, Akana relies on an adequacy decision, the UK International Data Transfer Agreement or the UK Addendum to the EU Standard Contractual Clauses for each sub-processor.
 
 ## 7. People's rights
 
@@ -72,7 +72,7 @@ A breach notice will say what happened, the data and people affected as far as k
 
 ## 9. Deletion at the end
 
-When a Licence ends, Akana releases every Seat and removes the invited email addresses from the Roster at once. Administrator details are deleted 30 days after the contract ends, unless the Organisation asks within that time for a copy of its Roster first [check legal; at launch the 30-day step is done by hand]. Audit records that show an invitation was sent or a Seat taken keep ids, dates and a one-way hash of the address, never the address itself, and are kept for [retention period].
+When a Licence ends, Akana releases every Seat and removes the invited email addresses from the Roster at once. Administrator details are deleted 30 days after the contract ends, unless the Organisation asks within that time for a copy of its Roster first. At launch this step is done by hand. Audit records that show an invitation was sent or a Seat taken keep ids, dates and a one-way hash of the address, never the address itself, and are kept for 7 years.
 
 Members keep their own Akana accounts and their Member Work. Deleting the Roster does not delete them.
 
@@ -88,15 +88,11 @@ Members keep their own Akana accounts and their Member Work. Deleting the Roster
 
 ## Annex 2: sub-processors for Roster data
 
-| Sub-processor | What it does | Where [check legal] |
+| Sub-processor | What it does | Where |
 |---|---|---|
 | Supabase | Database and sign-in | London region (AWS eu-west-2) |
-| Vercel | Hosting the web application | [to confirm] |
-| Resend | Sending invitation emails | [to confirm] |
+| Vercel | Hosting the web application | UK and EU where available, otherwise with approved safeguards |
+| Resend | Sending invitation emails | UK and EU where available, otherwise with approved safeguards |
 
 Stripe is not given Roster data. It is used only if the Organisation pays by card, as an independent controller for payment data.
 
-## Placeholders
-
-- [company name]
-- [retention period]

@@ -51,6 +51,15 @@ describe("schema 3.1 unit parts (additive, 10 Oct 2026)", () => {
     expect("intro" in parsed || "ideas" in parsed || "takeaway" in parsed).toBe(false);
   });
 
+  it("accepts a companion link on a unit and refuses a link that is not https", () => {
+    const ok = ProgrammeUnit.parse({ ...unit, companion: { label: "Chapter 3 of the book", url: "https://example.com/book/3" } });
+    expect(ok.companion?.label).toBe("Chapter 3 of the book");
+    expect(ProgrammeUnit.safeParse({ ...unit, companion: { label: "Chapter 3", url: "http://example.com/3" } }).success).toBe(false);
+    expect(ProgrammeUnit.safeParse({ ...unit, companion: { label: "", url: "https://example.com/3" } }).success).toBe(false);
+    expect(ProgrammeUnit.safeParse({ ...unit, companion: { label: "x", url: "https://example.com", extra: 1 } }).success).toBe(false);
+    expect("companion" in ProgrammeUnit.parse(unit)).toBe(false);
+  });
+
   it("accepts intro, ideas and takeaway", () => {
     const parsed = ProgrammeUnit.parse({ ...unit, intro: "Why.", ideas: [{ heading: "H", body: "B", example: "E" }], takeaway: "T." });
     expect(parsed.ideas).toHaveLength(1);

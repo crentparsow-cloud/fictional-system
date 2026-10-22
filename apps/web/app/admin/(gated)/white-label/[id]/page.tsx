@@ -8,7 +8,7 @@ import { DomainsSection } from "./DomainsSection";
 import { checkedColours, linksToText, LISTING_PRICE_OPTIONS, whiteLabelAbilities } from "@/lib/admin/white-label";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
-import { BRAND_FONTS, HOUSE_BRAND, contrastChecks, formatRatio, validateBrand, type BrandColours, type ThemeName } from "@/lib/tenant-brand";
+import { BRAND_FONTS, BRAND_SHAPES, HOUSE_BRAND, contrastChecks, formatRatio, validateBrand, type BrandColours, type ThemeName } from "@/lib/tenant-brand";
 
 export const metadata: Metadata = { title: "White-label site", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -135,6 +135,15 @@ export default async function TenantAdminPage({
             {Object.entries(BRAND_FONTS).map(([k, f]) => (
               <option key={k} value={k}>
                 {f.label}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="b-shape">Corners (from the design system)</label>
+          <select id="b-shape" name="shape" defaultValue={brand.shape ?? ""} disabled={disabled}>
+            <option value="">House corners</option>
+            {Object.entries(BRAND_SHAPES).map(([k, sh]) => (
+              <option key={k} value={k}>
+                {sh.label}
               </option>
             ))}
           </select>

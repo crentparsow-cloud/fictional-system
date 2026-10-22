@@ -15,8 +15,8 @@ export interface TrustClaim {
 
 export const TRUST_CLAIMS: readonly TrustClaim[] = [
   {
-    title: "Your answers are sealed",
-    body: "What you write is encrypted before it is stored, bound to your account and the site you wrote it on. Only Akana's secure server can unlock it, and only to show it to you. There is no screen or tool that shows your answers to an author, a publisher, a check-in partner or Akana staff.",
+    title: "Your answers are private to you",
+    body: "What you write is encrypted before it is stored, bound to your account and the site you wrote it on. Only Akana's secure server can unlock it, and only to show it to you. There is no screen or tool that shows your answers to an author, a publisher, a reading buddy or Akana staff.",
     enforcedBy: ["packages/seal/src/index.ts", "apps/web/lib/sealing.ts", "supabase/migrations/0003_answers.sql"],
   },
   {
@@ -118,13 +118,13 @@ export const TRUST_COMPARISON: readonly TrustComparison[] = [
   {
     practice: "Selling your data",
     others: "Share what they learn about you with advertisers and data brokers.",
-    akana: "Has no ad network to send anything to, and your answers are sealed, so there is nothing readable to hand over. The privacy notice says we do not sell your data.",
+    akana: "Has no ad network to send anything to, and your answers are private to you, so there is nothing readable to hand over. The privacy notice says we do not sell your data.",
     enforcedBy: ["packages/seal/src/index.ts", "apps/web/next.config.ts", "docs/legal/privacy-notice.md"],
   },
   {
     practice: "Reading your answers",
     others: "Let staff, authors or partners open what you write, often for product research.",
-    akana: "Has no screen or tool that shows your answers to an author, a publisher, a check-in partner or Akana staff. Only the secure server can unlock them, and only to show them to you.",
+    akana: "Has no screen or tool that shows your answers to an author, a publisher, a reading buddy or Akana staff. Only the secure server can unlock them, and only to show them to you.",
     enforcedBy: ["packages/seal/src/index.ts", "apps/web/lib/sealing.ts", "supabase/migrations/0003_answers.sql"],
   },
   {

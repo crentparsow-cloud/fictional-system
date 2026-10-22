@@ -2,14 +2,14 @@
 
 import { useActionState, useRef, useState, useTransition } from "react";
 import { creationOptionsFromJson, credentialToJson, requestOptionsFromJson } from "@/lib/mfa/passkey-json";
-import { finishPasskey, startPasskeyAdd, startPasskeyCheck, type CeremonyState, type FinishState } from "./passkey-actions";
+import { finishPasskey, startPasskeyAdd, startPasskeyCheck, startReaderPasskeyAdd, type CeremonyState, type FinishState } from "./passkey-actions";
 
 /**
  * The browser half of a passkey check or set-up (F-143, flag mfa_passkey).
  * The server starts the ceremony and checks the answer; this only asks the
  * device for the passkey and posts the result back.
  */
-export function PasskeyButton({ next, mode }: { next: string; mode: "check" | "add" }) {
+export function PasskeyButton({ next, mode }: { next: string; mode: "check" | "add" | "reader-add" }) {
   const [message, setMessage] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
   const [finish, submitFinish, finishing] = useActionState<FinishState, FormData>(finishPasskey, { error: null });
@@ -24,7 +24,7 @@ export function PasskeyButton({ next, mode }: { next: string; mode: "check" | "a
         setMessage("This browser cannot use passkeys. Use your authenticator app.");
         return;
       }
-      const state = mode === "add" ? await startPasskeyAdd() : await startPasskeyCheck();
+      const state = mode === "reader-add" ? await startReaderPasskeyAdd() : mode === "add" ? await startPasskeyAdd() : await startPasskeyCheck();
       if (state.status !== "ready") {
         setMessage(state.status === "error" ? state.message : "Try again.");
         return;
@@ -52,7 +52,7 @@ export function PasskeyButton({ next, mode }: { next: string; mode: "check" | "a
   return (
     <div className="mfa-passkey">
       <button type="button" className="btn secondary" onClick={run} disabled={pending || finishing}>
-        {pending || finishing ? "Waiting for your passkey" : mode === "add" ? "Add a passkey" : "Use a passkey instead"}
+        {pending || finishing ? "Waiting for your passkey" : mode === "check" ? "Use a passkey instead" : "Add a passkey"}
       </button>
       <form ref={formRef} action={submitFinish} hidden>
         <input type="hidden" name="next" value={next} />

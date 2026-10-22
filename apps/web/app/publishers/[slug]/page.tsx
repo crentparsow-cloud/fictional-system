@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
+import { BookGrid } from "@/components/site/BookCard";
 import { HelpNowButton } from "@/components/HelpNowButton";
 import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { authorIndex, cardsByCodes, countryName, findPublisher, workbookCount } from "@/lib/author-theme-pages";
@@ -47,7 +47,7 @@ export default async function PublisherPage({ params }: { params: Promise<Params
 
   return (
     <main className="wb-page browse-page">
-      <header className="wb-hero">
+      <header className="wb-hero a-head">
         <div className="wrap">
           <nav className="wb-crumbs" aria-label="Breadcrumb">
             <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/authors#publishers">Publishers</Link>
@@ -101,20 +101,13 @@ export default async function PublisherPage({ params }: { params: Promise<Params
           <h2 id="publisher-workbooks" className="browse-heading">
             Workbooks
           </h2>
-          <div className="grid wb-grid">
-            {cards.map((card) => (
-              <WorkbookCard key={card.id} card={card} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
-            ))}
-          </div>
+          <BookGrid cards={cards} />
         </section>
 
         <p className="browse-more">
           <Link href="/authors#publishers">More publishers</Link>
         </p>
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-        </footer>
         {!wellbeing ? <NeedSupportFooter label={t("help.needSupport")} /> : null}
       </div>
     </main>

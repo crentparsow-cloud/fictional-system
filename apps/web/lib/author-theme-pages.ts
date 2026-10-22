@@ -63,6 +63,8 @@ export interface ThemeInput {
   id: string;
   name: string;
   line: string | null;
+  /** themes.intro (0062, 7.7): a short paragraph from staff for the Theme page. */
+  intro?: string | null;
   shelfId: string | null;
   shelfName: string | null;
   /** themes.hidden_until_min_books (0015, F-148). See lib/theme-visibility.ts. */

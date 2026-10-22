@@ -41,6 +41,25 @@ export default async function VerifyPage({ searchParams }: { searchParams: Promi
   const { data: codesLeft } = hasTotp ? await supabase.rpc("mfa_recovery_codes_left") : { data: null };
   const hasRecoveryCodes = typeof codesLeft === "number" && codesLeft > 0;
 
+  // A reader whose only factor is a passkey (10.8): the passkey check on its own.
+  if (forReader && !hasTotp && hasPasskey) {
+    return (
+      <main className="auth-page wrap">
+        <section className="card auth-card admin-mfa">
+          <p className="eyebrow">Passkey</p>
+          <h1>Check it is you</h1>
+          <p>You added a passkey to your account. Use it now to carry on.</p>
+          {passkeyOn ? (
+            <PasskeyButton next={next} mode="check" />
+          ) : (
+            <p>Passkeys are paused for the moment. Reload this page to carry on.</p>
+          )}
+          <p className="muted small">You will be asked once per sign-in. You can remove the passkey from the You tab.</p>
+        </section>
+      </main>
+    );
+  }
+
   if (forReader && hasTotp) {
     return (
       <main className="auth-page wrap">

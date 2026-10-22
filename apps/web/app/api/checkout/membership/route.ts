@@ -29,6 +29,8 @@ import { checkoutConsentDecision, consentMetadata } from "@/lib/checkout-consent
 import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
 import { PROMO_MESSAGES } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
+import { friendBenefit, referralConfigFrom, referralCouponId } from "@/lib/referral";
+import { discountedMinor, studentCouponId, studentDiscountApplies, studentPercentFrom, studentPlanAllowed, studentStatus } from "@/lib/student";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
@@ -64,6 +66,12 @@ import { lookupPromoCode } from "@/lib/promo-code-server";
  * A returning member keeps their Stripe customer, so they have one portal
  * and one invoice history.
  *
+ * Student price (14.22): with student true, and STRIPE_COUPON_STUDENT set, the
+ * Stripe coupon is pinned to the session for a reader whose academic email is
+ * confirmed and not past its year (public.student_verifications, 0054). One
+ * person plans only, and not together with a promotion code. While the
+ * coupon id is blank the route refuses a student request.
+ *
  * Trial (13.5): a reader with no earlier subscription gets the trial for the
  * plan they chose (app_config, 14 days monthly and 21 annual by default),
  * card required. Stripe's pay button states the first payment date and the
@@ -87,6 +95,8 @@ const Body = z
     consent: z.string().max(60).optional(),
     // A promotion code from the /code page (item 5.9), checked again against Stripe.
     code: z.string().max(40).optional(),
+    // The student price (14.22): the coupon from STRIPE_COUPON_STUDENT, for a reader whose academic email is confirmed.
+    student: z.boolean().optional(),
   })
   .strict();
 
@@ -122,7 +132,24 @@ export async function POST(request: NextRequest) {
     return refuse(MEMBERSHIP_NOT_OPEN_MESSAGE);
   }
 
+  // 14.22: the student coupon, only for a confirmed and current verification.
+  let studentCoupon: string | null = null;
+  let studentPercent = 0;
   const supabase = await createUserClient();
+  if (parsed.data.student) {
+    studentCoupon = studentCouponId();
+    if (!studentCoupon) return refuse("The student price is not open yet.");
+    if (!studentPlanAllowed(plan)) return refuse("The student price is for the single-person plans.");
+    if (parsed.data.code) return refuse("The student price cannot be used together with a code.");
+    const [{ data: sv }, { data: cfg }] = await Promise.all([
+      supabase.from("student_verifications").select("verified_at, expires_at").eq("user_id", session.userId).maybeSingle(),
+      supabase.from("app_config").select("key, value").eq("key", "student_discount_percent"),
+    ]);
+    if (!studentDiscountApplies(studentStatus(sv as { verified_at: string | null; expires_at: string | null } | null, new Date()))) {
+      return NextResponse.json({ error: "Confirm your student email first.", code: "student_required" }, { status: 409, headers: NO_STORE });
+    }
+    studentPercent = studentPercentFrom((cfg ?? []) as { key: string; value: unknown }[]);
+  }
   const { data: subs, error: subErr } = await supabase
     .from("subscriptions")
     .select("status, plan, current_period_end, cancel_at_period_end, ended_at, stripe_customer_id, updated_at")
@@ -173,11 +200,33 @@ export async function POST(request: NextRequest) {
   // formatted that is logged and the notice says so in words.
   // The two-person plan has no trial: the trial settings cover the monthly and annual plans only.
   const trialPlan = plan === "two_monthly" || plan === "two_yearly" ? null : plan;
-  const trialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
+  const baseTrialDays = trialPlan && trialEligible(rows.length) ? (await loadTrialConfig())[trialPlan] : 0;
+  // 6.3: a friend who used a reader's invitation gets extra trial days, or an amount off the first payment of a plan with no trial.
+  const pendingReferral = rows.length === 0 ? await loadPendingReferral(session.userId) : null;
   // One currency rule for the amounts, the notice and the pending row: the market's currency where the point has a figure, else GBP.
   const point = await loadPricePoint(supabase, plan);
   const currency = checkoutCurrencyFor(point, market);
-  const renewalPrice = formatRenewalPrice(point, currency);
+  const couponId = referralCouponId();
+  const benefit = pendingReferral
+    ? friendBenefit({
+        plan,
+        baseTrialDays,
+        trialEligible: trialEligible(rows.length),
+        currency,
+        config: pendingReferral.config,
+        couponId,
+        promoCodeUsed: promotionCodeId !== null,
+      })
+    : null;
+  const trialDays = benefit?.kind === "trial_days" ? benefit.totalDays : baseTrialDays;
+  const referralNotice =
+    benefit?.kind === "trial_days"
+      ? `Your trial includes ${benefit.extraDays} extra days from a friend's invitation.`
+      : benefit?.kind === "first_payment_off"
+        ? `Your first payment is ${formatMinor(benefit.minor, benefit.currency) ?? "an amount"} lower, from a friend's invitation.`
+        : null;
+  
+  const renewalPrice = formatRenewalPrice(point, currency, studentCoupon ? studentPercent : 0);
   if (renewalPrice === null) console.warn("membership_renewal_price_unformatted", { code: "no_renewal_price", plan });
   const yearlyTotal = plan === "yearly" || plan === "two_yearly" ? renewalPrice : null;
   const trialNotice = trialPlan && trialDays > 0 ? trialCheckoutNotice(trialPlan, trialDays, renewalPrice, new Date()) : null;
@@ -201,10 +250,13 @@ export async function POST(request: NextRequest) {
       promotionCodeId,
       trial,
       yearlyTotal,
+      couponId: studentCoupon ?? (benefit?.kind === "first_payment_off" ? couponId : null),
+      extraNotice: referralNotice,
     });
     const consentMeta = consentMetadata(consentId, consent.version);
-    params.metadata = { ...params.metadata, ...consentMeta };
-    params.subscription_data = { ...params.subscription_data, metadata: { ...params.subscription_data?.metadata, ...consentMeta } };
+    const referralMeta: Record<string, string> = pendingReferral && benefit ? { referral_id: pendingReferral.id } : {};
+    params.metadata = { ...params.metadata, ...consentMeta, ...referralMeta };
+    params.subscription_data = { ...params.subscription_data, metadata: { ...params.subscription_data?.metadata, ...consentMeta, ...referralMeta } };
     checkout = await stripe.checkout.sessions.create(params);
   } catch (err) {
     console.error("membership_checkout_failed", { reason: err instanceof Error ? err.name : "unknown" });
@@ -236,10 +288,29 @@ export async function POST(request: NextRequest) {
     return refuse("Could not start checkout.", 500);
   }
 
+  // 6.3: remember what the friend was offered, against this session. Best effort: the reward does not depend on it.
+  if (pendingReferral && benefit) {
+    const value = benefit.kind === "trial_days" ? benefit.extraDays : benefit.minor;
+    const { error: offerErr } = await admin.rpc("referral_offer_recorded", { p_referral: pendingReferral.id, p_benefit: benefit.kind, p_value: value, p_session: checkout.id });
+    if (offerErr) console.warn("referral_offer_not_recorded", { code: offerErr.code });
+  }
+
   if (!checkout.url) return refuse("Could not start checkout.", 500);
   // F-141: a daily count, ids only, unless the visitor has opted out.
   await countFunnelEvent(supabase, "checkout_started", { tenantId, workbookId: null, headers: request.headers, cookies: request.cookies, userId: session.userId });
   return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
+}
+
+/** The friend's waiting invitation and the referral settings, or null. Never blocks checkout. */
+async function loadPendingReferral(userId: string): Promise<{ id: string; config: ReturnType<typeof referralConfigFrom> } | null> {
+  try {
+    const { data, error } = await createAdminClient().rpc("referral_for_checkout", { p_user: userId });
+    if (error) return null;
+    const row = ((data ?? []) as { referral_id: string; config: unknown }[])[0];
+    return row ? { id: row.referral_id, config: referralConfigFrom(row.config) } : null;
+  } catch {
+    return null;
+  }
 }
 
 /** The plan's price point from the row, else the ladder mirror when the row is missing or holds no figure. */
@@ -251,9 +322,9 @@ async function loadPricePoint(supabase: Awaited<ReturnType<typeof createUserClie
 }
 
 /** The renewal price for the notice, "£7.99", in the checkout currency. Null when it cannot be formatted. */
-function formatRenewalPrice(point: PricePoint, currency: string): string | null {
+function formatRenewalPrice(point: PricePoint, currency: string, discountPercent = 0): string | null {
   const minor = (point.amounts as Record<string, number | undefined>)[currency];
-  return typeof minor === "number" && minor > 0 ? (formatMinor(minor, currency) ?? null) : null;
+  return typeof minor === "number" && minor > 0 ? (formatMinor(discountPercent > 0 ? discountedMinor(minor, discountPercent) : minor, currency) ?? null) : null;
 }
 
 async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): Promise<void> {

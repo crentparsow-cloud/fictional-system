@@ -74,5 +74,5 @@ export const ENQUIRY_HREF = "/publish#enquiry";
  * "will see" rather than "can see".
  */
 export function organisationPrivacyLine(brandName: string): string {
-  return `Your organisation will see how many people have started and finished, never who wrote what. Answers are sealed. No one at your organisation, your group leader, the author or ${brandName} staff can read them.`;
+  return `Your organisation will see how many people have started and finished, never who wrote what. Your answers are private to you. No one at your organisation, your group leader, the author or ${brandName} staff can read them.`;
 }

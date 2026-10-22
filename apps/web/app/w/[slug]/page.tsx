@@ -6,6 +6,7 @@ import { NeedSupportFooter } from "@/components/NeedSupportFooter";
 import { getReaderSession } from "@/lib/auth";
 import { brand } from "@/lib/brand";
 import { listThemes } from "@/lib/author-theme-queries";
+import { Cover } from "@/components/Cover";
 import { WorkbookCard } from "@/components/catalogue/WorkbookCard";
 import { getWorkbookBySlug, listLibrary } from "@/lib/catalogue";
 import { relatedTitles } from "@/lib/explore";
@@ -13,12 +14,16 @@ import { hiddenThemeIds, maskHiddenThemes } from "@/lib/theme-visibility";
 import { BADGE_LABELS, jsonLdString, unitWord, workbookMeta } from "@/lib/catalogue-guard";
 import { firstUnitFreeLabel } from "@/lib/free-label";
 import { getT } from "@/lib/i18n";
+import { publicRobots } from "@/lib/indexing";
+import { bookClubEligible, bookClubPath } from "@/lib/book-club";
 import { publisherForCode } from "@/lib/author-theme-pages";
 import { hasPublicDomainRecord } from "@/lib/public-domain";
 import { countView } from "@/lib/funnel-server";
 import { SampleExercise } from "@/components/catalogue/SampleExercise";
 import { whoIsItFor } from "@/lib/who-for";
 import { loadSampleExercise } from "@/lib/sample-exercise";
+import { tenantIdForRequest } from "@/lib/tenant-id";
+import { workbookProof } from "@/lib/social-proof-server";
 import { PublicBuy, type PaidLines } from "@/components/catalogue/PublicBuy";
 import { normalisePromoCode, offerSummary, PROMO_MESSAGES } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
@@ -54,8 +59,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     // 1.9: one Satori renderer (app/og/[slug]/route.tsx), cached like a cover.
     openGraph: { title: meta.title, description: meta.description, images: [{ url: `/og/${slug}`, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", images: [`/og/${slug}`] },
-    // Demo content is never indexed. Live titles follow the site rule in the root layout.
-    ...(detail.card.isDemo ? { robots: { index: false, follow: false } } : {}),
+    // 6.10: one canonical address, and an index request only for a live title with a published first unit.
+    // Demo content is never indexed. While SEARCH_INDEXING is not "on" every page stays out (lib/indexing.ts).
+    alternates: { canonical: `/w/${slug}` },
+    robots: publicRobots({ isDemo: detail.card.isDemo || !detail.card.hasVersion }),
   };
 }
 
@@ -73,6 +80,8 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
   // 5.2: a visitor with no account tries the first unit at /try, where answers stay on the device
   // until they sign in. A wellbeing title asks for consent first, which needs an account.
   const openHref = session ? readHref : card.safetyTier === "none" ? `/try/${card.slug}` : `/sign-in?next=${encodeURIComponent(readHref)}`;
+  // 5.12: a real count, only above the threshold, never for a wellbeing title or a demo.
+  const proof = !wellbeing && !card.isDemo ? await workbookProof((await tenantIdForRequest()) ?? "", card.id).catch(() => null) : null;
   const unit = unitWord(detail);
   const freeLabel = firstUnitFreeLabel({ hasVersion: card.hasVersion, unit: listing?.structure?.unit ?? null, freeUnits: listing?.structure?.free_units ?? null });
 
@@ -112,191 +121,346 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
     console.error("related_titles_failed", err instanceof Error ? err.message : "");
   }
 
-  return (
-    <main className="wb-page">
-      <header className="wb-hero">
-        <div className="wrap">
-          <nav className="wb-crumbs" aria-label="Breadcrumb">
-            <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("nav.explore")}</Link>
-          </nav>
-          <div className="wb-card-top">
-            <span className={`badge${card.badge === "demo" ? " demo" : ""}`}>{BADGE_LABELS[card.badge]}</span>
-            {card.themeName && card.themeId ? (
-              <Link className="chip" href={`/themes/${card.themeId}`}>
-                {card.themeName}
-              </Link>
-            ) : card.themeName ? (
-              <span className="chip">{card.themeName}</span>
-            ) : null}
-            <span className="chip">{card.genreName}</span>
-          </div>
-          <h1>{card.title}</h1>
-          <p className="wb-line">{card.cardLine}</p>
-          {freeLabel ? <p className="wb-free">{freeLabel}</p> : null}
-          <p className="muted small">{card.code}</p>
-          {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
-            <p className="small pd-link">
-              <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
-            </p>
-          ) : null}
-          {wellbeing ? (
-            <div className="wb-actions">
-              <HelpNowButton label={t("help.now")} />
+  const freeUnits = hasFreeUnits(structure?.free_units);
+  const authorLine = card.authorRefs?.length ? (
+    card.authorRefs.map((a, i) => (
+      <span key={a.slug}>
+        {i > 0 ? ", " : null}
+        <Link href={`/authors/${a.slug}`}>{a.name}</Link>
+      </span>
+    ))
+  ) : card.authors.length ? (
+    card.authors.join(", ")
+  ) : (
+    brand.name
+  );
+  const themeChip =
+    card.themeName && card.themeId ? (
+      <Link className="b-chip" href={`/themes/${card.themeId}`}>
+        {card.themeName}
+      </Link>
+    ) : card.themeName ? (
+      <span className="b-chip">{card.themeName}</span>
+    ) : null;
+  const readyElsewhere = canOpen ? [] : related.filter((c) => c.hasVersion && !c.isDemo).slice(0, 3);
+
+  const footerBlock = (
+    <>
+      <footer className="b-notes">
+        <p>{brand.wellnessNotice}</p>
+        {listing?.advice_guardrail && listing.advice_guardrail !== "none" ? <p>{guardrailText(listing.advice_guardrail)}</p> : null}
+      </footer>
+      {!wellbeing ? <NeedSupportFooter label={t("help.needSupport")} /> : null}
+    </>
+  );
+
+  // Coming soon: a title with no published unit yet. Outline only, nothing to start or buy.
+  if (!canOpen) {
+    return (
+      <main className="b-wb b-soon">
+        <header className="b-hero">
+          <div className="wrap b-hero-grid">
+            <div className="b-cover-wrap b-cover-soon">
+              <Cover code={card.code} title={card.title} author={card.authors[0] ?? null} width={300} priority />
+              <span className="b-soon-tag">Coming soon</span>
             </div>
+            <div className="b-hero-text">
+              <nav className="b-crumbs" aria-label="Breadcrumb">
+                <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("nav.explore")}</Link>
+              </nav>
+              <p className="b-eyebrow">Coming soon. {authorLine}</p>
+              <h1>{card.title}</h1>
+              <p className="b-lead">We are still building this one. {card.cardLine}</p>
+              <div className="b-chips">
+                {themeChip}
+                <span className="b-chip">{card.genreName}</span>
+              </div>
+              <p className="b-small">We have not set an opening date yet. Until then, you can try the workbooks that are ready.</p>
+              <div className="b-actions">
+                <Link className="btn" href="/explore">
+                  See what is ready now
+                </Link>
+                {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="wrap b-body">
+          {card.isDemo ? <p className="b-note">{t("badge.demoNote")}</p> : null}
+
+          {outline.length ? (
+            <section className="b-section" aria-labelledby="wb-do">
+              <h2 id="wb-do">What is planned</h2>
+              <ol className="b-weeks">
+                {outline.map((u) => (
+                  <li key={u.number} className="b-week">
+                    <h3>
+                      {unit} {u.number}
+                    </h3>
+                    <p>{u.focus}</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
           ) : null}
+
+          {card.isDemo ? (
+            <section className="b-section" id="buy" aria-label="About this sample">
+              <PublicBuy
+                slug={card.slug}
+                state={offer.state}
+                signedIn={Boolean(session)}
+                returnTo={returnTo}
+                start={null}
+                outlineOnlyLabel={t("library.sampleNotWritten")}
+                code={null}
+                paidLines={null}
+              />
+            </section>
+          ) : null}
+
+          {readyElsewhere.length ? (
+            <section className="b-section" aria-labelledby="b-wait">
+              <h2 id="b-wait">While you wait</h2>
+              <p className="b-small">These are ready now, and {unit.toLowerCase()} 1 is free.</p>
+              <div className="b-related">
+                {readyElsewhere.map((c) => (
+                  <WorkbookCard key={c.id} card={c} outlineOnlyLabel="Coming soon" openLabel={t("library.open")} />
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {footerBlock}
+        </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(detail) }} />
+      </main>
+    );
+  }
+
+  return (
+    <main className="b-wb">
+      <header className="b-hero">
+        <div className="wrap b-hero-grid">
+          <div className="b-cover-wrap">
+            <Cover code={card.code} title={card.title} author={card.authors[0] ?? null} width={340} priority />
+          </div>
+          <div className="b-hero-text">
+            <nav className="b-crumbs" aria-label="Breadcrumb">
+              <Link href="/">{brand.name}</Link> <span aria-hidden="true">/</span> <Link href="/explore">{t("nav.explore")}</Link>
+            </nav>
+            <p className="b-eyebrow">Workbook. {authorLine}</p>
+            <h1>{card.title}</h1>
+            <p className="b-lead">{card.cardLine}</p>
+            <div className="b-chips">
+              {freeLabel ? <span className="b-chip b-chip-hi">{freeLabel}</span> : null}
+              {structure?.count ? (
+                <span className="b-chip">
+                  {structure.count} {structure.count === 1 ? unit.toLowerCase() : `${unit.toLowerCase()}s`}
+                </span>
+              ) : null}
+              {minutes ? <span className="b-chip">About {minutes} minutes a day</span> : null}
+              {themeChip}
+              <span className="b-chip">{card.genreName}</span>
+              <span className={`b-chip${card.badge === "demo" ? " b-chip-demo" : ""}`}>{BADGE_LABELS[card.badge]}</span>
+            </div>
+            <div className="b-actions">
+              <Link className="btn" href={openHref}>
+                Try {unit.toLowerCase()} 1 free
+              </Link>
+              <a className="btn secondary" href="#buy">
+                See ways to read
+              </a>
+              {wellbeing ? <HelpNowButton label={t("help.now")} /> : null}
+            </div>
+            <p className="b-small">No card needed for {unit.toLowerCase()} 1. Your answers stay private to you.</p>
+            <p className="b-small b-code">
+              {card.code}
+              {card.badge === "public_domain" && hasPublicDomainRecord(card.code) ? (
+                <>
+                  {" "}
+                  <Link href={`/public-domain/${card.code}`}>Public domain: how we checked</Link>
+                </>
+              ) : null}
+            </p>
+          </div>
         </div>
       </header>
 
-      <div className="wrap wb-body">
-        {card.isDemo ? <p className="demo-note">{t("badge.demoNote")}</p> : null}
+      <div className="wrap b-body">
+        {card.isDemo ? <p className="b-note">{t("badge.demoNote")}</p> : null}
+        {proof ? <p className="b-small">{proof}</p> : null}
 
-        <section className="wb-section" aria-labelledby="wb-do">
-          <h2 id="wb-do">What you will do</h2>
-          {outline.length ? (
-            <ol className="wb-outline">
-              {outline.map((u) => (
-                <li key={u.number}>
-                  <span className="wb-outline-n">
-                    {unit} {u.number}
-                  </span>
-                  <span>{u.focus}</span>
-                </li>
+        <section className="b-section b-two" aria-label="Who it is for and what you take away">
+          <div>
+            <h2 id="wb-for">Who this is for</h2>
+            <ul className="b-for" aria-labelledby="wb-for">
+              {forLines.map((line, i) => (
+                <li key={i}>{line}</li>
               ))}
+            </ul>
+          </div>
+          <div>
+            <h2>What you take away</h2>
+            <p className="b-soft">You will finish with a certificate in your name, private unless you share it.</p>
+            <dl className="b-facts">
+              {language ? (
+                <div>
+                  <dt>Language</dt>
+                  <dd>{languageName(language)}</dd>
+                </div>
+              ) : null}
+              {publisher ? (
+                <div>
+                  <dt>Imprint</dt>
+                  <dd>
+                    <Link href={`/publishers/${publisher.slug}`}>{publisher.name}</Link>
+                  </dd>
+                </div>
+              ) : null}
+            </dl>
+          </div>
+        </section>
+
+        <section className="b-band" aria-labelledby="b-how">
+          <div className="b-band-in">
+            <p className="b-eyebrow">How it works</p>
+            <h2 id="b-how">Read a {unit.toLowerCase()}. Try it. Keep what works.</h2>
+            <ol className="b-steps">
+              <li>
+                <span className="b-num" aria-hidden="true">1</span>
+                <h3>Read</h3>
+                <p>A short idea from the book to start the {unit.toLowerCase()}.</p>
+              </li>
+              <li>
+                <span className="b-num" aria-hidden="true">2</span>
+                <h3>Try</h3>
+                <p>An exercise to try. Where there is a shorter version, it is there for busy days.</p>
+              </li>
+              <li>
+                <span className="b-num" aria-hidden="true">3</span>
+                <h3>Keep</h3>
+                <p>Your answers stay private to you. Keep what works.</p>
+              </li>
             </ol>
-          ) : (
-            <p>{card.cardLine}</p>
-          )}
-        </section>
-
-        <section className="wb-section" aria-labelledby="wb-for">
-          <h2 id="wb-for">Who this is for</h2>
-          <ul className="wb-for">
-            {forLines.map((line, i) => (
-              <li key={i}>{line}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="wb-facts" aria-labelledby="wb-long">
-          <h2 id="wb-long">How long it takes</h2>
-          <dl>
-            {structure?.count ? (
-              <div>
-                <dt>Length</dt>
-                <dd>
-                  {structure.count} {structure.count === 1 ? unit.toLowerCase() : `${unit.toLowerCase()}s`}
-                </dd>
-              </div>
-            ) : null}
-            {minutes ? (
-              <div>
-                <dt>Time</dt>
-                <dd>About {minutes} minutes a day</dd>
-              </div>
-            ) : null}
-            {language ? (
-              <div>
-                <dt>Language</dt>
-                <dd>{languageName(language)}</dd>
-              </div>
-            ) : null}
-            {publisher ? (
-              <div>
-                <dt>Imprint</dt>
-                <dd>
-                  <Link href={`/publishers/${publisher.slug}`}>{publisher.name}</Link>
-                </dd>
-              </div>
-            ) : null}
-          </dl>
+          </div>
         </section>
 
         {sample ? (
-          <section className="wb-section" aria-labelledby="wb-try">
-            <h2 id="wb-try">Try one now</h2>
-            <p className="muted">This is the first exercise. Take a minute with it, or skip it.</p>
-            <SampleExercise slug={card.slug} exercise={sample.exercise} toolkitTitles={sample.toolkitTitles} />
+          <section className="b-section b-try" aria-labelledby="wb-try">
+            <p className="b-eyebrow">A taste of {unit.toLowerCase()} 1</p>
+            <h2 id="wb-try">Try it before you decide</h2>
+            <p className="b-soft">This is the first exercise. Take a minute with it, or skip it. No account needed.</p>
+            <div className="b-sample">
+              <SampleExercise slug={card.slug} exercise={sample.exercise} toolkitTitles={sample.toolkitTitles} />
+            </div>
           </section>
         ) : null}
 
-        <section className="wb-section wb-certificate" aria-label="Where you finish">
-          <p>You will finish with a certificate in your name, private unless you share it.</p>
-        </section>
+        {outline.length ? (
+          <section className="b-section" aria-labelledby="wb-do">
+            <p className="b-eyebrow">The path</p>
+            <h2 id="wb-do">What you will do</h2>
+            <ol className="b-weeks">
+              {outline.map((u) => {
+                const free = u.number <= freeUnits;
+                return (
+                  <li key={u.number} className={`b-week${free ? " b-week-free" : ""}`}>
+                    <span className="b-tag">{free ? "Free" : "Opens with the workbook"}</span>
+                    <h3>
+                      {unit} {u.number}
+                    </h3>
+                    <p>{u.focus}</p>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        ) : null}
 
-        <section className="wb-section wb-by" aria-labelledby="wb-author">
-          <h2 id="wb-author">The author</h2>
-          {card.authorRefs?.length ? (
-            <p>
-              {card.authorRefs.map((a, i) => (
-                <span key={a.slug}>
-                  {i > 0 ? ", " : null}
-                  <Link className="author-link" href={`/authors/${a.slug}`}>
-                    {a.name}
-                  </Link>
-                </span>
-              ))}
-            </p>
-          ) : card.authors.length ? (
-            <p>{card.authors.join(", ")}</p>
-          ) : (
-            <p className="muted">{brand.name}</p>
-          )}
-          {detail.bookTitle ? <p className="muted">Based on {detail.bookTitle}.</p> : null}
-        </section>
-
-        <section className="wb-section" id="buy" aria-label="Get this workbook">
+        <section className="b-section b-ways" id="buy" aria-label="Get this workbook">
+          <p className="b-eyebrow">Ways to read</p>
+          <h2>Start free, then choose</h2>
           {promoNote ? (
-            <p className="small wb-promo" role="status">
+            <p className="b-small wb-promo" role="status">
               {promoNote}
             </p>
           ) : null}
-          <PublicBuy
-            slug={card.slug}
-            state={offer.state}
-            signedIn={Boolean(session)}
-            returnTo={returnTo}
-            start={canOpen ? { href: openHref, label: `Start ${unit.toLowerCase()} 1 free` } : null}
-            outlineOnlyLabel={card.isDemo ? t("library.sampleNotWritten") : t("library.outlineOnly")}
-            code={paidLines ? code : null}
-            paidLines={paidLines}
-          />
+          <div className="b-card b-buy">
+            <PublicBuy
+              slug={card.slug}
+              state={offer.state}
+              signedIn={Boolean(session)}
+              returnTo={returnTo}
+              start={{ href: openHref, label: `Try ${unit.toLowerCase()} 1 free` }}
+              outlineOnlyLabel={null}
+              code={paidLines ? code : null}
+              paidLines={paidLines}
+            />
+          </div>
         </section>
 
-        {detail.bookTitle ? (
-          <section className="wb-section">
-            <h2>The book</h2>
+        <section className="b-section b-two b-about" aria-labelledby="wb-author">
+          <div>
+            <h2 id="wb-author">The author</h2>
+            <p>{authorLine}</p>
+            {detail.bookTitle ? <p className="b-soft">Based on {detail.bookTitle}.</p> : null}
+          </div>
+          {detail.bookTitle ? (
+            <div>
+              <h2>The book</h2>
+              <p>
+                This workbook is built from <cite>{detail.bookTitle}</cite>
+                {card.authors.length ? ` by ${card.authors.join(", ")}` : ""}. Reading the book alongside it is the idea, not a requirement.
+              </p>
+              <span className="btn secondary is-disabled" aria-disabled="true">
+                Buy the book (coming soon)
+              </span>
+            </div>
+          ) : null}
+        </section>
+
+        {bookClubEligible(card) ? (
+          <section className="b-section" aria-labelledby="wb-club">
+            <h2 id="wb-club">With a group</h2>
             <p>
-              This workbook is built from <cite>{detail.bookTitle}</cite>
-              {card.authors.length ? ` by ${card.authors.join(", ")}` : ""}. Reading the book alongside it is the idea, not a requirement.
+              Working through this with friends? <Link href={bookClubPath(card.slug)}>Run this with your book club</Link>.
             </p>
-            <span className="btn secondary is-disabled" aria-disabled="true">
-              Buy the book (coming soon)
-            </span>
           </section>
         ) : null}
 
         {related.length ? (
-          <section className="wb-section related-titles" aria-labelledby="related-heading">
+          <section className="b-section related-titles" aria-labelledby="related-heading">
             <h2 id="related-heading">{t("related.heading")}</h2>
-            <p className="muted small">{t("related.line")}</p>
-            <div className="grid wb-grid">
+            <p className="b-soft">{t("related.line")}</p>
+            <div className="b-related">
               {related.map((c) => (
-                <WorkbookCard key={c.id} card={c} outlineOnlyLabel={t("library.outlineOnly")} openLabel={t("library.open")} />
+                <WorkbookCard key={c.id} card={c} outlineOnlyLabel="Coming soon" openLabel={t("library.open")} />
               ))}
             </div>
           </section>
         ) : null}
 
-        <footer className="footer wb-footer">
-          <p>{brand.wellnessNotice}</p>
-          {listing?.advice_guardrail && listing.advice_guardrail !== "none" ? <p>{guardrailText(listing.advice_guardrail)}</p> : null}
-        </footer>
-        {!wellbeing ? <NeedSupportFooter label={t("help.needSupport")} /> : null}
+        {footerBlock}
+      </div>
+
+      <div className="b-startbar">
+        <Cover code={card.code} title={card.title} author={card.authors[0] ?? null} width={80} />
+        <p>{card.title}</p>
+        <Link className="btn" href={openHref}>
+          Start {unit.toLowerCase()} 1
+        </Link>
       </div>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(detail) }} />
     </main>
   );
+}
+
+/** How many leading units are free. Defaults to 1, as everywhere else (policy 7.9). */
+function hasFreeUnits(n: number | null | undefined): number {
+  return typeof n === "number" && Number.isFinite(n) ? Math.max(0, Math.floor(n)) : 1;
 }
 
 function languageName(code: string): string {
