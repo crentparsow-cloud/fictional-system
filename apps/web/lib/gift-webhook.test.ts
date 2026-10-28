@@ -164,6 +164,14 @@ describe("a refund", () => {
     expect(await handleGiftEvent(charge({ payment_intent: "pi_other" }), new Repo(), new Mail())).toBeNull();
     expect(await handleGiftEvent(charge({ payment_intent: null }), new Repo(), new Mail())).toBeNull();
   });
+  it("ends a gift when its payment is disputed", async () => {
+    const repo = new Repo();
+    const dispute = { id: "e3", type: "charge.dispute.created", data: { object: { id: "dp_1", payment_intent: "pi_1" } } } as unknown as Stripe.Event;
+    expect(await handleGiftEvent(dispute, repo, new Mail())).toEqual({ action: "gift_disputed", giftId: "g1" });
+    expect(repo.refunds).toEqual(["pi_1"]);
+    const other = { id: "e4", type: "charge.dispute.created", data: { object: { id: "dp_2", payment_intent: "pi_other" } } } as unknown as Stripe.Event;
+    expect(await handleGiftEvent(other, new Repo(), new Mail())).toBeNull();
+  });
   it("ignores other event types", async () => {
     expect(await handleGiftEvent({ id: "e", type: "invoice.paid", data: { object: {} } } as unknown as Stripe.Event, new Repo(), new Mail())).toBeNull();
   });

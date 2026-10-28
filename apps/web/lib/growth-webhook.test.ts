@@ -1,8 +1,9 @@
 import type Stripe from "stripe";
 import { describe, expect, it } from "vitest";
 import { growthAfterStripeEvent, type GrowthContext } from "./growth-webhook";
+import type { ReversalRow } from "./referral-reward";
 
-function ctx(rpcResults: Record<string, unknown> = {}) {
+function ctx(rpcResults: Record<string, unknown> = {}, reversalRow: ReversalRow | null = null) {
   const rpcs: string[] = [];
   const reward: string[] = [];
   const c: GrowthContext = {
@@ -20,7 +21,7 @@ function ctx(rpcResults: Record<string, unknown> = {}) {
         reward.push("pendingReferrer");
         return null;
       },
-      paymentFingerprint: async () => null,
+      paymentInfo: async () => ({ fingerprint: null, paymentIntentId: null, disputed: false }),
       referrerState: async () => ({ customerId: null, subscriptionId: null, trialing: false, trialEnd: null }),
       customerFingerprints: async () => [],
       claim: async () => null,
@@ -31,6 +32,19 @@ function ctx(rpcResults: Record<string, unknown> = {}) {
       extendTrial: async () => undefined,
       rewardGiven: async () => undefined,
       creditApplied: async (id) => void reward.push(`applied:${id}`),
+    },
+    reversal: {
+      reverse: async (pi, reason) => {
+        reward.push(`reverse:${pi}:${reason}`);
+        return reversalRow;
+      },
+      referrerState: async () => ({ customerId: "cus_ref", subscriptionId: null, trialing: false, trialEnd: null }),
+      debitCredit: async (a) => {
+        reward.push(`debit:${a.key}`);
+        return "txn_back";
+      },
+      setTrialEnd: async () => undefined,
+      reversed: async (id) => void reward.push(`reversed:${id}`),
     },
   };
   return { c, rpcs, reward };
@@ -86,6 +100,29 @@ describe("growthAfterStripeEvent", () => {
     const ev = { type: "charge.refunded", livemode: true, data: { object: { payment_intent: "pi_1", amount_refunded: 400 } } } as unknown as Stripe.Event;
     expect(await growthAfterStripeEvent(ev, c)).toEqual(["author_share_reversed"]);
     expect(rpcs[0]).toBe('reverse_author_referral_share:{"p_payment_intent":"pi_1","p_refunded_minor":400,"p_livemode":true}');
+  });
+
+  it("leaves the referral reward alone on a part refund", async () => {
+    const { c, reward } = ctx({ reverse_author_referral_share: "recorded" });
+    const ev = { type: "charge.refunded", livemode: true, data: { object: { payment_intent: "pi_1", amount_refunded: 400, refunded: false } } } as unknown as Stripe.Event;
+    await growthAfterStripeEvent(ev, c);
+    expect(reward.some((r) => r.startsWith("reverse:"))).toBe(false);
+  });
+
+  it("takes the referral reward back when the first payment is fully refunded", async () => {
+    const row: ReversalRow = { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null };
+    const { c, reward } = ctx({}, row);
+    const ev = { type: "charge.refunded", livemode: true, data: { object: { payment_intent: "pi_1", amount_refunded: 799, refunded: true } } } as unknown as Stripe.Event;
+    expect(await growthAfterStripeEvent(ev, c)).toEqual(["referral_credit_taken_back"]);
+    expect(reward).toEqual(["reverse:pi_1:refunded", "debit:referral-reversal:r1", "reversed:r1"]);
+  });
+
+  it("takes the referral reward back when the first payment is disputed", async () => {
+    const row: ReversalRow = { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null };
+    const { c, reward } = ctx({}, row);
+    const ev = { type: "charge.dispute.created", livemode: true, data: { object: { payment_intent: "pi_9" } } } as unknown as Stripe.Event;
+    expect(await growthAfterStripeEvent(ev, c)).toEqual(["referral_credit_taken_back"]);
+    expect(reward[0]).toBe("reverse:pi_9:disputed");
   });
 
   it("does nothing for other events", async () => {

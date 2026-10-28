@@ -351,3 +351,18 @@ export function searchLabels(t: Translate) {
     requestCta: t("search.requestCta"),
   };
 }
+
+/**
+ * The query carried in a page address such as /search?q=wealth. Read in the
+ * browser only, so the server never sees it. Trimmed and capped to the box's
+ * length. Anything else gives an empty string.
+ */
+export function initialQueryFromSearch(search: string | null | undefined, max = 200): string {
+  if (!search) return "";
+  try {
+    const q = new URLSearchParams(search).get("q");
+    return q ? q.trim().slice(0, max) : "";
+  } catch {
+    return "";
+  }
+}

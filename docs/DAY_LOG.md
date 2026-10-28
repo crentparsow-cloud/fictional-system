@@ -846,3 +846,13 @@ Pricing and Direction B branches merged into `phase-a`. Both touched the pricing
 **Staging.** `supabase/staging/phase-b_apply_0049_0066.sql` applies 0049 to 0066 in one transaction and records versions 20261021000100 to 20261021001800. Nothing has been applied to any database.
 
 **Review.** `docs/planning/AK_Phase_B_Review_List.md` lists what Crent confirms before launch, with every new environment variable.
+
+### Day 28 (Wednesday 28 October), hardening pass
+
+**Merged.** Three branches merged into `hardening` from main: h-ui (signed-in state in the public header, search prefill, wording), h-data (complete account export, deletion gaps closed, Phase B moments counted in the funnel, migration 0067) and h-sec (fixes from the independent security review, migration 0068). Conflicts were limited to import lines in the catalogue search, the student verify action, the title request action and the growth webhook, and were resolved by keeping both sides. The two migrations touch different functions, so no merged version was needed.
+
+**Security review findings fixed.** Student, gift, referral, bundle, title request and organisation link functions that took a caller-chosen hash, id or amount are now service role only, with server code passing the signed-in reader. Details are in the 0068 test.
+
+**Checks.** typecheck and lint clean, 2584 unit tests pass across the workspace, database suite passes for all 65 test files over migrations 0001 to 0068, web build clean with placeholder env.
+
+**Before merge.** Migrations 0067 and 0068 must be applied to staging and production first.

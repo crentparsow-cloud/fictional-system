@@ -1,6 +1,7 @@
 import { FIELD_TYPES } from "@akana/schema";
 import { printableValue, type FieldDef, type Printable } from "@akana/engine/values";
 import { splitFieldKey } from "@/lib/answer-fields";
+import { ACCOUNT_DATA_SECTIONS, type AccountData } from "@/lib/account-data";
 import { FEATURE_NAME as PARTNER_FEATURE, SHARE_LEVELS, type ShareLevel } from "@/lib/partner";
 
 /**
@@ -48,7 +49,15 @@ import { FEATURE_NAME as PARTNER_FEATURE, SHARE_LEVELS, type ShareLevel } from "
  *       "status": "invited" | "accepted" | "declined" | "stopped",
  *       "kind_words": [{ "body": "...", "received_at": "..." }]
  *     }
+ *     "account_data": { ... }               // added 28 Oct 2026 (UK GDPR right of access)
  *   }
+ *
+ * account_data holds the rest of the reader's personal records: highlights
+ * and notes, then-and-now check-ins, the daily run settings and days,
+ * milestones, the companion, referrals, gifts, workbook gifts, follows, title
+ * requests, newsletter, push devices (host only), friend pairs, certificates,
+ * sign-in methods (names only), dismissed prompts, marketing choices, student
+ * verification and bundle or pack purchases. See lib/account-data.ts.
  *
  * Exports carry prompts (field labels) and answers, never the teaching text.
  * The check-in partner part carries the partner's first name, the share
@@ -133,6 +142,8 @@ export interface ExportDocument {
   workbooks: ExportWorkbook[];
   /** The reader's check-in partner, if they have ever invited one. Added 8 Oct 2026. */
   check_in_partner: ExportPartner | null;
+  /** The rest of the reader's personal records. Added 28 Oct 2026. Null only in older tests. */
+  account_data: AccountData | null;
 }
 
 /** What the route reads under RLS: the reader's own partner row and replies. Extra columns are ignored. */
@@ -270,6 +281,7 @@ export function buildExport(
   unreadableByEnrolment: Record<string, number>,
   now: Date,
   partner: ExportPartner | null = null,
+  accountData: AccountData | null = null,
 ): ExportDocument {
   const workbooks: ExportWorkbook[] = enrolments.map((e) => {
     const rows = answers
@@ -289,7 +301,7 @@ export function buildExport(
       unreadable: unreadableByEnrolment[e.id] ?? 0,
     };
   });
-  return { format: EXPORT_FORMAT, version: EXPORT_VERSION, exported_at: now.toISOString(), workbooks, check_in_partner: partner };
+  return { format: EXPORT_FORMAT, version: EXPORT_VERSION, exported_at: now.toISOString(), workbooks, check_in_partner: partner, account_data: accountData };
 }
 
 export function exportJson(doc: ExportDocument): string {
@@ -388,6 +400,56 @@ function partnerHtml(p: ExportPartner | null): string {
 <section><h4>Kind words received</h4>${words}</section></article>`;
 }
 
+
+const ACCOUNT_HEADINGS: Record<(typeof ACCOUNT_DATA_SECTIONS)[number], string> = {
+  highlights_and_notes: "Highlights and notes",
+  then_and_now: "Then and now check-ins",
+  habit: "Daily run",
+  milestones: "Milestones",
+  companion: "Companion",
+  referrals: "Referrals and credits",
+  gifts: "Gift memberships",
+  workbook_gifts: "Workbook gifts",
+  follows: "Authors you follow",
+  title_requests: "Title requests",
+  newsletter: "Newsletter",
+  push: "Reminders on your devices",
+  programme_pairs: "Programmes with a friend",
+  certificates: "Certificates",
+  sign_in_methods: "Sign-in methods",
+  prompts_dismissed: "Prompts you dismissed",
+  marketing: "Marketing choices",
+  student_verification: "Student verification",
+  purchases: "Bundles and group packs",
+};
+
+/** Any saved record as readable lines: "label: value", one per line, nested names joined. */
+function recordLines(value: unknown, prefix = ""): string[] {
+  if (value === null || value === undefined || value === "") return [];
+  const label = (k: string) => (prefix ? `${prefix} ${k}` : k).replace(/_/g, " ");
+  if (Array.isArray(value)) return value.flatMap((v) => (isRecord(v) ? [recordLines(v).join("; ")] : recordLines(v, prefix))).filter(Boolean);
+  if (isRecord(value)) {
+    return Object.entries(value).flatMap(([k, v]) => {
+      if (isRecord(v) || Array.isArray(v)) return recordLines(v, label(k));
+      return v === null || v === undefined || v === "" ? [] : [`${label(k)}: ${String(v)}`];
+    });
+  }
+  return [`${prefix.replace(/_/g, " ")}: ${String(value)}`];
+}
+
+/** The account data part of the printable page. Sections with nothing in them say so. */
+function accountDataHtml(d: AccountData | null): string {
+  if (!d) return "";
+  const e = escapeHtml;
+  const parts = ACCOUNT_DATA_SECTIONS.map((key) => {
+    const lines = recordLines(d[key]);
+    const body = lines.length ? lines.map((l) => `<p>${e(l)}</p>`).join("") : `<p class="empty">Nothing held.</p>`;
+    return `<section><h4>${e(ACCOUNT_HEADINGS[key])}</h4>${body}</section>`;
+  }).join("");
+  const note = d.unavailable.length ? `<p class="note">Some parts could not be read when this file was made: ${e(d.unavailable.join(", "))}. Please download again later.</p>` : "";
+  return `<article><h2>Your other records</h2>${parts}${note}</article>`;
+}
+
 /** A plain page that prints well. No scripts, no outside requests. */
 export function renderExportHtml(doc: ExportDocument, opts: HtmlOptions): string {
   const e = escapeHtml;
@@ -452,6 +514,7 @@ thead th{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;background:#f3f
 <p class="lead">Made on ${e(longDate(doc.exported_at))}. Everything here is in your own words.</p>
 ${body || "<p>Nothing written yet.</p>"}
 ${partnerHtml(doc.check_in_partner)}
+${accountDataHtml(doc.account_data)}
 </body>
 </html>
 `;

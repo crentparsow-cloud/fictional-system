@@ -81,6 +81,7 @@ export default async function InvitePage({ searchParams }: Props) {
           <CopyLink
             url={referralUrl(origin, code)}
             label="Your invitation link"
+            countAs="referral_link_shared"
             shareText="I use Akana for guided workbooks. This is my invitation link."
           />
         ) : (
@@ -156,6 +157,8 @@ export default async function InvitePage({ searchParams }: Props) {
                     ? "claimed"
                     : g.status === "cancelled"
                       ? "taken back"
+                      : g.status === "returned"
+                        ? "not used, so your gift for the quarter is free again"
                       : g.status === "expired" || g.expired
                         ? "not claimed in time"
                         : `waiting${g.recipient_email ? ` for ${g.recipient_email}` : ""}`}

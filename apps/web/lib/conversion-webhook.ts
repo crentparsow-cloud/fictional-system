@@ -6,6 +6,8 @@ import { sendGiftReceived, sendGiftSent } from "@/lib/conversion-mail";
 import { handleGiftEvent, type GiftMail, type GiftRepo, type PaidGift } from "@/lib/gift-webhook";
 import { reportOps } from "@/lib/ops-alerts";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countEventServer } from "@/lib/funnel";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 
 /**
  * The Stripe webhook's hand-off for gifts (5.6, 5.7) and Theme bundles
@@ -145,6 +147,7 @@ const CONVERSION_EVENTS = new Set<string>([
   "checkout.session.async_payment_failed",
   "checkout.session.expired",
   "charge.refunded",
+  "charge.dispute.created",
 ]);
 
 export async function handleConversionEvent(event: Stripe.Event, origin: string): Promise<NextResponse | null> {
@@ -157,12 +160,15 @@ export async function handleConversionEvent(event: Stripe.Event, origin: string)
   try {
     const admin = createAdminClient();
     const gift = await handleGiftEvent(event, giftRepo(admin), giftMail(origin));
+    const tenantId = (event.data.object as { metadata?: Record<string, string> | null }).metadata?.tenant_id ?? MARKETPLACE_TENANT_ID;
     if (gift) {
+      if (gift.action === "gift_paid") await countEventServer(admin, "gift_bought", { tenantId });
       console.info("stripe webhook gift", { event: event.id, type: event.type, action: gift.action, gift: gift.giftId });
       return NextResponse.json({ received: true, action: gift.action });
     }
     const bundle = await handleBundleEvent(event, bundleRepo(admin));
     if (bundle) {
+      if (bundle.action === "bundle_paid") await countEventServer(admin, "bundle_bought", { tenantId });
       console.info("stripe webhook bundle", { event: event.id, type: event.type, action: bundle.action, bundle: bundle.bundleId });
       return NextResponse.json({ received: true, action: bundle.action });
     }

@@ -126,8 +126,9 @@ do $$ declare r record; begin
     if app.org_church_band_for(r.a) is distinct from r.b then raise exception 'attendance % gave %', r.a, app.org_church_band_for(r.a); end if;
   end loop;
   if app.org_church_band_for(null) is not null or app.org_church_band_for(-1) is not null then raise exception 'a bad attendance found a band'; end if;
-  if (select app.org_band_seats('church_band_4')) <> 10000 or app.org_band_number('church_band_4') <> 4 then
-    raise exception 'band 4 is not unlimited';
+  -- 0068: each band's seats are its upper bound, 1000 for the fourth.
+  if (select app.org_band_seats('church_band_4')) <> 1000 or app.org_band_number('church_band_4') <> 4 then
+    raise exception 'band 4 should have 1000 seats';
   end if;
 end $$;
 
@@ -164,7 +165,7 @@ do $$ declare v uuid; begin
   -- A church: one subscription of quantity 1, seats are the band's room.
   v := public.org_self_serve_provision('a0600000-0000-0000-0000-000000000002', 'church_band_3', 'church', 'St Example 60', 'GB', null, 'sub_C60', 1);
   insert into public.t60_ids values ('c_lic', v), ('c_org', (select org_id from public.org_licences where id = v));
-  if (select kind || '/' || seats_purchased from public.org_licences where id = v) <> 'church/10000' then raise exception 'the church licence is wrong'; end if;
+  if (select kind || '/' || seats_purchased from public.org_licences where id = v) <> 'church/400' then raise exception 'the church licence is wrong'; end if;
   begin perform public.org_self_serve_provision('a0600000-0000-0000-0000-000000000002', 'church_band_2', 'church', 'St Two 60', 'GB', null, 'sub_C60b', 2);
     raise exception 'a church band took quantity 2'; exception when sqlstate 'AKO02' then null; end;
   begin perform public.org_self_serve_provision('a0600000-0000-0000-0000-000000000002', 'church_band_2', 'business', 'St Two 60', 'GB', null, 'sub_C60c', 1);
@@ -190,7 +191,7 @@ do $$ declare r text; begin
   r := public.org_billing_apply('sub_C60', 'cus_C60', null, 'active', 'church_band_4', 'price_c60', 1, 'charge_automatically', null,
     now() - interval '10 days', now() + interval '355 days', false, null, null, null, false, now());
   if r <> 'applied' then raise exception 'church band 4 mirror: %', r; end if;
-  if (select seats_purchased from public.org_licences where id = public.t60('c_lic')) <> 10000 then raise exception 'band 4 changed the seats'; end if;
+  if (select seats_purchased from public.org_licences where id = public.t60('c_lic')) <> 400 then raise exception 'band 4 changed the seats'; end if;
   begin
     perform public.org_billing_apply('sub_S60', 'cus_S60', null, 'active', 'small_org_year_x', null, 10, 'charge_automatically', null,
       now(), now() + interval '1 day', false, null, null, null, false, now());
@@ -310,7 +311,8 @@ select test_as('a0600000-0000-0000-0000-000000000005');
 do $$ begin
   perform * from public.org_join_link_claim(public.t60_hash('second-link'), true);
   raise exception 'a full licence took another member';
-exception when sqlstate 'AKO07' then null; end $$;
+-- 0068: the standing link's uses follow the seats, so it may be the link that is full.
+exception when sqlstate 'AKO07' or sqlstate 'AKO12' then null; end $$;
 reset role;
 update public.org_licences set seats_purchased = 12 where id = public.t60('s_lic');
 select test_as('a0600000-0000-0000-0000-000000000005');
@@ -370,7 +372,7 @@ select test_as('a0600000-0000-0000-0000-000000000010');
 do $$ begin
   perform * from public.org_join_link_claim(public.t60_hash('pack-link'), true);
   raise exception 'a seventh person took a place';
-exception when sqlstate 'AKO07' then null; end $$;
+exception when sqlstate 'AKO07' or sqlstate 'AKO12' then null; end $$;  -- 0068: the link holds six uses
 reset role;
 do $$ begin
   if not app.has_entitlement('a0600000-0000-0000-0000-000000000006', '00000000-0000-0000-0000-00000000000a', 'a0600000-0000-0000-0000-0000000000c1') then

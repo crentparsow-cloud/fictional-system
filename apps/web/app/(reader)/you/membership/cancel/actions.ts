@@ -11,6 +11,7 @@ import { MARKETS } from "@/lib/markets";
 import { cancelMailFor } from "@/lib/selling-mail";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * The Cancel button, the pause buttons (14.24, 14.25). Runs as the signed-in
@@ -57,6 +58,7 @@ export async function submitCancel(formData: FormData): Promise<void> {
   } catch (err) {
     console.error("membership_cancel_failed", { reason: err instanceof Error ? err.name : "unknown" });
   }
+  if (outcome === "paused") await countEvent("pause_started", { userId: session.userId });
   return back(NOTICE[outcome]);
 }
 
@@ -72,6 +74,7 @@ export async function resumeMembership(): Promise<void> {
       const subject = pickSubject(await loadSubjects(supabase, session.userId, tenantId));
       const outcome = await runResume(subject ? { ...subject, stripeSubscriptionId: subject.stripeSubscriptionId } : null, new Date(), stripeSubscriptions());
       code = outcome === "resumed" ? "resumed" : "unchanged";
+      if (outcome === "resumed") await countEvent("pause_ended", { userId: session.userId });
     }
   } catch (err) {
     console.error("membership_resume_failed", { reason: err instanceof Error ? err.name : "unknown" });

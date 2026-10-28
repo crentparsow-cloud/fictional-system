@@ -25,6 +25,7 @@
  * breaks the page or route that asked.
  */
 import type { FunnelEvent } from "@/lib/admin/funnel";
+import { scopedWorkbook, shouldCount, type ProductEvent } from "@/lib/product-events";
 import { visitorHashFor } from "@/lib/visitor-id";
 
 export type { FunnelEvent } from "@/lib/admin/funnel";
@@ -138,4 +139,17 @@ export function membershipFunnelEvent(event: SubscriptionEventLike, now: Date = 
   }
   if (!requested) return null;
   return wasTrial ? "trial_cancelled" : "membership_cancelled";
+}
+
+/**
+ * The same, for a webhook or cron job with no visitor: a service client and a
+ * tenant id are passed in, and nothing identifies anyone (no hash).
+ */
+export async function countEventServer(
+  client: RpcClient,
+  event: ProductEvent,
+  o: { tenantId: string | null | undefined; workbookId?: string | null; tier?: string | null },
+): Promise<void> {
+  if (!o.tenantId || !shouldCount(event, o.tier)) return;
+  await countFunnelEvent(client, event, { tenantId: o.tenantId, workbookId: scopedWorkbook(event, o.tier, o.workbookId), headers: null });
 }

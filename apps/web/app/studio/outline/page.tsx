@@ -24,7 +24,7 @@ export default async function OutlinePage({ searchParams }: { searchParams: Sear
       <h1>Outline generator</h1>
       <p className="muted">
         Answer five questions and get a unit-by-unit outline to edit. It is a starting point, not a finished plan. The same answers always give the same outline.
-        Nothing you type here is sent anywhere. Read <Link href="/how-to-write">how to write for Akana</Link> first if you have not.
+        Nothing you type here is sent anywhere. Only a daily count that an outline was made is kept. Read <Link href="/how-to-write">how to write for Akana</Link> first if you have not.
       </p>
       <OutlineGenerator />
     </div>

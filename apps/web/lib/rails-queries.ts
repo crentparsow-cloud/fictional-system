@@ -1,5 +1,6 @@
 import "server-only";
 import type { RailSignals } from "@/lib/rails";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 import { MARKETPLACE_TENANT_ID, tenantIdForRequest } from "@/lib/tenant-id";
 
@@ -9,9 +10,20 @@ import { MARKETPLACE_TENANT_ID, tenantIdForRequest } from "@/lib/tenant-id";
  * and the page falls back to the ordinary rails.
  */
 
-/** Starts, finishes and returns per live workbook (public.rail_signals, 0056). Counts only. */
+/**
+ * Starts, finishes and returns per live workbook (public.rail_signals, 0056).
+ * Counts only. Read on the server with the service role (0068): the exact
+ * counts, wellbeing titles included, never reach a browser; the rails turn
+ * them into an order.
+ */
 export async function loadRailSignals(): Promise<RailSignals> {
-  const supabase = await createUserClient();
+  let supabase: ReturnType<typeof createAdminClient>;
+  try {
+    supabase = createAdminClient();
+  } catch {
+    // No service key in this environment: the ordinary rails stand in.
+    return new Map();
+  }
   const tenantId = (await tenantIdForRequest()) ?? MARKETPLACE_TENANT_ID;
   const { data, error } = await supabase.rpc("rail_signals", { p_tenant: tenantId });
   if (error) {
