@@ -18,7 +18,7 @@ export function TryWall({ slug }: { slug: string }) {
     <section className="card try-wall" aria-labelledby="try-wall-title">
       <p className="eyebrow">Week 1 done</p>
       <h2 id="try-wall-title">Keep your week</h2>
-      <p>Your answers are on this device only. Create a free account and we will offer to keep them there, so you can carry on from any device.</p>
+      <p>Your answers are on this device only. Create an account and we will offer to keep them there, so you can carry on from any device.</p>
       <GoogleSignIn next={next} label="Continue with Google" divider="or" />
       <form action={requestMagicLink} noValidate className="try-wall-form">
         <input type="hidden" name="next" value={next} />

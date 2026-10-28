@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeaderActions } from "@/components/site/HeaderActions";
 import { brand } from "@/lib/brand";
 
 export const SITE_NAV = [
@@ -20,10 +21,7 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <div className="site-header-actions">
-          <Link href="/sign-in" className="site-signin">Sign in</Link>
-          <Link href="/library" className="btn site-cta">Try week 1 free</Link>
-        </div>
+        <HeaderActions />
       </div>
     </header>
   );

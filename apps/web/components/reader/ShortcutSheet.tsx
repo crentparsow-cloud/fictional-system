@@ -1,10 +1,13 @@
 "use client";
 
+import { useEffect } from "react";
 import { SHORTCUT_PROMISE, SHORTCUT_SHEET } from "@/lib/reading/shortcuts";
 import { Dialog } from "./Dialog";
+import { trackClientEvent } from "@/lib/track-client";
 
 /** The list of reading shortcuts (3.8), opened with the question mark key. */
 export function ShortcutSheet({ onClose }: { onClose: () => void }) {
+  useEffect(() => trackClientEvent("shortcut_sheet_opened"), []);
   return (
     <Dialog label="Keyboard shortcuts" onClose={onClose}>
       <h2 className="rd-h">Keyboard shortcuts</h2>
