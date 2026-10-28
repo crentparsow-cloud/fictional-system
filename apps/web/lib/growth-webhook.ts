@@ -1,5 +1,7 @@
 import type Stripe from "stripe";
-import { applyPendingCredits, processFirstPayment, type PendingCredit, type RewardDeps } from "@/lib/referral-reward";
+import { applyPendingCredits, processFirstPayment, reverseReferralReward, type PendingCredit, type ReversalDeps, type RewardDeps } from "@/lib/referral-reward";
+import { countEventServer } from "@/lib/funnel";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 
 /**
  * What the growth features do when Stripe tells us about money (6.3, 13.11,
@@ -13,7 +15,10 @@ import { applyPendingCredits, processFirstPayment, type PendingCredit, type Rewa
  *                    ledger line, 12 months from their first payment), credit
  *                    still waiting for a customer, and the reader referral
  *                    reward when this is the friend's first payment of money
- *   charge.refunded  the share is reversed in proportion to the refund
+ *   charge.refunded  the share is reversed in proportion to the refund; a
+ *                    full refund of the friend's first payment takes the
+ *                    referral reward back (0068)
+ *   charge.dispute.created  a dispute on that first payment takes it back too
  */
 
 export interface GrowthDb {
@@ -24,6 +29,7 @@ export interface GrowthDb {
 export interface GrowthContext {
   db: GrowthDb;
   reward: RewardDeps & { creditApplied(creditId: string, balanceTxnId: string): Promise<void> };
+  reversal: ReversalDeps;
 }
 
 function check(name: string, r: { data: unknown; error: { code?: string; message?: string } | null }): unknown {
@@ -60,6 +66,7 @@ export async function growthAfterStripeEvent(event: Stripe.Event, ctx: GrowthCon
 
     const outcome = await processFirstPayment({ invoiceId: invoice.id, friendId: sub.userId, amountPaidMinor: paid, currency: invoice.currency ?? "gbp" }, ctx.reward);
     if (outcome !== "no_payment" && outcome !== "no_referral") done.push(`referral_${outcome}`);
+    if (outcome === "credit_given" || outcome === "credit_waiting" || outcome === "trial_extended") await countEventServer(ctx.db, "referral_rewarded", { tenantId: MARKETPLACE_TENANT_ID });
     return done;
   }
 
@@ -69,6 +76,20 @@ export async function growthAfterStripeEvent(event: Stripe.Event, ctx: GrowthCon
     if (!pi || !(charge.amount_refunded > 0)) return done;
     const r = check("reverse_author_referral_share", await ctx.db.rpc("reverse_author_referral_share", { p_payment_intent: pi, p_refunded_minor: charge.amount_refunded, p_livemode: event.livemode }));
     if (r === "recorded") done.push("author_share_reversed");
+    // A full refund of the charge: if it was a friend's first payment, the reward goes back.
+    if (charge.refunded) {
+      const back = await reverseReferralReward(pi, "refunded", ctx.reversal);
+      if (back !== "nothing_to_reverse") done.push(`referral_${back}`);
+    }
+    return done;
+  }
+
+  if (event.type === "charge.dispute.created") {
+    const dispute = event.data.object;
+    const pi = typeof dispute.payment_intent === "string" ? dispute.payment_intent : (dispute.payment_intent?.id ?? null);
+    if (!pi) return done;
+    const back = await reverseReferralReward(pi, "disputed", ctx.reversal);
+    if (back !== "nothing_to_reverse") done.push(`referral_${back}`);
     return done;
   }
   return done;

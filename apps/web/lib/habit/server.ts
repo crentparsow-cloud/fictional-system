@@ -15,6 +15,7 @@ import { gapDue } from "@/lib/today/gap";
 import { localParts } from "@/lib/today/reminders";
 import { fieldLabel } from "@/lib/today/review-plan";
 import { effectiveFrequency, isReviewFrequency, reviewText, type ReviewFrequency } from "@/lib/today/review";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Everything the habit features read, worked out on the server under the
@@ -103,7 +104,7 @@ export async function loadHabit(userId: string, now: Date = new Date()): Promise
   const hasWellbeingTitle = cards.some((c) => c.safetyTier !== "none");
 
   // Marks first: awarding is cheap, safe to repeat, and the read below then includes anything new.
-  await supabase.rpc("award_milestones");
+  const { data: awarded } = await supabase.rpc("award_milestones");
   const [{ data: settingsRow }, eligible, { data: markRows }, usual] = await Promise.all([
     supabase.from("habit_settings").select("daily_run_on, daily_goal, offer_declined_at, companion_on, usual_time_on, companion_high_water").eq("user_id", userId).maybeSingle(),
     supabase.rpc("habit_none_tier_steps"),
@@ -111,6 +112,9 @@ export async function loadHabit(userId: string, now: Date = new Date()): Promise
     supabase.rpc("my_usual_step_time", { p_tz: tz }),
   ]);
   const settings = (settingsRow as HabitSettingsRow | null) ?? DEFAULT_SETTINGS;
+  // Counts only, and never for a reader with a mental health title (lib/product-events.ts).
+  const habitTier = hasWellbeingTitle ? "standard" : "none";
+  for (let i = 0; i < (Array.isArray(awarded) ? awarded.length : 0); i++) await countEvent("milestone_reached", { userId, tier: habitTier });
   const eligibleSteps = typeof eligible.data === "number" ? eligible.data : 0;
 
   let run: HabitView["run"] = null;
@@ -131,6 +135,7 @@ export async function loadHabit(userId: string, now: Date = new Date()): Promise
       const stage = companionStage(steps, config.stageSteps);
       const newest = cards.reduce((a, c) => (c.lastOpenedAt > a ? c.lastOpenedAt : a), "");
       const returning = newest ? gapDue(new Date(newest), now) : false;
+      await countEvent("companion_shown", { userId, tier: habitTier });
       companion = { stage, growth: growthLine(stage), steps, words: companionWords(`${userId}|${localParts(now, tz).date}`, { returning }) };
     }
   }
