@@ -5,6 +5,7 @@ import { loadMarks, sealMark } from "@/lib/marks-server";
 import { privateWriteRefusal } from "@/lib/private-writes";
 import { MARK_COLOURS, MAX_EXCERPT_CHARS, MAX_MARKS_PER_ENROLMENT, MAX_NOTE_CHARS } from "@/lib/reading/marks";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Highlights and notes, private to the reader (3.4, migration 0058).
@@ -19,7 +20,9 @@ import { createAdminClient } from "@/lib/supabase/admin";
  * only rules, seals the note and the paragraph's words with AAD of user,
  * tenant and "mark:<ref>", and only then writes with the service role. Reads
  * and deletes use the reader's own client, so RLS decides. Nothing here is
- * counted, shared or sent anywhere.
+ * shared or sent anywhere. The only thing kept besides the sealed row is a
+ * daily count that a highlight or a note was added, with no content and no
+ * title (lib/product-events.ts).
  */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -87,6 +90,7 @@ export async function PUT(request: NextRequest) {
     .select("id")
     .single();
   if (error || !data) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
+  if (!existing) await countEvent(note.trim() ? "note_added" : "highlight_added", { userId: enrolment.user_id });
   return NextResponse.json({ mark: { id: (data as { id: string }).id, ref, colour, note, excerpt, updatedAt } }, { headers: NO_STORE });
 }
 

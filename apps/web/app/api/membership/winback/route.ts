@@ -5,6 +5,8 @@ import { reportOps } from "@/lib/ops-alerts";
 import { hashToken, mintToken } from "@/lib/partner";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { runWinback, winbackEnabled, type DueWinback } from "@/lib/winback";
+import { countEventServer } from "@/lib/funnel";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 
 /**
  * The win-back note to lapsed monthly members and one-off buyers. Runs once a
@@ -72,7 +74,11 @@ async function run(request: NextRequest) {
         const { error } = await admin.rpc("winback_release", { p_user: w.userId, p_season: season });
         if (error) throw new SqlError(error.code);
       },
-      send: (w, season, token) => sendWinback({ email: w.email, userId: w.userId, kind: w.kind, season, unsubscribeToken: token }),
+      send: async (w, season, token) => {
+        const sent = await sendWinback({ email: w.email, userId: w.userId, kind: w.kind, season, unsubscribeToken: token });
+        if (sent) await countEventServer(admin, "winback_sent", { tenantId: MARKETPLACE_TENANT_ID });
+        return sent;
+      },
       mintToken,
       hash: hashToken,
       log: (code, detail) => console.error(code, detail ?? ""),
