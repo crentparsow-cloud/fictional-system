@@ -18,6 +18,8 @@ import type Stripe from "stripe";
  *   charge.refunded
  *       A full refund of a gift's payment ends the gift at once, claimed or
  *       not. A partial refund is left for staff and said so in the outcome.
+ *   charge.dispute.created
+ *       A dispute on a gift's payment ends the gift the same way.
  *
  * Nothing renews: there is no subscription in this path at all.
  */
@@ -52,7 +54,7 @@ export interface GiftMail {
   sent(g: PaidGift, buyer: { email: string; name: string | null }): Promise<void>;
 }
 
-export type GiftAction = "gift_paid" | "gift_repeat" | "gift_unpaid" | "gift_unknown" | "gift_failed" | "gift_refunded" | "gift_refund_repeat" | "gift_partial_refund";
+export type GiftAction = "gift_paid" | "gift_repeat" | "gift_unpaid" | "gift_unknown" | "gift_failed" | "gift_refunded" | "gift_refund_repeat" | "gift_partial_refund" | "gift_disputed";
 export interface GiftOutcome {
   action: GiftAction;
   giftId: string | null;
@@ -107,6 +109,15 @@ export async function handleGiftEvent(event: Stripe.Event, repo: GiftRepo, mail:
       if (!c.refunded) return { action: "gift_partial_refund", giftId: found.id };
       const r = await repo.refund(pi);
       return { action: r.changed ? "gift_refunded" : "gift_refund_repeat", giftId: found.id };
+    }
+    case "charge.dispute.created": {
+      const d = event.data.object as Stripe.Dispute;
+      const pi = idOf(d.payment_intent as string | { id: string } | null);
+      if (!pi) return null;
+      const found = await repo.findByPaymentIntent(pi);
+      if (!found) return null;
+      const r = await repo.refund(pi);
+      return { action: r.changed ? "gift_disputed" : "gift_refund_repeat", giftId: found.id };
     }
     default:
       return null;
