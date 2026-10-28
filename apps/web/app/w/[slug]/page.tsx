@@ -367,7 +367,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
                 const free = u.number <= freeUnits;
                 return (
                   <li key={u.number} className={`b-week${free ? " b-week-free" : ""}`}>
-                    <span className="b-tag">{free ? "Free" : "Opens with the workbook"}</span>
+                    <span className="b-tag">{free ? "Free to read" : "Opens with the workbook"}</span>
                     <h3>
                       {unit} {u.number}
                     </h3>
@@ -381,7 +381,7 @@ export default async function WorkbookPage({ params, searchParams }: { params: P
 
         <section className="b-section b-ways" id="buy" aria-label="Get this workbook">
           <p className="b-eyebrow">Ways to read</p>
-          <h2>Start free, then choose</h2>
+          <h2>Try week 1 free, then choose</h2>
           {promoNote ? (
             <p className="b-small wb-promo" role="status">
               {promoNote}
