@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { isSlug } from "@/lib/author-theme-pages";
 import { getReaderSession } from "@/lib/auth";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Follow or unfollow an author (build list 2.10). A reader follows by choice,
@@ -32,6 +33,7 @@ export async function setFollow(fd: FormData): Promise<void> {
       console.error("author_follow_failed", error.code ?? "");
       redirect(`${back}?follow=failed`);
     }
+    await countEvent("author_followed", { userId: session.userId });
   } else {
     const { error } = await supabase.from("author_follows").delete().eq("user_id", session.userId).eq("author_id", authorId);
     if (error) {
