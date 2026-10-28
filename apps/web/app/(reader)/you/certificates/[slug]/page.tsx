@@ -7,6 +7,7 @@ import { certificateNotice, certificateWords } from "@/lib/certificate/certifica
 import { finishedProgrammeBySlug } from "@/lib/certificate/server";
 import { createUserClient } from "@/lib/supabase/server";
 import { saveCertificate } from "./actions";
+import { countEvent } from "@/lib/funnel-server";
 
 export const metadata: Metadata = { title: "Certificate", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -22,6 +23,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
   const [{ slug }, sp, session] = await Promise.all([params, searchParams, getReaderSession()]);
   if (!session) return null;
   const programme = await finishedProgrammeBySlug(session.userId, slug).catch(() => null);
+  if (programme) await countEvent("certificate_viewed", { userId: session.userId });
   const notice = certificateNotice(sp.notice);
   if (!programme) {
     return (
