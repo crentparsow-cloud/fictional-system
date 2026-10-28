@@ -2,9 +2,15 @@
 
 import { headers } from "next/headers";
 import { clientIp, leadSalt, processTitleRequest, titleRequestLimiter, type TitleRequestState } from "@/lib/title-request";
-import { createUserClient } from "@/lib/supabase/server";
+import { getReaderSession } from "@/lib/auth";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { countEvent } from "@/lib/funnel-server";
 
-/** The title request form (build list 2.8). The rules live in lib/title-request.ts; this gathers the request and the real effects. */
+/**
+ * The title request form (build list 2.8). The rules live in lib/title-request.ts; this gathers the request and the real effects.
+ * The address hash is made here and recorded by the service role with the signed-in reader, if any (0068), so a caller cannot
+ * choose the hash the rate limit counts.
+ */
 export async function sendTitleRequest(prev: TitleRequestState, fd: FormData): Promise<TitleRequestState> {
   const h = await headers();
   let salt: string;
@@ -19,9 +25,10 @@ export async function sendTitleRequest(prev: TitleRequestState, fd: FormData): P
     salt,
     limiter: titleRequestLimiter,
     submit: async (args) => {
-      const supabase = await createUserClient();
-      const { data, error } = await supabase.rpc("submit_title_request", args);
+      const session = await getReaderSession();
+      const { data, error } = await createAdminClient().rpc("submit_title_request_as", { p_user: session?.userId ?? null, ...args });
       if (error) return { id: null, error: { code: error.code } };
+      await countEvent("title_requested");
       return { id: typeof data === "string" ? data : null, error: null };
     },
   });
