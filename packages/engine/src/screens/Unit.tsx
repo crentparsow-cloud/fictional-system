@@ -60,7 +60,7 @@ function UnitReading({ unit }: { unit: ProgrammeUnit }) {
                 <Eyebrow>{`Key idea ${i + 1} of ${ideas.length}`}</Eyebrow>
                 <h3 className="ak-h3" data-ra>{idea.heading}</h3>
                 <p data-ra>{idea.body}</p>
-                <p className="ak-muted ak-idea-example" data-ra>{idea.example}</p>
+                {idea.example ? <p className="ak-muted ak-idea-example" data-ra>{idea.example}</p> : null}
               </Card>
             </li>
           ))}
