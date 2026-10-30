@@ -134,11 +134,13 @@ describe("pace form", () => {
     expect(paceChange(id, "hourly")).toBeNull();
   });
 
-  it("reads only well formed pace fields", () => {
+  it("reads the one enrolment the form is for", () => {
     const f = new FormData();
-    f.set(`pace:${id}`, "few_times_a_week");
-    f.set("pace:bad", "daily");
+    f.set("enrolment_id", id);
+    f.set("pace", "few_times_a_week");
     f.set("goal", "2");
-    expect(parsePaceForm(f)).toEqual([{ enrolmentId: id, pace: "few_times_a_week" }]);
+    expect(parsePaceForm(f)).toEqual({ enrolmentId: id, pace: "few_times_a_week" });
+    f.set("enrolment_id", "bad");
+    expect(parsePaceForm(f)).toBeNull();
   });
 });

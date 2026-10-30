@@ -62,7 +62,7 @@ export function UnitMap({ nodes, word, slug, compact = false, onOpenUnit, celebr
             );
           })}
         </ol>
-        {today ? <p className="small muted">{unitName(word, today.number)} is next.</p> : <p className="small muted">Every {word} is done.</p>}
+        {today ? <p className="small muted">{word === "part" ? `Your next part: ${unitName(word, today.number)}.` : `${unitName(word, today.number)} is next.`}</p> : <p className="small muted">Every {word} is done.</p>}
       </nav>
     );
   }

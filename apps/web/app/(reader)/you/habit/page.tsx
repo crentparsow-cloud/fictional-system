@@ -7,7 +7,7 @@ import { imageFileName } from "@/lib/habit/milestones";
 import { loadHabit } from "@/lib/habit/server";
 import { companionChoice, habitNotice } from "@/lib/habit/settings";
 import { PACES, PACE_HINTS, PACE_LABELS } from "@/lib/pace";
-import { markMarksSeen, saveHabit, savePaces } from "./actions";
+import { markMarksSeen, saveHabit, savePace } from "./actions";
 
 /**
  * Streak, pace, companion and reminders in one place, one tap from Today
@@ -123,34 +123,33 @@ export default async function HabitPage({ searchParams }: Props) {
       </form>
 
       {h.paces.length > 0 ? (
-        <form action={savePaces} className="card you-today-card" id="pace">
-          <fieldset>
-            <legend>Your pace</legend>
-            <p className="small muted">How often you would like to do a part of each workbook. Today and your reminders follow it. Nothing ever locks: you can always open the next part early.</p>
-            {h.paces.map((p) => (
-              <p key={p.enrolmentId}>
-                <label htmlFor={`pace-${p.enrolmentId}`}>{p.title}</label>{" "}
-                <select id={`pace-${p.enrolmentId}`} name={`pace:${p.enrolmentId}`} defaultValue={p.pace}>
-                  {PACES.map((v) => (
-                    <option key={v} value={v}>
-                      {PACE_LABELS[v]}
-                    </option>
-                  ))}
-                </select>
-              </p>
+        <section className="card you-today-card" id="pace" aria-labelledby="pace-h">
+          <h2 id="pace-h">Your pace</h2>
+          <p className="small muted">How often you would like to do a part of each workbook. Today and your reminders follow it. Nothing ever locks: you can always open the next part early.</p>
+          {h.paces.map((p) => (
+            <form key={p.enrolmentId} action={savePace} className="pace-form">
+              <input type="hidden" name="enrolment_id" value={p.enrolmentId} />
+              <label htmlFor={`pace-${p.enrolmentId}`}>{p.title}</label>{" "}
+              <select id={`pace-${p.enrolmentId}`} name="pace" defaultValue={p.pace}>
+                {PACES.map((v) => (
+                  <option key={v} value={v}>
+                    {PACE_LABELS[v]}
+                  </option>
+                ))}
+              </select>{" "}
+              <button type="submit" className="btn secondary" aria-label={`Save pace for ${p.title}`}>
+                Save pace
+              </button>
+            </form>
+          ))}
+          <ul className="small muted">
+            {PACES.map((v) => (
+              <li key={v}>
+                <b>{PACE_LABELS[v]}.</b> {PACE_HINTS[v]}
+              </li>
             ))}
-            <ul className="small muted">
-              {PACES.map((v) => (
-                <li key={v}>
-                  <b>{PACE_LABELS[v]}.</b> {PACE_HINTS[v]}
-                </li>
-              ))}
-            </ul>
-          </fieldset>
-          <button type="submit" className="btn">
-            Save pace
-          </button>
-        </form>
+          </ul>
+        </section>
       ) : null}
 
       <section className="you-section" id="marks" aria-labelledby="marks-h">

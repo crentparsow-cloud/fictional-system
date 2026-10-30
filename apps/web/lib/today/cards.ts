@@ -1,15 +1,19 @@
 import type { ProgrammeStep } from "@/lib/today/steps";
-import type { Pace } from "@/lib/pace";
+import { paceUnitLabel, type Pace } from "@/lib/pace";
 import type { UnitWord } from "@/lib/today/week";
 
 /**
- * Which cards Today shows (4.1): three at most. Today's step, one from the
- * reader's toolkit, one suggestion. For the first 30 days of a membership the
+ * Which cards Today shows (4.1). One step card for every open programme with
+ * a step to do, the most due first, then at most one from the reader's
+ * toolkit and one suggestion. For the first 30 days of a membership the
  * third card is the next programme to try. No streak, no count of days, no
  * "you missed". The choice is a pure function so it can be tested.
  */
 
+/** One step card, one toolkit card, one suggestion: the cards for a reader with one programme. */
 export const MAX_TODAY_CARDS = 3;
+/** Cards after the step cards: the toolkit card and the suggestion. */
+const MAX_OTHER_CARDS = MAX_TODAY_CARDS - 1;
 export const NEW_MEMBER_DAYS = 30;
 const DAY_MS = 86_400_000;
 
@@ -36,6 +40,10 @@ export interface ProgrammeToday {
   pace?: Pace;
   /** True when the pace suggests a part today. Own pace is never due, and nothing ever locks. */
   due?: boolean;
+  /** The local day the pace next suggests a part, "YYYY-MM-DD", or null on own pace. Earlier is more due. */
+  dueDay?: string | null;
+  /** True when the reader finished a step of this programme today. */
+  workedToday?: boolean;
 }
 
 export interface SavedTool {
@@ -85,21 +93,71 @@ export function isWellbeingReader(programmes: readonly Pick<ProgrammeToday, "saf
 }
 
 /**
- * The programme whose step leads Today: one whose pace suggests a part today
- * comes first, then the most recently opened. Any programme with a step to
- * do can lead; a programme that is not due is never held back.
+ * How due a programme is, for ordering Today. Lower comes first: due today
+ * (the longest waiting first), then waiting and not touched today, then
+ * worked on today.
  */
-export function leadProgramme(programmes: readonly ProgrammeToday[]): ProgrammeToday | null {
+function dueRank(p: ProgrammeToday): number {
+  if (p.due === true) return 0;
+  if (p.workedToday === true) return 2;
+  return 1;
+}
+
+/**
+ * Every programme with a step to do, the most due first. Within a rank the
+ * earlier due day leads (own pace, with no due day, comes after), then the
+ * most recently opened. Nothing that is not due is ever held back.
+ */
+export function orderProgrammes(programmes: readonly ProgrammeToday[]): ProgrammeToday[] {
   const withStep = programmes.filter((p) => p.next);
-  withStep.sort((a, b) => Number(b.due === true) - Number(a.due === true) || Date.parse(b.lastOpenedAt) - Date.parse(a.lastOpenedAt));
-  return withStep[0] ?? null;
+  const day = (p: ProgrammeToday) => p.dueDay ?? "9999-12-31";
+  return withStep.sort(
+    (a, b) => dueRank(a) - dueRank(b) || (day(a) < day(b) ? -1 : day(a) > day(b) ? 1 : 0) || Date.parse(b.lastOpenedAt) - Date.parse(a.lastOpenedAt),
+  );
+}
+
+/** The programme whose step leads Today: the most due one. */
+export function leadProgramme(programmes: readonly ProgrammeToday[]): ProgrammeToday | null {
+  return orderProgrammes(programmes)[0] ?? null;
+}
+
+export type StepStatus = "due" | "done_today" | "when_ready";
+
+/**
+ * Where a programme stands today. Due: its pace suggests a part today.
+ * Done for today: a step was finished today on a scheduled pace. Otherwise
+ * the next part is there when the reader is ready, which is always the case
+ * on own pace.
+ */
+export function stepStatus(p: Pick<ProgrammeToday, "due" | "workedToday" | "pace">): StepStatus {
+  if (p.due === true) return "due";
+  if (p.workedToday === true && (p.pace ?? "weekly") !== "own_pace") return "done_today";
+  return "when_ready";
+}
+
+export const STEP_STATUS_LABEL: Record<StepStatus, string> = {
+  due: "Today's step",
+  done_today: "Done for today",
+  when_ready: "Next part when you are ready",
+};
+
+/**
+ * The words on a step card. A title in weeks read weekly keeps week wording
+ * ("Week 1 of 12", "Week 1 is next"); everything else talks about parts
+ * ("Part 1 of 4", "Your next part").
+ */
+export function stepCardWords(p: Pick<ProgrammeToday, "unitWord" | "unitCount" | "pace" | "due" | "workedToday">, unit: number): { place: string; next: string; status: string } {
+  const label = paceUnitLabel(p.unitWord, p.pace ?? "weekly");
+  const place = p.unitCount && p.unitCount >= unit ? `${label} ${unit} of ${p.unitCount}` : `${label} ${unit}`;
+  const next = label === "Part" ? "Your next part" : `${label} ${unit} is next`;
+  return { place, next, status: STEP_STATUS_LABEL[stepStatus(p)] };
 }
 
 export function selectTodayCards(input: TodayInput): TodayCard[] {
   const cards: TodayCard[] = [];
 
-  const lead = leadProgramme(input.programmes);
-  if (lead?.next) cards.push({ kind: "step", programme: lead, step: lead.next });
+  const steps: TodayCard[] = [];
+  for (const p of orderProgrammes(input.programmes)) if (p.next) steps.push({ kind: "step", programme: p, step: p.next });
 
   if (input.savedTools.length) {
     // One saved card at a time, changing with the date so the same one is not always first.
@@ -111,7 +169,7 @@ export function selectTodayCards(input: TodayInput): TodayCard[] {
   // Month three: the shared plan takes the third card once. Never for a wellbeing reader.
   if (input.monthThreeOffer && !isWellbeingReader(input.programmes)) {
     cards.push({ kind: "shared_offer", offer: input.monthThreeOffer });
-    return cards.slice(0, MAX_TODAY_CARDS);
+    return [...steps, ...cards.slice(0, MAX_OTHER_CARDS)];
   }
 
   // The new-member variant is switched off for anyone with a wellbeing title open.
@@ -125,5 +183,5 @@ export function selectTodayCards(input: TodayInput): TodayCard[] {
     }
   }
 
-  return cards.slice(0, MAX_TODAY_CARDS);
+  return [...steps, ...cards.slice(0, MAX_OTHER_CARDS)];
 }
