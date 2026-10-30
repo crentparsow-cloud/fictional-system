@@ -217,6 +217,8 @@ export interface BuildOptions {
   catalogue?: CatalogueVersion;
   /** Include content/workbooks/classics. Defaults to true. */
   classics?: boolean;
+  /** Include content/workbooks/demo, the short demo workbooks. Defaults to true. */
+  demos?: boolean;
 }
 
 export function repoRoot(): string {
@@ -490,6 +492,17 @@ export function buildSeed(opts: BuildOptions = {}): Seed {
     }
   }
 
+  // Demo workbooks (30 October 2026): short four-part workbooks for the invented
+  // demo titles in content/workbooks/demo. Each one attaches a version to the
+  // demo catalogue row for its code. The row keeps its status and its badge.
+  // Demo files are written against Demo Catalogue v2, so v1 builds skip them.
+  if (opts.demos !== false && v2) {
+    const demoAuthor = new Map(catalogue.workbooks.filter((w) => w.is_demo).map((w) => [w.code, w.author_id]));
+    for (const file of demoFiles(root)) {
+      attachDemo({ file, doc: WorkbookV3.parse(readJson(file)), workbooks, workbook_versions, books, catalogueAuthor: demoAuthor });
+    }
+  }
+
   const seed: Seed = { genres, shelves, areas, themes, organisations, authors, books, book_contributors, workbooks, workbook_versions, tenant_listings };
   checkIntegrity(seed);
   if (v2) checkV2Integrity(seed, v2);
@@ -562,6 +575,77 @@ export function attachClassic({ file, doc, workbooks, workbook_versions, books, 
   row.licence_ref = doc.licence_ref ?? null;
 }
 
+/** The demo workbooks folder, relative to the repository root. */
+export const DEMO_DIR = ["content", "workbooks", "demo"] as const;
+
+/** Absolute paths of the demo workbook files, sorted. Empty when the folder is missing. */
+export function demoFiles(root: string): string[] {
+  const dir = join(root, ...DEMO_DIR);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => join(dir, f));
+}
+
+interface AttachDemoInput {
+  file: string;
+  doc: z.infer<typeof WorkbookV3>;
+  workbooks: WorkbookRow[];
+  workbook_versions: WorkbookVersionRow[];
+  books: BookRow[];
+  /** Demo catalogue code to its author code. */
+  catalogueAuthor: Map<string, string>;
+}
+
+/**
+ * Attach a demo workbook's content to its catalogue row. Mirrors attachClassic,
+ * with two differences: the badge stays demo, and the row's status is never
+ * touched (a demo title already live stays live; a draft stays draft). Refuses
+ * anything that would make the file and the catalogue disagree.
+ */
+export function attachDemo({ file, doc, workbooks, workbook_versions, books, catalogueAuthor }: AttachDemoInput): void {
+  const name = file.split("/").pop() ?? file;
+  const row = workbooks.find((w) => w.code === doc.code);
+  if (!row) throw new Error(`${name}: ${doc.code} is not in the catalogue. Add the catalogue record first.`);
+  const problems: string[] = [];
+  if (!row.is_demo) problems.push("catalogue row is not a demo title");
+  if (row.badge !== "demo") problems.push(`catalogue badge is ${row.badge}, not demo`);
+  if (!doc.is_demo) problems.push("file is_demo is not true");
+  if (doc.badge !== "demo") problems.push(`file badge is ${doc.badge}, not demo`);
+  if (doc.status !== undefined) problems.push(`file carries status "${doc.status}"; a demo file carries none and the row keeps its own`);
+  if (doc.licence_ref) problems.push("a demo file carries licence_ref null");
+  if (row.slug !== doc.slug) problems.push(`slug ${doc.slug} differs from the catalogue slug ${row.slug}`);
+  if (row.safety_tier !== doc.safety_tier) problems.push(`safety tier ${doc.safety_tier} differs from the catalogue tier ${row.safety_tier}`);
+  if (row.genre_id !== doc.genre) problems.push(`genre ${doc.genre} differs from the catalogue genre ${row.genre_id}`);
+  if (doc.theme_id !== undefined && row.theme_id !== doc.theme_id) problems.push(`theme ${doc.theme_id} differs from the catalogue theme ${row.theme_id ?? "none"}`);
+  const author = catalogueAuthor.get(doc.code);
+  if (author !== doc.author.author_id) problems.push(`author ${doc.author.author_id} differs from the catalogue author ${author ?? "none"}`);
+  if (workbook_versions.some((v) => v.workbook_id === row.id)) problems.push("a version already exists for this code");
+  if (!books.some((b) => b.id === row.book_id)) problems.push("catalogue book row is missing");
+  if (problems.length) throw new Error(`${name} (${doc.code}): ${problems.join("; ")}`);
+
+  const content = stripInternal(doc) as unknown as Json;
+  const semver = "1.0.0";
+  const versionId = ids.version(doc.code, semver);
+  workbook_versions.push({
+    id: versionId,
+    workbook_id: row.id,
+    semver,
+    schema_version: doc.schema_version,
+    content,
+    content_hash: contentHash(content),
+    validated_at: null,
+    published_at: null,
+  });
+  row.current_version_id = versionId;
+  row.depth = "full";
+  row.short_title = doc.short_title ?? row.short_title;
+  row.card_line = doc.card_line;
+  row.licence_ref = null;
+  // badge and status are left exactly as the catalogue set them.
+}
+
 /** Build from Demo Catalogue v2 (F-153). The same as buildSeed() now v2 is the default. */
 export function buildSeedV2(opts: Omit<BuildOptions, "catalogue"> = {}): Seed {
   return buildSeed({ ...opts, catalogue: "v2" });
@@ -615,6 +699,24 @@ function checkIntegrity(seed: Seed): void {
     if (w.is_demo && w.badge === "official") problems.push(`workbook ${w.code} is demo but badged official`);
   }
   for (const a of seed.authors) if (!orgIds.has(a.org_id)) problems.push(`author ${a.code} has unknown organisation`);
+
+  // Versions: each belongs to a known workbook, and a demo row's content is a
+  // demo document (is_demo true, badge demo). Demo versions are accepted on
+  // the same terms as any other.
+  const workbookById = new Map(seed.workbooks.map((w) => [w.id, w]));
+  for (const v of seed.workbook_versions) {
+    const w = workbookById.get(v.workbook_id);
+    if (!w) {
+      problems.push(`version ${v.id} belongs to no workbook`);
+      continue;
+    }
+    const c = v.content as { is_demo?: unknown; badge?: unknown };
+    if (w.is_demo && (c.is_demo !== true || c.badge !== "demo")) problems.push(`workbook ${w.code} is demo but its version is not a demo document`);
+    if (!w.is_demo && c.is_demo === true) problems.push(`workbook ${w.code} is not demo but its version says is_demo`);
+  }
+  for (const w of seed.workbooks) {
+    if (w.current_version_id && !seed.workbook_versions.some((v) => v.id === w.current_version_id)) problems.push(`workbook ${w.code} points at a version that is not in the seed`);
+  }
 
   const dupes = (xs: string[]) => xs.filter((x, i) => xs.indexOf(x) !== i);
   for (const [name, list] of Object.entries(seed) as [keyof Seed, { id?: string }[]][]) {
