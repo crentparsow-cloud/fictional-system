@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { contentTargets } from "./targets";
 import { habitLanguageClean, habitLanguageHits } from "./habit-lint";
-import { validateWorkbook } from "./index";
+import { habitLintApplies, validateWorkbook } from "./index";
 
 const rules = (t: string) => habitLanguageHits(t).map((h) => h.rule);
 
@@ -71,5 +71,31 @@ describe("the check in validateWorkbook", () => {
     expect(base.safety_tier).not.toBe("none");
     expect(hasHabit(doc)).toBe(true);
     expect(hasHabit({ ...doc, safety_tier: "none" })).toBe(false);
+  });
+});
+
+describe("the shelf rule (0069)", () => {
+  const root = join(__dirname, "../../..");
+  const base = JSON.parse(readFileSync(join(root, "content/workbooks/v3/burnout.json"), "utf8")) as Record<string, unknown>;
+  const doc = { ...base, card_line: "Keep your streak going with a daily goal." };
+  const hasHabit = (d: unknown, shelfId?: string | null) => validateWorkbook(d, shelfId === undefined ? {} : { shelfId }).errors.some((e) => /mental health title/.test(e.message));
+
+  it("checks a Mind and Mood title whatever its tier", () => {
+    expect(hasHabit(doc, "mind-and-mood")).toBe(true);
+    expect(hasHabit({ ...doc, safety_tier: "none", genre: "productivity" }, "mind-and-mood")).toBe(true);
+  });
+
+  it("leaves a standard title on another shelf alone, as streaks may reach it", () => {
+    expect(hasHabit(doc, "health-and-body")).toBe(false);
+  });
+
+  it("still checks every wellbeing tier when the shelf is not known", () => {
+    expect(hasHabit(doc)).toBe(true);
+  });
+
+  it("follows habitLintApplies", () => {
+    expect(habitLintApplies({ safety_tier: "higher" }, "money")).toBe(true);
+    expect(habitLintApplies({ safety_tier: "none" }, null)).toBe(false);
+    expect(habitLintApplies({ safety_tier: "standard" })).toBe(true);
   });
 });

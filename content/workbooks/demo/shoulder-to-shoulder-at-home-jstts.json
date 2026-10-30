@@ -1,0 +1,381 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-JSTTS",
+  "slug": "shoulder-to-shoulder-at-home-jstts",
+  "title": "Shoulder to Shoulder at Home",
+  "card_line": "Choose two baby jobs to own from start to finish and review the split.",
+  "book": {
+    "book_id": "shoulder-to-shoulder-at-home",
+    "title": "Shoulder to Shoulder at Home",
+    "subtitle": "Sharing the Early Months as a New Father"
+  },
+  "author": {
+    "author_id": "AU-93Z6G",
+    "display_name": "Jamal Whitacre-Odom"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "parenting",
+  "theme_id": "early-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_medical_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about sharing the early months with a new baby as an equal parent. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will own two baby jobs and have a way to review the split. It is not medical advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which baby or home job do you do least of right now? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life with a new baby. If using it would put you or anyone at home at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "List every baby and home job and see who does it now",
+      "exercise_ids": [
+        "p1_list"
+      ],
+      "intro": "In the early months the work is bigger than most people expect, and it is often unevenly shared without anyone choosing that. This part asks you to write down every job, from night feeds to washing, and note who does it now. The point is a clear picture, not a score.",
+      "ideas": [
+        {
+          "heading": "The early months hold more jobs than most people can name from memory.",
+          "body": "Think beyond feeding and nappies. There is washing, sterilising, appointments, shopping, replying to messages, tidying and planning ahead. A lot of this work is invisible to the person not doing it. Writing it all down gives you both the same list to look at."
+        },
+        {
+          "heading": "Whoever is home most tends to pick up most jobs without anyone deciding.",
+          "body": "If one parent is on leave and the other at work, tasks drift to the one in the house. By the time both are at home, one knows how and the other does not. This is ordinary and can be changed. It starts with seeing it."
+        },
+        {
+          "heading": "A shared list lets you talk about jobs rather than about each other.",
+          "body": "Say \"I notice I do the bath and you do the night feeds\" instead of \"you never help\". The list is a neutral thing to point at. Both of you can add to it. It turns a complaint into a question about which jobs could move."
+        }
+      ],
+      "takeaway": "Write down every job and who does it. A shared list lets you talk about the work, not about blame."
+    },
+    {
+      "number": 2,
+      "focus": "Choose two whole jobs to own from start to finish",
+      "exercise_ids": [
+        "p2_own"
+      ],
+      "intro": "Doing a task now and then is not the same as owning it. Owning a job means you notice it needs doing, do it and finish it. This part asks you to choose two jobs to hold from start to finish, with no reminders needed.",
+      "ideas": [
+        {
+          "heading": "Owning a job means noticing it, planning it and finishing it.",
+          "body": "Many second parents help when asked. That still leaves the other parent holding the list in their head. To own a job, you track the supplies, know the routine and act without prompting. Taking a job completely lifts the mental load from the other person."
+        },
+        {
+          "heading": "Choose jobs that matter to everyday life, not only the pleasant ones.",
+          "body": "The bath is nice. The sterilising and the shopping are not. Take at least one job that nobody enjoys. Pick jobs that come up often, so you build skill quickly. Two is enough to start. You can add more once these feel familiar."
+        },
+        {
+          "heading": "Being clumsy at first is part of learning a job.",
+          "body": "You may do it differently from your partner, and more slowly. Let it be done your way if it is safe. Ask for a quick demonstration if you are unsure. If your partner steps in at the first wobble, you never get the chance to learn. Steady repetition does the teaching."
+        }
+      ],
+      "takeaway": "Own two whole jobs from start to finish. Choose at least one that nobody enjoys, and let yourself learn it."
+    },
+    {
+      "number": 3,
+      "focus": "Spend time alone with the baby and talk with your partner",
+      "exercise_ids": [
+        "p3_alone"
+      ],
+      "intro": "Confidence comes from time on your own with the baby, with nobody to hand over to. This part asks you to plan a stretch of solo time and note what you learn. Then you set a short weekly talk with your partner about how the week is going.",
+      "ideas": [
+        {
+          "heading": "Time alone with the baby teaches you things that time alongside does not.",
+          "body": "With your partner in the room, you hand over at the first cry. On your own, you work it out. Start with an hour. Leave a number on the fridge, then leave it alone unless something is urgent. The baby learns your way of doing things and so do you."
+        },
+        {
+          "heading": "Your partner can leave and be properly away.",
+          "body": "If they stay in the next room, the time does not count. Suggest a walk, a nap or a visit to friends. Letting go can be as hard as taking over. Agree beforehand the one thing that would bring them back."
+        },
+        {
+          "heading": "A short weekly talk keeps small frustrations from growing large.",
+          "body": "Choose a time when the baby is settled. Ask each other three questions: what went well, what was hard, what could change. Keep it to fifteen minutes. Listen first. Small things said early are easier to hear than large things said late."
+        }
+      ],
+      "takeaway": "Take time alone with the baby, and talk with your partner once a week. Small conversations early are easier than large ones late."
+    },
+    {
+      "number": 4,
+      "focus": "Find support from others and review the split",
+      "exercise_ids": [
+        "p4_review"
+      ],
+      "intro": "Parenting is easier with people around who know what it is like. This last part asks where you find that, whether from other fathers, friends or family. Then you look back over the split of jobs and plan the next three months.",
+      "ideas": [
+        {
+          "heading": "Other parents at the same stage can tell you what books cannot.",
+          "body": "A friend with a baby of a similar age knows the tiredness and the odd questions. Find one or two and keep in touch. A message is enough. Ask how they share the work. You may find the same problem has been solved in a way that suits your home."
+        },
+        {
+          "heading": "It is fine to say you are finding it hard.",
+          "body": "Many second parents keep quiet because they feel their partner is carrying more. Telling a friend you are tired or unsure is ordinary and often meets a warm reply. If something is weighing on you, talk to your partner or someone you trust."
+        },
+        {
+          "heading": "A review of the split is a conversation, not an audit.",
+          "body": "Sit down after a few weeks and look at the list again. Which jobs has each of you taken? What has become easier and what has slipped? Move jobs around as the baby changes. Plan the next three months together, knowing the plan will shift."
+        }
+      ],
+      "takeaway": "Find one or two people who understand, and review the split together. Plans change as the baby does."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_list",
+      "title": "List the baby and home jobs",
+      "purpose": "A list of baby and home jobs with a name beside each one.",
+      "why": "Write down every job you can think of, from night feeds to washing. Put a name beside each one. Ask your partner to add any you missed. Ten to twelve lines is plenty. If you are not sure who does a job, write a question mark.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write every job you can think of."
+        },
+        {
+          "text": "Put a name beside each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Which baby and home jobs are there, and who does each?",
+          "columns": [
+            "The job",
+            "Who does it"
+          ],
+          "min_items": 1,
+          "max_items": 12
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three jobs and who does them."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "You have at least five jobs with names beside them."
+    },
+    {
+      "id": "p2_own",
+      "title": "Choose two jobs to own",
+      "purpose": "Two whole jobs you will own and what you want to learn first.",
+      "why": "Look at your list and choose two jobs to own from start to finish. Make one of them a job nobody enjoys. Then note what you want to learn first about each. If you are unsure, ask your partner to show you once.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose two jobs from the list."
+        },
+        {
+          "text": "Note what you want to learn first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "short_text",
+          "label": "Which two jobs will you own from start to finish?"
+        },
+        {
+          "id": "learn",
+          "type": "short_text",
+          "label": "What do you want to learn first about each?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "owned"
+        },
+        {
+          "field_id": "learn",
+          "plan_section": "owned"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first job you will own."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "You have two jobs chosen and a first thing to learn."
+    },
+    {
+      "id": "p3_alone",
+      "title": "Plan time alone with the baby",
+      "purpose": "A plan for solo time with the baby and a weekly talk with your partner.",
+      "why": "Choose a time in the coming week when you can be alone with the baby for an hour or so. Agree it with your partner. Then pick a time for your weekly talk. If the week is full, choose the following one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a time for solo time with the baby."
+        },
+        {
+          "text": "Pick a time for the weekly talk."
+        }
+      ],
+      "fields": [
+        {
+          "id": "alone",
+          "type": "short_text",
+          "label": "When will you have time alone with the baby, and for how long?"
+        },
+        {
+          "id": "talk",
+          "type": "short_text",
+          "label": "When will you and your partner have your weekly talk?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "alone",
+          "plan_section": "together"
+        },
+        {
+          "field_id": "talk",
+          "plan_section": "together"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a day and time for solo time."
+          }
+        ],
+        "field_ids": [
+          "alone"
+        ]
+      },
+      "done_when": "You have a time for solo time and a time for the talk."
+    },
+    {
+      "id": "p4_review",
+      "title": "Review the split",
+      "purpose": "A person to talk to and a note of what you would change in the split.",
+      "why": "Name one friend, father or relative you could talk to about how it is going. Then look at your list again and write what you would move or add. Do this with your partner if you can. If nothing needs changing, say so.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name someone to talk to."
+        },
+        {
+          "text": "Write what you would move or add."
+        }
+      ],
+      "fields": [
+        {
+          "id": "support",
+          "type": "short_text",
+          "label": "Who will you talk to about how it is going?"
+        },
+        {
+          "id": "split",
+          "type": "long_text",
+          "label": "Looking at the list again, what would you move or add?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "support",
+          "plan_section": "review"
+        },
+        {
+          "field_id": "split",
+          "plan_section": "review"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person you could talk to."
+          }
+        ],
+        "field_ids": [
+          "support"
+        ]
+      },
+      "done_when": "You have a person named and a note on the split."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your two jobs are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your jobs, your time with the baby and your review."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "The jobs now"
+    },
+    {
+      "id": "owned",
+      "title": "Jobs you own"
+    },
+    {
+      "id": "together",
+      "title": "Time and talk"
+    },
+    {
+      "id": "review",
+      "title": "Your review"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds the jobs now, the two you own, your time with the baby and your review of the split.",
+    "book_bridge": "Shoulder to Shoulder at Home is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which job have you taken on fully this month?",
+      "What came out of your weekly talk?",
+      "Is the split still right for this stage?"
+    ],
+    "refresher_ids": [
+      "p2_own",
+      "p4_review"
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import { resumeHref, resumeWhere, type PlaceRow } from "@/lib/reading/resume";
+import { effectivePace, isPace } from "@/lib/pace";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import "@akana/engine/engine.css";
@@ -22,6 +23,7 @@ import { ProgrammeQuestionCard } from "./ProgrammeQuestionCard";
 import { loadMyPairs } from "@/lib/friends/server";
 import { flagEnabled } from "@/lib/platform/flags-server";
 import { ReadClient } from "./ReadClient";
+import { demoFullyOpen } from "@/lib/demo-period";
 import { affiliateDisclosure, affiliateTagsFromEnv } from "@/lib/book-affiliate";
 
 /**
@@ -94,6 +96,7 @@ interface EnrolmentRow {
   id: string;
   version_id: string;
   status: string;
+  pace: string | null;
 }
 
 export default async function ReadPage({ params, searchParams }: { params: Promise<Params>; searchParams: Promise<Search> }) {
@@ -143,7 +146,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
   // One enrolment per reader, tenant and workbook. Create on first open.
   const { data: existing } = await supabase
     .from("enrolments")
-    .select("id, version_id, status")
+    .select("id, version_id, status, pace")
     .eq("user_id", session.userId)
     .eq("tenant_id", tenantId)
     .eq("workbook_id", workbook.id)
@@ -156,7 +159,7 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     const { data: created, error } = await supabase
       .from("enrolments")
       .insert({ user_id: session.userId, tenant_id: tenantId, workbook_id: workbook.id, version_id: workbook.current_version_id })
-      .select("id, version_id, status")
+      .select("id, version_id, status, pace")
       .single();
     if (error || !created) notFound();
     enrolment = created as EnrolmentRow;
@@ -192,6 +195,9 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     .eq("version_id", enrolment.version_id);
   const rebuilt = rebuildWorkbook((sectionRows ?? []) as SectionRow[]);
   if (!rebuilt) notFound();
+  // Demo period (0070): every part of a demo opens to a signed-in reader. A
+  // locked part here means the database switch and this mirror disagree.
+  if (workbook.is_demo && demoFullyOpen() && rebuilt.lockedUnits.length) console.error("demo_part_locked", workbook.code, rebuilt.lockedUnits.join(","));
 
   // Prices for the calm paywall, only when something is locked. The
   // database row wins, as at checkout; the config ladder is the fallback.
@@ -294,6 +300,8 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
       workbook={withTitleCopy(rebuilt.workbook, titleCopyFor(workbook.code))}
       firstName={firstNameOf(profile?.display_name as string | null | undefined)}
       enrolmentId={enrolment.id}
+      pace={effectivePace(enrolment.pace, rebuilt.workbook.structure.unit)}
+      paceChosen={isPace(enrolment.pace)}
       lockedUnits={rebuilt.lockedUnits}
       missing={rebuilt.missing}
       slug={workbook.slug}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ContinueCard } from "@/lib/catalogue-types";
-import { BADGE_LABELS, UNIT_WORDS } from "@/lib/catalogue-guard";
-import { continueStatus } from "@/lib/continue-cards";
+import { BADGE_LABELS } from "@/lib/catalogue-guard";
+import { continueStatus, continueUnitWord } from "@/lib/continue-cards";
 import type { Translate } from "@/lib/locale";
 
 /**
@@ -10,7 +10,7 @@ import type { Translate } from "@/lib/locale";
  */
 export function ContinueCardView({ card, t, now, finished, resumeHref }: { card: ContinueCard; t: Translate; now?: Date; finished?: boolean; resumeHref?: string }) {
   const status = continueStatus(card, now);
-  const unitWord = card.unitLabel === "unit" ? "Unit" : UNIT_WORDS[card.unitLabel];
+  const unitWord = continueUnitWord(card);
   // A finished workbook stays here in Keep going mode (F-017). No count of anything.
   const line = finished
     ? "Finished. Keep going whenever you like."

@@ -1,0 +1,394 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-GCTYD",
+  "slug": "starting-over-in-a-smaller-flat-gctyd",
+  "title": "Starting Over in a Smaller Flat",
+  "card_line": "Rebuild your weekly routine and make the new place feel like yours.",
+  "book": {
+    "book_id": "starting-over-in-a-smaller-flat",
+    "title": "Starting Over in a Smaller Flat",
+    "subtitle": "Rebuilding Ordinary Life After a Separation"
+  },
+  "author": {
+    "author_id": "AU-1F1Q2",
+    "display_name": "Isla MacPhail-Osei"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "relationships",
+  "theme_id": "new-chapters",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about rebuilding ordinary life in a smaller home after a separation. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have written what has changed, a weekly pattern and a plan for the season ahead. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one small thing that would make your new place feel more like yours? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday life after a separation, which can be a risky time for some people. If using it would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Write down what has changed and who you can call on",
+      "exercise_ids": [
+        "p1_changes"
+      ],
+      "intro": "A separation changes many small things at once. Before you plan anything, it is worth seeing the changes on paper. This part asks you to write down what is different, without judging it, and to name the people you could call on.",
+      "ideas": [
+        {
+          "heading": "Writing down what has changed gets it out of your head.",
+          "body": "A separation leaves many loose ends in the mind. Putting them on paper turns them into a list you can read. Write facts, such as the address, the people you see, who cooks. Leave out verdicts. You are describing your life, not deciding who was right."
+        },
+        {
+          "heading": "Notice losses and gains side by side.",
+          "body": "Some of what has changed will feel like a loss: the shared routine, the old street, the second income. Some may feel like more room. Both can be true on the same page. Writing them in two columns lets you keep both without arguing with yourself."
+        },
+        {
+          "heading": "A short list of people you can call on is worth having ready.",
+          "body": "Think of three or four people who would pick up: a friend, a relative, a neighbour, a colleague. Add what each is good for, such as a lift, a listening ear or a practical job. Having names written down means you are not searching when you need someone."
+        }
+      ],
+      "takeaway": "Write down what has changed without judging it. Keep a short list of people you can call on."
+    },
+    {
+      "number": 2,
+      "focus": "Make the place yours and build a weekly routine",
+      "exercise_ids": [
+        "p2_home"
+      ],
+      "intro": "A smaller flat need not feel temporary. This part looks at making one corner yours, then at a loose weekly pattern for meals, sleep times and money admin. Each is small, and you can change any of it. You choose how much to do.",
+      "ideas": [
+        {
+          "heading": "Start with one corner rather than the whole flat.",
+          "body": "Choose a chair, a shelf or a windowsill and make it yours. Add a lamp, a plant, a photo or a blanket you like. One finished corner shows what the rest could become. It also gives you a place to sit that feels like your own."
+        },
+        {
+          "heading": "A loose weekly pattern for meals and sleep times is easier than deciding afresh.",
+          "body": "You do not need a strict timetable. Decide roughly when you will eat, shop and go to bed, and see how it suits you. Cooking for one is easier with a few simple meals you know. A rough pattern means fewer decisions each evening."
+        },
+        {
+          "heading": "A set time for money admin keeps it from piling up.",
+          "body": "Bills, statements and forms are easier in a short session at a set time than scattered through the week. Pick half an hour once a week with a hot drink. Open the post, pay what is due, and file the rest. If something is unclear, write the question down for later."
+        }
+      ],
+      "takeaway": "Make one corner yours, keep a loose weekly pattern, and give money admin a set half hour."
+    },
+    {
+      "number": 3,
+      "focus": "Decide what to tell people and try something new",
+      "exercise_ids": [
+        "p3_say"
+      ],
+      "intro": "Friends and family will ask how you are and what happened. You can decide in advance what to say. This part looks at short answers to common questions, at keeping some things private, and at one new thing you might try for yourself.",
+      "ideas": [
+        {
+          "heading": "A short answer you have ready makes questions easier to meet.",
+          "body": "People ask out of care, and often without knowing what to say. A line such as «It is a big change, and I am finding my feet» is true and enough. You can stop there. A prepared sentence keeps you from improvising when you are tired."
+        },
+        {
+          "heading": "You can decide what stays private.",
+          "body": "Not everyone needs the whole story. Choose what you share with whom. Have a gentle way to close a subject, such as «I would rather not go into that, thank you». Most people take the hint. Keeping something to yourself is not rude. It is your choice."
+        },
+        {
+          "heading": "One new thing done on your own can be small.",
+          "body": "You may have always wanted to try a class, a trip or a hobby your partner never fancied. It can be small: a morning at a gallery or a walk somewhere new. Doing something alone, for no reason other than interest, is a quiet way to meet yourself again."
+        }
+      ],
+      "takeaway": "Have a short answer ready, keep private what you want private, and try one new thing alone."
+    },
+    {
+      "number": 4,
+      "focus": "Note the paperwork to raise and plan the next season",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Separation brings paperwork, and some of it has legal or tax weight. This workbook does not give advice on that. This part asks you to list the papers to raise with a qualified adviser. Then you look back over what you have written and plan the season ahead.",
+      "ideas": [
+        {
+          "heading": "A list of papers is worth making, even if you do not understand them yet.",
+          "body": "Write down the documents and questions as they come: the tenancy or mortgage, accounts, insurance, anything with two names. Nobody expects you to know the answers. A list means you arrive with your questions in front of you. Add to it whenever one occurs to you."
+        },
+        {
+          "heading": "Legal and tax questions belong with a qualified adviser.",
+          "body": "The rules differ by place and by situation, and the details matter. A workbook cannot tell you what applies to you. Ask a qualified adviser who knows your circumstances. Take your list along, and write down the answers in your own words afterwards."
+        },
+        {
+          "heading": "Looking back at the weeks shows what has moved, even if slowly.",
+          "body": "Read what you wrote in Part 1. Some things will be the same. Others will have shifted: a corner set up, a few more names to call, an answer ready. Notice what has changed without grading it. Then choose one gentle thing for the season ahead."
+        }
+      ],
+      "takeaway": "Keep a list of papers to raise with a qualified adviser. Look back, and choose one gentle thing for the season ahead."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_changes",
+      "title": "Write what has changed",
+      "purpose": "A plain list of what is different and who you can call on.",
+      "why": "Write what has changed in two columns, one for what is harder and one for what is easier. Then add the names of two or three people you could call. Facts only. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what is harder and what is easier."
+        },
+        {
+          "text": "Add two or three names you could call."
+        }
+      ],
+      "fields": [
+        {
+          "id": "changes",
+          "type": "two_column",
+          "label": "What has changed in your life since the separation?",
+          "columns": [
+            "Lost or harder",
+            "Gained or easier"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "people",
+          "type": "short_text",
+          "label": "Who could you call on if you needed someone?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "changes",
+          "plan_section": "changes"
+        },
+        {
+          "field_id": "people",
+          "plan_section": "people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change and one person you could call."
+          }
+        ],
+        "field_ids": [
+          "changes",
+          "people"
+        ]
+      },
+      "done_when": "You have at least one change and one name written."
+    },
+    {
+      "id": "p2_home",
+      "title": "Plan your corner and your week",
+      "purpose": "One corner to set up and a loose weekly pattern.",
+      "why": "Choose one corner of your home to make yours and write one thing you would put there. Then write a rough pattern for the week, covering meals, sleep times and money admin. If it feels like too much, do the corner only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a corner and one thing to put there."
+        },
+        {
+          "text": "Sketch a rough week for meals, sleep and money admin."
+        }
+      ],
+      "fields": [
+        {
+          "id": "corner",
+          "type": "short_text",
+          "label": "Which corner will you make yours, and with what?"
+        },
+        {
+          "id": "week",
+          "type": "long_text",
+          "label": "What does a loose week look like for meals, sleep and money admin?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "corner",
+          "plan_section": "home"
+        },
+        {
+          "field_id": "week",
+          "plan_section": "home"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one corner and one thing for it."
+          }
+        ],
+        "field_ids": [
+          "corner"
+        ]
+      },
+      "done_when": "You have one corner chosen and a rough week sketched."
+    },
+    {
+      "id": "p3_say",
+      "title": "Prepare your answers",
+      "purpose": "A short reply for questions and one new thing to try.",
+      "why": "Write the short answer you would give when someone asks how you are. Then name one thing you have always wanted to try on your own. If nothing comes to mind, write one word and return to it later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a short answer for when people ask."
+        },
+        {
+          "text": "Name one thing to try on your own."
+        }
+      ],
+      "fields": [
+        {
+          "id": "answer",
+          "type": "short_text",
+          "label": "What short answer will you give when people ask?"
+        },
+        {
+          "id": "newthing",
+          "type": "short_text",
+          "label": "What would you like to try on your own?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "answer",
+          "plan_section": "say"
+        },
+        {
+          "field_id": "newthing",
+          "plan_section": "say"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one short answer you could give."
+          }
+        ],
+        "field_ids": [
+          "answer"
+        ]
+      },
+      "done_when": "You have an answer and one thing to try."
+    },
+    {
+      "id": "p4_next",
+      "title": "List papers and plan ahead",
+      "purpose": "A list of papers to raise with an adviser and one plan.",
+      "why": "Write the papers or questions you would raise with a qualified adviser. Then write one gentle thing for the season ahead. If you are not ready to think about papers, write the plan only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the papers or questions to raise."
+        },
+        {
+          "text": "Write one gentle thing for the season ahead."
+        }
+      ],
+      "fields": [
+        {
+          "id": "papers",
+          "type": "long_text",
+          "label": "Which papers or questions would you raise with an adviser?"
+        },
+        {
+          "id": "season",
+          "type": "short_text",
+          "label": "What is one gentle thing for the season ahead?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "papers",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "season",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one gentle thing for the season ahead."
+          }
+        ],
+        "field_ids": [
+          "season"
+        ]
+      },
+      "done_when": "You have a list started and one plan written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your corner and your weekly pattern are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what has changed, your corner and week, your answers and what comes next."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "changes",
+      "title": "What has changed"
+    },
+    {
+      "id": "people",
+      "title": "People you can call"
+    },
+    {
+      "id": "home",
+      "title": "Your corner and your week"
+    },
+    {
+      "id": "say",
+      "title": "What you will say"
+    },
+    {
+      "id": "next",
+      "title": "Papers and the season ahead"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote what has changed and who you can call on. You also set up a corner and a week, prepared your answers and planned ahead.",
+    "book_bridge": "Starting Over in a Smaller Flat is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What has changed for the better in your new place this month?",
+      "Which corner or part of your week would you like to adjust?"
+    ],
+    "refresher_ids": [
+      "p2_home",
+      "p4_next"
+    ]
+  }
+}

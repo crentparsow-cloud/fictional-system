@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import type { WorkbookV3 } from "@akana/schema";
 import { Card, Eyebrow } from "./parts";
 import { LetterCard, lettersAt } from "./Letter";
@@ -19,6 +20,8 @@ export interface StartScreenProps {
   showFirstTool?: boolean;
   /** The reader's first name, for author letters. Letters read fine without it. */
   firstName?: string;
+  /** App content before the why prompt, such as the pace question. */
+  extra?: ReactNode;
 }
 
 /**
@@ -26,7 +29,7 @@ export interface StartScreenProps {
  * prompt. Ends with one button. The self-check that the legacy app ran here
  * is its own screen now.
  */
-export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly, onOpenSelfCheck, showFirstTool, firstName }: StartScreenProps) {
+export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, readOnly, onOpenSelfCheck, showFirstTool, firstName, extra }: StartScreenProps) {
   const firstTool = showFirstTool ? doc.toolkit[0] : undefined;
   const wellbeing = doc.safety_tier !== "none";
   return (
@@ -92,6 +95,8 @@ export function StartScreen({ workbook: doc, why, onWhyChange, onAcknowledge, re
           }
         </p>
       ) : null}
+
+      {extra ? <div className="ak-field">{extra}</div> : null}
 
       <div className="ak-field">
         <label className="ak-q" htmlFor="ak-start-why">

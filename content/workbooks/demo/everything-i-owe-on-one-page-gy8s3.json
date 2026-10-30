@@ -1,0 +1,354 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-GY8S3",
+  "slug": "everything-i-owe-on-one-page-gy8s3",
+  "title": "Everything I Owe, On One Page",
+  "card_line": "List everything you owe on one page and know who to call for debt advice.",
+  "book": {
+    "book_id": "everything-i-owe-on-one-page",
+    "title": "Everything I Owe, On One Page",
+    "subtitle": "A Calm First Look at Your Debts"
+  },
+  "author": {
+    "author_id": "AU-D21DK",
+    "display_name": "Rhiannon Asante-Pugh"
+  },
+  "publisher_id": "PB-7AFQE",
+  "genre": "finance",
+  "theme_id": "paying-it-down",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is a gentle first look at what you owe, at your own pace. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have one page listing your debts and some questions for an adviser. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part. Stop whenever you like.",
+      "Answer the exercise. If nothing comes to mind, write one word.",
+      "Your answers build one page you can read at the end."
+    ],
+    "why_prompt": "What would it mean to you to see everything you owe in one place?",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk in any way, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Gather your statements and letters at a pace that suits you",
+      "exercise_ids": [
+        "p1_gather"
+      ],
+      "intro": "Looking at what you owe can be hard. This part is only about gathering what you already have, such as statements, letters and bills. You can take a break whenever you like and come back another day. Nothing needs to be solved yet.",
+      "ideas": [
+        {
+          "heading": "Gathering paper is a separate job from dealing with it.",
+          "body": "There is no need to read every letter closely, or decide anything, while you gather. Put everything in one box, bag or folder. The task is finished when it is all in one place. Reading and sorting can wait for another day."
+        },
+        {
+          "heading": "A pause is part of the process, not a break in it.",
+          "body": "Money letters can bring up strong feelings. Stop when you want to. Make a drink, walk round the block or leave it until tomorrow. Your papers will still be there, and you will see them more clearly when you return."
+        },
+        {
+          "heading": "Some papers will be missing, and that is normal.",
+          "body": "Few people have every statement to hand. Write down what you cannot find. Most lenders can send copies, and online accounts often hold past statements. A missing letter is something to note for later, not a reason to stop. You can ask for them whenever you are ready."
+        }
+      ],
+      "takeaway": "Gather what you have into one place, pause whenever you like and note what is missing. Sorting can wait."
+    },
+    {
+      "number": 2,
+      "focus": "Put who you owe, how much and the minimum payment on one page",
+      "exercise_ids": [
+        "p2_page"
+      ],
+      "intro": "One page can show the whole picture. For each debt, you write who it is owed to, roughly how much is left and the smallest payment asked each month. This part walks you through making that page, with no judgement about how it got there.",
+      "ideas": [
+        {
+          "heading": "One page shows what many separate letters hide.",
+          "body": "Each lender writes to you on its own, so the total is easy to lose. Putting every debt on a single sheet shows the whole picture at once. For many people, seeing it written down is less daunting than the unknown."
+        },
+        {
+          "heading": "Three details per debt are enough to begin with.",
+          "body": "Write who you owe, how much is left and the minimum payment. You can add interest rates and dates later. Starting small keeps the job manageable, and a short page is easier to return to than a long one. You can build up from there at your own speed."
+        },
+        {
+          "heading": "Rough figures are fine until you have the exact ones.",
+          "body": "If a balance is unclear, write your best guess and mark it with a question mark. You can correct it once the statement arrives. A page with a few guesses is more useful than a blank one. Marking a guess keeps you honest and keeps you moving."
+        }
+      ],
+      "takeaway": "List who you owe, how much and the minimum payment on one page. Rough figures are enough to start."
+    },
+    {
+      "number": 3,
+      "focus": "Tell priority bills apart from the rest",
+      "exercise_ids": [
+        "p3_priority"
+      ],
+      "intro": "Not every debt carries the same weight. Some bills, such as rent, council tax and energy, can have serious consequences if they go unpaid. This part looks at the difference in general terms, so you can see which items on your page come first.",
+      "ideas": [
+        {
+          "heading": "Priority bills protect your home and your basic services.",
+          "body": "Rent or mortgage, council tax and energy are examples. If they go unpaid, the results can be more serious than for many other debts. Marking them on your page shows you what to look at first, and what to raise with an adviser."
+        },
+        {
+          "heading": "Most other debts matter, but carry different consequences.",
+          "body": "Credit cards, store cards, catalogue accounts and overdrafts are usually in this group. They still need attention, and the lender will still write to you. But the steps and timings differ, which an adviser can explain. Knowing the group a debt belongs to is a useful first step."
+        },
+        {
+          "heading": "Your own page can mark the difference with a simple note.",
+          "body": "Write a letter beside each debt, such as P for priority and O for other. You do not need to be certain. If you are unsure which a debt is, mark it with a question mark and ask when you speak to an adviser."
+        }
+      ],
+      "takeaway": "Mark which items on your page are priority bills and which are not. Where you are unsure, note it and ask."
+    },
+    {
+      "number": 4,
+      "focus": "Know where independent debt advice is available and prepare for a conversation",
+      "exercise_ids": [
+        "p4_advice"
+      ],
+      "intro": "Independent debt advice services exist to look at your whole situation with you. Many do not charge. This final part is about knowing they are there and preparing a few questions. Whether you book a conversation, and when, is your decision.",
+      "ideas": [
+        {
+          "heading": "Independent advisers look at your whole situation without a sales aim.",
+          "body": "Debt advice charities and public services give guidance on what to do. They do not sell you a product. Many offer their service at no charge. It is worth checking that any service you contact is independent and regulated. A good adviser will explain your options and leave the choice to you."
+        },
+        {
+          "heading": "Your one page is the best thing to bring.",
+          "body": "An adviser can do much more with a clear list than with a vague worry. Bring your page, your letters and a note of your income and spending. If some details are missing, go anyway. They can work with what you have."
+        },
+        {
+          "heading": "A list of questions makes the conversation easier to start.",
+          "body": "Write down what you want to ask, such as what the priority bills mean for you or what options exist. Having questions ready means you leave with answers. If you are not ready to call yet, that is fine. The page will wait."
+        }
+      ],
+      "takeaway": "Independent advisers can look at your whole situation. Bring your page and your questions when you are ready."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_gather",
+      "title": "Gather what has arrived",
+      "purpose": "A list of what you have found and what you will do when you need a pause.",
+      "why": "Look around for letters, statements and bills about money you owe. Put them in one place without reading closely. Note what you have found, and what you will do when you need a pause. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Gather what you can find."
+        },
+        {
+          "text": "Note what you will do if you need a pause."
+        }
+      ],
+      "fields": [
+        {
+          "id": "found",
+          "type": "checklist",
+          "label": "Which of these have you gathered so far?",
+          "options": [
+            "Bank or card statements",
+            "Letters from lenders",
+            "Bills for rent, council tax or energy",
+            "Something else"
+          ]
+        },
+        {
+          "id": "pause",
+          "type": "short_text",
+          "label": "What will you do when you need a pause?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "found",
+          "plan_section": "gathered"
+        },
+        {
+          "field_id": "pause",
+          "plan_section": "gathered"
+        }
+      ],
+      "done_when": "You have a note of what you found and what you will do for a pause."
+    },
+    {
+      "id": "p2_page",
+      "title": "Write your one page",
+      "purpose": "One page listing who you owe, how much and the minimum payment.",
+      "why": "Take a sheet of paper or open a blank note. For each debt you know about, write who it is owed to, roughly how much is left and the smallest payment. A rough figure is fine. One line is enough for each.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one line per debt."
+        },
+        {
+          "text": "Mark any figure you are unsure of."
+        }
+      ],
+      "fields": [
+        {
+          "id": "page",
+          "type": "two_column",
+          "label": "Who do you owe, and how much?",
+          "columns": [
+            "Who you owe",
+            "How much, and the minimum payment"
+          ],
+          "min_items": 1,
+          "max_items": 12
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "page",
+          "plan_section": "page"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one debt on your page."
+          }
+        ],
+        "field_ids": [
+          "page"
+        ]
+      },
+      "done_when": "Each debt you know of has a line, even a rough one."
+    },
+    {
+      "id": "p3_priority",
+      "title": "Mark the priority bills",
+      "purpose": "A note of which bills are priority and which come after.",
+      "why": "Look at your page. Mark the items that are rent, council tax, energy or similar bills for your home. Then note the debts that come after them. If you are unsure of any, write a question mark.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Mark the priority bills."
+        },
+        {
+          "text": "Note the rest."
+        }
+      ],
+      "fields": [
+        {
+          "id": "priority",
+          "type": "long_text",
+          "label": "Which of your bills are priority bills, such as rent, council tax or energy?"
+        },
+        {
+          "id": "rest",
+          "type": "long_text",
+          "label": "Which debts come after the priority bills?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "priority",
+          "plan_section": "priority"
+        },
+        {
+          "field_id": "rest",
+          "plan_section": "priority"
+        }
+      ],
+      "done_when": "Priority bills are marked, and unsure items have a question mark."
+    },
+    {
+      "id": "p4_advice",
+      "title": "Prepare for one conversation",
+      "purpose": "Questions for an independent adviser and a view on when you might call.",
+      "why": "Write the questions you would like to ask an independent debt adviser. Then note when you might book a conversation, or write \"not yet\". Either answer is fine, and you can come back to it.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your questions."
+        },
+        {
+          "text": "Note when you might book, or not yet."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What would you like to ask an independent debt adviser?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "If you would like a conversation, when might you book one?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "advice"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "advice"
+        }
+      ],
+      "done_when": "You have questions written, or a note that you are not ready yet."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "gathered",
+      "title": "What you gathered"
+    },
+    {
+      "id": "page",
+      "title": "Your one page"
+    },
+    {
+      "id": "priority",
+      "title": "Priority bills and the rest"
+    },
+    {
+      "id": "advice",
+      "title": "Your questions for an adviser"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and one page in your own words. It holds what you gathered, who you owe, your priority bills and your questions for an adviser.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which new letter or statement has arrived since you wrote your page?",
+      "What has changed on your page this month?",
+      "Are your questions for an adviser still the right ones?"
+    ],
+    "refresher_ids": [
+      "p2_page",
+      "p4_advice"
+    ]
+  }
+}

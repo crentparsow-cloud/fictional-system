@@ -2,6 +2,7 @@
  * Catalogue shapes shared by the server queries (lib/catalogue.ts), the pure
  * helpers and the tests. No Next.js or Supabase dependency here.
  */
+import type { Pace } from "@/lib/pace";
 
 export type Badge = "official" | "made_with_author" | "public_domain" | "demo";
 export type SafetyTier = "none" | "standard" | "higher";
@@ -38,7 +39,7 @@ export interface LibraryCard {
   /** Number of units in the programme, or null when nothing says. */
   unitCount?: number | null;
   /** The unit word of the programme (week, day, module, chapter), or null when the listing does not say. */
-  unitKind?: "week" | "day" | "module" | "chapter" | null;
+  unitKind?: "week" | "day" | "module" | "chapter" | "part" | null;
   /** How many units are free. Null when the listing does not say, which means the first one. */
   freeUnits?: number | null;
   /** Whether the membership covers this title (0009). */
@@ -60,7 +61,7 @@ export interface ListingBody {
   tagline?: string;
   language?: string;
   structure?: {
-    unit?: "week" | "day" | "module" | "chapter";
+    unit?: "week" | "day" | "module" | "chapter" | "part";
     count?: number;
     free_units?: number;
     /** Not in the v3 schema today. Read if a later version adds it. */
@@ -107,9 +108,17 @@ export interface ContinueCard {
   safetyTier: SafetyTier;
   startedAt: string;
   lastOpenedAt: string;
-  unitLabel: "week" | "day" | "module" | "chapter" | "unit";
+  unitLabel: "week" | "day" | "module" | "chapter" | "part" | "unit";
   unitCount: number | null;
   /** The highest unit the reader has opened, or null before the first. */
   currentUnit: number | null;
   hasDailyCheck: boolean;
+  /** The reader's pace for this workbook, or the title's default (0069). */
+  pace: Pace;
+  /** True when the reader chose the pace; false while it is the default. */
+  paceChosen: boolean;
+  /** The workbook's shelf through its Theme, or null. */
+  shelfId: string | null;
+  /** Streaks, goals and the streak offer may reach this workbook: habitAllowed in @akana/schema. */
+  habitAllowed: boolean;
 }

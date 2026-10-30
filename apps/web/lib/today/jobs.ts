@@ -8,6 +8,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { localParts } from "@/lib/today/reminders";
 import type { Outgoing, PickupDeps, ReminderTarget, RunDeps, SendOutcome, StepContext } from "@/lib/today/run-reminders";
 import { DEFAULT_STOP_AFTER } from "@/lib/today/reminders";
+import { isPace } from "@/lib/pace";
 import { PICKUP_GAP_DAYS } from "@/lib/today/gap";
 import { doneExerciseIds, nextStep, stepsFromUnitSections } from "@/lib/today/steps";
 import type { UnitWord } from "@/lib/today/week";
@@ -55,6 +56,11 @@ interface TargetRow {
   reminder_time: string;
   timezone: string;
   pickup_on: boolean | null;
+  pace?: string | null;
+  last_step_day?: string | null;
+  steps_in_last_week?: number | null;
+  last_reminder_day?: string | null;
+  last_active_day?: string | null;
 }
 
 export class SqlError extends Error {
@@ -92,6 +98,9 @@ function toTargets(rows: readonly TargetRow[]): ReminderTarget[] {
     time: r.reminder_time,
     timeZone: r.timezone,
     pickupOn: r.pickup_on,
+    ...(isPace(r.pace)
+      ? { pace: r.pace, lastStepDay: r.last_step_day ?? null, stepsInLastWeek: r.steps_in_last_week ?? 0, lastReminderDay: r.last_reminder_day ?? null, lastActiveDay: r.last_active_day ?? null }
+      : {}),
   }));
 }
 
@@ -158,7 +167,7 @@ export function reminderDeps(admin: SupabaseClient, origin: string, now: Date, s
         admin.from("workbooks").select("title, short_title").eq("id", workbookId).maybeSingle(),
       ]);
       const unit = (listing as { structure?: { unit?: string } } | null)?.structure?.unit;
-      const word: UnitWord = unit === "week" || unit === "day" || unit === "module" || unit === "chapter" ? unit : "unit";
+      const word: UnitWord = unit === "week" || unit === "day" || unit === "module" || unit === "chapter" || unit === "part" ? unit : "unit";
       const w = wb as { title?: string; short_title?: string | null } | null;
       return { steps: stepsFromUnitSections((units ?? []) as { unit_number: number | null; body: unknown }[]), unitWord: word, titles: [w?.title ?? "", w?.short_title ?? ""] };
     })();

@@ -1,0 +1,372 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-JZ46W",
+  "slug": "three-goals-on-the-fridge-jz46w",
+  "title": "Three Goals on the Fridge",
+  "card_line": "Pick three goals for the fridge and check them once a month.",
+  "book": {
+    "book_id": "three-goals-on-the-fridge",
+    "title": "Three Goals on the Fridge",
+    "subtitle": "A Few Goals and a Monthly Check"
+  },
+  "author": {
+    "author_id": "AU-RTFCW",
+    "display_name": "Bronwyn Achterberg-Lui"
+  },
+  "genre": "personal_development",
+  "theme_id": "clearer-choices",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about choosing three goals for the fridge and checking them once a month. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have picked three goals, a first step for each, and a monthly check that lets you change a goal. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing you would like to do or have by the end of the year? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose three goals from a longer wish list.",
+      "exercise_ids": [
+        "p1_three"
+      ],
+      "intro": "Most people carry a long list of things they would like to do. Trying to act on all of them leads to acting on none. This part asks you to write the whole list and then pick three. Three is small enough to remember and see.",
+      "ideas": [
+        {
+          "heading": "Write the long list first, then cut it.",
+          "body": "Put every wish on paper, large and small. Do not judge them yet. A long list gets everything out of your head. Once it is down, you can see which ones keep calling you back. Look at the whole page before you choose."
+        },
+        {
+          "heading": "Three goals are easier to hold in mind than ten.",
+          "body": "A short list fits on a card. You can say it from memory. With more than three, attention spreads thin and each goal gets less. Choose the three that matter most right now. The rest can wait on the list."
+        },
+        {
+          "heading": "A good goal is something you can picture.",
+          "body": "\"Get fit\" is vague. \"Walk to the shops twice a week\" is something you can see yourself doing. Write each goal so that you could tell, from outside, whether you had done it. Keep the wording plain. Add a number or a place if it helps."
+        }
+      ],
+      "takeaway": "Write the long list, then choose three goals you can picture."
+    },
+    {
+      "number": 2,
+      "focus": "Pick a first step for each goal, small enough for this week.",
+      "exercise_ids": [
+        "p2_step"
+      ],
+      "intro": "A goal without a first step stays a wish. The step should be so small that it can happen in the next few days. This part asks you to write one for each of your three goals. Each should take little time and need little planning.",
+      "ideas": [
+        {
+          "heading": "The first step should fit into this week.",
+          "body": "Look at your diary and find where it could go. Make a call, buy an item, clear a space, send a message. If a step needs a month of preparation, it is too big. Cut it down until it fits."
+        },
+        {
+          "heading": "A small step tells you if the goal is real.",
+          "body": "Taking a first step shows whether you still want the goal. If you feel relief, it matters. If you feel only duty, it may be on the list for the wrong reasons. Either answer is useful. Both answers give you something to work with."
+        },
+        {
+          "heading": "Write the step where you will see it.",
+          "body": "Put the step beside the goal on the same sheet. A step in your head is easy to lose. A step on paper is easy to do. Add a day next to it, so it has a place in the week."
+        }
+      ],
+      "takeaway": "Give each goal one small first step, and put a day beside it."
+    },
+    {
+      "number": 3,
+      "focus": "Look at the fridge list for five minutes each week.",
+      "exercise_ids": [
+        "p3_look"
+      ],
+      "intro": "Goals only help if you see them. The fridge is a place you pass many times a day. This part asks you to put your list there and to take a short weekly look. Five minutes is enough to see what moved and what to do next.",
+      "ideas": [
+        {
+          "heading": "A list you see is a list you remember.",
+          "body": "Write your three goals on a card and put it on the fridge. Each time you open the door, you glimpse it. You do not have to do anything about it each time. Seeing it keeps the goals in the background of your week."
+        },
+        {
+          "heading": "A weekly look takes five minutes.",
+          "body": "Pick a day, stand at the fridge and read the card. Ask what you did last week and what the next step is. Write it in. Then go on with your day. Keep the look short and it will stay easy."
+        },
+        {
+          "heading": "Progress can be small and still be progress.",
+          "body": "One phone call or one afternoon counts. Some weeks nothing moves, and that is ordinary. Note it and set the next small step. What matters is that you keep looking, not that every week shows a result. Write down one thing you did, however small, and keep the card on the fridge."
+        }
+      ],
+      "takeaway": "Put the card on the fridge and take a five minute look each week."
+    },
+    {
+      "number": 4,
+      "focus": "Do a monthly check that lets you change a goal without guilt.",
+      "exercise_ids": [
+        "p4_check"
+      ],
+      "intro": "Once a month, give the list a proper look. Some goals will have moved, some will have stalled, and some will no longer fit. This part asks you to do a short monthly check. You are allowed to keep, change or drop any goal.",
+      "ideas": [
+        {
+          "heading": "A monthly check has three questions.",
+          "body": "Is each goal still wanted? What moved this month? What is the next step? Write the answers on the back of the card or in a notebook. Fifteen minutes is plenty. A fixed set of questions keeps it simple. Keep each answer to a line or two."
+        },
+        {
+          "heading": "You may change a goal, and that is not giving up.",
+          "body": "Your life moves. A goal that mattered in January may not in June. Replace it with one from your long list. Choosing differently as you learn more is sensible, and nobody is keeping score. Write down why you changed it, so you remember your reasons. Then make the new goal specific, with a first step."
+        },
+        {
+          "heading": "Drop a goal without guilt if it no longer fits.",
+          "body": "Some goals were never yours. If you feel only dread, cross it off. Say thank you and move on. The space it leaves can go to something you do want. A shorter, truer list is worth more than a long one."
+        }
+      ],
+      "takeaway": "Once a month, ask three questions and keep, change or drop each goal freely."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_three",
+      "title": "Pick your three goals",
+      "purpose": "A long wish list cut down to three goals.",
+      "why": "Write every wish you can think of, large and small. Then choose the three that matter most right now. Write each in plain words you could picture. If you can only find one, one is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the long list."
+        },
+        {
+          "text": "Choose three goals."
+        },
+        {
+          "text": "Reword each so you can picture it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wishes",
+          "type": "long_text",
+          "label": "What are all the things you would like to do or have?"
+        },
+        {
+          "id": "three",
+          "type": "long_text",
+          "label": "Which three goals will go on the fridge?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "three",
+          "plan_section": "goals"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one goal in plain words."
+          }
+        ],
+        "field_ids": [
+          "three"
+        ]
+      },
+      "done_when": "You have chosen your three goals, or at least one."
+    },
+    {
+      "id": "p2_step",
+      "title": "Write a first step for each",
+      "purpose": "One small first step and a day for each goal.",
+      "why": "Look at each goal in turn. Write one step you could take this week, and the day you will take it. Make each step small. If a step feels big, cut it down until it fits.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a first step for each goal."
+        },
+        {
+          "text": "Add a day beside each step."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "two_column",
+          "label": "What is the first step for each goal, and on which day?",
+          "columns": [
+            "The first step",
+            "The day"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "steps"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one first step and a day."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "Each goal has a first step and a day."
+    },
+    {
+      "id": "p3_look",
+      "title": "Set up your weekly look",
+      "purpose": "The place, the day and the questions for your five minute look.",
+      "why": "Decide where the card will go and which day you will take your five minute look. Write the two questions you will ask yourself each time. Keep them short.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Choose where the card goes."
+        },
+        {
+          "text": "Choose a day for the weekly look."
+        },
+        {
+          "text": "Write two questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place_day",
+          "type": "short_text",
+          "label": "Where will the card go, and which day will you look?"
+        },
+        {
+          "id": "questions",
+          "type": "short_text",
+          "label": "What two questions will you ask at each look?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "place_day",
+          "plan_section": "weekly"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "weekly"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the place and the day."
+          }
+        ],
+        "field_ids": [
+          "place_day"
+        ]
+      },
+      "done_when": "You have a place, a day and two questions."
+    },
+    {
+      "id": "p4_check",
+      "title": "Plan your monthly check",
+      "purpose": "A date, three questions and one goal you are allowed to change.",
+      "why": "Choose a date for your first monthly check. Write the three questions you will ask. Then name one goal you are willing to change or drop if it no longer fits, and say why.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a date."
+        },
+        {
+          "text": "Write three questions."
+        },
+        {
+          "text": "Name a goal you may change."
+        }
+      ],
+      "fields": [
+        {
+          "id": "date_questions",
+          "type": "short_text",
+          "label": "When is your first monthly check, and what will you ask?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "Which goal are you willing to change, if needed?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "date_questions",
+          "plan_section": "monthly"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "monthly"
+        }
+      ],
+      "done_when": "You have a date, your questions and a goal you may change."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first steps are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your three goals, your steps, your weekly look and your monthly check."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "goals",
+      "title": "Your three goals"
+    },
+    {
+      "id": "steps",
+      "title": "First steps"
+    },
+    {
+      "id": "weekly",
+      "title": "Your weekly look"
+    },
+    {
+      "id": "monthly",
+      "title": "Your monthly check"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your three goals, a first step for each, your weekly look and your monthly check.",
+    "book_bridge": "Three Goals on the Fridge is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which goal moved this month?",
+      "Is each goal still wanted?",
+      "Is there a goal to change or drop?"
+    ],
+    "refresher_ids": [
+      "p1_three",
+      "p4_check"
+    ]
+  }
+}

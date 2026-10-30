@@ -30,6 +30,9 @@ import { WeekLine } from "@/components/today/WeekLine";
 import type { OpenAt } from "@/lib/today/links";
 import { doneExerciseIds, nextStep, stepsFromWorkbook } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type StepEvent } from "@/lib/today/week";
+import { dueToday, nextPartLine, paceInputFromEvents, type Pace } from "@/lib/pace";
+import { localParts } from "@/lib/today/reminders";
+import { PaceChoice } from "@/components/pace/PaceChoice";
 import { acknowledgeHigherTier, saveReadingPlace, type PlaceInput } from "./actions";
 import { FinishRecommendations, type RecommendedAuthor } from "@/components/reader/FinishRecommendations";
 
@@ -42,6 +45,10 @@ interface Props {
   /** The reader's first name for author letters; letters read fine without it. */
   firstName?: string;
   enrolmentId: string;
+  /** The reader's pace for this workbook, or the title's default (0069). */
+  pace?: Pace;
+  /** True once the reader has chosen a pace. */
+  paceChosen?: boolean;
   lockedUnits: number[];
   missing: Array<"toolkit" | "finish" | "keep_going">;
   slug: string;
@@ -90,7 +97,7 @@ function writeLocal(key: string, value: string): void {
  * answer, a score or a feeling: the check-in ref is the unit number and the
  * daily check sends no ref at all, so no date ends up in the row's ref.
  */
-export function ReadClient({ buyNote, recommendations = [], firstName, workbook, enrolmentId, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null, resume = null, children, pair = null }: Props) {
+export function ReadClient({ buyNote, recommendations = [], firstName, workbook, enrolmentId, pace = "weekly", paceChosen = false, lockedUnits, missing, slug, market, paywall, events, openView, acknowledged: acknowledgedOnServer = false, readOnly = false, place = null, resume = null, children, pair = null }: Props) {
   const [store, setStore] = useState<SupabaseAnswerStore | null>(null);
   const [loadError, setLoadError] = useState(false);
   const [saveState, setSaveState] = useState<SaveState>("idle");
@@ -333,7 +340,17 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
       </div>
       {upNext ? (
         <WeekLine
-          line={rhythmLine({ unitWord: workbook.structure.unit, unit: upNext.unit, unitCount: workbook.structure.count, stepsInUnit: upNext.stepsInUnit })}
+          line={
+            pace !== "weekly"
+              ? nextPartLine({
+                  unit: workbook.structure.unit,
+                  pace,
+                  number: upNext.unit,
+                  count: workbook.structure.count,
+                  due: dueToday(paceInputFromEvents(pace, allEvents, (d) => localParts(d, browserZone ?? "Europe/London").date), localParts(new Date(), browserZone ?? "Europe/London").date),
+                })
+              : rhythmLine({ unitWord: workbook.structure.unit, unit: upNext.unit, unitCount: workbook.structure.count, stepsInUnit: upNext.stepsInUnit })
+          }
           marked={thisWeekMarked(finishes, new Date(), browserZone)}
         />
       ) : null}
@@ -342,6 +359,7 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
       <details className="um-details" open>
         <summary>Your path</summary>
         <UnitMap nodes={path} word={workbook.structure.unit} slug={slug} onOpenUnit={openUnit} celebration={celebration} />
+        <PaceChoice enrolmentId={enrolmentId} pace={pace} variant="compact" readOnly={readOnly} />
       </details>
       <ReadAloud enrolmentId={enrolmentId} lang={workbook.language} />
       <DraftTransfer slug={slug} store={store} />
@@ -375,6 +393,7 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
         buyHref={paywall.demo ? undefined : `/go/${encodeURIComponent(slug)}`}
         buyNote={paywall.demo ? undefined : buyNote}
         finishExtra={recommendations.length > 0 ? <FinishRecommendations authors={recommendations} /> : undefined}
+        startExtra={!paceChosen ? <PaceChoice enrolmentId={enrolmentId} pace={pace} variant="question" readOnly={readOnly} /> : undefined}
         initialView={initialView}
         requireAcknowledge={higher}
         acknowledged={acknowledged}
@@ -394,5 +413,5 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
 }
 
 function unitWord(doc: WorkbookV3): string {
-  return { week: "week", day: "day", module: "module", chapter: "chapter" }[doc.structure.unit];
+  return { week: "week", day: "day", module: "module", chapter: "chapter", part: "part" }[doc.structure.unit];
 }

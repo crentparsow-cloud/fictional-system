@@ -1,0 +1,384 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-BFTT8",
+  "slug": "deep-mornings-bftt8",
+  "title": "Deep Mornings",
+  "card_line": "Protect one morning block for your best work and keep it when the week gets busy.",
+  "book": {
+    "book_id": "deep-mornings",
+    "title": "Deep Mornings",
+    "subtitle": "Protecting Your Best Hours"
+  },
+  "author": {
+    "author_id": "AU-GFYGM",
+    "display_name": "Meenakshi Iyer-Rao"
+  },
+  "genre": "productivity",
+  "theme_id": "purposeful-time",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about protecting one block of your morning for the work that needs your best attention. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will know when you think best and have a block set aside. You will also have a way to begin it and a plan for busy weeks. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the one piece of work you would most like to do with fewer interruptions? A line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find out when you think best and what gets in the way",
+      "exercise_ids": [
+        "p1_pattern"
+      ],
+      "intro": "Some people do their sharpest thinking at eight and others at ten. Before you protect any time, you need to know where yours is. This part asks you to look at your recent mornings and note when you did good work and what broke it up.",
+      "ideas": [
+        {
+          "heading": "Your best hours are a pattern you can observe.",
+          "body": "Look back at the last two weeks. When did a hard task feel easy to start? When did you lose an hour without noticing? Most people find one or two stretches that stand out. Those are the hours worth guarding, whatever the clock says."
+        },
+        {
+          "heading": "Interruptions come from a few sources, and you can name them.",
+          "body": "Common ones are messages, colleagues stopping by, meetings placed in the middle of the morning and your own urge to check something. Write down which ones hit you. A short list is far easier to deal with than a general feeling of being pulled about."
+        },
+        {
+          "heading": "Doing fewer things with more care is a choice about the morning, not the week.",
+          "body": "You do not need to rebuild how you work. One protected block a few times a week is enough to start. Pick the work that matters most and give it the hours when you are at your best. The rest of the day can stay as it is."
+        }
+      ],
+      "takeaway": "Find the stretch of morning when you think best, and name what usually breaks it up."
+    },
+    {
+      "number": 2,
+      "focus": "Set up one protected block in the morning",
+      "exercise_ids": [
+        "p2_block"
+      ],
+      "intro": "A protected block only exists if other people can see it. This part asks you to pick a time and a length, put it in your diary and tell the people who need to know. Start small. An hour that holds is better than three that do not.",
+      "ideas": [
+        {
+          "heading": "Start with one block of ninety minutes or less.",
+          "body": "Long stretches are hard to defend and hard to sustain. Ninety minutes is about as long as most people can concentrate before needing a break. An hour is also fine. Choose a length you are confident you can keep. You can lengthen it later once it has held for a few weeks."
+        },
+        {
+          "heading": "Put the block in your diary so others can see it.",
+          "body": "If your calendar shows an open slot, people will book it. Mark the block as busy and give it a plain name such as \"Focus work\". Colleagues respect what they can see. You do not owe them an explanation beyond that."
+        },
+        {
+          "heading": "Tell the people who rely on you when you will be unavailable.",
+          "body": "A short message does it: \"I am offline from nine to ten thirty on Tuesdays and Thursdays. Anything urgent, ring me.\" Saying what counts as urgent lets people trust the arrangement. Most will adjust once they know what to expect."
+        }
+      ],
+      "takeaway": "Choose one block, show it in your diary, and tell people when you will be offline."
+    },
+    {
+      "number": 3,
+      "focus": "Create a short start routine so the block begins well",
+      "exercise_ids": [
+        "p3_start"
+      ],
+      "intro": "Many of us lose the first twenty minutes of a quiet morning to getting going. A short, fixed start removes that. This part asks you to design a few small steps that take you from sitting down to working, and to try them once.",
+      "ideas": [
+        {
+          "heading": "A fixed start saves you from deciding how to begin.",
+          "body": "Choose three or four small steps and do them in the same order. For example, close your email, put your phone in a drawer, open the document and write the first line. When the steps are fixed, the beginning takes little effort."
+        },
+        {
+          "heading": "Decide the task the evening before.",
+          "body": "Finish the day by writing down what you will work on first. You then sit down to a clear job instead of a choice. Naming the task takes a minute and spares you the slow wondering that eats the start of a block."
+        },
+        {
+          "heading": "Make the first step small enough to do while reluctant.",
+          "body": "If the task feels heavy, set a first step that takes five minutes, such as reading the last page you wrote. Once you are moving, continuing is easier. You can stop after five minutes if you need to, though most people carry on."
+        }
+      ],
+      "takeaway": "Plan the task the night before and begin with a short, fixed start."
+    },
+    {
+      "number": 4,
+      "focus": "Keep the block when the week gets busy",
+      "exercise_ids": [
+        "p4_busy"
+      ],
+      "intro": "The block will be tested in the first busy week. Something urgent will arrive, or a meeting will be placed on top of it. This part helps you decide in advance what you will protect, what you will move and how to return to it afterwards.",
+      "ideas": [
+        {
+          "heading": "Decide in advance which things are allowed to interrupt.",
+          "body": "Write a short list: a real emergency, a customer on the line, a message from one named person. Everything else waits. Having the list ready makes the decision easy. You are not weighing each request while under pressure. The decision was made earlier, when you were calm."
+        },
+        {
+          "heading": "If the block has to move, move it, do not drop it.",
+          "body": "Some weeks a meeting will take the slot. Rather than giving up, shift the block to another morning that week. Put the new time in your diary straight away. A moved block still counts, and it keeps the arrangement alive."
+        },
+        {
+          "heading": "Look back each week at how the block went.",
+          "body": "Spend two minutes on Friday noting whether the block held and what you got done. If it keeps being broken at the same time, change the time. Small changes keep the arrangement working over the months. Note one change to try next week, however small."
+        }
+      ],
+      "takeaway": "Know what may interrupt the block, move it rather than drop it, and review it weekly."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_pattern",
+      "title": "Spot your best hours",
+      "purpose": "Your best stretch of morning and the interruptions that break it.",
+      "why": "Look back over the last two weeks. Note when you did your best work in the morning and what interrupted you. Write a time range and a short list. If you cannot remember, make your best guess and check it over the coming week.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write when you work best."
+        },
+        {
+          "text": "List what usually interrupts you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "best",
+          "type": "short_text",
+          "label": "When in the morning do you think best?"
+        },
+        {
+          "id": "breaks",
+          "type": "long_text",
+          "label": "What usually breaks that time up?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "best",
+          "plan_section": "pattern"
+        },
+        {
+          "field_id": "breaks",
+          "plan_section": "pattern"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the time you think best."
+          }
+        ],
+        "field_ids": [
+          "best"
+        ]
+      },
+      "done_when": "You have a time range and at least one interruption written down."
+    },
+    {
+      "id": "p2_block",
+      "title": "Set your morning block",
+      "purpose": "A day, a time and a length for your protected block, and who to tell.",
+      "why": "Choose when your block will happen. Give it a day, a start time and a length of ninety minutes or less. Then write whom you need to tell. Put it in your diary today if you can.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a day, start time and length."
+        },
+        {
+          "text": "Name who needs to know."
+        },
+        {
+          "text": "Add it to your diary."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will your morning block be, and for how long?"
+        },
+        {
+          "id": "tell",
+          "type": "short_text",
+          "label": "Whom will you tell?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "block"
+        },
+        {
+          "field_id": "tell",
+          "plan_section": "block"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a day and time for your block."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "Your block has a day, time and length, and you know who to tell."
+    },
+    {
+      "id": "p3_start",
+      "title": "Design your start",
+      "purpose": "Three or four steps to begin the block, and the first task.",
+      "why": "Write the small steps you will take when the block begins, in order. Then name the task you will start with. Try the steps once in the next week and change any that feel awkward. If you are unsure, begin with just two steps.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List three or four starting steps."
+        },
+        {
+          "text": "Name the first task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "What are your starting steps, in order?"
+        },
+        {
+          "id": "task",
+          "type": "short_text",
+          "label": "What will you work on first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "start"
+        },
+        {
+          "field_id": "task",
+          "plan_section": "start"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first task for your next block."
+          }
+        ],
+        "field_ids": [
+          "task"
+        ]
+      },
+      "done_when": "You have a list of starting steps and a first task."
+    },
+    {
+      "id": "p4_busy",
+      "title": "Plan for busy weeks",
+      "purpose": "A short list of allowed interruptions and a plan for moving the block.",
+      "why": "Write the few things that may break into your block. Then decide what you will do if a meeting takes the slot, such as moving it to another morning. Keep both short enough to remember.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List what may interrupt your block."
+        },
+        {
+          "text": "Write where you will move it if needed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "allowed",
+          "type": "long_text",
+          "label": "What is allowed to interrupt your block?"
+        },
+        {
+          "id": "move",
+          "type": "short_text",
+          "label": "Where will you move the block if the slot is taken?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "allowed",
+          "plan_section": "busy"
+        },
+        {
+          "field_id": "move",
+          "plan_section": "busy"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one thing that may interrupt."
+          }
+        ],
+        "field_ids": [
+          "allowed"
+        ]
+      },
+      "done_when": "You have a short interruption list and a plan B for the block."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your block is saved and ready for your diary."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your best hours, your block, your start and your busy-week plan."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "pattern",
+      "title": "Your best hours"
+    },
+    {
+      "id": "block",
+      "title": "Your morning block"
+    },
+    {
+      "id": "start",
+      "title": "Your start"
+    },
+    {
+      "id": "busy",
+      "title": "Plan for busy weeks"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your best hours, your morning block, your start and your plan for busy weeks.",
+    "book_bridge": "Deep Mornings is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did your block hold this month, and what did you get done in it?",
+      "What interrupted it most?",
+      "Is the time still right?"
+    ],
+    "refresher_ids": [
+      "p2_block",
+      "p4_busy"
+    ]
+  }
+}

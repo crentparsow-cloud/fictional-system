@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-PT68M",
+  "slug": "the-window-seat-notebook-pt68m",
+  "title": "The Window Seat Notebook",
+  "card_line": "Keep a window seat notebook and write down small things you notice as the week goes on.",
+  "book": {
+    "book_id": "the-window-seat-notebook",
+    "title": "The Window Seat Notebook",
+    "subtitle": "Noticing Small Things from Where You Sit"
+  },
+  "author": {
+    "author_id": "AU-PZ9DF",
+    "display_name": "Haruka Tanabe-Ellis"
+  },
+  "genre": "wellbeing",
+  "theme_id": "noticing-more",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about noticing small things from where you sit. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a notebook with a few entries in it and a sense of what you want to keep noticing. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What can you see from where you are sitting now? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose a window, a time and a notebook, then notice the light",
+      "exercise_ids": [
+        "p1_setup"
+      ],
+      "intro": "Noticing needs three small things: a place to look from, a time to do it and something to write in. This part sorts those out. Then you spend five minutes looking at light and weather and write down what you see.",
+      "ideas": [
+        {
+          "heading": "Any window will do, including one with a poor view.",
+          "body": "A brick wall, a car park and a back garden all change through the day. Choose the window you will actually sit near. A view you like is a bonus, not a requirement. Your seat should be comfortable enough that you can stay for five minutes."
+        },
+        {
+          "heading": "A notebook you like to hold is more likely to be used.",
+          "body": "Choose paper you do not mind marking. It can be cheap or lovely. Keep a pen with it. Having both in the same place removes small obstacles. If you prefer the notes on your phone, that works too, as long as you stay on the page."
+        },
+        {
+          "heading": "Light and weather change in the time it takes to look.",
+          "body": "Watch for five minutes. The sun goes behind a cloud, a shadow shortens, rain starts or stops. Write what changed, in plain words. \"Grey, then a brighter patch on the wall.\" You are recording, not describing beautifully. Short notes are enough."
+        }
+      ],
+      "takeaway": "Choose a window, a time and something to write in. Five minutes of looking at light and weather is a good start."
+    },
+    {
+      "number": 2,
+      "focus": "Notice sound, and the pause before you reach for your phone",
+      "exercise_ids": [
+        "p2_sound"
+      ],
+      "intro": "Sound is easy to overlook because it is always there. This part asks you to listen for five minutes and write down what you hear. It also looks at the small pause before you pick up your phone, and what you might notice in it.",
+      "ideas": [
+        {
+          "heading": "Sounds are easier to catch when you name them in your notebook.",
+          "body": "Listen with your eyes closed or on the window. Write down each sound as it comes: a tap running, a bus, a neighbour's door. A list of five is plenty. Naming them makes you hear more than you did when you were just sitting."
+        },
+        {
+          "heading": "There is a moment before you reach for the phone, and it is yours.",
+          "body": "Notice the hand moving. Between the thought and the reach, there is a second or two. There is no need to stop yourself. Just notice the moment, and write down what you were about to look for. Often it is nothing in particular."
+        },
+        {
+          "heading": "Silence is a sound too, and it is rarely complete.",
+          "body": "Even a quiet room has a hum, a creak, distant traffic. Listen for the quietest thing you can hear and write it down. It is a small exercise in attention, not a test. A very quiet room is not required, and any room will do."
+        }
+      ],
+      "takeaway": "Listen for five minutes and write the sounds down. Notice the second before you reach for your phone."
+    },
+    {
+      "number": 3,
+      "focus": "Notice people and movement without judging them",
+      "exercise_ids": [
+        "p3_people"
+      ],
+      "intro": "Window seats show people passing, and buses, queues and desks show more. This part is about noticing what people do without deciding what it means. You then try the same noticing somewhere else for a few minutes, away from your window.",
+      "ideas": [
+        {
+          "heading": "You can notice what people do without judging them.",
+          "body": "A man hurries, a child stops to look at a puddle. Write the action, not a verdict. \"Hurrying with a bag\" is a note. \"Rude and rushed\" is a judgement. Practise the first. Your notebook then becomes quieter and more accurate."
+        },
+        {
+          "heading": "Movement is easier to see than faces.",
+          "body": "Watch how things move: a bike, a dog, a flag, a door that swings. Pay attention to speed and direction. This keeps you from guessing at people's lives. It also gives you plenty to write down in five minutes, even from a quiet street."
+        },
+        {
+          "heading": "The same noticing works on a bus, in a queue or at a desk.",
+          "body": "You do not need the window seat. On a bus, look at the light on the seats. In a queue, notice the sounds. At a desk, look at how a colleague carries a mug. Carry the notebook, or make notes on your phone, and write a line later."
+        }
+      ],
+      "takeaway": "Write what people and things do, not what you think of them. The same noticing works on a bus, in a queue or at a desk."
+    },
+    {
+      "number": 4,
+      "focus": "Look back through the notebook and choose what to keep",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "After a few weeks the notebook holds more than you remember. This last part asks you to read it through, pick out what you liked and decide what to keep doing. Nothing has to be kept, and a small choice is enough.",
+      "ideas": [
+        {
+          "heading": "Reading back shows you what you were drawn to.",
+          "body": "Read the notebook from the start. Some entries will feel flat and a few will make you smile. Notice which. They show what you like to look at: light, sound, people or something else. That is worth knowing. Underline them lightly."
+        },
+        {
+          "heading": "Some entries can go, and that is part of choosing.",
+          "body": "You owe nothing to every page. Choose the best three entries and read them again. The rest can stay in the book or be left alone. A notebook is a place to try things, not a record to defend. It is allowed to be uneven."
+        },
+        {
+          "heading": "What you keep can be small: a time, a window or one kind of noticing.",
+          "body": "Maybe you keep the five minutes at the window. Maybe it is only listening. Choose the smallest part that still pleases you. It can stay in your week as long as it feels light, and you can drop it when it does not."
+        }
+      ],
+      "takeaway": "Read back, pick your three best entries and keep the smallest part that pleases you."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_setup",
+      "title": "Set up and note the light",
+      "purpose": "Your window, time and notebook chosen, and a first note on light.",
+      "why": "Choose a window, a time and a notebook. Sit for five minutes and watch the light and weather. Write a few plain words about what you saw. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose your window, time and notebook."
+        },
+        {
+          "text": "Watch for five minutes and write what you saw."
+        }
+      ],
+      "fields": [
+        {
+          "id": "setup",
+          "type": "short_text",
+          "label": "Which window, time and notebook have you chosen?"
+        },
+        {
+          "id": "light",
+          "type": "long_text",
+          "label": "What did you notice about the light and weather?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "setup",
+          "plan_section": "setup"
+        },
+        {
+          "field_id": "light",
+          "plan_section": "setup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you can see right now."
+          }
+        ],
+        "field_ids": [
+          "setup"
+        ]
+      },
+      "done_when": "You have chosen your setup and written one note."
+    },
+    {
+      "id": "p2_sound",
+      "title": "List the sounds you hear",
+      "purpose": "A list of sounds from your window seat and a note on the phone moment.",
+      "why": "Sit at your window for five minutes and listen. Write the sounds in the order they arrive. Then note what you were about to look up on your phone, if you felt the pull. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Listen for five minutes."
+        },
+        {
+          "text": "Write the sounds in order."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sounds",
+          "type": "long_text",
+          "label": "What sounds did you hear from your window seat?"
+        },
+        {
+          "id": "reach",
+          "type": "short_text",
+          "label": "What were you about to reach for?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sounds",
+          "plan_section": "sound"
+        },
+        {
+          "field_id": "reach",
+          "plan_section": "sound"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three sounds you can hear now."
+          }
+        ],
+        "field_ids": [
+          "sounds"
+        ]
+      },
+      "done_when": "You have a list of sounds in your notebook."
+    },
+    {
+      "id": "p3_people",
+      "title": "Notice people, then somewhere else",
+      "purpose": "Notes on what you saw people do, and one note from somewhere other than your window.",
+      "why": "Spend five minutes at your window watching movement and people. Write what they do, with no verdict. Then try five minutes on a bus, in a queue or at a desk and write one line. If nothing comes to mind, write one word.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Watch movement and people from your window."
+        },
+        {
+          "text": "Try somewhere else and write one line."
+        }
+      ],
+      "fields": [
+        {
+          "id": "seen",
+          "type": "long_text",
+          "label": "What did you see people and things do?"
+        },
+        {
+          "id": "elsewhere",
+          "type": "short_text",
+          "label": "Where else did you notice, and what did you see?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "seen",
+          "plan_section": "people"
+        },
+        {
+          "field_id": "elsewhere",
+          "plan_section": "people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing someone did, with no verdict."
+          }
+        ],
+        "field_ids": [
+          "seen"
+        ]
+      },
+      "done_when": "You have notes from your window and one other place."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Choose what to keep",
+      "purpose": "Your three best entries and the one kind of noticing you want to keep.",
+      "why": "Read your notebook through. Choose three entries you like and copy one line from each. Then name the kind of noticing you would like to keep: light, sound, people or another. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read your notebook through."
+        },
+        {
+          "text": "Copy a line from three entries you like."
+        }
+      ],
+      "fields": [
+        {
+          "id": "best",
+          "type": "long_text",
+          "label": "Which three entries did you like best?"
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "Which kind of noticing would you like to keep?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "best",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the kind of noticing you like best."
+          }
+        ],
+        "field_ids": [
+          "best"
+        ]
+      },
+      "done_when": "You have three entries and one kind of noticing named."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your list of sounds is saved on your page."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your notes and the kind of noticing you chose to keep."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "setup",
+      "title": "Your window and the light"
+    },
+    {
+      "id": "sound",
+      "title": "Sounds I heard"
+    },
+    {
+      "id": "people",
+      "title": "People, movement and elsewhere"
+    },
+    {
+      "id": "keep",
+      "title": "What I would like to keep"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your window and the light, the sounds you heard, what you saw people do and what you want to keep.",
+    "book_bridge": "The Window Seat Notebook is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you notice from your window this month?",
+      "Which kind of noticing did you enjoy most?",
+      "Where else did you take the notebook?"
+    ],
+    "refresher_ids": [
+      "p2_sound",
+      "p4_keep"
+    ]
+  }
+}

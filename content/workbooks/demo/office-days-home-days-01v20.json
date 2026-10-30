@@ -1,0 +1,400 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-01V20",
+  "slug": "office-days-home-days-01v20",
+  "title": "Office Days, Home Days",
+  "card_line": "Write a one-page team agreement for office days and home days.",
+  "book": {
+    "book_id": "office-days-home-days",
+    "title": "Office Days, Home Days",
+    "subtitle": "Hybrid Working That Suits the Whole Team"
+  },
+  "author": {
+    "author_id": "AU-PTR2C",
+    "display_name": "Mei-Lin Gallagher-Ross"
+  },
+  "genre": "leadership",
+  "theme_id": "welcoming-workplaces",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about sharing office days and home days fairly in a team. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a one-page team agreement and a date to review it. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the hardest thing about your team's mix of office days and home days? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Decide what office days and home days are each for",
+      "exercise_ids": [
+        "p1_days"
+      ],
+      "intro": "Hybrid working goes wrong when nobody has said what each kind of day is for. People guess, and the guesses differ. This part asks what work suits the office, what suits home, and what each person needs from both. You write down what you notice before the team talks.",
+      "ideas": [
+        {
+          "heading": "Office days work best when they are used for work that needs other people.",
+          "body": "Some tasks go faster with a whiteboard and four people in the room. Others need a quiet hour and no interruptions. If office days fill up with solo screen work, people wonder why they came in. Name the tasks that really need company, and give those the office days."
+        },
+        {
+          "heading": "Home days are the right place for work that needs long stretches of quiet.",
+          "body": "Writing, careful checking and planning often go better without a busy room around you. Home days are a proper place for that work, not a lesser one. When the team agrees this, nobody needs to prove they are busy. The finished work shows it."
+        },
+        {
+          "heading": "People need different things from the same day, and asking is quicker than guessing.",
+          "body": "One person has a long commute. Another has a small flat and no desk. A third finds home days lonely. None of this shows on a rota. A short, kind question to each person tells you more than a month of watching who sits where."
+        }
+      ],
+      "takeaway": "Give each kind of day a purpose the whole team can say aloud. Then ask what each person needs from both."
+    },
+    {
+      "number": 2,
+      "focus": "Make meetings and messages work for people in both places",
+      "exercise_ids": [
+        "p2_meeting"
+      ],
+      "intro": "Meetings and messages are where hybrid teams feel the gap most. Someone in the room hears everything. Someone at home hears half. This part looks at how your team meets and writes to each other, and picks one change that puts both places on equal terms.",
+      "ideas": [
+        {
+          "heading": "A meeting should be run as though everyone is on a screen.",
+          "body": "When one person joins remotely, the whole meeting changes. Side talk in the room is lost, and a small screen voice is easily missed. Run each meeting as if all were remote: one speaker at a time, shared notes and the chat open. Then nobody has the better seat."
+        },
+        {
+          "heading": "Messages need a clear reply time or people wait and wonder.",
+          "body": "Without a shared rule, a message can mean now or it can mean whenever. Home days then feel tense, because people watch for pings. Agree a plain time, such as the same day for ordinary questions. Mark the rare urgent one as urgent. Everyone can switch off between."
+        },
+        {
+          "heading": "Decisions made in the corridor need to be written down the same day.",
+          "body": "Hybrid teams lose out when a chat by the kettle settles something. The person at home finds out late, or never. Ask whoever hears a decision to write two lines in the team space. It takes a minute and saves a week of confusion."
+        }
+      ],
+      "takeaway": "Run meetings as if everyone were remote, and give messages a reply time. Write corridor decisions down the same day."
+    },
+    {
+      "number": 3,
+      "focus": "Make sure the people at home are heard as clearly as those in the room",
+      "exercise_ids": [
+        "p3_voices"
+      ],
+      "intro": "Being out of the room should not mean being out of the conversation. Quiet voices on a screen are easy to pass over. This part asks who speaks least in your team and what small ways of working would give them space. You choose one thing to try.",
+      "ideas": [
+        {
+          "heading": "Silence on a screen rarely means agreement.",
+          "body": "In a room, you can see a frown or a held breath. On a screen, a muted face tells you very little. Someone may be thinking, or struggling to get in. Ask by name, and wait a few seconds. A direct invitation is kinder than hoping they will speak."
+        },
+        {
+          "heading": "Going round the group once gives quieter people a fair turn.",
+          "body": "Open conversation favours those who speak fast and loudly, in the room or online. A quick round, where each person gives a view in turn, changes that. Keep it short and let people pass. The round takes minutes and often brings out the point nobody had made."
+        },
+        {
+          "heading": "Time away from the office should not count against anyone's progress.",
+          "body": "If the people in the room get the interesting work, home days start to feel like a cost. Check who is getting new tasks, praise and introductions. Spread them on purpose. Fairness here depends on small choices that are easy to miss unless you look."
+        }
+      ],
+      "takeaway": "A silent screen is not agreement. Ask by name, go round once, and share the good work across both places."
+    },
+    {
+      "number": 4,
+      "focus": "Write a one-page team agreement and set a date to review it",
+      "exercise_ids": [
+        "p4_agreement"
+      ],
+      "intro": "An agreement turns good intentions into something the team can point to. It should fit on one page and use plain words. This last part draws on your earlier answers. You draft the agreement, then choose the date when the team will look at it again.",
+      "ideas": [
+        {
+          "heading": "A one-page agreement is more likely to be read than a policy.",
+          "body": "Long documents get filed and forgotten. One page can hang on a wall or sit pinned in the team chat. Cover the purpose of each kind of day, how meetings run, reply times and how decisions are shared. Use short sentences that anyone could say aloud."
+        },
+        {
+          "heading": "The team should write the agreement together, not receive it from the manager.",
+          "body": "People keep the rules they helped make. Bring a draft, but ask for changes, and let the team cross things out. The final version may differ from yours. That is fine. What matters is that each person can say that is what we agreed."
+        },
+        {
+          "heading": "An agreement needs a review date or it quietly goes out of date.",
+          "body": "Teams change, and so do workloads and seasons. Put a date in the diary for a review, perhaps two months on. Ask what is working and what is not. Changing a rule at review is part of the plan. It does not mean the first draft was wrong."
+        }
+      ],
+      "takeaway": "Keep the agreement to one page, write it with the team, and set a review date at the start."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_days",
+      "title": "Sort your work by place",
+      "purpose": "Two short lists of work, one for office days and one for home days.",
+      "why": "Think about a normal fortnight. List the tasks that gain from being in the room and the tasks that gain from quiet. Then note one thing a colleague has told you they need. If you work alone, think about your own needs.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List tasks that need other people in the room."
+        },
+        {
+          "text": "List tasks that need quiet."
+        },
+        {
+          "text": "Add one need a colleague has mentioned."
+        }
+      ],
+      "fields": [
+        {
+          "id": "work",
+          "type": "two_column",
+          "label": "Which work suits office days and which suits home days?",
+          "columns": [
+            "Suits office days",
+            "Suits home days"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "need",
+          "type": "short_text",
+          "label": "What does one colleague need from either kind of day?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "work",
+          "plan_section": "days"
+        },
+        {
+          "field_id": "need",
+          "plan_section": "days"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one task for each kind of day."
+          }
+        ],
+        "field_ids": [
+          "work"
+        ]
+      },
+      "done_when": "Each column has at least one task."
+    },
+    {
+      "id": "p2_meeting",
+      "title": "Pick one meeting to change",
+      "purpose": "One regular meeting and one rule that makes it fair to both places.",
+      "why": "Choose a meeting your team holds often. Note where people at home are at a disadvantage. Then choose one change, such as shared notes or a set speaking order, and write it as a plain rule.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a regular meeting."
+        },
+        {
+          "text": "Note one thing that is harder from home."
+        },
+        {
+          "text": "Write one change as a rule."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meeting",
+          "type": "short_text",
+          "label": "Which regular meeting is hardest to join from home?"
+        },
+        {
+          "id": "rule",
+          "type": "short_text",
+          "label": "What one rule would make it fairer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meeting",
+          "plan_section": "meetings"
+        },
+        {
+          "field_id": "rule",
+          "plan_section": "meetings"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the meeting and one fairer rule."
+          }
+        ],
+        "field_ids": [
+          "meeting"
+        ]
+      },
+      "done_when": "You have named one meeting and written one rule."
+    },
+    {
+      "id": "p3_voices",
+      "title": "Notice who goes unheard",
+      "purpose": "A short note on who is heard least and one way to include them.",
+      "why": "Think about your last two team meetings. Write down who spoke most and who spoke least. Then choose one small step to give the quieter voice a turn. Keep it kind. If nothing comes to mind, write one name.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Recall your last two meetings."
+        },
+        {
+          "text": "Write who spoke most and who spoke least."
+        },
+        {
+          "text": "Choose one step to make space."
+        }
+      ],
+      "fields": [
+        {
+          "id": "quiet",
+          "type": "long_text",
+          "label": "Who spoke least in your last meetings, and why might that be?"
+        },
+        {
+          "id": "step",
+          "type": "short_text",
+          "label": "What one step would give them a fair turn?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "quiet",
+          "plan_section": "voices"
+        },
+        {
+          "field_id": "step",
+          "plan_section": "voices"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one step."
+          }
+        ],
+        "field_ids": [
+          "quiet"
+        ]
+      },
+      "done_when": "You have named one person and one step."
+    },
+    {
+      "id": "p4_agreement",
+      "title": "Draft the team agreement",
+      "purpose": "A one-page agreement draft and a review date.",
+      "why": "Using your earlier answers, write four to six short lines. Cover what each kind of day is for, how meetings run, reply times and how decisions are shared. Then pick a review date. Share the draft with your team for changes.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write four to six short lines."
+        },
+        {
+          "text": "Choose a review date."
+        },
+        {
+          "text": "Plan how you will share the draft."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lines",
+          "type": "long_text",
+          "label": "What are the four to six lines of your team agreement?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will the team review it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lines",
+          "plan_section": "agreement"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "agreement"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two lines of the agreement."
+          }
+        ],
+        "field_ids": [
+          "lines"
+        ]
+      },
+      "done_when": "You have a draft and a review date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your meeting rule is saved and ready to share."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your draft agreement and its review date."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "days",
+      "title": "What each day is for"
+    },
+    {
+      "id": "meetings",
+      "title": "One meeting to change"
+    },
+    {
+      "id": "voices",
+      "title": "Making space for voices"
+    },
+    {
+      "id": "agreement",
+      "title": "The team agreement"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what each kind of day is for, one meeting rule, a step for quieter voices and your draft agreement.",
+    "book_bridge": "Office Days, Home Days is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which office day or home day worked well this month, and why?",
+      "Is the team agreement still being followed?",
+      "Who has not been heard lately?"
+    ],
+    "refresher_ids": [
+      "p2_meeting",
+      "p4_agreement"
+    ]
+  }
+}

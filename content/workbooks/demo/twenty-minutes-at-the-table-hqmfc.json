@@ -1,0 +1,373 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-HQMFC",
+  "slug": "twenty-minutes-at-the-table-hqmfc",
+  "title": "Twenty Minutes at the Table",
+  "card_line": "Write for twenty minutes at the same time and place each day.",
+  "book": {
+    "book_id": "twenty-minutes-at-the-table",
+    "title": "Twenty Minutes at the Table",
+    "subtitle": "Building a Daily Writing Habit"
+  },
+  "author": {
+    "author_id": "AU-ZM7E5",
+    "display_name": "Marisol Abernathy-Kwan"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "steady-writing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing for twenty minutes at the same time and place. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a time, a place and a notebook, some pages written, and one piece chosen to take further. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When in your day could twenty minutes of writing fit? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose a time, a place and a notebook.",
+      "exercise_ids": [
+        "p1_set"
+      ],
+      "intro": "A writing habit starts with a plan that fits your day. The time, the place and the notebook should all be easy to find. This part asks you to choose each one, and to make them as ordinary as you can. You will write down what you chose.",
+      "ideas": [
+        {
+          "heading": "The same time each day makes the decision for you.",
+          "body": "When writing has a set time, you stop asking whether to do it. Pick a slot that already exists, such as after the first coffee or before the evening meal. Twenty minutes is short enough to protect, even on a full day."
+        },
+        {
+          "heading": "A fixed place tells your mind that it is time to write.",
+          "body": "It can be the kitchen table, a corner of the sofa or a bench at lunch. What matters is that you use it each time. Keep the notebook and pen there so you do not have to look for them."
+        },
+        {
+          "heading": "A notebook you like will get used.",
+          "body": "Choose one that feels pleasant in the hand. A cheap one is fine if it relieves you of the fear of spoiling it. Use a pen that glides. Small choices like these remove excuses and make it easier to begin."
+        }
+      ],
+      "takeaway": "Pick a time, a place and a notebook, and keep all three easy to reach."
+    },
+    {
+      "number": 2,
+      "focus": "Write without judging and draw from objects and memories.",
+      "exercise_ids": [
+        "p2_free"
+      ],
+      "intro": "Many people stall because they judge each sentence as it appears. Writing without judging sets that critic aside for twenty minutes. This part also gives you a supply of things to write about, from objects and memories in your own home. You will fill a page without stopping.",
+      "ideas": [
+        {
+          "heading": "Writing without judging means keeping the pen moving.",
+          "body": "Write whatever comes, and do not go back to fix it. Spelling, sense and style do not matter. If you get stuck, write the last word again until a new one follows. The aim is to get words onto the page, not to make them good."
+        },
+        {
+          "heading": "An object in the room is always a way in.",
+          "body": "Pick up a mug, a key or a coat. Describe it, then write who owned it or where it has been. Objects hold memories, and memories turn into scenes. You will never run short while you have a house to look around."
+        },
+        {
+          "heading": "Overheard talk and ordinary places give you scenes.",
+          "body": "A conversation on a train or a queue at the post office can start a page. Write down what was said and what the place looked like. You are collecting raw material. Nobody else needs to read it, so be as plain as you like."
+        }
+      ],
+      "takeaway": "Keep the pen moving, start from an object, and borrow scenes from ordinary life."
+    },
+    {
+      "number": 3,
+      "focus": "Keep going on low energy days with a smaller sitting.",
+      "exercise_ids": [
+        "p3_small"
+      ],
+      "intro": "Some days there is less to give. A plan that only works on good days will not last. This part is about shrinking the session, not skipping it. You will decide what a smaller sitting looks like for you, so it is ready when you need it.",
+      "ideas": [
+        {
+          "heading": "A short sitting still counts.",
+          "body": "Five minutes, or even one sentence, keeps the thread alive. The point is to stay in touch with the page. On a tired day, do the smaller version and call it done. Nothing is lost by doing less, only by stopping altogether."
+        },
+        {
+          "heading": "A smaller aim is better than none.",
+          "body": "Instead of a scene, aim for three lines about the weather. Instead of new work, copy a paragraph you liked. Choose an aim that suits your energy. Lower the bar, and the habit stays in place until the better days return."
+        },
+        {
+          "heading": "Missing a day is ordinary, so start again at the next sitting.",
+          "body": "Everyone misses some, and it says nothing about you. What matters is the next sitting. Do not make up for lost time with a long session. Return to your usual twenty minutes, and carry on. A habit is built by returning, not by being perfect."
+        }
+      ],
+      "takeaway": "On low energy days, write less, aim lower and come back at the next sitting."
+    },
+    {
+      "number": 4,
+      "focus": "Pick one piece, read it aloud and plan the next stretch.",
+      "exercise_ids": [
+        "p4_piece"
+      ],
+      "intro": "After some weeks you will have a pile of pages. This part asks you to look through them, pick one piece to take further, and read it aloud. Hearing it shows you what to change. Then you can plan how you want to write in the weeks that follow.",
+      "ideas": [
+        {
+          "heading": "Choose the piece that you keep thinking about.",
+          "body": "Read back over your pages and mark what stands out. A line, a scene, a character. The piece that keeps coming to mind is usually worth developing. You do not have to pick the best. Pick the one you want to spend more time with."
+        },
+        {
+          "heading": "Reading aloud shows you what the page hides.",
+          "body": "Your ear catches clumsy phrases and slow patches that your eye skips. Read it at a steady, unhurried pace. Read the piece slowly, with a pencil. Mark where you stumble. Those spots are where to cut or reword. It takes ten minutes and changes a draft."
+        },
+        {
+          "heading": "Look back before you plan ahead.",
+          "body": "Count the pages and notice which sittings felt best. Was it a time of day, a prompt, a place? Use that to shape the next eight weeks. Keep what worked, change what did not, and give yourself a small reward."
+        }
+      ],
+      "takeaway": "Pick one piece, read it aloud, and let what you notice shape your next weeks."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_set",
+      "title": "Choose time, place and notebook",
+      "purpose": "A time, a place and a notebook for your twenty minutes.",
+      "why": "Think about your week and find a slot of twenty minutes you could protect. Pick a place you can use each time. Decide which notebook and pen you will use. If you are unsure, choose the easiest option.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a time of day."
+        },
+        {
+          "text": "Pick a place."
+        },
+        {
+          "text": "Pick a notebook and pen."
+        }
+      ],
+      "fields": [
+        {
+          "id": "time_place",
+          "type": "short_text",
+          "label": "When and where will you write?"
+        },
+        {
+          "id": "tools",
+          "type": "short_text",
+          "label": "Which notebook and pen will you use?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "time_place",
+          "plan_section": "setup"
+        },
+        {
+          "field_id": "tools",
+          "plan_section": "setup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down a time and a place."
+          }
+        ],
+        "field_ids": [
+          "time_place"
+        ]
+      },
+      "done_when": "You have a time, a place and a notebook named."
+    },
+    {
+      "id": "p2_free",
+      "title": "Fill a page without stopping",
+      "purpose": "One page written without judging, started from an object.",
+      "why": "Pick up an object near you and set a timer for twenty minutes, or less. Write about it without lifting your pen. Do not read it back yet. If you run dry, write the last word again until something new comes.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose an object."
+        },
+        {
+          "text": "Write without stopping until the timer ends."
+        }
+      ],
+      "fields": [
+        {
+          "id": "object",
+          "type": "short_text",
+          "label": "Which object did you write about?"
+        },
+        {
+          "id": "page",
+          "type": "long_text",
+          "label": "What did you write? Copy a line or two that you like."
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "page",
+          "plan_section": "pages"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write for three minutes about one object."
+          }
+        ],
+        "field_ids": [
+          "page"
+        ]
+      },
+      "done_when": "The timer has ended and there are words on the page."
+    },
+    {
+      "id": "p3_small",
+      "title": "Design your smaller sitting",
+      "purpose": "A smaller sitting you can use when energy is low.",
+      "why": "Think about how you feel when you are tired or busy. Decide what a smaller sitting looks like. Choose a length and an aim, such as three lines or five minutes. Write it down so it is ready.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a shorter length."
+        },
+        {
+          "text": "Choose a smaller aim."
+        }
+      ],
+      "fields": [
+        {
+          "id": "short_length",
+          "type": "short_text",
+          "label": "How long is your smaller sitting?"
+        },
+        {
+          "id": "short_aim",
+          "type": "short_text",
+          "label": "What is its aim?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "short_length",
+          "plan_section": "small"
+        },
+        {
+          "field_id": "short_aim",
+          "plan_section": "small"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the length of your smaller sitting."
+          }
+        ],
+        "field_ids": [
+          "short_length"
+        ]
+      },
+      "done_when": "Your smaller sitting is written down."
+    },
+    {
+      "id": "p4_piece",
+      "title": "Choose a piece to take further",
+      "purpose": "One piece chosen, one change noted and a plan for the next stretch.",
+      "why": "Look back at your pages and mark the piece you keep thinking about. Read it aloud. Note one thing to change. Then say how you want the next weeks of writing to look.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one piece."
+        },
+        {
+          "text": "Read it aloud and note one change."
+        },
+        {
+          "text": "Write your plan for the next stretch."
+        }
+      ],
+      "fields": [
+        {
+          "id": "piece",
+          "type": "short_text",
+          "label": "Which piece will you take further, and what will you change?"
+        },
+        {
+          "id": "next",
+          "type": "long_text",
+          "label": "How will your next weeks of writing look?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "piece",
+          "plan_section": "piece"
+        },
+        {
+          "field_id": "next",
+          "plan_section": "piece"
+        }
+      ],
+      "done_when": "You have one piece, one change and a plan."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your page is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your setup, your smaller sitting and your chosen piece."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "setup",
+      "title": "Your time and place"
+    },
+    {
+      "id": "pages",
+      "title": "A page you wrote"
+    },
+    {
+      "id": "small",
+      "title": "Your smaller sitting"
+    },
+    {
+      "id": "piece",
+      "title": "Your piece and next weeks"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your time and place, a page you wrote, your smaller sitting and your chosen piece.",
+    "book_bridge": "Twenty Minutes at the Table is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which sitting this month surprised you?",
+      "Is your time and place still the right one?",
+      "What piece are you working on now?"
+    ],
+    "refresher_ids": [
+      "p1_set",
+      "p3_small"
+    ]
+  }
+}

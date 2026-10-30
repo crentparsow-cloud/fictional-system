@@ -223,7 +223,7 @@ export interface BuilderIssue {
 }
 
 function unitLabel(kind: string, n: number): string {
-  const word = kind === "day" || kind === "module" || kind === "chapter" ? kind : "week";
+  const word = kind === "day" || kind === "module" || kind === "chapter" || kind === "part" ? kind : "week";
   return `${word.charAt(0).toUpperCase()}${word.slice(1)} ${n}`;
 }
 

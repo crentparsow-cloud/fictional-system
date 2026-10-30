@@ -1,0 +1,373 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-RPRB8",
+  "slug": "the-lamp-low-hour-rprb8",
+  "title": "The Lamp-Low Hour",
+  "card_line": "Write down your evenings as they are, then slow the last hour one week at a time.",
+  "book": {
+    "book_id": "the-lamp-low-hour",
+    "title": "The Lamp-Low Hour",
+    "subtitle": "Slower Evenings, One Week at a Time"
+  },
+  "author": {
+    "author_id": "AU-XJ20B",
+    "display_name": "Harnoor Dhaliwal-Fournier"
+  },
+  "genre": "wellbeing",
+  "theme_id": "softer-nights",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about slower evenings. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a record of your evenings, a slower last hour and a short wind-down you like. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What is the last hour of your evening like? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Write down your evenings as they are",
+      "exercise_ids": [
+        "p1_record"
+      ],
+      "intro": "You cannot slow an evening you have not looked at. This part asks you to write down what yours is like, without changing anything. A plain record gives you something to build on. Nothing here is a test, so be as honest as you like.",
+      "ideas": [
+        {
+          "heading": "Writing an evening down is a different act from changing it.",
+          "body": "It is tempting to tidy the picture as you write. Resist that. Put down what really happens, including the phone in bed and the late snack. The record is only useful if it is true. No one else needs to read it."
+        },
+        {
+          "heading": "The last hour is the part most worth looking at closely.",
+          "body": "The final hour before bed is where the evening ends and tomorrow begins. Note what you do in it, what is lit and what is loud. Even a rough list will do. You are collecting facts, not looking for faults."
+        },
+        {
+          "heading": "Differences between your evenings tell you more than the average.",
+          "body": "Compare a quiet evening with a crowded one. What changed? The people, the lights, the time you finished work? Spotting the differences shows which parts you can influence and which you cannot. Write them as two short lists, one for what you can influence and one for what you cannot."
+        }
+      ],
+      "takeaway": "Write down your evenings as they are, honestly, and look hardest at the last hour."
+    },
+    {
+      "number": 2,
+      "focus": "Lower the lights and the noise and find the phone a place",
+      "exercise_ids": [
+        "p2_change"
+      ],
+      "intro": "With the record in front of you, you can choose one change at a time. This part looks at the lights, the noise and where the phone spends the last hour. Pick the smallest change that seems worth trying, and leave the rest for another week.",
+      "ideas": [
+        {
+          "heading": "Lower lights give the last hour a different feel.",
+          "body": "Switch off the overhead light and use a lamp. A warm, low light changes how a room feels at once. You do not need special bulbs. Start with whatever you have. If the change is not to your taste, put the light back."
+        },
+        {
+          "heading": "A quieter room gives the last hour a slower pace.",
+          "body": "Turn the television down or off for the last hour. Choose quiet music, a radio at low volume or nothing. You may notice things you had stopped hearing. If silence feels strange, leave a little sound on and lower it a notch next time."
+        },
+        {
+          "heading": "The phone needs a place that is not your pillow.",
+          "body": "Choose a spot across the room, in another room, or on a shelf with a charger. Decide on it ahead of time so you are not deciding in the moment. Tell anyone who may need to reach you. Then see how the evening feels with the phone put away."
+        }
+      ],
+      "takeaway": "Lower the lights, lower the noise and give the phone a place away from the bed. One change is enough to start."
+    },
+    {
+      "number": 3,
+      "focus": "Build a short wind-down you actually like",
+      "exercise_ids": [
+        "p3_steps"
+      ],
+      "intro": "A wind-down is a few things you do in the same order as the hour closes. It only lasts if you like it. This part asks you to pick up to three steps from what already pleases you and to set them in an order that feels natural.",
+      "ideas": [
+        {
+          "heading": "The best wind-down is built from things you already enjoy.",
+          "body": "Think of what you reach for when nobody is watching: a book, a hot drink, a crossword, a bath. Start there. A wind-down made of chores will not last past the first week. One made of small pleasures has a chance."
+        },
+        {
+          "heading": "Three steps are enough, and fewer is allowed.",
+          "body": "A short list is easier to repeat. Choose three steps at most. If two feel right, stop at two. You can always add a third later. A wind-down is something you can finish in a quarter of an hour."
+        },
+        {
+          "heading": "Repeating the order matters more than getting the order right.",
+          "body": "There is no correct sequence. Tea, then a book, then the lamp works as well as the reverse. What matters is that you do roughly the same things in roughly the same order. Then the end of the evening becomes familiar."
+        }
+      ],
+      "takeaway": "Pick up to three steps you like, put them in an order and repeat it. Familiar is enough."
+    },
+    {
+      "number": 4,
+      "focus": "Plan for odd evenings and keep what suits you",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "Some evenings will not fit the plan. A late shift, visitors or a night away can take the hour out of your hands. This part gives you a short version for those evenings. It ends by asking which parts of the hour you want to keep and which you are happy to drop.",
+      "ideas": [
+        {
+          "heading": "An evening after a late shift needs a shorter wind-down.",
+          "body": "When you come in late, choose one step from your list. A hot drink, one lamp, a few quiet minutes. That is enough to mark the end. The aim is not to complete the whole list but to keep a small piece of it."
+        },
+        {
+          "heading": "Visitors and travel change the room, so change the plan to match.",
+          "body": "With visitors, the lights may stay bright and the noise may stay up. That is fine. Choose one thing you can still do, such as a cup of tea alone for five minutes. When travelling, bring one small item from home."
+        },
+        {
+          "heading": "You can keep the parts that suit you and let the rest go.",
+          "body": "Look back at what you tried. Some changes will have felt natural and some will have felt forced. Keep the ones that suit you. Drop the others without guilt. The hour is yours to shape, and it can change again next month."
+        }
+      ],
+      "takeaway": "Have a short version for odd evenings. Keep what suits you and let the rest go."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_record",
+      "title": "Record your last hour",
+      "purpose": "A plain note of what your last hour looks like now.",
+      "why": "Think of a usual evening. Write what happens in the last hour: what you do, which lights are on and what sounds you can hear. Change nothing yet. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Recall the last hour of a usual evening."
+        },
+        {
+          "text": "Write what you do, see and hear."
+        }
+      ],
+      "fields": [
+        {
+          "id": "hour",
+          "type": "long_text",
+          "label": "What does your last hour look like at the moment?"
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "What is one thing about it you would not change?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "hour",
+          "plan_section": "record"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "record"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things that happen in your last hour."
+          }
+        ],
+        "field_ids": [
+          "hour"
+        ]
+      },
+      "done_when": "You have a plain record of one last hour."
+    },
+    {
+      "id": "p2_change",
+      "title": "Choose your first change",
+      "purpose": "One change to the lights, the noise or the phone, written down.",
+      "why": "Choose one change to try for the last hour: a lamp instead of the overhead light, less noise, or a new home for the phone. Write what you will do and when. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one change."
+        },
+        {
+          "text": "Write what you will do and when."
+        }
+      ],
+      "fields": [
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "Which one change will you try first?"
+        },
+        {
+          "id": "spot",
+          "type": "short_text",
+          "label": "If it is the phone, where will it go?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "change",
+          "plan_section": "change"
+        },
+        {
+          "field_id": "spot",
+          "plan_section": "change"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one change you will try."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "done_when": "You have named one change and when you will try it."
+    },
+    {
+      "id": "p3_steps",
+      "title": "Write your wind-down steps",
+      "purpose": "Up to three steps, in order, for the end of your evening.",
+      "why": "List things you enjoy in the last hour. Choose up to three. Put them in the order that feels natural and write them as a short list. If you can only think of one, write that one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List things you enjoy in the last hour."
+        },
+        {
+          "text": "Choose up to three and put them in order."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "Which steps, in what order, make your wind-down?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "steps"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one step you would enjoy."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "You have one to three steps in an order."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Keep what suits you",
+      "purpose": "A one-step evening for odd nights and a list of what to keep.",
+      "why": "Write the one step you would use on a late or busy evening. Then look back over your answers. List the changes you want to keep and the ones you are happy to let go. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your one step for an odd evening."
+        },
+        {
+          "text": "List what to keep and what can go."
+        }
+      ],
+      "fields": [
+        {
+          "id": "one_step",
+          "type": "short_text",
+          "label": "Which one step would you keep on an odd evening?"
+        },
+        {
+          "id": "keep",
+          "type": "long_text",
+          "label": "Which changes do you want to keep, and which can go?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "one_step",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change you want to keep."
+          }
+        ],
+        "field_ids": [
+          "one_step"
+        ]
+      },
+      "done_when": "You have a one-step evening and a keep list."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first change is saved and ready to try."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your changes, your steps and what you chose to keep."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "record",
+      "title": "Your last hour now"
+    },
+    {
+      "id": "change",
+      "title": "Your first change"
+    },
+    {
+      "id": "steps",
+      "title": "Your wind-down steps"
+    },
+    {
+      "id": "keep",
+      "title": "What to keep"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your last hour as it is, your first change, your wind-down steps and what you want to keep.",
+    "book_bridge": "The Lamp-Low Hour is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which evening this month suited you best?",
+      "Which wind-down step do you still like?",
+      "What would you let go of this month?"
+    ],
+    "refresher_ids": [
+      "p3_steps",
+      "p4_keep"
+    ]
+  }
+}

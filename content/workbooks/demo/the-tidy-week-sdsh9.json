@@ -1,0 +1,385 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-SDSH9",
+  "slug": "the-tidy-week-sdsh9",
+  "title": "The Tidy Week",
+  "card_line": "Set up a short weekly reset for your home and your diary.",
+  "book": {
+    "book_id": "the-tidy-week",
+    "title": "The Tidy Week",
+    "subtitle": "A Weekly Reset for Home and Mind"
+  },
+  "author": {
+    "author_id": "AU-JKB28",
+    "display_name": "Friederike Ostwald-Rehm"
+  },
+  "genre": "personal_development",
+  "theme_id": "chosen-habits",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about a short weekly reset for your home and your diary. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have named what clutters your week, built a reset for your space and diary, and kept it short. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the one thing that clutters your week the most? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice what clutters your week and clear one thing first.",
+      "exercise_ids": [
+        "p1_clutter"
+      ],
+      "intro": "A week can feel crowded long before it is full. Piles, loose ends and half made plans all take space. This part asks you to look at what clutters your home and your diary. You will choose one thing to clear first.",
+      "ideas": [
+        {
+          "heading": "Clutter in the home and in the diary are connected.",
+          "body": "A pile of post on the table and a diary with no gaps both leave you feeling behind. Look at both. Often one clue leads to the other. Seeing them side by side helps you decide where to begin. Make a short note of which links you see."
+        },
+        {
+          "heading": "Not all clutter is equal, so find the kind that bothers you most.",
+          "body": "Some mess you barely notice. Other mess catches your eye every time you walk past. Go for the second kind first. Clearing it brings the quickest sense of relief for the least effort. Make a list of two or three, then choose the loudest one. That is the one to begin with."
+        },
+        {
+          "heading": "Start with one small thing rather than a whole room.",
+          "body": "One shelf, one drawer, one overloaded Tuesday. A small start is easier to finish, and a finished job encourages the next. Wanting to do everything at once is the usual reason people do nothing. Pick a spot that takes ten minutes or less, and give it your full attention. When it is done, stop and notice how it looks."
+        }
+      ],
+      "takeaway": "Look at both your home and your diary, and clear the one thing that bothers you most."
+    },
+    {
+      "number": 2,
+      "focus": "Build a short weekly reset for your space.",
+      "exercise_ids": [
+        "p2_home"
+      ],
+      "intro": "A reset is a short, regular tidy that brings things back to a baseline. It is not a deep clean. This part asks you to decide what a reset for your home looks like. You will choose a day, a length and a few tasks.",
+      "ideas": [
+        {
+          "heading": "A reset is a quick return to a baseline, not a big clean.",
+          "body": "Think of fifteen or twenty minutes. Clear surfaces, put things back, sort the post, empty the bins. The aim is to start the week with a usable home. Anything bigger can have its own slot. Write the list on a card and keep it handy. After a few weeks you will find that the reset runs almost by itself."
+        },
+        {
+          "heading": "Pick a day and a time that already has a gap.",
+          "body": "Sunday evening works for some, Friday afternoon for others. Choose a moment you tend to be at home. Put it in the diary like any other appointment. A reset with a place in the week is more likely to happen."
+        },
+        {
+          "heading": "A short list of tasks stops you deciding on the spot.",
+          "body": "Write four or five things you do each time. When the reset starts you do not have to think, you just go down the list. Keep it in the same place each week. Adjust it when something stops being useful."
+        }
+      ],
+      "takeaway": "Choose a day, a short length and four or five tasks for your home reset."
+    },
+    {
+      "number": 3,
+      "focus": "Add a reset for your diary.",
+      "exercise_ids": [
+        "p3_diary"
+      ],
+      "intro": "Your diary is as likely to pile up as your house. Commitments, replies and plans collect unseen. This part asks you to add a short diary check to your weekly reset. You will look ahead, tidy loose ends and protect a gap.",
+      "ideas": [
+        {
+          "heading": "Look at the week ahead before it starts.",
+          "body": "Spend five minutes reading your diary for the next seven days. Note anything that needs preparing, booking or moving. Knowing what is coming removes the small shocks that crowd a week. Read it as if it belonged to a friend, and ask what they would need to prepare. Then look at the same days again for yourself and add any small jobs you spot."
+        },
+        {
+          "heading": "Clear loose ends before they pile up.",
+          "body": "Reply to the messages you have left, write down the thing you promised to do, and delete what no longer applies. Moving each loose end to a list or a date means it no longer sits in your head. Then you can enjoy the week as it comes."
+        },
+        {
+          "heading": "Protect one gap in the week.",
+          "body": "Find an hour with nothing in it and mark it. It may be used for rest, a walk or catching up. If a gap is not marked, it will be filled by the next request. A planned gap is a small kind of protection."
+        }
+      ],
+      "takeaway": "Read the week ahead, clear loose ends and protect one gap in your diary."
+    },
+    {
+      "number": 4,
+      "focus": "Keep it short and adjust it to your life.",
+      "exercise_ids": [
+        "p4_short"
+      ],
+      "intro": "A reset that grows too long will not last. This last part is about keeping it brief and changing it when life changes. You will set a time limit, decide what to cut, and note what you will do on a week when the reset does not happen.",
+      "ideas": [
+        {
+          "heading": "A time limit keeps the reset light.",
+          "body": "Set a timer for twenty minutes, or less. When it rings, stop. Whatever is left can wait until next week. A reset that always finishes on time is one you will be ready to do again. Reset time is for staying ahead, not for catching up on everything."
+        },
+        {
+          "heading": "Cut a task if it never gets done.",
+          "body": "If one item keeps slipping, drop it or make it smaller. The list should fit your life as it is. A shorter list that you complete is better than a long list that you resent. There is no need to carry a task around out of habit once it has stopped earning its place."
+        },
+        {
+          "heading": "Skipping a week is ordinary, so restart without fuss.",
+          "body": "Life gets busy, and some weeks the reset will not happen. Do not try to catch up with a double one. Start again the next week with the usual short list. The routine is easy to restart, and that is its strength."
+        }
+      ],
+      "takeaway": "Keep the reset to a timer, cut what you do not do, and restart without fuss."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_clutter",
+      "title": "Find what clutters your week",
+      "purpose": "What clutters your home and diary, and the one thing to clear first.",
+      "why": "Walk through your home and look through your diary. Write one thing in each that clutters your week. Then mark one to clear first. If nothing stands out, write the first thing that comes to mind.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one cluttered spot at home."
+        },
+        {
+          "text": "Name one cluttered spot in your diary."
+        },
+        {
+          "text": "Choose one to clear first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "clutter",
+          "type": "two_column",
+          "label": "What clutters your week, at home and in your diary?",
+          "columns": [
+            "At home",
+            "In your diary"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        },
+        {
+          "id": "first",
+          "type": "short_text",
+          "label": "Which one will you clear first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "clutter",
+          "plan_section": "clutter"
+        },
+        {
+          "field_id": "first",
+          "plan_section": "clutter"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one cluttered spot and clear it."
+          }
+        ],
+        "field_ids": [
+          "first"
+        ]
+      },
+      "done_when": "You have named the clutter and chosen what to clear."
+    },
+    {
+      "id": "p2_home",
+      "title": "Write your home reset list",
+      "purpose": "A day, a length and four tasks for your home reset.",
+      "why": "Choose a day and a time for a short home reset. Set a length of twenty minutes or less. Write four or five tasks you will do each time, in the order you will do them.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a day and a time."
+        },
+        {
+          "text": "Set a length."
+        },
+        {
+          "text": "Write four or five tasks."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will you do your home reset, and for how long?"
+        },
+        {
+          "id": "tasks",
+          "type": "long_text",
+          "label": "What four or five tasks are on your list?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "home"
+        },
+        {
+          "field_id": "tasks",
+          "plan_section": "home"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a day and three tasks."
+          }
+        ],
+        "field_ids": [
+          "tasks"
+        ]
+      },
+      "done_when": "You have a day, a length and a list of tasks."
+    },
+    {
+      "id": "p3_diary",
+      "title": "Write your diary check",
+      "purpose": "Three steps for a short diary check as part of your reset.",
+      "why": "Decide on three steps for a five minute diary check. For example, look at the week ahead, clear loose ends and mark one gap. Write them down in your own words and say where the check fits.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three diary steps."
+        },
+        {
+          "text": "Say where they fit in the reset."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "What are your three diary check steps?"
+        },
+        {
+          "id": "gap",
+          "type": "short_text",
+          "label": "Which gap in the week will you protect?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "diary"
+        },
+        {
+          "field_id": "gap",
+          "plan_section": "diary"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one diary step."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "You have three diary steps and one gap marked."
+    },
+    {
+      "id": "p4_short",
+      "title": "Keep it short and flexible",
+      "purpose": "A time limit, one task to cut and a plan for a missed week.",
+      "why": "Look over your home list and your diary check. Choose a time limit. Pick one task to cut or shrink. Then write what you will do if a week goes by without a reset.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Set the time limit."
+        },
+        {
+          "text": "Cut or shrink one task."
+        },
+        {
+          "text": "Write your plan for a missed week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "limit",
+          "type": "short_text",
+          "label": "What is your time limit, and which task will you cut?"
+        },
+        {
+          "id": "missed",
+          "type": "short_text",
+          "label": "What will you do after a week without a reset?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "limit",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "missed",
+          "plan_section": "keep"
+        }
+      ],
+      "done_when": "You have a limit, one cut and a plan for a missed week."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your home reset list is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your clutter, your resets and how you keep them short."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "clutter",
+      "title": "What clutters your week"
+    },
+    {
+      "id": "home",
+      "title": "Your home reset"
+    },
+    {
+      "id": "diary",
+      "title": "Your diary check"
+    },
+    {
+      "id": "keep",
+      "title": "Keeping it short"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what clutters your week, your home reset, your diary check and how you will keep it short.",
+    "book_bridge": "The Tidy Week is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Has the reset kept its place in your week this month?",
+      "Which task did you cut or change?",
+      "Is your time limit still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_home",
+      "p4_short"
+    ]
+  }
+}

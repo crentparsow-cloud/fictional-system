@@ -1,0 +1,379 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-19BS2",
+  "slug": "the-kitchen-table-decision-19bs2",
+  "title": "The Kitchen-Table Decision",
+  "card_line": "Work a big decision through on paper, from the options to a review date.",
+  "book": {
+    "book_id": "the-kitchen-table-decision",
+    "title": "The Kitchen-Table Decision",
+    "subtitle": "Big Choices Worked Through on Paper"
+  },
+  "author": {
+    "author_id": "AU-RTFCW",
+    "display_name": "Bronwyn Achterberg-Lui"
+  },
+  "genre": "personal_development",
+  "theme_id": "clearer-choices",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about working a big decision through on paper. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have named the decision, listed your options, set them against what matters, and chosen a review date. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What decision is sitting on your mind at the moment? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Name the decision and the date you need to make it.",
+      "exercise_ids": [
+        "p1_name"
+      ],
+      "intro": "A decision that stays vague keeps coming back. Writing it down in one sentence is the first step to settling it. This part asks you to say what you are deciding and by when. You will also list every option, including doing nothing.",
+      "ideas": [
+        {
+          "heading": "A decision written in one sentence is easier to work on.",
+          "body": "Vague worries are hard to solve. \"Should we move?\" is better than \"things at home\". Write the question in plain words. If it takes two sentences, there may be two decisions. Separate them and take them one at a time."
+        },
+        {
+          "heading": "A date for the decision stops it drifting.",
+          "body": "Some decisions have a real deadline, such as an offer that closes. Others have none, and drift. Choose a date even if nobody is asking you for one. It tells you how much time you have to gather what you need."
+        },
+        {
+          "heading": "Doing nothing is always an option, so write it down.",
+          "body": "Staying as you are is a choice with its own results. Put it on the list beside the others. Often there are more options than the two you first thought of. List every one, including the odd ones, before you judge any of them."
+        }
+      ],
+      "takeaway": "Write the decision as one question, set a date, and list every option."
+    },
+    {
+      "number": 2,
+      "focus": "Write down what matters most to you in five plain words.",
+      "exercise_ids": [
+        "p2_matters"
+      ],
+      "intro": "Options mean little until you know what you are measuring them against. This part asks you to name what matters most to you in this decision. You keep it short, then set your options against each item in a simple table.",
+      "ideas": [
+        {
+          "heading": "Five words are enough to say what matters.",
+          "body": "Think of words like time, money, family, health, freedom. Pick the five that count most for this decision. A short list forces you to choose. If everything matters, nothing helps you tell the options apart. Keep the words ordinary. They are only there to help you choose."
+        },
+        {
+          "heading": "What matters may differ from what you assumed.",
+          "body": "Write the list before you look at the options. You may find a word you did not expect, or one that you thought mattered turns out to be minor. Be honest. The list is for you, and nobody else needs to see it."
+        },
+        {
+          "heading": "A simple table shows how options compare.",
+          "body": "Put the options down the side and your five words along the top. Mark each box with a plus, a minus or a question mark. You are not adding up a score. You are looking for where an option clearly fits or clearly does not."
+        }
+      ],
+      "takeaway": "Name what matters in five words and set each option against them in a table."
+    },
+    {
+      "number": 3,
+      "focus": "Ask the people affected, then try a small test.",
+      "exercise_ids": [
+        "p3_ask"
+      ],
+      "intro": "Big decisions rarely affect only you. Other people can see things you cannot. This part asks you to talk to those affected and write down what they said. It also looks at a small test you can run before you commit to the full choice.",
+      "ideas": [
+        {
+          "heading": "The people affected should hear it from you first.",
+          "body": "Tell them what you are deciding, and by when. Ask what they think, and what worries them. Listen without defending. You are collecting information, not seeking permission. Their answers may change your list of what matters. Ask what they hope for as well as what they fear. Thank them, whatever they say."
+        },
+        {
+          "heading": "Write down what they said, in their words.",
+          "body": "Memory shifts after a conversation. Jot down the main points the same day. Note where people agreed and where they differed. When you come to decide, you will have the real comments in front of you, not your recollection. Add the date, so you can see how views changed over time."
+        },
+        {
+          "heading": "A small test costs less than a wrong turn.",
+          "body": "Before committing, try a version on a small scale. Visit the place for a weekend, do the job for a day, rent before you buy. Choose a test that is cheap and can be undone. It tells you things that thinking alone cannot."
+        }
+      ],
+      "takeaway": "Ask the people affected, write down what they say, and test before you commit."
+    },
+    {
+      "number": 4,
+      "focus": "Make the decision, write why, and set a review date.",
+      "exercise_ids": [
+        "p4_decide"
+      ],
+      "intro": "At some point you have enough, and the work is to decide. This last part asks you to choose and write down your reasons. You then set a review date and note what would make you change course, so the decision stays open to a second look.",
+      "ideas": [
+        {
+          "heading": "Decide, and write down your reasons while they are fresh.",
+          "body": "Look at your table, the comments and the test. Choose. Then write why in three or four lines. Reasons written now will remind you later of what you knew at the time. That helps when doubt arrives. Do not worry if the reasons seem obvious. They will not seem obvious in six months."
+        },
+        {
+          "heading": "A decision can have a review date.",
+          "body": "Set a date, a few months ahead, to look again at how it is going. Knowing you will check makes the choice feel less final. It is easier to commit to something you can revisit. Put it in your diary or on a calendar, and see it as a promise to yourself."
+        },
+        {
+          "heading": "Decide in advance what would make you change course.",
+          "body": "Write one or two signs that would tell you to think again. A cost that doubles, a promise broken, a health change. If those signs appear, you have permission to reconsider. If they do not, you can carry on with a clear mind."
+        }
+      ],
+      "takeaway": "Decide, write why, set a review date and name the signs that would change your course."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_name",
+      "title": "Name the decision and list options",
+      "purpose": "The decision in one sentence, a date and a list of options.",
+      "why": "Write the decision as a single question. Add the date you need to make it. Then list every option you can think of, including doing nothing. Odd ideas count. If you can only think of two, write those.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the decision as one question."
+        },
+        {
+          "text": "Add a date."
+        },
+        {
+          "text": "List every option."
+        }
+      ],
+      "fields": [
+        {
+          "id": "decision",
+          "type": "short_text",
+          "label": "What is the decision, in one sentence, and by when?"
+        },
+        {
+          "id": "options",
+          "type": "long_text",
+          "label": "What are all your options, including doing nothing?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "decision",
+          "plan_section": "decision"
+        },
+        {
+          "field_id": "options",
+          "plan_section": "decision"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the decision in one sentence."
+          }
+        ],
+        "field_ids": [
+          "decision"
+        ]
+      },
+      "done_when": "The decision has a sentence, a date and a list of options."
+    },
+    {
+      "id": "p2_matters",
+      "title": "Name what matters most",
+      "purpose": "Five plain words and a small table of options against them.",
+      "why": "Write five words for what matters most to you in this decision. Then, for each option, write a plus, a minus or a question mark against each word. Do not add up a score.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write five words."
+        },
+        {
+          "text": "Mark each option against each word."
+        }
+      ],
+      "fields": [
+        {
+          "id": "five_words",
+          "type": "short_text",
+          "label": "What five words say what matters most here?"
+        },
+        {
+          "id": "table",
+          "type": "long_text",
+          "label": "How does each option fit against those words?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "five_words",
+          "plan_section": "matters"
+        },
+        {
+          "field_id": "table",
+          "plan_section": "matters"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three words for what matters."
+          }
+        ],
+        "field_ids": [
+          "five_words"
+        ]
+      },
+      "done_when": "You have your words and a rough table."
+    },
+    {
+      "id": "p3_ask",
+      "title": "Ask and note what they say",
+      "purpose": "A note of who you asked and what they said.",
+      "why": "Name the people this decision affects. Talk to at least one of them. Write down what they said in their own words. Then note one small test you could run. If you cannot talk yet, write who you will ask.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Talk to one affected person."
+        },
+        {
+          "text": "Write what they said."
+        },
+        {
+          "text": "Note a small test."
+        }
+      ],
+      "fields": [
+        {
+          "id": "said",
+          "type": "long_text",
+          "label": "Who did you ask, and what did they say?"
+        },
+        {
+          "id": "test",
+          "type": "short_text",
+          "label": "What small test could you try first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "said",
+          "plan_section": "people"
+        },
+        {
+          "field_id": "test",
+          "plan_section": "people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write who you will ask."
+          }
+        ],
+        "field_ids": [
+          "said"
+        ]
+      },
+      "done_when": "You have a note from at least one conversation."
+    },
+    {
+      "id": "p4_decide",
+      "title": "Decide and set a review date",
+      "purpose": "Your choice, your reasons, a review date and signs to change course.",
+      "why": "Look over your notes. Write your decision and three or four lines on why. Choose a date to review it. Then write one or two signs that would tell you to think again.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your decision and reasons."
+        },
+        {
+          "text": "Set a review date."
+        },
+        {
+          "text": "Write signs to change course."
+        }
+      ],
+      "fields": [
+        {
+          "id": "decision_why",
+          "type": "long_text",
+          "label": "What have you decided, and why?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you review it, and what would make you change course?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "decision_why",
+          "plan_section": "choice"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "choice"
+        }
+      ],
+      "done_when": "You have a decision, a reason and a review date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your words and table are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your decision, what matters, what people said and your review date."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "decision",
+      "title": "The decision and options"
+    },
+    {
+      "id": "matters",
+      "title": "What matters most"
+    },
+    {
+      "id": "people",
+      "title": "What others said"
+    },
+    {
+      "id": "choice",
+      "title": "Your choice and review"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds the decision, what matters most, what people said and your choice with a review date.",
+    "book_bridge": "The Kitchen-Table Decision is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Is the decision working out as you expected?",
+      "Have any of your change of course signs appeared?",
+      "Is there another decision to work through on paper?"
+    ],
+    "refresher_ids": [
+      "p1_name",
+      "p4_decide"
+    ]
+  }
+}

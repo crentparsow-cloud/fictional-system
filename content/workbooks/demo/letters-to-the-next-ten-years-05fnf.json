@@ -1,0 +1,377 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-05FNF",
+  "slug": "letters-to-the-next-ten-years-05fnf",
+  "title": "Letters to the Next Ten Years",
+  "card_line": "Write letters to the next ten years and decide on one change to start this year.",
+  "book": {
+    "book_id": "letters-to-the-next-ten-years",
+    "title": "Letters to the Next Ten Years",
+    "subtitle": "Shaping Midlife Around What Matters"
+  },
+  "author": {
+    "author_id": "AU-WE3ZY",
+    "display_name": "Theodora Valdez-Brennan"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "personal_development",
+  "theme_id": "living-with-purpose",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing letters to the next ten years of your life. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have written about now, about the people and work you want, and chosen one change to start this year. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing in your life now that you would like to keep? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start with the life you have now and what is worth keeping.",
+      "exercise_ids": [
+        "p1_now"
+      ],
+      "intro": "Looking ahead is easier from solid ground. Before you write about change, write about what is already good. This part asks you to describe your life as it is, with the good parts first. You will also name what you have learned and want to keep.",
+      "ideas": [
+        {
+          "heading": "Begin with what is good, because that is what you will protect.",
+          "body": "It is tempting to start with what is missing. Start instead with what works: a friend, a routine, a place. These are the things any change should leave alone. Writing them down first makes them easier to defend later. Even one line about each is a good start, and you can add more later."
+        },
+        {
+          "heading": "A letter lets you speak plainly to your future self.",
+          "body": "Write as you would to someone you trust. Use short sentences and ordinary words. You do not need to sound wise. A letter has a reader, and that makes it easier to be honest than a list of goals would be."
+        },
+        {
+          "heading": "What you have learned so far is worth naming.",
+          "body": "By midlife most people know things they did not at thirty. Perhaps how long a job takes, or which friends call back. Put two or three of these into words. They are your working knowledge, and they should shape the next ten years."
+        }
+      ],
+      "takeaway": "Write down what is good now and what you have learned. Both go with you."
+    },
+    {
+      "number": 2,
+      "focus": "Think about the people and the work you want in the next ten years.",
+      "exercise_ids": [
+        "p2_people_work"
+      ],
+      "intro": "Ten years is long enough for a great deal to change, and short enough to picture. This part asks who you want close to you and what work you want to be doing, whether it is paid or not. You will write one short letter on each.",
+      "ideas": [
+        {
+          "heading": "The people you want close need to be named.",
+          "body": "Think of three or four people you hope to be near, in whatever way. A neighbour, a sibling, an old friend. Naming them makes it harder to drift. It also shows you who you have been meaning to call. Write each name with one line on why that person matters to you."
+        },
+        {
+          "heading": "Work includes the unpaid things that fill your days.",
+          "body": "Paid work, caring, volunteering, looking after a garden or a club. All of it counts. Ask which of these you want more of and which less. The answer may be different from what you do now. Include the work nobody pays for, because it is often the work that matters most to you."
+        },
+        {
+          "heading": "A picture of an ordinary Tuesday is more useful than a grand plan.",
+          "body": "Describe a normal weekday ten years on. Where are you, who is there, what are you doing? Details make it real. A plain, believable day is easier to move towards than a dream you cannot picture. Include the small things, such as who is in the kitchen and what the weather is doing. They make the day feel real."
+        }
+      ],
+      "takeaway": "Name the people and the work you want, and picture one ordinary day ten years on."
+    },
+    {
+      "number": 3,
+      "focus": "Look at what you have put off and what you will let go.",
+      "exercise_ids": [
+        "p3_off"
+      ],
+      "intro": "Most of us carry a few things we meant to do and have not done. Many of us also carry things we keep doing from habit. This part asks you to look at both with some honesty. You will write about one thing you have put off, and one thing you are willing to release.",
+      "ideas": [
+        {
+          "heading": "Putting something off usually has a reason.",
+          "body": "It might be cost, time, fear of doing it badly, or that you no longer want it. Ask what is really in the way. Sometimes the reason is a good one. Sometimes it is smaller than you thought. Be fair to yourself. A delay is often a sensible response to a real limit, not a flaw."
+        },
+        {
+          "heading": "Not everything on the list deserves another ten years.",
+          "body": "Some wishes belong to an earlier version of you. It is allowed to cross them off. Doing so frees space for what you want now. You are not giving up. You are choosing. Write it down and see how it feels. Relief is common, and so is a little sadness. Both are fine."
+        },
+        {
+          "heading": "Letting go can be a plain, practical decision.",
+          "body": "It may be a role you took on years ago, a subscription, a standing arrangement. Pick one thing that takes more than it gives. Write when you will step away from it, and how you will tell the people involved."
+        }
+      ],
+      "takeaway": "Ask what is in the way of something you have put off, and choose one thing to release."
+    },
+    {
+      "number": 4,
+      "focus": "Pick one change to start this year and seal a letter for later.",
+      "exercise_ids": [
+        "p4_change"
+      ],
+      "intro": "Ten years is made of ordinary weeks. One change, started this year, is enough to point things in the right direction. This last part asks you to choose it, write a first step, and read your letters back. You can then seal one to open later.",
+      "ideas": [
+        {
+          "heading": "One change is more likely to happen than five.",
+          "body": "Look back through your letters and find the change that appears more than once. Choose that one. Write it as a plain sentence. Everything else can wait until this one has found its place. Pick the one that feels most alive when you read it. Leave the rest in the letters, where they are safe."
+        },
+        {
+          "heading": "A first step should fit into a single afternoon.",
+          "body": "Make a phone call, find a form, book a visit, clear a shelf. Write the step and a date. Small and specific beats large and vague. Once the first step is taken, the second is easier to see. Give it a date in your diary. A step with a date attached is much more likely to be taken than a plan to do it soon."
+        },
+        {
+          "heading": "Reading your letters back shows you what matters.",
+          "body": "Notice what you wrote with energy and what you wrote out of duty. Then pick one letter to seal and date, to be opened in a year. When you open it, you will see how far things have moved. Keep the sealed letter somewhere you will find it. Write the date to open it on the envelope."
+        }
+      ],
+      "takeaway": "Choose one change, write a first step with a date, and seal one letter for later."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_now",
+      "title": "Write about life as it is",
+      "purpose": "A short letter naming what is good now and what to keep.",
+      "why": "Write a short letter to your future self about your life now. Put the good parts first. Then name two things you have learned that you want to keep. If the words will not come, write a list of three good things.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the good parts of your life now."
+        },
+        {
+          "text": "Add two things you have learned."
+        }
+      ],
+      "fields": [
+        {
+          "id": "letter",
+          "type": "long_text",
+          "label": "What is good about your life now?"
+        },
+        {
+          "id": "learned",
+          "type": "short_text",
+          "label": "What have you learned that you want to keep?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "letter",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "learned",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three good things about now."
+          }
+        ],
+        "field_ids": [
+          "letter"
+        ]
+      },
+      "done_when": "You have the good parts and two lessons on the page."
+    },
+    {
+      "id": "p2_people_work",
+      "title": "Name your people and your work",
+      "purpose": "Three people and a picture of the work you want.",
+      "why": "Write the names of three people you want close over the next ten years. Then describe, in a few sentences, the work you want to be doing on an ordinary weekday. If nothing comes, write one name.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List three names."
+        },
+        {
+          "text": "Describe an ordinary weekday of work."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "short_text",
+          "label": "Which three people do you want close?"
+        },
+        {
+          "id": "work",
+          "type": "long_text",
+          "label": "What work do you want to be doing in ten years?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "people",
+          "plan_section": "people"
+        },
+        {
+          "field_id": "work",
+          "plan_section": "people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one kind of work."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "done_when": "You have names and a picture of the work."
+    },
+    {
+      "id": "p3_off",
+      "title": "Look at what you put off",
+      "purpose": "One thing you have put off, the reason and one thing to let go.",
+      "why": "Choose one thing you have been meaning to do. Write what has stood in the way. Then choose one thing you are willing to let go of and say when. Take your time. If nothing comes, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name the thing you put off."
+        },
+        {
+          "text": "Name the reason."
+        },
+        {
+          "text": "Name one thing to let go."
+        }
+      ],
+      "fields": [
+        {
+          "id": "put_off",
+          "type": "short_text",
+          "label": "What have you put off, and why?"
+        },
+        {
+          "id": "let_go",
+          "type": "short_text",
+          "label": "What are you willing to let go of?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "put_off",
+          "plan_section": "letting_go"
+        },
+        {
+          "field_id": "let_go",
+          "plan_section": "letting_go"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you have put off."
+          }
+        ],
+        "field_ids": [
+          "put_off"
+        ]
+      },
+      "done_when": "You have named one delay and one thing to release."
+    },
+    {
+      "id": "p4_change",
+      "title": "Pick a change and first step",
+      "purpose": "One change to start this year, a first step and a date.",
+      "why": "Read back over your letters. Choose the one change that appears most. Write it as a sentence. Then write a first step you can take in an afternoon, and the date you will take it.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one change."
+        },
+        {
+          "text": "Write a first step."
+        },
+        {
+          "text": "Add a date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What one change will you start this year?"
+        },
+        {
+          "id": "step",
+          "type": "short_text",
+          "label": "What is the first step, and by when?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "change",
+          "plan_section": "change"
+        },
+        {
+          "field_id": "step",
+          "plan_section": "change"
+        }
+      ],
+      "done_when": "You have one change, a first step and a date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your people and work are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your letters, your delay and your one change."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "Life as it is now"
+    },
+    {
+      "id": "people",
+      "title": "People and work"
+    },
+    {
+      "id": "letting_go",
+      "title": "Putting off and letting go"
+    },
+    {
+      "id": "change",
+      "title": "Your change this year"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your letter about now, your people and work, what you will release and your one change.",
+    "book_bridge": "Letters to the Next Ten Years is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What have you noticed this month about the ten years ahead?",
+      "Have you taken your first step?",
+      "Is the letter you sealed still waiting?"
+    ],
+    "refresher_ids": [
+      "p1_now",
+      "p4_change"
+    ]
+  }
+}

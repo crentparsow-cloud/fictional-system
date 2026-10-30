@@ -1,0 +1,375 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-0P891",
+  "slug": "one-window-open-0p891",
+  "title": "One Window Open",
+  "card_line": "Take one very small step at a time, and write a short plan of what to keep.",
+  "book": {
+    "book_id": "one-window-open",
+    "title": "One Window Open",
+    "subtitle": "Small Steps for Heavy Days"
+  },
+  "author": {
+    "author_id": "AU-XKWYA",
+    "display_name": "Delphine Arceneaux-Lim"
+  },
+  "genre": "wellbeing",
+  "theme_id": "brighter-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "higher",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about heavy days and very small steps. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short plan of what to keep. Go at your own pace. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two, or leave it blank.",
+      "Help now is on every screen in the app whenever you want it."
+    ],
+    "why_prompt": "What would one small thing look like on a heavy day? One line is enough, and you can leave it blank.",
+    "higher_tier_note": "This workbook is for reflection at your own pace. You can stop at any point, and you can leave any question blank. Come back when it suits you, or not at all."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Use this workbook gently and describe how a day felt",
+      "exercise_ids": [
+        "p1_words"
+      ],
+      "intro": "Some days feel heavy, and a long programme would only add to the weight. This workbook asks for very little. In this part you set the pace and find a way to say how a day felt in your own words. There are no scores and no right answers.",
+      "ideas": [
+        {
+          "heading": "You can go as slowly as you like and leave any question blank.",
+          "body": "Nothing here has a deadline. Read one idea and stop if you want to. A blank answer is a perfectly good answer. You can come back next week or next month. The workbook will be where you left it, and so will everything you wrote."
+        },
+        {
+          "heading": "A few honest words about a day are worth more than a score.",
+          "body": "Numbers flatten a day into a single figure. Words keep the detail. \"Slow, grey, but the post was good\" says more than a five. Write whatever comes, in your own style. It is for you alone, and it does not need to be tidy."
+        },
+        {
+          "heading": "Naming how a day felt does not mean anything has to change.",
+          "body": "You can write that a day was heavy and leave it there. Putting words to it is enough for now. Nobody is marking the answer. Some people find the sentence looks smaller on paper. Others find it just sits there. Either is allowed."
+        }
+      ],
+      "takeaway": "Go at your own pace. A few honest words about a day are enough, and a blank answer is allowed."
+    },
+    {
+      "number": 2,
+      "focus": "Choose one very small task for tomorrow",
+      "exercise_ids": [
+        "p2_task"
+      ],
+      "intro": "On a heavy day, a list of jobs can feel like too much. A single small task is easier to face. This part looks at how small a task can be and why choosing it the night before can take some pressure out of the morning.",
+      "ideas": [
+        {
+          "heading": "A very small task is smaller than you think it needs to be.",
+          "body": "Think of something that takes two minutes or less. Put one cup in the sink. Open the curtains. Reply to a message with a single word. A task this small is easy to begin. If it turns out to be easy to continue, that is a bonus, not a requirement."
+        },
+        {
+          "heading": "Choosing the task the night before leaves less to decide in the morning.",
+          "body": "In the morning, deciding can be the hard part. If the choice is already made, there is only the doing, or not doing. Write it on a note and leave it where you will see it. \"Tomorrow: open the curtains.\" That is the whole plan."
+        },
+        {
+          "heading": "Doing the small task counts, and so does not doing it.",
+          "body": "If the task gets done, good. If it does not, nothing is owed. You can set the same one again, make it smaller or choose a different one. The task is there to make the day a little easier to enter, not to measure you."
+        }
+      ],
+      "takeaway": "One very small task, chosen the night before, is enough. Done or not done, you can set another."
+    },
+    {
+      "number": 3,
+      "focus": "Add a little daylight and one message to someone you trust",
+      "exercise_ids": [
+        "p3_window"
+      ],
+      "intro": "Two things often slip away on heavy days: time outdoors and contact with other people. Both can be very small. This part looks at a few minutes of daylight and a short message to someone you trust. You choose whether to use either.",
+      "ideas": [
+        {
+          "heading": "A few minutes by an open window or door still counts as time outside.",
+          "body": "Going out may feel like too much. Standing at an open door or window, or sitting on a step, is a smaller version. Notice what you can see and hear. Stay as long as you like, and go in when you wish. There is no right amount."
+        },
+        {
+          "heading": "Food, water and a rough order to the day give you something to lean on.",
+          "body": "When everything feels heavy, plain things matter: a glass of water, something to eat, a time you usually get up. They do not need to be impressive. Keep them ordinary. A rough order to the day is something to rest on, and it can bend."
+        },
+        {
+          "heading": "A short message to someone you trust can be very short.",
+          "body": "\"Thinking of you\" is a complete message. So is \"Rough day, no need to reply.\" No need to explain. Choose someone who is kind to you, and write what feels possible. Sending a few words is enough. You can also choose not to send it."
+        }
+      ],
+      "takeaway": "An open window, plain food and water, and a short message are small ways to stay in touch with the day."
+    },
+    {
+      "number": 4,
+      "focus": "Start again on any day and write what to keep",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "Some weeks go differently from the plan. That is part of ordinary life, and it does not undo anything you have done. This last part is about starting again from a small place on any day. It ends with a short plan of what you want to keep.",
+      "ideas": [
+        {
+          "heading": "A hard week does not cancel the small things you tried.",
+          "body": "You can pick this workbook up after a gap of days or months. Nothing resets and nothing has to be repeated. Whatever you wrote earlier is still yours. Begin with the smallest thing, perhaps the single task from Part 2, and see how it feels."
+        },
+        {
+          "heading": "Some thoughts make a heavy day heavier, and noticing one is enough.",
+          "body": "A thought such as \"nothing I do matters\" can arrive with a lot of weight. There is no need to argue with it. Notice it and write it down, as one sentence among others. Seeing it on paper puts a little distance between you and it."
+        },
+        {
+          "heading": "Writing down what has been useful while you feel steadier gives you something to find later.",
+          "body": "On a steadier day, write down what has been useful: a task, a window, a message. Keep it short. On a heavier day, there is no need to think of it afresh. You can read your own note and take the smallest item from it."
+        }
+      ],
+      "takeaway": "You can start again from a small place on any day. A short note of what has been useful will be there when you want it."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_words",
+      "title": "A few words about a day",
+      "purpose": "A short note, in your own words, about how a recent day felt.",
+      "why": "Think of a recent day. Write a few words or a sentence about how it felt. Use any words you like. It need not be tidy or kind. If nothing comes to mind, write one word, or leave it blank.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of a recent day."
+        },
+        {
+          "text": "Write a few words about how it felt."
+        }
+      ],
+      "fields": [
+        {
+          "id": "day_words",
+          "type": "long_text",
+          "label": "How did a recent day feel, in your own words?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "day_words",
+          "plan_section": "words"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one word for how a day felt."
+          }
+        ],
+        "field_ids": [
+          "day_words"
+        ]
+      },
+      "done_when": "You have written a few words, or chosen to leave it."
+    },
+    {
+      "id": "p2_task",
+      "title": "Choose one very small task",
+      "purpose": "One two-minute task written down for tomorrow.",
+      "why": "Think of something that takes two minutes or less and that you could do tomorrow. Write it as a single line. Make it smaller if it feels like too much. If nothing comes to mind, write one word.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Think of a two-minute task."
+        },
+        {
+          "text": "Write it as one line."
+        }
+      ],
+      "fields": [
+        {
+          "id": "task",
+          "type": "short_text",
+          "label": "What is one very small task for tomorrow?"
+        },
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where will you leave a note about it?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "task",
+          "plan_section": "task"
+        },
+        {
+          "field_id": "place",
+          "plan_section": "task"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one very small task."
+          }
+        ],
+        "field_ids": [
+          "task"
+        ]
+      },
+      "done_when": "One small task is written down."
+    },
+    {
+      "id": "p3_window",
+      "title": "Open a window, write a message",
+      "purpose": "A place for a few minutes of daylight and a short message you might send.",
+      "why": "Choose one way to spend a few minutes by an open window or door when it suits you. Then write a short message to someone you trust. You do not need to send it. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a spot for a few minutes of daylight."
+        },
+        {
+          "text": "Write a short message to someone you trust."
+        }
+      ],
+      "fields": [
+        {
+          "id": "daylight",
+          "type": "short_text",
+          "label": "Where could you spend a few minutes in daylight?"
+        },
+        {
+          "id": "message",
+          "type": "short_text",
+          "label": "What short message might you write to someone you trust?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "daylight",
+          "plan_section": "window"
+        },
+        {
+          "field_id": "message",
+          "plan_section": "window"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a short message to someone you trust."
+          }
+        ],
+        "field_ids": [
+          "daylight"
+        ]
+      },
+      "done_when": "You have a place for daylight and a message written."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Write what to keep",
+      "purpose": "A short plan of the small things you want to keep.",
+      "why": "Look back at your earlier answers. Pick the small things that felt possible: a task, a window, a message. Write them as a short list. Add the name of one person you could message. Leave any line blank if you wish.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Look back at your earlier answers."
+        },
+        {
+          "text": "List the small things you want to keep."
+        }
+      ],
+      "fields": [
+        {
+          "id": "keep",
+          "type": "long_text",
+          "label": "Which small things would you like to keep?"
+        },
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Who might you message?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "keep",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "person",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small thing you would like to keep."
+          }
+        ],
+        "field_ids": [
+          "keep"
+        ]
+      },
+      "done_when": "You have a short list of small things to keep."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it or leave it as it is."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your small task is saved for whenever you want it."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds the small things you chose to keep."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "words",
+      "title": "How a day felt"
+    },
+    {
+      "id": "task",
+      "title": "A very small task"
+    },
+    {
+      "id": "window",
+      "title": "Daylight and a message"
+    },
+    {
+      "id": "keep",
+      "title": "What to keep"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds how a day felt, a small task, a message and the small things you want to keep.",
+    "book_bridge": "One Window Open is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which small thing was useful this month?",
+      "Is there a very small task you could set for tomorrow?",
+      "Who might you send a short message to?"
+    ],
+    "refresher_ids": [
+      "p2_task",
+      "p4_keep"
+    ]
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-F3ZA8",
+  "slug": "fix-it-before-you-call-someone-f3za8",
+  "title": "Fix It Before You Call Someone",
+  "card_line": "Know where your stopcock is and fix the small jobs yourself.",
+  "book": {
+    "book_id": "fix-it-before-you-call-someone",
+    "title": "Fix It Before You Call Someone",
+    "subtitle": "Small Repairs at Home"
+  },
+  "author": {
+    "author_id": "AU-9WVE6",
+    "display_name": "Matilda Kershaw-Nguyen"
+  },
+  "genre": "life_skills",
+  "theme_id": "practical-know-how",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about fixing the small jobs at home yourself, and knowing when to call someone. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will know where your stopcock is, have a plan for three small repairs and a way to brief a tradesperson. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a home repair plan you can read at the end."
+    ],
+    "why_prompt": "Which small job at home have you been putting off? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Gather a basic toolkit and find your stopcock and fuse box",
+      "exercise_ids": [
+        "p1_find"
+      ],
+      "intro": "Most small repairs need only a handful of tools and a little knowledge of your own home. The most useful thing you can learn first is where to switch the water and the power off. This part covers both, and asks you to go and find them.",
+      "ideas": [
+        {
+          "heading": "A basic toolkit of eight or ten items covers most small jobs.",
+          "body": "A screwdriver set, an adjustable spanner, pliers, a tape measure, a hammer, a torch, a plunger and some tape will cover most small jobs. Keep them together in one box that you can find in the dark. Buy a better version only when you have outgrown the first."
+        },
+        {
+          "heading": "Everyone in the home should know where the stopcock is.",
+          "body": "The stopcock turns off the water to the whole home. It is often under the kitchen sink, in a cupboard or near the front door. Turn it, gently, to check it moves, and label it. When a pipe bursts, the time spent looking for it costs a lot."
+        },
+        {
+          "heading": "Knowing where the fuse box is matters before you ever need it.",
+          "body": "The fuse box, or consumer unit, controls the power to your home. Find it, open it and look at the labels. Make a note of the main switch. If you are renting, ask the landlord where it is. Leave anything inside it to a qualified electrician."
+        }
+      ],
+      "takeaway": "A small toolkit, a known stopcock and a known fuse box prepare you for most home emergencies."
+    },
+    {
+      "number": 2,
+      "focus": "Fix dripping taps and loose fittings",
+      "exercise_ids": [
+        "p2_tap"
+      ],
+      "intro": "A dripping tap or a wobbling handle is annoying, wasteful and usually quick to fix. This part takes you through the steps in the right order: switch off, take apart carefully, replace the worn part and test. You choose one job to try this week.",
+      "ideas": [
+        {
+          "heading": "Most dripping taps need only a new washer or seal.",
+          "body": "Turn off the water supply to the tap, open it to drain what is left, then undo the cover and the nut beneath. The worn part is often a rubber washer. Take it to a hardware shop to match it. Put everything back in reverse order and test for drips."
+        },
+        {
+          "heading": "Take a photograph at each step so you can put it back together.",
+          "body": "Before you undo a thing, photograph it. Take another after each part comes off. Lay the pieces in a row on a cloth in the order they came out. When you rebuild, the pictures tell you what went where. This habit saves many a lost screw and wasted afternoon."
+        },
+        {
+          "heading": "Loose handles, shelves and door fittings are often a ten minute job.",
+          "body": "A loose fitting usually has a screw that has come loose or a hole that has worn out. Tighten the screw. If it spins, try a longer or wider screw, or fill the hole with a wooden matchstick and glue first. Check behind the surface for pipes or cables before you drill."
+        }
+      ],
+      "takeaway": "Switch off first, photograph as you go and replace the worn part. Many small fixes take minutes."
+    },
+    {
+      "number": 3,
+      "focus": "Clear a blocked sink and deal with other small jobs",
+      "exercise_ids": [
+        "p3_sink"
+      ],
+      "intro": "A slow or blocked sink is one of the most common problems at home, and often one you can clear yourself. This part covers the basic steps, from the plunger to the trap beneath the sink. It also covers how to stop the blockage coming back.",
+      "ideas": [
+        {
+          "heading": "A plunger and hot water clear most simple blockages.",
+          "body": "Remove standing water if there is a lot, then cover the plughole fully with the plunger and press down and up firmly. Do this a dozen times. If the water starts to drain, run hot water down to finish. Do not mix chemical cleaners with each other."
+        },
+        {
+          "heading": "The trap under the sink is easy to open and often holds the problem.",
+          "body": "Place a bucket underneath, then undo the curved pipe by hand or with pliers. Clear out the hair and grease with gloves on. Rinse the pipe, put it back and run the water to check for leaks. Wash your hands well afterwards."
+        },
+        {
+          "heading": "Stopping a blockage coming back is easier than clearing one.",
+          "body": "Fit a cheap strainer over the plughole to catch hair and food. Wipe greasy pans with paper before washing. Pour boiling water down the sink now and then. Ten seconds each time costs far less than the next call-out."
+        }
+      ],
+      "takeaway": "A plunger and the trap clear most blocked sinks. A strainer and less grease keep them clear."
+    },
+    {
+      "number": 4,
+      "focus": "Know what never to attempt and how to brief a tradesperson",
+      "exercise_ids": [
+        "p4_brief"
+      ],
+      "intro": "Part of fixing things yourself is knowing where to stop. Some jobs carry real risk, and a professional is the right choice. This last part lists those jobs, then shows you how to describe a problem clearly so that a tradesperson can quote and fix it quickly.",
+      "ideas": [
+        {
+          "heading": "Gas, mains electrics and structural walls are for professionals only.",
+          "body": "Leave these to a registered tradesperson. They are any job on a gas appliance, on the wiring behind the sockets, or on a wall that holds up the building. The risk of fire, shock or collapse is real. Knowing where the line falls is a skill of its own."
+        },
+        {
+          "heading": "A good description of the problem saves time and money.",
+          "body": "Before you ring, write down what is wrong, where it is, when it started and what you have already tried. Take a photograph or short video. A clear brief lets the tradesperson bring the right parts and give a fair estimate. It also shows that you looked."
+        },
+        {
+          "heading": "Ask for a quote in writing and ask what it covers.",
+          "body": "Before work starts, ask what the price includes, whether parts are extra and how long the job will take. Get the answer in writing, by message if not on paper. Ask for two or three quotes on bigger jobs. A short check at the start avoids surprises at the end."
+        }
+      ],
+      "takeaway": "Leave gas, mains electrics and structure to professionals. Describe the problem clearly and get the price in writing."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_find",
+      "title": "Find your stopcock and fuse box",
+      "purpose": "The location of your stopcock and fuse box, and a short toolkit list.",
+      "why": "Walk round your home and find the stopcock and the fuse box. Write down where each one is. Then list the tools you already own from the basic set. Note the two or three you would like to add. If you rent, ask the landlord for the locations.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Find the stopcock and the fuse box."
+        },
+        {
+          "text": "List the tools you own and two you lack."
+        }
+      ],
+      "fields": [
+        {
+          "id": "locations",
+          "type": "two_column",
+          "label": "Where are your stopcock and fuse box?",
+          "columns": [
+            "What",
+            "Where it is"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "tools",
+          "type": "short_text",
+          "label": "Which tools do you own, and which would you add?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "locations",
+          "plan_section": "found"
+        },
+        {
+          "field_id": "tools",
+          "plan_section": "found"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down where your stopcock is."
+          }
+        ],
+        "field_ids": [
+          "locations"
+        ]
+      },
+      "done_when": "You have written where at least one of them is."
+    },
+    {
+      "id": "p2_tap",
+      "title": "Choose one small job to fix",
+      "purpose": "One small job, the steps to take and what you will need.",
+      "why": "Choose a small job at home, such as a dripping tap or a loose handle. Write the steps in order, starting with switching off the water or power if needed. List the parts and tools. If the job feels too big, pick a smaller one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one small job."
+        },
+        {
+          "text": "Write the steps and what you will need."
+        }
+      ],
+      "fields": [
+        {
+          "id": "job",
+          "type": "short_text",
+          "label": "Which small job will you try to fix?"
+        },
+        {
+          "id": "job_steps",
+          "type": "long_text",
+          "label": "What are the steps, and what will you need?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "job",
+          "plan_section": "jobs"
+        },
+        {
+          "field_id": "job_steps",
+          "plan_section": "jobs"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down the job you will try first."
+          }
+        ],
+        "field_ids": [
+          "job"
+        ]
+      },
+      "done_when": "You have one job and at least two steps."
+    },
+    {
+      "id": "p3_sink",
+      "title": "Plan to keep your sink clear",
+      "purpose": "A short plan to clear a slow drain and keep it clear.",
+      "why": "Think about the sink or drain in your home that runs slowest. Write the steps to try: plunger, hot water and the trap. Then add one change to stop it blocking again, such as a strainer. If all your drains run well, write the change anyway.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name the slowest drain."
+        },
+        {
+          "text": "Write the steps and one change to prevent a blockage."
+        }
+      ],
+      "fields": [
+        {
+          "id": "drain",
+          "type": "short_text",
+          "label": "Which drain in your home runs slowest?"
+        },
+        {
+          "id": "prevent",
+          "type": "short_text",
+          "label": "What one change will keep it clear?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "drain",
+          "plan_section": "sink"
+        },
+        {
+          "field_id": "prevent",
+          "plan_section": "sink"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down the slowest drain."
+          }
+        ],
+        "field_ids": [
+          "drain"
+        ]
+      },
+      "done_when": "You have named a drain and one change."
+    },
+    {
+      "id": "p4_brief",
+      "title": "Write a brief for a tradesperson",
+      "purpose": "A clear description of a problem you would hand to a tradesperson.",
+      "why": "Pick a problem you would leave to a professional. Write what is wrong, where, when it started and what you have tried. Add the questions you will ask about the quote. If no problem comes to mind, write a brief for a dripping tap.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what is wrong, where and since when."
+        },
+        {
+          "text": "Write two questions about the quote."
+        }
+      ],
+      "fields": [
+        {
+          "id": "brief",
+          "type": "long_text",
+          "label": "What is the problem, where is it and when did it start?"
+        },
+        {
+          "id": "quote_questions",
+          "type": "short_text",
+          "label": "What two questions will you ask about the quote?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "brief",
+          "plan_section": "brief"
+        },
+        {
+          "field_id": "quote_questions",
+          "plan_section": "brief"
+        }
+      ],
+      "done_when": "Your brief has a problem and one question."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first repair is planned and saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your locations, your repairs and your brief."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "found",
+      "title": "Where things are"
+    },
+    {
+      "id": "jobs",
+      "title": "Your first repair"
+    },
+    {
+      "id": "sink",
+      "title": "Your sink plan"
+    },
+    {
+      "id": "brief",
+      "title": "Your brief for a tradesperson"
+    }
+  ],
+  "finish": {
+    "summary": "You found your stopcock and fuse box and planned a first repair. You also made a plan for a slow drain and wrote a brief for a tradesperson.",
+    "book_bridge": "Fix It Before You Call Someone is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which small job did you fix this month?",
+      "Has anything in your home changed that you need to check?",
+      "Is there a job you have left to a professional that you now understand better?"
+    ],
+    "refresher_ids": [
+      "p1_find",
+      "p4_brief"
+    ]
+  }
+}

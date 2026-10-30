@@ -16,11 +16,13 @@ insert into public.organisations (id, code, kind, legal_name, display_name, slug
   ('a4900000-0000-0000-0000-0000000000a1', 'PB-TST49', 'publisher', 'Org 49 Ltd', 'Org 49', 'org-49', 'GB', 'verified');
 insert into public.books (id, org_id, slug, title, rights_status) values
   ('a4900000-0000-0000-0000-0000000000b1', 'a4900000-0000-0000-0000-0000000000a1', 'book-49', 'Book 49', 'public_domain');
-insert into public.workbooks (id, code, book_id, org_id, slug, title, card_line, genre_id, safety_tier, depth, status) values
+-- Since 0069 the streak rule is by shelf: the standard title sits on a Mind
+-- and Mood Theme, so it stays out under both the old and the new rule.
+insert into public.workbooks (id, code, book_id, org_id, slug, title, card_line, genre_id, theme_id, safety_tier, depth, status) values
   ('a4900000-0000-0000-0000-0000000000c1', 'AK-T49A0', 'a4900000-0000-0000-0000-0000000000b1', 'a4900000-0000-0000-0000-0000000000a1',
-   'wb-49-none', 'Workbook 49 none', 'Card', 'productivity', 'none', 'full', 'live'),
+   'wb-49-none', 'Workbook 49 none', 'Card', 'productivity', null, 'none', 'full', 'live'),
   ('a4900000-0000-0000-0000-0000000000c2', 'AK-T49B0', 'a4900000-0000-0000-0000-0000000000b1', 'a4900000-0000-0000-0000-0000000000a1',
-   'wb-49-std', 'Workbook 49 standard', 'Card', 'wellbeing', 'standard', 'full', 'live');
+   'wb-49-std', 'Workbook 49 standard', 'Card', 'wellbeing', 'settled-mind', 'standard', 'full', 'live');
 insert into public.workbook_versions (id, workbook_id, semver, content, content_hash) values
   ('a4900000-0000-0000-0000-0000000000d1', 'a4900000-0000-0000-0000-0000000000c1', '1.0.0', '{}'::jsonb, repeat('c', 64)),
   ('a4900000-0000-0000-0000-0000000000d2', 'a4900000-0000-0000-0000-0000000000c2', '1.0.0', '{}'::jsonb, repeat('d', 64));

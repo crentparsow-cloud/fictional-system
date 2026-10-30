@@ -19,6 +19,7 @@ import { buildSuggestions } from "@/lib/today/suggest";
 import { buildPath, type PathNode } from "@/lib/reading/path";
 import { doneExerciseIds, hasFromFieldPaths, nextStep, stepsFromUnitSections, type ProgrammeStep } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type UnitWord } from "@/lib/today/week";
+import { dueToday, nextDueDay, nextPartLine, paceInputFromEvents } from "@/lib/pace";
 
 /**
  * Everything the Today page shows, worked out on the server under the
@@ -57,6 +58,10 @@ export interface TodayView {
   /** Programmes with a daily check, for the existing quick tap. */
   continueCards: ContinueCard[];
   timeZone: string;
+  /** False when the programme leading Today is one streaks never reach (Mind and Mood, higher tier). The streak line and offer then stay off. */
+  leadHabitAllowed: boolean;
+  /** True when the pace of the programme leading Today suggests a part today. Own pace never does. */
+  leadDue: boolean;
 }
 
 export interface ReviewView {
@@ -68,7 +73,7 @@ export interface ReviewView {
   stillTrueDay: string;
 }
 
-const UNIT_WORDS: UnitWord[] = ["week", "day", "module", "chapter", "unit"];
+const UNIT_WORDS: UnitWord[] = ["week", "day", "module", "chapter", "part", "unit"];
 const unitWordOf = (u: string): UnitWord => ((UNIT_WORDS as string[]).includes(u) ? (u as UnitWord) : "unit");
 
 interface EnrolmentRow {
@@ -94,7 +99,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       outsideMembership: new Set(),
     });
     const cards = selectTodayCards({ now, programmes: [], savedTools: [], suggestions, membershipStartedAt: subRows, monthThreeOffer });
-    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/explore")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone };
+    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/explore")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone, leadHabitAllowed: true, leadDue: false };
   }
 
   const ids = cardsAll.map((c) => c.enrolmentId);
@@ -108,8 +113,9 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
   const settingsOf = new Map(((settingsRows ?? []) as SettingsRow[]).map((r) => [r.enrolment_id, r]));
   const tz = settingsOf.get(cardsAll[0]!.enrolmentId)?.timezone ?? timeZone;
 
-  // Steps, events and answer paths for the three programmes opened most recently.
-  const top = cardsAll.slice(0, 3);
+  // Steps, events and answer paths for every open programme (up to 12), so
+  // Today can show each one that has a step to do, the most due first.
+  const top = cardsAll.slice(0, 12);
   const topVersions = [...new Set(top.map((c) => enrolOf.get(c.enrolmentId)?.version_id).filter((v): v is string => !!v))];
   const { data: unitRows } = topVersions.length
     ? await supabase.from("workbook_sections").select("version_id, unit_number, body").eq("kind", "unit").in("version_id", topVersions)
@@ -144,6 +150,10 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     const steps = isTop ? stepsFromUnitSections(unitsOf.get(enrolOf.get(c.enrolmentId)?.version_id ?? "") ?? []) : [];
     stepsOf.set(c.enrolmentId, steps);
     const done = doneExerciseIds(eventsOf.get(c.enrolmentId) ?? []);
+    const localDay = (d: Date) => localParts(d, settingsOf.get(c.enrolmentId)?.timezone ?? tz).date;
+    const paceIn = paceInputFromEvents(c.pace, eventsOf.get(c.enrolmentId) ?? [], localDay);
+    const today = localDay(now);
+    const due = isTop && dueToday(paceIn, today);
     return {
       enrolmentId: c.enrolmentId,
       slug: c.slug,
@@ -153,6 +163,10 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       unitWord: unitWordOf(c.unitLabel),
       unitCount: c.unitCount,
       next: nextStep(steps, done),
+      pace: c.pace,
+      due,
+      dueDay: isTop ? nextDueDay(paceIn, today) : null,
+      workedToday: isTop && paceIn.lastFinishedDay === today,
     };
   });
 
@@ -201,7 +215,10 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     const at = rhythmUnit(steps, p.next);
     if (at) {
       rhythm = {
-        line: rhythmLine({ unitWord: p.unitWord, unit: at.unit, unitCount: p.unitCount, stepsInUnit: at.stepsInUnit }),
+        line:
+          p.pace && p.pace !== "weekly"
+            ? nextPartLine({ unit: p.unitWord, pace: p.pace, number: at.unit, count: p.unitCount, due: p.due === true })
+            : rhythmLine({ unitWord: p.unitWord, unit: at.unit, unitCount: p.unitCount, stepsInUnit: at.stepsInUnit }),
         marked: thisWeekMarked(finishes, now, settingsOf.get(p.enrolmentId)?.timezone ?? tz),
       };
     }
@@ -246,6 +263,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     review,
     continueCards: cardsAll,
     timeZone: tz,
+    leadDue: stepCard?.kind === "step" && stepCard.programme.due === true,
+    leadHabitAllowed: stepCard?.kind === "step" ? cardsAll.find((c) => c.enrolmentId === stepCard.programme.enrolmentId)?.habitAllowed !== false : true,
   };
 }
 

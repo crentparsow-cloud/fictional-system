@@ -1,0 +1,389 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-WYAE0",
+  "slug": "when-the-grandchildren-came-to-stay-wyae0",
+  "title": "When the Grandchildren Came to Stay",
+  "card_line": "Set a weekly routine for school, meals and bedtimes and a list of who can help.",
+  "book": {
+    "book_id": "when-the-grandchildren-came-to-stay",
+    "title": "When the Grandchildren Came to Stay",
+    "subtitle": "Kinship Care in Ordinary Weeks"
+  },
+  "author": {
+    "author_id": "AU-R2438",
+    "display_name": "Mereana Tautahi-Cole"
+  },
+  "genre": "parenting",
+  "theme_id": "changing-families",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about looking after grandchildren, or other young relatives, who have come to stay. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a weekly routine, a list of people who can help and some time planned for yourself. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What one thing, if it were sorted, would make your week easier? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If using it would put you or a child at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See what has changed in the house and who needs what",
+      "exercise_ids": [
+        "p1_changed"
+      ],
+      "intro": "When children come to stay, the house, the money and the days all change at once. This part asks you to write down what is different and what each person in the house needs. You do not need to explain why they are here. The list is for your own use.",
+      "ideas": [
+        {
+          "heading": "A list of what has changed shows you where the pressure is.",
+          "body": "Think about space, beds, meals, school runs, washing and money. Write each change in a line. Some will be small and some large. Seeing them all on one page is a relief, and it shows which to deal with first."
+        },
+        {
+          "heading": "Each child has needs of their own, and so do you.",
+          "body": "A small child needs routine and a lap. An older one may need a quiet corner and a say. Write each child's name and one thing that matters to them. Add one for yourself. Your own needs count as part of running the household."
+        },
+        {
+          "heading": "You can take this in ordinary weeks, one week at a time.",
+          "body": "The big picture can feel too large. Look at this week only. What has to happen on each school day? What can wait? Taking a week at a time makes the task smaller. Set aside what is not yet due."
+        }
+      ],
+      "takeaway": "List what has changed, note what each person needs, yourself included, and take one week at a time."
+    },
+    {
+      "number": 2,
+      "focus": "Set a weekly routine for school, meals and bedtimes",
+      "exercise_ids": [
+        "p2_week"
+      ],
+      "intro": "Children find it easier to settle when the days have a pattern they can predict. This part asks you to write the school-day routine, the weekly meals and the bedtime plan on one page. Keep it plain and let the children see it.",
+      "ideas": [
+        {
+          "heading": "A routine written on one page is easier to keep than one held in your head.",
+          "body": "List the school morning in order: wake, wash, breakfast, bags, out of the door. Add the afternoon and the bedtime. Put the page on the wall. The children can read it, and any helper can follow it. Adjust it after a week."
+        },
+        {
+          "heading": "Planning meals for the week saves decisions at the end of a long day.",
+          "body": "Pick seven simple dinners and write them down. Shop once with the list. Use cheap staples and cook large batches. Let each child choose one meal a week. A plan removes the nightly question of what to cook. It also tells you what to buy, so there are fewer trips to the shop."
+        },
+        {
+          "heading": "Bedtime suits children best when it is much the same each night and not hurried.",
+          "body": "Choose a time and keep close to it. Bath, a story, a few words about the day, lights out. After a big change, children often want more of you at night, and that is ordinary. A steady, warm bedtime is something they can rely on."
+        }
+      ],
+      "takeaway": "Put the school day, the meals and bedtime on one page where everyone can see it."
+    },
+    {
+      "number": 3,
+      "focus": "Build a support list and talk with the children",
+      "exercise_ids": [
+        "p3_support"
+      ],
+      "intro": "Nobody manages well alone. Family, school, local services and other relatives raising children can all be part of your support. This part asks you to write a list of who can help with what. It also covers talking with the children, in words that fit their age.",
+      "ideas": [
+        {
+          "heading": "A support list names who can help with which job.",
+          "body": "Include family, friends, the school, local services and groups of other grandparents or relatives raising children. Write the name, what they could do and how to reach them. Keep it with the weekly routine. The list grows as you ask."
+        },
+        {
+          "heading": "Other relatives raising children understand things that others cannot.",
+          "body": "A group of people in the same position can share tips on forms, school and tiredness. Ask at the school or on a community noticeboard for a local group. Even one phone call with someone in the same position can lighten a week."
+        },
+        {
+          "heading": "Telling children something true in simple words gives them less to guess at.",
+          "body": "Children notice change and fill the gaps with their own guesses. Tell them what suits their age: where they are staying, who looks after them and what happens next in the week. You can leave out reasons and details. Listen, and answer questions as they come."
+        }
+      ],
+      "takeaway": "Write down who can help with which job. Tell the children something true, in words that fit their age."
+    },
+    {
+      "number": 4,
+      "focus": "Find the right official help and plan some time for yourself",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Money and paperwork can be confusing, and the rules differ by country. This final part points you to official guidance and does not give advice. It also asks you to plan some time for yourself and name the help you will ask for next.",
+      "ideas": [
+        {
+          "heading": "Official guidance is the right place for money and paperwork questions.",
+          "body": "Allowances, benefits and legal arrangements differ between countries and change often. Look at the official government pages for your country, or ask at a local advice service. Keep copies of letters and forms in one folder. This workbook does not give legal or tax advice."
+        },
+        {
+          "heading": "Time for yourself is part of looking after the children.",
+          "body": "Even an hour a week counts: a walk, a call to a friend, a sit in the garden. Ask someone on your support list to take the children for that hour. You give more when you have had a break of your own."
+        },
+        {
+          "heading": "Choose one next request and rehearse it before you need it.",
+          "body": "Look at your list. What is the one thing that would make the biggest difference? A lift, a night off, an hour of homework support? Write the sentence you would use to ask. People often say yes when the request is clear."
+        }
+      ],
+      "takeaway": "Check official guidance for money and papers, keep an hour for yourself, and choose the next help to ask for."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_changed",
+      "title": "List what has changed",
+      "purpose": "A list of what has changed in the house and what each child needs most.",
+      "why": "Write what has changed in your house since the children came: space, meals, school runs, money. Then write what each child needs most this week. Keep it short. You do not need to say why they are here. If a line is hard, leave it blank.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what has changed in the house."
+        },
+        {
+          "text": "Write what each child needs most this week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "changes",
+          "type": "long_text",
+          "label": "What has changed in your house?"
+        },
+        {
+          "id": "needs",
+          "type": "short_text",
+          "label": "What does each child need most this week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "changes",
+          "plan_section": "changed"
+        },
+        {
+          "field_id": "needs",
+          "plan_section": "changed"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change and one need."
+          }
+        ],
+        "field_ids": [
+          "changes"
+        ]
+      },
+      "done_when": "You have at least one change and one need written down."
+    },
+    {
+      "id": "p2_week",
+      "title": "Write your weekly routine",
+      "purpose": "A school-day morning and a bedtime written in order on one page.",
+      "why": "Write your school morning in order, from waking to leaving the house. Then write the bedtime steps. Keep each to a few lines. Show the page to the children and ask what they would change. If the days vary, write the usual pattern.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the school morning in order."
+        },
+        {
+          "text": "Write the bedtime steps."
+        }
+      ],
+      "fields": [
+        {
+          "id": "morning",
+          "type": "long_text",
+          "label": "What does your school morning look like, step by step?"
+        },
+        {
+          "id": "bedtime",
+          "type": "short_text",
+          "label": "What are your bedtime steps?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "morning",
+          "plan_section": "routine"
+        },
+        {
+          "field_id": "bedtime",
+          "plan_section": "routine"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first three steps of the school morning."
+          }
+        ],
+        "field_ids": [
+          "morning"
+        ]
+      },
+      "done_when": "You have a morning and a bedtime written in order."
+    },
+    {
+      "id": "p3_support",
+      "title": "Build your support list",
+      "purpose": "A list of who can help with what, and words to explain this week to the children.",
+      "why": "Write the people and places that could help: family, friends, the school, local services, other relatives raising children. Put what each could do. Then write the simple words you will use with the children about this week. If the list is short, that is a start.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List who could help and with what."
+        },
+        {
+          "text": "Write simple words for the children."
+        }
+      ],
+      "fields": [
+        {
+          "id": "list",
+          "type": "two_column",
+          "label": "Who can help, and with what?",
+          "columns": [
+            "Who",
+            "What they could do"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "words",
+          "type": "short_text",
+          "label": "Which simple words will you use with the children about this week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "list",
+          "plan_section": "support"
+        },
+        {
+          "field_id": "words",
+          "plan_section": "support"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person who could help and how."
+          }
+        ],
+        "field_ids": [
+          "list"
+        ]
+      },
+      "done_when": "You have at least one name with a job and a few words for the children."
+    },
+    {
+      "id": "p4_next",
+      "title": "Choose your next request",
+      "purpose": "An hour for yourself this week and the next help you will ask for.",
+      "why": "Pick an hour this week for you alone, and who could take the children. Then choose the next help you will ask for, and write the sentence you would use. Keep to one request. If the week is full, choose an hour next week.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick an hour for yourself."
+        },
+        {
+          "text": "Write your next request."
+        }
+      ],
+      "fields": [
+        {
+          "id": "hour",
+          "type": "short_text",
+          "label": "When will you have an hour for yourself, and who will cover?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Who will you ask for help next, and with what?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "hour",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write when you could have an hour for yourself."
+          }
+        ],
+        "field_ids": [
+          "hour"
+        ]
+      },
+      "done_when": "You have an hour chosen and a request written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your weekly routine is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your changes, your routine, your support list and your next request."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "changed",
+      "title": "What has changed"
+    },
+    {
+      "id": "routine",
+      "title": "Weekly routine"
+    },
+    {
+      "id": "support",
+      "title": "Support list"
+    },
+    {
+      "id": "next",
+      "title": "Your next request"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what has changed, your weekly routine, your support list and your next request.",
+    "book_bridge": "When the Grandchildren Came to Stay is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What has changed in the house this month?",
+      "Is the weekly routine still working?",
+      "Who helped this month, and who could you ask next?"
+    ],
+    "refresher_ids": [
+      "p2_week",
+      "p4_next"
+    ]
+  }
+}

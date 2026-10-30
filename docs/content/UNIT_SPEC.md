@@ -6,7 +6,7 @@ The shape comes from the research annex (Strand 6, content rows): the Blinkist "
 
 ## What a unit is
 
-A unit is one week, day, module or chapter of a programme (`structure.unit`). A reader opens it, reads for a few minutes, answers a small number of direct questions, and leaves with one thing to carry. The whole unit, reading and exercises together, takes about fifteen minutes. The short version of each exercise takes a few minutes on a hard day.
+A unit is one week, day, module, chapter or part of a programme (`structure.unit`). Parts are used only by the short demo workbooks in `content/workbooks/demo`, which follow their own profile (`packages/validate/src/demo.ts`): four parts, three ideas a part with no examples, one exercise a part. A reader opens it, reads for a few minutes, answers a small number of direct questions, and leaves with one thing to carry. The whole unit, reading and exercises together, takes about fifteen minutes. The short version of each exercise takes a few minutes on a hard day.
 
 ## The parts, in order
 

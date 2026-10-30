@@ -1,0 +1,373 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-4Q9CB",
+  "slug": "first-flat-first-bills-4q9cb",
+  "title": "First Flat, First Bills",
+  "card_line": "Move into your first flat with a lease understood and your bills in order.",
+  "book": {
+    "book_id": "first-flat-first-bills",
+    "title": "First Flat, First Bills",
+    "subtitle": "Setting Up Your First Home"
+  },
+  "author": {
+    "author_id": "AU-9WVE6",
+    "display_name": "Matilda Kershaw-Nguyen"
+  },
+  "genre": "life_skills",
+  "theme_id": "practical-know-how",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about moving into your first flat with the lease understood and your bills in order. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a lease checklist, a bills sheet and a plan for sharing jobs. It is general guidance, not legal advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a moving in plan you can read at the end."
+    ],
+    "why_prompt": "What worries you most about your first flat? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Understand your lease and your bond before you sign",
+      "exercise_ids": [
+        "p1_lease"
+      ],
+      "intro": "The lease is the agreement that sets out what you and the landlord have promised each other. It is worth reading properly, once, before you sign. This part covers what to look for and how to protect your bond, the money held against damage or unpaid rent.",
+      "ideas": [
+        {
+          "heading": "Read the whole lease before you sign it.",
+          "body": "Leases are long and dull, and that is the reason to read them. Look at the rent, the length of the agreement, the notice you give and what you may and may not do. If a clause is unclear, ask the landlord or agent to explain it in writing."
+        },
+        {
+          "heading": "Your bond is your money, so find out where it is held.",
+          "body": "A bond is paid at the start and is meant to come back at the end, less any agreed costs. Ask where it is held and how you get it back. Keep the receipt. A record of the arrangement protects you if there is a disagreement later."
+        },
+        {
+          "heading": "Photographs on the day you move in can settle a dispute later.",
+          "body": "Walk through every room and photograph the walls, floors, appliances and any damage. Note the date. Send the photographs to the landlord or agent and keep a copy. If something is marked at the end, you can show it was already there."
+        }
+      ],
+      "takeaway": "Read the lease before you sign, know where your bond is held and photograph the flat on the day you move in."
+    },
+    {
+      "number": 2,
+      "focus": "Prepare for the first week",
+      "exercise_ids": [
+        "p2_week"
+      ],
+      "intro": "The first week in a new flat is full of small jobs. Some matter straight away and some can wait. This part sorts one from the other. You make a first week list and learn where things are before anything goes wrong.",
+      "ideas": [
+        {
+          "heading": "Do the safety jobs on the first day and the rest later.",
+          "body": "Find the fuse box, the stopcock and the smoke alarms. Test that the alarms work. Know how to lock up. These take twenty minutes and matter more than hanging pictures. Everything else can wait until you have slept there a few nights."
+        },
+        {
+          "heading": "A first week list keeps you from forgetting small but important things.",
+          "body": "Write down what has to happen: change your address, set up the internet, buy a few basics, meet the neighbours. Put the urgent items at the top. Crossing items off feels good, and the list saves you remembering them at midnight."
+        },
+        {
+          "heading": "Buy a few basics first and add things as you find you need them.",
+          "body": "A bed, a kettle, a pan, a plate and a bulb are a start. Wait on the rest. You will learn what you use in the first month. A flat filled in a hurry often holds things you never touch, and the money may have been better kept."
+        }
+      ],
+      "takeaway": "Do the safety jobs first, keep a short first week list and buy the basics before anything else."
+    },
+    {
+      "number": 3,
+      "focus": "Set up your bills and a monthly check",
+      "exercise_ids": [
+        "p3_bills"
+      ],
+      "intro": "Bills are easier when you know what is due and when. This part asks you to list each bill, choose how you will pay it and set up a short monthly check. It is about order, not about spending less. Nothing here is financial advice.",
+      "ideas": [
+        {
+          "heading": "Write every regular bill on one list, with its date and amount.",
+          "body": "Rent, electricity, gas, water, internet, phone and any subscriptions each belong on the list. Note when each is due and roughly how much it costs. Seeing them together shows what you owe each month, which is hard to guess from memory."
+        },
+        {
+          "heading": "A direct debit pays a bill on time without you remembering.",
+          "body": "A direct debit takes the money on a set date. It suits fixed bills such as rent and internet. Check that the money is in your account before the date. Keep an eye on the amount, as it can change and you may not be told loudly."
+        },
+        {
+          "heading": "A monthly check of ten minutes keeps small problems small.",
+          "body": "Pick a day each month to look at your account and your bill list. Check that each payment went out, and that nothing odd has appeared. If something looks wrong, ask the provider early. Problems found in the first month are quicker to sort out."
+        }
+      ],
+      "takeaway": "List every bill with its date, use direct debits for fixed ones and take ten minutes each month to look it over."
+    },
+    {
+      "number": 4,
+      "focus": "Share the cleaning, the shopping and the jobs",
+      "exercise_ids": [
+        "p4_house"
+      ],
+      "intro": "Living with other people works better when the jobs are out in the open. This part is about cleaning, shopping and sharing, and about agreeing things before they cause friction. You finish with a short housemate agreement written in plain words.",
+      "ideas": [
+        {
+          "heading": "Agree who does what before anyone feels put upon.",
+          "body": "List the regular jobs: bins, bathroom, kitchen floor, shared shopping. Divide them in a way that feels fair to everyone. Write it where all can see it. A short talk in the first week is far easier than a row in the third month."
+        },
+        {
+          "heading": "Keep shared money simple and written down, so nobody has to guess.",
+          "body": "Decide how you will split rent and bills, and who pays first. If you buy shared items such as washing up liquid, agree how. A basic note of who has paid what avoids guesswork. Clear arrangements keep friendships intact. Say them aloud once, so that everyone hears the same thing."
+        },
+        {
+          "heading": "A little cleaning often is lighter than a big clean now and then.",
+          "body": "Wipe the surface as you go, wash the pan after you use it, take the bin out when it is full. Five minutes at a time stops the mess from building up. A flat that is kept up is pleasant to come home to, and a deposit is easier to get back."
+        }
+      ],
+      "takeaway": "Agree the jobs and the shared money early, and write both down. Little and often is the easiest way to keep a flat tidy."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_lease",
+      "title": "Make your lease checklist",
+      "purpose": "A short checklist of what to confirm about your lease and bond.",
+      "why": "Read through your lease, or the draft. Note the rent, the length of the agreement, the notice you give and where the bond is held. Write one question for the landlord or agent. If you have not got a lease yet, write what you plan to ask.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Note the rent, length, notice and bond."
+        },
+        {
+          "text": "Write one question to ask."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lease_facts",
+          "type": "long_text",
+          "label": "What do the rent, length, notice and bond say in your lease?"
+        },
+        {
+          "id": "lease_question",
+          "type": "short_text",
+          "label": "What is one question you will ask the landlord or agent?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lease_facts",
+          "plan_section": "lease"
+        },
+        {
+          "field_id": "lease_question",
+          "plan_section": "lease"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question about your lease."
+          }
+        ],
+        "field_ids": [
+          "lease_question"
+        ]
+      },
+      "done_when": "You have at least one fact or one question written down."
+    },
+    {
+      "id": "p2_week",
+      "title": "Write your first week list",
+      "purpose": "A first week list with the safety jobs at the top.",
+      "why": "List the jobs for your first week in the flat. Put the safety jobs first: the fuse box, the stopcock and the smoke alarms. Then the urgent items, then the basics to buy. Aim for ten lines at most.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the safety jobs first."
+        },
+        {
+          "text": "Add the urgent items and the basics to buy."
+        }
+      ],
+      "fields": [
+        {
+          "id": "safety_jobs",
+          "type": "short_text",
+          "label": "Which safety jobs will you do on the first day?"
+        },
+        {
+          "id": "week_list",
+          "type": "long_text",
+          "label": "What else has to happen in your first week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "safety_jobs",
+          "plan_section": "week"
+        },
+        {
+          "field_id": "week_list",
+          "plan_section": "week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the safety jobs for day one."
+          }
+        ],
+        "field_ids": [
+          "safety_jobs"
+        ]
+      },
+      "done_when": "You have safety jobs and at least three other items."
+    },
+    {
+      "id": "p3_bills",
+      "title": "List your regular bills",
+      "purpose": "A list of each bill with its date, amount and how you will pay.",
+      "why": "Write each regular bill: rent, power, water, internet, phone and any subscriptions. Beside each, put the due date, the rough amount and how it is paid. Use estimates if you do not know yet. Mark the one you are least sure of.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write each regular bill."
+        },
+        {
+          "text": "Add the date, rough amount and how it is paid."
+        }
+      ],
+      "fields": [
+        {
+          "id": "bills",
+          "type": "two_column",
+          "label": "Which regular bills will you have?",
+          "columns": [
+            "Bill",
+            "Date, amount and how paid"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "bills",
+          "plan_section": "bills"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your rent and one other bill."
+          }
+        ],
+        "field_ids": [
+          "bills"
+        ]
+      },
+      "done_when": "Your main bills are listed with a rough date."
+    },
+    {
+      "id": "p4_house",
+      "title": "Agree jobs with housemates",
+      "purpose": "A short list of shared jobs and a note of how shared money works.",
+      "why": "List the regular jobs in the flat and write who will do each. Add one line on how shared money will work. If you live alone, write the three jobs you want to keep on top of instead.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the regular jobs and who does them."
+        },
+        {
+          "text": "Write one line on shared money."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Who will do which jobs in the flat?",
+          "columns": [
+            "Job",
+            "Who"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "shared_money",
+          "type": "short_text",
+          "label": "How will shared money work?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "house"
+        },
+        {
+          "field_id": "shared_money",
+          "plan_section": "house"
+        }
+      ],
+      "done_when": "Each main job has a name beside it."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first week list is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your lease, your first week, your bills and your shared jobs."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "lease",
+      "title": "Your lease checklist"
+    },
+    {
+      "id": "week",
+      "title": "Your first week"
+    },
+    {
+      "id": "bills",
+      "title": "Your bills"
+    },
+    {
+      "id": "house",
+      "title": "Your shared jobs"
+    }
+  ],
+  "finish": {
+    "summary": "You made a lease checklist and a first week list. You also listed your bills and agreed the jobs in your flat.",
+    "book_bridge": "First Flat, First Bills is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did each bill go out on its date this month?",
+      "What changed in your flat that needs a new job?",
+      "Is there a question for the landlord you have not asked yet?"
+    ],
+    "refresher_ids": [
+      "p3_bills",
+      "p4_house"
+    ]
+  }
+}

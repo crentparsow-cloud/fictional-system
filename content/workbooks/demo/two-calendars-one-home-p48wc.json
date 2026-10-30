@@ -1,0 +1,375 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-P48WC",
+  "slug": "two-calendars-one-home-p48wc",
+  "title": "Two Calendars, One Home",
+  "card_line": "Put both calendars on one page and hold a Sunday chat about the week.",
+  "book": {
+    "book_id": "two-calendars-one-home",
+    "title": "Two Calendars, One Home",
+    "subtitle": "Planning a Shared Week"
+  },
+  "author": {
+    "author_id": "AU-ARMK7",
+    "display_name": "Sofia Hedlund-Ahl"
+  },
+  "genre": "relationships",
+  "theme_id": "partners-in-step",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning a shared week with a partner. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have both calendars on one page and a Sunday chat. You will also have a way to divide errands and time protected for the two of you. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one clash in your week that keeps coming up? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Put both calendars on one page",
+      "exercise_ids": [
+        "p1_page"
+      ],
+      "intro": "Most weekly friction comes from one person not knowing what the other has on. This part asks you to put both weeks side by side, in one place, so that neither of you is working from memory. You fill in what you know.",
+      "ideas": [
+        {
+          "heading": "One shared view removes many of the usual surprises.",
+          "body": "Surprises at home are often just information that never travelled. A late meeting, a dentist, a friend visiting. Put everything in one place both of you can see, whether paper on the fridge or a shared app. The format matters less than both of you using it."
+        },
+        {
+          "heading": "Include fixed commitments first, then everything else.",
+          "body": "Start with what cannot move: work hours, school times, regular classes. Then add appointments, social plans and the school run. Seeing the fixed blocks first shows the real gaps. Only then do you know how much flexibility you have, and where."
+        },
+        {
+          "heading": "Each person's time counts the same, even when the hours differ.",
+          "body": "One of you may work longer hours or have a longer commute. That does not make the other's time less real. Include the quiet things too: an evening class, a call with a parent, an hour at the allotment. All of it belongs on the page."
+        }
+      ],
+      "takeaway": "Put both weeks in one place, fixed things first. Everyone's time counts."
+    },
+    {
+      "number": 2,
+      "focus": "Hold a Sunday chat about the week ahead",
+      "exercise_ids": [
+        "p2_sunday"
+      ],
+      "intro": "A calendar only works if you look at it together. A short Sunday chat gives you both the same picture of the week. This part covers when to hold it, what to cover and how to keep it brief and friendly.",
+      "ideas": [
+        {
+          "heading": "Fifteen minutes before the week starts saves many small conversations.",
+          "body": "Choose a quiet moment on Sunday, perhaps after a meal. Walk through the week day by day. Notice the clashes while there is still time to deal with them. One planned talk replaces a dozen hurried ones on the doorstep on Monday morning."
+        },
+        {
+          "heading": "Go through the week in the same order each time.",
+          "body": "Day by day, ask three things: what is on, who is where, and what needs sorting. A fixed order stops the chat wandering. It also means nothing gets forgotten, because you always cover Friday and the weekend. Write any new decision on the shared page."
+        },
+        {
+          "heading": "End the chat with one thing each of you is glad about in the week.",
+          "body": "Finish with something pleasant, such as a favourite programme, a meal out or a spare hour. It sends you into the week on a warm note. It also reminds both of you that the calendar is there for the good parts as well as the chores."
+        }
+      ],
+      "takeaway": "A short, regular Sunday chat, in the same order each time, ending on something pleasant."
+    },
+    {
+      "number": 3,
+      "focus": "Divide errands, lifts and appointments",
+      "exercise_ids": [
+        "p3_errands"
+      ],
+      "intro": "Once you can both see the week, the next question is who does what. Errands, lifts and appointments often land on whoever is nearest or whoever mentions them first. This part asks you to share them on purpose, with a name against each one.",
+      "ideas": [
+        {
+          "heading": "Share errands by whose day has room, not by who offers first.",
+          "body": "Look at each errand and ask whose day has room. The person who always volunteers ends up with the most. Matching jobs to the calendar is fairer than matching them to who speaks up. It also means jobs are done at sensible times."
+        },
+        {
+          "heading": "Group lifts and errands into a single trip where you can.",
+          "body": "Two errands on the same road make one outing. A lift to football can combine with a shop. Look for pairs on the calendar. Fewer trips leave more time for everything else, and the person driving can say what else they can fit in."
+        },
+        {
+          "heading": "Appointments need a named person and a note on the page.",
+          "body": "A dentist visit or a boiler engineer without a named person is a job nobody owns. Write whose it is, the time, and who covers anything it clashes with. Put the reminder on the shared page, not just in one head. Then neither of you has to ask twice."
+        }
+      ],
+      "takeaway": "Share errands by who has room, combine trips, and give every appointment a named person."
+    },
+    {
+      "number": 4,
+      "focus": "Protect time together and review the month",
+      "exercise_ids": [
+        "p4_together"
+      ],
+      "intro": "A full calendar can leave no room for the two of you. This part asks you to put time together on the page first, as seriously as any appointment. You then plan a short look back at the month to see what to change.",
+      "ideas": [
+        {
+          "heading": "Time together goes in the calendar before it is squeezed out.",
+          "body": "If it is not written down, other things fill the space. Pick a regular slot for the two of you, a meal, a walk or an evening in. Write it on the shared page like any other fixture. It is much harder to cancel something you both have already seen."
+        },
+        {
+          "heading": "Small slots count: half an hour is still time together.",
+          "body": "Not every week allows a whole evening. A walk to the shop, a cup of tea after the children are in bed, or a short call at lunch can be the slot. What matters is that it is yours, planned, and without a screen between you."
+        },
+        {
+          "heading": "A monthly look back shows what to change.",
+          "body": "Once a month, spend ten minutes on three questions. Which weeks ran smoothly? Which clashed? What will we try differently? Keep the answers short, and change one thing at a time. A system that gets small adjustments stays useful far longer than one rebuilt in a rush."
+        }
+      ],
+      "takeaway": "Put time together in the calendar first, keep slots small, and review the month in ten minutes."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_page",
+      "title": "Put both weeks on one page",
+      "purpose": "A single page showing both of your weeks.",
+      "why": "Write out a typical week for you and your partner on one page. Put fixed commitments in first. Then add the rest. If your partner is not available, fill in your own half and leave space for theirs.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your fixed commitments first."
+        },
+        {
+          "text": "Add your partner's week, as far as you know it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week",
+          "type": "two_column",
+          "label": "What does a typical week look like for each of you?",
+          "columns": [
+            "Your week",
+            "Your partner's week"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week",
+          "plan_section": "page"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three fixed things from your week."
+          }
+        ],
+        "field_ids": [
+          "week"
+        ]
+      },
+      "done_when": "Both weeks are on one page, as far as you know them."
+    },
+    {
+      "id": "p2_sunday",
+      "title": "Plan your Sunday chat",
+      "purpose": "A time, an order and an ending for a short weekly chat.",
+      "why": "Decide when your weekly chat could happen and how long it will last. Write the order you would go through the week. Add one pleasant thing to end on. If you cannot agree a time yet, write your preferred one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a time and a length."
+        },
+        {
+          "text": "Write the pleasant thing you will end on."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When could your weekly chat happen, and for how long?"
+        },
+        {
+          "id": "end",
+          "type": "short_text",
+          "label": "What will you end the chat on?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "sunday"
+        },
+        {
+          "field_id": "end",
+          "plan_section": "sunday"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a time for the chat."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a time and a plan for the chat."
+    },
+    {
+      "id": "p3_errands",
+      "title": "Divide the week's errands",
+      "purpose": "Errands, lifts and appointments with a named person for each.",
+      "why": "List the errands, lifts and appointments coming up this week. Write a name beside each, matching the job to whoever has room. Mark any that clash. If you are unsure, write a question mark and raise it at your chat.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List this week's errands, lifts and appointments."
+        },
+        {
+          "text": "Write a name beside each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "errands",
+          "type": "two_column",
+          "label": "Who will take each errand, lift or appointment this week?",
+          "columns": [
+            "Job",
+            "Who"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "errands",
+          "plan_section": "errands"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name a person for two jobs."
+          }
+        ],
+        "field_ids": [
+          "errands"
+        ]
+      },
+      "done_when": "Each job on the list has a name or a question mark."
+    },
+    {
+      "id": "p4_together",
+      "title": "Protect time together",
+      "purpose": "A regular slot for the two of you and a monthly review.",
+      "why": "Choose a regular slot for time together, even half an hour, and write it down. Then write the three questions you will ask at your monthly look back. If a slot is hard to find, write what gets in the way.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a regular slot for the two of you."
+        },
+        {
+          "text": "Write three questions for a monthly look back."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When is your regular time together?"
+        },
+        {
+          "id": "review",
+          "type": "long_text",
+          "label": "Which questions will you ask at the monthly review?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "slot",
+          "plan_section": "together"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "together"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one slot for time together."
+          }
+        ],
+        "field_ids": [
+          "slot"
+        ]
+      },
+      "done_when": "You have a slot and review questions written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your plan for the Sunday chat is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your shared page, your Sunday chat, your errands and your time together."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "page",
+      "title": "Both weeks on one page"
+    },
+    {
+      "id": "sunday",
+      "title": "Your Sunday chat"
+    },
+    {
+      "id": "errands",
+      "title": "Errands and lifts"
+    },
+    {
+      "id": "together",
+      "title": "Time together"
+    }
+  ],
+  "finish": {
+    "summary": "You put both weeks on one page and planned a Sunday chat. You also divided the errands and set aside time together.",
+    "book_bridge": "Two Calendars, One Home is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which week this month ran smoothly, and why?",
+      "Does your Sunday chat still suit you both?"
+    ],
+    "refresher_ids": [
+      "p2_sunday",
+      "p4_together"
+    ]
+  }
+}

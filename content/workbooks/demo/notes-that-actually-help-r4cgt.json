@@ -1,0 +1,362 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-R4CGT",
+  "slug": "notes-that-actually-help-r4cgt",
+  "title": "Notes That Actually Help",
+  "card_line": "Take notes you can test yourself from before exams.",
+  "book": {
+    "book_id": "notes-that-actually-help",
+    "title": "Notes That Actually Help",
+    "subtitle": "Note-Taking for Students"
+  },
+  "author": {
+    "author_id": "AU-0TKBN",
+    "display_name": "Olivier Tremblay-Singh"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "unrushed-learning",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about taking notes you can test yourself from before exams. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a page of question style notes, a weekly summary and a short self test. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a note taking plan you can read at the end."
+    ],
+    "why_prompt": "What do you do with your notes after a lesson? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Look at how you take notes now",
+      "exercise_ids": [
+        "p1_look"
+      ],
+      "intro": "Before you change your notes, look at what they are. Most students write down as much as they can and never open the pages again. This part asks you to look honestly at a page of your own notes and see what it would do for you in three weeks.",
+      "ideas": [
+        {
+          "heading": "Copying everything down is not the same as understanding it.",
+          "body": "It is easy to write while the teacher talks and to feel busy. The words go from the board to the page without passing through your head. Afterwards the page looks full, but you may not recall what it says. Notes are for later, so write them for later."
+        },
+        {
+          "heading": "A page of notes should answer a question when you reopen it.",
+          "body": "Imagine opening this page in a month. Would you know what it is about? Could you use it to answer a question? If not, it needs headings, gaps or a line at the top saying what it covers. The test is whether it works when cold."
+        },
+        {
+          "heading": "Looking at your own notes shows what to keep and what to drop.",
+          "body": "Take a page from last week and mark the parts you would actually use. Mark the parts that are only copied. Often only a third counts. That tells you what to write next time, and what you can safely leave out."
+        }
+      ],
+      "takeaway": "Notes are for later. A page is working when it still makes sense and can answer a question weeks on."
+    },
+    {
+      "number": 2,
+      "focus": "Write notes as questions and answers",
+      "exercise_ids": [
+        "p2_questions"
+      ],
+      "intro": "Notes written as questions give you something to test yourself with. Instead of a block of statements, you get a prompt on one side and an answer on the other. This part shows how to turn what you hear or read into questions as you go, or soon afterwards.",
+      "ideas": [
+        {
+          "heading": "A heading written as a question gives the page a job.",
+          "body": "Instead of a heading such as causes of the war, write what caused the war. The question tells you what the notes below must answer. Later you can cover the notes, read the heading and try to answer it from memory. That is a test already built in."
+        },
+        {
+          "heading": "Leave a margin or a gap so you can add questions afterwards.",
+          "body": "Draw a line down the left side of the page, or fold it. Take notes on the right. After the lesson, write a question in the left margin beside each point. Covering the right side then turns the page into a quiz. It takes five minutes."
+        },
+        {
+          "heading": "Short answers in your own words are easier to recall.",
+          "body": "Write what you understood, not what was said. Keep each answer to a line or two. If you cannot put a point in your own words, mark it and ask. This shows quickly which parts you have grasped and which you have only copied."
+        }
+      ],
+      "takeaway": "Write headings as questions and leave a margin for more. Short answers in your own words are the easiest to test."
+    },
+    {
+      "number": 3,
+      "focus": "Write a short summary each week",
+      "exercise_ids": [
+        "p3_summary"
+      ],
+      "intro": "A summary written once a week pulls the loose pages together. It is short, and it shows quickly whether you understood the topic. This part asks you to write one on a single page, using only your own notes, and to mark what is still unclear.",
+      "ideas": [
+        {
+          "heading": "A weekly summary should fit on one page.",
+          "body": "At the end of the week, look through your notes and write the main points on a single sheet. The limit is the useful bit. You have to choose what matters, and choosing is a way of learning. If something will not fit, it was probably detail."
+        },
+        {
+          "heading": "Write the summary from memory first, then check your notes.",
+          "body": "Close your notes and write what you remember of the week. Then open them and fill the gaps in a different colour. The gaps are the parts to revisit. Remembering before checking takes more effort, and it is that effort that makes it stick."
+        },
+        {
+          "heading": "A list of open questions keeps the loose ends in view.",
+          "body": "At the bottom of the summary, list anything you could not explain. Take the list to the next lesson, a classmate or the tutor. Questions you carry are answered sooner than those you forget. By exam time the list should be short."
+        }
+      ],
+      "takeaway": "A one page summary from memory shows what you know. The gaps and open questions tell you where to look next."
+    },
+    {
+      "number": 4,
+      "focus": "Use your notes to test yourself before exams",
+      "exercise_ids": [
+        "p4_test"
+      ],
+      "intro": "Your notes become revision material when you use them to ask yourself questions. This last part turns the question style pages and weekly summaries into self tests. You plan a short session using only the notes you have already made.",
+      "ideas": [
+        {
+          "heading": "Covering your notes and answering aloud is a quick self test.",
+          "body": "Cover the answers, read a question from the margin and say your answer out loud. Then check. Mark the ones you got right and the ones you missed. It takes seconds per question and tells you exactly where you stand."
+        },
+        {
+          "heading": "Questions you miss deserve a second look sooner than the ones you know.",
+          "body": "Mark each missed question with a dot. Come back to the dotted ones the next day and again a week later. As you answer them correctly, remove the dot. By the exam, few should be left, and you will know which they are."
+        },
+        {
+          "heading": "Short test sessions spread across weeks suit most students.",
+          "body": "Twenty minutes with your notes, three or four times a week, is more manageable than a long night. Use the weekly summaries for an overview and the question margins for detail. Finish each session by writing which questions to revisit."
+        }
+      ],
+      "takeaway": "Cover, answer, check and mark. Short self tests across the weeks use your notes the way they were written."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_look",
+      "title": "Look at one page of notes",
+      "purpose": "A short verdict on one page of your notes and what you would change.",
+      "why": "Take one page of notes from last week. Mark the parts you would use and the parts you only copied. Then write what you would change next time. Be plain with yourself. If you have no notes to hand, picture your last lesson.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Mark the useful parts and the copied parts."
+        },
+        {
+          "text": "Write what you would change."
+        }
+      ],
+      "fields": [
+        {
+          "id": "verdict",
+          "type": "long_text",
+          "label": "What on this page would you use, and what only copied?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What will you change in your next notes?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "verdict",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you will change."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "done_when": "You have written what you would change."
+    },
+    {
+      "id": "p2_questions",
+      "title": "Turn a page into questions",
+      "purpose": "A page of notes with a question written beside each main point.",
+      "why": "Take one page of notes. Draw a line down the left side. Beside each main point write a question that the point answers. Aim for four or five questions. Write the questions here too, so they sit in your plan.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Draw a margin on one page of notes."
+        },
+        {
+          "text": "Write a question beside each main point."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "Which questions does your page of notes answer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "questions"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two questions your notes answer."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have at least three questions written down."
+    },
+    {
+      "id": "p3_summary",
+      "title": "Write a one page summary",
+      "purpose": "A short summary from memory and a list of what is still unclear.",
+      "why": "Close your notes and write what you remember from this week on one page. Then open the notes and add what you missed. Finish with a list of anything you could not explain. If memory is thin, write what you can.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the week from memory."
+        },
+        {
+          "text": "Check your notes and list what you missed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "summary",
+          "type": "long_text",
+          "label": "What do you remember from this week?"
+        },
+        {
+          "id": "open_questions",
+          "type": "short_text",
+          "label": "What could you not explain?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "summary",
+          "plan_section": "summary"
+        },
+        {
+          "field_id": "open_questions",
+          "plan_section": "summary"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things you remember from this week."
+          }
+        ],
+        "field_ids": [
+          "summary"
+        ]
+      },
+      "done_when": "You have a summary and at least one open question."
+    },
+    {
+      "id": "p4_test",
+      "title": "Plan a short self test",
+      "purpose": "A twenty minute self test plan built from your own notes.",
+      "why": "Choose a topic and set aside twenty minutes this week. Write which notes you will use and how you will check your answers. Decide what you will do with the questions you miss. Keep it short and realistic.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a topic and a time."
+        },
+        {
+          "text": "Write how you will check and what you will do with misses."
+        }
+      ],
+      "fields": [
+        {
+          "id": "test_plan",
+          "type": "short_text",
+          "label": "Which topic will you test yourself on, and when?"
+        },
+        {
+          "id": "misses",
+          "type": "short_text",
+          "label": "What will you do with the questions you miss?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "test_plan",
+          "plan_section": "test"
+        },
+        {
+          "field_id": "misses",
+          "plan_section": "test"
+        }
+      ],
+      "done_when": "You have a topic, a time and a plan for misses."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your questions are saved and ready to test yourself with."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your questions, your summary and your self test."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "How you take notes now"
+    },
+    {
+      "id": "questions",
+      "title": "Your questions"
+    },
+    {
+      "id": "summary",
+      "title": "Your weekly summary"
+    },
+    {
+      "id": "test",
+      "title": "Your self test"
+    }
+  ],
+  "finish": {
+    "summary": "You looked at your notes, wrote questions beside them and made a one page summary. You also planned a short self test.",
+    "book_bridge": "Notes That Actually Help is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which topic did you test yourself on this month?",
+      "Which questions keep coming back as misses?",
+      "Are your notes still working when you open them cold?"
+    ],
+    "refresher_ids": [
+      "p2_questions",
+      "p4_test"
+    ]
+  }
+}

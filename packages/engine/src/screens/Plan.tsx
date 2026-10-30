@@ -140,5 +140,5 @@ export function PlanScreen({ workbook: doc, store, readOnly }: PlanScreenProps) 
 }
 
 function unitWordPlural(doc: Pick<WorkbookV3, "structure">): string {
-  return { week: "weeks", day: "days", module: "modules", chapter: "chapters" }[doc.structure.unit];
+  return { week: "weeks", day: "days", module: "modules", chapter: "chapters", part: "parts" }[doc.structure.unit];
 }

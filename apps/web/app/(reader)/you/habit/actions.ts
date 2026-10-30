@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createUserClient } from "@/lib/supabase/server";
 import { companionValue, parseHabitForm } from "@/lib/habit/settings";
+import { parsePaceForm } from "@/lib/pace";
 
 /**
  * Habit settings (4.4, 4.6, 11.2, 12.4). Each action runs as the signed-in
@@ -70,4 +71,22 @@ export async function markMarksSeen(): Promise<void> {
   await supabase.from("milestone_marks").update({ seen_at: new Date().toISOString() }).eq("user_id", userId).is("seen_at", null);
   revalidatePath("/today");
   revalidatePath("/you/habit");
+}
+
+/**
+ * The pace for one workbook (0069). Each workbook has its own form carrying
+ * its enrolment id, and the update is filtered by that id and by the reader,
+ * so saving one workbook's pace never changes another's. Row level security
+ * still applies underneath.
+ */
+export async function savePace(formData: FormData): Promise<void> {
+  const change = parsePaceForm(formData);
+  if (!change) back("invalid");
+  const c = change!;
+  const { supabase, userId } = await signedIn();
+  const { data, error } = await supabase.from("enrolments").update({ pace: c.pace }).eq("id", c.enrolmentId).eq("user_id", userId).select("id");
+  if (error || !data || data.length !== 1) back("failed");
+  revalidatePath("/you/habit");
+  revalidatePath("/today");
+  back("saved");
 }

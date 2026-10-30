@@ -1,0 +1,389 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-1APCY",
+  "slug": "hiring-your-first-five-1apcy",
+  "title": "Hiring Your First Five",
+  "card_line": "Define a role, hire fairly and plan the first month for a new team member.",
+  "book": {
+    "book_id": "hiring-your-first-five",
+    "title": "Hiring Your First Five",
+    "subtitle": "Building a Small Team"
+  },
+  "author": {
+    "author_id": "AU-N2JS0",
+    "display_name": "Marcus Delacroix-Hayes"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "business",
+  "theme_id": "ventures-taking-shape",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about hiring your first few team members fairly. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a defined role and a fair set of interview questions. You will also have an offer outline and a plan for the new person's first month. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the first role you need to fill? A few words will do."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Decide what the role is and what it is not",
+      "exercise_ids": [
+        "p1_role"
+      ],
+      "intro": "Hiring goes wrong most often at the start, when the role is vague. A new person cannot do a job that nobody has described. This part asks you to write down what the role is for, what it covers and what it leaves out, before anyone sees an advert.",
+      "ideas": [
+        {
+          "heading": "Start with the work that needs doing, not the person you picture.",
+          "body": "List the tasks that are piling up or being done badly. Group them into a role. If you start from a person, you may build a job around their strengths and miss the gaps in your business. The work comes first."
+        },
+        {
+          "heading": "Say what the role does not cover.",
+          "body": "A role that does everything is a role nobody can do well. Write down two or three tasks that belong elsewhere. This helps you at the interview and helps the new person later. It prevents the slow spread of extra jobs that nobody agreed to."
+        },
+        {
+          "heading": "Separate what is needed from what would be nice.",
+          "body": "Pick the three things a candidate must be able to do on day one. Everything else can be learned. A long wish list narrows your choice and puts off good people who could grow into it. Be honest about which items are essential."
+        }
+      ],
+      "takeaway": "Describe the work first, state what the role leaves out, and separate needs from wishes."
+    },
+    {
+      "number": 2,
+      "focus": "Interview fairly and ask the same questions of everyone",
+      "exercise_ids": [
+        "p2_interview"
+      ],
+      "intro": "A fair interview gives each candidate the same chance to show what they can do. It also gives you better information. This part asks you to write a short set of questions tied to the role. You also decide how to judge the answers before you meet anyone.",
+      "ideas": [
+        {
+          "heading": "Ask every candidate the same core questions.",
+          "body": "Using the same questions lets you compare answers on equal terms. Add follow-ups where you need more detail. Write them in advance. It also protects you from being swayed by whoever is most chatty. Keep your focus on the work, not on the person's background."
+        },
+        {
+          "heading": "Ask about real situations, not just opinions.",
+          "body": "\"Tell me about a time you had to deal with a late delivery\" shows what someone did. \"How would you handle pressure?\" invites a rehearsed answer. Past behaviour is a useful guide. Leave out questions on age, family, health or beliefs, and check the employment rules that apply to you."
+        },
+        {
+          "heading": "Score each answer soon after the interview.",
+          "body": "Make a simple scale, such as one to five, for each question. Fill it in straight afterwards, before memory fades. Compare candidates by the notes, not by gut feeling. A written record is also fairer to everyone involved, and it helps if anyone later asks why you chose as you did."
+        }
+      ],
+      "takeaway": "Ask everyone the same questions, ask about real situations, and score answers straight after."
+    },
+    {
+      "number": 3,
+      "focus": "Check references and make a clear offer",
+      "exercise_ids": [
+        "p3_offer"
+      ],
+      "intro": "A good interview is not the end. References fill in the picture, and a clear offer sets up the working relationship. This part looks at both. It is not legal advice, so check the rules for your country before you put anything in writing.",
+      "ideas": [
+        {
+          "heading": "A reference call works best with a few specific questions.",
+          "body": "Ask how long they worked together, what the person did well and what support helped them. Ask whether they would work with the person again. Listen for hesitation as well as words. Two short calls are better than one long one."
+        },
+        {
+          "heading": "Put the offer in writing with the main terms.",
+          "body": "State the role, pay, hours, start date and any trial period. Explain who the person reports to. A clear offer avoids confusion later. Have the formal contract checked against the rules in your country, since this workbook cannot advise on them."
+        },
+        {
+          "heading": "Tell the candidates you did not choose, and do it kindly.",
+          "body": "A short, honest message respects the time they gave you. Thank them and say the decision was close if it was. They may suit a later role, and they will tell others how you dealt with them. A decent ending costs you very little."
+        }
+      ],
+      "takeaway": "Check references with specific questions, put the offer in writing and tell the others kindly."
+    },
+    {
+      "number": 4,
+      "focus": "Plan the first month and check in early",
+      "exercise_ids": [
+        "p4_month"
+      ],
+      "intro": "The first month shapes how a new person sees the job and how long they stay. A plan stops them drifting. This final part asks you to set out what they will do in the first weeks. You also book short check-ins so that small problems come up early.",
+      "ideas": [
+        {
+          "heading": "Plan the first week hour by hour.",
+          "body": "Decide who will meet them, what they will see and what they will do. Have their equipment ready. A clear first day tells them they were expected and that you value their time. A muddled one tells them the reverse."
+        },
+        {
+          "heading": "Set two or three small goals for the first month.",
+          "body": "Choose tasks that are useful and achievable, such as learning the till or handling a set of orders alone. Share them on day one. Clear aims help the person know what good looks like. Keep them modest, so they can succeed."
+        },
+        {
+          "heading": "Book short check-ins at the end of weeks one, two and four.",
+          "body": "Ask what is going well, what is confusing and what they need. Fifteen minutes is enough. Early check-ins catch small problems, like a missing login, before they turn into resentment. They also show that you are interested in the person."
+        }
+      ],
+      "takeaway": "Plan the first week, set small aims and book check-ins early so problems surface while small."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_role",
+      "title": "Define the role",
+      "purpose": "A role in a few lines, with what it leaves out and the three must-haves.",
+      "why": "List the tasks that need doing. Group them into a role and give it a title. Then write two things the role does not cover and the three skills needed on day one. If you are unsure, start with the tasks.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List the tasks and name the role."
+        },
+        {
+          "text": "Write what it leaves out."
+        },
+        {
+          "text": "Write three day-one skills."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tasks",
+          "type": "long_text",
+          "label": "What work does this role cover, and what does it leave out?"
+        },
+        {
+          "id": "musts",
+          "type": "short_text",
+          "label": "What three things must the person do on day one?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tasks",
+          "plan_section": "role"
+        },
+        {
+          "field_id": "musts",
+          "plan_section": "role"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three tasks the role covers."
+          }
+        ],
+        "field_ids": [
+          "tasks"
+        ]
+      },
+      "done_when": "You have a role described with tasks, exclusions and three must-haves."
+    },
+    {
+      "id": "p2_interview",
+      "title": "Write fair questions",
+      "purpose": "Three core interview questions and how you will score them.",
+      "why": "Write three questions you will ask every candidate, each about a real situation tied to the role. Decide a one to five scale for the answers. Keep to the work and leave out anything about the person's private life.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write three situational questions."
+        },
+        {
+          "text": "Decide your scoring scale."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What three questions will you ask every candidate?"
+        },
+        {
+          "id": "scoring",
+          "type": "short_text",
+          "label": "How will you score the answers?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "interview"
+        },
+        {
+          "field_id": "scoring",
+          "plan_section": "interview"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question about a real situation."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have three questions and a way to score them."
+    },
+    {
+      "id": "p3_offer",
+      "title": "Outline reference and offer",
+      "purpose": "Questions for a reference and the main terms of an offer.",
+      "why": "Write two questions you will ask a referee. Then list the main terms of your offer: role, pay, hours, start date and trial period. Check the formal wording against the rules where you work.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write two reference questions."
+        },
+        {
+          "text": "List the main offer terms."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reference",
+          "type": "short_text",
+          "label": "What two questions will you ask a referee?"
+        },
+        {
+          "id": "terms",
+          "type": "long_text",
+          "label": "What are the main terms of your offer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "reference",
+          "plan_section": "offer"
+        },
+        {
+          "field_id": "terms",
+          "plan_section": "offer"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one reference question."
+          }
+        ],
+        "field_ids": [
+          "reference"
+        ]
+      },
+      "done_when": "You have two reference questions and the main terms listed."
+    },
+    {
+      "id": "p4_month",
+      "title": "Plan the first month",
+      "purpose": "A first-week outline, small aims and dates for check-ins.",
+      "why": "Write what the new person will do in the first week and two small aims for the month. Then choose dates for three short check-ins. Keep the plan simple enough to share on day one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Outline the first week."
+        },
+        {
+          "text": "Write two aims."
+        },
+        {
+          "text": "Choose check-in dates."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week",
+          "type": "long_text",
+          "label": "What will the new person do in the first week and the first month?"
+        },
+        {
+          "id": "checkins",
+          "type": "short_text",
+          "label": "When will your check-ins be?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week",
+          "plan_section": "month"
+        },
+        {
+          "field_id": "checkins",
+          "plan_section": "month"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first day in a few lines."
+          }
+        ],
+        "field_ids": [
+          "week"
+        ]
+      },
+      "done_when": "You have a first-week outline, two aims and check-in dates."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your fair questions are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your role, your questions, your offer and your first-month plan."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "role",
+      "title": "The role you defined"
+    },
+    {
+      "id": "interview",
+      "title": "Your fair interview"
+    },
+    {
+      "id": "offer",
+      "title": "References and offer"
+    },
+    {
+      "id": "month",
+      "title": "The first month"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your role, your interview questions, your offer outline and your first-month plan.",
+    "book_bridge": "Hiring Your First Five is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which role are you hiring for now, and is the description still right?",
+      "What did your interviews teach you about your questions?",
+      "How is the newest person settling in?"
+    ],
+    "refresher_ids": [
+      "p1_role",
+      "p4_month"
+    ]
+  }
+}

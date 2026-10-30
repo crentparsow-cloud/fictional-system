@@ -1,0 +1,389 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-G628R",
+  "slug": "ubuntu-at-the-dinner-table-g628r",
+  "title": "Ubuntu at the Dinner Table",
+  "card_line": "Start a weekly shared meal and a family question jar.",
+  "book": {
+    "book_id": "ubuntu-at-the-dinner-table",
+    "title": "Ubuntu at the Dinner Table",
+    "subtitle": "Family Values in Everyday Routines"
+  },
+  "author": {
+    "author_id": "AU-77Q79",
+    "display_name": "Thandiwe Mokoena-Dube"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "parenting",
+  "theme_id": "raising-with-care",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about family values lived out in small, everyday routines. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a weekly shared meal, a question jar, a fair share of chores and a few family values written together. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing your family does together that you would like to keep? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If tension at home ever puts anyone at risk, please set it aside for now. Safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start one shared meal a week",
+      "exercise_ids": [
+        "p1_meal"
+      ],
+      "intro": "A meal together does not need to be grand or daily. One a week, with phones away, gives the family a fixed point. This part asks you to choose the meal, the day and a simple table rule that everyone can follow.",
+      "ideas": [
+        {
+          "heading": "One shared meal a week is more realistic than one every day.",
+          "body": "Busy families rarely manage every evening. Choose the day that comes closest to working and protect it. Sunday lunch, Friday supper or a Wednesday breakfast all count. Once a week, kept up, is worth more than a daily plan that falls apart."
+        },
+        {
+          "heading": "The meal can be simple because the company is the point.",
+          "body": "Rice and a stew, bread and soup, a pot of whatever there is. Let the children help cook or lay the table. Nobody needs to impress. What matters is that the same people sit together, at the same time, with nothing else competing for attention."
+        },
+        {
+          "heading": "Phones away at the table is a rule for the adults too.",
+          "body": "Agree it as a family and put the phones in a basket. If an adult has to answer, they say why. Children follow what they see. Without screens, conversation has room to start, even if it is slow at first."
+        }
+      ],
+      "takeaway": "Choose one shared meal a week, keep it simple and put the phones away, adults included."
+    },
+    {
+      "number": 2,
+      "focus": "Start a family question jar",
+      "exercise_ids": [
+        "p2_jar"
+      ],
+      "intro": "A question jar gives the meal something to talk about, so conversation does not depend on a good day. Everyone adds questions and one is drawn at each meal. This part asks you to write the first questions and decide who reads them out.",
+      "ideas": [
+        {
+          "heading": "A question from a jar takes the pressure off who speaks first.",
+          "body": "When a slip of paper decides the topic, nobody feels put on the spot. The youngest can read it out. Everyone answers in turn, and anyone can pass. Nobody has to give a clever reply. Over time, quieter members of the family find their voices."
+        },
+        {
+          "heading": "Good family questions are open, light and sometimes silly.",
+          "body": "What was the best part of your week? If you could be any animal, which one? What is something you are proud of? Mix serious with silly. Questions about stories and memories suit older relatives. Let everyone add their own."
+        },
+        {
+          "heading": "Listening to each answer without comment is the whole skill.",
+          "body": "Answer in turn, and let each person finish. No correcting, no jokes at anyone's expense. Say thank you at the end of each answer. Children learn that their words are valued and that the table is a place where they can speak."
+        }
+      ],
+      "takeaway": "A jar of questions gives the meal a shape. Let everyone add questions, answer in turn and listen."
+    },
+    {
+      "number": 3,
+      "focus": "See chores as a contribution and repair after arguments",
+      "exercise_ids": [
+        "p3_give"
+      ],
+      "intro": "Ubuntu is the idea that people belong to one another. A household runs on everyone's contribution. This part asks you to think of chores as giving to the family. It also asks how you will mend things when an argument has left a gap.",
+      "ideas": [
+        {
+          "heading": "A chore is a contribution, not a punishment.",
+          "body": "Say so, and mean it. A child who lays the table is giving something to the family. Thank them for it. Choose jobs to match their age and show how to do them. Avoid using chores as a penalty, so the task keeps its meaning."
+        },
+        {
+          "heading": "Everyone has something to give, whatever their age.",
+          "body": "A toddler can carry a spoon. A grandparent can shell peas or tell the story. A teenager can cook one meal a week. Ask each person what they would like to give. A job chosen is done more willingly than a job assigned."
+        },
+        {
+          "heading": "After an argument, a repair matters more than who was right.",
+          "body": "When tempers cool, one person goes first. \"I am sorry I shouted.\" Name your own part only. Ask what the other person needs. A hug, a cup of tea or a shared task can finish it. Repair shows children that relationships survive rows."
+        }
+      ],
+      "takeaway": "Chores are a contribution to the family. After an argument, say sorry for your own part and mend things."
+    },
+    {
+      "number": 4,
+      "focus": "Write your family values together and look at them again",
+      "exercise_ids": [
+        "p4_values"
+      ],
+      "intro": "Families live by values, spoken or not. Writing them down turns them into something you can all point to. This part asks you to hold a short talk and agree a few values in plain words. Then you set a time to look at them again.",
+      "ideas": [
+        {
+          "heading": "Family values are the things you already try to do, written down.",
+          "body": "Ask what you want the children to say about the family when they are grown. Respect, honesty, welcome and looking after one another often come up. Choose words everyone understands. Three or four is enough. Use your own, not a list from a book."
+        },
+        {
+          "heading": "Values that everyone helped to write are easier to live by.",
+          "body": "Gather the family with paper. Each person suggests one. Talk about what each means on a normal day. Respect could mean knocking on doors or listening without interrupting. Put the final list where all can see it, and let the children decorate it."
+        },
+        {
+          "heading": "Revisiting the values keeps them part of family life.",
+          "body": "Pick a date, perhaps a few months on. Read the list aloud at the table and ask where you have lived by it and where you have not. Change words that no longer fit. A set of values that is looked at stays in use."
+        }
+      ],
+      "takeaway": "Write three or four values together in plain words, and look at them again at the table."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_meal",
+      "title": "Choose your shared meal",
+      "purpose": "A day and meal to share each week and a simple table rule.",
+      "why": "Choose the meal that comes closest to working for your family. Keep it simple. Then agree one table rule, such as phones in a basket, and ask the family what they think. If no day works yet, choose the least busy one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose the day and the meal."
+        },
+        {
+          "text": "Agree one simple table rule."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meal",
+          "type": "short_text",
+          "label": "Which day and meal will you share each week?"
+        },
+        {
+          "id": "rule",
+          "type": "short_text",
+          "label": "What simple table rule will everyone follow?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meal",
+          "plan_section": "meal"
+        },
+        {
+          "field_id": "rule",
+          "plan_section": "meal"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which day and meal you will share."
+          }
+        ],
+        "field_ids": [
+          "meal"
+        ]
+      },
+      "done_when": "You have a day, a meal and one table rule."
+    },
+    {
+      "id": "p2_jar",
+      "title": "Write your first jar questions",
+      "purpose": "Five questions for the jar and a person to read the first one.",
+      "why": "Write five questions for your jar, mixing light and thoughtful ones. Ask family members for their own, and add them on slips of paper. Then choose who reads the first question at the meal. If five is too many, write three.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write five questions."
+        },
+        {
+          "text": "Choose who reads the first one."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "Which five questions will go in your jar first?"
+        },
+        {
+          "id": "reader",
+          "type": "short_text",
+          "label": "Who will read out the question at the first meal?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "jar"
+        },
+        {
+          "field_id": "reader",
+          "plan_section": "jar"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question for the jar."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have at least three questions and a reader chosen."
+    },
+    {
+      "id": "p3_give",
+      "title": "Choose who gives what",
+      "purpose": "What each person contributes and how you will begin a repair.",
+      "why": "Ask each person in the household what they would like to give to the family. Write it down beside their name. Then write the words you would use to begin a repair after an argument. If someone is unsure, leave them for another day.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Ask each person what they will give."
+        },
+        {
+          "text": "Write how you would start a repair."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "What will each person contribute to the household?",
+          "columns": [
+            "Person",
+            "What they will give"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "repair",
+          "type": "short_text",
+          "label": "How will you start a repair after an argument?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "give"
+        },
+        {
+          "field_id": "repair",
+          "plan_section": "give"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one person and one contribution."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "Each person has a line and you have words for a repair."
+    },
+    {
+      "id": "p4_values",
+      "title": "Write your family values",
+      "purpose": "Three or four family values in plain words and a date to look again.",
+      "why": "Gather the family for a short talk. Ask each person for one value they would like the family to live by. Choose three or four and write them in plain words. Then pick a date to look at them again. If the talk is hard to arrange, start with the adults.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Ask each person for one value."
+        },
+        {
+          "text": "Choose three or four and pick a date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "values",
+          "type": "long_text",
+          "label": "Which three or four values will your family write down?"
+        },
+        {
+          "id": "revisit",
+          "type": "short_text",
+          "label": "When will you look at them again?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "values",
+          "plan_section": "values"
+        },
+        {
+          "field_id": "revisit",
+          "plan_section": "values"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one value your family already lives by."
+          }
+        ],
+        "field_ids": [
+          "values"
+        ]
+      },
+      "done_when": "You have three or four values and a date to look again."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your question jar is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your meal, your jar, your contributions and your values."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "meal",
+      "title": "Your shared meal"
+    },
+    {
+      "id": "jar",
+      "title": "Your question jar"
+    },
+    {
+      "id": "give",
+      "title": "Contributions and repair"
+    },
+    {
+      "id": "values",
+      "title": "Family values"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your shared meal, your question jar, who gives what and your family values.",
+    "book_bridge": "Ubuntu at the Dinner Table is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which shared meal did you enjoy most this month?",
+      "Which question from the jar started the best talk?",
+      "Do your family values still fit?"
+    ],
+    "refresher_ids": [
+      "p1_meal",
+      "p4_values"
+    ]
+  }
+}

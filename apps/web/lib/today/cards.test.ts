@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { inNewMemberWindow, isWellbeingReader, MAX_TODAY_CARDS, selectTodayCards, type ProgrammeToday, type SavedTool, type Suggestion } from "@/lib/today/cards";
+import { inNewMemberWindow, isWellbeingReader, MAX_TODAY_CARDS, orderProgrammes, selectTodayCards, stepCardWords, stepStatus, type ProgrammeToday, type SavedTool, type Suggestion } from "@/lib/today/cards";
 import { step } from "@/lib/today/fixtures";
 
 const now = new Date("2026-10-10T09:00:00Z");
@@ -17,6 +17,75 @@ const programme = (id: string, over: Partial<ProgrammeToday> = {}): ProgrammeTod
 const tool = (id: string): SavedTool => ({ enrolmentId: "e1", toolId: id, title: `Tool ${id}`, minutes: 3 });
 const sug = (kind: Suggestion["kind"]): Suggestion => ({ kind, slug: kind, title: kind, line: "line" });
 const all = [sug("related"), sug("next_programme"), sug("start_here")];
+
+describe("pace on Today", () => {
+  it("leads with a programme whose pace suggests a part today, never hiding the rest", () => {
+    const cards = selectTodayCards({
+      now,
+      programmes: [
+        programme("recent", { lastOpenedAt: "2026-10-10T08:00:00Z", pace: "own_pace", due: false }),
+        programme("due", { lastOpenedAt: "2026-10-01T08:00:00Z", pace: "daily", due: true }),
+      ],
+      savedTools: [],
+      suggestions: [],
+      membershipStartedAt: null,
+    });
+    expect(cards[0]?.kind === "step" && cards[0].programme.enrolmentId).toBe("due");
+  });
+
+  it("still leads with a programme that is not due when it is the only one with a step", () => {
+    const cards = selectTodayCards({ now, programmes: [programme("weekly", { pace: "weekly", due: false })], savedTools: [], suggestions: [], membershipStartedAt: null });
+    expect(cards[0]?.kind).toBe("step");
+  });
+});
+
+describe("every open programme on Today", () => {
+  // The signed-in test: Meditations and The Way to Wealth weekly, A Polite No
+  // in four parts at three times a week with a step finished today.
+  const meditations = programme("med", { title: "Meditations", unitCount: 12, pace: "weekly", due: true, dueDay: "2026-10-10", lastOpenedAt: "2026-10-08T09:00:00Z", next: step(1, "m1") });
+  const wealth = programme("wealth", { title: "The Way to Wealth", unitCount: 6, pace: "weekly", due: true, dueDay: "2026-10-05", lastOpenedAt: "2026-10-01T09:00:00Z", next: step(2, "w2") });
+  const politeNo = programme("polite", { title: "A Polite No", unitWord: "part", unitCount: 4, pace: "few_times_a_week", due: false, workedToday: true, dueDay: "2026-10-12", lastOpenedAt: "2026-10-10T08:30:00Z", next: step(1, "p2") });
+
+  it("shows a step card for each, the most due first and the one worked on today last", () => {
+    const cards = selectTodayCards({ now, programmes: [politeNo, meditations, wealth], savedTools: [tool("a")], suggestions: all, membershipStartedAt: null });
+    expect(cards.map((c) => (c.kind === "step" ? c.programme.enrolmentId : c.kind))).toEqual(["wealth", "med", "polite", "tool", "suggestion"]);
+  });
+
+  it("puts a due programme before one waiting, and a waiting one before one done today", () => {
+    const waiting = programme("waiting", { pace: "own_pace", due: false, dueDay: null, lastOpenedAt: "2026-10-10T08:59:00Z" });
+    expect(orderProgrammes([politeNo, waiting, meditations]).map((p) => p.enrolmentId)).toEqual(["med", "waiting", "polite"]);
+  });
+
+  it("leaves out a programme with nothing left to do", () => {
+    expect(orderProgrammes([{ ...politeNo, next: null }, meditations]).map((p) => p.enrolmentId)).toEqual(["med"]);
+  });
+
+  it("says Done for today on a scheduled pace and Next part when you are ready on own pace", () => {
+    expect(stepStatus(politeNo)).toBe("done_today");
+    expect(stepStatus({ ...politeNo, pace: "own_pace" })).toBe("when_ready");
+    expect(stepStatus({ pace: "weekly", due: false, workedToday: false })).toBe("when_ready");
+    expect(stepStatus(meditations)).toBe("due");
+    expect(stepCardWords(politeNo, 1).status).toBe("Done for today");
+    expect(stepCardWords({ ...politeNo, pace: "own_pace" }, 1).status).toBe("Next part when you are ready");
+  });
+
+  it("uses the title's unit label in the when-ready line, matching the place line", () => {
+    const weekWaiting = { ...meditations, due: false, workedToday: false };
+    const words = stepCardWords(weekWaiting, 1);
+    expect(words.place).toBe("Week 1 of 12");
+    expect(words.status).toBe("Next week when you are ready");
+    expect(stepCardWords({ ...politeNo, workedToday: false, due: false }, 1).status).toBe("Next part when you are ready");
+    // A title in weeks read at its own pace talks about parts throughout.
+    const ownPace = stepCardWords({ ...weekWaiting, pace: "own_pace" }, 1);
+    expect(ownPace.place).toBe("Part 1 of 12");
+    expect(ownPace.status).toBe("Next part when you are ready");
+  });
+
+  it("uses part wording for a title in parts and week wording for a weekly title in weeks", () => {
+    expect(stepCardWords(politeNo, 1)).toMatchObject({ place: "Part 1 of 4", next: "Your next part" });
+    expect(stepCardWords(meditations, 1)).toMatchObject({ place: "Week 1 of 12", next: "Week 1 is next" });
+  });
+});
 
 describe("selectTodayCards", () => {
   it("shows today's step, one saved tool and one suggestion, three at most", () => {
@@ -37,8 +106,7 @@ describe("selectTodayCards", () => {
       suggestions: [],
       membershipStartedAt: null,
     });
-    expect(cards).toHaveLength(1);
-    expect(cards[0]).toMatchObject({ kind: "step", programme: { enrolmentId: "recent" } });
+    expect(cards.map((c) => c.kind === "step" && c.programme.enrolmentId)).toEqual(["recent", "old"]);
   });
 
   it("leaves out the toolkit card when nothing is saved", () => {

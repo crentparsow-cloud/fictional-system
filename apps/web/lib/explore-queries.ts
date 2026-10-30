@@ -159,7 +159,7 @@ export async function myWorkbooks(userId: string): Promise<MineRow[]> {
     for (const s of (sections ?? []) as unknown as { version_id: string; count: unknown; unit: unknown }[]) {
       lengths.set(s.version_id, {
         count: typeof s.count === "number" && Number.isFinite(s.count) ? s.count : null,
-        unit: s.unit === "week" || s.unit === "day" || s.unit === "module" || s.unit === "chapter" ? s.unit : null,
+        unit: s.unit === "week" || s.unit === "day" || s.unit === "module" || s.unit === "chapter" || s.unit === "part" ? s.unit : null,
       });
     }
   }

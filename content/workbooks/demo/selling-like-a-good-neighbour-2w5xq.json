@@ -1,0 +1,395 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-2W5XQ",
+  "slug": "selling-like-a-good-neighbour-2w5xq",
+  "title": "Selling Like a Good Neighbour",
+  "card_line": "Hold honest sales conversations and keep a simple log of them.",
+  "book": {
+    "book_id": "selling-like-a-good-neighbour",
+    "title": "Selling Like a Good Neighbour",
+    "subtitle": "Sales Conversations for Small Firms"
+  },
+  "author": {
+    "author_id": "AU-2D1J1",
+    "display_name": "Niamh Oyelaran-Byrne"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "business",
+  "theme_id": "wider-reach",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about holding honest sales conversations in a small firm, for people who dislike selling. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a conversation plan and a simple sales log. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What makes selling feel awkward for you? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Say plainly what you sell, who it suits and who it does not",
+      "exercise_ids": [
+        "p1_offer"
+      ],
+      "intro": "Selling gets easier when you know who you can really serve. This part asks you to describe what you sell in plain words, picture the person it suits and name the person it does not. A clear picture lets you speak honestly and saves everyone time.",
+      "ideas": [
+        {
+          "heading": "You can describe what you sell in one plain sentence.",
+          "body": "Leave out the jargon and the long history. Say what it is, who uses it and what it does for them. A baker might say fresh bread, ready for collection by eight. If a neighbour would understand it over the fence, it is plain enough."
+        },
+        {
+          "heading": "Some people are not right for what you sell, and saying so is useful.",
+          "body": "Not every enquiry is a good match. A customer who needs something you do not offer will be unhappy later. Decide in advance who you cannot serve well. Telling them early, and pointing elsewhere if you can, builds more trust than a sale that goes wrong."
+        },
+        {
+          "heading": "Know the problem your customer has before you talk about your product.",
+          "body": "People buy to solve something: a gap in the week, a worry, a job they dislike. Write down the three most common reasons customers come to you. Start conversations with their reason, not your list. It shows you care what happens to them."
+        }
+      ],
+      "takeaway": "Describe what you sell in one plain sentence and say who it suits. Honesty about who it does not suit builds trust."
+    },
+    {
+      "number": 2,
+      "focus": "Listen first, ask good questions and say the price plainly",
+      "exercise_ids": [
+        "p2_questions"
+      ],
+      "intro": "A good sales conversation is mostly listening. The customer tells you what they need, and you say whether you can meet it. This part gives you a few questions to ask and a plain way to say the price. You write both down so they are ready for the next customer.",
+      "ideas": [
+        {
+          "heading": "Ask what the customer needs before you say what you offer.",
+          "body": "Start with an open question, such as what they are hoping to sort out. Then let them talk. Leave gaps and do not fill every silence. You learn what matters to them, and they feel heard. Only then say whether and how you can help."
+        },
+        {
+          "heading": "Three or four questions are enough to understand a customer.",
+          "body": "Ask what they need, by when, what they have tried and what budget they have in mind. Write the answers down. More questions than that can feel like an interview. If the answers show you are not the right fit, say so kindly."
+        },
+        {
+          "heading": "State the price plainly, then stop talking.",
+          "body": "Say the figure, say what it includes and wait. Do not rush to excuse it or to offer a discount unprompted. A calm price tells the customer you stand behind your work. If they hesitate, ask what concerns them, and listen to the answer."
+        }
+      ],
+      "takeaway": "Listen first, ask three or four open questions, and state the price plainly. Then wait for the answer."
+    },
+    {
+      "number": 3,
+      "focus": "Follow up kindly, accept not now and stay honest",
+      "exercise_ids": [
+        "p3_followup"
+      ],
+      "intro": "Most customers do not decide on the spot. What you do afterwards matters. This part is about following up without nagging, hearing not now as an honest answer and keeping your word. You write a short follow-up message and decide how many times you will ask.",
+      "ideas": [
+        {
+          "heading": "A follow-up is welcome when it answers something the customer wanted to know.",
+          "body": "A message that says just checking in adds little. One that gives the opening hours, the delivery date or a photo they asked for is useful. Before you write, think what the customer wanted to know. Offer that, then leave the next step with them."
+        },
+        {
+          "heading": "Not now is a real answer and deserves a polite reply.",
+          "body": "People are busy, short of money or waiting on someone else. Thank them, say you are happy to hear from them later and ask if you may check back in a month. Then do it once. This keeps the door open without pressure."
+        },
+        {
+          "heading": "Never promise more than you can deliver, even to win the sale.",
+          "body": "A date you cannot meet or a feature you do not offer will cost you later. Say what you can do and what you cannot. Customers remember a firm that told them the truth. Honest answers also bring referrals from people you did not sell to."
+        }
+      ],
+      "takeaway": "Follow up with something useful, take not now as an answer, and promise only what you can deliver."
+    },
+    {
+      "number": 4,
+      "focus": "Keep a simple sales log and look at it each month",
+      "exercise_ids": [
+        "p4_log"
+      ],
+      "intro": "What you do not write down, you forget. A short log shows who you spoke to, what happened and what comes next. This part sets up a log you can keep in a notebook or sheet, and a monthly look at it. You will see which conversations went well and which stalled.",
+      "ideas": [
+        {
+          "heading": "A sales log needs only five headings.",
+          "body": "Write the date, the name, what they wanted, what happened and the next step. That is all. A log that takes two minutes gets used, while a complicated one gets dropped. Keep it where you can reach it quickly, even a notebook beside the till."
+        },
+        {
+          "heading": "Log the conversations that went nowhere as well as those that sold.",
+          "body": "Not now and no thank you tell you as much as a yes. Over a few weeks you see patterns: a question that stalls people, a price that draws a pause. Without notes, you only remember the extremes. The quiet middle holds the lessons."
+        },
+        {
+          "heading": "A monthly review turns the log into small, practical changes.",
+          "body": "Set aside half an hour at the end of the month. Read the log, count the conversations and note what worked. Choose one thing to change next month, such as a clearer price line. One change at a time is easier to judge."
+        }
+      ],
+      "takeaway": "Five headings and a monthly half hour are enough. Log all conversations, then change one thing at a time."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_offer",
+      "title": "Describe what you sell",
+      "purpose": "One plain sentence about what you sell, and who it suits and does not suit.",
+      "why": "Write a sentence you could say over a fence. Then name the person it suits best and one kind of customer it does not suit. Choose real examples from your last few months. If nothing comes to mind, write one customer you remember.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one plain sentence about what you sell."
+        },
+        {
+          "text": "Name who it suits and who it does not."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "How would you describe what you sell in one plain sentence?"
+        },
+        {
+          "id": "fit",
+          "type": "two_column",
+          "label": "Who does it suit, and who does it not?",
+          "columns": [
+            "Suits",
+            "Does not suit"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sentence",
+          "plan_section": "offer"
+        },
+        {
+          "field_id": "fit",
+          "plan_section": "offer"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your one sentence."
+          }
+        ],
+        "field_ids": [
+          "sentence"
+        ]
+      },
+      "done_when": "You have a sentence and a name in each column."
+    },
+    {
+      "id": "p2_questions",
+      "title": "Write your questions and price",
+      "purpose": "Three questions to ask and one plain sentence stating your price.",
+      "why": "Choose the three questions you would most like answered by a new customer. Then write the sentence you will use to state your usual price, with what it includes. Say both aloud once.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three questions for a new customer."
+        },
+        {
+          "text": "Write your price sentence."
+        },
+        {
+          "text": "Say both aloud once."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "Which three questions will you ask a new customer?"
+        },
+        {
+          "id": "price",
+          "type": "short_text",
+          "label": "How will you state your usual price in one sentence?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "questions"
+        },
+        {
+          "field_id": "price",
+          "plan_section": "questions"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question and your price sentence."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have three questions and a price sentence you can say aloud."
+    },
+    {
+      "id": "p3_followup",
+      "title": "Write your follow-up message",
+      "purpose": "A short follow-up message and your rule for asking again.",
+      "why": "Think of a customer who did not decide. Write the message you would send, offering something useful. Then decide how many times you will follow up, and how long you will wait between. If you cannot think of a customer, imagine one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a short, useful follow-up message."
+        },
+        {
+          "text": "Decide how many times you will follow up."
+        }
+      ],
+      "fields": [
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What follow-up message would you send to someone who has not decided?"
+        },
+        {
+          "id": "rule",
+          "type": "short_text",
+          "label": "How many times will you follow up, and when?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "message",
+          "plan_section": "followup"
+        },
+        {
+          "field_id": "rule",
+          "plan_section": "followup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first line of the message."
+          }
+        ],
+        "field_ids": [
+          "message"
+        ]
+      },
+      "done_when": "You have a message and a clear limit on follow-ups."
+    },
+    {
+      "id": "p4_log",
+      "title": "Set up your sales log",
+      "purpose": "Five log headings, one entry and a date for your first review.",
+      "why": "Write the five headings for your log. Add one real conversation from this month as the first entry. Then pick the date for your first monthly review. Put it in your diary.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your five log headings."
+        },
+        {
+          "text": "Add one recent conversation."
+        },
+        {
+          "text": "Choose a review date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "entry",
+          "type": "long_text",
+          "label": "What are your five headings, and what is your first entry?"
+        },
+        {
+          "id": "date",
+          "type": "short_text",
+          "label": "On what date will you review your log?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "entry",
+          "plan_section": "log"
+        },
+        {
+          "field_id": "date",
+          "plan_section": "log"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the five headings."
+          }
+        ],
+        "field_ids": [
+          "entry"
+        ]
+      },
+      "done_when": "The log is started and the review has a date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your questions and price line are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your offer, questions, follow-up message and sales log."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "offer",
+      "title": "What you sell and for whom"
+    },
+    {
+      "id": "questions",
+      "title": "Your questions and price"
+    },
+    {
+      "id": "followup",
+      "title": "Following up honestly"
+    },
+    {
+      "id": "log",
+      "title": "Your sales log"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you sell, your questions and price line, your follow-up and your sales log.",
+    "book_bridge": "Selling Like a Good Neighbour is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which conversation this month went best, and why?",
+      "What did customers ask that you could not answer?",
+      "What one thing will you change next month?"
+    ],
+    "refresher_ids": [
+      "p2_questions",
+      "p4_log"
+    ]
+  }
+}

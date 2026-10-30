@@ -1088,7 +1088,7 @@ const signin = (subject: string, headline: string, line: string, label: string, 
   headline,
   greeting: "Hello,",
   paragraphs: [line],
-  // 13.18: a six-digit code for readers in the installed web app, where a link
+  // 13.18: the code from the email, for readers in the installed web app, where a link
   // opens the browser instead. Supabase fills {{ .Token }}. Keep it exactly as written.
   ...(code ? { panels: [{ title: code.title, big: "{{ .Token }}", spaced: true, lines: [code.line], tone: "tint" as const }] } : {}),
   buttons: [{ label, url: "{{ .ConfirmationURL }}" }],

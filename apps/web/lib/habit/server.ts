@@ -11,6 +11,7 @@ import { anniversaryDays, labelFor, orderCandidates } from "@/lib/habit/on-this-
 import { DEFAULT_MAX_GOAL, DEFAULT_OFFER_AFTER_STEPS, DEFAULT_PAUSE_DAYS, runLine, shouldOfferRun, summariseRun, type RunSummary, type StepDay } from "@/lib/habit/run";
 import { localMidnightUtc, monthStartUtc, nextDate } from "@/lib/habit/time";
 import { countIsCurrent, wordsIn, wordsLine } from "@/lib/habit/words";
+import type { Pace } from "@/lib/pace";
 import { gapDue } from "@/lib/today/gap";
 import { localParts } from "@/lib/today/reminders";
 import { fieldLabel } from "@/lib/today/review-plan";
@@ -21,8 +22,9 @@ import { effectiveFrequency, isReviewFrequency, reviewText, type ReviewFrequency
  * reader's own client (row level security decides what is readable).
  *
  * The daily run is only ever read through public.habit_step_days, which the
- * database restricts to tier 'none' titles and to readers who switched it on
- * (migration 0049). This file adds no second path to that data.
+ * database restricts to workbooks app.habit_allowed() lets in (every shelf
+ * but Mind and Mood, and never the higher tier, migration 0069) and to
+ * readers who switched it on. This file adds no second path to that data.
  *
  * Reader answers stay sealed. The only places text is opened are "On this
  * day" (one answer, for its owner, shown to them) and the word count (opened
@@ -58,8 +60,14 @@ export interface HabitView {
   timeZone: string;
   config: HabitConfig;
   settings: HabitSettingsRow;
-  /** True when the reader has any title on the standard or higher tier. */
+  /** True when the reader has any title on the standard or higher tier. Sets the companion default. */
   hasWellbeingTitle: boolean;
+  /** True when the reader has a title streaks never reach (Mind and Mood, higher tier). */
+  hasNoStreakTitle: boolean;
+  /** True when at least one of the reader's titles may count toward a streak. */
+  anyStreakTitle: boolean;
+  /** Each open programme and its pace, for the pace choice on /you/habit (0069). */
+  paces: { enrolmentId: string; title: string; pace: Pace }[];
   eligibleSteps: number;
   offer: boolean;
   run: (RunSummary & { line: string }) | null;
@@ -101,6 +109,8 @@ export async function loadHabit(userId: string, now: Date = new Date()): Promise
   const supabase = await createUserClient();
   const [config, cards, tz] = await Promise.all([loadConfig(supabase), myEnrolments(userId).catch(() => [] as ContinueCard[]), readerTimeZone(supabase)]);
   const hasWellbeingTitle = cards.some((c) => c.safetyTier !== "none");
+  const hasNoStreakTitle = cards.some((c) => !c.habitAllowed);
+  const anyStreakTitle = cards.some((c) => c.habitAllowed);
 
   // Marks first: awarding is cheap, safe to repeat, and the read below then includes anything new.
   await supabase.rpc("award_milestones");
@@ -140,6 +150,9 @@ export async function loadHabit(userId: string, now: Date = new Date()): Promise
     config,
     settings,
     hasWellbeingTitle,
+    hasNoStreakTitle,
+    anyStreakTitle,
+    paces: cards.map((c) => ({ enrolmentId: c.enrolmentId, title: c.shortTitle ?? c.title, pace: c.pace })),
     eligibleSteps,
     offer: shouldOfferRun({ eligibleSteps, offerAfter: config.offerAfter, runOn: settings.daily_run_on, declined: settings.offer_declined_at !== null }),
     run,

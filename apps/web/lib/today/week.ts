@@ -8,7 +8,7 @@ import { countWord, stepFilled, type ProgrammeStep } from "@/lib/today/steps";
  * of weeks.
  */
 
-export type UnitWord = "week" | "day" | "module" | "chapter" | "unit";
+export type UnitWord = "week" | "day" | "module" | "chapter" | "part" | "unit";
 
 /** ISO week key such as "2026-W41", for the reader's own time zone. Weeks start on Monday. */
 export function weekKey(at: Date, timeZone = "Europe/London"): string {
@@ -59,7 +59,7 @@ export function thisWeekMarked(finishes: readonly { at: Date }[], now: Date, tim
   return weekMarks(finishes, timeZone).has(weekKey(now, timeZone));
 }
 
-const LABEL: Record<UnitWord, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", unit: "Unit" };
+const LABEL: Record<UnitWord, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part", unit: "Unit" };
 export const unitWordLabel = (u: UnitWord) => LABEL[u];
 
 export interface RhythmInput {

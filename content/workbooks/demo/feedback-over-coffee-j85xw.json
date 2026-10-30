@@ -1,0 +1,385 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-J85XW",
+  "slug": "feedback-over-coffee-j85xw",
+  "title": "Feedback Over Coffee",
+  "card_line": "Give feedback in short everyday conversations and ask for it in return.",
+  "book": {
+    "book_id": "feedback-over-coffee",
+    "title": "Feedback Over Coffee",
+    "subtitle": "Everyday Feedback for Managers"
+  },
+  "author": {
+    "author_id": "AU-N2JS0",
+    "display_name": "Marcus Delacroix-Hayes"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about giving feedback in short, ordinary conversations and asking for it in return. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have noticed what to praise and raise, held one short conversation and planned a follow-up. You will also have asked for feedback yourself. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who in your team would you most like to give feedback to? A first name is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice what is worth praising and what is worth raising",
+      "exercise_ids": [
+        "p1_notice"
+      ],
+      "intro": "Feedback starts with noticing. Many managers see problems quickly and good work slowly. This part asks you to watch your team for a week or two and write down specific things, both good and in need of change. You will use them in the next part.",
+      "ideas": [
+        {
+          "heading": "Specific praise is useful and general praise is forgotten.",
+          "body": "\"Good job\" tells someone little. \"You calmed that customer without calling me, and the refund was sorted in five minutes\" tells them exactly what to repeat. Look for the detail. If you cannot name it, you have not noticed it yet."
+        },
+        {
+          "heading": "Raise small things early, before they become large things.",
+          "body": "A late delivery or a short reply is easy to mention once. After six months it is a grievance on both sides. Speak when the issue is still small. A light, early word is usually received better than a heavy one later."
+        },
+        {
+          "heading": "Describe what you saw, not what you think the person is like.",
+          "body": "\"The report arrived after the deadline\" is a fact someone can respond to. \"You are careless\" is a judgement they will argue with. Stick to what you saw or heard. You can ask about the reason afterwards. That order keeps the person listening instead of defending themselves."
+        }
+      ],
+      "takeaway": "Notice specific things, raise small issues early, and describe what you saw, not what the person is like."
+    },
+    {
+      "number": 2,
+      "focus": "Hold a short feedback conversation over a coffee",
+      "exercise_ids": [
+        "p2_chat"
+      ],
+      "intro": "Feedback does not need a meeting room or a form. A five-minute chat at a quiet moment is often enough. This part gives a plain shape for that chat and asks you to try it once, with praise or with something to raise.",
+      "ideas": [
+        {
+          "heading": "A short chat at a quiet moment beats a formal meeting.",
+          "body": "Walk with someone to the kitchen, or sit down for a few minutes at the end of a shift. A relaxed setting makes the conversation feel ordinary. Save formal meetings for serious matters. For most feedback, informal and prompt works best."
+        },
+        {
+          "heading": "Use three steps: what you saw, what it meant and what next.",
+          "body": "Say what happened. Say what effect it had. Then ask or suggest what to do next. \"The stock count was done by Tuesday. That let us order in time. Could you show Sam your method?\" Each step is a sentence."
+        },
+        {
+          "heading": "Ask a question and let the person answer before you add more.",
+          "body": "After you have said your piece, ask, \"How did that look from your side?\" Then listen. You may learn something you did not know, such as a missing tool or a confusing instruction. The conversation is more likely to lead to a change."
+        }
+      ],
+      "takeaway": "Keep feedback short and informal. Say what you saw, what it meant and what next, then ask a question."
+    },
+    {
+      "number": 3,
+      "focus": "Follow up so feedback leads to something",
+      "exercise_ids": [
+        "p3_follow"
+      ],
+      "intro": "One conversation rarely changes anything on its own. What follows matters. This part is about checking back, noticing improvement and making sure people hear when things have gone well. It turns a single chat into a working habit between you and your team.",
+      "ideas": [
+        {
+          "heading": "Check back within a week or two.",
+          "body": "If you raised something, ask later how it is going. \"How did the new ordering approach work out?\" This shows you meant it and gives the person a chance to say what is hard. Without a follow-up, feedback is easily forgotten."
+        },
+        {
+          "heading": "Notice improvement and say so.",
+          "body": "When someone changes something you raised, mention it. A sentence is enough. People often act on feedback and hear nothing back, so they assume nobody noticed. Saying it keeps them going and shows that your feedback is not only about problems."
+        },
+        {
+          "heading": "Write short notes so you remember what you said.",
+          "body": "After a conversation, jot two lines: what you said and when to check back. This keeps you consistent and fair. You will not forget, and you will not repeat yourself. A page in a notebook is enough for a whole team."
+        }
+      ],
+      "takeaway": "Check back, say when you notice improvement, and keep short notes so you stay consistent."
+    },
+    {
+      "number": 4,
+      "focus": "Ask for feedback on your own management",
+      "exercise_ids": [
+        "p4_ask"
+      ],
+      "intro": "If you give feedback, it is fair to take it too. Your team sees things about your work that you cannot. This part asks you to choose one person and one question, ask it and listen. The point is to learn, not to defend.",
+      "ideas": [
+        {
+          "heading": "Ask a specific question and you will get a specific answer.",
+          "body": "A general question gets a general answer. \"Any feedback for me?\" usually gets \"No, all fine.\" Ask this instead. \"What is one thing I could do to make Monday handovers easier?\" A narrow question is easier to answer honestly. Choose something you are willing to change. If you ask, people will expect you to act on at least some of it."
+        },
+        {
+          "heading": "Say thank you first and decide what to do afterwards.",
+          "body": "When someone tells you something about your work, thank them. Do not explain or argue on the spot. Take it away and think. You can come back a few days later and say what you will change, or why you will not."
+        },
+        {
+          "heading": "Asking regularly shows your team that feedback runs both ways.",
+          "body": "If you only ever give feedback, it feels like judgement. If you also ask for it, it becomes a shared habit. Once a month is enough. Over time people will start offering things without being asked. Thank them each time, so it stays easy to do."
+        }
+      ],
+      "takeaway": "Ask one specific question, say thank you, and decide later what to do with the answer."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_notice",
+      "title": "Notice and note",
+      "purpose": "A short list of specific things to praise and to raise.",
+      "why": "Over the next week or two, watch for specific things your team does well and one or two things to raise. Write down what you saw, not what you think of the person. If you cannot recall anything, start with what happened yesterday.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note things worth praising."
+        },
+        {
+          "text": "Note things worth raising."
+        }
+      ],
+      "fields": [
+        {
+          "id": "praise",
+          "type": "two_column",
+          "label": "What have you noticed in your team?",
+          "columns": [
+            "Who and what you saw",
+            "Praise or raise?"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "praise",
+          "plan_section": "notice"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one specific thing you saw."
+          }
+        ],
+        "field_ids": [
+          "praise"
+        ]
+      },
+      "done_when": "You have at least two specific things written down."
+    },
+    {
+      "id": "p2_chat",
+      "title": "Plan one short conversation",
+      "purpose": "Three lines for one feedback chat: what you saw, what it meant, what next.",
+      "why": "Choose one person and one thing from your list. Write what you saw, what effect it had and what you would suggest next. Then add one question to ask. If the item is praise, the last line is a thank you.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one person and one thing."
+        },
+        {
+          "text": "Write the three steps."
+        },
+        {
+          "text": "Add a question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "three",
+          "type": "long_text",
+          "label": "What will you say: what you saw, what it meant and what next?"
+        },
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What question will you ask afterwards?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "three",
+          "plan_section": "chat"
+        },
+        {
+          "field_id": "question",
+          "plan_section": "chat"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what you saw in one sentence."
+          }
+        ],
+        "field_ids": [
+          "three"
+        ]
+      },
+      "done_when": "You have three lines and a question ready for the conversation."
+    },
+    {
+      "id": "p3_follow",
+      "title": "Plan the follow-up",
+      "purpose": "A date to check back and a note of what to look for.",
+      "why": "Think of a conversation you have had or will have. Write when you will check back and what you hope to see. Add a line you could say if things have improved. If nothing has changed, write the question you would ask.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Pick a date to check back."
+        },
+        {
+          "text": "Write what you would like to see."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will you check back, and with whom?"
+        },
+        {
+          "id": "look_for",
+          "type": "short_text",
+          "label": "What will you look for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "follow"
+        },
+        {
+          "field_id": "look_for",
+          "plan_section": "follow"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a date to check back."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a date and something to look for."
+    },
+    {
+      "id": "p4_ask",
+      "title": "Ask for feedback",
+      "purpose": "One question for your team and a plan for how you will respond.",
+      "why": "Choose one person and write a specific question about your management. Decide when you will ask. Then write the first words you will say when you hear the answer. A thank you is a good start.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose the person."
+        },
+        {
+          "text": "Write your question."
+        },
+        {
+          "text": "Write your first reply."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "What one question will you ask about your own management?"
+        },
+        {
+          "id": "reply",
+          "type": "short_text",
+          "label": "What will you say first when you hear the answer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ask",
+          "plan_section": "ask"
+        },
+        {
+          "field_id": "reply",
+          "plan_section": "ask"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your question."
+          }
+        ],
+        "field_ids": [
+          "ask"
+        ]
+      },
+      "done_when": "You have a question written and a first reply ready."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your conversation is planned and saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you noticed, a conversation, a follow-up and a question."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "notice",
+      "title": "What you noticed"
+    },
+    {
+      "id": "chat",
+      "title": "A short feedback conversation"
+    },
+    {
+      "id": "follow",
+      "title": "Your follow-up"
+    },
+    {
+      "id": "ask",
+      "title": "Feedback on you"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you noticed, your short conversation, your follow-up and your question for the team.",
+    "book_bridge": "Feedback Over Coffee is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Whose good work did you mention this month?",
+      "Which feedback conversation did you follow up?",
+      "What did your team tell you about your management?"
+    ],
+    "refresher_ids": [
+      "p2_chat",
+      "p4_ask"
+    ]
+  }
+}

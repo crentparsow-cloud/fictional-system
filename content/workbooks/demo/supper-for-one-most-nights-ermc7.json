@@ -1,0 +1,370 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-ERMC7",
+  "slug": "supper-for-one-most-nights-ermc7",
+  "title": "Supper for One, Most Nights",
+  "card_line": "Stock a basic cupboard and cook five meals for yourself.",
+  "book": {
+    "book_id": "supper-for-one-most-nights",
+    "title": "Supper for One, Most Nights",
+    "subtitle": "Cooking Simply for Yourself"
+  },
+  "author": {
+    "author_id": "AU-9WVE6",
+    "display_name": "Matilda Kershaw-Nguyen"
+  },
+  "genre": "life_skills",
+  "theme_id": "practical-know-how",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about cooking plain meals for yourself. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a basic cupboard list, five meals you like, a weekly shop and a plan for leftovers. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a cooking plan you can read at the end."
+    ],
+    "why_prompt": "What do you usually eat when you cook for yourself? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Stock a basic cupboard and list five meals you already like",
+      "exercise_ids": [
+        "p1_cupboard"
+      ],
+      "intro": "Cooking for one is easier when the cupboard does some of the work. A few reliable basics mean you can always make something. This part asks you to list those basics and five meals you already enjoy, so that your plan starts from food you know.",
+      "ideas": [
+        {
+          "heading": "A basic cupboard of a dozen items covers most suppers.",
+          "body": "Rice, pasta, tinned tomatoes, tinned beans, oil, stock cubes, onions, eggs, bread, tea and a few herbs or spices will take you a long way. Keep a short list on the door. When something runs low, add it. You will rarely face an empty shelf."
+        },
+        {
+          "heading": "Start from five meals you already like, not new recipes.",
+          "body": "Think of the meals you cook without a recipe or order most often. Write five. They might be eggs on toast, pasta with a sauce, a stir fry or soup. A plan built on food you enjoy is one you will follow. New dishes can come later."
+        },
+        {
+          "heading": "Meals for one need smaller amounts, and a few tricks.",
+          "body": "Most recipes feed four. Halve them, or cook the full amount and keep some for later. Freeze single portions in small tubs. Buy loose vegetables rather than large bags. A few habits like these stop food going off before you use it."
+        }
+      ],
+      "takeaway": "A short cupboard list and five meals you like are the base of cooking for one."
+    },
+    {
+      "number": 2,
+      "focus": "Do one weekly shop and cook once for two nights",
+      "exercise_ids": [
+        "p2_shop"
+      ],
+      "intro": "Shopping every day for one person is costly in time and often in money. A single weekly shop built from your five meals is calmer. This part shows you how to make that list, and how cooking a double portion saves you effort on the second night.",
+      "ideas": [
+        {
+          "heading": "One weekly shop saves time and cuts the spur of the moment buying.",
+          "body": "Plan three or four suppers for the week, check the cupboard and write a list. Shop once, with the list in hand. You make fewer trips and buy fewer things you do not need. A top up for milk or bread midweek is fine."
+        },
+        {
+          "heading": "Cook once and eat twice on busy nights.",
+          "body": "Make a double portion of a stew, a curry or a pasta sauce. Eat half and keep half for the next night, or for the freezer. Cool it quickly, cover it and put it in the fridge. The second supper takes only the time to reheat."
+        },
+        {
+          "heading": "Shop in the order of the week, with fresh food first.",
+          "body": "Use the freshest items, such as salad and fish, in the first two days. Keep the tins, pasta and frozen food for the end of the week. This way you waste less. It also means the last suppers still come out of the cupboard."
+        }
+      ],
+      "takeaway": "One shop from a short list, and one double portion, make the week easier."
+    },
+    {
+      "number": 3,
+      "focus": "Use leftovers and keep food safe",
+      "exercise_ids": [
+        "p3_leftovers"
+      ],
+      "intro": "Leftovers are not a lesser supper. Handled well, they save work and money. This part covers storing food safely, turning leftovers into a new meal and reheating properly. It is about everyday sense in the kitchen, nothing complicated, and it is quick to put into use this week.",
+      "ideas": [
+        {
+          "heading": "Cool food quickly and keep leftovers in the fridge.",
+          "body": "Do not leave cooked food sitting out for hours. Let it cool for a short while, then cover it and put it in the fridge. Use it within a couple of days. If you cannot use it in time, freeze it on the day. Label tubs with the date."
+        },
+        {
+          "heading": "Leftovers can become a different meal.",
+          "body": "Leftover roast vegetables go into an omelette or a wrap. Cooked rice becomes fried rice. A spare portion of chilli goes on a baked potato. Thinking of leftovers as the start of the next supper makes cooking less of a chore."
+        },
+        {
+          "heading": "Reheat food until it is steaming hot all the way through.",
+          "body": "Stir halfway if you use a microwave, so the heat spreads evenly. Reheat rice and meat only once. If you are unsure whether something is still good, do not eat it. A few seconds of care protect you from a bad evening."
+        }
+      ],
+      "takeaway": "Cool it, store it, use it within a couple of days and reheat it until it steams."
+    },
+    {
+      "number": 4,
+      "focus": "Add one new dish and make the routine your own",
+      "exercise_ids": [
+        "p4_new"
+      ],
+      "intro": "Once the base is steady, you can add something new. This last part is about trying a single new dish, keeping what works and dropping what does not. Nothing here is a test. You finish with a short cooking plan for yourself, one you can change whenever your tastes or your week change.",
+      "ideas": [
+        {
+          "heading": "Try one new dish at a time, and choose something close to what you know.",
+          "body": "Pick a dish that uses ingredients already in your cupboard. A new sauce for your pasta, or a different spice in your soup, is enough. One change at a time keeps the effort small. If you like it, add it to your list of meals."
+        },
+        {
+          "heading": "A meal you do not enjoy is worth dropping from the list.",
+          "body": "Not every plan suits you. If a meal is a chore or you leave half of it, cross it off. Replace it with something you are glad to eat. Cooking for yourself should be something you can enjoy, not a duty."
+        },
+        {
+          "heading": "Eating well alone can include making supper pleasant.",
+          "body": "Lay a place, put on some music or sit by a window. Eating is easier to enjoy when it has a small ritual around it. Even a plain supper feels like a meal when you give it a few minutes of your attention."
+        }
+      ],
+      "takeaway": "Add one new dish at a time, drop what you do not enjoy and make supper a small pleasure."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_cupboard",
+      "title": "List your cupboard and five meals",
+      "purpose": "A basic cupboard list and five meals you already like to cook.",
+      "why": "Open your cupboard and fridge. Write the basics you already have and the few you would add. Then list five meals you like and could cook without much thought. If you can only think of three, three is a good start.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List the basics you have and a few to add."
+        },
+        {
+          "text": "Write five meals you already like."
+        }
+      ],
+      "fields": [
+        {
+          "id": "cupboard",
+          "type": "short_text",
+          "label": "Which basics do you have, and which would you add?"
+        },
+        {
+          "id": "five_meals",
+          "type": "long_text",
+          "label": "Which five meals do you already like to cook?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "cupboard",
+          "plan_section": "cupboard"
+        },
+        {
+          "field_id": "five_meals",
+          "plan_section": "cupboard"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down three meals you like."
+          }
+        ],
+        "field_ids": [
+          "five_meals"
+        ]
+      },
+      "done_when": "You have at least three meals written down."
+    },
+    {
+      "id": "p2_shop",
+      "title": "Plan one weekly shop",
+      "purpose": "A short shopping list for four suppers and one double portion.",
+      "why": "Choose three or four suppers for the week from your five meals. Pick one to cook as a double portion. Check the cupboard, then write what to buy. Shop once with the list. If the week is unclear, plan only the first two suppers.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose the suppers and one double portion."
+        },
+        {
+          "text": "Check the cupboard and write the list."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week_suppers",
+          "type": "short_text",
+          "label": "Which suppers will you cook this week, and which one twice?"
+        },
+        {
+          "id": "shop_list",
+          "type": "long_text",
+          "label": "What do you need from the shop?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week_suppers",
+          "plan_section": "shop"
+        },
+        {
+          "field_id": "shop_list",
+          "plan_section": "shop"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down two suppers for this week."
+          }
+        ],
+        "field_ids": [
+          "week_suppers"
+        ]
+      },
+      "done_when": "You have suppers chosen and a short list."
+    },
+    {
+      "id": "p3_leftovers",
+      "title": "Plan for leftovers",
+      "purpose": "A plan for storing a leftover safely and turning it into a meal.",
+      "why": "Think of a meal you cook that leaves leftovers. Write how you will store it and when you will use it. Then write what you could make from it. If you have none this week, think of the next one you cook.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a meal that leaves leftovers."
+        },
+        {
+          "text": "Write how you will store and reuse it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "leftover_meal",
+          "type": "short_text",
+          "label": "Which meal leaves you leftovers?"
+        },
+        {
+          "id": "leftover_use",
+          "type": "short_text",
+          "label": "How will you store it, and what will you make from it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "leftover_meal",
+          "plan_section": "leftovers"
+        },
+        {
+          "field_id": "leftover_use",
+          "plan_section": "leftovers"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one meal that leaves leftovers."
+          }
+        ],
+        "field_ids": [
+          "leftover_meal"
+        ]
+      },
+      "done_when": "You have a meal and one use for the leftovers."
+    },
+    {
+      "id": "p4_new",
+      "title": "Choose one new dish",
+      "purpose": "One new dish to try and one meal you will drop.",
+      "why": "Choose one new dish close to what you already cook. Write what you would need. Then name one meal on your list you do not enjoy and could drop. If nothing needs dropping, write that you are happy with the list.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a new dish and list what you need."
+        },
+        {
+          "text": "Name one meal you could drop."
+        }
+      ],
+      "fields": [
+        {
+          "id": "new_dish",
+          "type": "short_text",
+          "label": "Which new dish will you try, and what will you need?"
+        },
+        {
+          "id": "drop_meal",
+          "type": "short_text",
+          "label": "Which meal could you drop from your list?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "new_dish",
+          "plan_section": "new"
+        },
+        {
+          "field_id": "drop_meal",
+          "plan_section": "new"
+        }
+      ],
+      "done_when": "You have chosen a new dish."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your weekly shop is written down and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your cupboard, your shop, your leftovers and a new dish."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "cupboard",
+      "title": "Your cupboard and meals"
+    },
+    {
+      "id": "shop",
+      "title": "Your weekly shop"
+    },
+    {
+      "id": "leftovers",
+      "title": "Your leftovers plan"
+    },
+    {
+      "id": "new",
+      "title": "Your new dish"
+    }
+  ],
+  "finish": {
+    "summary": "You listed your cupboard basics and five meals you like. You also planned a weekly shop, a use for leftovers and one new dish.",
+    "book_bridge": "Supper for One, Most Nights is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which meal did you enjoy most this month?",
+      "What did you cook twice and how did it go?",
+      "Is there a new dish you would like to try next?"
+    ],
+    "refresher_ids": [
+      "p2_shop",
+      "p4_new"
+    ]
+  }
+}

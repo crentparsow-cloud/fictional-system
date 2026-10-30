@@ -24,7 +24,7 @@ export interface CoverSpec {
 
 export interface FormatInput {
   unitCount?: number | null;
-  unitKind?: "week" | "day" | "module" | "chapter" | null;
+  unitKind?: "week" | "day" | "module" | "chapter" | "part" | null;
   collection?: boolean;
   start?: boolean;
 }
@@ -42,7 +42,7 @@ export function coverFormat(i: FormatInput): CoverFormat {
   return (["w4", "w8", "w12"] as const)[barsFor(n) - 1]!;
 }
 
-const UNIT_WORD = { week: "week", day: "day", module: "module", chapter: "chapter" } as const;
+const UNIT_WORD = { week: "week", day: "day", module: "module", chapter: "chapter", part: "part" } as const;
 
 export function formatLabel(i: FormatInput): string {
   if (i.start) return "Start here";

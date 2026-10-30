@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-0Y78E",
+  "slug": "the-teenager-on-the-stairs-0y78e",
+  "title": "The Teenager on the Stairs",
+  "card_line": "Stay close to your teenager by listening more and agreeing house rules together.",
+  "book": {
+    "book_id": "the-teenager-on-the-stairs",
+    "title": "The Teenager on the Stairs",
+    "subtitle": "Staying Close as Children Grow Up"
+  },
+  "author": {
+    "author_id": "AU-0KY5N",
+    "display_name": "Ligaya Abellera-Cruz"
+  },
+  "genre": "parenting",
+  "theme_id": "raising-with-care",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about staying close to a teenager as they grow up. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will know when your teenager talks and have a way to listen more. You will also have a few house rules agreed together and one new freedom planned. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When does your teenager talk to you most easily? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If tension at home ever puts anyone at risk, please set it aside for now. Safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice when and where your teenager talks",
+      "exercise_ids": [
+        "p1_when"
+      ],
+      "intro": "Teenagers often talk at odd moments: late at night, in the car, on the stairs on the way to bed. They rarely talk when asked straight out. This part asks you to notice when and where your teenager opens up, so that you can be there.",
+      "ideas": [
+        {
+          "heading": "Teenagers tend to talk when there is no pressure to talk.",
+          "body": "Side by side is easier than face to face. In the car, washing up or walking the dog, there is no eye contact and no feeling of being questioned. Notice where it happens for your teenager. The setting matters more than the question you ask."
+        },
+        {
+          "heading": "The best moments often come at inconvenient times.",
+          "body": "A teenager may start a conversation at eleven at night, when you are tired. If you can, stay and listen for ten minutes. The chance may not come again for days. It is worth leaving the dishes or the email."
+        },
+        {
+          "heading": "Your own mood at the door shapes whether they come in.",
+          "body": "If you arrive home tense and full of questions, your teenager stays out of reach. A calm hello and a snack, with no interrogation, leaves the door open. Let them come to you. They read your face quickly, so make the first minute easy."
+        }
+      ],
+      "takeaway": "Teenagers talk when there is no pressure, often at odd times. Notice when yours opens up, and be there."
+    },
+    {
+      "number": 2,
+      "focus": "Listen more and talk less",
+      "exercise_ids": [
+        "p2_listen"
+      ],
+      "intro": "Listening is harder than it sounds, especially when you have a view. This part asks you to try three small moves: asking open questions, pausing before you answer and holding back advice unless it is asked for. You try one in the coming days and note what happens.",
+      "ideas": [
+        {
+          "heading": "An open question gets more than a question with a yes or no.",
+          "body": "Try \"What was the best bit?\" rather than \"Was it good?\" Or ask how it went. Open questions invite a story. Keep them light and curious, not an inspection. If you get a shrug, let it go and try another day."
+        },
+        {
+          "heading": "A pause before you reply tells them you were really listening.",
+          "body": "Count to three before you answer. It stops you finishing their sentences and jumping to fixes. Teenagers notice the pause and often fill it with more. Nodding and saying \"Mm\" is enough. The silence is not empty. It is room."
+        },
+        {
+          "heading": "Advice lands better when it is asked for.",
+          "body": "Most teenagers want to be heard first. Unasked advice can sound like criticism. Try \"Do you want ideas, or do you want me to just listen?\" Most will tell you. If they want ideas, offer one or two and leave the decision with them."
+        }
+      ],
+      "takeaway": "Ask open questions, pause before you reply, and keep advice for when it is asked for."
+    },
+    {
+      "number": 3,
+      "focus": "Agree house rules together and plan for rows",
+      "exercise_ids": [
+        "p3_rules"
+      ],
+      "intro": "Rules set from above tend to be argued over or ignored. Rules a teenager has helped to shape carry more weight. This part asks you to agree a few house rules together. You also think ahead about how to handle rows when they come.",
+      "ideas": [
+        {
+          "heading": "A few rules agreed together hold better than many handed down.",
+          "body": "Pick the three or four that matter most to you: curfews, phones, chores, school nights. Ask your teenager what they think is fair. Meet in the middle where you can. Write the result down. Fewer rules, clearly agreed, leave less to fight about."
+        },
+        {
+          "heading": "Say what the rule is for, so that it makes sense to them.",
+          "body": "Compare \"Because I said so\" with \"Home by ten, so you get enough sleep.\" Teenagers accept the second more readily. Give the reason in a sentence. They may not like it, but they can see it. Listen to their counter-offer. Sometimes it is reasonable."
+        },
+        {
+          "heading": "A row is easier to repair if you have a plan for cooling off.",
+          "body": "Agree beforehand that either of you can say \"I need ten minutes.\" Step away, then come back. Speak about the issue, not their character. Say sorry for your own part. Rows are normal at this age. How you end one matters more than how it began."
+        }
+      ],
+      "takeaway": "Agree a few rules together and say why. When a row happens, take ten minutes and then come back."
+    },
+    {
+      "number": 4,
+      "focus": "Allow more independence and keep short check-ins",
+      "exercise_ids": [
+        "p4_trust"
+      ],
+      "intro": "Growing up means doing more alone, and trust builds in steps. This part asks you to choose one new freedom to allow and agree what a check-in looks like. Your teenager is more likely to take care when they feel trusted.",
+      "ideas": [
+        {
+          "heading": "Independence grows in steps, one new freedom at a time.",
+          "body": "Pick a freedom your teenager has asked for: a later evening, a trip into town, cooking a meal. Agree the terms in advance. After a few weeks, look at how it went and move on to the next. Small steps are easier for both of you than a sudden leap."
+        },
+        {
+          "heading": "A check-in is a message, not a cross-examination.",
+          "body": "Agree something short: a text on arrival, or a call if plans change. It tells you they are safe and tells them you trust them. Keep to what you agreed and do not add extra questions. Predictable check-ins keep things easy between you."
+        },
+        {
+          "heading": "Trust is built when each side does what they said they would.",
+          "body": "If your teenager keeps to the agreement, say so. If they slip, talk about it plainly and agree the next step. Do not take the freedom away at the first wobble unless it is unsafe. Tell them what you notice and what you are glad of."
+        }
+      ],
+      "takeaway": "Allow independence in small steps, keep check-ins short and notice when your teenager keeps their word."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_when",
+      "title": "Note when they talk",
+      "purpose": "A note of when and where your teenager talks and what you are doing then.",
+      "why": "Think back over the last few weeks. When did your teenager last start a conversation without being asked? Write the time, the place and what you were both doing. Then note what you are usually doing at that time. A rough guess is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write when and where your teenager talks."
+        },
+        {
+          "text": "Note what you are usually doing then."
+        }
+      ],
+      "fields": [
+        {
+          "id": "moments",
+          "type": "long_text",
+          "label": "When and where does your teenager talk to you most easily?"
+        },
+        {
+          "id": "me",
+          "type": "short_text",
+          "label": "What are you usually doing at that time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "moments",
+          "plan_section": "talks"
+        },
+        {
+          "field_id": "me",
+          "plan_section": "talks"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one time your teenager talked to you."
+          }
+        ],
+        "field_ids": [
+          "moments"
+        ]
+      },
+      "done_when": "You have at least one moment written down."
+    },
+    {
+      "id": "p2_listen",
+      "title": "Try one listening move",
+      "purpose": "One listening move you tried and a note of what happened.",
+      "why": "Choose one move: an open question, a pause before you reply, or holding back advice. Try it in the next few days. Then write what happened. It does not need to go well to be worth noting. If no chance comes, write about the one you expect.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one listening move."
+        },
+        {
+          "text": "Try it and write what happened."
+        }
+      ],
+      "fields": [
+        {
+          "id": "move",
+          "type": "short_text",
+          "label": "Which listening move will you try?"
+        },
+        {
+          "id": "result",
+          "type": "long_text",
+          "label": "What happened when you tried it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "move",
+          "plan_section": "listen"
+        },
+        {
+          "field_id": "result",
+          "plan_section": "listen"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which move you chose."
+          }
+        ],
+        "field_ids": [
+          "move"
+        ]
+      },
+      "done_when": "You have chosen a move and noted one try."
+    },
+    {
+      "id": "p3_rules",
+      "title": "Agree three house rules",
+      "purpose": "Three house rules agreed with your teenager and a plan for rows.",
+      "why": "Talk with your teenager about the three rules that matter most. Ask what they think is fair. Write the agreed rules with a reason beside each. Then agree one sentence either of you can use to pause a row. If they are not ready, try another time.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Talk through the three rules that matter most."
+        },
+        {
+          "text": "Agree a sentence to pause a row."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "Which three house rules will you agree with your teenager?"
+        },
+        {
+          "id": "pause",
+          "type": "short_text",
+          "label": "What will you say to pause a row for ten minutes?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        },
+        {
+          "field_id": "pause",
+          "plan_section": "rules"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one rule and the reason for it."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "You have three rules with reasons and a sentence to pause a row."
+    },
+    {
+      "id": "p4_trust",
+      "title": "Choose one new freedom",
+      "purpose": "One new freedom, the terms for it and what your check-in will be.",
+      "why": "Choose one freedom your teenager has asked for or is ready for. Write the terms you will both agree to. Then decide what the check-in will be. Plan to look at it together after a few weeks. If you are unsure, pick the smallest freedom.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one new freedom and write the terms."
+        },
+        {
+          "text": "Decide what the check-in will be."
+        }
+      ],
+      "fields": [
+        {
+          "id": "freedom",
+          "type": "short_text",
+          "label": "Which new freedom will you allow, and on what terms?"
+        },
+        {
+          "id": "checkin",
+          "type": "short_text",
+          "label": "What will your check-in be?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "freedom",
+          "plan_section": "trust"
+        },
+        {
+          "field_id": "checkin",
+          "plan_section": "trust"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one freedom your teenager has asked for."
+          }
+        ],
+        "field_ids": [
+          "freedom"
+        ]
+      },
+      "done_when": "You have a freedom, its terms and a check-in written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your listening note is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds when they talk, your listening, your rules and your new freedom."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "talks",
+      "title": "When they talk"
+    },
+    {
+      "id": "listen",
+      "title": "Listening more"
+    },
+    {
+      "id": "rules",
+      "title": "House rules"
+    },
+    {
+      "id": "trust",
+      "title": "A new freedom"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds when your teenager talks, the listening move you tried, your house rules and a new freedom.",
+    "book_bridge": "The Teenager on the Stairs is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "When did your teenager talk to you this month?",
+      "Which house rule needs another look?",
+      "What freedom could come next?"
+    ],
+    "refresher_ids": [
+      "p2_listen",
+      "p4_trust"
+    ]
+  }
+}

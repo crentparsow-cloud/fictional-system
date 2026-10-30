@@ -215,3 +215,36 @@ describe("runPickup (4.9)", () => {
     expect(p.sent[0]?.target.enrolmentId).toBe("e2");
   });
 });
+
+describe("runReminders and the reader's pace", () => {
+  // now is Monday 12 October 2026 in London.
+  it("sends a weekly reader nothing when they already finished a step this week", async () => {
+    const h = harness([target({ pace: "weekly", lastStepDay: "2026-10-12", stepsInLastWeek: 1 })]);
+    expect(await runReminders(h.deps)).toMatchObject({ sent: 0, not_due: 1 });
+  });
+
+  it("sends a weekly reader on the new week", async () => {
+    const h = harness([target({ pace: "weekly", lastStepDay: "2026-10-08", stepsInLastWeek: 1 })]);
+    expect(await runReminders(h.deps)).toMatchObject({ sent: 1 });
+  });
+
+  it("sends a few-times reader nothing on a day they already finished, and starts fresh each week", async () => {
+    const today = harness([target({ pace: "few_times_a_week", lastStepDay: "2026-10-12", stepsInLastWeek: 1 })]);
+    expect(await runReminders(today.deps)).toMatchObject({ sent: 0, not_due: 1 });
+    const sunday = harness([target({ pace: "few_times_a_week", lastStepDay: "2026-10-11", stepsInLastWeek: 3 })]);
+    expect(await runReminders(sunday.deps)).toMatchObject({ sent: 1 });
+  });
+
+  it("sends an own pace reader one gentle reminder after a quiet week, and no second that week", async () => {
+    const quiet = target({ pace: "own_pace", lastStepDay: "2026-10-01", lastActiveDay: "2026-10-01", lastReminderDay: null });
+    expect(await runReminders(harness([quiet]).deps)).toMatchObject({ sent: 1 });
+    const again = target({ pace: "own_pace", lastStepDay: "2026-10-01", lastActiveDay: "2026-10-01", lastReminderDay: "2026-10-09" });
+    expect(await runReminders(harness([again]).deps)).toMatchObject({ sent: 0 });
+    const recent = target({ pace: "own_pace", lastStepDay: "2026-10-10", lastReminderDay: null });
+    expect(await runReminders(harness([recent]).deps)).toMatchObject({ sent: 0 });
+  });
+
+  it("keeps the old behaviour for a target without a pace", async () => {
+    expect(await runReminders(harness([target()]).deps)).toMatchObject({ sent: 1 });
+  });
+});

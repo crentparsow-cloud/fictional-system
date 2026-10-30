@@ -9,12 +9,12 @@
  * does not say, it is "Unit 1".
  */
 
-export type FreeUnitKind = "week" | "day" | "module" | "chapter";
+export type FreeUnitKind = "week" | "day" | "module" | "chapter" | "part";
 
-const WORDS: Record<FreeUnitKind, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter" };
+const WORDS: Record<FreeUnitKind, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part" };
 
 export function isFreeUnitKind(v: unknown): v is FreeUnitKind {
-  return v === "week" || v === "day" || v === "module" || v === "chapter";
+  return v === "week" || v === "day" || v === "module" || v === "chapter" || v === "part";
 }
 
 /**

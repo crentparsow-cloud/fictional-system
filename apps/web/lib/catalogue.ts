@@ -1,5 +1,7 @@
 import "server-only";
 import type { Badge, ContinueCard, Depth, EnrolmentStatus, LibraryCard, ListingBody, SafetyTier, ShelfWithThemes, StartBody, WorkbookDetail } from "@/lib/catalogue-types";
+import { habitAllowed } from "@akana/schema";
+import { effectivePace, isPace } from "@/lib/pace";
 import { firstUnitGaps, type FirstUnitGap } from "@/lib/first-unit";
 import { isFreeUnitKind } from "@/lib/free-label";
 import { createUserClient } from "@/lib/supabase/server";
@@ -262,7 +264,9 @@ interface EnrolmentRow {
   status: string;
   started_at: string;
   last_opened_at: string;
+  pace: string | null;
   workbooks: {
+    themes?: { shelf_id: string | null } | null;
     slug: string;
     title: string;
     short_title: string | null;
@@ -283,7 +287,7 @@ export async function myEnrolments(userId: string): Promise<ContinueCard[]> {
   const tenantId = (await tenantIdForRequest()) ?? MARKETPLACE_TENANT_ID;
   const { data, error } = await supabase
     .from("enrolments")
-    .select("id, workbook_id, version_id, status, started_at, last_opened_at, workbooks(slug, title, short_title, badge, is_demo, safety_tier)")
+    .select("id, workbook_id, version_id, status, started_at, last_opened_at, pace, workbooks(slug, title, short_title, badge, is_demo, safety_tier, themes(shelf_id))")
     .eq("user_id", userId)
     .eq("tenant_id", tenantId)
     .eq("status", "active")
@@ -341,6 +345,10 @@ export async function myEnrolments(userId: string): Promise<ContinueCard[]> {
       unitCount: s.count,
       currentUnit: highest.get(r.id) ?? null,
       hasDailyCheck: s.daily,
+      pace: effectivePace(r.pace, s.unit),
+      paceChosen: isPace(r.pace),
+      shelfId: w.themes?.shelf_id ?? null,
+      habitAllowed: habitAllowed({ safetyTier: w.safety_tier, shelfId: w.themes?.shelf_id ?? null }),
     };
   });
 }

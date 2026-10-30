@@ -1,0 +1,355 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-KVEBR",
+  "slug": "opening-the-brown-envelopes-kvebr",
+  "title": "Opening the Brown Envelopes",
+  "card_line": "Open the post with a plan and keep a call log for every conversation.",
+  "book": {
+    "book_id": "opening-the-brown-envelopes",
+    "title": "Opening the Brown Envelopes",
+    "subtitle": "Facing Bills, Letters and Arrears"
+  },
+  "author": {
+    "author_id": "AU-0W5W9",
+    "display_name": "Tomasz Kowalczyk-Hale"
+  },
+  "publisher_id": "PB-7AFQE",
+  "genre": "finance",
+  "theme_id": "paying-it-down",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about facing bills, letters and phone calls about money, one step at a time. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan for opening the post, a short script and a call log. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part. Stop whenever you like.",
+      "Answer the exercise. If nothing comes to mind, write one word.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is it about opening the post that you find hardest?",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk in any way, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Open the post with a plan",
+      "exercise_ids": [
+        "p1_open"
+      ],
+      "intro": "Unopened letters tend to grow in the mind. Opening them is often less bad than the waiting. This part asks you to choose a time and place for opening your post. It also asks what you will do if you need a break.",
+      "ideas": [
+        {
+          "heading": "Choosing the time and place makes opening the post less of an ambush.",
+          "body": "Pick a moment when you are rested and not rushed. A table and a cup of tea are better than a hallway. Opening the post by choice, rather than on the doormat, puts you in charge of the pace. Then the post arrives on your terms."
+        },
+        {
+          "heading": "Someone beside you can make the job lighter.",
+          "body": "If you like, ask a friend or relative to sit with you. They do not need to fix anything. Their company can steady you, and a second pair of eyes can spot dates you might miss. It is also fine to do it alone."
+        },
+        {
+          "heading": "A break is part of the plan, not a lapse in it.",
+          "body": "Decide beforehand what you will do if a letter upsets you. You might step outside, call a friend or put the kettle on. Having a ready answer means you can return to the pile when you feel steadier. Stopping for a while is allowed."
+        }
+      ],
+      "takeaway": "Choose a time and place, decide who might sit with you and plan what to do if you need a break."
+    },
+    {
+      "number": 2,
+      "focus": "Sort your letters and note the dates",
+      "exercise_ids": [
+        "p2_sort"
+      ],
+      "intro": "Once the post is open, the next job is to sort it. Not every letter has the same weight, and a note of the dates stops anything slipping by. This part explains what reminders, final demands and arrears letters usually mean, in general terms.",
+      "ideas": [
+        {
+          "heading": "A reminder is usually the first and mildest step.",
+          "body": "It tells you a payment is late, and often asks you to pay or get in touch. Lenders send them early. Replying promptly, even to say you need time, tends to keep things from escalating. Check the letter for details."
+        },
+        {
+          "heading": "A final demand or arrears letter says the matter has become more serious.",
+          "body": "These letters usually give a date by which to respond and describe what may follow. Terms differ between lenders and kinds of debt. Read the letter carefully, note the date, and ask an adviser what it means for you. Replying before the date shown is almost always wise."
+        },
+        {
+          "heading": "A simple sort and a note of every date are enough at this stage.",
+          "body": "Make three piles: letters with a date coming up, letters that need a reply and letters for your records. Write each date on a calendar. You do not need to decide what to do about each yet. Calendars and diaries both work well."
+        }
+      ],
+      "takeaway": "Sort letters into dates, replies and records, and note every date. Ask an adviser what a serious letter means for you."
+    },
+    {
+      "number": 3,
+      "focus": "Write a short script for calls and letters",
+      "exercise_ids": [
+        "p3_script"
+      ],
+      "intro": "Phone calls about money can feel like a test. A short script gives you the words in advance, so you can say what you need without being thrown. This part helps you plan a call or letter, including the one thing you most want to ask.",
+      "ideas": [
+        {
+          "heading": "A script gives you words when nerves take them away.",
+          "body": "Write your name, your account number and why you are calling. Add the one question you most want answered. Keep it on the page in front of you. You can read it out if you wish. A few lines on the page are enough to steady your voice."
+        },
+        {
+          "heading": "You are allowed to ask for time, and to ask for things in writing.",
+          "body": "You can say, \"Please send that to me in writing.\" You can also say you need time to think. A lender should be willing to listen. If a call feels rushed, you can end it politely and ring back. Both are ordinary requests that lenders hear often."
+        },
+        {
+          "heading": "A letter can say what you cannot say on the phone.",
+          "body": "Some people find writing easier. A short, polite letter states your situation, what you can pay and what you are asking for. Keep a copy. Writing also leaves a record, which a phone call does not. Letters also give you time to choose your words."
+        }
+      ],
+      "takeaway": "Prepare your words in advance, ask for time and for things in writing, and keep copies of anything you send."
+    },
+    {
+      "number": 4,
+      "focus": "Keep a call log and know where independent advice is available",
+      "exercise_ids": [
+        "p4_log"
+      ],
+      "intro": "A record of every call protects you if something is later disputed. It also keeps your own mind clear. This final part asks you to set up a call log. It also asks where you might go for independent debt advice, which many services offer at no charge.",
+      "ideas": [
+        {
+          "heading": "A call log turns a conversation into a record you can rely on.",
+          "body": "Write the date, the time, who you spoke to, what was said and what was agreed. Do it straight away, while it is fresh. If a lender later disagrees, your notes are evidence of what you were told. Dates and names count for a great deal in a dispute."
+        },
+        {
+          "heading": "A few lines after each call are enough.",
+          "body": "You do not need to write an essay. Note the date, the name, the main point and the next step. Keep the log with your letters in one folder. A simple notebook works as well as any app. Short notes are far more likely to get written."
+        },
+        {
+          "heading": "Independent debt advice services can look at your whole situation.",
+          "body": "Many are run by charities or public bodies and do not charge. They can explain your options and may speak to lenders for you. When you are ready, look for a service that is regulated and independent. A conversation with one is your choice, and you can go at your own pace."
+        }
+      ],
+      "takeaway": "Write a few lines after each call and keep them with your letters. Independent advice is there when you want it."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_open",
+      "title": "Plan how to open the post",
+      "purpose": "A time, a place and a plan for a break.",
+      "why": "Choose when and where you will open your post, and whether anyone will sit with you. Then write what you will do if you need a break. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a time and place."
+        },
+        {
+          "text": "Write what you will do if you need a break."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When and where will you open your post, and who might sit with you?"
+        },
+        {
+          "id": "pause",
+          "type": "short_text",
+          "label": "What will you do if you need a break?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "pause",
+          "plan_section": "plan"
+        }
+      ],
+      "done_when": "A time, a place and a break plan are written."
+    },
+    {
+      "id": "p2_sort",
+      "title": "Sort your letters",
+      "purpose": "A list of your letters and the date each one gives.",
+      "why": "Open the letters you have. For each, note who it is from, what it asks and the date it gives. A line each is enough. If a letter is unclear, write a question mark.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List each letter."
+        },
+        {
+          "text": "Note what it asks and any date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sorted",
+          "type": "two_column",
+          "label": "What does each letter ask, and what date does it give?",
+          "columns": [
+            "Letter from",
+            "What it asks, and any date"
+          ],
+          "min_items": 1,
+          "max_items": 10
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sorted",
+          "plan_section": "sorted"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one letter and its date."
+          }
+        ],
+        "field_ids": [
+          "sorted"
+        ]
+      },
+      "done_when": "Each letter has a line, even a rough one."
+    },
+    {
+      "id": "p3_script",
+      "title": "Write a short script",
+      "purpose": "A few lines you could say on a call or put in a letter.",
+      "why": "Pick one bill or letter. Write your name, why you are calling and the one thing you want to ask. Add a line asking for anything important in writing.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write who you are and why you are calling."
+        },
+        {
+          "text": "Write your one question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "script",
+          "type": "long_text",
+          "label": "What will you say when you ring or write about a bill?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "What is the one thing you most want to ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "script",
+          "plan_section": "script"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "script"
+        }
+      ],
+      "done_when": "You have a short script and one question."
+    },
+    {
+      "id": "p4_log",
+      "title": "Start your call log",
+      "purpose": "A list of what to record after a call and a note on where to find advice.",
+      "why": "Decide what you will write down after each call. Then note where you might go for independent debt advice, or write \"not yet\". Either answer is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose what to record."
+        },
+        {
+          "text": "Note where you might seek advice."
+        }
+      ],
+      "fields": [
+        {
+          "id": "record",
+          "type": "checklist",
+          "label": "What will you write down after a call?",
+          "options": [
+            "Date and time",
+            "Name of the person",
+            "What was said",
+            "What was agreed",
+            "Next step and date"
+          ]
+        },
+        {
+          "id": "advice",
+          "type": "short_text",
+          "label": "Where might you look for independent advice, if you would like it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "record",
+          "plan_section": "log"
+        },
+        {
+          "field_id": "advice",
+          "plan_section": "log"
+        }
+      ],
+      "done_when": "Your log items are chosen and advice is noted, or marked not yet."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "plan",
+      "title": "How you will open the post"
+    },
+    {
+      "id": "sorted",
+      "title": "Your letters and dates"
+    },
+    {
+      "id": "script",
+      "title": "Your script"
+    },
+    {
+      "id": "log",
+      "title": "Your call log"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds how you will open the post, your letters and dates, your script and your call log.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which letters did you open this month, and what dates did they give?",
+      "Which call did you log, and what was the next step?",
+      "Is your plan for opening the post still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_sort",
+      "p4_log"
+    ]
+  }
+}

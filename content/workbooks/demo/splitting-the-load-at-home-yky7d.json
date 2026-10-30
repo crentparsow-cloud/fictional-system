@@ -1,0 +1,372 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-YKY7D",
+  "slug": "splitting-the-load-at-home-yky7d",
+  "title": "Splitting the Load at Home",
+  "card_line": "List every household job, seen and unseen, and agree who owns each one.",
+  "book": {
+    "book_id": "splitting-the-load-at-home",
+    "title": "Splitting the Load at Home",
+    "subtitle": "Sharing Chores and the Thinking Behind Them"
+  },
+  "author": {
+    "author_id": "AU-ARMK7",
+    "display_name": "Sofia Hedlund-Ahl"
+  },
+  "genre": "relationships",
+  "theme_id": "partners-in-step",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about sharing the running of a home with a partner. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of household jobs, an owner for each and a plan to review the split. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which job at home do you wish someone else would take over? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "List the visible jobs that keep your home running",
+      "exercise_ids": [
+        "p1_jobs"
+      ],
+      "intro": "Most couples can name the obvious jobs: cooking, washing up, the laundry. Fewer have ever written them all down. This part asks you to list what actually gets done in a normal week, and who does it now, without blame.",
+      "ideas": [
+        {
+          "heading": "A written list shows the real size of the work.",
+          "body": "Memory leaves things out, especially jobs done by someone else. Write down everything in a typical week, from bins to bedtimes to the weekly shop. Even a long list is just information. It gives both of you the same picture, which is a better start than two guesses."
+        },
+        {
+          "heading": "Naming who does each job now is not an accusation.",
+          "body": "Beside each job, write who usually does it. You are not scoring anyone. You are finding out where things stand. Most people are surprised at least once, in one direction or the other. Keep the tone curious. Both of you are reading the same list."
+        },
+        {
+          "heading": "Jobs that happen rarely still belong on the list.",
+          "body": "Weekly tasks are easy to remember. Others come round only once a season or a year: the boiler service, school forms, birthdays, the car test. They take time and effort too. Add them with a rough note of how often they come up."
+        }
+      ],
+      "takeaway": "Write every job down, note who does it now, and include the ones that come round rarely."
+    },
+    {
+      "number": 2,
+      "focus": "Notice the planning and remembering behind each job",
+      "exercise_ids": [
+        "p2_unseen"
+      ],
+      "intro": "Many jobs have two halves. One is the doing. The other is the thinking: noticing it needs doing, planning it, and remembering to ask. This second half is easy to miss, and it often falls on one person. Here you name it.",
+      "ideas": [
+        {
+          "heading": "Noticing a job is work, even before anyone lifts a finger.",
+          "body": "Seeing that the milk is low, the school trip needs a form or the dog is due at the vet takes attention. The person who notices is already doing part of the job. Often that person is not the one doing the final task, and it goes unseen."
+        },
+        {
+          "heading": "Planning, remembering and checking are separate parts of one job.",
+          "body": "Take a birthday party. Someone decides the date, books the place, remembers the cake, reminds everyone and checks it all happened. That is five pieces, even if only one involves lifting anything. Listing the pieces shows who is carrying the thinking."
+        },
+        {
+          "heading": "Being told what to do is not the same as sharing a job.",
+          "body": "If one person has to say what to do and when, the other is helping rather than sharing. It leaves the first person still holding the plan. Sharing means taking the whole job, including the noticing, without a prompt. Both roles are real work."
+        }
+      ],
+      "takeaway": "Every job has a doing half and a thinking half. Name both, and see who carries each."
+    },
+    {
+      "number": 3,
+      "focus": "Agree who owns each job from start to finish",
+      "exercise_ids": [
+        "p3_owners"
+      ],
+      "intro": "Ownership means one person handles a job from noticing to finishing, and the other does not need to be asked. This part is about agreeing owners together, thinking about time and preference, and letting the owner do it their way.",
+      "ideas": [
+        {
+          "heading": "One owner per job removes the need for reminders.",
+          "body": "When a job has one owner, the other person does not have to remember it, check it or chase it. The owner notices, plans and does. Jobs shared by default often go undone. A single name makes it clear who is responsible."
+        },
+        {
+          "heading": "Split jobs by time, taste and skill, not by what each of you did before.",
+          "body": "Ask who is home when, who minds a job less, and who is better at it. One of you may not mind ironing, and the other may enjoy the shop. Agree out loud. Old patterns often reflect who started first, not who suits the job."
+        },
+        {
+          "heading": "Let the owner do the job their way once it is theirs.",
+          "body": "If you hand over the washing, accept that it may be folded differently. Agree the result you both need, such as clean clothes by Thursday, and leave the method alone. Correcting an owner takes the job back and brings the reminders with it."
+        }
+      ],
+      "takeaway": "One owner per job, chosen by time and taste, and left to do it their own way."
+    },
+    {
+      "number": 4,
+      "focus": "Review the split and adjust it fairly",
+      "exercise_ids": [
+        "p4_review"
+      ],
+      "intro": "A split that suits you in spring may not suit you in autumn. Work changes, children grow, someone is ill. This part is about reviewing the arrangement now and then, and changing it fairly when it stops working for one of you.",
+      "ideas": [
+        {
+          "heading": "Fair does not always mean equal.",
+          "body": "Two people may have different hours, energy and responsibilities. A fair split is one both can live with. Some weeks one person does more, and then it swaps. What matters is that both of you can say it feels reasonable, and mean it."
+        },
+        {
+          "heading": "A short, regular review catches small strains early.",
+          "body": "Set a time every month or two to ask three questions. What is going well? What feels heavy? What should change? Fifteen minutes with a cup of tea is plenty. Small complaints raised early are easy to fix. Left alone, they grow into resentment."
+        },
+        {
+          "heading": "Say thank you for jobs that are theirs.",
+          "body": "A job done every week is easy to take for granted. A word of thanks costs nothing and shows it was noticed. Thank the person for the result and for the thinking, not just the doing. Both of you are likelier to keep going when the work is seen."
+        }
+      ],
+      "takeaway": "Fair means both can live with it. Review now and then, adjust early, and say thank you."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_jobs",
+      "title": "List the household jobs",
+      "purpose": "A written list of jobs in your home and who does each now.",
+      "why": "Write the jobs you can think of in a normal week, and a few that come up only now and then. Put a name beside each, as it is today. A perfect list is not the aim. Ten to fifteen is a good start.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the jobs in a normal week."
+        },
+        {
+          "text": "Write who does each one now."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Which jobs keep your home running, and who does each now?",
+          "columns": [
+            "Job",
+            "Who does it now"
+          ],
+          "min_items": 1,
+          "max_items": 15
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "jobs"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write five jobs and who does each."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "You have at least ten jobs on the list."
+    },
+    {
+      "id": "p2_unseen",
+      "title": "Find the unseen thinking",
+      "purpose": "Three jobs with the planning, remembering and checking written beside them.",
+      "why": "Choose three jobs from your list. For each, write who notices that it needs doing, who plans it and who checks it was done. Names are enough. If you are unsure, write a question mark and ask later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose three jobs from your list."
+        },
+        {
+          "text": "Write who notices, plans and checks each one."
+        }
+      ],
+      "fields": [
+        {
+          "id": "unseen",
+          "type": "two_column",
+          "label": "Who does the noticing, planning and checking for three jobs?",
+          "columns": [
+            "Job",
+            "Who notices, plans and checks"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "unseen",
+          "plan_section": "unseen"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Look at the thinking behind one job."
+          }
+        ],
+        "field_ids": [
+          "unseen"
+        ]
+      },
+      "done_when": "You have looked at the thinking behind three jobs."
+    },
+    {
+      "id": "p3_owners",
+      "title": "Agree an owner for each job",
+      "purpose": "A short list of jobs with one agreed owner for each.",
+      "why": "Take five jobs from your list. Talk them through with your partner and agree one owner for each. Write the owner and the result you both need. If you cannot agree on one, mark it to talk about again.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Take five jobs from your list."
+        },
+        {
+          "text": "Agree one owner and the result needed for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "owners",
+          "type": "two_column",
+          "label": "Who will own each job, and what result do you both need?",
+          "columns": [
+            "Job and owner",
+            "Result needed"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "owners",
+          "plan_section": "owners"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Agree an owner for one job."
+          }
+        ],
+        "field_ids": [
+          "owners"
+        ]
+      },
+      "done_when": "Five jobs each have one named owner."
+    },
+    {
+      "id": "p4_review",
+      "title": "Plan your first review",
+      "purpose": "A date for a review and the questions you will ask.",
+      "why": "Pick a time in the next month or two for a short review with your partner. Write the three questions you will ask. Add one thing you would like to thank them for.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a time for the review."
+        },
+        {
+          "text": "Write your questions and one thank you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will you and your partner review the split?"
+        },
+        {
+          "id": "qs",
+          "type": "long_text",
+          "label": "What will you ask, and what will you thank them for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "review"
+        },
+        {
+          "field_id": "qs",
+          "plan_section": "review"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a date for the review."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a review time and your questions."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your look at the thinking behind the jobs is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your jobs, the unseen thinking, your owners and your review."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "jobs",
+      "title": "Household jobs"
+    },
+    {
+      "id": "unseen",
+      "title": "The thinking behind the jobs"
+    },
+    {
+      "id": "owners",
+      "title": "Who owns what"
+    },
+    {
+      "id": "review",
+      "title": "Your review"
+    }
+  ],
+  "finish": {
+    "summary": "You listed the household jobs and looked at the thinking behind them. You also agreed owners and planned a review.",
+    "book_bridge": "Splitting the Load at Home is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which job felt heavy this month?",
+      "Does the split still feel fair to both of you?"
+    ],
+    "refresher_ids": [
+      "p3_owners",
+      "p4_review"
+    ]
+  }
+}

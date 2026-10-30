@@ -14,9 +14,10 @@ function financeWorkbook(over: Partial<WorkbookV3Input> = {}): WorkbookV3Input {
     genre: "business",
     language: "en",
     spelling: "en-GB",
-    is_demo: true,
+    // Not a demo: a demo workbook is checked against the demo profile (demo.ts), which this generic fixture is not written to.
+    is_demo: false,
     depth: "first_unit",
-    badge: "demo",
+    badge: "official",
     safety_tier: "none",
     advice_guardrail: "not_legal_or_tax_advice",
     structure: { unit: "week", count: 2, free_units: 1 },

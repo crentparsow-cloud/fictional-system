@@ -1,0 +1,364 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-GS5DG",
+  "slug": "the-short-story-season-gs5dg",
+  "title": "The Short Story Season",
+  "card_line": "Draft, revise and finish three short stories and share one with a reader.",
+  "book": {
+    "book_id": "the-short-story-season",
+    "title": "The Short Story Season",
+    "subtitle": "Writing and Finishing Short Fiction"
+  },
+  "author": {
+    "author_id": "AU-ZM7E5",
+    "display_name": "Marisol Abernathy-Kwan"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "steady-writing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing short fiction and finishing it. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have an idea list, a character, a first scene and a plan to share a story with a reader. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What short story, read or imagined, has stayed with you? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Read like a writer and keep a list of ideas.",
+      "exercise_ids": [
+        "p1_ideas"
+      ],
+      "intro": "Short stories are built from choices, and you can see them if you read slowly. Ideas are easier to find when you have somewhere to put them. This part asks you to look closely at one story and start a list of your own ideas to draw on later.",
+      "ideas": [
+        {
+          "heading": "Reading a story twice shows you how it was made.",
+          "body": "The first time, read for pleasure. The second time, notice where it opens, where it turns and where it stops. Mark a line you admire and ask why it works. You are looking for choices you could make in your own writing, not rules."
+        },
+        {
+          "heading": "Ideas come from small, odd things you notice.",
+          "body": "A remark on a bus, a house with one lit window, a job someone did for forty years. Most stories begin with something small that will not leave you alone. Write it down before it fades. You do not need to know what it means yet."
+        },
+        {
+          "heading": "A short list of ideas beats waiting for a good one.",
+          "body": "Keep a page where every idea goes, however slight. When you sit down to write, you choose from the page instead of staring at nothing. Most entries will never be used. A few will turn out better than you expected."
+        }
+      ],
+      "takeaway": "Read slowly, notice what you admire, and write your ideas down in one place."
+    },
+    {
+      "number": 2,
+      "focus": "Build a character from a want, a fear and one telling detail.",
+      "exercise_ids": [
+        "p2_character"
+      ],
+      "intro": "Readers follow people, so a story needs someone worth following. A character can be sketched quickly with three things. This part also looks at where the story is set and who tells it. You will write a short sketch of one character you could use.",
+      "ideas": [
+        {
+          "heading": "A character who wants something gives the story a direction.",
+          "body": "The want can be small, such as getting home before the shop shuts or being asked to stay. What matters is that the character is trying. Once a want is clear, you can place obstacles in the way, and the story begins to move."
+        },
+        {
+          "heading": "A fear makes the character's choices harder.",
+          "body": "Someone who wants a promotion but dreads being noticed will behave in interesting ways. The fear need not be named in the story. You only need to know it. It explains why the character hesitates, avoids a person or says the wrong thing."
+        },
+        {
+          "heading": "One telling detail does more than a paragraph of description.",
+          "body": "A coat with the sleeves turned back, a habit of counting stairs, a cup that is never washed. Pick one detail that shows who the person is. Add a setting and a point of view, such as close third person, and the scene begins to take shape."
+        }
+      ],
+      "takeaway": "A want, a fear and one detail make a character. Choose where the story is set and who tells it."
+    },
+    {
+      "number": 3,
+      "focus": "Draft a first scene with a strong opening and clear dialogue.",
+      "exercise_ids": [
+        "p3_scene"
+      ],
+      "intro": "The first draft is where you find out what the story is. It will be rough, and that is expected. This part covers openings, dialogue and how to get through a draft without stopping to fix it. You will write the opening scene of a story using your sketch.",
+      "ideas": [
+        {
+          "heading": "Open close to the moment something changes.",
+          "body": "Start in the scene, not with background. A character arrives, a message comes, a door is found open. You can add context later in a line or two. An opening that begins near the change gives the reader a reason to carry on."
+        },
+        {
+          "heading": "Dialogue should move the story, not report information.",
+          "body": "People rarely say exactly what they mean. Let a character answer a different question, or go quiet. Cut greetings and small talk unless they show something. Each line of speech should push the scene forward or tell us about the speaker."
+        },
+        {
+          "heading": "Finish the draft before you fix it.",
+          "body": "Stopping to polish page one is a common way to never reach the end. Write on, even if a scene feels weak. Leave a note in brackets and carry on. A rough ending teaches you what the middle should have been."
+        }
+      ],
+      "takeaway": "Open near the change, keep dialogue moving, and get to the end of the draft before you revise."
+    },
+    {
+      "number": 4,
+      "focus": "Revise in two passes and share the story with one reader.",
+      "exercise_ids": [
+        "p4_reader"
+      ],
+      "intro": "A finished draft is the start of the work, not the end. Revising for shape comes before revising line by line. This part also covers choosing a reader and taking feedback. You will plan your first revision and name the person who will read your story.",
+      "ideas": [
+        {
+          "heading": "Revise for shape first, and for sentences second.",
+          "body": "On the first pass, look at scenes. Which can be cut, shortened or moved? Does the ending land? Only after that, read line by line. Polishing a sentence in a scene you later remove is wasted effort, so leave the fine detail for last."
+        },
+        {
+          "heading": "Cutting a scene you love is often the right call.",
+          "body": "A scene can be well written and still not belong. If the story reads the same without it, it can go. Save it in another file, so the loss feels smaller. You may find a place for it in a later story."
+        },
+        {
+          "heading": "A reader tells you what they felt, and you decide what to change.",
+          "body": "Ask one trusted person to read the story and say where they were bored, confused or moved. Do not argue. Thank them, then think it over. Take what rings true, and set aside the rest. The story stays yours, and so does every final choice about it."
+        }
+      ],
+      "takeaway": "Revise shape before sentences, cut what does not belong, and ask one reader what they felt."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_ideas",
+      "title": "Start your idea list",
+      "purpose": "Five ideas for stories and a note on one story you read.",
+      "why": "Write down five small things you have noticed lately that could start a story. A line is enough for each. Then name one short story you have read and one choice the writer made that you admired. If you are stuck, write one idea.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List five small things you noticed."
+        },
+        {
+          "text": "Name one choice you admired in a story."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ideas",
+          "type": "long_text",
+          "label": "What five small things could start a story?"
+        },
+        {
+          "id": "admired",
+          "type": "short_text",
+          "label": "What choice did a writer make that you admired?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ideas",
+          "plan_section": "ideas"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two ideas for stories."
+          }
+        ],
+        "field_ids": [
+          "ideas"
+        ]
+      },
+      "done_when": "You have at least one idea written down."
+    },
+    {
+      "id": "p2_character",
+      "title": "Sketch one character",
+      "purpose": "A want, a fear and one telling detail for a character.",
+      "why": "Choose one idea from your list and imagine the person at its centre. Write what they want, what they are afraid of and one small detail that shows who they are. Then say who tells the story and where it is set.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the want and the fear."
+        },
+        {
+          "text": "Add one telling detail."
+        },
+        {
+          "text": "Choose the setting and the narrator."
+        }
+      ],
+      "fields": [
+        {
+          "id": "want_fear",
+          "type": "short_text",
+          "label": "What does your character want, and what do they fear?"
+        },
+        {
+          "id": "detail",
+          "type": "short_text",
+          "label": "What one detail shows who they are?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "want_fear",
+          "plan_section": "character"
+        },
+        {
+          "field_id": "detail",
+          "plan_section": "character"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what your character wants."
+          }
+        ],
+        "field_ids": [
+          "want_fear"
+        ]
+      },
+      "done_when": "Your character has a want, a fear and a detail."
+    },
+    {
+      "id": "p3_scene",
+      "title": "Write the opening scene",
+      "purpose": "A short opening scene of a story.",
+      "why": "Set a timer for the time given and write the opening scene using your sketch. Begin close to the moment something changes. Include a few lines of speech. Do not stop to fix anything. If the words will not come, write the first sentence only.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Start near the moment of change."
+        },
+        {
+          "text": "Write a few lines of speech."
+        },
+        {
+          "text": "Keep going until time is up."
+        }
+      ],
+      "fields": [
+        {
+          "id": "scene",
+          "type": "long_text",
+          "label": "What happens in your opening scene?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "scene",
+          "plan_section": "draft"
+        }
+      ],
+      "short_version": {
+        "minutes": 3,
+        "steps": [
+          {
+            "text": "Write the first five sentences of the scene."
+          }
+        ],
+        "field_ids": [
+          "scene"
+        ]
+      },
+      "done_when": "You have an opening scene on the page, rough or not."
+    },
+    {
+      "id": "p4_reader",
+      "title": "Plan a revision and a reader",
+      "purpose": "One cut or move to try and the name of a reader.",
+      "why": "Look at your opening scene or an older draft. Decide one thing to cut, shorten or move. Then name the person you would ask to read the story, and the one question you would put to them.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one change to the draft."
+        },
+        {
+          "text": "Name a reader and your question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "revision",
+          "type": "short_text",
+          "label": "What one change will you make to the draft?"
+        },
+        {
+          "id": "reader",
+          "type": "short_text",
+          "label": "Who will read it, and what will you ask them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "revision",
+          "plan_section": "revision"
+        },
+        {
+          "field_id": "reader",
+          "plan_section": "revision"
+        }
+      ],
+      "done_when": "You have one revision and one reader chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your character sketch is saved and ready to write from."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your ideas, your character, your scene and your reader."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "ideas",
+      "title": "Ideas to draw on"
+    },
+    {
+      "id": "character",
+      "title": "Your character"
+    },
+    {
+      "id": "draft",
+      "title": "Your opening scene"
+    },
+    {
+      "id": "revision",
+      "title": "Revision and reader"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your ideas, your character, your opening scene and the reader you chose.",
+    "book_bridge": "The Short Story Season is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which story have you written or revised this month?",
+      "Which idea on your list is calling for a draft?",
+      "Who has read your work lately?"
+    ],
+    "refresher_ids": [
+      "p1_ideas",
+      "p4_reader"
+    ]
+  }
+}

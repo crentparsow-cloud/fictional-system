@@ -45,7 +45,7 @@ export function clampGoal(goal: number, max: number): number {
 const NOTICES: Record<string, string> = {
   saved: "Saved.",
   "run-on": "Saved. Your streak has started counting.",
-  "run-early": "The streak is offered after you have finished a few steps on a workbook outside the wellbeing shelves.",
+  "run-early": "The streak is offered after you have finished a few steps on a workbook outside the Mind and Mood shelf.",
   invalid: "That did not save. Please check the form and try again.",
   failed: "That did not save. Please try again.",
 };

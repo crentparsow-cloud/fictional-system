@@ -1,0 +1,364 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-D49C0",
+  "slug": "spreadsheets-for-the-kitchen-table-d49c0",
+  "title": "Spreadsheets for the Kitchen Table",
+  "card_line": "Build simple spreadsheets for your bills, meals and household jobs.",
+  "book": {
+    "book_id": "spreadsheets-for-the-kitchen-table",
+    "title": "Spreadsheets for the Kitchen Table",
+    "subtitle": "Simple Sheets for Home Life"
+  },
+  "author": {
+    "author_id": "AU-9WVE6",
+    "display_name": "Matilda Kershaw-Nguyen"
+  },
+  "genre": "life_skills",
+  "theme_id": "digital-ease",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about building simple spreadsheets for home life. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of household jobs, a sheet of bills, a meal planner and a way to share them. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a set of sheets you can read at the end."
+    ],
+    "why_prompt": "What would you like a spreadsheet to keep track of at home? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start with rows, columns and a list of household jobs",
+      "exercise_ids": [
+        "p1_jobs"
+      ],
+      "intro": "A spreadsheet is a grid for lists. Each row is one thing, and each column is one fact about it. This part gets you used to the grid. You build a list of the jobs in your home, a small task with an obvious use.",
+      "ideas": [
+        {
+          "heading": "A spreadsheet is a list with columns, nothing more.",
+          "body": "Each row holds one item, such as a job. Each column holds one kind of detail about it, such as who does it or how often. That is all the grid is. Once you see it as a tidy list, the rest of the tool is easier to approach."
+        },
+        {
+          "heading": "Put headings in the first row so you know what each column holds.",
+          "body": "Type a heading at the top of each column: job, who, how often, last done. Keep each heading short. Make the row bold if you like. With headings in place, you can read the sheet at a glance, and so can anyone else you share it with."
+        },
+        {
+          "heading": "Start with a list you already know, so the tool is the only new thing.",
+          "body": "Household jobs are a good first list. You know them all: bins, washing, shopping, the bathroom. You do not have to work out what to put in. You only learn how to type into cells and move around. That keeps the first attempt gentle."
+        }
+      ],
+      "takeaway": "A spreadsheet is a tidy list with headings. Start with something you already know well."
+    },
+    {
+      "number": 2,
+      "focus": "Add up your regular bills with simple sums",
+      "exercise_ids": [
+        "p2_bills"
+      ],
+      "intro": "Spreadsheets earn their place when they do the sums for you. This part builds a sheet of regular bills and shows you how to add them up. It uses only one or two simple formulas, and all of them can be typed in the same way.",
+      "ideas": [
+        {
+          "heading": "A sheet of bills shows the whole month in one place.",
+          "body": "List each regular bill in a row, with the name in one column and the amount in the next. Add a column for the date it is due. Seeing everything together tells you what the month costs, which is hard to hold in your head. Use estimates if you are not sure."
+        },
+        {
+          "heading": "The sum formula adds a column of numbers for you.",
+          "body": "Click the empty cell under your amounts and type an equals sign, then the word sum, then an open bracket. Drag across the numbers and close the bracket. Press enter. The total appears and stays right when you change a figure."
+        },
+        {
+          "heading": "Changing one figure updates the total, which is the real gain.",
+          "body": "When a bill goes up, type the new amount. The total changes by itself. You no longer redo the sum on paper. You can also add a row for a new subscription and see at once what it does to the month."
+        }
+      ],
+      "takeaway": "List the bills, add them with the sum formula and let the total update itself."
+    },
+    {
+      "number": 3,
+      "focus": "Plan meals and shopping with sorting and filters",
+      "exercise_ids": [
+        "p3_meals"
+      ],
+      "intro": "A meal planner and a shopping list fit well on a sheet. This part builds both. It then shows you two tools that save time: sorting a list into order, and filtering it to show only the rows you want. They make a long list quick to use.",
+      "ideas": [
+        {
+          "heading": "A meal planner can be seven rows and three columns.",
+          "body": "Put the days of the week down the side. Across the top write breakfast, lunch and supper. Fill in what you plan to eat. It is one small grid. You can see the whole week at once and spot a night with nothing planned."
+        },
+        {
+          "heading": "Sorting puts a long list into the order you want.",
+          "body": "Select your shopping list and choose sort from the menu. Sort by the shop aisle, or by name from A to Z. The rows rearrange themselves. This saves you copying the list out again. Make sure you select all the columns before you sort so the rows stay together."
+        },
+        {
+          "heading": "A filter hides the rows you do not need right now.",
+          "body": "Add a column for the shop, such as market or supermarket. Turn on the filter and choose one. Only those rows show. When you finish, clear the filter and everything returns. Nothing has been deleted, only hidden for a while."
+        }
+      ],
+      "takeaway": "A meal grid, a shopping list, a sort and a filter are enough to run a household week."
+    },
+    {
+      "number": 4,
+      "focus": "Share a sheet with your household and keep it tidy",
+      "exercise_ids": [
+        "p4_share"
+      ],
+      "intro": "A sheet is more useful when the people at home can see and add to it. This last part covers sharing a sheet, agreeing who changes what and keeping it tidy so it stays pleasant to use. You finish with a short set of rules for your own household.",
+      "ideas": [
+        {
+          "heading": "Sharing a sheet means everyone sees the same version.",
+          "body": "Use an online spreadsheet that lets you invite people by email. Everyone then opens the same file, and changes appear for all. There is no sending copies back and forth. Choose whether others can only look or can also edit."
+        },
+        {
+          "heading": "Agree who changes what, so the sheet stays reliable.",
+          "body": "Decide who adds to the shopping list and who updates the bills. Anyone may mark a job as done, but a few people keep the structure. This avoids the mix up where two people change the same cell. A short word at the table is enough."
+        },
+        {
+          "heading": "A tidy sheet has clear headings, one kind of fact per column and no clutter.",
+          "body": "Keep the date in one column and the amount in another, not mixed in one cell. Delete rows you no longer use. Use one or two colours, not ten. A sheet that is easy to read gets used. One that is messy gets ignored."
+        }
+      ],
+      "takeaway": "Share one version, agree who changes what and keep the sheet tidy so people use it."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_jobs",
+      "title": "Start a list of household jobs",
+      "purpose": "A list of household jobs with a heading for each column.",
+      "why": "Open a blank sheet. Type the headings job, who and how often across the top row. Then list the household jobs you can think of, one per row. Here, write the jobs you included. If you cannot get a sheet open, write the list on paper.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Open a sheet and type the three headings."
+        },
+        {
+          "text": "List the jobs, one per row."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Which household jobs are on your list?",
+          "columns": [
+            "Job",
+            "How often"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "jobs"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down three household jobs."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "You have at least three jobs listed."
+    },
+    {
+      "id": "p2_bills",
+      "title": "Build a sheet of bills",
+      "purpose": "A sheet of regular bills with a total at the bottom.",
+      "why": "On a new sheet, list your regular bills with an amount and a due date for each. Add the sum formula under the amounts. Here, write the bills you listed. Use rough figures if you do not know the exact ones.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List each bill with an amount and due date."
+        },
+        {
+          "text": "Add the sum formula under the amounts."
+        }
+      ],
+      "fields": [
+        {
+          "id": "bills",
+          "type": "two_column",
+          "label": "Which regular bills are on your sheet?",
+          "columns": [
+            "Bill",
+            "Amount and due date"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "bills",
+          "plan_section": "bills"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down two bills with rough amounts."
+          }
+        ],
+        "field_ids": [
+          "bills"
+        ]
+      },
+      "done_when": "You have two or more bills and a total."
+    },
+    {
+      "id": "p3_meals",
+      "title": "Make a meal and shopping sheet",
+      "purpose": "A week of meals in a grid and a shopping list you can sort.",
+      "why": "Make a grid with the days down the side and breakfast, lunch and supper across the top. Fill in a few meals. Then start a shopping list on a second tab and try sorting it. Here, write the meals you planned.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Make the grid and fill in some meals."
+        },
+        {
+          "text": "Start a shopping list and try a sort."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meals",
+          "type": "long_text",
+          "label": "What meals did you plan for the week?"
+        },
+        {
+          "id": "sort_try",
+          "type": "short_text",
+          "label": "How did sorting your list go?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meals",
+          "plan_section": "meals"
+        },
+        {
+          "field_id": "sort_try",
+          "plan_section": "meals"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down supper for three days."
+          }
+        ],
+        "field_ids": [
+          "meals"
+        ]
+      },
+      "done_when": "You have some meals planned and have tried a sort."
+    },
+    {
+      "id": "p4_share",
+      "title": "Agree how you will share it",
+      "purpose": "Three short rules for sharing your sheets at home.",
+      "why": "Think about who at home will use the sheets. Write who can add to the shopping list, who updates the bills and where the file is kept. Add one rule for keeping it tidy. If you live alone, write how you will keep it in order.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write who changes which sheet."
+        },
+        {
+          "text": "Write one rule for keeping it tidy."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who_changes",
+          "type": "short_text",
+          "label": "Who will change which sheet?"
+        },
+        {
+          "id": "tidy_rule",
+          "type": "short_text",
+          "label": "What is your one rule for keeping it tidy?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "who_changes",
+          "plan_section": "share"
+        },
+        {
+          "field_id": "tidy_rule",
+          "plan_section": "share"
+        }
+      ],
+      "done_when": "You have written who changes what and one rule."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your bills sheet is saved and ready to update."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your jobs, your bills, your meals and your sharing rules."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "jobs",
+      "title": "Your household jobs"
+    },
+    {
+      "id": "bills",
+      "title": "Your bills sheet"
+    },
+    {
+      "id": "meals",
+      "title": "Your meals and shopping"
+    },
+    {
+      "id": "share",
+      "title": "How you will share"
+    }
+  ],
+  "finish": {
+    "summary": "You started a list of household jobs and built a sheet of bills. You also made a meal and shopping sheet and agreed how to share them.",
+    "book_bridge": "Spreadsheets for the Kitchen Table is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which sheet did you use most this month?",
+      "What have you added or changed on your sheets?",
+      "Is there a new list at home that could go on a sheet?"
+    ],
+    "refresher_ids": [
+      "p2_bills",
+      "p4_share"
+    ]
+  }
+}

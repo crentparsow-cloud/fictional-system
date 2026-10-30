@@ -1,0 +1,401 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-EEG0Q",
+  "slug": "a-newsletter-people-look-forward-to-eeg0q",
+  "title": "A Newsletter People Look Forward To",
+  "card_line": "Write and send a monthly newsletter that your customers want to open.",
+  "book": {
+    "book_id": "a-newsletter-people-look-forward-to",
+    "title": "A Newsletter People Look Forward To",
+    "subtitle": "Email for Small Businesses, One Issue at a Time"
+  },
+  "author": {
+    "author_id": "AU-2D1J1",
+    "display_name": "Niamh Oyelaran-Byrne"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "business",
+  "theme_id": "wider-reach",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing a monthly email newsletter for a small business. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a reader in mind, a first issue, a subject line and a three-month plan. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who is the one customer you would most like to write to? A first name or a few words will do."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Decide who the newsletter is for and how they say yes",
+      "exercise_ids": [
+        "p1_reader"
+      ],
+      "intro": "A newsletter works best when you know who is reading. This part asks you to picture one customer, think about what they would like to hear, and decide how people agree to join your list. Getting this right first saves a lot of rewriting later.",
+      "ideas": [
+        {
+          "heading": "Write to one customer, not to everyone.",
+          "body": "Picture a real regular, perhaps someone who buys every week. Ask what they would like to know from you. A letter to one person sounds warmer than a notice to a crowd. Your other readers will recognise themselves in it, because they are mostly like that person."
+        },
+        {
+          "heading": "People should choose to hear from you, and say so clearly.",
+          "body": "Ask people before you add them. A sign at the till or a sign-up box online works well. Say what they will get and how often. Someone who chose to join is more likely to open your email. It also keeps you within the rules that apply to you."
+        },
+        {
+          "heading": "Readers want something useful before they want an offer.",
+          "body": "Think about what your customers would be glad to know: a new batch, a tip, a short story from the shop. Offers can sit at the end. If every issue opens with a sale, people learn to skip it. Lead with the useful part and your offer will be read with more goodwill."
+        }
+      ],
+      "takeaway": "Write to one real customer, ask permission before you add anyone, and give them something useful first."
+    },
+    {
+      "number": 2,
+      "focus": "Build a simple template and write your first issue",
+      "exercise_ids": [
+        "p2_issue"
+      ],
+      "intro": "A template removes the blank page. Once you have one, each issue is a matter of filling in the same few parts. This part asks you to choose a layout you can repeat and write a first issue in it. It does not need to be long or clever.",
+      "ideas": [
+        {
+          "heading": "A short, repeated layout is easier to write and easier to read.",
+          "body": "Choose three or four parts and keep them in the same order. For example, a short hello, one piece of news, one useful tip and a line about what is on sale. Readers settle into a familiar shape, and you stop wondering what to write each month."
+        },
+        {
+          "heading": "One story from the business beats five announcements.",
+          "body": "A small true story holds attention: a supplier visit, a mistake that turned out well, a regular who asked for something new. Keep it to a few short paragraphs. People remember the story and the person behind it, which is why they buy from you."
+        },
+        {
+          "heading": "Write it plainly, then read it aloud before sending.",
+          "body": "Use the words you would use across the counter. Short sentences are easier on a phone screen. Reading aloud shows you where it sounds stiff. Send a test copy to yourself first and check the links and spelling. Wait an hour, then look again before the real send."
+        }
+      ],
+      "takeaway": "Choose a short layout you can repeat, tell one real story, and read it aloud before you send."
+    },
+    {
+      "number": 3,
+      "focus": "Choose a subject line, one clear offer and plain unsubscribe wording",
+      "exercise_ids": [
+        "p3_hook"
+      ],
+      "intro": "Most people decide in a second whether to open an email. Once inside, they should know what you are asking. This part covers three small pieces: the subject line, a single offer and an easy way to leave the list.",
+      "ideas": [
+        {
+          "heading": "A good subject line says what is inside in plain words.",
+          "body": "Skip the tricks and capital letters. \"New seeded loaf on Thursday\" tells the reader exactly what to expect. Try two or three versions and pick the one you would open yourself. Keep it short enough to read on a phone without being cut off."
+        },
+        {
+          "heading": "Make one offer and make it easy to act on.",
+          "body": "Choose a single thing you want people to do, such as order a loaf or book a table. Say it once, near the end, with the details they need. Three offers in one email pull the reader three ways, and most do nothing."
+        },
+        {
+          "heading": "Make leaving your list easy and say so plainly.",
+          "body": "Add a clear line at the bottom saying how to stop receiving the emails. People who can leave without trouble think better of you. The rules on this differ by country, so check what applies to you. This workbook is not legal advice."
+        }
+      ],
+      "takeaway": "A plain subject line, one clear offer and an easy way out make an email easier to trust."
+    },
+    {
+      "number": 4,
+      "focus": "Plan three months of topics and protect the time to write",
+      "exercise_ids": [
+        "p4_plan"
+      ],
+      "intro": "A newsletter lives or dies on the second and third issue. Ideas run out and the month gets busy. This part asks you to list topics for the next three months. You also put writing time in your diary now, while you have the energy.",
+      "ideas": [
+        {
+          "heading": "Three months of topics can come from your own calendar.",
+          "body": "Look at what is coming: seasons, new stock, events, busy weeks. Each can give you a topic. Write one idea per issue and one spare. You will not use them exactly as planned, but you will never face a blank page."
+        },
+        {
+          "heading": "Writing time belongs in the diary like any other appointment.",
+          "body": "Pick a fixed slot, perhaps the first Tuesday morning of the month, and block out an hour. Give it the same weight as a delivery. If it is not in the diary, other jobs will take the time. Even forty-five quiet minutes is enough once the template exists."
+        },
+        {
+          "heading": "Look at what readers did, then adjust the next issue.",
+          "body": "After each send, check which subject lines were opened and which links were clicked. You are looking for hints, not exact answers, since the numbers will be small. Keep what people seem to like and drop what they ignore. Write one line on what you will try differently next time."
+        }
+      ],
+      "takeaway": "Plan three issues ahead and book the writing time now. Both make the second and third issue easier."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_reader",
+      "title": "Picture your reader",
+      "purpose": "One named reader, what they want to hear, and how they will join.",
+      "why": "Think of a regular customer you know well. Write who they are and what they would like to hear from you. Then decide how people will agree to join your list. If you cannot think of one person, pick the type.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one customer."
+        },
+        {
+          "text": "Write what they would like to hear."
+        },
+        {
+          "text": "Choose how people agree to join."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reader",
+          "type": "short_text",
+          "label": "Who is the one customer you are writing to, and what would they like to hear?"
+        },
+        {
+          "id": "signup",
+          "type": "short_text",
+          "label": "How will people agree to join your list?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "reader",
+          "plan_section": "reader"
+        },
+        {
+          "field_id": "signup",
+          "plan_section": "reader"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one customer and one thing they would like to read."
+          }
+        ],
+        "field_ids": [
+          "reader"
+        ]
+      },
+      "done_when": "You have one reader described and a way for people to join."
+    },
+    {
+      "id": "p2_issue",
+      "title": "Draft your first issue",
+      "purpose": "A first issue in four short parts, ready to read aloud.",
+      "why": "Choose your four parts and write a few lines for each. Use one true story from the business. Read it aloud once. If a part will not come, write a single sentence for it and move on.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your four parts in order."
+        },
+        {
+          "text": "Write a few lines for each."
+        },
+        {
+          "text": "Read it aloud and change what sounds stiff."
+        }
+      ],
+      "fields": [
+        {
+          "id": "layout",
+          "type": "short_text",
+          "label": "What are the four parts of your newsletter, in order?"
+        },
+        {
+          "id": "draft",
+          "type": "long_text",
+          "label": "Write your first issue in a few lines for each part."
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "layout",
+          "plan_section": "issue"
+        },
+        {
+          "field_id": "draft",
+          "plan_section": "issue"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the four parts of your layout."
+          }
+        ],
+        "field_ids": [
+          "layout"
+        ]
+      },
+      "done_when": "You have a draft with something written under each part."
+    },
+    {
+      "id": "p3_hook",
+      "title": "Write the subject and offer",
+      "purpose": "Three subject lines, one offer and one leaving line.",
+      "why": "Write three subject lines for your first issue and pick the one you would open. Then write your one offer in a sentence. Finish with a plain line telling readers how to leave the list.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three subject lines and pick one."
+        },
+        {
+          "text": "Write your single offer."
+        },
+        {
+          "text": "Write your line about leaving the list."
+        }
+      ],
+      "fields": [
+        {
+          "id": "subject",
+          "type": "short_text",
+          "label": "Which subject line would you open yourself?"
+        },
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "What is the one thing you want readers to do?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "subject",
+          "plan_section": "hook"
+        },
+        {
+          "field_id": "offer",
+          "plan_section": "hook"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one subject line for your first issue."
+          }
+        ],
+        "field_ids": [
+          "subject"
+        ]
+      },
+      "done_when": "You have a subject line, a single offer and a leaving line."
+    },
+    {
+      "id": "p4_plan",
+      "title": "Plan three months ahead",
+      "purpose": "Three topics and a writing slot in your diary.",
+      "why": "Look at the next three months and note what is coming up in the business. Write one topic for each issue. Then choose a fixed time to write and put it in your diary today.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one topic for each of three issues."
+        },
+        {
+          "text": "Pick a writing slot."
+        },
+        {
+          "text": "Put it in your diary."
+        }
+      ],
+      "fields": [
+        {
+          "id": "topics",
+          "type": "two_column",
+          "label": "What will each of the next three issues be about?",
+          "columns": [
+            "Month",
+            "Topic"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        },
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When will you write each month?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "topics",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "slot",
+          "plan_section": "plan"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one topic and one writing slot."
+          }
+        ],
+        "field_ids": [
+          "slot"
+        ]
+      },
+      "done_when": "You have three topics, or at least one, and a writing time chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first issue is saved and ready to polish."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your reader, your first issue and three months of topics."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "reader",
+      "title": "Your reader and how they join"
+    },
+    {
+      "id": "issue",
+      "title": "Your first issue"
+    },
+    {
+      "id": "hook",
+      "title": "Subject line and offer"
+    },
+    {
+      "id": "plan",
+      "title": "Three months of topics"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your reader, your first issue, your subject line and your three months of topics.",
+    "book_bridge": "This newsletter workbook is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which issue went out this month, and what did readers do with it?",
+      "Which topic is next, and is it still the right one?",
+      "Has your writing slot held, and does it need to move?"
+    ],
+    "refresher_ids": [
+      "p2_issue",
+      "p4_plan"
+    ]
+  }
+}

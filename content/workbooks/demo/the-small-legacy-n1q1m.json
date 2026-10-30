@@ -1,0 +1,363 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-N1Q1M",
+  "slug": "the-small-legacy-n1q1m",
+  "title": "The Small Legacy",
+  "card_line": "Write a short legacy page of your values, stories and a skill to pass on.",
+  "book": {
+    "book_id": "the-small-legacy",
+    "title": "The Small Legacy",
+    "subtitle": "Values, Stories and What You Pass On"
+  },
+  "author": {
+    "author_id": "AU-WE3ZY",
+    "display_name": "Theodora Valdez-Brennan"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "personal_development",
+  "theme_id": "living-with-purpose",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing a short legacy page of your values, your stories and a skill to pass on. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a page you can keep or give away. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "This workbook does not cover wills, money or end of life plans. For those, speak to a solicitor or an advice service.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What is something you learned from an older person that you still use? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice what you picked up from the people before you.",
+      "exercise_ids": [
+        "p1_inherit"
+      ],
+      "intro": "Much of what you do came from someone else. A saying, a way of folding towels, a rule about visiting. This part asks you to look at what you inherited. You will choose a few things you are glad to have, and say where they came from.",
+      "ideas": [
+        {
+          "heading": "Most of us carry sayings and habits we never chose.",
+          "body": "Think of the phrases you use and the routines you follow. Many came from a parent, a teacher or an early boss. You do not need to keep them all. Noticing where they came from is the first step. Write them down."
+        },
+        {
+          "heading": "Some of what you inherited is worth keeping on purpose.",
+          "body": "Choose a few that you are glad of. A way of welcoming guests, a respect for tidy tools, a habit of writing thank you notes. Keeping something on purpose is different from keeping it by default. It becomes yours. Say why each one matters to you."
+        },
+        {
+          "heading": "Small things tell more than big speeches.",
+          "body": "A short saying often carries a whole way of living. Write down the exact words if you can remember them. Add who said them and when. These small details are what people remember about those they loved. Anyone who knew you would recognise yours."
+        }
+      ],
+      "takeaway": "Notice what you inherited, and choose a few things to keep on purpose."
+    },
+    {
+      "number": 2,
+      "focus": "Pick three stories from your life that are worth telling.",
+      "exercise_ids": [
+        "p2_stories"
+      ],
+      "intro": "You have been present for many things that nobody else saw. Some of them would be of interest to people you love. This part asks you to choose three stories from your own life, and to note in a line or two what each is about.",
+      "ideas": [
+        {
+          "heading": "Your ordinary stories are worth telling.",
+          "body": "A first job, a long bus ride, a wrong turn that led somewhere good. You may think they are too small. To someone who knows you, small stories are often the best. Do not wait for something grand. Pick the ones that make you smile."
+        },
+        {
+          "heading": "A good story to pass on has a point, even a small one.",
+          "body": "It might show how you handled a mistake, or why you made a hard choice. Ask what you would want a listener to take from it. You do not have to say it out loud. Knowing it helps you tell it well."
+        },
+        {
+          "heading": "Three stories are enough for a start.",
+          "body": "Choose one that is funny, one that is hard-won and one that shows what you value. Give each a short title. You can add more later. Having three ready means you can tell one when someone asks. Say them aloud once to hear how they sound."
+        }
+      ],
+      "takeaway": "Choose three stories from your own life and give each a short title."
+    },
+    {
+      "number": 3,
+      "focus": "Name a skill you could teach and the values behind your choices.",
+      "exercise_ids": [
+        "p3_skill"
+      ],
+      "intro": "Passing something on is not only about stories. You may know how to do something well, and someone may want to learn. This part asks you to name one skill and who might like it. You will also write the values behind your choices in your own words.",
+      "ideas": [
+        {
+          "heading": "You know how to do something that someone else would like to learn.",
+          "body": "It might be baking bread, mending a fence, filling in a form or staying calm on a long drive. Think of what people ask you for. That is a clue. Name one skill and one person who might want it."
+        },
+        {
+          "heading": "Teaching a skill is a way of spending time together.",
+          "body": "Showing someone how to do a thing gives you both something to do with your hands. It need not be formal. Ask if they would like to try, and offer a time. Most people are glad to be asked. It might be a short visit or a call."
+        },
+        {
+          "heading": "Values show up in the choices you make.",
+          "body": "Look at a few choices you are proud of and ask what they say about you. Honesty, patience, fairness, hard work. Write them in your own words, not borrowed ones. A value you can explain in one sentence is one you can pass on."
+        }
+      ],
+      "takeaway": "Name one skill and one learner, and write your values in your own words."
+    },
+    {
+      "number": 4,
+      "focus": "Share something this week and write a short legacy page.",
+      "exercise_ids": [
+        "p4_page"
+      ],
+      "intro": "Passing something on works best when you actually do it. This part asks you to share one story or skill with someone this week. Then you put what you have gathered onto a single page to keep or give away. It can be as short as you like.",
+      "ideas": [
+        {
+          "heading": "Share one thing soon, while it is on your mind.",
+          "body": "Tell a story over a meal or offer to show a skill. Keep it light. You do not need to announce it as a lesson. The sharing matters more than the polish, and you will learn how it feels. A small start is plenty."
+        },
+        {
+          "heading": "A single page is easier to keep and to hand on.",
+          "body": "Put your sayings, your three stories, one skill and your values on one sheet. Use short lines. A page will be read, and a long document may sit in a drawer. Date it, and sign it if you like. Leave space for a few notes at the bottom."
+        },
+        {
+          "heading": "You can keep the page or give it away.",
+          "body": "Some people tuck it in a notebook, others give it to a family member or a friend. Neither is wrong. You can also change it later. A legacy page is not a final word. It is a record of what you care about now."
+        }
+      ],
+      "takeaway": "Share one thing this week, then put what you value on a single page."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_inherit",
+      "title": "List what you inherited",
+      "purpose": "Three sayings or habits you picked up, and where each came from.",
+      "why": "Think of the people who shaped you. Write three sayings, habits or ways of doing things you picked up from them. Next to each, write who it came from. If only one comes to mind, write that one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three things you picked up."
+        },
+        {
+          "text": "Note who each came from."
+        }
+      ],
+      "fields": [
+        {
+          "id": "inherited",
+          "type": "two_column",
+          "label": "What did you pick up, and from whom?",
+          "columns": [
+            "The saying or habit",
+            "Who it came from"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "inherited",
+          "plan_section": "inherited"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one saying and who said it."
+          }
+        ],
+        "field_ids": [
+          "inherited"
+        ]
+      },
+      "done_when": "You have at least one thing and where it came from."
+    },
+    {
+      "id": "p2_stories",
+      "title": "Choose three stories",
+      "purpose": "Three stories with a short title and a line about each.",
+      "why": "Pick three stories from your own life. Give each a short title. Write one line on what each is about, and what you would want a listener to take from it. Small stories count.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose three stories."
+        },
+        {
+          "text": "Title each one."
+        },
+        {
+          "text": "Write a line about each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "stories",
+          "type": "long_text",
+          "label": "What are your three stories, with a title and a line each?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "stories",
+          "plan_section": "stories"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one story title and a line."
+          }
+        ],
+        "field_ids": [
+          "stories"
+        ]
+      },
+      "done_when": "You have three titles, or at least one."
+    },
+    {
+      "id": "p3_skill",
+      "title": "Name a skill and your values",
+      "purpose": "One skill, one learner and your values in a few words.",
+      "why": "Name one skill you could teach and one person who might like to learn it. Then write three values that sit behind your choices, in your own words. If a value is hard to name, describe a choice you are proud of.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name a skill and a learner."
+        },
+        {
+          "text": "Write three values."
+        }
+      ],
+      "fields": [
+        {
+          "id": "skill",
+          "type": "short_text",
+          "label": "What skill could you teach, and to whom?"
+        },
+        {
+          "id": "values",
+          "type": "short_text",
+          "label": "What three values sit behind your choices?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "skill",
+          "plan_section": "skill"
+        },
+        {
+          "field_id": "values",
+          "plan_section": "skill"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one skill you could teach."
+          }
+        ],
+        "field_ids": [
+          "skill"
+        ]
+      },
+      "done_when": "You have a skill, a learner and your values."
+    },
+    {
+      "id": "p4_page",
+      "title": "Write your legacy page",
+      "purpose": "A short page of sayings, stories, a skill and your values.",
+      "why": "Gather what you have written into a short page. Choose one thing to share this week and say who with. Then write the first lines of your page. Keep it short. You can add to it any time.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one thing to share this week."
+        },
+        {
+          "text": "Write the first lines of your page."
+        }
+      ],
+      "fields": [
+        {
+          "id": "share",
+          "type": "short_text",
+          "label": "What will you share this week, and with whom?"
+        },
+        {
+          "id": "page",
+          "type": "long_text",
+          "label": "What are the first lines of your legacy page?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "share",
+          "plan_section": "page"
+        },
+        {
+          "field_id": "page",
+          "plan_section": "page"
+        }
+      ],
+      "done_when": "You have something to share and the start of a page."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your three stories are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you inherited, your stories, your skill and the start of your page."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "inherited",
+      "title": "What you picked up"
+    },
+    {
+      "id": "stories",
+      "title": "Your three stories"
+    },
+    {
+      "id": "skill",
+      "title": "Skill and values"
+    },
+    {
+      "id": "page",
+      "title": "Your legacy page"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you inherited, your stories, your skill and values, and the start of your page.",
+    "book_bridge": "The Small Legacy is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which story have you told this month?",
+      "Has anyone asked to learn your skill?",
+      "What would you add to your page now?"
+    ],
+    "refresher_ids": [
+      "p2_stories",
+      "p4_page"
+    ]
+  }
+}

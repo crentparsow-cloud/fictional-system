@@ -16,6 +16,7 @@ import { NUDGE_BUTTONS, TALK_IT_OVER_NOTE, nudgeChoices, nudgeText, pollDelayMs,
  */
 interface Flags {
   friendFinishedToday: boolean;
+  friendFinishedThisWeek: boolean;
   iFinishedToday: boolean;
   nudgeSentToday: boolean;
   nudgeCode: PairView["nudgeCode"];
@@ -24,6 +25,7 @@ interface Flags {
 export function FriendStrip({ pair, justFinished, stepNumber }: { pair: PairView; justFinished: boolean; stepNumber: number }) {
   const [flags, setFlags] = useState<Flags>({
     friendFinishedToday: pair.friendFinishedToday,
+    friendFinishedThisWeek: pair.friendFinishedThisWeek ?? false,
     iFinishedToday: pair.iFinishedToday,
     nudgeSentToday: pair.nudgeSentToday,
     nudgeCode: pair.nudgeCode,
@@ -38,7 +40,7 @@ export function FriendStrip({ pair, justFinished, stepNumber }: { pair: PairView
       if (!res.ok) return;
       const body = (await res.json()) as { pairs?: (Flags & { pairId: string })[] };
       const mine = body.pairs?.find((p) => p.pairId === pair.pairId);
-      if (mine) setFlags({ friendFinishedToday: mine.friendFinishedToday, iFinishedToday: mine.iFinishedToday, nudgeSentToday: mine.nudgeSentToday, nudgeCode: mine.nudgeCode });
+      if (mine) setFlags({ friendFinishedToday: mine.friendFinishedToday, friendFinishedThisWeek: mine.friendFinishedThisWeek === true, iFinishedToday: mine.iFinishedToday, nudgeSentToday: mine.nudgeSentToday, nudgeCode: mine.nudgeCode });
     } catch {
       // offline: the next check tries again
     }
@@ -118,7 +120,7 @@ export function FriendStrip({ pair, justFinished, stepNumber }: { pair: PairView
   return (
     <aside className="card friend-strip" aria-label={`Doing this with ${pair.label}`}>
       <p>
-        <strong>With {pair.label}.</strong> <span role="status">{statusLine({ label: pair.label, friendFinishedToday: flags.friendFinishedToday })}</span>
+        <strong>With {pair.label}.</strong> <span role="status">{statusLine({ label: pair.label, friendFinishedToday: flags.friendFinishedToday, friendPace: pair.friendPace, friendFinishedThisWeek: flags.friendFinishedThisWeek })}</span>
       </p>
       {flags.nudgeCode ? <p className="friend-nudge">{nudgeText(flags.nudgeCode, pair.label)}</p> : null}
       {flags.nudgeSentToday ? (

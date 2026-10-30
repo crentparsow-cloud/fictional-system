@@ -29,7 +29,7 @@ export interface FinishScreenProps {
  */
 export function FinishScreen({ workbook: doc, onOpenKeepGoing, onOpenPlan, buyHref, buyNote, extra, onFinished, finished }: FinishScreenProps) {
   const count = doc.structure.count;
-  const unitWord = { week: "weeks", day: "days", module: "modules", chapter: "chapters" }[doc.structure.unit];
+  const unitWord = { week: "weeks", day: "days", module: "modules", chapter: "chapters", part: "parts" }[doc.structure.unit];
   return (
     <section className="ak-screen ak-finish">
       <header>

@@ -7,7 +7,7 @@ import { Marginalia, type MarginItem } from "./Marginalia";
 import { ShortcutSheet } from "./ShortcutSheet";
 import { ThenNowCard } from "./ThenNowCard";
 import { useFocusMode } from "./useFocusMode";
-import { useParagraphs } from "./useParagraphs";
+import { isShown, useParagraphs } from "./useParagraphs";
 import {
   COLOUR_NAMES,
   MARK_COLOURS,
@@ -122,7 +122,9 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
 
   const { placed } = useMemo(() => placeMarks(marks, scan.paras), [marks, scan.paras]);
   // A marker on a paragraph that has left the screen simply shows nowhere.
-  const activePara = scan.paras.find((p) => p.ref === active && p.visible) ?? null;
+  // Visibility is checked now, not taken from when the screen was read, so a
+  // paragraph that appeared later can still be marked.
+  const activePara = scan.paras.find((p) => p.ref === active && isShown(p.el)) ?? null;
   const editingNow = editing && activePara !== null;
   const activeMark = activePara ? (placed.get(activePara.ref) ?? null) : null;
 
@@ -152,7 +154,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
       const box = stage.current?.getBoundingClientRect();
       if (!box) return;
       const tops = new Map<string, number>();
-      for (const p of scan.paras) if (p.visible) tops.set(p.ref, p.el.getBoundingClientRect().top - box.top);
+      for (const p of scan.paras) if (isShown(p.el)) tops.set(p.ref, p.el.getBoundingClientRect().top - box.top);
       const barTop = activePara ? activePara.el.getBoundingClientRect().bottom - box.top + 6 : 0;
       setLayout((prev) => (prev.barTop === barTop && prev.tops.size === tops.size && [...tops].every(([k, v]) => Math.abs((prev.tops.get(k) ?? -1) - v) < 1) ? prev : { tops, barTop }));
     };
@@ -222,7 +224,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
   const highlight = useCallback(
     (c: MarkColour = colour) => {
       if (readOnly) return say("Your account is read only, so nothing can be added.");
-      if (!activePara) return say("Press the down arrow to choose a paragraph first.");
+      if (!activePara) return say(scan.paras.length ? "Press the down arrow or tap a paragraph to choose one first." : "There is nothing to highlight on this screen.");
       const existing = placed.get(activePara.ref) ?? null;
       const move = highlightMove(existing, c);
       setColour(c);
@@ -236,7 +238,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
       void commit(activePara.ref, move === "add" ? mine(activePara, c) : { ...existing!, colour: c }, existing);
       say(`Highlighted in ${COLOUR_NAMES[c].toLowerCase()}.`);
     },
-    [activePara, colour, commit, mine, placed, readOnly, say],
+    [activePara, colour, commit, mine, placed, readOnly, say, scan.paras.length],
   );
 
   const openNote = useCallback(() => {
@@ -277,9 +279,9 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
   }, [commit, say, trail]);
 
   // ---- the marker --------------------------------------------------------
-  const visible = useMemo(() => scan.paras.filter((p) => p.visible), [scan.paras]);
   const step1 = useCallback(
     (by: 1 | -1) => {
+      const visible = scan.paras.filter((p) => isShown(p.el));
       if (!visible.length) return;
       const now = visible.findIndex((p) => p.ref === active);
       const to = moveMarker(now, visible.length, by);
@@ -290,7 +292,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
       p.el.scrollIntoView({ block: "center", behavior: prefersCalm() ? "auto" : "smooth" });
       say(`Paragraph ${to + 1} of ${visible.length}. ${p.text.slice(0, 80)}${p.text.length > 80 ? "..." : ""}`);
     },
-    [active, say, visible],
+    [active, say, scan.paras],
   );
 
   const run = useCallback(
@@ -348,7 +350,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
       if (!t || t.closest("a, button, input, textarea, select, label, summary, .rd-toolbar, .rd-margin")) return;
       if (window.getSelection()?.toString()) return;
       const el = t.closest<HTMLElement>("[data-ra]");
-      const p = el ? scan.paras.find((x) => x.el === el && x.visible) : null;
+      const p = el && isShown(el) ? scan.paras.find((x) => x.el === el) : null;
       if (p) {
         setActive((cur) => (cur === p.ref ? null : p.ref));
         setEditing(false);
@@ -435,7 +437,7 @@ export function ReadingTools({ enrolmentId, readOnly, title, stage }: Props) {
   const noteItems: MarginItem[] = useMemo(
     () =>
       scan.paras
-        .filter((p) => p.visible && placed.get(p.ref)?.note)
+        .filter((p) => isShown(p.el) && placed.get(p.ref)?.note)
         .map((p) => ({ mark: placed.get(p.ref)!, top: layout.tops.get(p.ref) ?? 0 })),
     [scan.paras, placed, layout.tops],
   );

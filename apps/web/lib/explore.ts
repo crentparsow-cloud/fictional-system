@@ -80,7 +80,7 @@ export function programmeWeeks(card: Pick<LibraryCard, "unitCount" | "unitKind">
   const n = card.unitCount;
   if (typeof n !== "number" || !Number.isFinite(n) || n < 1) return null;
   if (card.unitKind === "day") return Math.ceil(n / 7);
-  if (card.unitKind === "module" || card.unitKind === "chapter") return null;
+  if (card.unitKind === "module" || card.unitKind === "chapter" || card.unitKind === "part") return null;
   return n;
 }
 

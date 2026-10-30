@@ -1,0 +1,370 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-WPFW3",
+  "slug": "keeping-track-of-dads-care-wpfw3",
+  "title": "Keeping Track of Dad's Care",
+  "card_line": "Set up one care folder and share the jobs with the people around you.",
+  "book": {
+    "book_id": "keeping-track-of-dads-care",
+    "title": "Keeping Track of Dad's Care",
+    "subtitle": "Appointments, Paperwork and Help From Others"
+  },
+  "author": {
+    "author_id": "AU-12VRG",
+    "display_name": "Rukhsana Begum-Thornley"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "life_skills",
+  "theme_id": "caring-hands",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about keeping track of a parent's care. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a care folder, a weekly check and a fairer share of jobs. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the one piece of paper you wish you could find right now? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday caring situations. If using it would put you or your parent at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See what care looks like now and who does each part",
+      "exercise_ids": [
+        "p1_jobs"
+      ],
+      "intro": "Care is made of many small jobs, and most go unnoticed until one is missed. This part asks you to write them down and to note who does each one at the moment. It is a picture of today, with no judgement about who does too much or too little.",
+      "ideas": [
+        {
+          "heading": "Care is a list of jobs, and writing the list makes it visible.",
+          "body": "Think of medicines, appointments, shopping, post, meals, lifts, bills and company. Each one is a job with someone's name beside it, even if that name is yours. Seeing the full list can be a surprise. It also shows which jobs are quietly done by one person and which are shared."
+        },
+        {
+          "heading": "Most of the jobs sit with one person by default, not by choice.",
+          "body": "It often starts with one favour and grows. The person nearest, or the one who said yes first, ends up with most of it. Nobody decided it. Naming this is not a complaint. It is a starting point for a fairer split later in the workbook."
+        },
+        {
+          "heading": "Your parent's own part in the list is worth noting too.",
+          "body": "What can your parent still do for themselves, or like to do? Keeping those jobs with them matters for their sense of control. Write them on the list. A fair picture of the care includes what your parent does, as well as what everyone else does."
+        }
+      ],
+      "takeaway": "Care is many small jobs, and most sit with one person by default. A written list is where a fairer split begins."
+    },
+    {
+      "number": 2,
+      "focus": "Keep contacts, appointments and letters in one folder and check it weekly",
+      "exercise_ids": [
+        "p2_folder"
+      ],
+      "intro": "Care produces paper: letters, appointment cards, phone numbers and forms. When it is scattered, each question means a search. This part sets up one folder, a ten-minute weekly look at it, and a short list of questions to take to appointments.",
+      "ideas": [
+        {
+          "heading": "One folder in one place saves searching when something arrives.",
+          "body": "A box file, a ring binder or one folder on a phone all work. Add sections for contacts, appointments, letters and medicines. Everything about the care goes there and nowhere else. Tell the people who help where it lives. Then anyone can find the number or the letter when you are not there."
+        },
+        {
+          "heading": "Ten minutes once a week is enough to keep the folder up to date.",
+          "body": "Pick a set slot, perhaps Sunday evening. Open the post pile, file what matters and look at the diary for the coming week. Write down anything that needs a reply. Because it is short and fixed, it is easier to do than a big sort-out once a quarter."
+        },
+        {
+          "heading": "Questions written before an appointment get fuller answers than questions remembered in the room.",
+          "body": "Write three questions on a card the day before. At the appointment, note the answers in a line or two, with the date. Put the card in the folder. If a health matter is unclear, ask the care team to explain it again."
+        }
+      ],
+      "takeaway": "One folder and ten minutes a week keep the paper under control. Write questions before appointments and note the answers after."
+    },
+    {
+      "number": 3,
+      "focus": "Ask the people around you for specific help",
+      "exercise_ids": [
+        "p3_ask"
+      ],
+      "intro": "Many carers do far more than anyone realises, partly because nobody has been asked. Brothers, sisters, friends and neighbours often want to help but do not know how. This part turns your list of jobs into particular requests. You choose one job and one person.",
+      "ideas": [
+        {
+          "heading": "A named job for a named person gets a clearer answer than a general plea.",
+          "body": "Say \"Could you take Dad to his appointment on the fourth?\" instead of \"I could do with more help\". The first is a question with an answer. Pick jobs that suit the person: a driver, a phone call, a form to fill in. Offer to show them where the folder is."
+        },
+        {
+          "heading": "People who live far away can still take a job that suits distance.",
+          "body": "A sibling in another city can phone the pharmacy, book a taxi or read through a form. Jobs that need a screen or a phone do not need a car. Give them a task with an end, and a date. They are often glad to have something concrete to do."
+        },
+        {
+          "heading": "Accepting help done differently from how you would do it is part of sharing.",
+          "body": "Someone else will not file the post your way. If the job gets done safely, let it be theirs. Correcting every detail soon ends the offers. Say thank you, and note in the folder what they did. A shared job is only shared when someone else really holds it."
+        }
+      ],
+      "takeaway": "Ask one named person for one named job. Let them do it their way, and write it in the folder."
+    },
+    {
+      "number": 4,
+      "focus": "Add money, wishes and a backup plan to the folder",
+      "exercise_ids": [
+        "p4_backup"
+      ],
+      "intro": "Some papers matter more than others: money, forms and what your parent wants for their own care. This part gives each a place in the folder. It adds a one-page plan for days when you cannot be there. It points to official guidance and does not give advice.",
+      "ideas": [
+        {
+          "heading": "Official guidance for money and forms is the place to start, not guesswork.",
+          "body": "Rules on benefits, care funding and power of attorney differ between countries and change over time. Look for the official government pages for your country and keep a note of what you find. Add a list of the forms already filed. This workbook does not give legal or tax advice."
+        },
+        {
+          "heading": "Asking your parent what they want, while they can say, is a kindness.",
+          "body": "Choose a calm moment. Ask what matters to them about their care and where they would like to be looked after. Listen more than you talk. Write down what they say in their own words and add it to the folder. It is a conversation you can return to."
+        },
+        {
+          "heading": "A backup plan on one page covers the day you cannot be there.",
+          "body": "Illness, work or travel can take you away without notice. Write who to call, where the keys and medicines are, and what a usual day looks like. Tell two people it exists. With it in the folder, someone else can step in without ringing you for every detail."
+        }
+      ],
+      "takeaway": "Use official guidance for money and forms. Ask your parent what they want, and keep a one-page backup plan in the folder."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_jobs",
+      "title": "List jobs and who does them",
+      "purpose": "A list of care jobs with a name beside each one.",
+      "why": "Write down the jobs that make up your parent's care this week. Put a name beside each one, including your parent where it fits. Cover appointments, medicines, post and shopping if you can. Ten lines is plenty. If a job has no name yet, leave it blank.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write down the care jobs."
+        },
+        {
+          "text": "Put a name beside each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Which jobs make up your parent's care, and who does each?",
+          "columns": [
+            "The job",
+            "Who does it"
+          ],
+          "min_items": 1,
+          "max_items": 10
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "picture"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three jobs and who does them."
+          }
+        ],
+        "field_ids": [
+          "jobs"
+        ]
+      },
+      "done_when": "You have at least three jobs with names beside them."
+    },
+    {
+      "id": "p2_folder",
+      "title": "Set up your care folder",
+      "purpose": "A place for the folder and a time for your weekly check.",
+      "why": "Choose where the folder will live and give it four sections: contacts, appointments, letters and questions. Put in two things you already have. Then pick a time for a ten-minute check once a week. If a folder feels like too much, start with one sheet of paper.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a place and four sections."
+        },
+        {
+          "text": "Pick a time for the weekly check."
+        }
+      ],
+      "fields": [
+        {
+          "id": "where",
+          "type": "short_text",
+          "label": "Where will the care folder live?"
+        },
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When will you do your ten-minute check?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "where",
+          "plan_section": "folder"
+        },
+        {
+          "field_id": "slot",
+          "plan_section": "folder"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write where the folder will live."
+          }
+        ],
+        "field_ids": [
+          "where"
+        ]
+      },
+      "done_when": "You have a place for the folder and a time for the check."
+    },
+    {
+      "id": "p3_ask",
+      "title": "Ask for one specific job",
+      "purpose": "One job, one person and the words you will use to ask.",
+      "why": "Choose one job from your list that someone else could take. Pick the person who suits it. Write the sentence you will use to ask, with a day or date in it. If asking feels hard today, write the sentence and leave it for later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a job and a person."
+        },
+        {
+          "text": "Write the sentence you will say."
+        }
+      ],
+      "fields": [
+        {
+          "id": "job",
+          "type": "short_text",
+          "label": "Which job could someone else take, and who?"
+        },
+        {
+          "id": "words",
+          "type": "short_text",
+          "label": "How will you ask? Write the sentence."
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "job",
+          "plan_section": "share"
+        },
+        {
+          "field_id": "words",
+          "plan_section": "share"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one job and one name."
+          }
+        ],
+        "field_ids": [
+          "job"
+        ]
+      },
+      "done_when": "You have a job, a name and a sentence ready to use."
+    },
+    {
+      "id": "p4_backup",
+      "title": "Write your one-page backup",
+      "purpose": "A backup note covering who to call and what a usual day looks like.",
+      "why": "On one sheet, write the people to call, where key things are kept and the basics of a usual day. Add one line on what your parent has told you they want. Put it in the folder. If a section is hard to fill in, leave a gap.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write who to call and where things are."
+        },
+        {
+          "text": "Add one line on what your parent wants."
+        }
+      ],
+      "fields": [
+        {
+          "id": "backup",
+          "type": "long_text",
+          "label": "Who should be called, and what does a usual day look like?"
+        },
+        {
+          "id": "wishes",
+          "type": "short_text",
+          "label": "What has your parent told you matters most?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "backup",
+          "plan_section": "backup"
+        },
+        {
+          "field_id": "wishes",
+          "plan_section": "backup"
+        }
+      ],
+      "done_when": "You have one page in the folder that someone else could use."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your folder plan is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your folder, your ask and your backup page."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "picture",
+      "title": "The care jobs"
+    },
+    {
+      "id": "folder",
+      "title": "Your folder"
+    },
+    {
+      "id": "share",
+      "title": "Sharing the jobs"
+    },
+    {
+      "id": "backup",
+      "title": "Your backup page"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds the care jobs, your folder, the help you will ask for and your backup page.",
+    "book_bridge": "Keeping Track of Dad's Care is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which paper was hardest to find this month?",
+      "Who took on a job, and who could take the next one?",
+      "Is your backup page still up to date?"
+    ],
+    "refresher_ids": [
+      "p2_folder",
+      "p4_backup"
+    ]
+  }
+}

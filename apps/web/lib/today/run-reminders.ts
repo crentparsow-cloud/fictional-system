@@ -1,5 +1,6 @@
 import { gapDue, PICKUP_GAP_DAYS } from "@/lib/today/gap";
 import { nameStep, oneProgrammePerReader, reminderAction, reminderDue, reminderKey, stoppingKey, welcomeBackKey, DEFAULT_STOP_AFTER, type StepNaming } from "@/lib/today/reminders";
+import { reminderAllowedByPace, type Pace } from "@/lib/pace";
 import type { ProgrammeStep } from "@/lib/today/steps";
 import type { UnitWord } from "@/lib/today/week";
 
@@ -27,6 +28,30 @@ export interface ReminderTarget {
   time: string;
   timeZone: string;
   pickupOn: boolean | null;
+  /**
+   * The pace and the local days it reads (0069). Left out, the target keeps
+   * the reminder days alone, as before pace existed.
+   */
+  pace?: Pace;
+  lastStepDay?: string | null;
+  stepsInLastWeek?: number;
+  lastReminderDay?: string | null;
+  lastActiveDay?: string | null;
+}
+
+/** True when the reader's pace lets a reminder go on this local day. */
+export function paceAllows(target: ReminderTarget, localDate: string): boolean {
+  if (!target.pace) return true;
+  return reminderAllowedByPace(
+    {
+      pace: target.pace,
+      lastFinishedDay: target.lastStepDay ?? null,
+      finishedInThatWeek: target.stepsInLastWeek ?? 0,
+      lastReminderDay: target.lastReminderDay ?? null,
+      lastActiveDay: target.lastActiveDay ?? null,
+    },
+    localDate,
+  );
 }
 
 export interface StepContext {
@@ -76,7 +101,8 @@ export async function runReminders(deps: RunDeps): Promise<ReminderCounts> {
   const due: { target: ReminderTarget; localDate: string }[] = [];
   for (const target of all) {
     const d = reminderDue({ enabled: true, days: target.days, time: target.time, timeZone: target.timeZone }, deps.now);
-    if (d.due) due.push({ target, localDate: d.localDate });
+    // On the reader's own days and time, and then only on a day their pace suggests a part.
+    if (d.due && paceAllows(target, d.localDate)) due.push({ target, localDate: d.localDate });
     else counts.not_due += 1;
   }
 

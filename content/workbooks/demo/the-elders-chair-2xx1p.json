@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-2XX1P",
+  "slug": "the-elders-chair-2xx1p",
+  "title": "The Elder's Chair",
+  "card_line": "Run a listening round each week and make decisions people can follow.",
+  "book": {
+    "book_id": "the-elders-chair",
+    "title": "The Elder's Chair",
+    "subtitle": "Leading by Listening First"
+  },
+  "author": {
+    "author_id": "AU-8WS7W",
+    "display_name": "Efua Dadzie-Lamptey"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about leading by listening first. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have planned a listening round, noted who is not heard, explained one decision and chosen something to hand on. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When did you last decide something without hearing from the people it affected? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Hold a listening round before you decide anything",
+      "exercise_ids": [
+        "p1_round"
+      ],
+      "intro": "A listening round gives each person a turn to speak while the others hear them out. It slows things down at the start and saves time later. This part describes how a round works and asks you to plan the first one, with a question you will put to your team.",
+      "ideas": [
+        {
+          "heading": "A listening round gives every person a turn without interruption.",
+          "body": "Sit so that all can see each other. Ask one question. Each person answers in turn, and nobody replies until the round is over. This stops the loudest voice setting the direction. Everyone hears what the others think before any argument begins."
+        },
+        {
+          "heading": "The leader speaks last, so that people say what they really think.",
+          "body": "When the leader goes first, others tend to agree. Wait. Hold back your view until everyone has spoken. Then share it as one view among many. You may find the group sees something you had missed. At the very least, people will know their view was heard before the decision was made."
+        },
+        {
+          "heading": "A good question for a round is open and about the work, not the person.",
+          "body": "Ask what is going well, what is getting in the way, or what to do about a particular problem. Avoid questions with a yes or no answer. Keep to one question per round. People answer more freely when the question is plain and relevant."
+        }
+      ],
+      "takeaway": "Ask one open question, let each person answer in turn, and speak last. Hearing everyone first changes what you decide."
+    },
+    {
+      "number": 2,
+      "focus": "Keep simple notes and notice who is not being heard",
+      "exercise_ids": [
+        "p2_notes"
+      ],
+      "intro": "Listening carefully means writing a few things down and looking at who is quiet. This part asks you to take brief notes during a round and to notice who spoke least or not at all. The aim is to give those people a way in next time, not to put them on the spot.",
+      "ideas": [
+        {
+          "heading": "Short notes record what was said, not what you expected.",
+          "body": "Write a few words for each person's main point. Use their words where you can. After the round, read the notes before you decide anything. You will often find you remember the views of those you agree with and lose the rest."
+        },
+        {
+          "heading": "Some people are quiet because the room does not suit them.",
+          "body": "Not everyone speaks easily in a group. Some wait to be asked. Some need time to think. Others hold back because of rank or age. Notice who says little and ask about it later, in private. Offer a way to give their view that suits them."
+        },
+        {
+          "heading": "Check back with people to show their words were heard.",
+          "body": "Tell them what you took from what they said. \"You mentioned the rota, so I changed it\" is enough. People who see their words used speak up again. Those who hear nothing back may decide there is no point. Do it soon after the round, while the memory is fresh, and keep it brief."
+        }
+      ],
+      "takeaway": "Take short notes, notice who is quiet, and tell people how their words were used."
+    },
+    {
+      "number": 3,
+      "focus": "Decide in the open and explain what you chose",
+      "exercise_ids": [
+        "p3_decision"
+      ],
+      "intro": "People accept a decision more easily when they can see how it was reached. This part is about making decisions where the team can follow them, and explaining your reasons, including when you go against what some people said. You write a short explanation for one real decision.",
+      "ideas": [
+        {
+          "heading": "Say which decisions are yours, which are shared and which are the team's.",
+          "body": "Not every choice needs a round. Be clear about what you will decide after listening, what you will decide with the group and what the team decides alone. People feel respected when they know their role. They also stop expecting a vote on everything."
+        },
+        {
+          "heading": "Explain your reasons, especially when you disagree with some views.",
+          "body": "You will not please everyone. Say what you heard, what you chose and why. Name the view you did not follow and give the reason. People can accept a decision they disagree with when they see it was weighed fairly."
+        },
+        {
+          "heading": "Write the decision down where everyone can find it.",
+          "body": "A short note, in the team space or on a wall, says what was decided, by whom and when it takes effect. It stops disputes about what was said. It also lets newcomers see how the team works, and gives you something to review later."
+        }
+      ],
+      "takeaway": "Be clear whose decision it is, give your reasons, and write it down. People can follow what they can see."
+    },
+    {
+      "number": 4,
+      "focus": "Hand over authority and grow the next leaders",
+      "exercise_ids": [
+        "p4_handover"
+      ],
+      "intro": "A leader who listens well will see who else can lead. The next step is to hand some authority on. This part asks you to choose one decision or task that someone else can own, and to plan how you will support them. Handing over is slow work, and it starts small.",
+      "ideas": [
+        {
+          "heading": "Hand over a whole piece of work, not just the tasks.",
+          "body": "Give the person the decision as well as the job. If you keep the final say, they will wait for you. Agree what they may decide alone and what they should bring back. Then stay out of the way. People learn by doing."
+        },
+        {
+          "heading": "Choose people for what they have shown, not for how long they have served.",
+          "body": "Listening rounds show who thinks clearly, who is trusted and who sees what others miss. Look at those qualities. Length of service matters less than judgement and care for others. Ask the person if they want it. Some do not, and that is fine."
+        },
+        {
+          "heading": "Stay close, and let them make their own mistakes.",
+          "body": "Offer to meet now and then to talk things through. Ask questions before giving answers. When something goes wrong, work out with them what to do differently. A leader grows by carrying the weight, and by knowing someone is nearby."
+        }
+      ],
+      "takeaway": "Hand over whole decisions, choose people for what they have shown, and stay close without taking back control."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_round",
+      "title": "Plan your first listening round",
+      "purpose": "One open question and a time and place for your first round.",
+      "why": "Choose a question about the work your team is facing. Decide when and where you will hold the round, and how long each person will have. Plan to speak last. If a full round feels too much, begin with two or three people.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one open question."
+        },
+        {
+          "text": "Choose the time, place and turn length."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What open question will you ask in your first round?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When and where will you hold it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question",
+          "plan_section": "round"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "round"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your open question."
+          }
+        ],
+        "field_ids": [
+          "question"
+        ]
+      },
+      "done_when": "You have a question, a time and a place."
+    },
+    {
+      "id": "p2_notes",
+      "title": "Notice who was not heard",
+      "purpose": "Notes from a round and one way to hear from a quieter person.",
+      "why": "After a listening round, or a recent meeting, write one line per person on what they said. Note anyone who said little. Choose one way to hear from them, such as a private chat or a written reply.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one line per person."
+        },
+        {
+          "text": "Choose a way to hear from the quietest."
+        }
+      ],
+      "fields": [
+        {
+          "id": "notes",
+          "type": "long_text",
+          "label": "What did each person say, in a line?"
+        },
+        {
+          "id": "quiet",
+          "type": "short_text",
+          "label": "Who needs another way to be heard, and what could it be?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "notes",
+          "plan_section": "notes"
+        },
+        {
+          "field_id": "quiet",
+          "plan_section": "notes"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line for two people."
+          }
+        ],
+        "field_ids": [
+          "notes"
+        ]
+      },
+      "done_when": "You have notes and one way to hear a quiet voice."
+    },
+    {
+      "id": "p3_decision",
+      "title": "Explain one decision",
+      "purpose": "A short written explanation of a real decision, with your reasons.",
+      "why": "Pick a decision that is coming up, or one you made lately. Write what you heard, what you chose and why. Name one view you did not follow. If you have no decision in mind, use an imagined one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write what you heard and what you chose."
+        },
+        {
+          "text": "Give your reasons and name one view you set aside."
+        }
+      ],
+      "fields": [
+        {
+          "id": "explain",
+          "type": "long_text",
+          "label": "What did you hear, what did you choose and why?"
+        },
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Whose decision is it: yours, shared or the team's?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "explain",
+          "plan_section": "decision"
+        },
+        {
+          "field_id": "who",
+          "plan_section": "decision"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what you chose in one line."
+          }
+        ],
+        "field_ids": [
+          "explain"
+        ]
+      },
+      "done_when": "You have an explanation you could share with the team."
+    },
+    {
+      "id": "p4_handover",
+      "title": "Choose what to hand over",
+      "purpose": "One piece of authority, a person to hand it to and a plan to support them.",
+      "why": "Choose one decision or area of work that someone else could own. Name the person and write what they can decide alone. Add how you will check in. Ask them before you plan any further.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name the decision and the person."
+        },
+        {
+          "text": "Write what they decide alone and how you check in."
+        }
+      ],
+      "fields": [
+        {
+          "id": "what",
+          "type": "short_text",
+          "label": "What will you hand over, and to whom?"
+        },
+        {
+          "id": "support",
+          "type": "long_text",
+          "label": "What can they decide alone, and how will you check in?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "what",
+          "plan_section": "handover"
+        },
+        {
+          "field_id": "support",
+          "plan_section": "handover"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing to hand over."
+          }
+        ],
+        "field_ids": [
+          "what"
+        ]
+      },
+      "done_when": "One handover is named, with limits and a check-in."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your notes and your plan for quiet voices are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your round, notes, decision and handover."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "round",
+      "title": "Your listening round"
+    },
+    {
+      "id": "notes",
+      "title": "Notes and quiet voices"
+    },
+    {
+      "id": "decision",
+      "title": "Explaining a decision"
+    },
+    {
+      "id": "handover",
+      "title": "What you will hand over"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your listening round, your notes, your explained decision and what you will hand over.",
+    "book_bridge": "The Elder's Chair is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did your last listening round teach you?",
+      "Who is ready for more authority?",
+      "Which decision did you explain well, and which could you have explained better?"
+    ],
+    "refresher_ids": [
+      "p2_notes",
+      "p4_handover"
+    ]
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-RMVAJ",
+  "slug": "letters-left-in-the-drawer-rmvaj",
+  "title": "Letters Left in the Drawer",
+  "card_line": "Write letters to the people you love and decide when they are given.",
+  "book": {
+    "book_id": "letters-left-in-the-drawer",
+    "title": "Letters Left in the Drawer",
+    "subtitle": "Writing Down What You Want Them to Know"
+  },
+  "author": {
+    "author_id": "AU-5J8FN",
+    "display_name": "Ailsa Fenwick-Dhillon"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "personal_development",
+  "theme_id": "life-stories",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about writing down what you want the people you love to know. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have chosen who to write to and drafted a letter from a shared memory. You will also have said what matters to you and decided when each letter is given. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who is one person you would like to write a letter for? One name is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose who to write to and what you want them to have",
+      "exercise_ids": [
+        "p1_who"
+      ],
+      "intro": "A letter to one person is easier to write than a letter to everyone. This part asks you to choose the people you would like to write to. You also think about what each might want to have from you. Take your time.",
+      "ideas": [
+        {
+          "heading": "Write to one person at a time.",
+          "body": "A letter to the family as a whole tends to turn general. A letter to one person can be warm and particular. It can use their name, their jokes and the things only the two of you know. Start with one reader and keep them in mind throughout."
+        },
+        {
+          "heading": "Think about what this person might want to hold on to.",
+          "body": "It might be a memory, a piece of advice, thanks, forgiveness or just a sense of how you saw them. Imagine them reading in ten years' time. What would they be glad to find? Answer for each person separately, since no two will want the same."
+        },
+        {
+          "heading": "A letter does not need to say everything.",
+          "body": "You are not writing a final statement of your whole life. A single letter can carry a couple of things well. You can write more letters later. Setting a modest aim makes it easier to begin. A short, true letter is worth more than a long one that never gets written."
+        }
+      ],
+      "takeaway": "Choose one person, think what they would be glad to find, and let the letter be short."
+    },
+    {
+      "number": 2,
+      "focus": "Write about a memory you share",
+      "exercise_ids": [
+        "p2_memory"
+      ],
+      "intro": "Shared memories are the easiest place to start, because you already know them. This part asks you to pick one. You write it down the way you would tell it to the person, with the details only you remember. A paragraph is enough.",
+      "ideas": [
+        {
+          "heading": "Start with one scene, not a whole history.",
+          "body": "Pick one afternoon, one trip or one meal. Describe where you were, who else was there and what was said. A single scene carries more than a summary of years. The reader can see it, and so they can see you in it."
+        },
+        {
+          "heading": "Small details make a memory theirs.",
+          "body": "The colour of a coat, the song on the radio, the sandwich you ate on the wall. These are the parts that make a reader say yes, that is how it was. They also tell the person you noticed. General words such as lovely or special say less than one real detail."
+        },
+        {
+          "heading": "Write it the way you would say it aloud.",
+          "body": "Use your own voice. If you would say «Do you remember the rain?» write exactly that. A letter does not need fine words. The person will hear you in plain sentences, and that is what they will want to keep."
+        }
+      ],
+      "takeaway": "Choose one scene, include small details, and write in your own voice."
+    },
+    {
+      "number": 3,
+      "focus": "Say what matters to you and why",
+      "exercise_ids": [
+        "p3_matters"
+      ],
+      "intro": "Memories show who you were together. This part asks what you would like the person to know about what matters to you. Think about what you value, what you hope for them and what you want to thank them for. Plain words will do.",
+      "ideas": [
+        {
+          "heading": "Say what you value and why, in plain words.",
+          "body": "It might be kindness, honesty, work, family or a way of spending a Sunday. Name it and give one reason or example. «I value being on time because it shows respect» is clearer than a speech. People can hold a single clear idea far longer than a list."
+        },
+        {
+          "heading": "Tell them what you hope for them without telling them what to do.",
+          "body": "A hope is open, as in «I hope you find work that suits you». An instruction can feel heavy when read later. Let the person decide what to do with your hope. It tells them you care about their life, and leaves it theirs to live."
+        },
+        {
+          "heading": "Thanks, said plainly, may be the part they keep.",
+          "body": "Many people never hear exactly what they were thanked for. Name one thing, such as «Thank you for the lifts to football every Saturday». Specific thanks tells the person they mattered in a particular way. It costs a sentence and can last a lifetime."
+        }
+      ],
+      "takeaway": "Say what you value and why, hope without instructing, and thank them for one specific thing."
+    },
+    {
+      "number": 4,
+      "focus": "Finish the letters and decide when they are given",
+      "exercise_ids": [
+        "p4_store"
+      ],
+      "intro": "A letter written and left in a drawer may never be read. This part asks you to finish one and decide where it is kept. You also choose when and how it will be given. Those choices are yours, and you can change them.",
+      "ideas": [
+        {
+          "heading": "Read your draft aloud and cut anything that is not true.",
+          "body": "Read it slowly, as if you were the reader. Cut anything that sounds like someone else's voice. Check names, dates and places. Add a date and your name at the end. You do not need to polish it further. A true letter with a few rough edges is a good one."
+        },
+        {
+          "heading": "Decide where the letters will be kept and who will know.",
+          "body": "A drawer is fine if someone knows to look. Tell one trusted person where the letters are, or leave a note with your papers. Put each in its own envelope with a name on the front. Decide whether to seal them. Keep them dry and together."
+        },
+        {
+          "heading": "You choose when a letter is given, and you can change your mind.",
+          "body": "Some letters are for a birthday, some for a particular day, some for when you are no longer here, and some to hand over now. Write the timing on the envelope or in your note. You may revise it as life changes. Nothing here is fixed."
+        }
+      ],
+      "takeaway": "Finish with a true, simple letter, store it where someone can find it, and decide when it is given."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_who",
+      "title": "Choose who to write to",
+      "purpose": "Up to three names, each with what they might like to have.",
+      "why": "Write the names of up to three people you would like to write to. Beside each, note what they might be glad to receive: a memory, thanks, advice. One name is enough. If none comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write up to three names."
+        },
+        {
+          "text": "Note what each might like to have."
+        }
+      ],
+      "fields": [
+        {
+          "id": "readers",
+          "type": "two_column",
+          "label": "Who would you like to write to, and what might they like to have?",
+          "columns": [
+            "Name",
+            "What they might like to have"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "readers",
+          "plan_section": "readers"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one thing they might like."
+          }
+        ],
+        "field_ids": [
+          "readers"
+        ]
+      },
+      "done_when": "You have at least one name and one idea."
+    },
+    {
+      "id": "p2_memory",
+      "title": "Write about a shared memory",
+      "purpose": "A short passage about one memory you share with someone.",
+      "why": "Pick one person and one memory you share. Write it as you would tell it to them, with two or three small details. A paragraph is enough. If it is hard to start, write the first thing you remember.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one person and one memory."
+        },
+        {
+          "text": "Write a paragraph with two or three small details."
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "type": "long_text",
+          "label": "What is a memory you share with this person?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "memory",
+          "plan_section": "memory"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two lines about the memory."
+          }
+        ],
+        "field_ids": [
+          "memory"
+        ]
+      },
+      "done_when": "You have a paragraph with a few real details."
+    },
+    {
+      "id": "p3_matters",
+      "title": "Say what matters to you",
+      "purpose": "Three plain lines: what you value, what you hope and what you thank them for.",
+      "why": "For the person you chose, write one line on what you value and one on what you hope for them. Add one thank you for something specific. Plain words are enough. If one line will not come, leave it and write the others.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what you value and why."
+        },
+        {
+          "text": "Write what you hope for them and one thank you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lines",
+          "type": "long_text",
+          "label": "What do you value, hope for them and thank them for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lines",
+          "plan_section": "matters"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thank you for something specific."
+          }
+        ],
+        "field_ids": [
+          "lines"
+        ]
+      },
+      "done_when": "You have at least one of the three lines written."
+    },
+    {
+      "id": "p4_store",
+      "title": "Decide where and when",
+      "purpose": "A place to keep the letters and a time to give each one.",
+      "why": "Choose where the letters will be kept and who you will tell. Then write when each letter is to be given. You can change your answers later. If you are unsure about timing, write what feels right for now.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose where the letters will be kept."
+        },
+        {
+          "text": "Write when each one is to be given."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where will you keep your letters, and who will know?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When would you like each letter to be given?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "place",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write where one letter will be kept."
+          }
+        ],
+        "field_ids": [
+          "place"
+        ]
+      },
+      "done_when": "You have a place and a time for each letter."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your memory is saved. You can add more details at any point."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your readers, your memory, what matters to you and where the letters are kept."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "readers",
+      "title": "Who you will write to"
+    },
+    {
+      "id": "memory",
+      "title": "A shared memory"
+    },
+    {
+      "id": "matters",
+      "title": "What matters to you"
+    },
+    {
+      "id": "keep",
+      "title": "Where and when"
+    }
+  ],
+  "finish": {
+    "summary": "You chose who to write to and wrote about a shared memory. You also said what matters to you and decided where and when the letters are kept.",
+    "book_bridge": "Letters Left in the Drawer is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which letter would you like to work on next?",
+      "Do you still want the letters given when you planned?"
+    ],
+    "refresher_ids": [
+      "p2_memory",
+      "p4_store"
+    ]
+  }
+}

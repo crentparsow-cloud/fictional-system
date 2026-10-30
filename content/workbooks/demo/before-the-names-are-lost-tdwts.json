@@ -1,0 +1,369 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-TDWTS",
+  "slug": "before-the-names-are-lost-tdwts",
+  "title": "Before the Names Are Lost",
+  "card_line": "Start your family history with what you know and where each fact came from.",
+  "book": {
+    "book_id": "before-the-names-are-lost",
+    "title": "Before the Names Are Lost",
+    "subtitle": "Starting Your Family History"
+  },
+  "author": {
+    "author_id": "AU-5J8FN",
+    "display_name": "Ailsa Fenwick-Dhillon"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "personal_development",
+  "theme_id": "life-stories",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about starting your family history. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have written what you know and where it came from. You will also have questions for a relative, a simple tree and a first page about one person. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Whose name in your family would you most like to learn more about? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start with yourself and note how you know each fact",
+      "exercise_ids": [
+        "p1_know"
+      ],
+      "intro": "Every family history starts with one person: you. Write down what you already know, then note how you know it. That second note matters later, when facts disagree. This part sets up the method you will use throughout. Take it one name at a time.",
+      "ideas": [
+        {
+          "heading": "Begin with what you know, then work back one step at a time.",
+          "body": "Write your own name, date and place of birth. Then your parents, then their parents. Each step back rests on the one before. Starting from yourself keeps the work grounded in what you can check. It also shows how much you already hold."
+        },
+        {
+          "heading": "Every fact needs a note of where it came from.",
+          "body": "Beside each name and date, write how you know it: your own memory, a parent's word, a certificate, a photo. A fact with no note is a rumour waiting to be tested. Later, when two sources disagree, these notes show which to trust first."
+        },
+        {
+          "heading": "Family stories are clues to follow, not facts to repeat.",
+          "body": "«Grandad came over on a ship in 1950» may be right in part. Stories carry real memory, but names and dates drift as they are retold. Write the story down as told, and mark it as a story. Take it as something to check, not something to discard."
+        }
+      ],
+      "takeaway": "Start with yourself, work back one step at a time, and note where each fact came from."
+    },
+    {
+      "number": 2,
+      "focus": "Ask older relatives and sort what is in your home",
+      "exercise_ids": [
+        "p2_ask"
+      ],
+      "intro": "Some of the best sources are people, and people are not always here. This part asks you to prepare for a conversation with an older relative. It also asks you to look at the photographs and papers already in your home.",
+      "ideas": [
+        {
+          "heading": "Ask open questions and let the stories run.",
+          "body": "«Tell me about the street you grew up on» brings more than «Where were you born?». Let silences sit. Names and dates often come out on the way to a story. Ask permission to record the talk, or take notes, and read them back so any mistakes are caught."
+        },
+        {
+          "heading": "Photographs are more useful once someone has named the faces.",
+          "body": "Old pictures often have no names on the back. Sit with a relative and ask who is who, where it was and roughly when. Write what they say on a separate sheet, not on the photograph. A few minutes can save a face from becoming anonymous."
+        },
+        {
+          "heading": "Letters, certificates and old documents are worth keeping together.",
+          "body": "Look in drawers, tins and boxes for letters, certificates, school reports and medals. Put them in one folder or box. Do not repair or tidy anything yet. Note what each item is and who it concerns. Even an envelope can carry an address that opens up a new line."
+        }
+      ],
+      "takeaway": "Ask open questions, name the faces in photographs, and gather papers into one place."
+    },
+    {
+      "number": 3,
+      "focus": "Draw a simple tree and check the facts",
+      "exercise_ids": [
+        "p3_tree"
+      ],
+      "intro": "Once you have names and stories, a tree shows how they fit together. This part asks you to draw a simple one on paper. You then look at the records that can confirm what you have, and note which facts are still unchecked.",
+      "ideas": [
+        {
+          "heading": "A simple tree on paper shows the gaps clearly.",
+          "body": "Draw yourself at the bottom, your parents above, then their parents. Use boxes and lines. Leave empty boxes for what you do not know. Those blanks are your next questions. A tree on one page is easier to share than a list of names."
+        },
+        {
+          "heading": "Official records can confirm what family memory only suggests.",
+          "body": "Birth, marriage and death records give names, dates and often parents. Census returns list who lived together at an address on a given night. Both are held in public archives and online, and a local family history group can show you where to start. Compare each with what you already have."
+        },
+        {
+          "heading": "Mark each fact as confirmed, likely or unchecked.",
+          "body": "Two sources that agree make a fact stronger. One source makes it likely. A story alone makes it unchecked. Label your tree this way. Spellings change over time, so take Smyth and Smith as possible matches, not certain ones. Patience with names saves wrong turns."
+        }
+      ],
+      "takeaway": "Draw the tree, leave blanks for what you do not know, and mark each fact as confirmed, likely or unchecked."
+    },
+    {
+      "number": 4,
+      "focus": "Turn names into stories and keep the work safe",
+      "exercise_ids": [
+        "p4_page"
+      ],
+      "intro": "A tree gives names and dates. Stories show who these people were. This part asks you to write a short account of one person. You also think about how to handle surprises, and how to keep and share your work.",
+      "ideas": [
+        {
+          "heading": "One page about one person is a good place to begin.",
+          "body": "Pick an ancestor you know something about. Write what they did, where they lived and one detail that makes them particular, such as a trade, a nickname or a favourite song. Mark which parts are confirmed. A page like this is easy to share."
+        },
+        {
+          "heading": "Surprises and difficult discoveries deserve care.",
+          "body": "You may find a child nobody mentioned, a divorce or a hard circumstance. Take your time before telling anyone. Think about who might be affected and how living relatives may feel. You can record the fact accurately and still choose when and how to share it."
+        },
+        {
+          "heading": "Copies in two places keep your work safe.",
+          "body": "Photograph or scan papers and photographs. Keep one copy at home and one somewhere else, such as a relative's house or an online store. Label files with names and dates. Write a short note on how the work is organised, so someone else could pick it up."
+        }
+      ],
+      "takeaway": "Write one page about one person, handle surprises with care, and keep copies in two places."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_know",
+      "title": "Write what you know",
+      "purpose": "What you know about your family and how you know it.",
+      "why": "Write the names you know, starting with your own and working back. Beside each, note where the information came from. Three or four people are enough to start. If you are unsure of a fact, mark it with a question mark.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the names you know, starting with your own."
+        },
+        {
+          "text": "Note how you know each one."
+        }
+      ],
+      "fields": [
+        {
+          "id": "known",
+          "type": "two_column",
+          "label": "Which family members do you know, and how do you know each?",
+          "columns": [
+            "Name and what you know",
+            "How you know it"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "known",
+          "plan_section": "known"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one relative and how you know about them."
+          }
+        ],
+        "field_ids": [
+          "known"
+        ]
+      },
+      "done_when": "You have at least three names, each with a source."
+    },
+    {
+      "id": "p2_ask",
+      "title": "Prepare to ask a relative",
+      "purpose": "Questions for one relative and a first look at papers.",
+      "why": "Choose one older relative to talk to. Write three open questions you would ask them. Then note one place at home where old photographs or papers might be. If nobody is available, write questions for a relative you wish you could ask.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three open questions for one relative."
+        },
+        {
+          "text": "Note where old papers or photographs might be."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "Which three open questions would you ask?"
+        },
+        {
+          "id": "papers",
+          "type": "short_text",
+          "label": "Where at home might old photographs or papers be?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "ask"
+        },
+        {
+          "field_id": "papers",
+          "plan_section": "ask"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one open question for a relative."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have three questions and a place to look."
+    },
+    {
+      "id": "p3_tree",
+      "title": "Sketch a tree and mark facts",
+      "purpose": "A simple tree with each fact marked and the gaps listed.",
+      "why": "On paper, draw yourself, your parents and grandparents as far as you know. Mark each fact confirmed, likely or unchecked. Then list the blanks in your tree. If you only know a few names, that is a fine start.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Draw your tree as far as you know it."
+        },
+        {
+          "text": "Mark each fact confirmed, likely or unchecked."
+        }
+      ],
+      "fields": [
+        {
+          "id": "gaps",
+          "type": "long_text",
+          "label": "Which gaps or unchecked facts will you look into next?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "gaps",
+          "plan_section": "tree"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one gap you would like to fill."
+          }
+        ],
+        "field_ids": [
+          "gaps"
+        ]
+      },
+      "done_when": "You have a tree on paper and a list of gaps."
+    },
+    {
+      "id": "p4_page",
+      "title": "Write one page about someone",
+      "purpose": "A short account of one ancestor and a plan to keep your work safe.",
+      "why": "Choose one person from your tree. Write a few lines about their life, marking what is confirmed. Then note where you will keep a second copy of your work. If the page will not come, write one sentence.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a few lines about one person."
+        },
+        {
+          "text": "Note where a second copy will be kept."
+        }
+      ],
+      "fields": [
+        {
+          "id": "page",
+          "type": "long_text",
+          "label": "What would you write about this person?"
+        },
+        {
+          "id": "copy",
+          "type": "short_text",
+          "label": "Where will you keep a second copy of your work?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "page",
+          "plan_section": "page"
+        },
+        {
+          "field_id": "copy",
+          "plan_section": "page"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence about one ancestor."
+          }
+        ],
+        "field_ids": [
+          "page"
+        ]
+      },
+      "done_when": "You have a few lines about one person and a place for a copy."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your questions for a relative are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you know, your questions, your tree gaps and your first page."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "known",
+      "title": "What you know"
+    },
+    {
+      "id": "ask",
+      "title": "Questions and papers"
+    },
+    {
+      "id": "tree",
+      "title": "Your tree and its gaps"
+    },
+    {
+      "id": "page",
+      "title": "Your first page"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote what you know and where it came from. You also prepared questions, sketched a tree and wrote a first page about one person.",
+    "book_bridge": "Before the Names Are Lost is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which fact did you check this month, and where did it come from?",
+      "Who would you like to ask next?"
+    ],
+    "refresher_ids": [
+      "p2_ask",
+      "p3_tree"
+    ]
+  }
+}

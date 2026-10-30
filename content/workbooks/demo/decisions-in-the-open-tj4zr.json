@@ -1,0 +1,379 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-TJ4ZR",
+  "slug": "decisions-in-the-open-tj4zr",
+  "title": "Decisions in the Open",
+  "card_line": "Keep a decision log and explain your choices so people can follow them.",
+  "book": {
+    "book_id": "decisions-in-the-open",
+    "title": "Decisions in the Open",
+    "subtitle": "Transparent Choices for Team Leads"
+  },
+  "author": {
+    "author_id": "AU-N2JS0",
+    "display_name": "Marcus Delacroix-Hayes"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about making decisions as a team lead in a way your team can follow. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a decision log and a short explanation of one choice. You will also have a way to hear objections and to review past decisions. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which recent decision of yours did your team find hard to follow? A line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Keep a simple log of decisions and decide whom to ask",
+      "exercise_ids": [
+        "p1_log"
+      ],
+      "intro": "Teams often cannot say why something was decided. The reason lived in one head and has gone. A decision log fixes that. This part asks you to set up a simple record and to think about who should be asked before you choose.",
+      "ideas": [
+        {
+          "heading": "A decision log needs only four lines per entry.",
+          "body": "Write what was decided, the date, the reason and who was asked. A shared document or a notebook will do. If it takes more than two minutes, you will stop using it. The aim is a record someone could read in a year and understand."
+        },
+        {
+          "heading": "Not every decision needs the same amount of asking.",
+          "body": "A change to the cleaning rota needs a quick word with the people it affects. A change to opening hours needs more. Match the effort to the weight of the choice. Asking everyone about everything wears people out, and asking nobody costs you their trust."
+        },
+        {
+          "heading": "Say at the start whether you are asking for advice or for agreement.",
+          "body": "If you will decide yourself, say so. \"I would like your views, and I will make the call on Friday.\" People accept that. They get frustrated when they think they are voting and then find they were not. Being clear at the outset avoids that."
+        }
+      ],
+      "takeaway": "Log each decision in four lines, ask in proportion to its weight, and be clear who decides."
+    },
+    {
+      "number": 2,
+      "focus": "Explain your decisions so people can follow them",
+      "exercise_ids": [
+        "p2_explain"
+      ],
+      "intro": "A decision your team does not understand is harder to carry out. A short explanation costs a few minutes and saves many questions. This part gives you a plain pattern for explaining a choice, including the parts people may not like.",
+      "ideas": [
+        {
+          "heading": "Give the reason, not only the result.",
+          "body": "\"We are changing the rota\" leaves people guessing. \"We are changing the rota because Saturday has been short-staffed for a month\" gives them something to understand. Even people who disagree can follow a clear reason. Leave them with no reason, and they will invent one."
+        },
+        {
+          "heading": "Say what you considered and why you set it aside.",
+          "body": "Mention one or two other options you looked at. This shows the decision was thought through. It also heads off the suggestion people were about to make. Keep it brief: a sentence for each option is plenty. You are showing your working, not defending a verdict."
+        },
+        {
+          "heading": "Name the cost of the choice out loud.",
+          "body": "Most decisions have a downside for someone. Say who it affects and how. \"This means earlier starts for the kitchen team.\" Pretending there is no cost makes people trust you less. Saying it plainly shows you know what you are asking of them."
+        }
+      ],
+      "takeaway": "Explain the reason, the options you set aside and the cost. People follow what they can understand."
+    },
+    {
+      "number": 3,
+      "focus": "Hear objections before the decision settles",
+      "exercise_ids": [
+        "p3_object"
+      ],
+      "intro": "Some of the best information comes from the people who disagree. Objections are easiest to use before a decision is final. This part looks at how to invite them, how to listen and how to respond without becoming defensive. You will write one question to ask your team.",
+      "ideas": [
+        {
+          "heading": "Ask for objections directly and give people a way to raise them.",
+          "body": "Some people will not speak in a group. Offer a short window, a message or a quiet word afterwards. Ask, \"What is the strongest reason not to do this?\" That makes it acceptable to say something unwelcome. Thank the first person who does, so others see it is safe."
+        },
+        {
+          "heading": "Listen to the objection before you answer it.",
+          "body": "When someone pushes back, resist the urge to defend. Repeat what you heard and ask one question to be sure. Often the concern is narrower than it sounded. You may find a small change that keeps the decision and removes the problem."
+        },
+        {
+          "heading": "It is fine to change your mind, and fine to hold firm.",
+          "body": "If an objection shows a real problem, change the plan and say why. If it does not, thank the person and explain why the decision stands. Both responses show you took the point seriously. People mind being ignored far more than being overruled."
+        }
+      ],
+      "takeaway": "Invite objections early, listen before you reply, and either change course or explain why you will not."
+    },
+    {
+      "number": 4,
+      "focus": "Review past decisions without looking for someone to blame",
+      "exercise_ids": [
+        "p4_review"
+      ],
+      "intro": "Reviewing decisions teaches a team a great deal, but only if people are not afraid of it. This part is about looking back on a past choice and asking what you knew at the time. You then keep what you learn for the next one.",
+      "ideas": [
+        {
+          "heading": "Judge a decision by what you knew then, not what you know now.",
+          "body": "Outcomes depend partly on luck. A sound decision can turn out badly, and a poor one can get away with it. Ask what information was available and whether the reasoning held up. That is a fairer test than whether it worked."
+        },
+        {
+          "heading": "Review the decision, not the person.",
+          "body": "Say, \"The rota change did not give us the cover we expected.\" Do not say, \"You got the rota wrong.\" Safe people tell you what actually happened. Blamed people tell you what sounds safest. Start every review with the first kind of sentence."
+        },
+        {
+          "heading": "Write down one lesson and add it to the log.",
+          "body": "After each review, record one thing you would do differently. Put it next to the original entry. Over several months the log becomes a short guide to how your team decides. New starters can read it and learn how things are done."
+        }
+      ],
+      "takeaway": "Review decisions fairly, judge them by what was known at the time, and record one lesson."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_log",
+      "title": "Start your decision log",
+      "purpose": "Your first log entry and a note on whom you would ask.",
+      "why": "Choose a decision you made or will make soon. Write it in four lines: what, when, why and who you asked. Then note whom you would ask next time. If the decision is only planned, write what you expect.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one decision."
+        },
+        {
+          "text": "Write what, when, why and who you asked."
+        }
+      ],
+      "fields": [
+        {
+          "id": "entry",
+          "type": "long_text",
+          "label": "What was decided, when, why and who did you ask?"
+        },
+        {
+          "id": "ask_next",
+          "type": "short_text",
+          "label": "Whom would you ask first next time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "entry",
+          "plan_section": "log"
+        },
+        {
+          "field_id": "ask_next",
+          "plan_section": "log"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the decision and the reason in two lines."
+          }
+        ],
+        "field_ids": [
+          "entry"
+        ]
+      },
+      "done_when": "You have one decision logged in a few lines."
+    },
+    {
+      "id": "p2_explain",
+      "title": "Explain one decision",
+      "purpose": "A short explanation with a reason, an option set aside and a cost.",
+      "why": "Take the decision from Part 1, or another. Write what you would say to your team in three or four sentences. Include the reason, one option you set aside and the cost. If you are unsure of a part, write your best guess.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the reason."
+        },
+        {
+          "text": "Name one option you set aside."
+        },
+        {
+          "text": "Name who bears the cost."
+        }
+      ],
+      "fields": [
+        {
+          "id": "explanation",
+          "type": "long_text",
+          "label": "How would you explain this decision to your team?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "explanation",
+          "plan_section": "explain"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the reason in one sentence."
+          }
+        ],
+        "field_ids": [
+          "explanation"
+        ]
+      },
+      "done_when": "You have a short explanation with a reason and a cost."
+    },
+    {
+      "id": "p3_object",
+      "title": "Invite an objection",
+      "purpose": "One question that invites objections and a way people can reply.",
+      "why": "Write the question you would ask your team to invite objections. Then decide how people can answer: in the meeting, by message or in a quiet word. If you expect no objections, write what you would ask to find out.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your question."
+        },
+        {
+          "text": "Choose how people can reply."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What question will you ask to invite objections?"
+        },
+        {
+          "id": "route",
+          "type": "short_text",
+          "label": "How can people answer you?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question",
+          "plan_section": "object"
+        },
+        {
+          "field_id": "route",
+          "plan_section": "object"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your question."
+          }
+        ],
+        "field_ids": [
+          "question"
+        ]
+      },
+      "done_when": "You have a question and a way for people to answer."
+    },
+    {
+      "id": "p4_review",
+      "title": "Review a past decision",
+      "purpose": "A review of one past decision, with a lesson for the log.",
+      "why": "Choose a decision from the last few months. Write what you knew then and how it turned out. Then write one lesson, about the decision and not about a person. If it is still too early to tell, say so.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a past decision."
+        },
+        {
+          "text": "Write what you knew then."
+        },
+        {
+          "text": "Write one lesson."
+        }
+      ],
+      "fields": [
+        {
+          "id": "knew",
+          "type": "long_text",
+          "label": "What did you know when you made this decision, and how did it turn out?"
+        },
+        {
+          "id": "lesson",
+          "type": "short_text",
+          "label": "What is the one lesson for your log?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "knew",
+          "plan_section": "review"
+        },
+        {
+          "field_id": "lesson",
+          "plan_section": "review"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one lesson from a past decision."
+          }
+        ],
+        "field_ids": [
+          "lesson"
+        ]
+      },
+      "done_when": "You have one past decision reviewed and one lesson written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your explanation is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your log, an explanation, a question and a review."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "log",
+      "title": "Your decision log"
+    },
+    {
+      "id": "explain",
+      "title": "How you explain a decision"
+    },
+    {
+      "id": "object",
+      "title": "Inviting objections"
+    },
+    {
+      "id": "review",
+      "title": "A past decision reviewed"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your first log entry, an explanation, a way to invite objections and a past review.",
+    "book_bridge": "Decisions in the Open is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which decision did you log this month?",
+      "Which decision did you explain, and how was it received?",
+      "Which past decision is worth a review?"
+    ],
+    "refresher_ids": [
+      "p1_log",
+      "p4_review"
+    ]
+  }
+}

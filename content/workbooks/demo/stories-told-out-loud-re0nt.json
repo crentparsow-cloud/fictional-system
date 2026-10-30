@@ -1,0 +1,377 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-RE0NT",
+  "slug": "stories-told-out-loud-re0nt",
+  "title": "Stories Told Out Loud",
+  "card_line": "Record a family member telling their stories and share a short clip with consent.",
+  "book": {
+    "book_id": "stories-told-out-loud",
+    "title": "Stories Told Out Loud",
+    "subtitle": "Recording Family Memories by Voice"
+  },
+  "author": {
+    "author_id": "AU-1DYWF",
+    "display_name": "Rafael Moreira Lins"
+  },
+  "publisher_id": "PB-640RS",
+  "genre": "personal_development",
+  "theme_id": "life-stories",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about recording a family member telling their stories by voice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have asked someone kindly and planned a first recording. You will also know how to keep it and share a short clip with consent. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Whose voice would you most like to have on record? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose one person and ask them kindly.",
+      "exercise_ids": [
+        "p1_ask"
+      ],
+      "intro": "A recording starts with a person, not a phone. The best first choice is someone whose stories you already enjoy and who is happy to be asked. This part helps you pick one person and decide how to invite them. You will write the words you could use.",
+      "ideas": [
+        {
+          "heading": "Start with one person rather than the whole family.",
+          "body": "One person is enough for a first recording. Pick someone whose stories you enjoy hearing, and who has the time. A single good conversation is worth more than a plan to record everyone. The others can come later, once you have found a way of working that suits you both."
+        },
+        {
+          "heading": "Asking is a favour to them, so let them say no.",
+          "body": "Some people like the idea straight away. Others feel shy about a recording, or think their stories are ordinary. Say what you hope to do and why it matters to you. Make it easy to decline. A yes freely given makes a warmer recording than one given from politeness."
+        },
+        {
+          "heading": "A small first ask is easier to agree to than a big one.",
+          "body": "Instead of asking for a full life story, ask for half an hour about one subject. A first job, a house they lived in, a favourite meal. Small asks feel safe, and they often lead to more. Nobody needs to commit to anything beyond the first chat."
+        }
+      ],
+      "takeaway": "Pick one person and ask for a small thing. Let them say no, and let them choose."
+    },
+    {
+      "number": 2,
+      "focus": "Set up a quiet space and ask questions that open stories.",
+      "exercise_ids": [
+        "p2_questions"
+      ],
+      "intro": "Good sound and good questions matter more than good equipment. A phone in a quiet room is plenty. This part covers a simple set-up and the kind of question that gets a story rather than a yes or no. You will write a few questions of your own.",
+      "ideas": [
+        {
+          "heading": "A phone in a quiet room records well enough.",
+          "body": "Choose a room with soft furnishings and no fridge hum. Turn off notifications and put the phone on a cushion between you, close to the speaker. Do a one minute test and play it back. If you can hear every word, you are ready. Nothing else is needed."
+        },
+        {
+          "heading": "Questions that start with \"tell me about\" open stories up.",
+          "body": "A question with a yes or no answer ends the story. \"Tell me about the house you grew up in\" invites a longer reply. So does \"What do you remember about\" a place, a person or a meal. Write down a handful beforehand. You will not use them all."
+        },
+        {
+          "heading": "Concrete details bring memories back more than dates do.",
+          "body": "Many people struggle to recall a year but can recall a smell, a song or the name of a street. Ask about what the kitchen looked like, or what was on the radio. Details make the story vivid for listeners later. They also help the speaker remember more."
+        }
+      ],
+      "takeaway": "A phone, a quiet room and open questions are all you need. Start from a detail and let the story follow."
+    },
+    {
+      "number": 3,
+      "focus": "Listen well, follow up and know when to stop.",
+      "exercise_ids": [
+        "p3_listen"
+      ],
+      "intro": "Once the recorder is running, your job is mostly to listen. Interrupting, correcting or rushing can close a story down. This part looks at how to follow what the person is telling you. You will also decide how you will know it is time to stop.",
+      "ideas": [
+        {
+          "heading": "Silence is part of the conversation, so leave room for it.",
+          "body": "When the speaker stops, they may be thinking. A pause of a few seconds is not a sign that they have finished. Wait before asking the next question. Nod and look interested. Often the best part of a story arrives just after a gap."
+        },
+        {
+          "heading": "Follow-up questions work best when they pick up their own words.",
+          "body": "If they mention a bicycle, ask about the bicycle. Repeating a word they used shows you were listening. It keeps the story theirs. Leave your own list of questions in your hand until the conversation slows. Then pick the next one."
+        },
+        {
+          "heading": "Stopping early leaves everyone glad to do it again.",
+          "body": "Thirty to forty minutes is usually plenty for a first session. Watch for tiredness or a change in mood. Thank them, say what you enjoyed and ask if you may come back. If they would like a part left out, note it and honour it straight away."
+        }
+      ],
+      "takeaway": "Listen more than you speak, pick up their words, and stop while they still enjoy it."
+    },
+    {
+      "number": 4,
+      "focus": "Label and keep the recording, then share a clip with consent.",
+      "exercise_ids": [
+        "p4_share"
+      ],
+      "intro": "A recording that cannot be found is easily lost. This last part covers naming and storing your files, and sharing a short clip with the family. Sharing needs the speaker's agreement, which you ask for after they have heard the clip. You will write down what they have agreed to.",
+      "ideas": [
+        {
+          "heading": "A clear file name saves you searching later.",
+          "body": "Name each file with the speaker, the subject and the date, such as the person's name, kitchen and the month. Add a short note of what was covered. A year from now, you will be glad of it. A folder of files called \"recording 7\" tells you nothing."
+        },
+        {
+          "heading": "Keep two copies in two places.",
+          "body": "Phones get lost, dropped and replaced. Copy each recording to a computer or a cloud account soon after you make it. Check that the copy plays. Two copies in two places is a sensible minimum for something that cannot be recorded again."
+        },
+        {
+          "heading": "Play the clip to the speaker before you share it.",
+          "body": "Choose a short passage of a minute or two and let them hear it. Ask whether they are happy for the family to hear it and who should receive it. Write down the answer. They may say yes to one clip and no to another, and either answer is theirs to give."
+        }
+      ],
+      "takeaway": "Name it, copy it, and play it back to the speaker first. A clip is shared only when they say yes."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_ask",
+      "title": "Choose and invite one person",
+      "purpose": "The name of one person and the words you could use to ask them.",
+      "why": "Think of the person whose stories you would most like to keep. Write why you picked them. Then write two or three sentences you could say to ask for a small first recording, including how they can say no. If nothing comes to mind, write one name.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the name of one person."
+        },
+        {
+          "text": "Write the sentences you might use to ask."
+        }
+      ],
+      "fields": [
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Whose stories would you most like to record?"
+        },
+        {
+          "id": "ask",
+          "type": "long_text",
+          "label": "How could you ask them, in your own words?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "person",
+          "plan_section": "who"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "who"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one reason."
+          }
+        ],
+        "field_ids": [
+          "person"
+        ]
+      },
+      "done_when": "You have a name and a few words to ask with."
+    },
+    {
+      "id": "p2_questions",
+      "title": "Write your opening questions",
+      "purpose": "Five open questions and a plan for where to record.",
+      "why": "Pick a subject for a first half hour, such as a childhood home or a first job. Write five questions that begin with phrases like tell me about or what do you remember. Then name the quiet room you will use.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a subject for a first recording."
+        },
+        {
+          "text": "Write five open questions about it."
+        },
+        {
+          "text": "Name the room you will use."
+        }
+      ],
+      "fields": [
+        {
+          "id": "subject",
+          "type": "short_text",
+          "label": "What will your first recording be about?"
+        },
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What five open questions could you ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "setup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two open questions about one subject."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have a subject, some questions and a place."
+    },
+    {
+      "id": "p3_listen",
+      "title": "Plan how you will listen",
+      "purpose": "A note of what you will do when the speaker pauses or drifts.",
+      "why": "Think about what you tend to do in a conversation. Do you fill silences, correct details or change the subject? Write one thing you will do instead, and one sign that tells you it is time to stop.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one habit you want to leave out."
+        },
+        {
+          "text": "Write one sign it is time to stop."
+        }
+      ],
+      "fields": [
+        {
+          "id": "hold_back",
+          "type": "short_text",
+          "label": "What will you do when the speaker pauses?"
+        },
+        {
+          "id": "stop_sign",
+          "type": "short_text",
+          "label": "What sign will tell you it is time to stop?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "hold_back",
+          "plan_section": "listening"
+        },
+        {
+          "field_id": "stop_sign",
+          "plan_section": "listening"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what you will do when they pause."
+          }
+        ],
+        "field_ids": [
+          "hold_back"
+        ]
+      },
+      "done_when": "You have one listening aim and one sign to stop."
+    },
+    {
+      "id": "p4_share",
+      "title": "Plan the saving and sharing",
+      "purpose": "A file name pattern, two storage places and the sharing agreement.",
+      "why": "Decide how you will name your files and where the two copies will live. Then write who might hear a short clip, and what the speaker has agreed to. If you have not asked yet, write when you will.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your file name pattern."
+        },
+        {
+          "text": "Name your two storage places."
+        },
+        {
+          "text": "Write who may hear the clip."
+        }
+      ],
+      "fields": [
+        {
+          "id": "naming",
+          "type": "short_text",
+          "label": "How will you name and store your recordings?"
+        },
+        {
+          "id": "consent",
+          "type": "long_text",
+          "label": "Who may hear a clip, and what has the speaker agreed?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "naming",
+          "plan_section": "keeping"
+        },
+        {
+          "field_id": "consent",
+          "plan_section": "sharing"
+        }
+      ],
+      "done_when": "The recordings have a home and the sharing is agreed."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your questions are saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds who you asked, your questions and how you will share."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "who",
+      "title": "Who and how to ask"
+    },
+    {
+      "id": "setup",
+      "title": "Your opening questions"
+    },
+    {
+      "id": "listening",
+      "title": "How you will listen"
+    },
+    {
+      "id": "keeping",
+      "title": "Naming and storing"
+    },
+    {
+      "id": "sharing",
+      "title": "Sharing with consent"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds the person you chose, your questions, your listening aim and what they agreed to share.",
+    "book_bridge": "Stories Told Out Loud is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Whose story have you recorded or kept this month?",
+      "Which question brought out the best answer?",
+      "Has the speaker heard a clip and said yes?"
+    ],
+    "refresher_ids": [
+      "p2_questions",
+      "p4_share"
+    ]
+  }
+}

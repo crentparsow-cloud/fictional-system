@@ -1,5 +1,7 @@
 /**
- * Validate every workbook under content/workbooks/v3 and content/workbooks/classics.
+ * Validate every workbook under content/workbooks/v3, content/workbooks/classics
+ * and content/workbooks/demo. A demo file is checked against the demo profile
+ * (packages/validate/src/demo.ts), with its shelf read from the registry.
  *
  *   pnpm validate                  errors fail the run
  *   pnpm validate --lenient        counts and depth become warnings (pilot content)
@@ -19,17 +21,17 @@
  * and reference errors always fail.
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 // Relative import: the default scan list lives beside the validator and reads the disk, so index.ts does not export it.
-import { contentTargets } from "../packages/validate/src/targets";
-import { validateWorkbook, formatFindings, checkPlainWorkbook, checkPlainStrings, summarisePlain, checkTitleCopy, titleCopyContext, type CatalogueTitle, type Finding, type PlainFinding } from "@akana/validate";
+import { contentTargets, shelfFor } from "../packages/validate/src/targets";
+import { validateWorkbook, demoReaderPages, demoReaderWords, formatFindings, checkPlainWorkbook, checkPlainStrings, summarisePlain, checkTitleCopy, titleCopyContext, type CatalogueTitle, type Finding, type PlainFinding } from "@akana/validate";
 
 const ROOT = join(import.meta.dirname, "..");
 const args = process.argv.slice(2);
 const lenient = args.includes("--lenient");
 const parked = args.includes("--parked");
 const style = args.includes("--style");
-const files = args.filter((a) => !a.startsWith("--"));
+const files = args.filter((a) => !a.startsWith("--")).map((a) => resolve(a));
 
 const targets = files.length ? files : contentTargets(ROOT);
 
@@ -44,8 +46,8 @@ const asFinding = (p: PlainFinding): Finding => ({ severity: "warning", category
 let failed = 0;
 const plainAll: PlainFinding[] = [];
 for (const file of targets) {
-  const doc = JSON.parse(readFileSync(file, "utf8")) as { status?: string };
-  const result = validateWorkbook(doc, { lenient });
+  const doc = JSON.parse(readFileSync(file, "utf8")) as { status?: string; is_demo?: unknown; theme_id?: unknown };
+  const result = validateWorkbook(doc, { lenient, shelf: shelfFor(file, doc) });
   const isParked = parked && doc.status === "in_review";
   const blocking = isParked ? result.errors.filter((e) => e.category === "schema" || e.category === "refs") : result.errors;
   if (blocking.length) failed++;
@@ -55,6 +57,7 @@ for (const file of targets) {
     ? { ...result, ok: blocking.length === 0, errors: blocking, warnings: [...result.warnings, ...result.errors.filter((e) => !blocking.includes(e)).map((e) => ({ ...e, severity: "warning" as const })), ...plain.map(asFinding)] }
     : { ...result, warnings: [...result.warnings, ...plain.map(asFinding)] };
   console.log(formatFindings(file.replace(ROOT + "/", ""), shown));
+  if (result.doc?.is_demo) console.log(`  demo: about ${demoReaderPages(result.doc)} reader pages (${demoReaderWords(result.doc)} words), shelf ${shelfFor(file, doc) ?? "unknown"}`);
 }
 
 if (style) {

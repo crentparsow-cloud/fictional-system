@@ -166,6 +166,6 @@ function sharedYearlyLabel(price: Price, market: Market | undefined): string {
 }
 
 /** "8 weeks", "1 module": the unit count from the listing in plain words. */
-export function unitCountPhrase(count: number, unit: "week" | "day" | "module" | "chapter"): string {
+export function unitCountPhrase(count: number, unit: "week" | "day" | "module" | "chapter" | "part"): string {
   return `${count} ${unit}${count === 1 ? "" : "s"}`;
 }

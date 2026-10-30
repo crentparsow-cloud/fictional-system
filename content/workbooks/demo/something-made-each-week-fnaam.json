@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-FNAAM",
+  "slug": "something-made-each-week-fnaam",
+  "title": "Something Made Each Week",
+  "card_line": "Make one small thing each week with materials you already own.",
+  "book": {
+    "book_id": "something-made-each-week",
+    "title": "Something Made Each Week",
+    "subtitle": "A Gentle Craft Habit for Busy Lives"
+  },
+  "author": {
+    "author_id": "AU-CKAX8",
+    "display_name": "Tessa Wyborn-Liang"
+  },
+  "genre": "personal_development",
+  "theme_id": "creative-habits",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about making one small thing at a time with materials you already own. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a clear space, a small notebook and a mended item. You will also have a plan for what to make next. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What small thing would you like to have made by the end of this? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Clear a small space and gather what you already own",
+      "exercise_ids": [
+        "p1_space"
+      ],
+      "intro": "Making needs a place to start. It does not have to be a studio. This part asks you to clear a small space. You also gather the paper, thread, scraps and tools you already have before you buy anything. Nothing needs to be new.",
+      "ideas": [
+        {
+          "heading": "A clear corner of a table is enough.",
+          "body": "You need a flat surface, some light and a spot where work can stay out between sessions. A tray or a box lid can mark the edge. When your things are ready to hand, starting takes a minute. When they are in a cupboard, starting is harder."
+        },
+        {
+          "heading": "Use what you already own before buying anything.",
+          "body": "Most homes hold more materials than people notice: old envelopes, odd buttons, leftover thread, a torn shirt, wrapping paper. Gather them in one box. A small pile of scraps invites you to be inventive. Buying supplies can wait until you know what you enjoy making."
+        },
+        {
+          "heading": "Small and finished beats large and abandoned.",
+          "body": "A project that takes an hour gets done. One that needs a month often stalls. Choose things you can finish in a single sitting, such as a folded card, a hemmed patch or a stitched label. The satisfaction of finishing is what brings you back next week."
+        }
+      ],
+      "takeaway": "A clear corner and a box of scraps are enough. Choose projects you can finish in one sitting."
+    },
+    {
+      "number": 2,
+      "focus": "Make a small notebook from paper",
+      "exercise_ids": [
+        "p2_book"
+      ],
+      "intro": "A notebook is a good first project. It uses paper you have, takes under an hour, and gives you something useful. This part covers folding, cutting and sewing a small notebook with a needle and thread. Take care with scissors and needles.",
+      "ideas": [
+        {
+          "heading": "Folded sheets make the pages of a small notebook.",
+          "body": "Take four to six sheets of plain or used paper. Fold them in half together, pressing the crease with the side of your hand. The fold becomes the spine. Cut or tear any uneven edges. A scrap of card or wrapping paper can serve as a cover."
+        },
+        {
+          "heading": "A few stitches through the fold hold everything together.",
+          "body": "Make three small holes along the crease with a needle or pin, working on a folded towel. Thread a needle with doubled thread, stitch in and out along the fold, and tie off inside. Straight stitches are fine. Uneven ones add character."
+        },
+        {
+          "heading": "The first one will not be perfect, and it will still be useful.",
+          "body": "Paper is cheap, so a crooked notebook costs little. Use it for lists, sketches or notes from the group. Each one you make will come out a little neater. Keep the first as a record of where you started. Imperfect and used is better than perfect and unmade."
+        }
+      ],
+      "takeaway": "Fold, cut and stitch a few sheets. A crooked notebook is still a notebook."
+    },
+    {
+      "number": 3,
+      "focus": "Learn three stitches and mend something you like",
+      "exercise_ids": [
+        "p3_mend"
+      ],
+      "intro": "Three simple stitches cover a great deal of small sewing. This part asks you to learn them on a scrap. You then use them to mend something you are fond of, so that it can stay in use. Take care with needles.",
+      "ideas": [
+        {
+          "heading": "Running stitch, back stitch and whip stitch cover most small jobs.",
+          "body": "Running stitch is the plain in and out line. Back stitch doubles back on itself for strength. Whip stitch wraps over an edge to join or hem. Practise each across a line on a scrap of cloth until they feel steady. Ten minutes is plenty."
+        },
+        {
+          "heading": "Mending is a fair first use for new stitches.",
+          "body": "A loose hem, a missing button, a small hole in a jumper: all are jobs these three stitches can handle. You already know the item and what it should do, so there is little to decide. Mending something you like gives your stitches a real purpose."
+        },
+        {
+          "heading": "A visible mend can look good in its own right.",
+          "body": "A contrasting thread or a small patch does not have to hide. Many people like to see where something has been cared for. If you do not want the repair to show, match the thread. Either choice is right. Choose what you would be glad to wear."
+        }
+      ],
+      "takeaway": "Three stitches will do most small jobs. Mend something you like, and let the mend show or not."
+    },
+    {
+      "number": 4,
+      "focus": "Make a small gift and choose what comes next",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Gifts made by hand carry the time you gave them. This part asks you to plan one small gift from what you have. You then look back at the things you have made and choose what to make next. Keep it small.",
+      "ideas": [
+        {
+          "heading": "A small handmade gift can mean more than something bought.",
+          "body": "It does not need to be large. A stitched bookmark, a folded card with a drawing, a mended scarf passed on. The recipient sees the time and thought. Wrap it in paper you already have, and add one handwritten line. Keep it small so you can finish it."
+        },
+        {
+          "heading": "Look at what you have made and notice what you enjoyed.",
+          "body": "Put your makes on a table. Which did you enjoy most? Paper, thread or something else? Which felt too fiddly? Your answers are a guide, not a verdict. They show what to make next, and what to leave for another time. Be curious, not critical."
+        },
+        {
+          "heading": "Choose the next thing small, and keep your space ready.",
+          "body": "Pick one idea for next week and note the materials. Leave the box and the corner as they are, so starting is easy. Making a little at a time, when it suits you, is enough. Some weeks you will make nothing, and the box will still be there."
+        }
+      ],
+      "takeaway": "Make one small gift, look at what you enjoyed, and choose a small next make."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_space",
+      "title": "Clear a space and gather scraps",
+      "purpose": "A small space cleared and a list of what you already own.",
+      "why": "Choose a corner or tray for your making. Gather paper, thread, fabric scraps and tools from around your home. List what you find. If you cannot clear space this week, list the materials only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a corner or a tray."
+        },
+        {
+          "text": "Gather and list what you already own."
+        }
+      ],
+      "fields": [
+        {
+          "id": "space",
+          "type": "short_text",
+          "label": "Where will your small making space be?"
+        },
+        {
+          "id": "found",
+          "type": "long_text",
+          "label": "What materials do you already own?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "space",
+          "plan_section": "space"
+        },
+        {
+          "field_id": "found",
+          "plan_section": "space"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the place and three materials."
+          }
+        ],
+        "field_ids": [
+          "space"
+        ]
+      },
+      "done_when": "You have a space chosen and a list of materials."
+    },
+    {
+      "id": "p2_book",
+      "title": "Make a small notebook",
+      "purpose": "A small stitched notebook and a note on how it went.",
+      "why": "Make a small notebook from folded paper and a few stitches. Take your time and take care with the needle. Then write one line about how it went. If today is not the day, write which paper you would use.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Fold, cut and stitch your sheets."
+        },
+        {
+          "text": "Write one line about how it went."
+        }
+      ],
+      "fields": [
+        {
+          "id": "how",
+          "type": "short_text",
+          "label": "How did your notebook turn out?"
+        },
+        {
+          "id": "next",
+          "type": "short_text",
+          "label": "What would you do differently next time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "how",
+          "plan_section": "book"
+        },
+        {
+          "field_id": "next",
+          "plan_section": "book"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose the paper you would use."
+          }
+        ],
+        "field_ids": [
+          "how"
+        ]
+      },
+      "done_when": "You have made a notebook or chosen the paper for one."
+    },
+    {
+      "id": "p3_mend",
+      "title": "Mend something you like",
+      "purpose": "One item mended, and a note of which stitch you used.",
+      "why": "Choose one item that needs a small repair. Practise the stitch you need on a scrap first. Then mend the item. Write which stitch you used and how it looks. If you do not have an item, practise the three stitches.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Practise the stitch on a scrap."
+        },
+        {
+          "text": "Mend the item and note what you used."
+        }
+      ],
+      "fields": [
+        {
+          "id": "item",
+          "type": "short_text",
+          "label": "What did you mend, and which stitch did you use?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "item",
+          "plan_section": "mend"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the item you would mend."
+          }
+        ],
+        "field_ids": [
+          "item"
+        ]
+      },
+      "done_when": "One item is mended, or the three stitches practised."
+    },
+    {
+      "id": "p4_next",
+      "title": "Choose what to make next",
+      "purpose": "A gift to make and one idea for what comes next.",
+      "why": "Choose one small gift and who it is for. Then choose your next make from what you enjoyed most so far. If you cannot decide, write the name of the person only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a small gift and who it is for."
+        },
+        {
+          "text": "Choose your next make."
+        }
+      ],
+      "fields": [
+        {
+          "id": "gift",
+          "type": "short_text",
+          "label": "What small gift will you make, and for whom?"
+        },
+        {
+          "id": "next",
+          "type": "short_text",
+          "label": "What will you make next?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "gift",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "next",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one gift and one person."
+          }
+        ],
+        "field_ids": [
+          "gift"
+        ]
+      },
+      "done_when": "You have a gift and a next make chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your notebook is made or planned, and your note is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your space, your notebook, your mend and what you will make next."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "space",
+      "title": "Your making space"
+    },
+    {
+      "id": "book",
+      "title": "Your notebook"
+    },
+    {
+      "id": "mend",
+      "title": "Your mend"
+    },
+    {
+      "id": "next",
+      "title": "What you will make next"
+    }
+  ],
+  "finish": {
+    "summary": "You cleared a space and made a small notebook. You also mended something you like and chose what to make next.",
+    "book_bridge": "Something Made Each Week is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you make this month, and did you enjoy it?",
+      "Which material would you like to use next?"
+    ],
+    "refresher_ids": [
+      "p2_book",
+      "p3_mend"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { AdviceGuardrailInput, AuthorLetter, Field, ProgrammeUnit, SCHEMA_VERSION, SUPPORTED_SCHEMA_VERSIONS, TitleCopy, WhoFor, WorkbookV3, withTitleCopy } from "./v3";
+import { AdviceGuardrailInput, AuthorLetter, Exercise, Field, ProgrammeUnit, SCHEMA_VERSION, SUPPORTED_SCHEMA_VERSIONS, TitleCopy, Unit, WhoFor, WorkbookV3, withTitleCopy } from "./v3";
 
 describe("advice_guardrail", () => {
   it("accepts the four canonical values unchanged", () => {
@@ -68,7 +68,9 @@ describe("schema 3.1 unit parts (additive, 10 Oct 2026)", () => {
   it("rejects more than ten ideas and an idea with a missing part", () => {
     const idea = { heading: "H", body: "B", example: "E" };
     expect(ProgrammeUnit.safeParse({ ...unit, ideas: Array(11).fill(idea) }).success).toBe(false);
-    expect(ProgrammeUnit.safeParse({ ...unit, ideas: [{ heading: "H", body: "B" }] }).success).toBe(false);
+    expect(ProgrammeUnit.safeParse({ ...unit, ideas: [{ heading: "H", example: "E" }] }).success).toBe(false);
+    // The example is optional in the schema for demo workbooks (30 Oct 2026); @akana/validate requires it elsewhere.
+    expect(ProgrammeUnit.safeParse({ ...unit, ideas: [{ heading: "H", body: "B" }] }).success).toBe(true);
     expect(ProgrammeUnit.safeParse({ ...unit, ideas: [{ ...idea, extra: 1 }] }).success).toBe(false);
   });
 });
@@ -133,5 +135,13 @@ describe("withTitleCopy", () => {
   it("returns the document unchanged when there is no entry", () => {
     const doc = { end_state: "x" };
     expect(withTitleCopy(doc, undefined)).toBe(doc);
+  });
+});
+
+describe("demo profile (30 Oct 2026)", () => {
+  it("accepts part as a unit, an exercise with no source and licence_ref null", () => {
+    expect(Unit.parse("part")).toBe("part");
+    expect(WorkbookV3.shape.licence_ref.safeParse(null).success).toBe(true);
+    expect(Exercise.shape.source.safeParse(undefined).success).toBe(true);
   });
 });

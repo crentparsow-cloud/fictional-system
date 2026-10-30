@@ -1,0 +1,395 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-RKJ4J",
+  "slug": "making-room-for-everyone-rkj4j",
+  "title": "Making Room for Everyone",
+  "card_line": "Agree a few house rules between the adults and make time for each child.",
+  "book": {
+    "book_id": "making-room-for-everyone",
+    "title": "Making Room for Everyone",
+    "subtitle": "Settling Into Life as a Stepfamily"
+  },
+  "author": {
+    "author_id": "AU-ARMK7",
+    "display_name": "Sofia Hedlund-Ahl"
+  },
+  "genre": "parenting",
+  "theme_id": "changing-families",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about settling into life as a stepfamily. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a few house rules agreed between the adults, time for each child and a family meeting planned. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing that would make your house feel more like everyone's? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If using it would put you or a child at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Map who lives here and what each adult brings",
+      "exercise_ids": [
+        "p1_map"
+      ],
+      "intro": "A stepfamily starts with several households' worth of ways of doing things under one roof. Nobody is wrong, but things differ. This part asks you to write down who lives here, who visits and what each person likes to be called. Then you note what each adult brings from before.",
+      "ideas": [
+        {
+          "heading": "Everyone in the house benefits from knowing what to call everyone else.",
+          "body": "Names carry weight in a new family. A child may not want to say \"Dad\" to a parent's new partner, and that is allowed. Agree what each person is called and ask the children what they prefer. Pressure to use certain words tends to backfire. Respect for names grows slowly."
+        },
+        {
+          "heading": "Each adult brings a different idea of how a home runs.",
+          "body": "One parent expects shoes off and dinner at six. Another is relaxed about bedtimes and keeps no fixed hour for meals. Neither is wrong. These are things each learned in an earlier household. Listing them without comment shows where the differences are, before they turn into arguments in front of the children."
+        },
+        {
+          "heading": "Visiting children belong in the home as much as resident ones.",
+          "body": "A child who comes at weekends needs a place that is theirs, even if it is only a shelf and a drawer. Without it they can feel like a guest in a parent's house. Small signs matter: a toothbrush kept in the bathroom, a hook for a coat. Ask them what they would like."
+        }
+      ],
+      "takeaway": "Agree what everyone is called, and write down what each adult brings. Visiting children need a place of their own too."
+    },
+    {
+      "number": 2,
+      "focus": "Agree a few house rules between the adults first",
+      "exercise_ids": [
+        "p2_rules"
+      ],
+      "intro": "Rules that arrive from one adult alone tend to meet resistance. This part asks the adults to talk first, in private, and agree three or four rules that matter most. Fewer rules, clearly shared, are easier for children to follow.",
+      "ideas": [
+        {
+          "heading": "Three or four rules are enough to start a new household.",
+          "body": "Choose the ones that touch everyday life: meals, screens, bedtimes, tidying. Leave the rest to settle. A long list brings more arguments than it prevents. Write each rule in a short sentence that a child could repeat back to you. Add others only when a real need arises."
+        },
+        {
+          "heading": "Adults who disagree are best placed to sort it out away from the children.",
+          "body": "Talk about the rules when the children are out or in bed. Where you differ, find the middle together and tell the children as one voice. If you cannot agree on something, leave it for now. Children notice quickly when adults pull in different directions."
+        },
+        {
+          "heading": "The parent leads on rules while the step-parent builds trust.",
+          "body": "A child hears a rule from their own parent differently from the same rule from a newer adult. At first the parent can say it and the step-parent backs it up. Over time, as the relationship grows, the step-parent's voice carries more. Both adults agree this in advance."
+        }
+      ],
+      "takeaway": "Adults agree a few rules first, in private, and tell the children together. The parent leads on rules while trust builds."
+    },
+    {
+      "number": 3,
+      "focus": "Make time for each child and know when to step back",
+      "exercise_ids": [
+        "p3_time"
+      ],
+      "intro": "Children in a stepfamily often want what they had before: time with their own parent. This part asks you to plan one-to-one time for each parent with their own children. It also asks the step-parent to think about their role and when to hold back.",
+      "ideas": [
+        {
+          "heading": "One-to-one time with their own parent tells a child they have not been replaced.",
+          "body": "It can be small: a walk, a lift to school, ten minutes at bedtime. The point is that it is just the two of them. Plan it, so it does not depend on spare time appearing. A child who knows it is coming can wait for it."
+        },
+        {
+          "heading": "A step-parent starts as a friendly adult, not a second parent.",
+          "body": "Trust builds through small, steady things: remembering a favourite food, turning up, listening. Taking on a full parent role too soon invites resentment. Let the child set the pace. Be warm and reliable, and let the relationship grow in its own time."
+        },
+        {
+          "heading": "Stepping back at the right moment is a skill worth learning.",
+          "body": "When a parent and child are in the middle of a row, the step-parent can leave the room. Offering a view uninvited usually makes things harder. Stepping back is not rejection. It lets the parent deal with their child, and lets you come back later with a cup of tea."
+        }
+      ],
+      "takeaway": "Give each child one-to-one time with their own parent. As a step-parent, be warm, be reliable and step back when a moment belongs to the parent."
+    },
+    {
+      "number": 4,
+      "focus": "Respect the other household and agree new traditions",
+      "exercise_ids": [
+        "p4_meeting"
+      ],
+      "intro": "Children belong to more than one home, and the adults in the other household matter to them. This part asks how to keep children out of the middle. It then looks at new traditions beside old ones and ends with a family meeting to see what has settled.",
+      "ideas": [
+        {
+          "heading": "Keep children out of the middle by dealing with the other household adult to adult.",
+          "body": "Do not ask a child to carry messages or report on the other home. Speak kindly of that household, or say nothing. Arrangements for contact are a legal matter in some cases, and an advice service in your country can explain where you stand. Keep the talking between the adults."
+        },
+        {
+          "heading": "New traditions sit best beside old ones, not in place of them.",
+          "body": "A favourite Sunday meal or birthday custom may belong to the old household. Keep what the children love, and add something small and new: a film night, a walk, a special pudding. Ask the children for ideas. A tradition made together belongs to everyone."
+        },
+        {
+          "heading": "A family meeting gives everyone the same chance to say what is working.",
+          "body": "Gather for twenty minutes with a snack. Ask each person for one thing that is going well and one thing they would change. Adults go last. Write the answers where all can see. Not everything can change, but being heard matters. Hold another when it suits the family."
+        }
+      ],
+      "takeaway": "Keep children out of the middle, add new traditions beside old ones, and hold a short family meeting to hear everyone."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_map",
+      "title": "Map your household",
+      "purpose": "A list of who lives and visits, and what each adult brings from before.",
+      "why": "Write who lives in the house and who visits, with the name each person likes to use. Then add one thing each adult brings from their old household. Keep it descriptive. If a name is uncertain, write a question mark.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List who lives here and who visits."
+        },
+        {
+          "text": "Add one thing each adult brings."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "two_column",
+          "label": "Who is in your household, and what do they like to be called?",
+          "columns": [
+            "Person",
+            "Name they use"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "brings",
+          "type": "long_text",
+          "label": "What does each adult bring from their old household?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "people",
+          "plan_section": "household"
+        },
+        {
+          "field_id": "brings",
+          "plan_section": "household"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the names of everyone in the house."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "done_when": "Everyone is on the list and each adult has one item."
+    },
+    {
+      "id": "p2_rules",
+      "title": "Agree your house rules",
+      "purpose": "Three or four house rules in short sentences, agreed by the adults.",
+      "why": "Sit down with the other adult when the children are not around. Each says the three things that matter most. Agree three or four rules from the two lists, in short sentences. If you disagree on one, set it aside for another day.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Each adult lists their top three."
+        },
+        {
+          "text": "Agree three or four rules in short sentences."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "Which three or four house rules do the adults agree on?"
+        },
+        {
+          "id": "lead",
+          "type": "short_text",
+          "label": "Who will explain the rules to the children, and how?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        },
+        {
+          "field_id": "lead",
+          "plan_section": "rules"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one rule you both agree on."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "You have at least three rules in short sentences."
+    },
+    {
+      "id": "p3_time",
+      "title": "Plan one-to-one time",
+      "purpose": "A plan for one-to-one time for each child and a note on your own role.",
+      "why": "For each child, note one small thing their parent can do alone with them this month. Then, if you are a step-parent, write one way you will stay warm without pushing. If you are a parent, write one way to support that. If time is tight, choose the smallest thing.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one small thing for each child."
+        },
+        {
+          "text": "Write how you will stay warm and hold back."
+        }
+      ],
+      "fields": [
+        {
+          "id": "time",
+          "type": "two_column",
+          "label": "Which child, and what one-to-one time will they have?",
+          "columns": [
+            "Child",
+            "What they will do with their parent"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "role",
+          "type": "short_text",
+          "label": "How will you stay warm without pushing?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "time",
+          "plan_section": "time"
+        },
+        {
+          "field_id": "role",
+          "plan_section": "time"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one child and one small thing."
+          }
+        ],
+        "field_ids": [
+          "time"
+        ]
+      },
+      "done_when": "Each child has one idea, and your own role has a line."
+    },
+    {
+      "id": "p4_meeting",
+      "title": "Plan a family meeting",
+      "purpose": "A new tradition idea and a plan for a short family meeting.",
+      "why": "Think of one small new tradition to try beside an old one. Then plan a twenty minute family meeting: when, and the two questions you will ask each person. If a meeting feels too soon, plan the tradition alone.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of one new tradition."
+        },
+        {
+          "text": "Plan the meeting time and two questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tradition",
+          "type": "short_text",
+          "label": "What small new tradition could you add?"
+        },
+        {
+          "id": "meeting",
+          "type": "long_text",
+          "label": "When will the family meeting be, and which two questions will you ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tradition",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "meeting",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one new tradition idea."
+          }
+        ],
+        "field_ids": [
+          "tradition"
+        ]
+      },
+      "done_when": "You have a tradition idea and a time and questions for the meeting."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your house rules are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your household, your rules, your time and your meeting."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "household",
+      "title": "Your household"
+    },
+    {
+      "id": "rules",
+      "title": "House rules"
+    },
+    {
+      "id": "time",
+      "title": "One-to-one time"
+    },
+    {
+      "id": "next",
+      "title": "Traditions and the meeting"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your household, your house rules, one-to-one time and your family meeting.",
+    "book_bridge": "Making Room for Everyone is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which house rule is working best this month?",
+      "Who has had one-to-one time lately, and who has not?",
+      "What would you like to raise at the next family meeting?"
+    ],
+    "refresher_ids": [
+      "p2_rules",
+      "p4_meeting"
+    ]
+  }
+}

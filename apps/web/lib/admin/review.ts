@@ -97,10 +97,13 @@ export interface ValidatorSummary {
   crashed?: boolean;
 }
 
-/** Runs @akana/validate at full strength: the gate never uses the lenient mode. */
-export function runValidator(content: unknown): ValidatorSummary {
+/**
+ * Runs @akana/validate at full strength: the gate never uses the lenient mode.
+ * shelfId, when known, lets the habit lint follow the shelf rule (0069).
+ */
+export function runValidator(content: unknown, shelfId?: string | null): ValidatorSummary {
   try {
-    const r = validateWorkbook(content);
+    const r = validateWorkbook(content, shelfId === undefined ? {} : { shelfId });
     return { ok: r.ok, errors: r.errors, warnings: r.warnings };
   } catch {
     return {

@@ -1,0 +1,383 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-MX0NC",
+  "slug": "the-monday-after-leave-mx0nc",
+  "title": "The Monday After Leave",
+  "card_line": "Plan your first Monday back at work hour by hour.",
+  "book": {
+    "book_id": "the-monday-after-leave",
+    "title": "The Monday After Leave",
+    "subtitle": "Planning a Return to Work After a Baby"
+  },
+  "author": {
+    "author_id": "AU-56780",
+    "display_name": "Ffion Rees-Adeyemi"
+  },
+  "genre": "parenting",
+  "theme_id": "early-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_medical_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning your return to work after a baby. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have your first Monday written out hour by hour. It is not medical advice, and employment rights differ by country. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the one thing about going back that you most want to get right? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family and work planning. If using it would put you or anyone at home at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Decide what you want your return to look like",
+      "exercise_ids": [
+        "p1_return"
+      ],
+      "intro": "Going back is easier to plan when you know what you would like it to be. This part asks you to think about hours, pace and what matters most in the first weeks. Your answers shape the next three parts.",
+      "ideas": [
+        {
+          "heading": "Your return can be planned, not just arrived at.",
+          "body": "Many parents wait until the last week and then rush. A plan made a few weeks ahead gives you room to adjust. Start by writing what a good first week would look like to you. There is no right answer. The list is yours."
+        },
+        {
+          "heading": "What you want and what your job allows may differ, and both are worth knowing.",
+          "body": "You may want shorter days or a later start. Your workplace may offer some of this and not all. Write down the ideal first, then the least you could manage with. Knowing both gives you something to discuss. Check official guidance on your rights, as they differ by country."
+        },
+        {
+          "heading": "The first weeks are a settling-in period, not a test.",
+          "body": "Everyone is learning a new rhythm: you, your baby, your childcare, your team. Expect things to wobble. Plan lighter days if you can. Judge the arrangement after a few weeks, not after the first morning. A rough start tells you little about the weeks that follow."
+        }
+      ],
+      "takeaway": "Plan your return rather than just arriving. Know what you want and what you could accept, and see the first weeks as settling in."
+    },
+    {
+      "number": 2,
+      "focus": "Sort out childcare, drop-offs and a backup",
+      "exercise_ids": [
+        "p2_care"
+      ],
+      "intro": "Childcare is the part of the plan that everything else depends on. This part asks you to look at your options and work out the drop-off and pick-up times. You also name a backup for the day the plan breaks. A short trial run before you start is worth the time.",
+      "ideas": [
+        {
+          "heading": "Childcare options are best compared on the same few questions.",
+          "body": "Write the same questions for each: hours, cost, distance, who looks after your baby, and what happens when they are ill. Visit if you can. Ask other parents. Jotting answers side by side makes the choice clearer than a general impression."
+        },
+        {
+          "heading": "Work out the drop-off and pick-up times minute by minute.",
+          "body": "Count the commute, the handover, parking and the walk to your desk. Then count the return. Add ten minutes for the unexpected. If the times do not fit, you know now rather than on the day. A trial run the week before shows the gaps."
+        },
+        {
+          "heading": "A backup for the day it all goes wrong is part of a good plan.",
+          "body": "Illness, closures and delayed trains happen. Name two people or services who could step in at short notice. Tell them in advance. A backup on a list, with numbers, means you are not starting from nothing on the morning your baby has a temperature."
+        }
+      ],
+      "takeaway": "Compare childcare on the same questions, time the journeys, and name a backup before you need one."
+    },
+    {
+      "number": 3,
+      "focus": "Talk with your manager about the first weeks",
+      "exercise_ids": [
+        "p3_manager"
+      ],
+      "intro": "A conversation before you return avoids surprises for both sides. This part asks you to list what you want to ask and what your manager might want to know. Employment rights differ by country, so use official guidance for the detail.",
+      "ideas": [
+        {
+          "heading": "Ask for specific things, because they are easier to agree to.",
+          "body": "Rather than \"Can I be flexible?\", try this. \"Could I start at half past nine for the first month?\" A specific question is easier to say yes to. Know your fallback. Write the request in a sentence and say it aloud once."
+        },
+        {
+          "heading": "Your manager may have questions too, and answering them early builds goodwill.",
+          "body": "They may want to know when you will be reachable, what you can cover and how handover will work. Offer an outline before they ask. It shows you have thought ahead and keeps the conversation practical. Ask for a date to look at the arrangement together once it has begun."
+        },
+        {
+          "heading": "A first-weeks plan agreed in writing saves confusion later.",
+          "body": "After the talk, send a short note: the hours agreed, the review date and who covers what. Keep a copy in your own records. If something changes, update it together and send the new version. Rights and entitlements differ by country, so check official guidance for anything formal."
+        }
+      ],
+      "takeaway": "Ask for specific things, answer your manager's questions early, and write down what is agreed."
+    },
+    {
+      "number": 4,
+      "focus": "Write out the first Monday hour by hour and review it",
+      "exercise_ids": [
+        "p4_monday"
+      ],
+      "intro": "A written first Monday removes guesswork on the morning. This part asks you to plan the day from waking to bedtime. Then you review how it went. The plan is a draft, and it is yours to change at any point.",
+      "ideas": [
+        {
+          "heading": "A plan written hour by hour shows where the day is tight.",
+          "body": "Start with the time you want to arrive and work backwards: the commute, the drop-off, breakfast, waking. Then go forwards to pick-up, tea and bed. Gaps and clashes show up on paper. Fix them on Sunday, not at the door."
+        },
+        {
+          "heading": "Doing a few jobs the night before gives the morning more room.",
+          "body": "Lay out clothes, pack the bag, prepare lunch and find the keys. Put your baby's things by the door. Evening effort saves morning rush. Keep it to a short list so that it does not become one more job. A bag by the door is enough on a busy night."
+        },
+        {
+          "heading": "A short review afterwards shows what to change for Tuesday.",
+          "body": "That evening, jot down what worked, what ran late and what you forgot. Pick one thing to change. Do not judge the whole arrangement on one day. Look again after a week. The first Monday is the start of the plan, not the final version."
+        }
+      ],
+      "takeaway": "Plan the first Monday hour by hour, prepare the night before, and review it that evening."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_return",
+      "title": "Describe your ideal return",
+      "purpose": "A picture of a good first week and the least you could manage with.",
+      "why": "Write what a good first week back would look like to you: hours, pace and anything that matters. Then write the least you could manage with. Both are for you alone for now. If you are not sure, write what you would not want.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Describe a good first week."
+        },
+        {
+          "text": "Write the least you could manage with."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ideal",
+          "type": "long_text",
+          "label": "What would a good first week back look like?"
+        },
+        {
+          "id": "least",
+          "type": "short_text",
+          "label": "What is the least you could manage with?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ideal",
+          "plan_section": "return"
+        },
+        {
+          "field_id": "least",
+          "plan_section": "return"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you want from the first week."
+          }
+        ],
+        "field_ids": [
+          "ideal"
+        ]
+      },
+      "done_when": "You have a picture of a good week and a least."
+    },
+    {
+      "id": "p2_care",
+      "title": "Plan childcare and a backup",
+      "purpose": "A childcare choice, its timings and a named backup.",
+      "why": "Write which childcare option you are leaning towards and why. Add the drop-off and pick-up times. Then name your backup, and how you would reach them. If you have not chosen, list the questions you still need answered.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your childcare choice and the times."
+        },
+        {
+          "text": "Name your backup and how to reach them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "care",
+          "type": "short_text",
+          "label": "Which childcare option are you leaning towards, and why?"
+        },
+        {
+          "id": "backup",
+          "type": "short_text",
+          "label": "Who is your backup, and how will you reach them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "care",
+          "plan_section": "care"
+        },
+        {
+          "field_id": "backup",
+          "plan_section": "care"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one childcare question to ask."
+          }
+        ],
+        "field_ids": [
+          "care"
+        ]
+      },
+      "done_when": "You have a childcare choice or questions, and a backup named."
+    },
+    {
+      "id": "p3_manager",
+      "title": "Prepare for the manager talk",
+      "purpose": "One clear request for the first weeks and your answers to likely questions.",
+      "why": "Write the one request you would like to make for the first weeks, in a sentence. Then think about what your manager might ask you, and write one answer. Say the request aloud once. If you are unsure, choose the smallest request.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your request in one sentence."
+        },
+        {
+          "text": "Write one answer to a likely question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "What is your one clear request for the first weeks?"
+        },
+        {
+          "id": "questions",
+          "type": "short_text",
+          "label": "What might your manager want to know from you?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ask",
+          "plan_section": "manager"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "manager"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your request in one sentence."
+          }
+        ],
+        "field_ids": [
+          "ask"
+        ]
+      },
+      "done_when": "You have a clear request and one answer ready."
+    },
+    {
+      "id": "p4_monday",
+      "title": "Write your first Monday",
+      "purpose": "An hour-by-hour plan for the day and one thing to review afterwards.",
+      "why": "Write the day from waking to bedtime, hour by hour, working back from your arrival time. Add what you will do the night before. Then name one thing to look at again that evening. A rough draft is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the day hour by hour."
+        },
+        {
+          "text": "Name one thing to review afterwards."
+        }
+      ],
+      "fields": [
+        {
+          "id": "monday",
+          "type": "long_text",
+          "label": "What will your first Monday look like, hour by hour?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "What is one thing you will look at again afterwards?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "monday",
+          "plan_section": "monday"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "monday"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the times you leave and arrive."
+          }
+        ],
+        "field_ids": [
+          "monday"
+        ]
+      },
+      "done_when": "You have a draft of the day and one thing to review."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your childcare plan is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your return, your childcare, your request and your Monday."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "return",
+      "title": "Your return"
+    },
+    {
+      "id": "care",
+      "title": "Childcare and backup"
+    },
+    {
+      "id": "manager",
+      "title": "Talking with your manager"
+    },
+    {
+      "id": "monday",
+      "title": "Your first Monday"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your ideal return, your childcare, your request to your manager and your first Monday.",
+    "book_bridge": "The Monday After Leave is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What would you change about your working week now?",
+      "Is the childcare plan still working?",
+      "What do you want to raise with your manager next?"
+    ],
+    "refresher_ids": [
+      "p3_manager",
+      "p4_monday"
+    ]
+  }
+}

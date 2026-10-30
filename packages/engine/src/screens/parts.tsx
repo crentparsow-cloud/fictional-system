@@ -44,7 +44,7 @@ export function Card({ children, flat, className = "" }: { children: ReactNode; 
 }
 
 export function unitLabel(doc: Pick<WorkbookV3, "structure">, n: number): string {
-  const word = { week: "Week", day: "Day", module: "Module", chapter: "Chapter" }[doc.structure.unit];
+  const word = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part" }[doc.structure.unit];
   return `${word} ${n}`;
 }
 

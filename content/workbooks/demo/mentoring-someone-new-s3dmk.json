@@ -1,0 +1,390 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-S3DMK",
+  "slug": "mentoring-someone-new-s3dmk",
+  "title": "Mentoring Someone New",
+  "card_line": "Run a first mentoring relationship, from the opening meeting to a plan for next season.",
+  "book": {
+    "book_id": "mentoring-someone-new",
+    "title": "Mentoring Someone New",
+    "subtitle": "A Short Guide for First-Time Mentors"
+  },
+  "author": {
+    "author_id": "AU-1ZS6X",
+    "display_name": "Tama Rāwiri-Hughes"
+  },
+  "genre": "career",
+  "theme_id": "work-worth-choosing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about running your first mentoring relationship. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have planned a first meeting and a set of good questions. You will also have a story and a small task to share, and a review with a plan for the next season. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who are you mentoring, or who might you be asked to mentor? A first name or a role is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Plan a first meeting and agree what the mentee wants",
+      "exercise_ids": [
+        "p1_first"
+      ],
+      "intro": "The first meeting sets the tone for everything after it. It is mostly about listening and agreeing how you will work together. This part asks you to plan that meeting and to think about how you will find out what the other person wants from you.",
+      "ideas": [
+        {
+          "heading": "Start by finding out what the mentee wants, not what you want to give.",
+          "body": "Ask, \"What would you like to be different in six months?\" Then listen. Mentors often arrive with advice ready, and it may not fit. A person who feels heard is more likely to come back and say what they really need."
+        },
+        {
+          "heading": "Agree the ground rules at the first meeting.",
+          "body": "Settle how often you will meet, for how long and where. Agree that what is said stays between you. Say that either of you can change or end the arrangement. A few plain words at the start spare you awkward guessing later."
+        },
+        {
+          "heading": "Be honest about what you can and cannot offer.",
+          "body": "You are not their manager and cannot promise them a job. Say what you can do: share experience, listen, introduce a contact or two. Clear limits protect both of you. A mentee who knows what to expect is not let down."
+        }
+      ],
+      "takeaway": "In the first meeting, listen to what the mentee wants, agree how you will work, and be honest about your limits."
+    },
+    {
+      "number": 2,
+      "focus": "Ask good questions and listen",
+      "exercise_ids": [
+        "p2_questions"
+      ],
+      "intro": "The best mentors ask more than they tell. Good questions help the other person think for themselves. This part gives you a few kinds of question to try. It also covers listening, so that your meetings are a conversation and not a lecture.",
+      "ideas": [
+        {
+          "heading": "Open questions get fuller answers than closed ones.",
+          "body": "\"How did the meeting go?\" brings more than \"Was the meeting good?\" Start with how, what and when. Then stay quiet for a moment after they answer. Silence gives people room to add the thing they were unsure about saying."
+        },
+        {
+          "heading": "Ask what they have already tried before you suggest anything.",
+          "body": "\"What have you thought of doing?\" brings out what the mentee already knows. Often their own idea is sound. Suggest only when they are stuck, and offer it as one option. It keeps the decision with them. If they have tried nothing yet, ask what they might try first."
+        },
+        {
+          "heading": "Listen for what is behind the question.",
+          "body": "A question about a deadline may be about confidence. A question about pay may be about being valued. You do not need to name it. Listening for it lets you answer the person and not only the words. If you are unsure, ask gently what is behind it."
+        }
+      ],
+      "takeaway": "Ask open questions, find out what they have tried, and listen for what is behind the question."
+    },
+    {
+      "number": 3,
+      "focus": "Share stories and set small tasks",
+      "exercise_ids": [
+        "p3_story"
+      ],
+      "intro": "Mentoring is not only talk. Your experience is useful when shared well, and a small task between meetings keeps things moving. This part is about telling stories that help, setting tasks that are the right size and leaving the choice with the mentee.",
+      "ideas": [
+        {
+          "heading": "Share a story, then let them draw their own conclusion.",
+          "body": "Tell them about a time you faced something similar, including what went wrong. Keep it short. Then ask, \"What does that bring up for you?\" A story is easier to take in than advice. It lets the mentee decide what applies."
+        },
+        {
+          "heading": "Include a mistake or two in your stories.",
+          "body": "A tale of success alone can make a newcomer feel behind. A tale of a mistake, and what you did next, makes the path look possible. Be honest and keep it light. People trust mentors who admit what they got wrong."
+        },
+        {
+          "heading": "Set one small task between meetings, agreed by both of you.",
+          "body": "It might be to speak to someone in another team, or to read a short report. Keep it small enough to do in a week. Ask what they would like to try. At the next meeting, start with how it went."
+        }
+      ],
+      "takeaway": "Tell short stories that include mistakes, and agree one small task between meetings."
+    },
+    {
+      "number": 4,
+      "focus": "Review progress and plan the next season",
+      "exercise_ids": [
+        "p4_review"
+      ],
+      "intro": "After a few meetings, stop and look back. What has changed? Is the arrangement working for both of you? This final part asks you to review honestly and to plan what comes next. It might be another season, a change of focus or a good ending.",
+      "ideas": [
+        {
+          "heading": "Review together and ask what has been most useful.",
+          "body": "Ask the mentee what helped and what did not. Share your own view too. The answers show you what to do more of. Take them as information, not as criticism. Both of you will learn from the review. Make it a conversation, with room for each of you to speak."
+        },
+        {
+          "heading": "Decide whether to continue, change focus or finish.",
+          "body": "Some pairings run for a season and end well. Others move to a new topic. Talk about which fits. There is nothing wrong with finishing. A clear ending is better than meetings that slowly fade away. If you finish, thank each other and say that the door stays open."
+        },
+        {
+          "heading": "Write down what you learned as a mentor.",
+          "body": "Note what you would repeat and what you would do differently. Mentoring teaches you as much as it teaches the other person. Your notes will make the next time easier, and they help if you are asked to explain what you do."
+        }
+      ],
+      "takeaway": "Review together, decide whether to continue, change or finish, and note what you learned."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_first",
+      "title": "Plan the first meeting",
+      "purpose": "A first question, three ground rules and a note of what you can offer.",
+      "why": "Write the opening question you will ask the mentee. Then list three ground rules to agree, such as how often you meet. Finally, write one thing you can offer and one you cannot. A rough list is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your opening question."
+        },
+        {
+          "text": "List three ground rules."
+        },
+        {
+          "text": "Write what you can and cannot offer."
+        }
+      ],
+      "fields": [
+        {
+          "id": "opening",
+          "type": "short_text",
+          "label": "What opening question will you ask?"
+        },
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What ground rules will you agree, and what can you offer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "opening",
+          "plan_section": "first"
+        },
+        {
+          "field_id": "rules",
+          "plan_section": "first"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your opening question."
+          }
+        ],
+        "field_ids": [
+          "opening"
+        ]
+      },
+      "done_when": "You have an opening question and three ground rules."
+    },
+    {
+      "id": "p2_questions",
+      "title": "Write open questions",
+      "purpose": "Four open questions you could ask and one you would avoid.",
+      "why": "Write four open questions you could ask your mentee, starting with how, what or when. Then write one closed question you would change. Say them aloud to check they sound like you.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write four open questions."
+        },
+        {
+          "text": "Rewrite one closed question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What four open questions could you ask your mentee?"
+        },
+        {
+          "id": "closed",
+          "type": "short_text",
+          "label": "Which closed question would you rewrite?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "questions"
+        },
+        {
+          "field_id": "closed",
+          "plan_section": "questions"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two open questions."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have four open questions written."
+    },
+    {
+      "id": "p3_story",
+      "title": "Pick a story and a task",
+      "purpose": "One short story with a mistake in it and one small task.",
+      "why": "Think of a time you faced something your mentee may face. Write the story in three or four lines, with what went wrong. Then write one small task you could suggest. If you have no mentee yet, imagine one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a story with a mistake in it."
+        },
+        {
+          "text": "Write it in a few lines."
+        },
+        {
+          "text": "Suggest a small task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "story",
+          "type": "long_text",
+          "label": "What story could you share, including what went wrong?"
+        },
+        {
+          "id": "task",
+          "type": "short_text",
+          "label": "What small task could you agree for the next week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "story",
+          "plan_section": "story"
+        },
+        {
+          "field_id": "task",
+          "plan_section": "story"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the story in one line."
+          }
+        ],
+        "field_ids": [
+          "story"
+        ]
+      },
+      "done_when": "You have a short story and one small task."
+    },
+    {
+      "id": "p4_review",
+      "title": "Review and plan the season",
+      "purpose": "A review of what was useful and a choice for the next season.",
+      "why": "Write what has been most useful so far, in your view and, if you can ask, in theirs. Then choose whether to continue, change focus or finish. Add one thing you learned as a mentor.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write what was most useful."
+        },
+        {
+          "text": "Choose continue, change or finish."
+        },
+        {
+          "text": "Note what you learned."
+        }
+      ],
+      "fields": [
+        {
+          "id": "useful",
+          "type": "long_text",
+          "label": "What has been most useful, and what did you learn?"
+        },
+        {
+          "id": "next",
+          "type": "short_text",
+          "label": "Will you continue, change focus or finish?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "useful",
+          "plan_section": "review"
+        },
+        {
+          "field_id": "next",
+          "plan_section": "review"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the one most useful thing."
+          }
+        ],
+        "field_ids": [
+          "useful"
+        ]
+      },
+      "done_when": "You have a review and a choice for the next season."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your questions are saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your first meeting, your questions, a story and your review."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "first",
+      "title": "The first meeting"
+    },
+    {
+      "id": "questions",
+      "title": "Your open questions"
+    },
+    {
+      "id": "story",
+      "title": "A story and a task"
+    },
+    {
+      "id": "review",
+      "title": "Review and next season"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your first meeting, your open questions, a story and task, and your review.",
+    "book_bridge": "Mentoring Someone New is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did your mentee try this month, and how did it go?",
+      "Which question brought the best answer?",
+      "Is it time to continue, change or finish?"
+    ],
+    "refresher_ids": [
+      "p2_questions",
+      "p4_review"
+    ]
+  }
+}

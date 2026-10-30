@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-QS96Q",
+  "slug": "one-learner-at-a-time-qs96q",
+  "title": "One Learner at a Time",
+  "card_line": "Run a first tutoring session and plan short sessions with exercises and review.",
+  "book": {
+    "book_id": "one-learner-at-a-time",
+    "title": "One Learner at a Time",
+    "subtitle": "Starting Out as a Tutor"
+  },
+  "author": {
+    "author_id": "AU-0TKBN",
+    "display_name": "Olivier Tremblay-Singh"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "guiding-learners",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about starting out as a tutor and working with one learner at a time. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a first session plan and a gentle way to find out what a learner knows. You will also have a short session you can repeat. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a tutoring plan you can read at the end."
+    ],
+    "why_prompt": "Who will you be tutoring, or who would you like to? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Run a first session that starts with the learner",
+      "exercise_ids": [
+        "p1_first"
+      ],
+      "intro": "The first session is mostly about meeting someone. The learner may be nervous, shy or doubtful about the whole thing. This part is about getting to know them and what they want. Your later sessions are then built around a real person, not a syllabus.",
+      "ideas": [
+        {
+          "heading": "The first session is for listening more than for teaching.",
+          "body": "Spend most of it asking and hearing. What do they enjoy, what do they find hard, what has been said to them about school? A learner who feels heard is more willing to try. You will teach far more in the second session because of what you learn in the first."
+        },
+        {
+          "heading": "Ask what the learner wants, not only what the course requires.",
+          "body": "A syllabus tells you what is on the exam. It does not tell you why this person is here. Ask what they would like to be able to do in three months. Their answer may be a grade, or it may be confidence. Both are worth knowing."
+        },
+        {
+          "heading": "A small first success sets the tone for everything after.",
+          "body": "End the first session with something the learner did well, however small. It might be one solved problem or one clear sentence. Name it. They go home with proof that the sessions are worth coming to, and they are more likely to return."
+        }
+      ],
+      "takeaway": "Listen first, ask what the learner wants and end with one small success."
+    },
+    {
+      "number": 2,
+      "focus": "Find out what they know without a test that worries them",
+      "exercise_ids": [
+        "p2_know"
+      ],
+      "intro": "You need to know where a learner is starting from, but a formal test can make them tense. This part is about finding out what they know through talk and light tasks. You learn what to teach next, and they never feel they are being marked.",
+      "ideas": [
+        {
+          "heading": "Questions in conversation reveal more than a test does.",
+          "body": "Ask them to explain a topic as if to a friend. Listen for what they know, what they half know and where they stop. Keep the tone easy. A learner who is chatting shows you far more than one who is tensing up over a paper."
+        },
+        {
+          "heading": "A light task shows what they can do, not what they cannot.",
+          "body": "Give a short, open task, such as writing a few lines about a picture or solving a problem aloud. Watch the way they work as well as the answer. Notice what they try first, and what they do when they get stuck. This is your best guide to where to start."
+        },
+        {
+          "heading": "Starting from what they know builds trust quickly.",
+          "body": "Begin the next session with something they can do and then move one step beyond it. The learner feels the difference at once. They are being met where they are. This avoids the common mistake of starting too high and losing them."
+        }
+      ],
+      "takeaway": "Talk and light tasks tell you where a learner is. Begin from what they know and take one step further."
+    },
+    {
+      "number": 3,
+      "focus": "Plan short sessions with exercises and review",
+      "exercise_ids": [
+        "p3_session"
+      ],
+      "intro": "A good session has a simple shape that you can repeat. This part gives you one: review, new idea, exercises, close. You plan a single session of this kind, keeping it short and leaving room for the learner to ask questions as you go.",
+      "ideas": [
+        {
+          "heading": "A short session with one aim is better than a long session with five.",
+          "body": "Pick one thing you want the learner to be able to do by the end. Everything in the session serves that. Sixty minutes with one aim leaves time for exercises. A packed session leaves the learner with a blur of half remembered points."
+        },
+        {
+          "heading": "Start with a quick review of the last session.",
+          "body": "Spend the first five minutes asking about what you did last time. Let the learner do the talking. It brings the topic back to mind and shows you what has stuck. If nothing has, you know you need to go over it again."
+        },
+        {
+          "heading": "Trying it themselves matters more than your explanation.",
+          "body": "After you explain something, let the learner try it straight away. Give them a few similar tasks and watch. Step in when they are stuck, but not before. Doing it themselves is how the skill becomes theirs, and your explanation only opens the door."
+        }
+      ],
+      "takeaway": "One aim, a quick review, then exercises for the learner. A simple shape you can repeat is enough."
+    },
+    {
+      "number": 4,
+      "focus": "Talk about progress with the learner and their family",
+      "exercise_ids": [
+        "p4_progress"
+      ],
+      "intro": "Learners and parents want to know how things are going. Telling them well takes some care. This last part is about describing progress honestly and kindly, and agreeing what comes next. You finish with a short message you could send after a few sessions.",
+      "ideas": [
+        {
+          "heading": "Describe progress with examples, not only with grades or labels.",
+          "body": "Say what the learner can do now that they could not do before. Use a specific example, such as finding the main idea in a paragraph. An example is more convincing than a general word like better. It also gives the learner something to be proud of."
+        },
+        {
+          "heading": "Name what still needs work in plain, kind words.",
+          "body": "Be honest about the next step without making it sound like a fault. Saying that fractions are the next thing to work on is clear and fair. Pair it with a plan for how. The learner and parent can then see a way forward."
+        },
+        {
+          "heading": "Agree the next steps with the learner, not for them.",
+          "body": "Ask the learner what they would like to do next. Offer two options and let them choose. When they have a say, they take the plan on as theirs. A plan agreed with the family sets expectations early and avoids confusion later."
+        }
+      ],
+      "takeaway": "Share progress with examples, name the next step kindly and agree it with the learner."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_first",
+      "title": "Plan your first session",
+      "purpose": "Four questions to ask a new learner and one small success to aim for.",
+      "why": "Write four questions you will ask the learner in your first session, about what they enjoy, find hard and want to achieve. Then choose one small thing they could do well before they leave. If you have no learner yet, picture one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write four questions for the learner."
+        },
+        {
+          "text": "Choose one small success to aim for."
+        }
+      ],
+      "fields": [
+        {
+          "id": "first_questions",
+          "type": "long_text",
+          "label": "Which four questions will you ask in your first session?"
+        },
+        {
+          "id": "small_success",
+          "type": "short_text",
+          "label": "What small success will you aim for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "first_questions",
+          "plan_section": "first"
+        },
+        {
+          "field_id": "small_success",
+          "plan_section": "first"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two questions for a new learner."
+          }
+        ],
+        "field_ids": [
+          "first_questions"
+        ]
+      },
+      "done_when": "You have at least two questions and one small success."
+    },
+    {
+      "id": "p2_know",
+      "title": "Plan a gentle starting check",
+      "purpose": "One conversation question and one light task to see what a learner knows.",
+      "why": "Choose a topic you might teach. Write one question that gets the learner explaining in their own words. Then write a short, open task that shows how they work. Note what you will look for. Keep it light.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one question that gets them talking."
+        },
+        {
+          "text": "Write one short, open task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "talk_question",
+          "type": "short_text",
+          "label": "What question will get the learner explaining in their own words?"
+        },
+        {
+          "id": "light_task",
+          "type": "short_text",
+          "label": "What light task will show how they work?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "talk_question",
+          "plan_section": "check"
+        },
+        {
+          "field_id": "light_task",
+          "plan_section": "check"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question for the learner to explain."
+          }
+        ],
+        "field_ids": [
+          "talk_question"
+        ]
+      },
+      "done_when": "You have a question and a task."
+    },
+    {
+      "id": "p3_session",
+      "title": "Plan one short session",
+      "purpose": "A single session plan with one aim, a review and exercises.",
+      "why": "Write the one thing the learner should be able to do by the end. Then fill in the four parts: review, new idea, exercises and close. Give each a time. Keep the total to the length of your session.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the aim for the session."
+        },
+        {
+          "text": "Fill in review, new idea, exercises and close."
+        }
+      ],
+      "fields": [
+        {
+          "id": "aim",
+          "type": "short_text",
+          "label": "What should the learner be able to do by the end?"
+        },
+        {
+          "id": "shape",
+          "type": "long_text",
+          "label": "What happens in the review, new idea, exercises and close?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "aim",
+          "plan_section": "session"
+        },
+        {
+          "field_id": "shape",
+          "plan_section": "session"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the aim for one session."
+          }
+        ],
+        "field_ids": [
+          "aim"
+        ]
+      },
+      "done_when": "You have an aim and a line for each part."
+    },
+    {
+      "id": "p4_progress",
+      "title": "Draft a progress message",
+      "purpose": "A short message about progress with an example and a next step.",
+      "why": "Write a message of three or four lines to a learner or parent. Say one thing the learner can do now, with an example. Name one next step in kind words. End with a question about what they would like next.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one thing they can do now, with an example."
+        },
+        {
+          "text": "Name a next step and ask what they want."
+        }
+      ],
+      "fields": [
+        {
+          "id": "can_do",
+          "type": "short_text",
+          "label": "What can the learner do now that they could not before?"
+        },
+        {
+          "id": "next_step",
+          "type": "short_text",
+          "label": "What is the next step, in kind words?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "can_do",
+          "plan_section": "progress"
+        },
+        {
+          "field_id": "next_step",
+          "plan_section": "progress"
+        }
+      ],
+      "done_when": "You have one example and one next step."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your starting check is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your first session, your check, your session and your message."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "first",
+      "title": "Your first session"
+    },
+    {
+      "id": "check",
+      "title": "Your starting check"
+    },
+    {
+      "id": "session",
+      "title": "Your short session"
+    },
+    {
+      "id": "progress",
+      "title": "Your progress message"
+    }
+  ],
+  "finish": {
+    "summary": "You planned a first session and a gentle starting check. You also planned one short session and drafted a message about progress.",
+    "book_bridge": "One Learner at a Time is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you learn about a learner this month?",
+      "Which part of your session shape worked best?",
+      "What is the next step you have agreed with a learner?"
+    ],
+    "refresher_ids": [
+      "p1_first",
+      "p3_session"
+    ]
+  }
+}

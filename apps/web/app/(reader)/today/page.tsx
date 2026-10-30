@@ -72,7 +72,8 @@ export default async function TodayPage() {
   // 14.7: the badge says "1" while a step is waiting and none is done today. Zero on wellbeing shelves.
   const badge = badgeCount({
     wellbeing,
-    stepWaiting: Boolean(view?.cards.some((c) => c.kind === "step")),
+    // A step waits only on a day the reader's pace suggests one (0069).
+    stepWaiting: Boolean(view?.leadDue && view.cards.some((c) => c.kind === "step")),
     finishedToday: view ? await finishedStepToday(view.timeZone) : false,
   });
 
@@ -118,7 +119,7 @@ export default async function TodayPage() {
         </>
       )}
 
-      {habit ? <HabitPanel habit={habit} onThisDay={onThisDay} readOnly={readOnly} /> : null}
+      {habit ? <HabitPanel habit={habit} onThisDay={onThisDay} readOnly={readOnly} hideStreak={view?.leadHabitAllowed === false} /> : null}
 
       {view && daily.length > 0 ? (
         <section className="card daily-check" aria-labelledby="daily-check-title">

@@ -1,0 +1,367 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-NDT42",
+  "slug": "pause-before-you-click-ndt42",
+  "title": "Pause Before You Click",
+  "card_line": "Spot the signs of a scam and know exactly what to do if one reaches you.",
+  "book": {
+    "book_id": "pause-before-you-click",
+    "title": "Pause Before You Click",
+    "subtitle": "Spotting Scams and Staying Safe Online"
+  },
+  "author": {
+    "author_id": "AU-QP3S0",
+    "display_name": "Priya Ramdhanie-Cole"
+  },
+  "genre": "life_skills",
+  "theme_id": "digital-ease",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about spotting the signs of a scam and knowing what to do if one reaches you. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short list of warning signs and a way to check a message. You will also have a plan for if something goes wrong. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a safety plan you can read at the end."
+    ],
+    "why_prompt": "Which kind of message or call makes you most unsure? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Learn how scams reach you and what the pressure signs are",
+      "exercise_ids": [
+        "p1_signs"
+      ],
+      "intro": "Scammers reach people by phone, text, email, advert and post. The method changes, but the tricks stay much the same. This part shows you the routes in, then the warning signs that appear in almost every scam. Spotting two or three of them is usually enough.",
+      "ideas": [
+        {
+          "heading": "A scam can arrive by call, text, email, advert or a knock at the door.",
+          "body": "Each route looks different, but the aim is the same: to get your money or your details. A call from your bank, a text about a parcel, an email about a refund and a social media advert can all be scams. The channel tells you little. What they ask for tells you more."
+        },
+        {
+          "heading": "Urgency is the most common warning sign.",
+          "body": "Scammers want you to act before you think. They say your account will be closed today, a fine is due now, or an offer ends in an hour. Real organisations give you time. Whenever a message rushes you, take the rush itself as the warning."
+        },
+        {
+          "heading": "Secrecy and odd ways to pay are signs that call for a stop.",
+          "body": "Be wary of anyone who asks you not to tell your family or your bank. Be wary of requests to pay by gift cards, vouchers, cryptocurrency or a transfer to a new account. Genuine businesses do not ask for these. If you notice one of these signs, stop."
+        }
+      ],
+      "takeaway": "Scams come by many routes but share signs: rush, secrecy and strange ways to pay. Spot one and pause."
+    },
+    {
+      "number": 2,
+      "focus": "Check a message or caller using details you already hold",
+      "exercise_ids": [
+        "p2_check"
+      ],
+      "intro": "When something looks odd, the best step is to check it yourself, using a route you trust. This part shows you how to verify a call, text or email without using any link or number the sender gave you. It takes a couple of minutes and settles most doubts.",
+      "ideas": [
+        {
+          "heading": "Never use the contact details given in the message to check it.",
+          "body": "A scammer will happily supply a phone number or link that leads straight back to them. Instead, look up the organisation yourself. Use the number on your bank card, a bill or a letter you already have. That route goes to the real one."
+        },
+        {
+          "heading": "You can end any call and ring back on a number you trust.",
+          "body": "It is fine to say you will call them back, and to hang up. Wait a few minutes, then ring the number on your card or statement. If the call was genuine, they will be glad you checked. If it was not, you have lost nothing."
+        },
+        {
+          "heading": "A link in a message is safer left alone than clicked.",
+          "body": "If a text or email asks you to click a link, do not. Open the organisation's app or type its address into the browser yourself. Look for the same message there. If it is real, it will be waiting. If it is not, the link was the trap."
+        }
+      ],
+      "takeaway": "Check using details you already hold, never those in the message. Hang up, ring back and leave links alone."
+    },
+    {
+      "number": 3,
+      "focus": "Keep your own devices and accounts secure",
+      "exercise_ids": [
+        "p3_secure"
+      ],
+      "intro": "Good habits on your own phone and computer make a scammer's job harder. This part covers three small ones: passwords, a second check when you log in, and updates. Each takes a few minutes to set up, and then mostly looks after itself.",
+      "ideas": [
+        {
+          "heading": "A long password you can remember beats a short one you cannot.",
+          "body": "Choose three or four unrelated words and join them, such as a phrase only you would think of. Longer is stronger. Use a different one for your email and your bank. A password manager can store the rest if you find it useful."
+        },
+        {
+          "heading": "A second check at login stops most break ins, even if someone has your password.",
+          "body": "Two step checks send a code to your phone or ask for a fingerprint when you log in from a new place. Turn it on for your email first, since other accounts can be reset from there. It adds a few seconds to each login and a lot of protection."
+        },
+        {
+          "heading": "Updates close the gaps that scammers use to get in.",
+          "body": "When your phone or computer asks to update, say yes at a convenient time. Many updates fix weaknesses that criminals already know about. Switch on automatic updates if you can. It is one of the easiest jobs on this list, and it runs quietly in the background."
+        }
+      ],
+      "takeaway": "Use long, separate passwords, switch on two step checks and keep your devices updated."
+    },
+    {
+      "number": 4,
+      "focus": "Help someone you know and make your own plan",
+      "exercise_ids": [
+        "p4_plan"
+      ],
+      "intro": "Sooner or later you may be asked about a suspicious message by a parent, a friend or a neighbour. This part shows you how to support them without taking over. It ends with your own plan for what to do, and who to tell, if something goes wrong.",
+      "ideas": [
+        {
+          "heading": "Helping someone check a message is better than telling them what to do.",
+          "body": "Sit beside them rather than reaching for the device. Ask what the message says and what makes them unsure. Show them how you would check it. They keep control, and they learn the steps for next time. Nobody likes being told they were foolish."
+        },
+        {
+          "heading": "Anyone can be caught out, so be kind about it when it happens.",
+          "body": "Scammers are skilled and well organised. Clever, careful people lose money to them. If someone has been caught, say so without blame. The sooner they tell you, the more can be done. Shame is what keeps people quiet, and quiet is what helps the scammer."
+        },
+        {
+          "heading": "Write your plan down before you need it.",
+          "body": "Decide now what you will do: ring your bank on the number on your card, change the password, and tell someone you trust. Note the numbers where you can find them. Doing this in a calm moment means you will not have to think under pressure."
+        }
+      ],
+      "takeaway": "Support people without blame, and write your own plan before you need it. Speed matters if something goes wrong."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_signs",
+      "title": "List the warning signs",
+      "purpose": "A short list of the warning signs you will watch for.",
+      "why": "Think of a message or call you have had that felt wrong, or one you could imagine. Write which signs it showed: rush, secrecy or an odd way to pay. Then write the three signs you most want to remember.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Describe a message that felt wrong."
+        },
+        {
+          "text": "List the three signs you want to remember."
+        }
+      ],
+      "fields": [
+        {
+          "id": "message",
+          "type": "short_text",
+          "label": "What was a message or call that felt wrong to you?"
+        },
+        {
+          "id": "signs",
+          "type": "short_text",
+          "label": "Which three warning signs will you watch for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "message",
+          "plan_section": "signs"
+        },
+        {
+          "field_id": "signs",
+          "plan_section": "signs"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one warning sign."
+          }
+        ],
+        "field_ids": [
+          "signs"
+        ]
+      },
+      "done_when": "You have at least one warning sign written down."
+    },
+    {
+      "id": "p2_check",
+      "title": "Save the numbers you trust",
+      "purpose": "A short list of organisations and the trusted way to reach each one.",
+      "why": "List the organisations that might contact you, such as your bank, your energy supplier or your phone company. Beside each, write where you can find a genuine number, such as your card or a bill. Add one phrase to say when you want to hang up.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List the organisations that contact you."
+        },
+        {
+          "text": "Write where to find each genuine number."
+        }
+      ],
+      "fields": [
+        {
+          "id": "trusted",
+          "type": "two_column",
+          "label": "Which organisations contact you, and where is their genuine number?",
+          "columns": [
+            "Organisation",
+            "Where to find the number"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "trusted",
+          "plan_section": "check"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down your bank and where its number is."
+          }
+        ],
+        "field_ids": [
+          "trusted"
+        ]
+      },
+      "done_when": "You have at least two organisations listed."
+    },
+    {
+      "id": "p3_secure",
+      "title": "Review your login security",
+      "purpose": "A note of what is secure on your accounts and one change to make.",
+      "why": "Think about your email, your bank and one other account. Write whether each has a long, separate password and a second check. Choose one change to make this week. If you are not sure, find out how to check.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note the password and second check for three accounts."
+        },
+        {
+          "text": "Choose one change to make."
+        }
+      ],
+      "fields": [
+        {
+          "id": "accounts",
+          "type": "long_text",
+          "label": "How secure are your email, bank and one other account?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "Which one change will you make this week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "accounts",
+          "plan_section": "secure"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "secure"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one change you will make."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "done_when": "You have chosen one change."
+    },
+    {
+      "id": "p4_plan",
+      "title": "Write your plan for trouble",
+      "purpose": "Three steps to take and one person to tell if a scam reaches you.",
+      "why": "Write what you would do first if you gave away details or money. Include who you would ring, what you would change and who you would tell. Add where the numbers are kept. Keep it short enough to find in a hurry.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write three steps to take."
+        },
+        {
+          "text": "Name one person to tell and where the numbers are."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps_plan",
+          "type": "long_text",
+          "label": "What three steps would you take if something went wrong?"
+        },
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Who would you tell, and where are the numbers kept?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps_plan",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "who",
+          "plan_section": "plan"
+        }
+      ],
+      "done_when": "You have three steps and one name."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your trusted numbers are saved and easy to find."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your signs, your numbers, your security and your steps."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "signs",
+      "title": "Warning signs"
+    },
+    {
+      "id": "check",
+      "title": "Numbers you trust"
+    },
+    {
+      "id": "secure",
+      "title": "Your login security"
+    },
+    {
+      "id": "plan",
+      "title": "If it goes wrong"
+    }
+  ],
+  "finish": {
+    "summary": "You listed the warning signs you will watch for and the numbers you trust. You also reviewed your login security and wrote a plan for if something goes wrong.",
+    "book_bridge": "Pause Before You Click is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which message did you pause over this month?",
+      "Has anyone asked you to check something for them?",
+      "Are your trusted numbers still correct?"
+    ],
+    "refresher_ids": [
+      "p2_check",
+      "p4_plan"
+    ]
+  }
+}

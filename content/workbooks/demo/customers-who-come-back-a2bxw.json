@@ -1,0 +1,389 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-A2BXW",
+  "slug": "customers-who-come-back-a2bxw",
+  "title": "Customers Who Come Back",
+  "card_line": "Know your regulars by name and give them a fair reason to come back.",
+  "book": {
+    "book_id": "customers-who-come-back",
+    "title": "Customers Who Come Back",
+    "subtitle": "Repeat Trade for Small Shops"
+  },
+  "author": {
+    "author_id": "AU-9ZG4W",
+    "display_name": "Chidinma Obiora-Lane"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "business",
+  "theme_id": "ventures-taking-shape",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about building repeat trade in a small shop. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will know your regulars, have a follow-up and a fair offer ready, and a way to ask for referrals. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who is your best regular customer, and what do they usually buy? A line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find out who your regulars are and what they buy",
+      "exercise_ids": [
+        "p1_regulars"
+      ],
+      "intro": "Most shops have a handful of people who account for a large share of their trade. Few shop owners could name them all. This part asks you to write down who comes back, what they buy and how often. You cannot look after people you have not noticed.",
+      "ideas": [
+        {
+          "heading": "Your regulars are fewer than you think and matter more.",
+          "body": "Run through a typical week in your head. Which faces do you see again and again? Write their names. Even a short list of ten tells you where much of your income comes from. Losing two of them would be felt, so they deserve your attention."
+        },
+        {
+          "heading": "What a customer buys tells you what to say to them.",
+          "body": "If someone always buys blue cloth in the same weight, you know what to tell them when it arrives. A note of what each regular buys is enough. It can sit in a notebook. You do not need software to remember what matters to people."
+        },
+        {
+          "heading": "A name remembered is worth more than a discount.",
+          "body": "People return to places where they are known. Greeting someone by name and asking after their last purchase costs nothing. It marks you out from larger shops that deal with everyone alike. Start by learning five names this month, and use them when people come in."
+        }
+      ],
+      "takeaway": "Know your regulars by name and by what they buy. A short list in a notebook is a start."
+    },
+    {
+      "number": 2,
+      "focus": "Follow up in small ways that feel like service",
+      "exercise_ids": [
+        "p2_follow"
+      ],
+      "intro": "After a sale, most shops say goodbye and wait. A small follow-up keeps the link alive. This part is about short, honest messages that make it easy for a customer to come back. They should feel like good service and never like pressure.",
+      "ideas": [
+        {
+          "heading": "A short message after a sale shows you care about the result.",
+          "body": "A text a few days after a big purchase can ask whether it suited. \"Hello Mrs Eze, I hope the lace is working for the dress.\" It takes a minute. Customers remember that someone asked, and they usually reply, even if only to say thank you."
+        },
+        {
+          "heading": "Tell regulars when something they like arrives.",
+          "body": "If you know what a person buys, let them know first when new stock comes in. A short message with a photo is enough. They feel looked after, and you sell to someone already interested instead of waiting for them to wander in."
+        },
+        {
+          "heading": "Keep follow-ups rare enough to be welcome.",
+          "body": "One message when it matters is service. Three a week is nagging. Ask people how they prefer to be contacted and respect the answer. If someone does not reply, leave it for a while. A customer who feels pressed may stop coming."
+        }
+      ],
+      "takeaway": "Follow up when it is useful to the customer, and no more often than that."
+    },
+    {
+      "number": 3,
+      "focus": "Make fair offers and handle complaints well",
+      "exercise_ids": [
+        "p3_offer"
+      ],
+      "intro": "A reason to return can be a fair price, a loyalty offer or a problem put right. This part looks at all three. Offers should be ones you can afford, and complaints are a chance to show how you deal with people when something goes wrong.",
+      "ideas": [
+        {
+          "heading": "A fair offer is one you can afford and can explain.",
+          "body": "A small reward for buying often, such as a discount on the tenth purchase, is easy to understand. Work out the cost before you announce it, so it does not eat your margin. Keep the rule simple enough to say in one sentence."
+        },
+        {
+          "heading": "A complaint handled well can make a customer more loyal.",
+          "body": "Listen without arguing, thank them for telling you, and say what you will do. Then do it, quickly. Most people expect a fight. Being met with fairness is a surprise, and they remember it when deciding where to shop next."
+        },
+        {
+          "heading": "Know in advance what you will do about common problems.",
+          "body": "Decide your rules for returns, faults and wrong sizes before they come up. Write them on a card by the till. When a problem arrives, you answer calmly and consistently. Check the consumer rules that apply to you, as this workbook is not legal advice."
+        }
+      ],
+      "takeaway": "Offer only what you can afford, and meet complaints with a fair, prompt answer."
+    },
+    {
+      "number": 4,
+      "focus": "Ask for referrals and review what worked",
+      "exercise_ids": [
+        "p4_refer"
+      ],
+      "intro": "Happy customers often tell friends without being asked, but a gentle request makes it likelier. This last part asks you to plan how to invite referrals and then to look back over what you have tried. Keep what worked and drop the rest.",
+      "ideas": [
+        {
+          "heading": "People who like your shop are usually glad to be asked to tell others.",
+          "body": "Choose a regular and ask directly: \"If you know anyone who needs good fabric, please send them my way.\" Say thank you when they do. A recommendation from a friend carries more weight than any sign you could put up."
+        },
+        {
+          "heading": "A small thank you for a referral keeps the habit going.",
+          "body": "When a new customer says who sent them, thank the person who sent them. A small gift or a word at the counter is enough. Keep it modest and do not promise anything you cannot give. The thanks matters more than the thing."
+        },
+        {
+          "heading": "Look back each season at which follow-ups actually brought people in.",
+          "body": "Check your notebook. Which messages led to a visit? Which offers were used? You are looking for patterns, not exact figures. Keep two or three things that worked and stop the rest. A smaller routine you keep up is better than a long list you drop."
+        }
+      ],
+      "takeaway": "Ask happy customers to pass your name on, thank them, and review what worked each season."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_regulars",
+      "title": "List your regulars",
+      "purpose": "A short list of regulars with what each one usually buys.",
+      "why": "Think through a typical week. Write the names of the customers who come back, and what each one usually buys. Five to eight names is enough. If you do not know a name, describe the person.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the names of your regulars."
+        },
+        {
+          "text": "Note what each one usually buys."
+        }
+      ],
+      "fields": [
+        {
+          "id": "regulars",
+          "type": "two_column",
+          "label": "Which customers come back, and what do they buy?",
+          "columns": [
+            "Customer",
+            "What they usually buy"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "regulars",
+          "plan_section": "regulars"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three regulars and what they buy."
+          }
+        ],
+        "field_ids": [
+          "regulars"
+        ]
+      },
+      "done_when": "You have at least three regulars listed."
+    },
+    {
+      "id": "p2_follow",
+      "title": "Plan a small follow-up",
+      "purpose": "One follow-up message and who it goes to.",
+      "why": "Choose a regular who bought something recently. Write the short message you could send. Keep it kind and useful. Then decide how you will send it. If you do not have contact details, write how you could ask for them.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a regular."
+        },
+        {
+          "text": "Write a short message."
+        },
+        {
+          "text": "Decide how you will send it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Which customer will you follow up with first?"
+        },
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What will your short message say?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "who",
+          "plan_section": "follow"
+        },
+        {
+          "field_id": "message",
+          "plan_section": "follow"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first line of your message."
+          }
+        ],
+        "field_ids": [
+          "message"
+        ]
+      },
+      "done_when": "You have a name and a message written."
+    },
+    {
+      "id": "p3_offer",
+      "title": "Set a fair offer",
+      "purpose": "One offer you can afford and a rule for a common problem.",
+      "why": "Write one small offer for regulars in a single sentence. Work out roughly what it would cost you. Then write your rule for one common problem, such as a return. If you are unsure of the cost, write what you would need to find out.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your offer in one sentence."
+        },
+        {
+          "text": "Note what it would cost you."
+        },
+        {
+          "text": "Write a rule for one common problem."
+        }
+      ],
+      "fields": [
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "What offer could you make to regulars?"
+        },
+        {
+          "id": "rule",
+          "type": "short_text",
+          "label": "What is your rule for one common problem?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "offer",
+          "plan_section": "offer"
+        },
+        {
+          "field_id": "rule",
+          "plan_section": "offer"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your offer in one sentence."
+          }
+        ],
+        "field_ids": [
+          "offer"
+        ]
+      },
+      "done_when": "You have an offer and one rule written down."
+    },
+    {
+      "id": "p4_refer",
+      "title": "Ask for a referral",
+      "purpose": "A referral request in your words and a note on what has worked.",
+      "why": "Choose one regular you could ask. Write the sentence you would say. Then look back over the last few months and note one thing that brought customers back. If nothing stands out, write what you would like to try.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a regular to ask."
+        },
+        {
+          "text": "Write your referral sentence."
+        },
+        {
+          "text": "Note one thing that worked."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "What will you say when you ask a regular for a referral?"
+        },
+        {
+          "id": "worked",
+          "type": "short_text",
+          "label": "What has brought customers back so far?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ask",
+          "plan_section": "refer"
+        },
+        {
+          "field_id": "worked",
+          "plan_section": "refer"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your referral sentence."
+          }
+        ],
+        "field_ids": [
+          "ask"
+        ]
+      },
+      "done_when": "You have a referral sentence and one note on what has worked."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first follow-up is saved and ready to send."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your regulars, a follow-up, an offer and a referral."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "regulars",
+      "title": "Your regulars"
+    },
+    {
+      "id": "follow",
+      "title": "A small follow-up"
+    },
+    {
+      "id": "offer",
+      "title": "A fair offer"
+    },
+    {
+      "id": "refer",
+      "title": "Referrals and what worked"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your regulars, your follow-up, your fair offer and your referral request.",
+    "book_bridge": "Customers Who Come Back is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which regular did you follow up with this month?",
+      "Which offer was used, and did it cost what you expected?",
+      "Who did you ask for a referral?"
+    ],
+    "refresher_ids": [
+      "p1_regulars",
+      "p3_offer"
+    ]
+  }
+}

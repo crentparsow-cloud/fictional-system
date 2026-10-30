@@ -1,0 +1,387 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-0ATHQ",
+  "slug": "the-unhurried-to-do-list-0athq",
+  "title": "The Unhurried To-Do List",
+  "card_line": "Choose three priorities each day and finish the day with a clean shutdown.",
+  "book": {
+    "book_id": "the-unhurried-to-do-list",
+    "title": "The Unhurried To-Do List",
+    "subtitle": "Doing Fewer Things Well"
+  },
+  "author": {
+    "author_id": "AU-GFYGM",
+    "display_name": "Meenakshi Iyer-Rao"
+  },
+  "genre": "productivity",
+  "theme_id": "purposeful-time",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about doing fewer things well. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have an emptied list, three priorities and a weekly plan. You will also have a polite way to say no and an end of day shutdown. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is on your mind right now that you have not written down? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Empty your head onto paper and choose three priorities",
+      "exercise_ids": [
+        "p1_three"
+      ],
+      "intro": "A mind full of loose tasks cannot choose between them. Writing everything down gives you the whole picture. This part asks you to list what you are carrying, then pick the three things that matter most for the day. The rest can wait on the page.",
+      "ideas": [
+        {
+          "heading": "Write everything down so that your mind can stop holding it.",
+          "body": "Spend ten minutes listing every task, worry and half-made promise. Do not sort yet. Once it is on paper, you no longer have to remember it. Many people find the list is longer than they feared and also more manageable than it felt in their head."
+        },
+        {
+          "heading": "Three priorities are enough for one day.",
+          "body": "Pick the three things that would make the day worthwhile if only those were done. Write them at the top. More than three and the list becomes a wish. Fewer is fine. Anything else you do is a bonus, not a debt."
+        },
+        {
+          "heading": "The most important task is rarely the most urgent one.",
+          "body": "Urgent tasks shout. Important ones wait quietly. Ask which task matters most to the work you want to be doing, and put that first. Then deal with the urgent items around it. This keeps the week from being swallowed by other people's deadlines."
+        }
+      ],
+      "takeaway": "Empty your head onto paper, choose three priorities and start with the one that matters most."
+    },
+    {
+      "number": 2,
+      "focus": "Plan the week so that each day has room",
+      "exercise_ids": [
+        "p2_week"
+      ],
+      "intro": "A list for the day works better when the week behind it is clear. This part asks you to look at the week ahead, place your big tasks first and leave gaps for the unexpected. A plan with space in it is more likely to survive Wednesday.",
+      "ideas": [
+        {
+          "heading": "Put the big tasks into the week before the small ones.",
+          "body": "Look at the days ahead and decide where the important work goes. Give it a slot in the diary, as you would a meeting. Small tasks fit around it. If you start with the small ones, the big work gets whatever time is left, which is usually none."
+        },
+        {
+          "heading": "Leave gaps in the plan for what you cannot predict.",
+          "body": "Something always turns up: a call, a problem, a colleague in need. If every hour is booked, each surprise pushes something out. Leave a little room each day. If nothing happens, you can use it to get ahead or to rest. Either way, the plan has not been broken."
+        },
+        {
+          "heading": "A weekly look at what is coming spares you a scramble each morning.",
+          "body": "Take fifteen minutes at the same point each week. Check the diary, the deadlines and the list. Decide roughly the main priority for each day, and adjust as needed. You start each morning knowing what comes first. Priorities that shift during the week can be moved, because you can see what they push aside."
+        }
+      ],
+      "takeaway": "Place the big tasks first, leave gaps for surprises and look at the week ahead once a week."
+    },
+    {
+      "number": 3,
+      "focus": "Say no politely to what does not fit",
+      "exercise_ids": [
+        "p3_no"
+      ],
+      "intro": "Every yes uses up time from your priorities. Fewer things done well depends on declining some. This part gives you a few polite ways to say no or not yet. You write one for a request you are likely to meet. Politeness and firmness fit together.",
+      "ideas": [
+        {
+          "heading": "Every new yes takes time from something already on your list.",
+          "body": "When a request arrives, ask what it would replace. If you have no room, say so. Put the request next to your three priorities and see which wins. Often the answer is plain, and you can give it without guilt."
+        },
+        {
+          "heading": "A short, warm no is kinder than a slow, vague yes.",
+          "body": "People would rather know now than wait and be let down. You might say thank you for asking, but you cannot take that on this month. Add an offer if you have one. Keep it brief and kind. A clear answer is respectful to the person asking."
+        },
+        {
+          "heading": "Not yet is an honest answer when the task matters but the timing is wrong.",
+          "body": "You might say the task is worth doing, but not until next month. Give a date if you can. Put it in the diary so that it is not forgotten. The person knows where they stand, and your current priorities stay protected."
+        }
+      ],
+      "takeaway": "Ask what a new request would replace, say a short and warm no, and give a date when the answer is not yet."
+    },
+    {
+      "number": 4,
+      "focus": "Close the day with a shutdown and review the month",
+      "exercise_ids": [
+        "p4_shutdown"
+      ],
+      "intro": "A day with no end blurs into the evening. A short shutdown marks the finish: loose ends written down, tomorrow's three chosen and work put away. This part asks you to write your shutdown steps. It also sets a monthly look back, so you can change what is not working.",
+      "ideas": [
+        {
+          "heading": "A shutdown tells your mind that the work is safely recorded.",
+          "body": "At the end of the day, write down anything unfinished, check tomorrow's diary and choose tomorrow's three. Then say a closing phrase and put the work away. You leave with nothing to remember. The evening is yours, and the list holds the rest."
+        },
+        {
+          "heading": "The last ten minutes are best spent preparing the next morning.",
+          "body": "Tidy the desk, close the tabs and leave the first task ready to start. Next morning, you begin without having to decide where to begin. That small preparation saves the slow start that eats the first hour of the day."
+        },
+        {
+          "heading": "A monthly review shows what to keep and what to drop.",
+          "body": "Once a month, read through your lists. Which priorities got done? Which were pushed forward again and again? Ask why. Maybe the task is too large, or does not matter. Change one thing for the coming month. Small adjustments last."
+        }
+      ],
+      "takeaway": "End each day with a short shutdown, and once a month look back to keep what works."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_three",
+      "title": "Empty your head, pick three",
+      "purpose": "A full list of what you carry and three priorities for tomorrow.",
+      "why": "Set a timer for ten minutes and write down everything on your mind. Then read it through and choose the three that matter most for tomorrow. If the list stalls, stop at five minutes.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write down everything on your mind."
+        },
+        {
+          "text": "Choose three priorities for tomorrow."
+        }
+      ],
+      "fields": [
+        {
+          "id": "all",
+          "type": "long_text",
+          "label": "What is everything you are carrying at the moment?"
+        },
+        {
+          "id": "three",
+          "type": "long_text",
+          "label": "Which three things matter most tomorrow?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "all",
+          "plan_section": "three"
+        },
+        {
+          "field_id": "three",
+          "plan_section": "three"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down three things on your mind."
+          }
+        ],
+        "field_ids": [
+          "all"
+        ]
+      },
+      "done_when": "You have a full list and three priorities chosen."
+    },
+    {
+      "id": "p2_week",
+      "title": "Plan the coming week",
+      "purpose": "A rough plan of priorities for each day of the coming week.",
+      "why": "Look at the days ahead. Write one main priority for each, placing the biggest task first. Leave one gap each day for what you cannot predict. A rough plan is enough.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one main priority for each day."
+        },
+        {
+          "text": "Leave one gap each day."
+        }
+      ],
+      "fields": [
+        {
+          "id": "days",
+          "type": "two_column",
+          "label": "What is the main priority for each day this week?",
+          "columns": [
+            "Day",
+            "Main priority"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "gap",
+          "type": "short_text",
+          "label": "Where in the week will you leave a gap?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "days",
+          "plan_section": "week"
+        },
+        {
+          "field_id": "gap",
+          "plan_section": "week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the priority for tomorrow."
+          }
+        ],
+        "field_ids": [
+          "days"
+        ]
+      },
+      "done_when": "Each day has a priority and there is a gap."
+    },
+    {
+      "id": "p3_no",
+      "title": "Write a polite no",
+      "purpose": "A short polite no or not yet, ready for a request you expect.",
+      "why": "Think of a request you often get and would like to decline. Write two or three sentences in your own voice. Thank the person, give your answer and add an offer if you have one. Read it aloud.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a request you expect."
+        },
+        {
+          "text": "Write your reply in two or three sentences."
+        }
+      ],
+      "fields": [
+        {
+          "id": "request",
+          "type": "short_text",
+          "label": "Which request do you meet that you would like to decline?"
+        },
+        {
+          "id": "reply",
+          "type": "long_text",
+          "label": "What will you say in reply?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "request",
+          "plan_section": "no"
+        },
+        {
+          "field_id": "reply",
+          "plan_section": "no"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a one-line no."
+          }
+        ],
+        "field_ids": [
+          "request"
+        ]
+      },
+      "done_when": "You have a reply you could send today."
+    },
+    {
+      "id": "p4_shutdown",
+      "title": "Write your shutdown steps",
+      "purpose": "Four steps for ending the day and a date for your monthly review.",
+      "why": "Write the four or five steps you will take to end the day. Include choosing tomorrow's three and putting work away. Then pick a date for your first monthly review and put it in the diary.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your shutdown steps."
+        },
+        {
+          "text": "Choose a date for the monthly review."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "What are your steps for ending the working day?"
+        },
+        {
+          "id": "date",
+          "type": "short_text",
+          "label": "On what date will you do your first monthly review?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "shutdown"
+        },
+        {
+          "field_id": "date",
+          "plan_section": "shutdown"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first two shutdown steps."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "Your steps are written and the review has a date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your weekly plan is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your priorities, weekly plan, polite no and shutdown."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "three",
+      "title": "Your three priorities"
+    },
+    {
+      "id": "week",
+      "title": "Your weekly plan"
+    },
+    {
+      "id": "no",
+      "title": "Your polite no"
+    },
+    {
+      "id": "shutdown",
+      "title": "Shutdown and review"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your three priorities, your weekly plan, your polite no and your shutdown steps.",
+    "book_bridge": "The Unhurried To-Do List is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which priorities were finished this month, and which were pushed on?",
+      "Which request did you decline well?",
+      "Is your shutdown still working?"
+    ],
+    "refresher_ids": [
+      "p2_week",
+      "p4_shutdown"
+    ]
+  }
+}

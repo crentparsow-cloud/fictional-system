@@ -1,4 +1,5 @@
 import type { ContinueCard } from "@/lib/catalogue-types";
+import { paceUnitLabel } from "@/lib/pace";
 
 /**
  * Pure helpers for Home and Today (F-016). No streaks, no missed-day counts,
@@ -41,4 +42,13 @@ export function continueStatus(card: Pick<ContinueCard, "startedAt" | "unitCount
 /** True when any shown card is a wellbeing-tier workbook, so Help now sits at the top of the page. */
 export function anyWellbeing(cards: readonly Pick<ContinueCard, "safetyTier">[]): boolean {
   return cards.some((c) => c.safetyTier !== "none");
+}
+
+/**
+ * The unit word on a continue card: "Week" for a week title read weekly,
+ * "Part" for a week title read at any other pace or a title written in parts,
+ * otherwise the title's own word.
+ */
+export function continueUnitWord(card: Pick<ContinueCard, "unitLabel" | "pace">): string {
+  return paceUnitLabel(card.unitLabel, card.pace);
 }

@@ -113,7 +113,7 @@ async function listingFormat(supabase: Awaited<ReturnType<typeof createUserClien
   const unit = data?.unit;
   return {
     unitCount: typeof data?.count === "number" && Number.isFinite(data.count) ? data.count : null,
-    unitKind: unit === "week" || unit === "day" || unit === "module" || unit === "chapter" ? unit : null,
+    unitKind: unit === "week" || unit === "day" || unit === "module" || unit === "chapter" || unit === "part" ? unit : null,
   } as const;
 }
 

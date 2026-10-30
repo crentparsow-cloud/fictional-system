@@ -1,0 +1,375 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-MBRV9",
+  "slug": "meetings-where-everyone-speaks-mbrv9",
+  "title": "Meetings Where Everyone Speaks",
+  "card_line": "Draw up a team charter in which everyone speaks and is heard.",
+  "book": {
+    "book_id": "meetings-where-everyone-speaks",
+    "title": "Meetings Where Everyone Speaks",
+    "subtitle": "A Team Programme for Fair and Open Ways of Working"
+  },
+  "author": {
+    "author_id": "AU-PTR2C",
+    "display_name": "Mei-Lin Gallagher-Ross"
+  },
+  "genre": "leadership",
+  "theme_id": "welcoming-workplaces",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about making team meetings fair, so that everyone gets a say. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have noticed who speaks and tried new ways to take turns. You will also have planned how to disagree well and drafted a short team charter. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Whose voice do you think is missing from your meetings? A first name or a role is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice who speaks, who does not and why",
+      "exercise_ids": [
+        "p1_notice"
+      ],
+      "intro": "In most meetings a few people do most of the talking. The rest may have good ideas but keep them back. Before you change anything, you need to see what is happening. This part asks you to watch one meeting and write down what you notice.",
+      "ideas": [
+        {
+          "heading": "Count who speaks in a meeting and you may be surprised.",
+          "body": "In your next meeting, make a simple tally of who speaks and for how long. Do it quietly on a sheet of paper. Most people find that two or three voices fill the room. The picture is not a criticism, only a starting point."
+        },
+        {
+          "heading": "Quiet people are not always disengaged.",
+          "body": "Some people think before they speak and the conversation moves on. Others are new, or junior, or remote and find it hard to break in. Some come from places where speaking up to a senior person is not done. Silence has many reasons, and few are lack of interest."
+        },
+        {
+          "heading": "The way a meeting is run shapes who speaks.",
+          "body": "Who sits where, who talks first and whether people dial in all make a difference. A room of people at a table and two on a screen are not on equal terms. Look at the set-up before you look for faults in the people."
+        }
+      ],
+      "takeaway": "Notice who speaks and who does not, and look at how the meeting is run before looking at the people."
+    },
+    {
+      "number": 2,
+      "focus": "Make room with turn-taking and written input",
+      "exercise_ids": [
+        "p2_turns"
+      ],
+      "intro": "Once you can see the pattern, you can change it. This part gives you a few simple tools: taking turns, asking for written comments and giving people time to think. You will choose one to try in your next meeting.",
+      "ideas": [
+        {
+          "heading": "Go round the room so everyone has a turn.",
+          "body": "Ask each person in turn for a view. Allow anyone to say \"pass\" and come back to them. Rounds stop the loudest voice from setting the direction. They work best on one clear question and take only a few minutes."
+        },
+        {
+          "heading": "Ask for written input before or during the meeting.",
+          "body": "Send the question in advance and invite short replies. Or ask everyone to write one line in the chat, then read them out. People who find speaking hard often write well. Their points join the conversation on equal terms. Read each line out without naming who wrote it, if that helps."
+        },
+        {
+          "heading": "Give people a minute to think before you ask for answers.",
+          "body": "Say, \"Take a minute to jot down your view.\" Then ask. Quiet minutes let those who think slowly get ready. The answers are usually better, because people have had time to form them, and the first speaker does not set the tone."
+        }
+      ],
+      "takeaway": "Try a round, written input or a minute to think. Each lets quieter people in."
+    },
+    {
+      "number": 3,
+      "focus": "Disagree well, own mistakes and thank people for raising problems",
+      "exercise_ids": [
+        "p3_disagree"
+      ],
+      "intro": "A team where everyone speaks will sometimes disagree. That is healthy if people know how to do it. This part is about disagreeing without heat, admitting errors openly and thanking the people who raise difficult points. These habits keep people speaking.",
+      "ideas": [
+        {
+          "heading": "Disagree with the idea, not the person.",
+          "body": "Say, \"I see it differently, and here is why.\" Avoid, \"That is a silly suggestion.\" Ask a question before you object. \"What would that mean for the Friday shift?\" Questions keep the exchange open and show you want to understand."
+        },
+        {
+          "heading": "Admit your own mistakes early and plainly.",
+          "body": "When a leader says, \"I got that wrong, and here is what I will do,\" it becomes easier for others to do the same. Hiding errors makes people nervous about raising theirs. Plain admission is a quick way to show how the team handles problems."
+        },
+        {
+          "heading": "Thank the person who raises a problem, even when it is awkward.",
+          "body": "If someone points out a gap in your plan, say thank you first. Then deal with it. People notice how the first person to speak up is received, and decide whether to follow. A thank you takes five seconds and may save you a lot."
+        }
+      ],
+      "takeaway": "Disagree with ideas, admit your mistakes and thank people who raise problems. That keeps them talking."
+    },
+    {
+      "number": 4,
+      "focus": "Welcome new people fairly and draft a team charter",
+      "exercise_ids": [
+        "p4_charter"
+      ],
+      "intro": "A team that works well together has some shared agreements. This last part asks you to think about how you welcome new people and how you hire fairly. You then put a few promises in a short charter that the whole team can read and change.",
+      "ideas": [
+        {
+          "heading": "Welcome new starters so they know how to take part.",
+          "body": "Tell them how meetings work, who to ask and that questions are welcome. Pair them with someone for the first month. People who understand the unwritten rules speak sooner. Without that help, they stay quiet for months. A short written guide to how your meetings run is a good thing to hand over."
+        },
+        {
+          "heading": "Hire fairly by asking everyone the same questions.",
+          "body": "A fair process gives every candidate the same chance. Use the same questions and judge them against the role. This brings a wider range of people into the team. A wider range of voices means more ideas in meetings. Keep your notes from each interview, so the choice can be explained."
+        },
+        {
+          "heading": "A team charter is a short list of promises in your own words.",
+          "body": "Write four or five lines. Two examples are \"Everyone gets a turn\" and \"We thank people who raise problems.\" Ask the team to draft and agree it. Review it twice a year. A charter shared by everyone does more than rules handed down."
+        }
+      ],
+      "takeaway": "Welcome people clearly, hire fairly and write a short charter the whole team has agreed."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_notice",
+      "title": "Watch one meeting",
+      "purpose": "A note of who spoke, who did not, and what shaped it.",
+      "why": "At your next meeting, make a quiet tally of who speaks. Afterwards, write down who spoke most and who spoke least. Note anything about the set-up that may have played a part. If you cannot attend one soon, use a recent meeting you remember.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Tally who speaks."
+        },
+        {
+          "text": "Note who spoke least."
+        },
+        {
+          "text": "Note what in the set-up played a part."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pattern",
+          "type": "long_text",
+          "label": "Who spoke most and least, and what might have shaped that?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pattern",
+          "plan_section": "notice"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write who spoke least."
+          }
+        ],
+        "field_ids": [
+          "pattern"
+        ]
+      },
+      "done_when": "You have a note of who spoke and one thing about the set-up."
+    },
+    {
+      "id": "p2_turns",
+      "title": "Choose a way to make room",
+      "purpose": "One new way of making room and when you will try it.",
+      "why": "Choose one tool from this part: a round, written input or a minute to think. Write when you will try it and how you will introduce it to the team. If you are unsure which, pick the simplest.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one tool."
+        },
+        {
+          "text": "Write when and how you will try it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tool",
+          "type": "short_text",
+          "label": "Which tool will you try first: a round, written input or a minute to think?"
+        },
+        {
+          "id": "how",
+          "type": "short_text",
+          "label": "How and when will you introduce it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tool",
+          "plan_section": "turns"
+        },
+        {
+          "field_id": "how",
+          "plan_section": "turns"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which tool you will try."
+          }
+        ],
+        "field_ids": [
+          "tool"
+        ]
+      },
+      "done_when": "You have one tool chosen and a time to try it."
+    },
+    {
+      "id": "p3_disagree",
+      "title": "Plan how to disagree",
+      "purpose": "A sentence for disagreeing well and a way to thank someone.",
+      "why": "Write one sentence you could use to disagree with an idea in a way that keeps the talk open. Then write how you would thank someone who raises a problem. Use your own words so they sound like you.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your disagreeing sentence."
+        },
+        {
+          "text": "Write your thank you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "disagree",
+          "type": "short_text",
+          "label": "What sentence will you use to disagree with an idea?"
+        },
+        {
+          "id": "thanks",
+          "type": "short_text",
+          "label": "What will you say to thank someone who raises a problem?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "disagree",
+          "plan_section": "disagree"
+        },
+        {
+          "field_id": "thanks",
+          "plan_section": "disagree"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your disagreeing sentence."
+          }
+        ],
+        "field_ids": [
+          "disagree"
+        ]
+      },
+      "done_when": "You have a sentence for disagreeing and a thank you written."
+    },
+    {
+      "id": "p4_charter",
+      "title": "Draft a team charter",
+      "purpose": "Four or five lines for a team charter, ready to share.",
+      "why": "Write four or five short promises that would help your team speak and listen. Keep them in plain words. Then decide who to share them with first. The team can change them later, so a rough draft is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write four or five promises."
+        },
+        {
+          "text": "Decide who will see it first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "charter",
+          "type": "long_text",
+          "label": "What four or five promises would go in your team charter?"
+        },
+        {
+          "id": "share",
+          "type": "short_text",
+          "label": "Who will you share it with first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "charter",
+          "plan_section": "charter"
+        },
+        {
+          "field_id": "share",
+          "plan_section": "charter"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two promises for the charter."
+          }
+        ],
+        "field_ids": [
+          "charter"
+        ]
+      },
+      "done_when": "You have at least three promises written and a person to share them with."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your way of making room is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you noticed, a tool, a way to disagree and a charter."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "notice",
+      "title": "What you noticed"
+    },
+    {
+      "id": "turns",
+      "title": "A way to make room"
+    },
+    {
+      "id": "disagree",
+      "title": "Disagreeing well"
+    },
+    {
+      "id": "charter",
+      "title": "Your team charter"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you noticed in a meeting, your new tool, your way to disagree and your charter draft.",
+    "book_bridge": "Meetings Where Everyone Speaks is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Who spoke in your last meeting, and who did not?",
+      "Which tool did you try, and how did it go?",
+      "Does your charter still say what the team needs?"
+    ],
+    "refresher_ids": [
+      "p2_turns",
+      "p4_charter"
+    ]
+  }
+}

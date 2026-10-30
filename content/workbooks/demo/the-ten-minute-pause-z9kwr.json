@@ -1,0 +1,381 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-Z9KWR",
+  "slug": "the-ten-minute-pause-z9kwr",
+  "title": "The Ten-Minute Pause",
+  "card_line": "Fit a ten-minute pause into your day and keep it on busy days.",
+  "book": {
+    "book_id": "the-ten-minute-pause",
+    "title": "The Ten-Minute Pause",
+    "subtitle": "Short Breaks in a Full Day"
+  },
+  "author": {
+    "author_id": "AU-PZ9DF",
+    "display_name": "Haruka Tanabe-Ellis"
+  },
+  "genre": "wellbeing",
+  "theme_id": "noticing-more",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about ten-minute pauses in a full day. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a time and place for a pause, three ways to spend it and a smaller version for busy days. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "When in your day could ten minutes go to a pause? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find a time and a place for a ten-minute pause",
+      "exercise_ids": [
+        "p1_slot"
+      ],
+      "intro": "A pause is easiest to take when it has a time and a place. This part asks you to look at a usual day and find one slot, then a spot to spend it. The slot only needs to suit most days, not all of them.",
+      "ideas": [
+        {
+          "heading": "Ten minutes is short enough to find in nearly any day.",
+          "body": "Look for ten minutes between things: after lunch, before the first meeting, once the kettle has boiled. You are not looking for a spare hour. Ten minutes can usually be found without moving anything large. Be realistic about when you could stop."
+        },
+        {
+          "heading": "A pause needs a place that is different from where you work.",
+          "body": "Even a few steps make it a change. A chair by the window, a bench outside, the stairs, the garden. Choose somewhere you can sit or stand without being asked for anything. Your desk is the hardest place to pause."
+        },
+        {
+          "heading": "A pause has nothing to produce.",
+          "body": "It is not for planning, tidying or answering messages. Decide in advance that there is nothing to achieve in these ten minutes. That is what separates a pause from a short task. If a task comes to mind, let it wait until the ten minutes are up."
+        }
+      ],
+      "takeaway": "Find ten minutes between things and a spot away from your work. A pause has nothing to produce."
+    },
+    {
+      "number": 2,
+      "focus": "Spend a pause with tea or with sound",
+      "exercise_ids": [
+        "p2_try"
+      ],
+      "intro": "Once you have a slot, the next question is what to do in it. Two plain choices are a cup of tea and listening. This part describes both. You try one and write down what you noticed, in your own words.",
+      "ideas": [
+        {
+          "heading": "A cup of tea gives the ten minutes a clear start and end.",
+          "body": "Put the kettle on, wait, pour and drink. By the time the cup is empty, the pause is over. You do not need to watch a clock. Use whatever hot drink you like. The cup does the timing for you."
+        },
+        {
+          "heading": "Listening to what is around you is a pause that needs no kit.",
+          "body": "Sit and listen for ten minutes. Birds, traffic, a fridge, a distant radio. Let the sounds come and go. You do not need to name or judge them. If your mind wanders, bring it back to the next sound that arrives."
+        },
+        {
+          "heading": "Music can be a pause if it is the only thing you are doing.",
+          "body": "Choose one piece, put it on, and sit with it. Do not scroll while it plays. A single long track or a short piece of music is about ten minutes. When it ends, the pause ends too. You may find ten minutes passes faster than you expect."
+        }
+      ],
+      "takeaway": "A cup of tea, the sounds around you or one piece of music can each carry a ten-minute pause."
+    },
+    {
+      "number": 3,
+      "focus": "Spend a pause on a short walk",
+      "exercise_ids": [
+        "p3_walk"
+      ],
+      "intro": "A walk is a pause that moves. Ten minutes out of the door is enough, and no route is needed. This part looks at keeping a walk light so it stays a pause and does not become an errand or a workout.",
+      "ideas": [
+        {
+          "heading": "A walk pause has no destination.",
+          "body": "Do not walk to the shop or the post box. Walk out for five minutes and back for five. The point is the walking, not the arrival. If you find yourself heading for an errand, turn round. You can pick the same loop each time."
+        },
+        {
+          "heading": "Leaving the phone behind, or silent, keeps the ten minutes whole.",
+          "body": "A ringing phone turns a pause into a call. If you cannot leave it, put it on silent and in a pocket. Look up and notice what is around you: trees, windows, the sky, other people. You do not need to take photos."
+        },
+        {
+          "heading": "Weather changes the walk but not the pause.",
+          "body": "Rain, wind and cold make a different walk, not a worse one. A coat and a hat are usually enough. On a day when you cannot go out, walk a corridor or a staircase. The ten minutes still count. Take what the weather gives you and go back in when you are ready."
+        }
+      ],
+      "takeaway": "A walk pause has no destination and no phone. Ten minutes is enough, whatever the weather."
+    },
+    {
+      "number": 4,
+      "focus": "Keep the pause when the day is crowded",
+      "exercise_ids": [
+        "p4_crowded"
+      ],
+      "intro": "A pause is easy to keep in a quiet week and easy to lose in a crowded one. This part is about having a smaller version ready. You write a two-minute pause for the busiest days and decide what to do if a pause has to move.",
+      "ideas": [
+        {
+          "heading": "A shorter pause is better than none.",
+          "body": "On a crowded day, ten minutes may not exist. Two minutes at an open window, a cup drunk standing still, or one song with your eyes closed still counts. Shrink the pause rather than dropping it. You can return to ten minutes when there is room."
+        },
+        {
+          "heading": "A pause that must move can move later, not away.",
+          "body": "If a meeting takes your slot, pick a new one for the same day and write it in. Say it to yourself: \"ten minutes at four\". A moved pause is still a pause. A dropped one is gone, and nobody notices it leave."
+        },
+        {
+          "heading": "Telling someone about the pause makes it easier to keep.",
+          "body": "Say to a colleague or a housemate that you take ten minutes at a set time. They will notice when you do, and they may start to protect it. You are not asking permission, only giving notice. Keep the message short and friendly."
+        }
+      ],
+      "takeaway": "On crowded days, shrink the pause or move it later. Tell someone about it."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_slot",
+      "title": "Find your time and place",
+      "purpose": "A time of day and a place for a ten-minute pause.",
+      "why": "Think through a usual day. Find one gap of ten minutes, even a small one. Then choose a place away from your work where you could spend it. If nothing comes to mind, write one word.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Find one ten-minute gap."
+        },
+        {
+          "text": "Choose a place away from your work."
+        }
+      ],
+      "fields": [
+        {
+          "id": "time",
+          "type": "short_text",
+          "label": "When in your day could ten minutes go to a pause?"
+        },
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where would you take it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "time",
+          "plan_section": "slot"
+        },
+        {
+          "field_id": "place",
+          "plan_section": "slot"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one time for a ten-minute pause."
+          }
+        ],
+        "field_ids": [
+          "time"
+        ]
+      },
+      "done_when": "You have a time and a place written down."
+    },
+    {
+      "id": "p2_try",
+      "title": "Try a tea or sound pause",
+      "purpose": "A note on one pause you tried, or plan to try, with tea or sound.",
+      "why": "Choose tea, listening or one piece of music. Take ten minutes in the place you chose. Afterwards, write a line on what you noticed. If you have not tried it yet, write what you expect. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose tea, listening or music."
+        },
+        {
+          "text": "Take ten minutes and note what you noticed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "kind",
+          "type": "short_text",
+          "label": "Which pause will you try?"
+        },
+        {
+          "id": "noticed",
+          "type": "long_text",
+          "label": "What did you notice, or what do you expect?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "kind",
+          "plan_section": "try"
+        },
+        {
+          "field_id": "noticed",
+          "plan_section": "try"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which pause you will try."
+          }
+        ],
+        "field_ids": [
+          "kind"
+        ]
+      },
+      "done_when": "You have tried one pause or planned it, with a note."
+    },
+    {
+      "id": "p3_walk",
+      "title": "Plan a ten-minute walk",
+      "purpose": "A short walk loop, a time and a plan for the phone, written down.",
+      "why": "Choose a loop you could walk in ten minutes. Decide when it could fit in your week. Decide what to do with your phone. Write it down. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a ten-minute loop."
+        },
+        {
+          "text": "Decide on the time and the phone."
+        }
+      ],
+      "fields": [
+        {
+          "id": "loop",
+          "type": "short_text",
+          "label": "Where could a ten-minute loop take you?"
+        },
+        {
+          "id": "when_phone",
+          "type": "short_text",
+          "label": "When could the walk fit, and what about your phone?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "loop",
+          "plan_section": "walk"
+        },
+        {
+          "field_id": "when_phone",
+          "plan_section": "walk"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one loop you could walk."
+          }
+        ],
+        "field_ids": [
+          "loop"
+        ]
+      },
+      "done_when": "You have a loop, a time and a plan for the phone."
+    },
+    {
+      "id": "p4_crowded",
+      "title": "Plan a pause for busy days",
+      "purpose": "A two-minute pause and a backup time for crowded days.",
+      "why": "Write what a two-minute pause would look like on your busiest day. Then choose a backup time for when your usual slot is taken. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Describe a two-minute pause."
+        },
+        {
+          "text": "Choose a backup time."
+        }
+      ],
+      "fields": [
+        {
+          "id": "small",
+          "type": "short_text",
+          "label": "What would your two-minute pause be?"
+        },
+        {
+          "id": "backup",
+          "type": "short_text",
+          "label": "What is your backup time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "small",
+          "plan_section": "crowded"
+        },
+        {
+          "field_id": "backup",
+          "plan_section": "crowded"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your two-minute pause."
+          }
+        ],
+        "field_ids": [
+          "small"
+        ]
+      },
+      "done_when": "You have a small pause and a backup time."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first pause is saved on your page."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your slot, your pauses and your plan for busy days."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "slot",
+      "title": "Your time and place"
+    },
+    {
+      "id": "try",
+      "title": "A pause with tea or sound"
+    },
+    {
+      "id": "walk",
+      "title": "A walk pause"
+    },
+    {
+      "id": "crowded",
+      "title": "For busy days"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your time and place, your tea or sound pause, a walk and your plan for busy days.",
+    "book_bridge": "The Ten-Minute Pause is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which pause did you take this month, and where?",
+      "What did you notice during it?",
+      "What was your backup time on a crowded day?"
+    ],
+    "refresher_ids": [
+      "p2_try",
+      "p4_crowded"
+    ]
+  }
+}
