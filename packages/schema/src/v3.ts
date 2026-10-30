@@ -74,7 +74,8 @@ export const AdviceGuardrailInput = z.union([
 export const Depth = z.enum(["listing", "outline", "first_unit", "full"]);
 export const Spelling = z.enum(["en-GB", "en-US"]);
 export const Badge = z.enum(["official", "made_with_author", "public_domain", "demo"]);
-export const Unit = z.enum(["week", "day", "module", "chapter"]);
+// "part" (30 October 2026): the four-part shape of the short demo workbooks. Labelled "Part".
+export const Unit = z.enum(["week", "day", "module", "chapter", "part"]);
 
 export const FIELD_TYPES = [
   // Carried from v1
@@ -135,7 +136,9 @@ export const Exercise = z
     title: z.string(),
     purpose: z.string(),
     why: z.string(),
-    source: Source,
+    // Optional in the schema for demo workbooks, which have no source book to
+    // cite. @akana/validate requires it on every workbook that is not a demo.
+    source: Source.optional(),
     minutes: z.number().int().min(1).max(60),
     steps: z.array(Step).min(1).max(10),
     example: z.object({ character: z.string(), text: z.string() }).strict().optional(),
@@ -197,12 +200,17 @@ export const Structure = z
   })
   .strict();
 
-/** One key idea in a unit (3.1): a sentence heading, a short explanation and one example. */
+/**
+ * One key idea in a unit (3.1): a sentence heading, a short explanation and one
+ * example. The example is optional in the schema so a demo workbook (is_demo
+ * true, 30 October 2026) can leave it out; @akana/validate still requires it on
+ * every other workbook.
+ */
 export const KeyIdea = z
   .object({
     heading: z.string(),
     body: z.string(),
-    example: z.string(),
+    example: z.string().optional(),
   })
   .strict();
 export type KeyIdea = z.infer<typeof KeyIdea>;
@@ -404,7 +412,8 @@ export const WorkbookV3 = z
     is_demo: z.boolean(),
     depth: Depth,
     badge: Badge,
-    licence_ref: z.string().optional(),
+    // A demo workbook carries null: it has no licence or public-domain record.
+    licence_ref: z.string().nullable().optional(),
     status: z.enum(["template", "draft", "in_review", "approved", "live", "paused", "retired"]).optional(),
 
     // Safety
