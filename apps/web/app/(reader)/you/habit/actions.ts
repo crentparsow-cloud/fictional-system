@@ -73,15 +73,19 @@ export async function markMarksSeen(): Promise<void> {
   revalidatePath("/you/habit");
 }
 
-/** The pace for each open programme (0069). Row level security keeps each update to the reader's own enrolment. */
-export async function savePaces(formData: FormData): Promise<void> {
-  const changes = parsePaceForm(formData);
-  if (changes.length === 0) back("invalid");
-  const { supabase } = await signedIn();
-  for (const c of changes) {
-    const { error } = await supabase.from("enrolments").update({ pace: c.pace }).eq("id", c.enrolmentId);
-    if (error) back("failed");
-  }
+/**
+ * The pace for one workbook (0069). Each workbook has its own form carrying
+ * its enrolment id, and the update is filtered by that id and by the reader,
+ * so saving one workbook's pace never changes another's. Row level security
+ * still applies underneath.
+ */
+export async function savePace(formData: FormData): Promise<void> {
+  const change = parsePaceForm(formData);
+  if (!change) back("invalid");
+  const c = change!;
+  const { supabase, userId } = await signedIn();
+  const { data, error } = await supabase.from("enrolments").update({ pace: c.pace }).eq("id", c.enrolmentId).eq("user_id", userId).select("id");
+  if (error || !data || data.length !== 1) back("failed");
   revalidatePath("/you/habit");
   revalidatePath("/today");
   back("saved");

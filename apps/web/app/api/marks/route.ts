@@ -3,7 +3,7 @@ import { z } from "zod";
 import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
 import { loadMarks, sealMark } from "@/lib/marks-server";
 import { privateWriteRefusal } from "@/lib/private-writes";
-import { MARK_COLOURS, MAX_EXCERPT_CHARS, MAX_MARKS_PER_ENROLMENT, MAX_NOTE_CHARS } from "@/lib/reading/marks";
+import { MARK_COLOURS, MARK_REF, MAX_EXCERPT_CHARS, MAX_MARKS_PER_ENROLMENT, MAX_NOTE_CHARS } from "@/lib/reading/marks";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
@@ -24,7 +24,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const REF = /^[a-z0-9][a-z0-9_:~.#-]{0,119}$/;
+const REF = MARK_REF;
 
 const PutBody = z
   .object({

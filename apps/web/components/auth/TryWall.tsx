@@ -28,7 +28,7 @@ export function TryWall({ slug }: { slug: string }) {
           Email me a link
         </button>
       </form>
-      <p className="muted small">We send one link, or a six-digit code you can type in. No password.</p>
+      <p className="muted small">We send one link. You can also type in the code from the email. No password.</p>
       <p className="muted small">
         Not now? Your answers stay on this device and private to you. <Link href={`/w/${slug}`}>Back to the workbook page</Link>
       </p>

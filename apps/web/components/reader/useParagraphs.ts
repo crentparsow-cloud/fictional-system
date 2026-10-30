@@ -17,6 +17,11 @@ export interface Scan {
 
 const EMPTY: Scan = { screen: "", paras: [], step: null };
 
+/** True when the element is laid out now. Checked when it is used, not only when the screen was read. */
+export function isShown(el: HTMLElement): boolean {
+  return el.isConnected && el.getClientRects().length > 0;
+}
+
 /** Reads the paragraphs of the open screen: only text the workbook marked as reading, never a field or an answer. */
 export function scanScreen(root: HTMLElement): Scan {
   const s = root.querySelector<HTMLElement>(".ak-screen");
@@ -59,7 +64,10 @@ export function useParagraphs(stage: React.RefObject<HTMLElement | null>): Scan 
       if (timer) clearTimeout(timer);
       timer = setTimeout(rescan, 150);
     });
-    watch.observe(root, { childList: true, subtree: true });
+    // Text can appear without a node being added: a details opening, a hidden
+    // attribute or a class coming off. Those are watched too, so a paragraph
+    // shown that way can still take the marker.
+    watch.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["open", "hidden", "class", "style"] });
     return () => {
       clearTimeout(first);
       watch.disconnect();

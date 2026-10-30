@@ -48,14 +48,14 @@ export async function requestMagicLink(formData: FormData): Promise<void> {
     console.error("sign_in_otp_failed", error.status ?? "", error.name);
     redirect(`${back}&error=send`);
   }
-  // 13.18: kept for ten minutes so the six-digit code can be checked against this address
+  // 13.18: kept for ten minutes so the code from the email can be checked against this address
   // without the address ever being put in a URL. HttpOnly, and only sent to /sign-in.
   (await cookies()).set(CODE_COOKIE, email, { httpOnly: true, secure: origin.startsWith("https:"), sameSite: "lax", path: "/sign-in", maxAge: CODE_COOKIE_SECONDS });
   redirect(`/sign-in?sent=1&next=${encodeURIComponent(next)}`);
 }
 
 /**
- * Sign in with the six-digit code from the same email (13.18). A magic link
+ * Sign in with the code from the same email (13.18). A magic link
  * opens in the browser, not in an installed home screen app, and on an
  * iPhone the two do not share a session, so a reader in the app would be
  * signed in in the wrong place. The code is typed into the app instead and

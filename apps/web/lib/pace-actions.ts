@@ -16,8 +16,10 @@ export async function setPace(enrolmentId: string, pace: string): Promise<boolea
   if (!change) return false;
   try {
     const supabase = await createUserClient();
-    const { data, error } = await supabase.from("enrolments").update({ pace: change.pace }).eq("id", change.enrolmentId).select("id");
-    if (error || !data || data.length === 0) return false;
+    const { data: auth } = await supabase.auth.getUser();
+    if (!auth.user) return false;
+    const { data, error } = await supabase.from("enrolments").update({ pace: change.pace }).eq("id", change.enrolmentId).eq("user_id", auth.user.id).select("id");
+    if (error || !data || data.length !== 1) return false;
     revalidatePath("/today");
     revalidatePath("/you/habit");
     return true;
