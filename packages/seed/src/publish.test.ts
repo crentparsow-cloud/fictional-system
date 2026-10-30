@@ -2,7 +2,7 @@ import { cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from "nod
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildSeed, classicFiles, repoRoot } from "./build";
+import { buildSeed, classicFiles, demoFiles, repoRoot } from "./build";
 import {
   EMPTY_SNAPSHOT,
   PublishRefused,
@@ -32,7 +32,7 @@ function snapshotOf(s: Seed, status: string): DbSnapshot {
 describe("planPublish: versions by content hash", () => {
   it("reports every written workbook as new against an empty database", () => {
     const { entries, seed: out } = planPublish(seed, EMPTY_SNAPSHOT);
-    expect(entries).toHaveLength(20 + classicFiles(root).length);
+    expect(entries).toHaveLength(20 + classicFiles(root).length + demoFiles(root).length);
     expect(entries.every((e) => e.action === "new")).toBe(true);
     expect(out.workbook_versions).toHaveLength(entries.length);
   });
@@ -67,7 +67,7 @@ describe("planPublish: versions by content hash", () => {
   });
 
   it("does not null a pointer the database holds for a title with no content in this build", () => {
-    const bare = seed.workbooks.find((w) => w.badge === "demo")!;
+    const bare = seed.workbooks.find((w) => w.badge === "demo" && !w.current_version_id)!;
     const db: DbSnapshot = { workbooks: new Map([[bare.id, { status: "draft", current_version_id: "11111111-1111-5111-8111-111111111111" }]]), versions: [] };
     const out = planPublish(seed, db).seed.workbooks.find((w) => w.id === bare.id)!;
     expect(out.current_version_id).toBe("11111111-1111-5111-8111-111111111111");
@@ -118,10 +118,10 @@ describe("runPublish", () => {
     const r = await runPublish({ ...base, to: "staging", dryRun: true, deps: { apply: async () => { applied = true; return []; } } });
     expect(applied).toBe(false);
     expect(r).toMatchObject({ dryRun: true, applied: false, assumedEmpty: true });
-    expect(r.entries).toHaveLength(20 + classicFiles(root).length);
+    expect(r.entries).toHaveLength(20 + classicFiles(root).length + demoFiles(root).length);
     expect(r.counts.workbooks).toBe(190);
     expect(lines.join("\n")).toMatch(/dry run: nothing written/);
-    expect(lines.join("\n")).toMatch(new RegExp(`validated ${20 + classicFiles(root).length} file\\(s\\)`));
+    expect(lines.join("\n")).toMatch(new RegExp(`validated ${20 + classicFiles(root).length + demoFiles(root).length} file\\(s\\)`));
     expect(lines.join("\n")).toMatch(/never set live/);
   });
 

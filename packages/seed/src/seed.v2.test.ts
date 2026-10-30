@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildSeed, buildSeedV2, classicFiles, repoRoot } from "./build";
+import { buildSeed, buildSeedV2, classicFiles, demoFiles, repoRoot } from "./build";
 import { splitInsertOnly } from "./apply";
 import { AKANA_HOUSE_ORG_ID, INSERT_ONLY_COLUMNS } from "./rows";
 import { renderSeedSql } from "./sql";
@@ -41,6 +41,10 @@ const catalogueV2 = readJson("docs", "planning", "AK_Demo_Catalogue_v2.json") as
 };
 const registryThemes = readJson("content", "registry", "themes.json").themes as { id: string; status?: string }[];
 const writtenClassicCodes = new Set(classicFiles(root).map((f) => (JSON.parse(readFileSync(f, "utf8")) as { code: string }).code));
+const writtenDemoCodes = new Set(demoFiles(root).map((f) => (JSON.parse(readFileSync(f, "utf8")) as { code: string }).code));
+// v1 has no demo workbook files (they are written against v2), so hash comparisons leave the demo versions out.
+const demoRowIds = new Set(v2.workbooks.filter((w) => w.is_demo).map((w) => w.id));
+const nonDemoHashes = (s: typeof v2) => s.workbook_versions.filter((v) => !demoRowIds.has(v.workbook_id)).map((v) => v.content_hash);
 const isMaya = (w: { badge: string }) => w.badge === "official";
 
 describe("seed.sql is the v2 build", () => {
@@ -62,8 +66,8 @@ describe("buildSeedV2: counts", () => {
     expect(v2.workbooks.filter((w) => w.badge === "public_domain")).toHaveLength(55);
     expect(v2.books).toHaveLength(190);
     expect(v2.tenant_listings).toHaveLength(190);
-    // 20 Maya Vaughn versions plus one per written classic in content/workbooks/classics (Meditations so far).
-    expect(v2.workbook_versions).toHaveLength(20 + classicFiles(root).length);
+    // 20 Maya Vaughn versions plus one per written classic in content/workbooks/classics and one per demo file in content/workbooks/demo.
+    expect(v2.workbook_versions).toHaveLength(20 + classicFiles(root).length + demoFiles(root).length);
     expect(v2.workbook_versions.filter((v) => v.schema_version === "3.0")).toHaveLength(20);
   });
 
@@ -202,17 +206,19 @@ describe("buildSeedV2: Themes", () => {
       expect(w.status).toBe("in_review");
       expect(w.current_version_id).toBe(before.current_version_id);
     }
-    expect(v2.workbook_versions.map((v) => v.content_hash)).toEqual(v1.workbook_versions.map((v) => v.content_hash));
+    expect(nonDemoHashes(v2)).toEqual(nonDemoHashes(v1));
   });
 });
 
 describe("buildSeedV2: badges, status and listing values", () => {
   it("badges demo titles demo and classics public_domain, all draft", () => {
     for (const w of v2.workbooks.filter((x) => !isMaya(x))) {
-      // A classic with written content carries its file status and a version pointer; every other title is a bare draft.
+      // A classic with written content carries its file status and a version pointer. A written
+      // demo carries a version pointer and keeps its draft status. Every other title is a bare draft.
       const written = writtenClassicCodes.has(w.code);
+      const demoWritten = writtenDemoCodes.has(w.code);
       expect(w.status).toBe(written ? "in_review" : "draft");
-      if (written) expect(w.current_version_id).not.toBeNull();
+      if (written || demoWritten) expect(w.current_version_id).not.toBeNull();
       else expect(w.current_version_id).toBeNull();
       if (w.is_demo) expect(w.badge).toBe("demo");
       else {
