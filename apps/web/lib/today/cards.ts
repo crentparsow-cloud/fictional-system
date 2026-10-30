@@ -143,14 +143,18 @@ export const STEP_STATUS_LABEL: Record<StepStatus, string> = {
 
 /**
  * The words on a step card. A title in weeks read weekly keeps week wording
- * ("Week 1 of 12", "Week 1 is next"); everything else talks about parts
- * ("Part 1 of 4", "Your next part").
+ * ("Week 1 of 12", "Week 1 is next", "Next week when you are ready");
+ * everything else talks about parts ("Part 1 of 4", "Your next part",
+ * "Next part when you are ready"). The status line uses the same unit label
+ * as the place line, so the two never disagree.
  */
 export function stepCardWords(p: Pick<ProgrammeToday, "unitWord" | "unitCount" | "pace" | "due" | "workedToday">, unit: number): { place: string; next: string; status: string } {
   const label = paceUnitLabel(p.unitWord, p.pace ?? "weekly");
   const place = p.unitCount && p.unitCount >= unit ? `${label} ${unit} of ${p.unitCount}` : `${label} ${unit}`;
   const next = label === "Part" ? "Your next part" : `${label} ${unit} is next`;
-  return { place, next, status: STEP_STATUS_LABEL[stepStatus(p)] };
+  const status = stepStatus(p);
+  const statusWords = status === "when_ready" ? `Next ${label.toLowerCase()} when you are ready` : STEP_STATUS_LABEL[status];
+  return { place, next, status: statusWords };
 }
 
 export function selectTodayCards(input: TodayInput): TodayCard[] {

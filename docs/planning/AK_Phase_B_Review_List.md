@@ -99,3 +99,12 @@ All are optional and the feature degrades quietly while blank.
 - [ ] Migrations 0049 to 0066 are applied by supabase/staging/phase-b_apply_0049_0066.sql. Run it on staging first, after a backup. Nothing has been applied anywhere yet.
 - [ ] The workbook-gift preview function was renamed workbook_gift_preview in migration 0053 so it does not clash with the gift membership preview in 0054.
 - [ ] The Stripe webhook now runs gift and bundle handling first, then the existing handler, then the growth handler. Test one gift purchase, one bundle purchase and one referral in the Stripe sandbox before launch.
+
+## Demo period switches to reverse before launch
+
+These were turned on for the demo period only (Crent, 30 October 2026). Each must be reversed before launch.
+
+- [ ] Demo titles fully open to signed-in readers. Make app.demo_fully_open() return false in a new migration (it is defined in 0070_demo_fully_open.sql) and make demoFullyOpen() in apps/web/lib/demo-period.ts return false. Update the tests in supabase/tests/0070_demo_fully_open.sql and apps/web/lib/demo-period.test.ts to match. Demos then show only their free first part again, with "Demo titles cannot be bought".
+- [ ] themes.min_books is set to 1 on staging and production. Set it back to the launch value.
+- [ ] 117 demo and Maya Vaughn titles are set live. Decide which stay live at launch and take the rest down.
+- [ ] The programme_friends flag is on in staging. Decide whether it stays on before production.

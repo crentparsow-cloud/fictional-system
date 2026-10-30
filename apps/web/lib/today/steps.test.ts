@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { answered, step } from "@/lib/today/fixtures";
+import { orderProgrammes, type ProgrammeToday } from "@/lib/today/cards";
 import { countWord, doneExerciseIds, hasFromFieldPaths, nextStep, remainingSteps, stepFilled, stepsFromUnitSections } from "@/lib/today/steps";
 
 const ex = (id: string, extra: Record<string, unknown> = {}) => ({
@@ -77,5 +78,40 @@ describe("stepFilled", () => {
 describe("countWord", () => {
   it("uses words up to ten", () => {
     expect([countWord(1), countWord(2), countWord(10), countWord(11)]).toEqual(["one", "two", "ten", "11"]);
+  });
+});
+
+describe("a demo enrolment whose next step is in Part 2 (demo period, 0070)", () => {
+  const part1 = { unit_number: 1, body: { focus: "Part one", exercises: [ex("d1"), ex("d2")] } };
+  const part2 = { unit_number: 2, body: { focus: "Part two", exercises: [ex("d3")] } };
+  const done = doneExerciseIds([
+    { kind: "step_done", ref: "d1" },
+    { kind: "step_done", ref: "d2" },
+  ]);
+  const card = (next: ReturnType<typeof nextStep>): ProgrammeToday => ({
+    enrolmentId: "demo",
+    slug: "wb-demo",
+    title: "Demo",
+    safetyTier: "none",
+    lastOpenedAt: "2026-10-29T09:00:00Z",
+    unitWord: "part",
+    unitCount: 4,
+    next,
+    pace: "own_pace",
+    due: false,
+    dueDay: null,
+    workedToday: false,
+  });
+
+  it("was absent from Today while Part 2 was locked, because RLS returned only Part 1", () => {
+    const next = nextStep(stepsFromUnitSections([part1]), done);
+    expect(next).toBeNull();
+    expect(orderProgrammes([card(next)])).toEqual([]);
+  });
+
+  it("appears on Today now that RLS returns Part 2 to a signed-in reader", () => {
+    const next = nextStep(stepsFromUnitSections([part1, part2]), done);
+    expect(next).toMatchObject({ unit: 2, exerciseId: "d3" });
+    expect(orderProgrammes([card(next)]).map((p) => p.enrolmentId)).toEqual(["demo"]);
   });
 });
