@@ -260,7 +260,7 @@ describe("reader templates", () => {
     expect(findTitle([r.subject, r.text, r.html].join("\n"))).toBeNull();
   });
 
-  it("the magic link email carries the six-digit code for the installed app (13.18)", () => {
+  it("the magic link email carries the code for the installed app (13.18)", () => {
     const r = renderSigninTemplate("magic_link");
     expect(r.html).toContain("{{ .Token }}");
     expect(r.html).toContain("{{ .ConfirmationURL }}");
