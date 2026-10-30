@@ -19,7 +19,7 @@ import { buildSuggestions } from "@/lib/today/suggest";
 import { buildPath, type PathNode } from "@/lib/reading/path";
 import { doneExerciseIds, hasFromFieldPaths, nextStep, stepsFromUnitSections, type ProgrammeStep } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type UnitWord } from "@/lib/today/week";
-import { dueToday, nextPartLine, paceInputFromEvents } from "@/lib/pace";
+import { dueToday, nextDueDay, nextPartLine, paceInputFromEvents } from "@/lib/pace";
 
 /**
  * Everything the Today page shows, worked out on the server under the
@@ -113,8 +113,9 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
   const settingsOf = new Map(((settingsRows ?? []) as SettingsRow[]).map((r) => [r.enrolment_id, r]));
   const tz = settingsOf.get(cardsAll[0]!.enrolmentId)?.timezone ?? timeZone;
 
-  // Steps, events and answer paths for the three programmes opened most recently.
-  const top = cardsAll.slice(0, 3);
+  // Steps, events and answer paths for every open programme (up to 12), so
+  // Today can show each one that has a step to do, the most due first.
+  const top = cardsAll.slice(0, 12);
   const topVersions = [...new Set(top.map((c) => enrolOf.get(c.enrolmentId)?.version_id).filter((v): v is string => !!v))];
   const { data: unitRows } = topVersions.length
     ? await supabase.from("workbook_sections").select("version_id, unit_number, body").eq("kind", "unit").in("version_id", topVersions)
@@ -150,7 +151,9 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     stepsOf.set(c.enrolmentId, steps);
     const done = doneExerciseIds(eventsOf.get(c.enrolmentId) ?? []);
     const localDay = (d: Date) => localParts(d, settingsOf.get(c.enrolmentId)?.timezone ?? tz).date;
-    const due = isTop && dueToday(paceInputFromEvents(c.pace, eventsOf.get(c.enrolmentId) ?? [], localDay), localDay(now));
+    const paceIn = paceInputFromEvents(c.pace, eventsOf.get(c.enrolmentId) ?? [], localDay);
+    const today = localDay(now);
+    const due = isTop && dueToday(paceIn, today);
     return {
       enrolmentId: c.enrolmentId,
       slug: c.slug,
@@ -162,6 +165,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       next: nextStep(steps, done),
       pace: c.pace,
       due,
+      dueDay: isTop ? nextDueDay(paceIn, today) : null,
+      workedToday: isTop && paceIn.lastFinishedDay === today,
     };
   });
 
