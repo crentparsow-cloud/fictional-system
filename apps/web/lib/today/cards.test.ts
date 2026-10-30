@@ -69,6 +69,18 @@ describe("every open programme on Today", () => {
     expect(stepCardWords({ ...politeNo, pace: "own_pace" }, 1).status).toBe("Next part when you are ready");
   });
 
+  it("uses the title's unit label in the when-ready line, matching the place line", () => {
+    const weekWaiting = { ...meditations, due: false, workedToday: false };
+    const words = stepCardWords(weekWaiting, 1);
+    expect(words.place).toBe("Week 1 of 12");
+    expect(words.status).toBe("Next week when you are ready");
+    expect(stepCardWords({ ...politeNo, workedToday: false, due: false }, 1).status).toBe("Next part when you are ready");
+    // A title in weeks read at its own pace talks about parts throughout.
+    const ownPace = stepCardWords({ ...weekWaiting, pace: "own_pace" }, 1);
+    expect(ownPace.place).toBe("Part 1 of 12");
+    expect(ownPace.status).toBe("Next part when you are ready");
+  });
+
   it("uses part wording for a title in parts and week wording for a weekly title in weeks", () => {
     expect(stepCardWords(politeNo, 1)).toMatchObject({ place: "Part 1 of 4", next: "Your next part" });
     expect(stepCardWords(meditations, 1)).toMatchObject({ place: "Week 1 of 12", next: "Week 1 is next" });

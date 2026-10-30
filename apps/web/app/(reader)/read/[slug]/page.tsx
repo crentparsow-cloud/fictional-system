@@ -23,6 +23,7 @@ import { ProgrammeQuestionCard } from "./ProgrammeQuestionCard";
 import { loadMyPairs } from "@/lib/friends/server";
 import { flagEnabled } from "@/lib/platform/flags-server";
 import { ReadClient } from "./ReadClient";
+import { demoFullyOpen } from "@/lib/demo-period";
 import { affiliateDisclosure, affiliateTagsFromEnv } from "@/lib/book-affiliate";
 
 /**
@@ -194,6 +195,9 @@ export default async function ReadPage({ params, searchParams }: { params: Promi
     .eq("version_id", enrolment.version_id);
   const rebuilt = rebuildWorkbook((sectionRows ?? []) as SectionRow[]);
   if (!rebuilt) notFound();
+  // Demo period (0070): every part of a demo opens to a signed-in reader. A
+  // locked part here means the database switch and this mirror disagree.
+  if (workbook.is_demo && demoFullyOpen() && rebuilt.lockedUnits.length) console.error("demo_part_locked", workbook.code, rebuilt.lockedUnits.join(","));
 
   // Prices for the calm paywall, only when something is locked. The
   // database row wins, as at checkout; the config ladder is the fallback.
