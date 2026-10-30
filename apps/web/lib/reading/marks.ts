@@ -75,6 +75,9 @@ export function screenRef(parts: { screen: string | null; unit: string | null; e
 
 export const paragraphRef = (screen: string, index: number): string => `${screen}#${index}`;
 
+/** A ref the marks route and the reader_marks check (0058) accept. */
+export const MARK_REF = /^[a-z0-9][a-z0-9_:~.#-]{0,119}$/;
+
 export const normaliseText = (s: string): string => s.replace(/\s+/g, " ").trim();
 export const excerptOf = (text: string): string => normaliseText(text).slice(0, MAX_EXCERPT_CHARS);
 

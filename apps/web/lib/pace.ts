@@ -58,15 +58,13 @@ export function paceChange(enrolmentId: unknown, pace: unknown): { enrolmentId: 
   return typeof enrolmentId === "string" && UUID.test(enrolmentId) && isPace(pace) ? { enrolmentId, pace } : null;
 }
 
-/** The pace fields of the /you/habit form, named "pace:<enrolment id>". Unknown values are left out. */
-export function parsePaceForm(data: { entries(): IterableIterator<[string, FormDataEntryValue]> }): { enrolmentId: string; pace: Pace }[] {
-  const out: { enrolmentId: string; pace: Pace }[] = [];
-  for (const [name, value] of data.entries()) {
-    if (!name.startsWith("pace:")) continue;
-    const c = paceChange(name.slice(5), value);
-    if (c) out.push(c);
-  }
-  return out.slice(0, 50);
+/**
+ * The pace form on /you/habit: one form per workbook, carrying that
+ * enrolment's id in "enrolment_id" and the choice in "pace". Saving one
+ * workbook's pace never touches another's. null when either is not well formed.
+ */
+export function parsePaceForm(data: { get(name: string): FormDataEntryValue | null }): { enrolmentId: string; pace: Pace } | null {
+  return paceChange(data.get("enrolment_id"), data.get("pace"));
 }
 
 const DAY_MS = 86_400_000;
