@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createUserClient } from "@/lib/supabase/server";
 import { companionValue, parseHabitForm } from "@/lib/habit/settings";
+import { parsePaceForm } from "@/lib/pace";
 
 /**
  * Habit settings (4.4, 4.6, 11.2, 12.4). Each action runs as the signed-in
@@ -70,4 +71,18 @@ export async function markMarksSeen(): Promise<void> {
   await supabase.from("milestone_marks").update({ seen_at: new Date().toISOString() }).eq("user_id", userId).is("seen_at", null);
   revalidatePath("/today");
   revalidatePath("/you/habit");
+}
+
+/** The pace for each open programme (0069). Row level security keeps each update to the reader's own enrolment. */
+export async function savePaces(formData: FormData): Promise<void> {
+  const changes = parsePaceForm(formData);
+  if (changes.length === 0) back("invalid");
+  const { supabase } = await signedIn();
+  for (const c of changes) {
+    const { error } = await supabase.from("enrolments").update({ pace: c.pace }).eq("id", c.enrolmentId);
+    if (error) back("failed");
+  }
+  revalidatePath("/you/habit");
+  revalidatePath("/today");
+  back("saved");
 }

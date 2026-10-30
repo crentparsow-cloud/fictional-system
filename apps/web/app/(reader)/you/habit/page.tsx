@@ -6,18 +6,19 @@ import { ShareMark } from "@/components/habit/ShareMark";
 import { imageFileName } from "@/lib/habit/milestones";
 import { loadHabit } from "@/lib/habit/server";
 import { companionChoice, habitNotice } from "@/lib/habit/settings";
-import { markMarksSeen, saveHabit } from "./actions";
+import { PACES, PACE_HINTS, PACE_LABELS } from "@/lib/pace";
+import { markMarksSeen, saveHabit, savePaces } from "./actions";
 
 /**
- * Streak, companion and reminders in one place, one tap from Today (11.2).
- * Everything is the reader's choice and off or quiet until chosen. The
- * streak section only works on workbooks outside the wellbeing shelves; the
- * database enforces that, and a reader with only wellbeing workbooks is told
- * plainly that nothing counts days for them.
+ * Streak, pace, companion and reminders in one place, one tap from Today
+ * (11.2). Everything is the reader's choice and off or quiet until chosen.
+ * The streak only works on workbooks outside the Mind and Mood shelf and the
+ * higher tier (0069); the database enforces that. A reader with only such
+ * workbooks sees no streak or goal controls at all.
  */
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = { title: "Streak, companion and reminders" };
+export const metadata: Metadata = { title: "Pace, companion and reminders" };
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
@@ -29,13 +30,14 @@ export default async function HabitPage({ searchParams }: Props) {
   const h = await loadHabit(session!.userId);
   const choice = companionChoice(h.settings.companion_on);
   const canRun = h.settings.daily_run_on || h.eligibleSteps >= h.config.offerAfter;
+  const streakShown = h.anyStreakTitle || h.settings.daily_run_on;
 
   return (
     <section className="tab-page you-page" aria-labelledby="habit-h">
       <p className="small">
         <Link href="/today">Back to Today</Link>
       </p>
-      <h1 id="habit-h">Streak, companion and reminders</h1>
+      <h1 id="habit-h">{streakShown ? "Streak, pace, companion and reminders" : "Pace, companion and reminders"}</h1>
       <p className="muted">Everything here is your choice. Nothing is compared with anyone, and nothing you have written is ever used for it.</p>
       {notice ? (
         <p className="you-notice" role="status">
@@ -44,9 +46,10 @@ export default async function HabitPage({ searchParams }: Props) {
       ) : null}
 
       <form action={saveHabit} className="card you-today-card">
+        {streakShown ? (
         <fieldset>
           <legend>Streak and daily goal</legend>
-          {h.hasWellbeingTitle ? <p className="small muted">Nothing counts days on mental health workbooks. The streak only counts steps on other workbooks.</p> : null}
+          {h.hasNoStreakTitle ? <p className="small muted">Nothing counts days on Mind and Mood workbooks. The streak only counts steps on other workbooks.</p> : null}
           {canRun ? (
             <>
               <div className="check">
@@ -74,12 +77,18 @@ export default async function HabitPage({ searchParams }: Props) {
             <>
               <input type="hidden" name="goal" value={String(h.settings.daily_goal)} />
               <p className="small muted">
-                The streak is offered after you have finished {h.config.offerAfter} steps on a workbook outside the wellbeing shelves.
+                The streak is offered after you have finished {h.config.offerAfter} steps on a workbook outside the Mind and Mood shelf.
                 {h.eligibleSteps > 0 ? ` You have finished ${h.eligibleSteps} so far.` : ""}
               </p>
             </>
           )}
         </fieldset>
+        ) : (
+          <>
+            <input type="hidden" name="goal" value={String(h.settings.daily_goal)} />
+            <p className="small muted">Nothing here counts days. Your workbooks go at the pace you choose below.</p>
+          </>
+        )}
 
         <fieldset>
           <legend>Companion</legend>
@@ -112,6 +121,37 @@ export default async function HabitPage({ searchParams }: Props) {
           Save
         </button>
       </form>
+
+      {h.paces.length > 0 ? (
+        <form action={savePaces} className="card you-today-card" id="pace">
+          <fieldset>
+            <legend>Your pace</legend>
+            <p className="small muted">How often you would like to do a part of each workbook. Today and your reminders follow it. Nothing ever locks: you can always open the next part early.</p>
+            {h.paces.map((p) => (
+              <p key={p.enrolmentId}>
+                <label htmlFor={`pace-${p.enrolmentId}`}>{p.title}</label>{" "}
+                <select id={`pace-${p.enrolmentId}`} name={`pace:${p.enrolmentId}`} defaultValue={p.pace}>
+                  {PACES.map((v) => (
+                    <option key={v} value={v}>
+                      {PACE_LABELS[v]}
+                    </option>
+                  ))}
+                </select>
+              </p>
+            ))}
+            <ul className="small muted">
+              {PACES.map((v) => (
+                <li key={v}>
+                  <b>{PACE_LABELS[v]}.</b> {PACE_HINTS[v]}
+                </li>
+              ))}
+            </ul>
+          </fieldset>
+          <button type="submit" className="btn">
+            Save pace
+          </button>
+        </form>
+      ) : null}
 
       <section className="you-section" id="marks" aria-labelledby="marks-h">
         <h2 id="marks-h">Your marks</h2>
