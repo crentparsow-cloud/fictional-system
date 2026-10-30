@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { validateWorkbook, type Finding } from "./index";
 
 /**
@@ -8,11 +8,29 @@ import { validateWorkbook, type Finding } from "./index";
  *
  * The default scan is every JSON file in content/workbooks/v3 (the 20 Maya
  * Vaughn workbooks) and content/workbooks/classics (written-up public-domain
- * titles). Each folder is optional, so a checkout without classics still scans v3.
+ * titles), then content/workbooks/demo (the short demo workbooks, 30 October
+ * 2026). Each folder is optional, so a checkout without classics still scans v3.
  */
 
 /** Folders under content/workbooks scanned when no file is named, in scan order. */
-export const WORKBOOK_DIRS = ["v3", "classics"] as const;
+export const WORKBOOK_DIRS = ["v3", "classics", "demo"] as const;
+
+/**
+ * Theme id to shelf id from content/registry/themes.json under `root`. Empty
+ * when the registry is missing. A demo workbook's Mind and Mood rules hang on it.
+ */
+export function themeShelves(root: string): Map<string, string> {
+  const path = join(root, "content", "registry", "themes.json");
+  if (!existsSync(path)) return new Map();
+  const reg = JSON.parse(readFileSync(path, "utf8")) as { themes: { id: string; shelf_id: string }[] };
+  return new Map(reg.themes.map((t) => [t.id, t.shelf_id]));
+}
+
+/** The repository root for a file under content/workbooks/<dir>/, or null. */
+function rootOf(file: string): string | null {
+  const root = dirname(dirname(dirname(dirname(file))));
+  return existsSync(join(root, "content", "registry")) ? root : null;
+}
 
 export function contentTargets(root: string): string[] {
   return WORKBOOK_DIRS.map((d) => join(root, "content", "workbooks", d))
@@ -41,17 +59,27 @@ export interface ValidateTargetsOptions {
   parked?: boolean;
 }
 
+const shelfCache = new Map<string, Map<string, string>>();
+/** The shelf of a demo file's Theme, read from the registry of the repository the file sits in. */
+export function shelfFor(file: string, doc: { is_demo?: unknown; theme_id?: unknown }): string | undefined {
+  if (doc.is_demo !== true || typeof doc.theme_id !== "string") return undefined;
+  const root = rootOf(file);
+  if (!root) return undefined;
+  if (!shelfCache.has(root)) shelfCache.set(root, themeShelves(root));
+  return shelfCache.get(root)?.get(doc.theme_id);
+}
+
 /** Validate each file. A file that is not valid JSON counts as a schema error. */
 export function validateTargets(files: string[], opts: ValidateTargetsOptions = {}): FileValidation[] {
   return files.map((file) => {
-    let doc: { status?: string };
+    let doc: { status?: string; is_demo?: unknown; theme_id?: unknown };
     try {
-      doc = JSON.parse(readFileSync(file, "utf8")) as { status?: string };
+      doc = JSON.parse(readFileSync(file, "utf8")) as typeof doc;
     } catch (err) {
       const message = `not valid JSON: ${err instanceof Error ? err.message : String(err)}`;
       return { file, status: undefined, ok: false, blocking: [{ severity: "error", category: "schema", path: "$", message }], warnings: [] };
     }
-    const result = validateWorkbook(doc, { lenient: opts.lenient });
+    const result = validateWorkbook(doc, { lenient: opts.lenient, shelf: shelfFor(file, doc) });
     const parked = Boolean(opts.parked) && doc.status === "in_review";
     const blocking = parked ? result.errors.filter((e) => e.category === "schema" || e.category === "refs") : result.errors;
     const downgraded = result.errors.filter((e) => !blocking.includes(e)).map((e): Finding => ({ ...e, severity: "warning" }));

@@ -1,4 +1,4 @@
-import { WorkbookV3, type WorkbookV3 as Workbook } from "@akana/schema";
+import { habitAllowed, WorkbookV3, type WorkbookV3 as Workbook } from "@akana/schema";
 import {
   BANNED_CHARS,
   BANNED_PHRASES,
@@ -19,10 +19,12 @@ import {
   genreProfile,
 } from "./rules";
 import { habitLanguageHits } from "./habit-lint";
+import { checkDemo, DEMO_IDENTITY_PATHS } from "./demo";
 
 export * from "./rules";
 export * from "./stability";
 export * from "./habit-lint";
+export * from "./demo";
 
 export type Severity = "error" | "warning";
 export type Category = "schema" | "style" | "claims" | "limit" | "refs" | "count" | "safety" | "depth";
@@ -47,6 +49,15 @@ export interface ValidateOptions {
   lenient?: boolean;
   /** Skip the claims check for listing copy drafts. Default false. */
   skipClaims?: boolean;
+  /** Demo workbooks: the title's shelf id, for the Mind and Mood wording rules. See demo.ts. */
+  shelf?: string;
+  /**
+   * The workbook's shelf through its Theme, when the caller knows it (the
+   * catalogue holds the Theme, the JSON does not). With it, the habit lint
+   * follows the shelf rule. Without it, any standard or higher tier title is
+   * checked, as it could sit on Mind and Mood.
+   */
+  shelfId?: string | null;
 }
 
 // ---------- helpers ----------
@@ -69,8 +80,8 @@ function isReaderCopy(path: string): boolean {
   return !pathParts(path).some((p) => NON_READER_KEYS.has(p));
 }
 
-export function words(s: string): number {
-  return (s.match(/[A-Za-z0-9']+/g) ?? []).length;
+export function words(s: string | undefined): number {
+  return ((s ?? "").match(/[A-Za-z0-9']+/g) ?? []).length;
 }
 
 function excerpt(s: string, n = 70): string {
@@ -98,6 +109,9 @@ function checkStyle(doc: Workbook, out: Finding[], opts: ValidateOptions): void 
     for (const [ch, name] of Object.entries(BANNED_CHARS)) {
       if (s.includes(ch)) out.push({ severity: "error", category: "style", path, message: `${name} in text`, excerpt: excerpt(s) });
     }
+    // A demo title is catalogue identity, copied from the catalogue row and checked there.
+    // Only the banned characters above (the em dash among them) apply to it.
+    if (doc.is_demo && DEMO_IDENTITY_PATHS.has(path)) continue;
     if (EMOJI.test(s)) out.push({ severity: "error", category: "style", path, message: "emoji in text" });
     if (s.includes("!")) out.push({ severity: "error", category: "style", path, message: "exclamation mark" });
 
@@ -214,6 +228,8 @@ function checkRefs(doc: Workbook, out: Finding[]): void {
     }
   }
   for (const e of doc.exercises) {
+    // Only a demo workbook, which has no source book, may leave the source out.
+    if (!e.source && !doc.is_demo) err(`exercises.${e.id}.source`, "an exercise needs a source (chapter); only a demo workbook may leave it out");
     const fids = e.fields.map((f) => f.id);
     for (const fid of e.short_version?.field_ids ?? []) if (!fids.includes(fid)) err(`exercises.${e.id}`, `short version uses undefined field ${fid}`);
     for (const fp of e.feeds_plan ?? []) {
@@ -391,7 +407,7 @@ function checkUnits(doc: Workbook, out: Finding[]): void {
       else if (total < tMin) warn(p, `${total} words in one key idea, spec asks for ${tMin} to ${tMax}`);
       const bs = sentenceCount(idea.body);
       if (bs < 2 || bs > 5) warn(`${p}.body`, `${bs} sentence(s) in the explanation, spec asks for 2 to 5`);
-      if (!idea.example.trim()) err(`${p}.example`, "a key idea needs one example");
+      if (!idea.example?.trim()) err(`${p}.example`, "a key idea needs one example");
     });
     if (u.intro !== undefined) {
       const n = sentenceCount(u.intro);
@@ -424,11 +440,17 @@ function checkUnits(doc: Workbook, out: Finding[]): void {
 }
 
 /**
- * 11.3: titles on the standard and higher safety tiers (tiers 1 and 2) carry
- * no streak, daily goal, countdown or hurry language. See habit-lint.ts.
+ * 11.3, with the shelf rule of 30 October 2026: a title streaks never reach
+ * (Mind and Mood shelf, or the higher tier) carries no streak, daily goal,
+ * countdown or hurry language. See habit-lint.ts and habitAllowed.
  */
-function checkHabitLanguage(doc: Workbook, out: Finding[]): void {
-  if (doc.safety_tier === "none") return;
+export function habitLintApplies(doc: Pick<Workbook, "safety_tier">, shelfId?: string | null): boolean {
+  if (shelfId === undefined) return doc.safety_tier !== "none";
+  return !habitAllowed({ safetyTier: doc.safety_tier, shelfId });
+}
+
+function checkHabitLanguage(doc: Workbook, out: Finding[], opts: ValidateOptions): void {
+  if (!habitLintApplies(doc, opts.shelfId)) return;
   for (const [path, s] of walk(doc)) {
     if (!isReaderCopy(path)) continue;
     for (const h of habitLanguageHits(s)) {
@@ -445,7 +467,8 @@ function checkSafety(doc: Workbook, out: Finding[]): void {
   if (doc.genre !== "wellbeing" && doc.safety_tier === "higher") err("safety_tier", "higher tier is reserved for wellbeing titles");
 
   if (wellbeing) {
-    if (!doc.safety_hub) err("safety_hub", "wellbeing workbook needs a safety_hub section");
+    // A demo carries no safety hub (demo.ts): Help now in the app does that job.
+    if (!doc.safety_hub && !doc.is_demo) err("safety_hub", "wellbeing workbook needs a safety_hub section");
     if (doc.selfcheck?.scored) err("selfcheck.scored", "wellbeing self-checks are unscored and show no bands");
     if (doc.safety_tier === "higher" && !doc.start.higher_tier_note) err("start.higher_tier_note", "higher-tier workbook needs start.higher_tier_note");
     for (const e of doc.exercises) {
@@ -530,11 +553,18 @@ export function validateWorkbook(input: unknown, opts: ValidateOptions = {}): Va
   checkStyle(doc, findings, opts);
   checkLimits(doc, findings);
   checkRefs(doc, findings);
-  checkUnits(doc, findings);
   checkFields(doc, findings);
   checkSafety(doc, findings);
-  checkHabitLanguage(doc, findings);
-  checkCountsAndDepth(doc, findings, opts);
+  // The demo script passes `shelf`; the catalogue callers pass `shelfId`. Either feeds the habit lint.
+  const shelfId = opts.shelfId !== undefined ? opts.shelfId : opts.shelf;
+  checkHabitLanguage(doc, findings, { ...opts, shelfId });
+  if (doc.is_demo) {
+    // The demo profile replaces the unit spec and the genre counts (demo.ts).
+    checkDemo(doc, input, findings, { shelf: opts.shelf ?? shelfId ?? undefined });
+  } else {
+    checkUnits(doc, findings);
+    checkCountsAndDepth(doc, findings, opts);
+  }
 
   const errors = findings.filter((f) => f.severity === "error");
   const warnings = findings.filter((f) => f.severity === "warning");
