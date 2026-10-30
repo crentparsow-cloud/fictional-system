@@ -122,8 +122,8 @@ describe("demo profile: wording", () => {
     const named = (title: string, subtitle: string): Doc => ({ ...sample(), title, book: { ...sample().book, title, subtitle } });
     expect(errors(named("The Sunday Morning Circle", "Cooking Simply for Yourself"), "personal-growth")).toEqual([]);
     expect(errors(named("A Newsletter People Look Forward To", "Free Notes"), "personal-growth")).toEqual([]);
-    expect(hasError(named("A Polite No \\u2014 Again", "Setting Limits"), /^title: .*em dash/i, "personal-growth")).toBe(true);
-    expect(hasError(named("A Polite No", "Setting Limits \\u2014 Kindly"), /^book\.subtitle: .*em dash/i, "personal-growth")).toBe(true);
+    expect(hasError(named("A Polite No — Again", "Setting Limits"), /^title: .*em dash/i, "personal-growth")).toBe(true);
+    expect(hasError(named("A Polite No", "Setting Limits — Kindly"), /^book\.subtitle: .*em dash/i, "personal-growth")).toBe(true);
     // The same words in reader copy are still caught.
     expect(hasError({ ...sample(), card_line: "Cook simply for yourself." }, /banned phrase/, "personal-growth")).toBe(true);
   });
