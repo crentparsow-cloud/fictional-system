@@ -1,0 +1,397 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-WRRC3",
+  "slug": "asking-well-agreeing-fairly-wrrc3",
+  "title": "Asking Well, Agreeing Fairly",
+  "card_line": "Prepare a request, trade fairly and write the agreement down.",
+  "book": {
+    "book_id": "asking-well-agreeing-fairly",
+    "title": "Asking Well, Agreeing Fairly",
+    "subtitle": "Everyday Negotiation at Work"
+  },
+  "author": {
+    "author_id": "AU-H8PV1",
+    "display_name": "Lamar Whitfield-Osei"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "career",
+  "theme_id": "words-that-land",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about asking for things at work and reaching an agreement both sides can live with. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a prepared request, a fair trade, a rehearsal and a written agreement. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing you have been meaning to ask for at work? A line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Know what you want, what they want and where you would stop",
+      "exercise_ids": [
+        "p1_prepare"
+      ],
+      "intro": "Most weak negotiations are lost before anyone speaks. The person asking has not decided what they need, or has not thought about the other side. This part asks you to prepare three things on paper: your aim, their likely aim and the point at which you would say no.",
+      "ideas": [
+        {
+          "heading": "Say exactly what you are asking for before you ask.",
+          "body": "\"More flexibility\" is hard to agree to. \"Leaving at four on Thursdays for the next three months\" is clear. A specific request is easier to answer and harder to misunderstand. Write yours in one sentence, then check that a stranger could tell what you want."
+        },
+        {
+          "heading": "The other person has needs too, and guessing them helps.",
+          "body": "Your supplier wants steady orders. Your manager wants the project finished. Think about what the other person is trying to protect. A request that fits their needs is easier to say yes to. You may find something they can give that costs them little."
+        },
+        {
+          "heading": "Decide your walk-away point before you walk in.",
+          "body": "Your walk-away point is the least you would accept before choosing another route. Write it down in advance. Without it, you can agree to something in the room that you regret on the way home. Knowing it also lets you stay calm, because you know you have a choice."
+        }
+      ],
+      "takeaway": "Prepare one clear request, think about what the other side needs, and fix your walk-away point first."
+    },
+    {
+      "number": 2,
+      "focus": "Open clearly, listen well and trade instead of giving way",
+      "exercise_ids": [
+        "p2_trade"
+      ],
+      "intro": "Once you are in the conversation, a few habits matter more than clever tactics. This part is about how to open, how to listen and how to answer when the other side pushes back. The aim is a fair result, not a win.",
+      "ideas": [
+        {
+          "heading": "Open with your request and your reason, in that order.",
+          "body": "State what you want in a sentence, then give one reason. \"I would like to move the delivery to Tuesdays. It lets us stock the shelves before the weekend.\" Then stop talking. A short, clear opening gives the other person something to respond to."
+        },
+        {
+          "heading": "Listening is part of the negotiation, not a pause in it.",
+          "body": "Let the other person finish. Then say back what you heard, in your own words. \"So the problem is the Monday staffing?\" This checks you have understood and shows them you were paying attention. Often it reveals the real concern, which is not the one you assumed."
+        },
+        {
+          "heading": "Trade something you can spare for something you want.",
+          "body": "When they say no, do not just give in. Ask what they would need to say yes. Offer a small thing that costs you little and means more to them, such as a longer notice period. Each side leaves with something, and the agreement is more likely to hold."
+        }
+      ],
+      "takeaway": "Open with request and reason, listen before you answer, and trade instead of giving way."
+    },
+    {
+      "number": 3,
+      "focus": "Practise on ordinary requests before the big one",
+      "exercise_ids": [
+        "p3_practice"
+      ],
+      "intro": "Skills for asking come with use, and the first attempts rarely go smoothly. This part gives you three common situations to practise: a supplier, a deadline and a workload. You choose one and rehearse it out loud with a friend or on your own.",
+      "ideas": [
+        {
+          "heading": "A supplier conversation is a good place to practise.",
+          "body": "The stakes are clear and the relationship is businesslike. Ask about price, delivery or terms. Say what you would like and what you could offer in return, such as a bigger order or quicker payment. Plenty of suppliers expect to be asked."
+        },
+        {
+          "heading": "A deadline can be moved if you ask early and offer something.",
+          "body": "Raise the problem as soon as you see it, not on the day. Say what you can deliver and when. Offer a part now and the rest later. People tend to respond better to early warning and a plan than to a late apology."
+        },
+        {
+          "heading": "A workload request is stronger when it names the trade-off.",
+          "body": "If your plate is full, say what you can take on only if something else moves. \"I can do the report this week if the audit waits until Friday\" is easier to agree to than \"I am too busy\". It puts the choice in front of the person who can make it."
+        }
+      ],
+      "takeaway": "Practise on a supplier, a deadline or a workload request. Small asks build the habit for larger ones."
+    },
+    {
+      "number": 4,
+      "focus": "Write the agreement down and review how it went",
+      "exercise_ids": [
+        "p4_agree"
+      ],
+      "intro": "A good agreement can still go wrong if people remember it differently. Writing it down takes five minutes and avoids a lot of friction later. This last part asks you to put one agreement in writing and to look back on what you would do again.",
+      "ideas": [
+        {
+          "heading": "A short written note after the conversation prevents later disagreement.",
+          "body": "Send a few lines the same day: what was agreed, who does what and by when. Ask the other person to reply if anything is wrong. People are rarely offended by a clear summary, and it gives you both something to return to."
+        },
+        {
+          "heading": "Good agreements say what happens if things change.",
+          "body": "Plans shift, so add a line on when you will look at it again. \"We will review this in three months\" is enough. It makes the agreement easier to accept, because neither side feels locked in for ever. If circumstances change before then, either person can ask to talk sooner."
+        },
+        {
+          "heading": "Looking back on each negotiation makes the next one easier.",
+          "body": "Afterwards, note what you prepared, what surprised you and what you would change. Keep it short. Over a few rounds you will see your own patterns, such as opening too softly or agreeing too soon. That is useful to know."
+        }
+      ],
+      "takeaway": "Write the agreement down the same day, build in a review date, and note what you would change."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_prepare",
+      "title": "Prepare one request",
+      "purpose": "Your request, what the other side wants, and your walk-away point.",
+      "why": "Choose a real request you could make this month. Write it as one clear sentence. Then write what the other person probably needs and the point at which you would say no. If you are unsure, write your best guess.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your request in one sentence."
+        },
+        {
+          "text": "Write what the other side needs."
+        },
+        {
+          "text": "Write your walk-away point."
+        }
+      ],
+      "fields": [
+        {
+          "id": "request",
+          "type": "short_text",
+          "label": "What exactly are you asking for?"
+        },
+        {
+          "id": "their_need",
+          "type": "two_column",
+          "label": "What do you want, and what might they want?",
+          "columns": [
+            "What you want",
+            "What they may want"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "request",
+          "plan_section": "prepare"
+        },
+        {
+          "field_id": "their_need",
+          "plan_section": "prepare"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your request in one sentence."
+          }
+        ],
+        "field_ids": [
+          "request"
+        ]
+      },
+      "done_when": "You have a request, a guess at their needs and a walk-away point."
+    },
+    {
+      "id": "p2_trade",
+      "title": "Plan an opening and a trade",
+      "purpose": "An opening sentence and one trade you could offer.",
+      "why": "Write your opening in two sentences: the request, then one reason. Then think of something you could give that costs you little and matters to them. If nothing comes to mind, write one thing you could ask them.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your opening request and reason."
+        },
+        {
+          "text": "Name one thing you could offer in exchange."
+        }
+      ],
+      "fields": [
+        {
+          "id": "opening",
+          "type": "long_text",
+          "label": "How will you open, with your request and one reason?"
+        },
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "What could you offer in exchange?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "opening",
+          "plan_section": "trade"
+        },
+        {
+          "field_id": "offer",
+          "plan_section": "trade"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first sentence of your opening."
+          }
+        ],
+        "field_ids": [
+          "opening"
+        ]
+      },
+      "done_when": "You have an opening written and one thing to offer."
+    },
+    {
+      "id": "p3_practice",
+      "title": "Run one rehearsal",
+      "purpose": "A note of one rehearsal and what you would change.",
+      "why": "Pick a supplier, deadline or workload request. Say your opening aloud to a friend or to yourself, then respond to the pushback you expect. Afterwards, write down what felt awkward and what you would change.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a situation and say your opening aloud."
+        },
+        {
+          "text": "Practise your reply to a likely no."
+        },
+        {
+          "text": "Write what you would change."
+        }
+      ],
+      "fields": [
+        {
+          "id": "situation",
+          "type": "short_text",
+          "label": "Which situation did you practise?"
+        },
+        {
+          "id": "change",
+          "type": "long_text",
+          "label": "What would you change next time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "situation",
+          "plan_section": "practice"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "practice"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you would change."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "done_when": "You have practised once aloud and written one change."
+    },
+    {
+      "id": "p4_agree",
+      "title": "Write the agreement",
+      "purpose": "A short written agreement and a date to review it.",
+      "why": "Think of a real or planned agreement. Write the note you would send: what was agreed, who does what and by when. Add a date to look at it again. If it is only planned, write what you hope to agree.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what was agreed."
+        },
+        {
+          "text": "Add who does what and by when."
+        },
+        {
+          "text": "Add a review date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "note",
+          "type": "long_text",
+          "label": "What would your short note of agreement say?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you review it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "note",
+          "plan_section": "agree"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "agree"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two lines of what was agreed."
+          }
+        ],
+        "field_ids": [
+          "note"
+        ]
+      },
+      "done_when": "You have a short note and a review date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your opening and your trade are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your request, your trade, a rehearsal and an agreement."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "prepare",
+      "title": "Your prepared request"
+    },
+    {
+      "id": "trade",
+      "title": "Opening and trade"
+    },
+    {
+      "id": "practice",
+      "title": "A rehearsal"
+    },
+    {
+      "id": "agree",
+      "title": "Written agreement"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your request, your opening, a rehearsal and a written agreement.",
+    "book_bridge": "Asking Well, Agreeing Fairly is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which request did you make this month, and how did it go?",
+      "What did you trade, and was it fair?",
+      "Which agreement needs a review?"
+    ],
+    "refresher_ids": [
+      "p1_prepare",
+      "p4_agree"
+    ]
+  }
+}

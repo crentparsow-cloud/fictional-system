@@ -1,0 +1,355 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-5X96Z",
+  "slug": "invoices-savings-and-you-5x96z",
+  "title": "Invoices, Savings and You",
+  "card_line": "Send clear invoices, chase late ones with a script and hold a monthly money hour.",
+  "book": {
+    "book_id": "invoices-savings-and-you",
+    "title": "Invoices, Savings and You",
+    "subtitle": "Getting Paid on Time"
+  },
+  "author": {
+    "author_id": "AU-45ERA",
+    "display_name": "Ximena Ruiz-Albarrán"
+  },
+  "publisher_id": "PB-640RS",
+  "genre": "finance",
+  "theme_id": "considered-spending",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about getting paid on time when you work for yourself. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a clear invoice, a chasing script and a monthly money hour. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which client usually takes longest to pay you?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find out what you are owed and how long it usually takes",
+      "exercise_ids": [
+        "p1_owed"
+      ],
+      "intro": "You cannot plan around payments you have not counted. This part asks you to list what clients owe you now and how long each has taken to pay before. The pattern you find shapes the terms you set and the savings you can rely on.",
+      "ideas": [
+        {
+          "heading": "Knowing what you are owed is the first step to being paid.",
+          "body": "It is easy to lose track of invoices sent months ago. Write down each unpaid one, with the client, the amount and the date it was sent. Seeing the full list in one place often turns up a few you had forgotten."
+        },
+        {
+          "heading": "Clients have habits, and your own records will show them.",
+          "body": "One client pays within days and another always takes two months. Look back at past invoices to see how long each took. These patterns are better guides than hope. They tell you which clients to chase early and which to trust."
+        },
+        {
+          "heading": "Late payment is common, and it is not a verdict on your work.",
+          "body": "Most late invoices are caused by slow systems or forgotten emails. A client who pays late has not judged your work. Keeping that in mind makes it easier to ask for what you are owed, politely and without apology. It means the system was slow, and a calm message usually fixes it."
+        }
+      ],
+      "takeaway": "List what you are owed and how long each client usually takes. Late payment is common and rarely personal."
+    },
+    {
+      "number": 2,
+      "focus": "Send clear invoices with payment terms that suit you",
+      "exercise_ids": [
+        "p2_invoice"
+      ],
+      "intro": "A clear invoice is easier to pay. If the client cannot tell what the money is for, how much to send or when, the invoice goes to the bottom of the pile. This part covers what to include and how to set payment terms.",
+      "ideas": [
+        {
+          "heading": "An invoice that answers every question gets paid faster.",
+          "body": "Include your name and contact details, an invoice number, the date, what the work was, the amount, the due date and how to pay. If the client can pass it straight to their finance team, it moves more quickly. Missing details are the most common reason for delay."
+        },
+        {
+          "heading": "Payment terms should be stated, not assumed.",
+          "body": "Say how many days the client has to pay, and put it on every invoice. Agreeing terms before you start work is better still. A stated term gives you something clear to refer to if the payment is late. Common terms are a set number of days from the date of the invoice."
+        },
+        {
+          "heading": "Sending the invoice promptly matters as much as writing it well.",
+          "body": "The clock on payment often starts when the invoice is sent, not when the work ends. Invoicing the same week keeps the job fresh in the client's mind. It also gets the money into your account sooner. A small habit of invoicing on the day you finish makes a real difference."
+        }
+      ],
+      "takeaway": "Include everything the client needs, state your terms and send the invoice promptly."
+    },
+    {
+      "number": 3,
+      "focus": "Chase late invoices with a calm, short script",
+      "exercise_ids": [
+        "p3_script"
+      ],
+      "intro": "Chasing a payment is awkward, and many people leave it too long. A script removes the awkwardness, because you already know what to say. This part gives you a simple order of messages to send and asks you to write your own.",
+      "ideas": [
+        {
+          "heading": "Chase early and politely, before it feels like a problem.",
+          "body": "A friendly reminder a few days after the due date is routine. Most clients pay straight away. Waiting for weeks makes the message harder to write and the client more likely to feel put on the spot. A calm tone costs nothing and keeps the working relationship intact."
+        },
+        {
+          "heading": "A short script saves you from rewriting every message.",
+          "body": "Write three messages once: a friendly reminder, a firmer follow-up and a final notice. Keep each to three or four lines. Include the invoice number, the amount, the due date and how to pay. Then copy and adjust. Having them ready also stops you putting off the job."
+        },
+        {
+          "heading": "Know in advance what you will do if the money does not arrive.",
+          "body": "Decide how long you will wait, and what the next step is. You might pause further work, or ask for payment up front next time. Having an answer ready means the decision is calm, not made in a hurry. It also lets you speak to the client with confidence."
+        }
+      ],
+      "takeaway": "Chase early with a short, polite script, and decide beforehand what you will do if payment still does not come."
+    },
+    {
+      "number": 4,
+      "focus": "Hold a monthly money hour for invoices and savings",
+      "exercise_ids": [
+        "p4_hour"
+      ],
+      "intro": "Money matters are easiest to keep on top of when they have a regular place in your diary. A monthly money hour brings your invoices and savings together in one sitting. This part asks you to choose a time and a short list of things to look at.",
+      "ideas": [
+        {
+          "heading": "One hour a month is enough to keep control.",
+          "body": "Put it in the diary and handle it like a client meeting. In that hour, you look at what was paid, what is outstanding and what you saved. A fixed slot means these jobs do not drift from week to week."
+        },
+        {
+          "heading": "Start the hour with a short list, not a blank page.",
+          "body": "Use the same few steps each month: send overdue reminders, record payments received, move your savings and look ahead at next month. Having a list keeps the hour brief and removes the dread of where to begin. A page of five or six lines is plenty."
+        },
+        {
+          "heading": "Saving belongs in the same hour as invoicing.",
+          "body": "When the money comes in, decide at once how much to put by. If you leave it, it tends to be spent. Doing it in the same sitting means savings follow income, however uneven that income is. A fixed share, decided in advance, keeps the choice simple."
+        }
+      ],
+      "takeaway": "A monthly hour with a short list covers chasing, recording and saving, so none of them slips."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_owed",
+      "title": "List what you are owed",
+      "purpose": "A list of unpaid invoices and how long each client usually takes.",
+      "why": "Write down each invoice that is still unpaid, with the client and the amount. Beside each, note roughly how many days that client usually takes to pay. A rough figure is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your unpaid invoices."
+        },
+        {
+          "text": "Note each client's usual time to pay."
+        }
+      ],
+      "fields": [
+        {
+          "id": "owed",
+          "type": "two_column",
+          "label": "Which invoices are unpaid, and how long does each client usually take?",
+          "columns": [
+            "Client and job",
+            "Usual days to pay"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "owed",
+          "plan_section": "owed"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List one unpaid invoice."
+          }
+        ],
+        "field_ids": [
+          "owed"
+        ]
+      },
+      "done_when": "At least one unpaid invoice is listed with a usual time."
+    },
+    {
+      "id": "p2_invoice",
+      "title": "Make your invoice clear",
+      "purpose": "A list of what your invoice includes and the payment terms you will state.",
+      "why": "Choose the details your invoice will always carry. Then decide the number of days you will allow for payment and write it as a line for the page.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose what your invoice includes."
+        },
+        {
+          "text": "Write your payment terms."
+        }
+      ],
+      "fields": [
+        {
+          "id": "include",
+          "type": "checklist",
+          "label": "What will your invoices include?",
+          "options": [
+            "Your name and contact details",
+            "Invoice number and date",
+            "What the work was",
+            "Amount due",
+            "Due date and payment terms",
+            "How to pay you"
+          ]
+        },
+        {
+          "id": "terms",
+          "type": "short_text",
+          "label": "What payment terms will you state?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "include",
+          "plan_section": "invoice"
+        },
+        {
+          "field_id": "terms",
+          "plan_section": "invoice"
+        }
+      ],
+      "done_when": "Your invoice details and payment terms are chosen."
+    },
+    {
+      "id": "p3_script",
+      "title": "Write your chasing script",
+      "purpose": "A short message for a late invoice and a rule for when to send it.",
+      "why": "Write a friendly reminder you could send a few days after the due date. Keep it to three or four lines. Then decide how many days after the due date you will send it.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a short, polite reminder."
+        },
+        {
+          "text": "Decide when you will send it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What will you write to a client whose invoice is late?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "How many days after the due date will you first get in touch?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "message",
+          "plan_section": "script"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "script"
+        }
+      ],
+      "done_when": "You have a short reminder and a rule for sending it."
+    },
+    {
+      "id": "p4_hour",
+      "title": "Plan your money hour",
+      "purpose": "A time in your diary and a short list of things to look at.",
+      "why": "Choose a time each month for one money hour. Then write the short list you will use to run it. Keep the list to four or five items.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a time."
+        },
+        {
+          "text": "Write your short list."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When will your monthly money hour be?"
+        },
+        {
+          "id": "list",
+          "type": "long_text",
+          "label": "What will you look at during it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "slot",
+          "plan_section": "hour"
+        },
+        {
+          "field_id": "list",
+          "plan_section": "hour"
+        }
+      ],
+      "done_when": "A time is chosen and a list is written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "owed",
+      "title": "What you are owed"
+    },
+    {
+      "id": "invoice",
+      "title": "Your invoice and terms"
+    },
+    {
+      "id": "script",
+      "title": "Your chasing script"
+    },
+    {
+      "id": "hour",
+      "title": "Your monthly money hour"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you are owed, your invoice terms, your chasing script and your money hour.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which invoices were paid this month, and which are still waiting?",
+      "Did you chase on time, and did your script work?",
+      "How much did you put by from this month's income?"
+    ],
+    "refresher_ids": [
+      "p2_invoice",
+      "p4_hour"
+    ]
+  }
+}

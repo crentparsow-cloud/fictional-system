@@ -1,0 +1,356 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-SWX23",
+  "slug": "budgets-for-busy-households-swx23",
+  "title": "Budgets for Busy Households",
+  "card_line": "Set up a monthly money plan and a weekly spending check for your household.",
+  "book": {
+    "book_id": "budgets-for-busy-households",
+    "title": "Budgets for Busy Households",
+    "subtitle": "A Monthly Money Routine"
+  },
+  "author": {
+    "author_id": "AU-JKGDQ",
+    "display_name": "Wanjiru Kamau-Otieno"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "finance",
+  "theme_id": "considered-spending",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about setting up a simple monthly money plan and a weekly spending check for your household. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan, a check and a meeting date. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short household money plan."
+    ],
+    "why_prompt": "Which bill or purchase usually surprises your household each month?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "List your income, fixed bills and what usually runs over",
+      "exercise_ids": [
+        "p1_list"
+      ],
+      "intro": "A plan starts with a clear picture. This part asks you to write down what comes into the household and the bills that stay the same. It also asks about the spending that tends to run over. Rough figures are fine. You are looking for the shape of an ordinary month.",
+      "ideas": [
+        {
+          "heading": "Rough figures are better than waiting for exact ones.",
+          "body": "Many people put off a budget until they can be precise. An approximate list gets you started and shows you the shape of the month. You can correct it as you go. A rough list today beats a perfect one next year."
+        },
+        {
+          "heading": "Fixed bills are the part of the month you can plan with certainty.",
+          "body": "Rent, council tax, insurance and phone contracts arrive in the same amount each time. Write them first. Once they are on the page, you can see how much remains for food, travel and everything else. That clarity is the base for everything else in the plan."
+        },
+        {
+          "heading": "The spending that runs over deserves a line of its own.",
+          "body": "Most households have one or two areas where the money regularly goes further than planned. It might be food, takeaways or children's clothes. Name them without blame. A plan that names them can set room for them. Naming it now saves surprise later."
+        }
+      ],
+      "takeaway": "List what comes in, the fixed bills and the spending that tends to run over. Rough figures are enough to begin."
+    },
+    {
+      "number": 2,
+      "focus": "Make a monthly plan that fits how you really live",
+      "exercise_ids": [
+        "p2_plan"
+      ],
+      "intro": "A monthly plan divides your income between bills, essentials and the rest, before the month begins. The best plan is the one that reflects how your household truly spends. This part asks you to build one and to leave a little room for surprises.",
+      "ideas": [
+        {
+          "heading": "A plan made before the month starts gives every pound a job.",
+          "body": "Without a plan, money drifts to whatever is nearest. With one, you have already decided what the bills, the food and the extras will get. You can still change it, but you are starting from a choice. It also makes it easier to say no to things that do not fit."
+        },
+        {
+          "heading": "Essentials come first and wants come after.",
+          "body": "Housing, food, heating and travel to work are the basics. Cover those, then decide what is left for the rest. The order matters, because it protects what the household cannot do without. If money runs short, it is the extras that give way, not the electricity. Most households find this order a relief once it is written down."
+        },
+        {
+          "heading": "A small cushion for surprises keeps the plan from breaking.",
+          "body": "Something unplanned almost always turns up: a school trip, a repair, a birthday. If the plan has no room for it, one surprise can undo the whole month. Leave a modest cushion, even a small one. A cushion is not money to spend freely. It is a buffer the month can lean on."
+        }
+      ],
+      "takeaway": "Give your income jobs before the month begins. Cover the essentials first and leave a small cushion for surprises."
+    },
+    {
+      "number": 3,
+      "focus": "Check your spending once a week",
+      "exercise_ids": [
+        "p3_check"
+      ],
+      "intro": "A plan only works if you look at it. A short weekly check shows you early when spending is drifting, while there is still time to adjust. This part asks you to pick a time that suits and three questions to ask each week.",
+      "ideas": [
+        {
+          "heading": "A short weekly check catches problems while they are small.",
+          "body": "If you look only at month end, the damage is done. A quick glance each week shows where you stand. Ten minutes is plenty. A small adjustment in week two is much easier than a big one in week four."
+        },
+        {
+          "heading": "Three questions are enough for a weekly check.",
+          "body": "What have we spent so far? What is left in each part of the plan? What is coming up this week? Keep the questions the same each week, so the check becomes quick and familiar. If the answers surprise you, make one small change straight away, such as skipping one takeaway or delaying one purchase."
+        },
+        {
+          "heading": "Pick a day and time that already exists in your week.",
+          "body": "Fit the check to something you already do, such as Sunday after lunch or Friday when pay lands. A fixed slot is more likely to happen than a vague intention. If you miss one, pick up at the next. Setting a reminder on your phone can also work well."
+        }
+      ],
+      "takeaway": "A ten-minute check each week, with three fixed questions, shows you where you stand while there is time to adjust."
+    },
+    {
+      "number": 4,
+      "focus": "Hold a household money meeting and plan next month's changes",
+      "exercise_ids": [
+        "p4_meeting"
+      ],
+      "intro": "Money is easier to manage when everyone in the household understands the plan. A short meeting once a month lets you talk through what happened and agree what to change. This part asks you to plan one and to choose one or two changes.",
+      "ideas": [
+        {
+          "heading": "A household money meeting is short, regular and kind.",
+          "body": "Set a time, put the plan on the table and keep to half an hour. Start with what went well. Then look at where the plan and the month parted company. The aim is to understand, not to find fault."
+        },
+        {
+          "heading": "Everyone who spends should have a voice in the plan.",
+          "body": "Partners, grown-up children and anyone who shares the costs will keep to a plan they helped to make. Ask each person what matters to them. A plan that suits only one person is hard for the household to follow."
+        },
+        {
+          "heading": "One or two changes are enough for next month.",
+          "body": "After the meeting, pick the things you will do differently. Resist changing everything at once. One or two clear changes can be tried, checked at the next meeting and kept or dropped. Small changes are easy to keep and easy to measure. If one works, keep it. If not, swap it for another next month."
+        }
+      ],
+      "takeaway": "Meet briefly each month, hear from everyone and agree one or two changes for the next month."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_list",
+      "title": "List income and bills",
+      "purpose": "A rough picture of what comes in and goes out in an ordinary month.",
+      "why": "Write what comes into the household in an ordinary month, then the bills that stay the same. Rough figures are fine. Finally, note the spending that usually runs over. If you are unsure of a figure, write a guess.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List income and fixed bills."
+        },
+        {
+          "text": "Name the spending that runs over."
+        }
+      ],
+      "fields": [
+        {
+          "id": "picture",
+          "type": "two_column",
+          "label": "What comes in and goes out in an ordinary month?",
+          "columns": [
+            "Item",
+            "Roughly how much"
+          ],
+          "min_items": 1,
+          "max_items": 12
+        },
+        {
+          "id": "runs_over",
+          "type": "short_text",
+          "label": "Which spending usually runs over?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "picture",
+          "plan_section": "picture"
+        },
+        {
+          "field_id": "runs_over",
+          "plan_section": "picture"
+        }
+      ],
+      "done_when": "Income, bills and one area that runs over are listed."
+    },
+    {
+      "id": "p2_plan",
+      "title": "Draw up the monthly plan",
+      "purpose": "A plan that gives your income a job before the month begins.",
+      "why": "Using your list, decide how this month's income will cover bills, essentials and the rest. Keep it to a few lines. Then name the small cushion you will leave for surprises.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write how income covers bills and essentials."
+        },
+        {
+          "text": "Set aside a cushion."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan",
+          "type": "long_text",
+          "label": "How will this month's income cover bills, essentials and the rest?"
+        },
+        {
+          "id": "cushion",
+          "type": "short_text",
+          "label": "What will you leave as a cushion for surprises?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "plan",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "cushion",
+          "plan_section": "plan"
+        }
+      ],
+      "done_when": "Your plan has a line for bills, essentials and a cushion."
+    },
+    {
+      "id": "p3_check",
+      "title": "Set your weekly check",
+      "purpose": "A fixed time and three questions for your weekly check.",
+      "why": "Choose a time that already exists in your week. Then write the three questions you will ask yourself at that time. Keep them short and keep them the same each week.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a day and time."
+        },
+        {
+          "text": "Write three questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "Which day and time suits a weekly spending check?"
+        },
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What three questions will you ask at each check?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "slot",
+          "plan_section": "check"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "check"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose a day and time for the check."
+          }
+        ],
+        "field_ids": [
+          "slot"
+        ]
+      },
+      "done_when": "A time and three questions are written down."
+    },
+    {
+      "id": "p4_meeting",
+      "title": "Plan a money meeting",
+      "purpose": "A meeting date and one or two changes for next month.",
+      "why": "Think about who shares the household costs. Choose a date for a short meeting with them. Then write one or two changes you would like to try next month.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name who should come and when."
+        },
+        {
+          "text": "Write one or two changes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Who should be at your household money meeting, and when?"
+        },
+        {
+          "id": "changes",
+          "type": "long_text",
+          "label": "What one or two changes will you try next month?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "who",
+          "plan_section": "meeting"
+        },
+        {
+          "field_id": "changes",
+          "plan_section": "meeting"
+        }
+      ],
+      "done_when": "A meeting is planned and a change is chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "picture",
+      "title": "Your monthly picture"
+    },
+    {
+      "id": "plan",
+      "title": "Your monthly plan"
+    },
+    {
+      "id": "check",
+      "title": "Your weekly check"
+    },
+    {
+      "id": "meeting",
+      "title": "Your money meeting"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a household money plan in your own words. It holds your monthly picture, your plan, your weekly check and your meeting.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which part of the plan held up this month, and which did not?",
+      "What did your weekly check show you?",
+      "Which change are you trying next month?"
+    ],
+    "refresher_ids": [
+      "p2_plan",
+      "p4_meeting"
+    ]
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-9XZNH",
+  "slug": "letting-go-of-the-clipboard-9xznh",
+  "title": "Letting Go of the Clipboard",
+  "card_line": "List what only you can do, then hand the rest on with clear checkpoints.",
+  "book": {
+    "book_id": "letting-go-of-the-clipboard",
+    "title": "Letting Go of the Clipboard",
+    "subtitle": "Delegation for Hands-On Leaders"
+  },
+  "author": {
+    "author_id": "AU-8WS7W",
+    "display_name": "Efua Dadzie-Lamptey"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about handing work on when you are used to doing it yourself. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of what only you can do, a task briefed, checkpoints agreed and a next handover chosen. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which task do you hold on to that someone else could probably do? A line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "List what only you can do and what others could",
+      "exercise_ids": [
+        "p1_list"
+      ],
+      "intro": "Hands-on leaders often do far more than they need to. The habit builds up over years and each task seems small. This part asks you to write down a typical week. You then sort it into two lists: what only you can do and what someone else could.",
+      "ideas": [
+        {
+          "heading": "Most of your week is probably work that others could learn.",
+          "body": "Write down everything you did last week. Mark each item that needed your judgement, your authority or your relationships. Many tasks will not qualify. They are there because you are good at them, or because you always did them. That is no reason they must stay with you."
+        },
+        {
+          "heading": "Holding on to a task is a cost to your team as well as to you.",
+          "body": "Each task you keep is one your team never learns. It also uses time you need for work that only you can do. People grow by being trusted with more. Keeping everything tight can look like care but often limits others."
+        },
+        {
+          "heading": "Start with tasks that are low in risk and easy to explain.",
+          "body": "Do not begin with the most important job. Choose something routine where a mistake is easy to fix, such as a weekly count or a standing order. That gives you and the other person a safe place to learn how handing over works."
+        }
+      ],
+      "takeaway": "Sort your week into what only you can do and what others could, and begin with a low-risk task."
+    },
+    {
+      "number": 2,
+      "focus": "Brief a task clearly and choose the right person",
+      "exercise_ids": [
+        "p2_brief"
+      ],
+      "intro": "A handover goes wrong when the person receiving it does not know what is wanted. A clear brief takes ten minutes and saves hours. This part asks you to pick one task and choose someone to take it. You then write a short brief that covers what, why, by when and what good looks like.",
+      "ideas": [
+        {
+          "heading": "Choose the person by what they could grow into, not only by what they do now.",
+          "body": "The most experienced person is not always the best choice. Someone keen to learn may do well with a little support. Think about who would gain from the task and who has the time. Ask them rather than telling them."
+        },
+        {
+          "heading": "A good brief covers what, why, by when and what good looks like.",
+          "body": "Tell the person the task, the reason it matters, the deadline and an example of a good result. Four short sentences are enough. Leave out how to do it step by step unless they ask. People work better when they know the aim."
+        },
+        {
+          "heading": "Hand over the decision, not only the job.",
+          "body": "Say which choices are theirs to make and which they should bring to you. \"You can reorder up to this amount without asking me.\" Clear limits let the person act with confidence. Without them, they will keep coming back to you."
+        }
+      ],
+      "takeaway": "Pick a person who can grow, brief the what, why, when and good result, and say which decisions are theirs."
+    },
+    {
+      "number": 3,
+      "focus": "Agree checkpoints and step back",
+      "exercise_ids": [
+        "p3_checks"
+      ],
+      "intro": "Handing over does not mean disappearing. It means agreeing when and how you will check, then keeping to the plan. This part is about setting checkpoints that give you enough sight of the work without taking it back. It also covers stepping back when that is hard.",
+      "ideas": [
+        {
+          "heading": "Agree checkpoints at the start so checking is not a surprise.",
+          "body": "Choose two or three points, such as halfway and the day before the deadline. Put them in the diary. When you check at an agreed time, it feels like part of the plan. Checking at random feels like distrust. Keep to the dates you set, even if you are tempted to look sooner."
+        },
+        {
+          "heading": "Ask questions instead of taking the task back.",
+          "body": "If you see a problem, ask, \"What are you thinking of doing about the delay?\" Let the person find the answer. You are teaching them to solve problems. Taking over teaches them to bring problems to you, and the clipboard comes straight back."
+        },
+        {
+          "heading": "Accept that the work will be done differently, and often fine.",
+          "body": "The result may not match how you would have done it. Ask whether it meets the standard you set, not whether it matches your way. If it does, leave it alone. Hold your comments for the things that matter. A different method is not an error, and people notice when you can tell the two apart."
+        }
+      ],
+      "takeaway": "Agree checkpoints early, ask questions instead of taking over, and accept a different way of doing it."
+    },
+    {
+      "number": 4,
+      "focus": "Review what changed and choose what to hand over next",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "After the first handover, look at what happened. Did the work get done? Did you have more time? What would you change? This part asks you to review honestly and choose your next handover. Doing this a few times changes how you work.",
+      "ideas": [
+        {
+          "heading": "Look at the result and at the process separately.",
+          "body": "Was the work done to the standard? Was the handover smooth? A good result can come from a messy process, and a clean process can still produce a weak result. Knowing which was which tells you what to adjust. Write one line on each so you remember when the next handover comes."
+        },
+        {
+          "heading": "Notice what you did with the time you got back.",
+          "body": "If you filled it with more small tasks, nothing has changed. Decide in advance what the time is for. Perhaps a customer visit or a plan you have put off. The point of handing over is to do work only you can do."
+        },
+        {
+          "heading": "Hand over a little more each season.",
+          "body": "One task handed over well makes the next easier, both for you and for them. Pick the next one now while the first is fresh. Over a year, you can shift a large part of your week without any big upheaval."
+        }
+      ],
+      "takeaway": "Review the handover, use the time you gain on work only you can do, and choose the next task to hand on."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_list",
+      "title": "Sort what only you can do",
+      "purpose": "Two lists: what only you can do and what others could do.",
+      "why": "Write down what you did in a typical week. Sort each item into what only you can do and what someone else could. Then mark one low-risk task to hand over first. If you are unsure, put it in the second list.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List a typical week's tasks."
+        },
+        {
+          "text": "Sort them into two lists."
+        },
+        {
+          "text": "Mark one low-risk task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sorted",
+          "type": "two_column",
+          "label": "What do you do in a typical week?",
+          "columns": [
+            "Only I can do",
+            "Others could do"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "first",
+          "type": "short_text",
+          "label": "Which low-risk task will you hand over first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sorted",
+          "plan_section": "list"
+        },
+        {
+          "field_id": "first",
+          "plan_section": "list"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one task someone else could do."
+          }
+        ],
+        "field_ids": [
+          "first"
+        ]
+      },
+      "done_when": "You have both lists started and one task chosen."
+    },
+    {
+      "id": "p2_brief",
+      "title": "Write a brief",
+      "purpose": "A short brief for one task and the decisions that are the other person's.",
+      "why": "Choose a person for your task. Write the brief in four short lines: what, why, by when and what good looks like. Then list the decisions that are theirs to make. If you are unsure of a limit, write your best guess.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name the person."
+        },
+        {
+          "text": "Write what, why, when and good result."
+        },
+        {
+          "text": "List their decisions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "brief",
+          "type": "long_text",
+          "label": "What is your brief: what, why, by when and what good looks like?"
+        },
+        {
+          "id": "decisions",
+          "type": "short_text",
+          "label": "Which decisions are theirs to make?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "brief",
+          "plan_section": "brief"
+        },
+        {
+          "field_id": "decisions",
+          "plan_section": "brief"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the task and the deadline."
+          }
+        ],
+        "field_ids": [
+          "brief"
+        ]
+      },
+      "done_when": "You have a four-line brief and a list of their decisions."
+    },
+    {
+      "id": "p3_checks",
+      "title": "Set your checkpoints",
+      "purpose": "Two or three agreed checkpoints and a question to ask instead of taking over.",
+      "why": "Choose two or three points at which you will check on the task, and put them in the diary. Then write the question you will ask if you see a problem. A question keeps the task with them.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Choose checkpoint dates."
+        },
+        {
+          "text": "Write your go-to question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "dates",
+          "type": "short_text",
+          "label": "When will you check in on the task?"
+        },
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What question will you ask if you see a problem?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "dates",
+          "plan_section": "checks"
+        },
+        {
+          "field_id": "question",
+          "plan_section": "checks"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one checkpoint date."
+          }
+        ],
+        "field_ids": [
+          "dates"
+        ]
+      },
+      "done_when": "You have checkpoint dates and a question written."
+    },
+    {
+      "id": "p4_next",
+      "title": "Review and choose next",
+      "purpose": "A review of the first handover and the next task to hand on.",
+      "why": "Look back at the task you handed over, or the one you plan to. Write what went well and what you would change. Then say what you will do with the time you gain. Finally, choose the next task.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Note what went well and what to change."
+        },
+        {
+          "text": "Say what the time is for."
+        },
+        {
+          "text": "Choose the next task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "review",
+          "type": "long_text",
+          "label": "What went well, and what would you change?"
+        },
+        {
+          "id": "next",
+          "type": "short_text",
+          "label": "Which task will you hand over next, and what is the time for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "review",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "next",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the next task to hand over."
+          }
+        ],
+        "field_ids": [
+          "next"
+        ]
+      },
+      "done_when": "You have a short review and the next task chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your brief is saved and ready to share."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your lists, a brief, checkpoints and your next handover."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "list",
+      "title": "What only you can do"
+    },
+    {
+      "id": "brief",
+      "title": "Your brief"
+    },
+    {
+      "id": "checks",
+      "title": "Checkpoints"
+    },
+    {
+      "id": "next",
+      "title": "Review and next handover"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your two lists, your brief, your checkpoints and your next handover.",
+    "book_bridge": "Letting Go of the Clipboard is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which task did you hand over this month?",
+      "What did you do with the time you gained?",
+      "Which task is next?"
+    ],
+    "refresher_ids": [
+      "p1_list",
+      "p4_next"
+    ]
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-QXH92",
+  "slug": "an-afternoon-to-yourself-qxh92",
+  "title": "An Afternoon to Yourself",
+  "card_line": "Book one afternoon to yourself and make breaks a regular part of caring.",
+  "book": {
+    "book_id": "an-afternoon-to-yourself",
+    "title": "An Afternoon to Yourself",
+    "subtitle": "Planning Breaks When You Look After Someone"
+  },
+  "author": {
+    "author_id": "AU-12VRG",
+    "display_name": "Rukhsana Begum-Thornley"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "life_skills",
+  "theme_id": "caring-hands",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning a break when you look after someone. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have one afternoon booked, a plan for it and a way to ask for the next. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would you most like to do with an afternoon of your own? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday caring situations. If using it would put you or the person you look after at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice when you last had time off and what got in the way",
+      "exercise_ids": [
+        "p1_gap"
+      ],
+      "intro": "Carers often cannot say when they last had a whole afternoon to themselves. Days fill with tasks, and the gaps get used for more tasks. This part asks you to look back, without blame, at your last break and at what usually stood in the way.",
+      "ideas": [
+        {
+          "heading": "A break belongs in the care plan, not at the end of it.",
+          "body": "Caring has no natural end point, so there is never a moment when everything is done. Waiting for that moment means the break never comes. Put it in the plan beside appointments and medication times, as one of the jobs. The person you look after is also cared for by someone who has rested."
+        },
+        {
+          "heading": "The reasons a break does not happen are usually practical ones.",
+          "body": "Look closely and the obstacle is often a gap in the arrangements, not a lack of will. Nobody is booked to cover. The person you look after has not been asked. A bus does not run at the right time. Practical problems can be solved one at a time."
+        },
+        {
+          "heading": "Feeling guilty about going out is common and is no reason to stay.",
+          "body": "Many carers feel they are letting someone down by taking time away. The feeling is ordinary, and it can sit alongside a good plan. You can feel it and still go. Often the person you look after is pleased to hear you have had an afternoon out."
+        }
+      ],
+      "takeaway": "A break belongs in the care plan like any other job. What stopped the last one is usually a practical gap you can fill."
+    },
+    {
+      "number": 2,
+      "focus": "Find out who could cover and what local services offer",
+      "exercise_ids": [
+        "p2_cover"
+      ],
+      "intro": "Nobody can cover every hour alone. Family, friends and neighbours may be willing if they are asked in the right way. Local services may also offer time away, and many carers never find out what exists. This part builds a short list of people and places to ask.",
+      "ideas": [
+        {
+          "heading": "People often say yes when you ask for one specific thing.",
+          "body": "A general request such as \"Let me know if you can help\" is easy to put off. A specific one is easier to answer. \"Could you sit with Dad on Thursday from one to four?\" Name the day, the hours and what the job involves. Then the person can say yes, or offer a different day."
+        },
+        {
+          "heading": "Local respite and day services are worth asking about even if you are unsure.",
+          "body": "Many areas offer day centres, sitting services or short stays that give carers time away. What exists, and who pays, differs from place to place. Ask the team that looks after the person you care for, or your local authority, what is on offer near you. Asking costs nothing and gives you the facts."
+        },
+        {
+          "heading": "A cover plan works best when it is written down for the stand-in.",
+          "body": "Whoever takes over needs the basics on one page. Include medication times, meals, phone numbers and what to do if something changes. A written page lets the stand-in act with confidence. It also lets you leave without needing to check in every hour."
+        }
+      ],
+      "takeaway": "Ask a named person for a named afternoon. Ask local services what they offer, and put the cover plan on one page."
+    },
+    {
+      "number": 3,
+      "focus": "Book one afternoon and plan how to spend it",
+      "exercise_ids": [
+        "p3_book"
+      ],
+      "intro": "A break that is only an idea tends to slip. This part moves from a list to a date. You choose one afternoon, pick the first person to ask, and decide what the time is for. A plan for the afternoon itself gives you something to go to.",
+      "ideas": [
+        {
+          "heading": "Pick a date and ask for it before the diary fills up.",
+          "body": "Choose an afternoon in the next two or three weeks. Check it against appointments and visits, then ask your first person for those hours. A real date is easy to say yes or no to. Once it is agreed, write it in the diary in pen."
+        },
+        {
+          "heading": "The afternoon can be as small as you like and still count.",
+          "body": "A walk, a film, a seat in a café or a nap with the phone off all count. You are not expected to fill the time with something big. Choose what you would enjoy, not what looks productive. If you are tired, rest is a fine plan."
+        },
+        {
+          "heading": "Telling the person you look after what is planned gives them time to get used to it.",
+          "body": "Say what day it is, who is coming and when you will be back. Keep it short and matter of fact. Some people worry at first, and a second time often feels more familiar. A note on the fridge with the times answers questions while you are out."
+        }
+      ],
+      "takeaway": "A date in the diary is firmer than a good intention. Keep the afternoon small, and tell the person you look after what is planned."
+    },
+    {
+      "number": 4,
+      "focus": "Make breaks a regular part of the month and ask for the next",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "One afternoon is a start. Breaks last when they become part of the month and asking for the next one is no big event. This part looks at how the first one went. Then you write the request for the next.",
+      "ideas": [
+        {
+          "heading": "Notice what the first afternoon taught you about the plan.",
+          "body": "After the break, jot down what worked and what did not. Perhaps the cover arrived late, or the hours were too short. Perhaps you spent the first hour worrying. Small notes like these shape a better second afternoon, and the first need not be perfect."
+        },
+        {
+          "heading": "A break on a set day is easier to arrange than one at random.",
+          "body": "If the same person can cover the same afternoon each fortnight or month, nobody has to start from nothing. The cover person knows the routine and you know the date. Pick a rhythm that fits the care you give, even if it is only once every few weeks."
+        },
+        {
+          "heading": "Asking again is part of the arrangement, not a favour you owe.",
+          "body": "Thank the person who covered, and say you would like to do it again. Name the next date. Most people who help once are willing to help again when the job was clear. If someone cannot, ask who else might."
+        }
+      ],
+      "takeaway": "Look at how the first afternoon went and set a rhythm that suits you. Ask for the next one by naming the date."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_gap",
+      "title": "Look back at your last break",
+      "purpose": "A short note of your last real break and what usually gets in the way.",
+      "why": "Think about the last time you had a few hours that were fully your own. Write roughly when it was and what you did. Then list what usually gets in the way. Three or four things is plenty. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note when you last had a few hours to yourself."
+        },
+        {
+          "text": "List what usually gets in the way."
+        }
+      ],
+      "fields": [
+        {
+          "id": "last_break",
+          "type": "short_text",
+          "label": "When did you last have a few hours entirely to yourself?"
+        },
+        {
+          "id": "obstacles",
+          "type": "long_text",
+          "label": "What usually gets in the way of a break?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "last_break",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "obstacles",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that gets in the way."
+          }
+        ],
+        "field_ids": [
+          "obstacles"
+        ]
+      },
+      "done_when": "You have a date or a rough guess and at least one obstacle."
+    },
+    {
+      "id": "p2_cover",
+      "title": "Make a list of possible cover",
+      "purpose": "A short list of people and services you could ask about an afternoon.",
+      "why": "Write down up to four people who might cover an afternoon, and one thing each could do. Then add one local service you could ask about. You are only listing options, not asking yet. If you cannot think of anyone, list the service alone.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List people who might cover, with the job each could do."
+        },
+        {
+          "text": "Add one local service to ask about."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "two_column",
+          "label": "Who could cover an afternoon, and what could they do?",
+          "columns": [
+            "Name",
+            "What they could do"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        },
+        {
+          "id": "service",
+          "type": "short_text",
+          "label": "Which local service will you ask about?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "people",
+          "plan_section": "cover"
+        },
+        {
+          "field_id": "service",
+          "plan_section": "cover"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one job."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "done_when": "You have at least one name or one service on the list."
+    },
+    {
+      "id": "p3_book",
+      "title": "Book your afternoon",
+      "purpose": "A date, a person to cover it and a plan for the time.",
+      "why": "Choose one afternoon in the coming weeks. Write the date, who you will ask and what you will do with the hours. Then ask that person. If it feels too soon to ask, write the date and come back to it.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a date and a person to ask."
+        },
+        {
+          "text": "Write what you will do with the time."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "Which afternoon will you book, and who will you ask?"
+        },
+        {
+          "id": "plan",
+          "type": "short_text",
+          "label": "What will you do with the hours?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "booked"
+        },
+        {
+          "field_id": "plan",
+          "plan_section": "booked"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the date and one person to ask."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a date, a name and a plan for the hours."
+    },
+    {
+      "id": "p4_next",
+      "title": "Ask for the next afternoon",
+      "purpose": "A note on the first break and a message asking for the next.",
+      "why": "Write what worked and what you would change about your afternoon. Then write the message you will send to ask for the next one, naming a date. If the first has not happened yet, write about the one you have planned.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note what worked and what to change."
+        },
+        {
+          "text": "Write your request for the next afternoon."
+        }
+      ],
+      "fields": [
+        {
+          "id": "learned",
+          "type": "long_text",
+          "label": "What worked about the afternoon, and what would you change?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Your message asking for the next afternoon"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "learned",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about how the afternoon went."
+          }
+        ],
+        "field_ids": [
+          "learned"
+        ]
+      },
+      "done_when": "You have a note on the first break and a request ready to send."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your list of possible cover is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your afternoon and your request for the next."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "Where you are now"
+    },
+    {
+      "id": "cover",
+      "title": "Who could cover"
+    },
+    {
+      "id": "booked",
+      "title": "Your afternoon"
+    },
+    {
+      "id": "next",
+      "title": "Asking for the next"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds where you are now, who could cover, your booked afternoon and your request for the next.",
+    "book_bridge": "An Afternoon to Yourself is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "When was your last afternoon to yourself?",
+      "Who could you ask for the next one?"
+    ],
+    "refresher_ids": [
+      "p3_book",
+      "p4_next"
+    ]
+  }
+}

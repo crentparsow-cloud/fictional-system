@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-6ECZ7",
+  "slug": "gently-and-straight-6ecz7",
+  "title": "Gently and Straight",
+  "card_line": "Say a hard thing kindly, listen back, and repair afterwards.",
+  "book": {
+    "book_id": "gently-and-straight",
+    "title": "Gently and Straight",
+    "subtitle": "Saying Difficult Things to People You Love"
+  },
+  "author": {
+    "author_id": "AU-PVT1E",
+    "display_name": "Clodagh Ní Fhaoláin-Burke"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "relationships",
+  "theme_id": "companionable-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about saying a difficult thing to someone you love without a row. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have an opening line, a way to listen back, and a plan for repairing and for stepping away. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing you have been meaning to say to someone close? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Get clear on what you want to say and what you hope to keep",
+      "exercise_ids": [
+        "p1_say"
+      ],
+      "intro": "Hard conversations go wrong most often when you are unsure what you want from them. This part asks two questions. What exactly do you want to say? And what do you hope to keep afterwards? The answers shape everything that follows, so it is worth a few quiet minutes.",
+      "ideas": [
+        {
+          "heading": "Say one thing, not the whole history.",
+          "body": "A difficult talk stays manageable when it has one subject. Pick the single point that matters most, such as the late nights or the missed visit. Older grievances can wait for another day. Bringing them in makes the other person defend a pile instead of answering a point."
+        },
+        {
+          "heading": "Decide what you hope to keep before you decide what to say.",
+          "body": "Think about what matters to you in this relationship: trust, closeness, a peaceful house. Name it to yourself first. When tempers rise, that is what you return to. A line like «I am telling you because I care about us» keeps the aim in view."
+        },
+        {
+          "heading": "Say what you have noticed, not what you think of the person.",
+          "body": "«You never listen» is a verdict, and people answer verdicts with defence. «Twice this week I was cut off while talking» is something seen. It can be agreed with or corrected. Stick to what you saw, what it was like for you, and what you would like instead."
+        }
+      ],
+      "takeaway": "One subject, one thing you hope to keep, and what you noticed rather than a verdict."
+    },
+    {
+      "number": 2,
+      "focus": "Find an opening line that is kind and clear",
+      "exercise_ids": [
+        "p2_open"
+      ],
+      "intro": "How a difficult talk begins sets its tone. A good opening is short, kind and honest about what is coming. This part looks at when to speak, how to start, and how to ask for the other person's time. You then write your own opening, ready to say aloud.",
+      "ideas": [
+        {
+          "heading": "Choose a time when neither of you is tired, hungry or rushed.",
+          "body": "A hard thing said at the door or late at night lands badly. Pick a moment with time to spare and no audience. A walk or a drive can work, because you sit side by side. Ask first: «Is now a good time to talk about something?»"
+        },
+        {
+          "heading": "Start with the care, then say the point.",
+          "body": "Begin with why you are speaking, then name the one point. Try «This matters to me, so I want to say it carefully». Then add «Lately the evenings have felt tense». Opening with care tells the other person you are on their side while you raise the problem."
+        },
+        {
+          "heading": "Keep your first speech short and then stop talking.",
+          "body": "Two or three sentences are enough to open. After that, pause. The other person needs room to react, and a long speech leaves none. Silence can feel long, but it is how they get to answer. Wait, and let them speak first."
+        }
+      ],
+      "takeaway": "Pick a calm time, begin with the care, say the point in two or three sentences, then pause."
+    },
+    {
+      "number": 3,
+      "focus": "Listen back and stay in the conversation",
+      "exercise_ids": [
+        "p3_listen"
+      ],
+      "intro": "After you speak, the harder part begins. The other person may be hurt, surprised or defensive. This part is about listening back so they feel heard, and about staying calm when the talk gets uncomfortable. You also write a sentence for asking for a pause.",
+      "ideas": [
+        {
+          "heading": "Repeating back what you heard shows you are listening.",
+          "body": "After they speak, say it back in your own words: «So you felt left out of the plans.» Then ask whether you have it right. It slows the conversation and shows respect. It does not mean you agree. It means you have understood before you reply."
+        },
+        {
+          "heading": "Defensiveness is common and does not mean the talk has gone wrong.",
+          "body": "People often react first and think later. A sharp answer, a shrug or a silence is not the final word. Give it a moment. You can say «I can see this is hard to hear» and wait. Many talks turn a corner once the first reaction has passed."
+        },
+        {
+          "heading": "You can ask for a pause and still be staying with it.",
+          "body": "If voices rise, say so calmly. Try «Can we take ten minutes and come back?» A pause is not a retreat when you say you will return. Go to another room, drink some water, and come back at the time you said. Keeping that promise matters more than finishing in one go."
+        }
+      ],
+      "takeaway": "Say back what you heard before you reply. A pause with a time to return is part of staying with it."
+    },
+    {
+      "number": 4,
+      "focus": "Repair afterwards and know when to step away",
+      "exercise_ids": [
+        "p4_repair"
+      ],
+      "intro": "A hard talk is not over when it ends. How you follow up counts for as much as what you said. This part covers repair, a short follow up message, and how to tell when it is right to step away for now.",
+      "ideas": [
+        {
+          "heading": "A short message afterwards shows the relationship matters more than the point.",
+          "body": "Within a day or two, send a short line. Try «Thank you for listening.» Add «I know that was not easy.» Do not reopen the argument by message. The aim is to show warmth. A calm follow up lets the other person think about what was said without feeling pressed."
+        },
+        {
+          "heading": "Own your part, even a small one, and the repair begins.",
+          "body": "In most disagreements both people did something. If you raised your voice or chose a poor moment, say so plainly. Try «I wish I had picked a better time.» That is not giving in. It is honest, and it makes it easier for the other person to own their part too."
+        },
+        {
+          "heading": "Stepping away for now can be the kind choice.",
+          "body": "Some talks do not land the first time. If the same argument repeats and nobody is listening, say so gently and stop. Try «Let us leave it here and talk again next week.» Stopping is not defeat. It protects the relationship until you can both listen."
+        }
+      ],
+      "takeaway": "Follow up warmly, own your part, and step away when the talk stops moving."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_say",
+      "title": "Name your point and your hope",
+      "purpose": "One point to raise and what you hope to keep.",
+      "why": "Think of a hard thing you want to say to someone you love. Write it as one point, about what you noticed. Then write what you hope to keep. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your point as something you noticed."
+        },
+        {
+          "text": "Write what you hope to keep."
+        }
+      ],
+      "fields": [
+        {
+          "id": "point",
+          "type": "short_text",
+          "label": "What is the one point you want to raise?"
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "What do you hope to keep?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "point",
+          "plan_section": "point"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "point"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the point in one sentence."
+          }
+        ],
+        "field_ids": [
+          "point"
+        ]
+      },
+      "done_when": "You have one point and one thing to keep."
+    },
+    {
+      "id": "p2_open",
+      "title": "Write your opening lines",
+      "purpose": "Two or three opening sentences you could say aloud.",
+      "why": "Write how you would ask for the other person's time, then your opening sentences, starting with the care and ending with your one point. Read them aloud and change any word that does not sound like you.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write how you will ask for their time."
+        },
+        {
+          "text": "Write your opening sentences and read them aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "How will you ask for a good time to talk?"
+        },
+        {
+          "id": "opening",
+          "type": "long_text",
+          "label": "What are your opening sentences?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ask",
+          "plan_section": "opening"
+        },
+        {
+          "field_id": "opening",
+          "plan_section": "opening"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one opening sentence that starts with care."
+          }
+        ],
+        "field_ids": [
+          "opening"
+        ]
+      },
+      "done_when": "You have opening sentences you could say aloud."
+    },
+    {
+      "id": "p3_listen",
+      "title": "Practise listening back",
+      "purpose": "A sentence for listening back and one for asking for a pause.",
+      "why": "Write what you would say to show you heard the other person, and what you would say if the talk got heated. Keep each to one sentence. If it is hard to imagine, think of a smaller talk you have had.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a sentence that says back what you heard."
+        },
+        {
+          "text": "Write a sentence that asks for a pause."
+        }
+      ],
+      "fields": [
+        {
+          "id": "hear",
+          "type": "short_text",
+          "label": "How will you say back what you heard?"
+        },
+        {
+          "id": "pause",
+          "type": "short_text",
+          "label": "What will you say if you need a pause?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "hear",
+          "plan_section": "listening"
+        },
+        {
+          "field_id": "pause",
+          "plan_section": "listening"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence for asking for a pause."
+          }
+        ],
+        "field_ids": [
+          "pause"
+        ]
+      },
+      "done_when": "You have a listening sentence and a pause sentence."
+    },
+    {
+      "id": "p4_repair",
+      "title": "Plan your repair and pause",
+      "purpose": "A follow up message and a sentence for stepping away.",
+      "why": "Write the short message you would send a day after a hard talk. Then write one sentence for leaving the subject until another day. If you are not planning a talk, write them for one you had in the past.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a short follow up message."
+        },
+        {
+          "text": "Write a sentence for stepping away for now."
+        }
+      ],
+      "fields": [
+        {
+          "id": "follow",
+          "type": "long_text",
+          "label": "What message would you send the next day?"
+        },
+        {
+          "id": "away",
+          "type": "short_text",
+          "label": "What will you say to leave the subject for another day?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "follow",
+          "plan_section": "repair"
+        },
+        {
+          "field_id": "away",
+          "plan_section": "repair"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one warm line for after the talk."
+          }
+        ],
+        "field_ids": [
+          "follow"
+        ]
+      },
+      "done_when": "You have a follow up message and a sentence for stepping away."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your opening lines are saved and ready to say aloud."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your point, your opening, your listening lines and your repair."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "point",
+      "title": "Your point and what you hope to keep"
+    },
+    {
+      "id": "opening",
+      "title": "Your opening lines"
+    },
+    {
+      "id": "listening",
+      "title": "Listening back and pausing"
+    },
+    {
+      "id": "repair",
+      "title": "Repair and stepping away"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote one point to raise and the opening lines to say it. You also wrote how to listen back, how to repair and how to step away.",
+    "book_bridge": "Gently and Straight is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Is there something you have been meaning to say to someone close?",
+      "Which of your lines would you use again?"
+    ],
+    "refresher_ids": [
+      "p2_open",
+      "p3_listen"
+    ]
+  }
+}

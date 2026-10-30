@@ -1,0 +1,379 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-YFD8Z",
+  "slug": "hello-from-number-twelve-yfd8z",
+  "title": "Hello From Number Twelve",
+  "card_line": "Find where people gather near you and join one regular thing.",
+  "book": {
+    "book_id": "hello-from-number-twelve",
+    "title": "Hello From Number Twelve",
+    "subtitle": "Making Friends in a New Town"
+  },
+  "author": {
+    "author_id": "AU-1DYWF",
+    "display_name": "Rafael Moreira Lins"
+  },
+  "publisher_id": "PB-640RS",
+  "genre": "relationships",
+  "theme_id": "companionable-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about making friends in a new town. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a map of where people gather and one regular thing to join. You will also have a follow up plan and a small gathering to host. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would make this town feel a little more like home? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Map the places where people gather near you",
+      "exercise_ids": [
+        "p1_map"
+      ],
+      "intro": "In a new town you do not yet know where people meet. They are there, in libraries, clubs, markets and parks. This part asks you to look around your area and write a short map of the places where people gather.",
+      "ideas": [
+        {
+          "heading": "Friends are usually made in places you visit again and again.",
+          "body": "People rarely become friends after one meeting. They get to know each other by seeing the same faces week after week. That is why a regular class or club beats a single event. Look for places where the same people return. Familiar faces become friends in time."
+        },
+        {
+          "heading": "Your street and your doorstep are part of the map.",
+          "body": "Neighbours are the nearest people you have. A wave, a hello over the fence or a question about the bin day starts a connection. You do not need to knock on every door. One friendly exchange a week is plenty. Many first friendships in a new town are only a few doors away."
+        },
+        {
+          "heading": "Libraries, noticeboards and local pages show what is on.",
+          "body": "Most towns have more going on than a newcomer sees. Check the library, the community centre, the church hall, a cafe window and any local online group. Write down anything that repeats: a choir, a running group, a craft morning. A list of five is plenty to choose from."
+        }
+      ],
+      "takeaway": "Friends grow where the same faces meet often. Look at your street, your library and local noticeboards."
+    },
+    {
+      "number": 2,
+      "focus": "Choose one regular thing and go along",
+      "exercise_ids": [
+        "p2_regular"
+      ],
+      "intro": "Joining one regular thing is better than sampling ten. This part is about choosing a group, class or club that suits you. You then plan your first visit and the words you will use when you walk in. Joining one thing well is enough for now.",
+      "ideas": [
+        {
+          "heading": "Pick something you would enjoy even if you made no friends.",
+          "body": "If you like the activity, a quiet evening is still a good one. Choose something to do with your hands or body, such as a choir, a walking group or a pottery class. Talking comes more easily when there is a shared task to hold the attention."
+        },
+        {
+          "heading": "The first visit is only to see, and you can decide afterwards.",
+          "body": "Go once with no promise attached. Notice whether people are friendly and whether you liked the activity. Arrive a few minutes early, when it is easier to say hello. You may leave and never return. You may also decide to come back next week. Both are fine."
+        },
+        {
+          "heading": "A short, easy line is enough to start talking.",
+          "body": "Try «Hello, I am new to the town». Or ask about the activity with «How long have you been coming?» People usually enjoy being asked. You do not need to be interesting. You need only be friendly and curious. Curiosity does most of the work."
+        }
+      ],
+      "takeaway": "Choose one regular thing you would enjoy anyway. Take the first visit as a look, and open with a friendly question."
+    },
+    {
+      "number": 3,
+      "focus": "Follow up so a friendly chat becomes a friendship",
+      "exercise_ids": [
+        "p3_follow"
+      ],
+      "intro": "A good chat on Tuesday fades by Friday unless someone does something. This part is about the small follow up that turns a friendly face into a friend: a name, a message and an easy next step. You write one invitation.",
+      "ideas": [
+        {
+          "heading": "Learn a name and use it next time.",
+          "body": "Names are easy to lose in the first conversation. Say it back when you hear it, as in «Nice to meet you, Maria». Write it in your phone afterwards, with one detail such as the dog or the choir part. Using a name at the next visit shows you remembered."
+        },
+        {
+          "heading": "Swap contact details after you have talked a few times.",
+          "body": "Once you have chatted on two or three visits, ask a light question. Try «Shall we set up a group message for the class?». Or try «Can I take your number so we can share the times?». Give a practical reason. It makes the request easy to accept and easy to decline."
+        },
+        {
+          "heading": "Suggest a small step outside the group when the time feels right.",
+          "body": "A coffee after the class or a walk before it moves things on. Keep it short, so that either of you can say yes without much effort. If they say no, ask again in a few weeks. Busy people often need a second invitation."
+        }
+      ],
+      "takeaway": "Remember names, swap details with a reason, and suggest one small step outside the group."
+    },
+    {
+      "number": 4,
+      "focus": "Host something small and keep old friends close",
+      "exercise_ids": [
+        "p4_host"
+      ],
+      "intro": "Being invited is lovely. Inviting is what builds a friendship. This part looks at hosting something small and low effort. It also looks at keeping in touch with friends from your old town, since new friends do not replace them.",
+      "ideas": [
+        {
+          "heading": "A small gathering needs little more than a kettle and a date.",
+          "body": "Tea and biscuits for two or three people is enough. Invite people you have met a few times, name a start and end time, and keep the menu easy. Nobody expects a feast. They will remember being asked more than anything on the table."
+        },
+        {
+          "heading": "Old friends and new friends can both have a place in your week.",
+          "body": "Moving away does not end an old friendship, and making new ones does not betray it. Keep a call or a message going with people you left behind. Having both gives you somewhere to be yourself and somewhere to be new. The two settle each other over time."
+        },
+        {
+          "heading": "It takes time to feel at home, and that is ordinary.",
+          "body": "Most newcomers feel out of place for months. That is not a sign you are doing it wrong. Friendships grow slowly, a chat at a time. Count the small things you have done, such as a hello, a name learned or a first visit. They add up even when it does not feel like it."
+        }
+      ],
+      "takeaway": "Host something small, keep old friends in touch, and give a new town time."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_map",
+      "title": "Map where people gather",
+      "purpose": "A short list of places and regular events near you.",
+      "why": "Spend a few minutes looking at your street, the library, noticeboards and local pages. Write down places or events where people meet more than once. Five is plenty. If you find none yet, write one place you will look.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Look at your street, library and noticeboards."
+        },
+        {
+          "text": "Write down places where people meet more than once."
+        }
+      ],
+      "fields": [
+        {
+          "id": "places",
+          "type": "two_column",
+          "label": "Where do people gather near you?",
+          "columns": [
+            "Place or event",
+            "When it happens"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "places",
+          "plan_section": "map"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one place where people meet near you."
+          }
+        ],
+        "field_ids": [
+          "places"
+        ]
+      },
+      "done_when": "You have at least three places or events listed."
+    },
+    {
+      "id": "p2_regular",
+      "title": "Choose one regular thing",
+      "purpose": "One group or class to try, and your opening line.",
+      "why": "From your map, pick one regular event that suits you. Write when you could go, and the line you would use to say hello. You are only trying it once. If nothing appeals yet, write what you would like to try.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one event from your map."
+        },
+        {
+          "text": "Write the line you would use to say hello."
+        }
+      ],
+      "fields": [
+        {
+          "id": "event",
+          "type": "short_text",
+          "label": "Which regular event will you try first?"
+        },
+        {
+          "id": "line",
+          "type": "short_text",
+          "label": "What will you say to start a conversation?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "event",
+          "plan_section": "regular"
+        },
+        {
+          "field_id": "line",
+          "plan_section": "regular"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the name of one event to try."
+          }
+        ],
+        "field_ids": [
+          "event"
+        ]
+      },
+      "done_when": "You have one event and one opening line."
+    },
+    {
+      "id": "p3_follow",
+      "title": "Plan your follow up",
+      "purpose": "A person to get to know and a small invitation to offer.",
+      "why": "Think of one person you have met, or may meet. Write their name, then one small invitation you could offer, such as a coffee after the class. If you have not met anyone yet, imagine a person from the group.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the name of one person."
+        },
+        {
+          "text": "Write a small invitation you could offer."
+        }
+      ],
+      "fields": [
+        {
+          "id": "name",
+          "type": "short_text",
+          "label": "Who from your group would you like to get to know?"
+        },
+        {
+          "id": "step",
+          "type": "long_text",
+          "label": "What small invitation could you offer them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "name",
+          "plan_section": "follow"
+        },
+        {
+          "field_id": "step",
+          "plan_section": "follow"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one invitation you could offer."
+          }
+        ],
+        "field_ids": [
+          "step"
+        ]
+      },
+      "done_when": "You have a name and a small invitation written."
+    },
+    {
+      "id": "p4_host",
+      "title": "Plan a small gathering",
+      "purpose": "A small gathering to host, and one old friend to contact.",
+      "why": "Choose two or three people you might invite for tea or a walk. Write the day and the plan in a line. Then name one old friend you want to message. If you are not ready to host, write the friend only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write who you could invite and to what."
+        },
+        {
+          "text": "Name one old friend to contact."
+        }
+      ],
+      "fields": [
+        {
+          "id": "host",
+          "type": "short_text",
+          "label": "Who could you invite, and to what?"
+        },
+        {
+          "id": "old",
+          "type": "short_text",
+          "label": "Which old friend will you contact?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "host",
+          "plan_section": "host"
+        },
+        {
+          "field_id": "old",
+          "plan_section": "host"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one old friend to contact."
+          }
+        ],
+        "field_ids": [
+          "old"
+        ]
+      },
+      "done_when": "You have one small plan and one old friend named."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your regular event and opening line are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your map, your regular event, your follow up and your small gathering."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "map",
+      "title": "Where people gather"
+    },
+    {
+      "id": "regular",
+      "title": "Your regular event"
+    },
+    {
+      "id": "follow",
+      "title": "Your follow up"
+    },
+    {
+      "id": "host",
+      "title": "A gathering to host"
+    }
+  ],
+  "finish": {
+    "summary": "You mapped where people gather near you and chose one regular event. You also planned a follow up and a small gathering.",
+    "book_bridge": "Hello From Number Twelve is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which regular event did you go to this month?",
+      "Who did you speak to that you did not know before?"
+    ],
+    "refresher_ids": [
+      "p2_regular",
+      "p3_follow"
+    ]
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-5NJQA",
+  "slug": "five-minutes-at-the-front-of-the-room-5njqa",
+  "title": "Five Minutes at the Front of the Room",
+  "card_line": "Build and give a five-minute talk around one point.",
+  "book": {
+    "book_id": "five-minutes-at-the-front-of-the-room",
+    "title": "Five Minutes at the Front of the Room",
+    "subtitle": "Short Talks at Work, Calmly Given"
+  },
+  "author": {
+    "author_id": "AU-WFC25",
+    "display_name": "Priya Sandhu-Lavoie"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "career",
+  "theme_id": "words-that-land",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about giving a short talk at work when you would rather not. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have one point and a five-minute shape. You will also have notes you can glance at, and one piece of feedback asked for. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What talk might you be asked to give soon? A few words will do."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose the one point your talk is for",
+      "exercise_ids": [
+        "p1_point"
+      ],
+      "intro": "Short talks go wrong when they try to say everything. Five minutes holds one point well and three points badly. This part asks you to decide what you want your listeners to know or do. You then say it in a single sentence before you build anything around it.",
+      "ideas": [
+        {
+          "heading": "A five-minute talk can carry one point and no more.",
+          "body": "Count how many things you want to say. If it is more than one, pick the one that matters most. Listeners remember a single idea. They forget a list. The other points can wait for questions or for another day."
+        },
+        {
+          "heading": "Write your point as one sentence a listener could repeat.",
+          "body": "\"Our Monday handover is missing the stock figures, and here is a simple fix.\" That is a point. \"Handovers\" is only a subject. Test it by saying it to a colleague. If they can repeat it back, it is clear enough."
+        },
+        {
+          "heading": "Think about the listeners before you think about the slides.",
+          "body": "Ask who will be in the room and what they already know. What do they need from you? A talk to your own team differs from one to managers. Shape the point around their questions, not around everything you could say."
+        }
+      ],
+      "takeaway": "Choose one point, write it as a sentence a listener could repeat, and keep the listeners in mind."
+    },
+    {
+      "number": 2,
+      "focus": "Build the talk around that point in five minutes",
+      "exercise_ids": [
+        "p2_shape"
+      ],
+      "intro": "Five minutes is shorter than it sounds. About six hundred words, spoken at an ordinary pace, fills it. This part gives a simple shape: an opening, a middle and a close. You then write rough notes for each part and time them.",
+      "ideas": [
+        {
+          "heading": "Open with the point or a reason it matters.",
+          "body": "Say what the talk is about in the first thirty seconds. \"I want to show you one change that would save us an hour every Monday.\" Listeners relax once they know where you are going. Then they can follow the rest."
+        },
+        {
+          "heading": "Use two or three examples in the middle and no more.",
+          "body": "Support your point with a short story, a figure or an example from the work. Pick the ones your listeners will recognise. Three is plenty. Each should take about a minute. Cut anything that does not serve the point, even if you like it."
+        },
+        {
+          "heading": "Close by repeating the point and saying what you want next.",
+          "body": "End with your sentence again and one clear request. \"Please try the new handover sheet this week.\" Then stop. A short close is stronger than a long one. People remember how a talk ended, so make it clean. Practise the last sentence until it comes easily."
+        }
+      ],
+      "takeaway": "Open with the point, support it with two or three examples, and close by repeating it with a request."
+    },
+    {
+      "number": 3,
+      "focus": "Practise out loud with notes you can glance at",
+      "exercise_ids": [
+        "p3_aloud"
+      ],
+      "intro": "A talk that works on paper can still wobble when spoken. Saying it aloud shows you where it needs changing. This part is about practising, keeping notes small enough to use, and dealing with nerves in ordinary ways that most speakers share.",
+      "ideas": [
+        {
+          "heading": "Say it aloud at least twice before you give it.",
+          "body": "Reading silently hides problems. Aloud, you find the long sentence, the missing link and the bit that takes too long. Time it once. If it runs over, cut an example. Practise with a timer and a friend if you can."
+        },
+        {
+          "heading": "Keep notes to a few words per section.",
+          "body": "Full sentences tempt you to read, and reading loses the room. Write a few key words for each part on one card. Glance down, look up and speak. If you lose your place, pause and find it. A pause feels long to you and short to the listeners."
+        },
+        {
+          "heading": "Nerves are normal, and a few ordinary habits make them easier to carry.",
+          "body": "Arrive early, stand with your feet apart, and take a slow breath before you start. Say your first sentence slowly. Most listeners are on your side and want the talk to go well. They notice far less than you fear."
+        }
+      ],
+      "takeaway": "Say the talk aloud, keep notes to key words, and arrive early so you start steadily."
+    },
+    {
+      "number": 4,
+      "focus": "Give the talk, take questions and ask for one piece of feedback",
+      "exercise_ids": [
+        "p4_give"
+      ],
+      "intro": "Now you give it. This part covers the moment itself, answering questions and finding out what worked. You will ask one person one question afterwards. That single answer is enough to guide the next talk, so you do not need a full review.",
+      "ideas": [
+        {
+          "heading": "Start slowly and look at people, not at the screen.",
+          "body": "Take a moment before your first sentence. Find a friendly face and speak to them. Then move to another. Looking at people keeps you steady and keeps them listening. The first sentence is the hardest, and after that it gets easier."
+        },
+        {
+          "heading": "Answer questions briefly, and say so when you do not know.",
+          "body": "Listen to the whole question. Pause, then answer in a few sentences. If you do not know, say, \"I do not know, and I will find out.\" That is respected. A long guess is not. Questions mean people were listening."
+        },
+        {
+          "heading": "Ask one person one question about the talk.",
+          "body": "Choose someone you trust. Ask, \"What was the clearest part?\" or \"Where did I lose you?\" Then listen and say thank you. One honest answer teaches you more than general praise. Write it down so you can use it next time."
+        }
+      ],
+      "takeaway": "Give the talk slowly, answer questions briefly and honestly, and ask one person one question afterwards."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_point",
+      "title": "Choose your one point",
+      "purpose": "One sentence your listeners could repeat, and who they are.",
+      "why": "Think of a talk you might give. Write your point in one sentence. Then write who will be listening and what they need from you. If you have several points, pick the one that matters most.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your point in one sentence."
+        },
+        {
+          "text": "Write who will listen and what they need."
+        }
+      ],
+      "fields": [
+        {
+          "id": "point",
+          "type": "short_text",
+          "label": "What is the one point of your talk?"
+        },
+        {
+          "id": "listeners",
+          "type": "short_text",
+          "label": "Who will be listening, and what do they need?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "point",
+          "plan_section": "point"
+        },
+        {
+          "field_id": "listeners",
+          "plan_section": "point"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your point in one sentence."
+          }
+        ],
+        "field_ids": [
+          "point"
+        ]
+      },
+      "done_when": "You have one sentence for your point and a note on your listeners."
+    },
+    {
+      "id": "p2_shape",
+      "title": "Sketch the five minutes",
+      "purpose": "Rough notes for your opening, your examples and your close.",
+      "why": "Write a few words for each part. Say how you will open, which two or three examples you will use, and how you will close with a request. Keep each part to a line or two.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your opening."
+        },
+        {
+          "text": "List two or three examples."
+        },
+        {
+          "text": "Write your close and request."
+        }
+      ],
+      "fields": [
+        {
+          "id": "opening",
+          "type": "short_text",
+          "label": "How will you open?"
+        },
+        {
+          "id": "middle",
+          "type": "long_text",
+          "label": "Which examples will you use, and how will you close?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "opening",
+          "plan_section": "shape"
+        },
+        {
+          "field_id": "middle",
+          "plan_section": "shape"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your opening in one line."
+          }
+        ],
+        "field_ids": [
+          "opening"
+        ]
+      },
+      "done_when": "You have notes for an opening, a middle and a close."
+    },
+    {
+      "id": "p3_aloud",
+      "title": "Say it aloud once",
+      "purpose": "A timed run-through and a card of key words.",
+      "why": "Say your talk aloud once with a timer. Note how long it took and what you would cut or change. Then write the key words for your card. If it feels awkward, that is useful to know.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Say it aloud with a timer."
+        },
+        {
+          "text": "Note what to cut or change."
+        },
+        {
+          "text": "Write your key words."
+        }
+      ],
+      "fields": [
+        {
+          "id": "changes",
+          "type": "long_text",
+          "label": "How long did it take, and what will you change?"
+        },
+        {
+          "id": "card",
+          "type": "short_text",
+          "label": "What key words go on your card?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "changes",
+          "plan_section": "aloud"
+        },
+        {
+          "field_id": "card",
+          "plan_section": "aloud"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing to change after saying it aloud."
+          }
+        ],
+        "field_ids": [
+          "changes"
+        ]
+      },
+      "done_when": "You have timed it once and written your key words."
+    },
+    {
+      "id": "p4_give",
+      "title": "Give it and ask once",
+      "purpose": "A note of how the talk went and the answer to one question.",
+      "why": "After you give the talk, or when you plan it, write who you will ask for feedback and what you will ask. Then note what you heard. If you have not given it yet, write the question only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one person to ask."
+        },
+        {
+          "text": "Write your question."
+        },
+        {
+          "text": "Note what they say."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "Whom will you ask, and what will you ask?"
+        },
+        {
+          "id": "heard",
+          "type": "long_text",
+          "label": "What did you hear, and what will you keep for next time?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question",
+          "plan_section": "give"
+        },
+        {
+          "field_id": "heard",
+          "plan_section": "give"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the question you will ask."
+          }
+        ],
+        "field_ids": [
+          "question"
+        ]
+      },
+      "done_when": "You have a question written, and the answer if you have given the talk."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. The shape of your talk is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your point, your shape, your run-through and your feedback."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "point",
+      "title": "Your one point"
+    },
+    {
+      "id": "shape",
+      "title": "The shape of your talk"
+    },
+    {
+      "id": "aloud",
+      "title": "Saying it aloud"
+    },
+    {
+      "id": "give",
+      "title": "Giving it and feedback"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your one point, the shape of your talk, your run-through and your feedback question.",
+    "book_bridge": "Five Minutes at the Front of the Room is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which talk have you given or prepared this month?",
+      "What did you change after saying it aloud?",
+      "What did your listeners tell you?"
+    ],
+    "refresher_ids": [
+      "p1_point",
+      "p3_aloud"
+    ]
+  }
+}

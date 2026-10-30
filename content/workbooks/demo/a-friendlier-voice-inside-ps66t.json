@@ -1,0 +1,370 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-PS66T",
+  "slug": "a-friendlier-voice-inside-ps66t",
+  "title": "A Friendlier Voice Inside",
+  "card_line": "Notice your inner voice and write fairer replies to it after a mistake.",
+  "book": {
+    "book_id": "a-friendlier-voice-inside",
+    "title": "A Friendlier Voice Inside",
+    "subtitle": "Kinder Self-Talk in Everyday Moments"
+  },
+  "author": {
+    "author_id": "AU-7WKXG",
+    "display_name": "Nadia Farouk-Hassan"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "seeing-yourself-fairly",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about the voice in your head that comments on you, and how to answer it more fairly. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a few fairer replies in your own words. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What does your inner voice say when you make a small mistake? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice what your inner voice says and when it gets loud",
+      "exercise_ids": [
+        "p1_voice"
+      ],
+      "intro": "Most of us talk to ourselves all day, mostly without hearing it. Some of it is useful. Some of it is harsher than we would ever be with a friend. This part is only about listening. You will write down a few things the voice says and when they tend to arrive.",
+      "ideas": [
+        {
+          "heading": "Everyone has an inner voice, and yours is allowed to be noisy.",
+          "body": "The voice is a normal part of thinking. It plans, remarks and reminds. Sometimes it also criticises, and that is common. Having it does not mean anything is wrong with you. The first step is only to hear it clearly. Write down the words it uses, as exactly as you can."
+        },
+        {
+          "heading": "The voice tends to get louder when you are tired, rushed or watched.",
+          "body": "Pay attention to the settings where it speaks up. Many people notice it on a rushed morning, after a long shift or in front of colleagues. Knowing the usual settings takes some of the surprise out of it. You can see it coming, and you can listen with less alarm."
+        },
+        {
+          "heading": "The words matter more than the mood they arrive in.",
+          "body": "A thought such as \"I always get this wrong\" sounds like a fact. Written down, it is just a sentence, and you can look at it. Notice words like always, never and typical. They turn one event into a verdict. Spotting them is the useful part."
+        }
+      ],
+      "takeaway": "Your inner voice is worth hearing, word for word. Noticing when it gets loud is the first step to answering it fairly."
+    },
+    {
+      "number": 2,
+      "focus": "See how the voice sounds after a mistake",
+      "exercise_ids": [
+        "p2_mistake"
+      ],
+      "intro": "A mistake is when the voice is usually loudest. It can turn a late email or a burnt dinner into a statement about who you are. This part looks at the shape of those sentences. The aim is to see them clearly, not to argue with them yet.",
+      "ideas": [
+        {
+          "heading": "After a mistake the voice often jumps from one event to a whole person.",
+          "body": "You send the wrong file and the voice says \"I am useless\". One event has become a description of you. The jump is quick, so it feels like a fact. Slowing down enough to see the two steps apart is a good start."
+        },
+        {
+          "heading": "Harsh words feel like motivation, but they rarely tell you what to do next.",
+          "body": "Many people believe the voice has to be hard on them to keep them sharp. Look at what it actually gives you. \"You idiot\" says nothing about how to fix the file. A useful reply names what happened and what comes next."
+        },
+        {
+          "heading": "You would speak differently to a friend who made the same mistake.",
+          "body": "Picture a friend who sent the same wrong file. You would probably say it happens, and ask what they need. The mistake is the same. Only the speaker has changed. That gap between the two replies is what you will work on in the next part."
+        }
+      ],
+      "takeaway": "After a mistake, the voice often judges the whole person. You can learn to separate what happened from what it says about you."
+    },
+    {
+      "number": 3,
+      "focus": "Write a fairer reply to your inner voice",
+      "exercise_ids": [
+        "p3_reply"
+      ],
+      "intro": "A fairer reply is not a cheerful one. It is accurate, and it is the kind of thing you would say to someone you respect. This part gives you three ways to build one. Then you write a reply to the verdict you found in Part 2.",
+      "ideas": [
+        {
+          "heading": "A fair reply starts with the facts the voice left out.",
+          "body": "The voice picks the worst detail and ignores the rest. Add back what it missed. Perhaps the file was one of forty you sent correctly. Perhaps you were covering for someone who was off sick. You are not making excuses. You are completing the account."
+        },
+        {
+          "heading": "You can agree with the mistake and still disagree with the verdict.",
+          "body": "A fair reply does not pretend nothing went wrong. \"I sent the wrong file\" can be true. \"I am useless\" is a different claim, and the evidence does not support it. Owning the first and declining the second is what fairness looks like."
+        },
+        {
+          "heading": "A reply works best in words you would actually say.",
+          "body": "Grand phrases about being worthy sound false and fall away. Use plain speech, such as \"That was a slip. I will resend it.\" Short and level is enough. Try it aloud once. If a word sounds like someone else, change it. Your own voice is the one you will believe."
+        }
+      ],
+      "takeaway": "A fair reply keeps the facts, owns the mistake and drops the verdict. Plain words work best."
+    },
+    {
+      "number": 4,
+      "focus": "Keep the fairer voice going in busy weeks",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "Fair replies come more easily in a quiet week. The busy ones are when the harsh voice is loudest, and when there is least time to answer it. This part is about making the reply short and easy to reach. You will choose a few words to keep nearby.",
+      "ideas": [
+        {
+          "heading": "Busy weeks need a reply short enough to use in ten seconds.",
+          "body": "A paragraph of fair thinking will not survive a packed Tuesday. Cut your reply down to one sentence. Something like \"That was a slip, and I can fix it.\" If it takes longer than that to say, shorten it further."
+        },
+        {
+          "heading": "Putting the sentence where you will see it makes it easier to find.",
+          "body": "In a rush you will not remember a good idea from three weeks ago. Put your sentence on a sticky note, in your phone or inside a notebook cover. Choose a place you pass anyway. Seeing it is the reminder."
+        },
+        {
+          "heading": "A harsh thought in a busy week does not undo the kinder ones.",
+          "body": "Sometimes the voice will win for an hour. That is ordinary and says nothing about how you are getting on. Return to your sentence when you notice, whether that is later the same day or next week. The reply is there to pick up again."
+        }
+      ],
+      "takeaway": "Keep your fairer reply to one sentence and put it where you will see it. You can pick it up again whenever you notice."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_voice",
+      "title": "Catch three things your voice says",
+      "purpose": "A short list of phrases your voice uses and where you were when each one appeared.",
+      "why": "Think back over the past week. Write down up to three things your inner voice said about you, as close to its own words as you can. Beside each one, note where you were. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Recall a moment the voice spoke up."
+        },
+        {
+          "text": "Write its words and where you were."
+        }
+      ],
+      "fields": [
+        {
+          "id": "voice",
+          "type": "two_column",
+          "label": "What did your inner voice say, and where were you?",
+          "columns": [
+            "What it said",
+            "Where you were"
+          ],
+          "min_items": 1,
+          "max_items": 4
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "voice",
+          "plan_section": "voice"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing your voice said this week."
+          }
+        ],
+        "field_ids": [
+          "voice"
+        ]
+      },
+      "done_when": "You have at least one phrase written down."
+    },
+    {
+      "id": "p2_mistake",
+      "title": "Separate the event from the verdict",
+      "purpose": "One recent mistake written as plain facts, beside what your voice said about it.",
+      "why": "Choose a small mistake from the last few weeks. Write what happened in plain facts, as a note for someone who was not there. Then write the verdict your voice gave. Read the two side by side. If nothing comes to mind, use a mistake from years ago.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what happened in plain facts."
+        },
+        {
+          "text": "Write the verdict your voice gave."
+        }
+      ],
+      "fields": [
+        {
+          "id": "event_verdict",
+          "type": "two_column",
+          "label": "What happened, and what did your voice say about it?",
+          "columns": [
+            "What happened",
+            "What the voice said"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "event_verdict",
+          "plan_section": "mistake"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one plain fact about the mistake."
+          }
+        ],
+        "field_ids": [
+          "event_verdict"
+        ]
+      },
+      "done_when": "You have the facts and the verdict on separate lines."
+    },
+    {
+      "id": "p3_reply",
+      "title": "Write a fairer reply",
+      "purpose": "One reply to your voice that keeps the facts and drops the verdict.",
+      "why": "Take the verdict from Part 2. Write a reply that adds what it left out, owns the mistake and sounds like you. Use words you would say aloud to a friend. If a first try feels stiff, write a shorter one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Start from the verdict you wrote in Part 2."
+        },
+        {
+          "text": "Add the facts it left out."
+        },
+        {
+          "text": "Own the mistake in one plain sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "fair_reply",
+          "type": "long_text",
+          "label": "What would a fairer reply to that verdict be?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "fair_reply",
+          "plan_section": "reply"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence that owns the mistake and nothing more."
+          }
+        ],
+        "field_ids": [
+          "fair_reply"
+        ]
+      },
+      "done_when": "You have a reply you could say aloud."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Choose your keeping sentence",
+      "purpose": "One short sentence and a place to keep it for busy weeks.",
+      "why": "Look back at your fairer reply from Part 3. Cut it to one sentence you could use in ten seconds. Then choose where you will keep it. If you cannot decide, write the first place that comes to mind.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Cut your reply to one sentence."
+        },
+        {
+          "text": "Choose where to keep it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "What is your one sentence for a busy week?"
+        },
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where will you keep it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sentence",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "place",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your one sentence."
+          }
+        ],
+        "field_ids": [
+          "sentence"
+        ]
+      },
+      "done_when": "You have a sentence and a place for it."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your plain facts and the verdict are saved side by side."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your fairer reply and your keeping sentence."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "voice",
+      "title": "What your voice says"
+    },
+    {
+      "id": "mistake",
+      "title": "Facts and verdicts"
+    },
+    {
+      "id": "reply",
+      "title": "Your fairer reply"
+    },
+    {
+      "id": "keep",
+      "title": "Your keeping sentence"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds what your voice says, the facts of a mistake, your fairer reply and the sentence you will keep.",
+    "book_bridge": "A Friendlier Voice Inside is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did your voice say this month, and what did you answer?",
+      "Which words did it use most?",
+      "Is your keeping sentence still the right one?"
+    ],
+    "refresher_ids": [
+      "p3_reply",
+      "p4_keep"
+    ]
+  }
+}

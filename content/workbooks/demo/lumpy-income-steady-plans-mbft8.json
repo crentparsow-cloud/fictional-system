@@ -1,0 +1,356 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-MBFT8",
+  "slug": "lumpy-income-steady-plans-mbft8",
+  "title": "Lumpy Income, Steady Plans",
+  "card_line": "Pay yourself a steady monthly wage from uneven freelance income.",
+  "book": {
+    "book_id": "lumpy-income-steady-plans",
+    "title": "Lumpy Income, Steady Plans",
+    "subtitle": "Money for Freelancers"
+  },
+  "author": {
+    "author_id": "AU-45ERA",
+    "display_name": "Ximena Ruiz-Albarrán"
+  },
+  "publisher_id": "PB-640RS",
+  "genre": "finance",
+  "theme_id": "money-for-later",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about paying yourself a steady wage from uneven freelance income. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a monthly wage, a holding account, a tax plan and a buffer for quiet months. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which month of the past year was the hardest for your money, and why?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See a year of income at a glance and know your real monthly costs",
+      "exercise_ids": [
+        "p1_year"
+      ],
+      "intro": "Uneven income is hard to plan around until you see it laid out. This part asks you to write down roughly what came in during each month of the last year. It also asks what you really spend in an ordinary month. Both numbers shape everything that follows.",
+      "ideas": [
+        {
+          "heading": "A year of income shows a pattern that one month hides.",
+          "body": "One bad month feels like a crisis, and one good month feels like safety. Twelve months side by side tell a truer story. You may find the ups and downs follow the seasons, the clients or your own working habits."
+        },
+        {
+          "heading": "Your real monthly costs are probably higher than your guess.",
+          "body": "People tend to remember rent and bills, and forget the annual fees, the repairs and the occasional extra. Look at your bank statements to find out. Knowing the true figure is the base of a wage that works. Include a share of the yearly ones in your monthly figure."
+        },
+        {
+          "heading": "The gap between your lowest months and your costs matters most.",
+          "body": "Your average income is less useful than your quiet months. If your lowest months fall short of your costs, you need a way to bridge the gap. A steady wage and a buffer are the tools for that. Write down the gap in your own words."
+        }
+      ],
+      "takeaway": "Write out a year of income and your true monthly costs. The quiet months matter more than the average."
+    },
+    {
+      "number": 2,
+      "focus": "Open a holding account and pay yourself a monthly wage",
+      "exercise_ids": [
+        "p2_wage"
+      ],
+      "intro": "A holding account separates the money you earn from the money you spend. Payments go in as they arrive, and a fixed wage goes out on the same day each month. This part explains the idea and asks you to choose a wage and a day.",
+      "ideas": [
+        {
+          "heading": "A holding account turns lumpy income into a steady supply.",
+          "body": "Every payment goes into the holding account first. From there, you pay yourself the same sum on the same day each month. The account fills in good months and empties in quiet ones. Your own spending sees a steady wage."
+        },
+        {
+          "heading": "Your wage should be based on your costs and your quiet months.",
+          "body": "Start from what you need each month, not from your best month. Set the wage at a level the account can sustain across the year. If it is too high, you will run it dry. You can raise it later."
+        },
+        {
+          "heading": "Paying the wage on a fixed day makes it feel like a job.",
+          "body": "A fixed day gives your month a rhythm. You know when the money arrives, even if the client's payment did not. It also separates work money from personal money, which makes your accounts easier to read. It is a small change with a large effect on how you feel about money."
+        }
+      ],
+      "takeaway": "Put all income in a holding account and pay yourself a fixed wage on a fixed day."
+    },
+    {
+      "number": 3,
+      "focus": "Set money aside for tax",
+      "exercise_ids": [
+        "p3_tax"
+      ],
+      "intro": "When you work for yourself, tax is usually yours to pay, and it arrives as a lump. Setting money aside as you earn means the bill is already covered when it comes. This part is general. Check the rules that apply to you with an official source or an accountant.",
+      "ideas": [
+        {
+          "heading": "Tax is easier to meet when you set money aside as you earn.",
+          "body": "If you wait until the bill arrives, it may take more than you have. Move a share of each payment into a separate pot as soon as it lands. The pot grows quietly, and the bill is already paid for."
+        },
+        {
+          "heading": "The right share depends on your situation, so check the rules.",
+          "body": "This workbook cannot tell you what share to set aside. Rules differ by country and by circumstance. Ask an accountant, or read official guidance for your country. Write the answer down once you have it. Until you know, write down who you will ask."
+        },
+        {
+          "heading": "Keep tax money apart so you are not tempted to borrow from it.",
+          "body": "Money in the main account looks spendable, even if it belongs to the tax office. A separate pot, clearly labelled, keeps it out of the way. Think of it as already spent, because it will be. The pot is not a buffer for other costs."
+        }
+      ],
+      "takeaway": "Set aside a share of each payment for tax, and keep it apart. Check the right share for your situation."
+    },
+    {
+      "number": 4,
+      "focus": "Build a buffer and plan for quiet months",
+      "exercise_ids": [
+        "p4_quiet"
+      ],
+      "intro": "Quiet months are part of freelance work. A buffer is the money that carries you through them without panic. This final part asks you to decide what you would do in a quiet month, and what buffer you would like to build first.",
+      "ideas": [
+        {
+          "heading": "A buffer is what lets the steady wage stay steady.",
+          "body": "In a quiet month, the holding account may fall short of your wage. A buffer sits behind it and tops it up. Without one, a poor month forces you to cut the wage or borrow. A buffer is a cushion, built in the months when work is plentiful."
+        },
+        {
+          "heading": "Build the buffer a little at a time, in good months.",
+          "body": "When a big payment arrives, add some to the buffer before spending any. Even small amounts add up over a year. There is no need to build it all at once. Start with a small cushion and grow it. Each addition makes the next quiet month a little less worrying."
+        },
+        {
+          "heading": "Plan what you will do with a quiet month before it arrives.",
+          "body": "A quiet month is a good time to chase old invoices, update your portfolio or contact past clients. Write a short list now. When the month comes, you already have a use for the time. A quiet month then becomes a chance to use the time well."
+        }
+      ],
+      "takeaway": "Build a buffer in good months, and keep a short list of what to do in a quiet one."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_year",
+      "title": "See your year at a glance",
+      "purpose": "A rough record of last year's income and your usual monthly costs.",
+      "why": "Write roughly what came in during each month of the last year. A rough figure is fine. Then write what you spend in a usual month, checking your statements if you can.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a rough figure for each month."
+        },
+        {
+          "text": "Write your usual monthly costs."
+        }
+      ],
+      "fields": [
+        {
+          "id": "year",
+          "type": "two_column",
+          "label": "Roughly what came in during each month of last year?",
+          "columns": [
+            "Month",
+            "Roughly what came in"
+          ],
+          "min_items": 1,
+          "max_items": 12
+        },
+        {
+          "id": "costs",
+          "type": "short_text",
+          "label": "What do you spend in a usual month?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "year",
+          "plan_section": "year"
+        },
+        {
+          "field_id": "costs",
+          "plan_section": "year"
+        }
+      ],
+      "done_when": "Your income months and monthly cost are written down."
+    },
+    {
+      "id": "p2_wage",
+      "title": "Choose your wage and day",
+      "purpose": "A monthly wage and a day to pay it from your holding account.",
+      "why": "Using your costs and your quietest months, choose a wage the holding account could sustain. Then choose a day each month to pay it. Start low. You can raise it later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a wage."
+        },
+        {
+          "text": "Choose a day to pay it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wage",
+          "type": "short_text",
+          "label": "What monthly wage could you pay yourself?"
+        },
+        {
+          "id": "day",
+          "type": "short_text",
+          "label": "On which day each month will you pay yourself?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "wage",
+          "plan_section": "wage"
+        },
+        {
+          "field_id": "day",
+          "plan_section": "wage"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a wage you could pay yourself."
+          }
+        ],
+        "field_ids": [
+          "wage"
+        ]
+      },
+      "done_when": "A wage and a day are written down."
+    },
+    {
+      "id": "p3_tax",
+      "title": "Plan your tax pot",
+      "purpose": "A share to set aside for tax and a name for who will confirm it.",
+      "why": "Find out, from an accountant or an official source, what share of your income to set aside for tax. Write it down, with where you found it. If you do not know yet, write who you will ask.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name your source for the right share."
+        },
+        {
+          "text": "Write the share, or who you will ask."
+        }
+      ],
+      "fields": [
+        {
+          "id": "share",
+          "type": "short_text",
+          "label": "What share of each payment will you set aside for tax?"
+        },
+        {
+          "id": "source",
+          "type": "short_text",
+          "label": "Who or what will you check this with?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "share",
+          "plan_section": "tax"
+        },
+        {
+          "field_id": "source",
+          "plan_section": "tax"
+        }
+      ],
+      "done_when": "You have a share, or a named source to ask."
+    },
+    {
+      "id": "p4_quiet",
+      "title": "Plan for quiet months",
+      "purpose": "A buffer to build first and a short list for a quiet month.",
+      "why": "Think of a quiet month. Write what you would do with the time, and what buffer you would like to build first. Keep both to a line or two.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List what you would do in a quiet month."
+        },
+        {
+          "text": "Name the buffer to build first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "quiet",
+          "type": "long_text",
+          "label": "What would you do with a quiet month?"
+        },
+        {
+          "id": "buffer",
+          "type": "short_text",
+          "label": "What buffer would you like to build first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "quiet",
+          "plan_section": "quiet"
+        },
+        {
+          "field_id": "buffer",
+          "plan_section": "quiet"
+        }
+      ],
+      "done_when": "A quiet-month list and a first buffer are written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "year",
+      "title": "Your year at a glance"
+    },
+    {
+      "id": "wage",
+      "title": "Your wage and day"
+    },
+    {
+      "id": "tax",
+      "title": "Your tax pot"
+    },
+    {
+      "id": "quiet",
+      "title": "Quiet months and your buffer"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your year of income, your wage, your tax pot and your plan for quiet months.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did you pay yourself on your chosen day this month?",
+      "How much did you add to the tax pot and the buffer?",
+      "What did you do in your quietest week?"
+    ],
+    "refresher_ids": [
+      "p2_wage",
+      "p4_quiet"
+    ]
+  }
+}

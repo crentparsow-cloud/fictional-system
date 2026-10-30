@@ -1,0 +1,369 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-T1WVV",
+  "slug": "exam-season-one-week-at-a-time-t1wvv",
+  "title": "Exam Season, One Week at a Time",
+  "card_line": "Plan your revision week by week and arrive at the exam with a plan for the day.",
+  "book": {
+    "book_id": "exam-season-one-week-at-a-time",
+    "title": "Exam Season, One Week at a Time",
+    "subtitle": "A Calm Revision Plan"
+  },
+  "author": {
+    "author_id": "AU-0TKBN",
+    "display_name": "Olivier Tremblay-Singh"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "unrushed-learning",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning revision one week at a time, so that you arrive at the exam with a plan for the day. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a topic map, a revision calendar and an exam day plan. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a revision plan you can read at the end."
+    ],
+    "why_prompt": "Which exam are you preparing for, and when is it? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Map your topics and check where you stand",
+      "exercise_ids": [
+        "p1_map"
+      ],
+      "intro": "Revision goes better when you know what is on the syllabus and how much of it you already know. This part asks you to list your topics and give each a rough rating. You are not marking yourself, only finding where to start.",
+      "ideas": [
+        {
+          "heading": "A topic map shows you the whole exam on one page.",
+          "body": "Write the main topics in a list or a diagram, with the subtopics under each. Use the syllabus or your course outline. Seeing everything at once makes the task feel finite. It also shows how topics connect, which is useful when a question crosses two of them."
+        },
+        {
+          "heading": "A starting check shows what you know and what you do not.",
+          "body": "Go down the map and mark each topic as secure, shaky or new to you. Go quickly and go by feel. This is not a test. It tells you where the hours should go, so you do not spend a whole evening on a topic you already know well."
+        },
+        {
+          "heading": "Starting with the shaky topics makes the best use of time.",
+          "body": "It is tempting to revise what feels comfortable. The topics marked shaky are the ones that gain most from your attention. Start there while you have plenty of weeks left. Leave the secure topics for short refreshers nearer the exam."
+        }
+      ],
+      "takeaway": "A topic map and a quick check show you where your hours should go. Start with the shaky topics."
+    },
+    {
+      "number": 2,
+      "focus": "Build a revision calendar you can keep to",
+      "exercise_ids": [
+        "p2_calendar"
+      ],
+      "intro": "A calendar turns a pile of topics into weeks and sessions. It works best when it is realistic about the time you have. This part helps you lay out the weeks to the exam and then revisit each topic, so each topic comes round more than once.",
+      "ideas": [
+        {
+          "heading": "A revision calendar starts from the exam date and works back.",
+          "body": "Mark the exam on a calendar. Count the weeks before it. Then share your topics across those weeks, giving the shaky ones more room. Leave the last week lighter for review. Working backwards shows early whether the plan is realistic."
+        },
+        {
+          "heading": "Spacing a topic over several weeks beats cramming it into one.",
+          "body": "Revisit each topic a few times, with gaps in between. Look at it, leave it, then test yourself a week later. The effort of recalling it is part of the learning. A topic that comes round three times in a month sits more firmly than one read three times in a night."
+        },
+        {
+          "heading": "Sessions of thirty to forty minutes with a clear task work well.",
+          "body": "Give each session a single job, such as one past question or one page of notes turned into a quiz. A short session with a clear job is easier to start. Take a break afterwards. Long sessions with no task drift, and you leave unsure what you did."
+        }
+      ],
+      "takeaway": "Work back from the exam date and space each topic over several weeks. Give each short session one clear job."
+    },
+    {
+      "number": 3,
+      "focus": "Practise with past papers and fix the weak spots",
+      "exercise_ids": [
+        "p3_paper"
+      ],
+      "intro": "Past papers show you what the exam asks and how you answer. This part is about using them well. You try a question, mark it against the guidance and write down what to fix. Weak spots found now are easier to repair than ones found in the exam.",
+      "ideas": [
+        {
+          "heading": "Past papers show you how questions are asked, not only what is asked.",
+          "body": "The same topic can appear as a short answer, a calculation or an essay. Working through past papers lets you see the forms and the wording. You also learn how much a mark is worth, and so how long to spend. Start with untimed questions and add the timer later."
+        },
+        {
+          "heading": "Marking your own answer honestly tells you the most.",
+          "body": "Use the mark scheme or the model answer and compare line by line. Note what you missed and why. It might be a fact you forgot, a step you skipped or a question you misread. Each type needs a different fix, and naming it is half of the work."
+        },
+        {
+          "heading": "A short list of fixes gives your next sessions a purpose.",
+          "body": "After each paper, write the three things to work on. Put them into your calendar for the coming week. Revisit the same type of question a week later to see if it has moved. A written list stops the same slip from coming back."
+        }
+      ],
+      "takeaway": "Past papers show you the shape of the exam. Mark honestly, list three fixes and plan time for each."
+    },
+    {
+      "number": 4,
+      "focus": "Rest well and plan the day of the exam",
+      "exercise_ids": [
+        "p4_day"
+      ],
+      "intro": "The last stretch needs timed papers, rest and a plan for the day itself. This part covers all three. You finish with a short exam day plan, from what to pack to what to do in the first minutes at your desk.",
+      "ideas": [
+        {
+          "heading": "Timed papers teach you to pace the exam.",
+          "body": "Once your knowledge is in place, sit a full paper under exam conditions. Use the same time and the same rules. Note where you ran short and where you had time left. Pacing is a skill, and it improves with a few timed attempts."
+        },
+        {
+          "heading": "Rest days are part of the plan, not a break from it.",
+          "body": "Put a day off each week into the calendar and keep to it. Sleep, meals and time outdoors are part of getting ready. The night before the exam, stop at a set time. Last minute cramming rarely adds as much as a rested head."
+        },
+        {
+          "heading": "A plan for the exam day leaves fewer decisions for the morning.",
+          "body": "Write down what to pack, when to leave and how you will get there. Plan the first five minutes at your desk: read all the questions, choose where to start, and note the time for each. Having it written down is a comfort when nerves arrive."
+        }
+      ],
+      "takeaway": "Time your papers, keep a rest day and write down the exam day. Fewer decisions on the morning leave more room for the paper."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_map",
+      "title": "Map your topics",
+      "purpose": "A list of your exam topics, each marked secure, shaky or new.",
+      "why": "List the main topics for your exam from the syllabus or course outline. Beside each, write secure, shaky or new, going by feel. Do it quickly. If you are unsure about a topic, mark it shaky.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List the main topics."
+        },
+        {
+          "text": "Mark each secure, shaky or new."
+        }
+      ],
+      "fields": [
+        {
+          "id": "topic_map",
+          "type": "two_column",
+          "label": "Which topics are on your exam, and how secure are they?",
+          "columns": [
+            "Topic",
+            "Secure, shaky or new"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "topic_map",
+          "plan_section": "topics"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down your three shakiest topics."
+          }
+        ],
+        "field_ids": [
+          "topic_map"
+        ]
+      },
+      "done_when": "Your main topics are listed and marked."
+    },
+    {
+      "id": "p2_calendar",
+      "title": "Lay out your revision weeks",
+      "purpose": "The weeks to your exam with topics spread across them.",
+      "why": "Write the exam date. Count the weeks before it. Share your topics across them, with more room for the shaky ones and a lighter final week. Add a rest day each week. Keep it rough, as you can change it.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the exam date and count the weeks."
+        },
+        {
+          "text": "Place topics in each week, shaky ones first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "exam_date",
+          "type": "short_text",
+          "label": "When is your exam, and how many weeks do you have?"
+        },
+        {
+          "id": "weeks",
+          "type": "long_text",
+          "label": "Which topics will you revise in each week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "exam_date",
+          "plan_section": "calendar"
+        },
+        {
+          "field_id": "weeks",
+          "plan_section": "calendar"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the exam date and your first week's topic."
+          }
+        ],
+        "field_ids": [
+          "exam_date",
+          "weeks"
+        ]
+      },
+      "done_when": "Every week before the exam has at least one topic."
+    },
+    {
+      "id": "p3_paper",
+      "title": "Mark one past question",
+      "purpose": "One past question answered, marked and turned into three fixes.",
+      "why": "Choose one past question on a shaky topic. Answer it, then mark it against the guidance. Write what you missed and why. Finish with three fixes for your calendar. If no past paper is available, write your own question.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Answer one past question."
+        },
+        {
+          "text": "Mark it honestly and list three fixes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "missed",
+          "type": "long_text",
+          "label": "What did you miss in your answer, and why?"
+        },
+        {
+          "id": "fixes",
+          "type": "long_text",
+          "label": "What are your three fixes?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "missed",
+          "plan_section": "fixes"
+        },
+        {
+          "field_id": "fixes",
+          "plan_section": "fixes"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you missed in your answer."
+          }
+        ],
+        "field_ids": [
+          "missed"
+        ]
+      },
+      "done_when": "You have at least one fix written down."
+    },
+    {
+      "id": "p4_day",
+      "title": "Plan your exam day",
+      "purpose": "A short plan for the morning of the exam and the first minutes at your desk.",
+      "why": "Write down what you will pack, when you will leave and how you will travel. Then write what you will do in the first five minutes at your desk. Keep each line short. Add a rest plan for the night before.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what to pack and when to leave."
+        },
+        {
+          "text": "Write your first five minutes at the desk."
+        }
+      ],
+      "fields": [
+        {
+          "id": "morning",
+          "type": "long_text",
+          "label": "What will you pack, and when will you leave?"
+        },
+        {
+          "id": "first_minutes",
+          "type": "short_text",
+          "label": "What will you do in the first five minutes?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "morning",
+          "plan_section": "day"
+        },
+        {
+          "field_id": "first_minutes",
+          "plan_section": "day"
+        }
+      ],
+      "done_when": "You have a plan for the morning and the first minutes."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your revision weeks are laid out and saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your topics, your calendar, your fixes and your exam day."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "topics",
+      "title": "Your topic map"
+    },
+    {
+      "id": "calendar",
+      "title": "Your revision weeks"
+    },
+    {
+      "id": "fixes",
+      "title": "Your fixes from past papers"
+    },
+    {
+      "id": "day",
+      "title": "Your exam day plan"
+    }
+  ],
+  "finish": {
+    "summary": "You mapped your topics and laid out your revision weeks. You also marked a past question and wrote an exam day plan.",
+    "book_bridge": "Exam Season, One Week at a Time is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which topic moved from shaky to secure this month?",
+      "What did your latest past paper show you?",
+      "Does your calendar still match the weeks you have left?"
+    ],
+    "refresher_ids": [
+      "p2_calendar",
+      "p3_paper"
+    ]
+  }
+}

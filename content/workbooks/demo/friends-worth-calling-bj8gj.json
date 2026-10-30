@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-BJ8GJ",
+  "slug": "friends-worth-calling-bj8gj",
+  "title": "Friends Worth Calling",
+  "card_line": "Make a short list of friends who matter and reach out to each one.",
+  "book": {
+    "book_id": "friends-worth-calling",
+    "title": "Friends Worth Calling",
+    "subtitle": "Keeping Friendships Going as an Adult"
+  },
+  "author": {
+    "author_id": "AU-1DYWF",
+    "display_name": "Rafael Moreira Lins"
+  },
+  "publisher_id": "PB-640RS",
+  "genre": "relationships",
+  "theme_id": "companionable-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about keeping friendships going as an adult. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short list of friends, a message to send and a regular plan. You will also have a way back to someone you lost touch with. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who is one friend you would like to hear from? One name is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Name the friends who matter and note when you last spoke",
+      "exercise_ids": [
+        "p1_friends"
+      ],
+      "intro": "Friendships rarely end with an argument. More often they fade because nobody picks up the phone. This part asks you to write down the people who matter to you and when you last spoke. You are looking, not judging. Nothing here needs fixing yet.",
+      "ideas": [
+        {
+          "heading": "Most friendships fade through quiet, not through any falling out.",
+          "body": "Work, moves and family take up the days, and weeks pass without a message. Neither person decided to drift. Each assumed the other was busy. Seeing it this way takes the sting out of a long silence, and makes the first message easier to send."
+        },
+        {
+          "heading": "A short list of real friends is more useful than a long list of contacts.",
+          "body": "Your phone may hold hundreds of names. Only a handful are people you would call with news. Write those down first, perhaps five to eight. A small list is one you can act on. You can always add to it later."
+        },
+        {
+          "heading": "Knowing when you last spoke shows you where to start.",
+          "body": "Beside each name, note roughly when you last had a proper chat. Some will be last week. Some will be two years ago. Neither is a verdict. The dates just show which friendships would most welcome a message. Be honest and brief about it."
+        }
+      ],
+      "takeaway": "Friendships fade through quiet, and a short list of real friends is easy to act on. Note when you last spoke."
+    },
+    {
+      "number": 2,
+      "focus": "Reach out with a short, easy message",
+      "exercise_ids": [
+        "p2_message"
+      ],
+      "intro": "The hardest part is the first message. It feels as though it has to explain the gap, but it does not. This part gives you simple ways to reach out and asks you to write one message to send this week.",
+      "ideas": [
+        {
+          "heading": "You do not owe an explanation for the time that has passed.",
+          "body": "Most people are not keeping score. A line like «I was thinking of you» is enough. Apologising at length turns a warm message into a heavy one. Say you are glad to have thought of them, and leave the gap alone. Most replies are warmer than people expect."
+        },
+        {
+          "heading": "A specific, small invitation gets a better answer than a vague promise.",
+          "body": "«We should meet up sometime» is easy to agree to and easy to forget. «Coffee on Saturday morning near the station?» is easy to answer. Offer one time and one place, and say it is fine if it does not suit. A clear, light invitation gives them room to say yes."
+        },
+        {
+          "heading": "A call, a voice note or a text can each be the right choice.",
+          "body": "Choose the form that suits both of you. A text is easy to answer when time is short. A voice note carries warmth. A call is best for a friend who likes to talk. If you are unsure, start with a text and let the friend choose how to carry on."
+        }
+      ],
+      "takeaway": "No explanation is needed. Send a warm line with one clear, light invitation."
+    },
+    {
+      "number": 3,
+      "focus": "Turn good intentions into a regular plan",
+      "exercise_ids": [
+        "p3_plan"
+      ],
+      "intro": "A single meeting is pleasant. A regular one is what keeps a friendship going. This part looks at plans that repeat, so nobody has to organise from scratch each time. You will choose one friend and one simple rhythm, and write down what you will do.",
+      "ideas": [
+        {
+          "heading": "A regular slot saves both of you from arranging things each time.",
+          "body": "Plans that repeat need less effort. A walk on the first Sunday of the month or a call on Thursday evenings becomes part of life. Neither of you has to find a date. It is just there, and moving it is easy when needed."
+        },
+        {
+          "heading": "Meeting while doing something is easier than meeting to talk.",
+          "body": "A walk, a market, a film or cooking together gives you both something to do with your hands and eyes. Conversation then comes in its own time. It also removes the pressure to fill every minute. Many friendships suit an activity."
+        },
+        {
+          "heading": "A good plan lets either of you say no without offence.",
+          "body": "A good rhythm is light. If a month is too busy, skip it and say so. Cancelling kindly keeps a plan alive better than forcing it. Make it clear that the plan stands, and offer the next date. That way a missed meeting is just a gap."
+        }
+      ],
+      "takeaway": "Repeating plans take less effort. Choose an activity and a rhythm, and allow either of you to skip."
+    },
+    {
+      "number": 4,
+      "focus": "Repair a lapsed friendship and be a good guest",
+      "exercise_ids": [
+        "p4_repair"
+      ],
+      "intro": "Some friendships went quiet because of a clumsy moment or simple drift. Reaching back can feel awkward. This part covers a short way to reopen a friendship, and what makes a welcome guest once you are invited back. Both are small, ordinary skills.",
+      "ideas": [
+        {
+          "heading": "A short, warm acknowledgement does more than a long apology.",
+          "body": "If something went wrong, name it in a line: «I am sorry I went quiet.» Then say you would like to be back in touch. Do not ask them to respond to the past. Long explanations put the focus on you. A short one leaves room for them."
+        },
+        {
+          "heading": "Let the other person set the pace of the reply.",
+          "body": "They may answer within the hour or after a month. They may be warm or cautious. Either is a fair response to a gap. Reply kindly to whatever arrives, and do not chase. If nothing comes, you have still done something kind by reaching out."
+        },
+        {
+          "heading": "A good guest arrives on time, brings something small, and leaves at a sensible hour.",
+          "body": "Little things tell a host you value the invitation. Offer to bring a dish or a bottle. Ask what time suits. Thank them in person and again by message the next day. Then invite them back, even to something modest. Friendships balance when hosting goes both ways."
+        }
+      ],
+      "takeaway": "Keep a repair message short and warm, and let them reply in their own time. Be a good guest, then invite them back."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_friends",
+      "title": "List friends and last contact",
+      "purpose": "A short list of friends who matter and when you last spoke.",
+      "why": "Write the names of five to eight people you would like to stay in touch with. Beside each, note roughly when you last spoke. Do not worry about the order. Include only people you truly want to hear from.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write five to eight names."
+        },
+        {
+          "text": "Note when you last spoke to each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "friends",
+          "type": "two_column",
+          "label": "Which friends matter to you, and when did you last speak?",
+          "columns": [
+            "Friend",
+            "Last spoke"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "friends",
+          "plan_section": "friends"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the names of three friends."
+          }
+        ],
+        "field_ids": [
+          "friends"
+        ]
+      },
+      "done_when": "You have at least three names on the list."
+    },
+    {
+      "id": "p2_message",
+      "title": "Write one message to send",
+      "purpose": "One short message to a friend, with a light invitation.",
+      "why": "Pick one friend from your list. Write a message of two or three sentences. Say you were thinking of them, and suggest one time and place. Then send it, or keep it ready. If it is hard to start, write one sentence.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a friend from your list."
+        },
+        {
+          "text": "Write two or three sentences with one invitation."
+        }
+      ],
+      "fields": [
+        {
+          "id": "friend",
+          "type": "short_text",
+          "label": "Which friend will you write to first?"
+        },
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What will your message say?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "message",
+          "plan_section": "message"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line saying you were thinking of them."
+          }
+        ],
+        "field_ids": [
+          "message"
+        ]
+      },
+      "done_when": "You have a message written, whether or not it is sent."
+    },
+    {
+      "id": "p3_plan",
+      "title": "Set one regular plan",
+      "purpose": "A repeating plan with one friend, with an easy way to skip.",
+      "why": "Choose one friend and one rhythm, such as a monthly walk or a weekly call. Write what you will do and when. Add one line you could use to move it kindly. If nothing fits, write the friend's name only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a friend and a rhythm."
+        },
+        {
+          "text": "Write one line for moving the plan kindly."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan",
+          "type": "short_text",
+          "label": "What regular plan could you make with one friend?"
+        },
+        {
+          "id": "move",
+          "type": "short_text",
+          "label": "What will you say if the plan needs to move?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "plan",
+          "plan_section": "regular"
+        },
+        {
+          "field_id": "move",
+          "plan_section": "regular"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the friend and the rhythm."
+          }
+        ],
+        "field_ids": [
+          "plan"
+        ]
+      },
+      "done_when": "You have one repeating plan written down."
+    },
+    {
+      "id": "p4_repair",
+      "title": "Reopen one lapsed friendship",
+      "purpose": "A short message to someone you lost touch with.",
+      "why": "Think of one friend you lost touch with and still miss. Write a short, warm message with no long explanation. Keep it to a few sentences. If nobody comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one friend you lost touch with."
+        },
+        {
+          "text": "Write a short, warm message."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Who would you like to get back in touch with?"
+        },
+        {
+          "id": "msg",
+          "type": "long_text",
+          "label": "What will you say in a few sentences?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "msg",
+          "plan_section": "repair"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one warm line to them."
+          }
+        ],
+        "field_ids": [
+          "msg"
+        ]
+      },
+      "done_when": "You have a short message written for one person."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your message is saved and ready to send."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your friends, a message, a regular plan and a note to reopen one friendship."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "friends",
+      "title": "Friends who matter"
+    },
+    {
+      "id": "message",
+      "title": "A message to send"
+    },
+    {
+      "id": "regular",
+      "title": "A regular plan"
+    },
+    {
+      "id": "repair",
+      "title": "A friendship to reopen"
+    }
+  ],
+  "finish": {
+    "summary": "You listed the friends who matter and wrote a message to send. You also made a regular plan and a note to reopen a friendship.",
+    "book_bridge": "Friends Worth Calling is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which friend did you speak to this month?",
+      "Does your regular plan still suit you?"
+    ],
+    "refresher_ids": [
+      "p2_message",
+      "p3_plan"
+    ]
+  }
+}

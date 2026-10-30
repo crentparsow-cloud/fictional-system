@@ -1,0 +1,350 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-4EYKY",
+  "slug": "a-little-each-month-4eyky",
+  "title": "A Little Each Month",
+  "card_line": "Find an amount you can save each month and keep it going in a tight month.",
+  "book": {
+    "book_id": "a-little-each-month",
+    "title": "A Little Each Month",
+    "subtitle": "Building a Saving Habit"
+  },
+  "author": {
+    "author_id": "AU-JKGDQ",
+    "display_name": "Wanjiru Kamau-Otieno"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "finance",
+  "theme_id": "money-for-later",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about saving a little each month in a way you can keep up. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have an amount, a place, a purpose and a plan for tight months. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short saving plan you can read at the end."
+    ],
+    "why_prompt": "What would you like a little money put by to cover, one day?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find an amount you can set aside each month",
+      "exercise_ids": [
+        "p1_amount"
+      ],
+      "intro": "Saving works best when the amount suits your real life. Too large and it will not last. Too small and it feels pointless. This part asks you to look at an ordinary month and find a sum you could set aside without strain.",
+      "ideas": [
+        {
+          "heading": "A small amount you keep up beats a large amount you abandon.",
+          "body": "Many people start big, run short and stop altogether. A modest sum that you can manage in an ordinary month will still be there next year. You can always raise it later, once you know how it feels. Steady months build a surprisingly useful sum over time."
+        },
+        {
+          "heading": "Your last few months show what is realistic, not your best guess.",
+          "body": "Look back over your bank statements for the past two or three months. See what came in, what went out and what was left. That leftover, and the spending you could trim, tell you more than any plan made from hope."
+        },
+        {
+          "heading": "Putting the saving first is easier than saving what is left.",
+          "body": "If you wait to see what remains at the end of the month, there is often nothing. Set the amount aside as soon as your pay arrives. Then you live on the rest, and the choice is already made. Then spending is shaped by what is left, which is easier to live with."
+        }
+      ],
+      "takeaway": "Choose an amount you can manage in an ordinary month. Set it aside first, and raise it later if you can."
+    },
+    {
+      "number": 2,
+      "focus": "Choose a separate place that is easy to reach but hard to spend by accident",
+      "exercise_ids": [
+        "p2_place"
+      ],
+      "intro": "Money in your everyday account tends to get spent. A separate place keeps your savings apart and makes them easier to see. This part asks what kind of place would suit you, in general terms. Check the details of any account yourself before using it.",
+      "ideas": [
+        {
+          "heading": "Savings need a place apart from everyday spending.",
+          "body": "When savings sit with your daily money, small purchases eat into them without notice. A separate account or pot makes the sum visible. You can see it grow, and you can see when you are dipping into it. Seeing the balance on its own page also makes it feel like real money."
+        },
+        {
+          "heading": "Easy to reach and hard to spend is the balance to look for.",
+          "body": "You want to get at your savings in a real need. You do not want a card in your wallet that tempts you on a quiet afternoon. Choose a place that asks for one extra step, such as a transfer."
+        },
+        {
+          "heading": "Look at the terms before you choose, and ask if you are unsure.",
+          "body": "Accounts differ in what they pay, what they charge and how fast you can get your money. Read the terms for yourself, and ask the provider about anything unclear. Nobody else knows your situation as you do. Take your time over this. There is no prize for choosing quickly."
+        }
+      ],
+      "takeaway": "Keep savings apart from daily money, in a place you can reach but will not spend by accident. Read the terms first."
+    },
+    {
+      "number": 3,
+      "focus": "Set up a regular transfer and name what the money is for",
+      "exercise_ids": [
+        "p3_purpose"
+      ],
+      "intro": "A regular transfer turns an intention into something that happens on its own. A name for the money gives you a reason to leave it alone. This part asks you to pick a day for the transfer and say, in a line, what the saving is for.",
+      "ideas": [
+        {
+          "heading": "A regular transfer saves you from deciding each month.",
+          "body": "Once it is set up, the money moves without you thinking about it. You make the decision once, not twelve times a year. Choose a day shortly after your pay arrives, so the money is there to move. Fewer decisions also means fewer chances to talk yourself out of it."
+        },
+        {
+          "heading": "A named purpose makes it easier to leave the money alone.",
+          "body": "Saving for nothing in particular is hard to protect. Saving for a boiler repair, a new term's costs or a trip to see family is easier. Write the purpose in a line. You may want to name more than one."
+        },
+        {
+          "heading": "Look at the plan now and then, and change it if life changes.",
+          "body": "A new job, a new baby or a rent rise can shift what you can set aside. Look at your transfer when something big changes. Adjusting it on purpose is better than letting it quietly lapse. A quick review once or twice a year is usually enough."
+        }
+      ],
+      "takeaway": "Set up a regular transfer and give the money a name. Look at the amount again when your life changes."
+    },
+    {
+      "number": 4,
+      "focus": "Keep going in a tight month",
+      "exercise_ids": [
+        "p4_tight"
+      ],
+      "intro": "Some months are tighter than others. A repair bill, a short pay packet or an unexpected trip can leave little to spare. This part asks what you will do in such a month, so that one hard month does not end the whole plan.",
+      "ideas": [
+        {
+          "heading": "A tight month is part of saving, not the end of it.",
+          "body": "Everyone has months when money runs short. Expecting them lets you plan for them. If you have a clear idea beforehand, you are less likely to give up the moment one arrives. Planning ahead for a hard month is a sign of care, not of doubt. Write down what you will do, and keep it where you can find it."
+        },
+        {
+          "heading": "A smaller transfer keeps the saving going when a full one cannot.",
+          "body": "In a tight month you can set aside a smaller sum instead of nothing. Keeping a little going keeps the saving in place. When money loosens, you return to your usual amount. Even a very small sum keeps the account active and the routine alive. Nobody has to know how small it was, and it still counts."
+        },
+        {
+          "heading": "If you pause, write down when you will restart.",
+          "body": "Sometimes nothing can be spared, and that is understandable. Note the month you plan to start again. A written restart date is much more likely to happen than a vague wish to get back to it. A date gives you something to meet, and it takes the worry out of stopping. Put it in your diary."
+        }
+      ],
+      "takeaway": "Tight months come to everyone. Decide in advance what you will do, and write down when you will return to your usual amount."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_amount",
+      "title": "Find your realistic amount",
+      "purpose": "An amount you could set aside in an ordinary month.",
+      "why": "Look at your last two or three months of spending. Work out what is left and what you could trim. Then write the amount you could set aside in an ordinary month. If you are unsure, pick a small sum.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look back at recent months."
+        },
+        {
+          "text": "Write an amount you could manage."
+        }
+      ],
+      "fields": [
+        {
+          "id": "amount",
+          "type": "short_text",
+          "label": "What amount could you set aside each month in an ordinary month?"
+        },
+        {
+          "id": "trim",
+          "type": "short_text",
+          "label": "Which spending could you trim to find it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "amount",
+          "plan_section": "amount"
+        },
+        {
+          "field_id": "trim",
+          "plan_section": "amount"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write an amount you could set aside."
+          }
+        ],
+        "field_ids": [
+          "amount"
+        ]
+      },
+      "done_when": "You have an amount written down."
+    },
+    {
+      "id": "p2_place",
+      "title": "Choose a separate place",
+      "purpose": "A place for your savings, apart from everyday spending.",
+      "why": "Think about where your savings could sit apart from your daily money. It might be an account, a pot or an envelope. Write what you would choose and what makes it easy to reach but hard to spend.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of where savings could sit."
+        },
+        {
+          "text": "Write what you will use."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where will your savings sit, apart from everyday spending?"
+        },
+        {
+          "id": "reach",
+          "type": "short_text",
+          "label": "What makes it easy to reach but hard to spend by accident?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "place",
+          "plan_section": "place"
+        },
+        {
+          "field_id": "reach",
+          "plan_section": "place"
+        }
+      ],
+      "done_when": "A place is chosen and described."
+    },
+    {
+      "id": "p3_purpose",
+      "title": "Name it and set a day",
+      "purpose": "A purpose for the money and a day each month for the transfer.",
+      "why": "Decide what this saving is for. Then choose a day shortly after your pay arrives for the transfer to leave your account. Write both down. You can change either later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name what the money is for."
+        },
+        {
+          "text": "Pick a day for the transfer."
+        }
+      ],
+      "fields": [
+        {
+          "id": "purpose",
+          "type": "short_text",
+          "label": "What is this money for?"
+        },
+        {
+          "id": "day",
+          "type": "short_text",
+          "label": "On which day of the month will the transfer leave your account?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "purpose",
+          "plan_section": "purpose"
+        },
+        {
+          "field_id": "day",
+          "plan_section": "purpose"
+        }
+      ],
+      "done_when": "The purpose and the day are written down."
+    },
+    {
+      "id": "p4_tight",
+      "title": "Plan for a tight month",
+      "purpose": "A smaller amount to keep going and a restart date if you pause.",
+      "why": "Think of the last time money ran short. Decide the smallest amount you would still set aside in such a month. Write what you will do if you pause, including when you will start again.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name the smallest amount you would keep going."
+        },
+        {
+          "text": "Write what you will do if you pause."
+        }
+      ],
+      "fields": [
+        {
+          "id": "smallest",
+          "type": "short_text",
+          "label": "What is the smallest amount you would keep setting aside in a tight month?"
+        },
+        {
+          "id": "pause",
+          "type": "short_text",
+          "label": "If you pause, when will you start again?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "smallest",
+          "plan_section": "tight"
+        },
+        {
+          "field_id": "pause",
+          "plan_section": "tight"
+        }
+      ],
+      "done_when": "A smallest amount and a restart plan are written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "amount",
+      "title": "Your amount"
+    },
+    {
+      "id": "place",
+      "title": "Where your savings sit"
+    },
+    {
+      "id": "purpose",
+      "title": "What it is for"
+    },
+    {
+      "id": "tight",
+      "title": "A tight month"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short saving plan in your own words. It holds your amount, your place, your purpose and what you will do in a tight month.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did the transfer leave your account this month, and was the amount right?",
+      "What are you saving for now, and has it changed?",
+      "How did you handle the tightest part of this month?"
+    ],
+    "refresher_ids": [
+      "p2_place",
+      "p4_tight"
+    ]
+  }
+}

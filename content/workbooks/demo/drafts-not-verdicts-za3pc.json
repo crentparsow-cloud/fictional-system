@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-ZA3PC",
+  "slug": "drafts-not-verdicts-za3pc",
+  "title": "Drafts, Not Verdicts",
+  "card_line": "Write down what happened as plain facts and ask what a fair friend would say.",
+  "book": {
+    "book_id": "drafts-not-verdicts",
+    "title": "Drafts, Not Verdicts",
+    "subtitle": "Looking Fairly at Your Own Mistakes"
+  },
+  "author": {
+    "author_id": "AU-7WKXG",
+    "display_name": "Nadia Farouk-Hassan"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "seeing-yourself-fairly",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about looking at your own mistakes as drafts, not verdicts. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plain account of one mistake, a fair friend's view and one small repair. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What did you last call yourself after a mistake? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Write down what happened as plain facts",
+      "exercise_ids": [
+        "p1_facts"
+      ],
+      "intro": "After a mistake, most of us replay it and add a judgement. The replay is vague and the judgement is loud. Plain facts are quieter and easier to use. This part shows you how to write a mistake as a short account that leaves the verdict out.",
+      "ideas": [
+        {
+          "heading": "The words you use after a mistake shape how big it feels.",
+          "body": "Words such as stupid, hopeless or typical sit on top of the event and make it look larger. Notice the ones you reach for. You do not need to stop them. Writing them down is enough to see how much of the story is judgement and how much is event."
+        },
+        {
+          "heading": "A plain account has times, actions and results, and no adjectives about you.",
+          "body": "Write it as a note for a colleague who was not there. \"The old file went out at ten past nine. The client replied at eleven.\" Nothing in that note says what kind of person you are. It says what happened."
+        },
+        {
+          "heading": "Leaving out the verdict is not the same as letting yourself off.",
+          "body": "Plain facts keep the mistake fully visible. You can still see your part in it. What drops away is the extra sentence about your worth, which was never evidence of anything. A draft can be marked up and rewritten. A verdict only closes the case."
+        }
+      ],
+      "takeaway": "A mistake written as plain facts is smaller and easier to use than one wrapped in a verdict."
+    },
+    {
+      "number": 2,
+      "focus": "Ask what a fair friend would say and check your standards",
+      "exercise_ids": [
+        "p2_friend"
+      ],
+      "intro": "A friend who is fair does not excuse everything and does not condemn everything. They say what they see. This part asks you to borrow that view for your own day. You will also look at the standards you hold yourself to, and which of them point anywhere useful.",
+      "ideas": [
+        {
+          "heading": "A fair friend sees the whole day, not just the worst hour.",
+          "body": "Picture someone who knows you and wishes you well. They would remember the rest of your day, what you were carrying and what went right. They would not hide the mistake. They would put it in proportion. Write down what they would say, in their words."
+        },
+        {
+          "heading": "High standards serve you when they point to the next step.",
+          "body": "A good standard tells you what to do next time, such as checking the file twice before sending. It is specific and you can act on it. It leaves you able to carry on. Ask of any standard whether it points forwards."
+        },
+        {
+          "heading": "A standard that only punishes asks for more and gives nothing back.",
+          "body": "Some standards are never met. Whatever you do, the bar moves, and all you get is the sore feeling afterwards. If a standard tells you nothing about what to do differently, it is a punishment, not a standard. You may keep the aim and drop the punishment."
+        }
+      ],
+      "takeaway": "A fair friend puts a mistake in proportion. A good standard points to the next step, and a harsh one only punishes."
+    },
+    {
+      "number": 3,
+      "focus": "Count what went well and make one repair",
+      "exercise_ids": [
+        "p3_repair"
+      ],
+      "intro": "Mistakes take up attention, and what went well slips past. This part asks for an honest list of both. Then you choose one repair for a real mistake, make it, and let the matter rest. Honest means neither glowing nor gloomy.",
+      "ideas": [
+        {
+          "heading": "An honest list of the week includes what went well.",
+          "body": "Memory keeps the sharp moments and loses the quiet good ones. Write down what went well this week, however small. A meeting that ran on time counts. So does a message answered. The list is not a boast. It makes the record accurate."
+        },
+        {
+          "heading": "A good repair is small, specific and within your power.",
+          "body": "A repair is something you can do: send the corrected file, say sorry once, change one step in how you work. It does not mean paying for the mistake with weeks of worry. Pick the one action that puts right or acknowledges what happened."
+        },
+        {
+          "heading": "Once the repair is made, the matter can rest.",
+          "body": "Going back over a mistake that is already repaired adds nothing. When you notice yourself replaying it, remind yourself the repair is done. You can learn from it later if something new comes up. For now, the matter is closed, and your attention can move on."
+        }
+      ],
+      "takeaway": "Keep an honest list of what went well. Make one small repair, then let the mistake rest."
+    },
+    {
+      "number": 4,
+      "focus": "Hear praise and feedback and carry a fairer view forward",
+      "exercise_ids": [
+        "p4_carry"
+      ],
+      "intro": "Fair looking goes both ways. Some people take every criticism hard and wave praise away. This last part asks you to listen to both at their true size. Then you write a short note on how you want to look at your own days in busy weeks.",
+      "ideas": [
+        {
+          "heading": "Praise deserves the same fair hearing as criticism.",
+          "body": "If you wave off a thank-you, you are throwing away evidence. Try saying \"Thank you\" and nothing more. Then note what it was for. Praise is information about what others found useful. You do not need to agree it was perfect to accept it was real."
+        },
+        {
+          "heading": "Feedback is a draft note, not a ruling on you.",
+          "body": "Most feedback is about one piece of work on one day. Take the part you can use and set the rest aside. Ask what, specifically, would change. A fair reading keeps the useful detail and does not turn it into a comment on who you are."
+        },
+        {
+          "heading": "A fairer view needs a few words you can find in a busy week.",
+          "body": "Pressure shortens thinking, so keep your fairer view short: facts first, then what a fair friend would say, then one repair. Write it as three lines you can read in half a minute. It will be there when the week fills up."
+        }
+      ],
+      "takeaway": "Hear praise and feedback at their true size. A three-line fair view is enough for a busy week."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_facts",
+      "title": "Write one mistake as facts",
+      "purpose": "A short, plain account of one recent mistake, with the judgement set to one side.",
+      "why": "Choose a small mistake from recent weeks. Write what happened in two or three plain sentences, as if for a colleague who was not there. Then write, apart from it, the words you used about yourself. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what happened in plain sentences."
+        },
+        {
+          "text": "Write your verdict words separately."
+        }
+      ],
+      "fields": [
+        {
+          "id": "account",
+          "type": "long_text",
+          "label": "What happened, as plain facts?"
+        },
+        {
+          "id": "words",
+          "type": "short_text",
+          "label": "What words did you use about yourself afterwards?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "account",
+          "plan_section": "facts"
+        },
+        {
+          "field_id": "words",
+          "plan_section": "facts"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the facts in one sentence."
+          }
+        ],
+        "field_ids": [
+          "account"
+        ]
+      },
+      "done_when": "You have the facts and the verdict words in separate places."
+    },
+    {
+      "id": "p2_friend",
+      "title": "What a fair friend would say",
+      "purpose": "A few lines in a fair friend's voice about the mistake from Part 1.",
+      "why": "Return to the mistake from Part 1. Imagine a fair friend who knows the whole day. Write what they would say to you in two or three sentences. Then name one standard you hold that points to a next step. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what a fair friend would say."
+        },
+        {
+          "text": "Name one standard that points forwards."
+        }
+      ],
+      "fields": [
+        {
+          "id": "friend_says",
+          "type": "long_text",
+          "label": "What would a fair friend say about that day?"
+        },
+        {
+          "id": "standard",
+          "type": "short_text",
+          "label": "Which of your standards points to a next step?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "friend_says",
+          "plan_section": "friend"
+        },
+        {
+          "field_id": "standard",
+          "plan_section": "friend"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence a fair friend would say."
+          }
+        ],
+        "field_ids": [
+          "friend_says"
+        ]
+      },
+      "done_when": "You have the friend's words and one useful standard."
+    },
+    {
+      "id": "p3_repair",
+      "title": "List what went well, then repair",
+      "purpose": "A short honest list for the week and one repair you can make.",
+      "why": "Write three things that went reasonably well this week. Then think of one real mistake that can be put right in a small way. Name the repair and when you could do it. If nothing needs repairing, write that instead.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List what went reasonably well."
+        },
+        {
+          "text": "Name one small repair and when."
+        }
+      ],
+      "fields": [
+        {
+          "id": "went_well",
+          "type": "long_text",
+          "label": "What went reasonably well this week?"
+        },
+        {
+          "id": "repair",
+          "type": "short_text",
+          "label": "What is one small repair, and when could you make it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "went_well",
+          "plan_section": "repair"
+        },
+        {
+          "field_id": "repair",
+          "plan_section": "repair"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that went reasonably well."
+          }
+        ],
+        "field_ids": [
+          "went_well"
+        ]
+      },
+      "done_when": "You have a list and one repair named."
+    },
+    {
+      "id": "p4_carry",
+      "title": "Write your three-line fair view",
+      "purpose": "Three short lines you can use after a mistake in a busy week.",
+      "why": "Write a short note you can read in half a minute: the facts first, then what a fair friend would say, then one repair. Use words from your earlier answers. Also note one piece of praise or feedback you will hear at its true size.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your three lines."
+        },
+        {
+          "text": "Note one piece of praise or feedback."
+        }
+      ],
+      "fields": [
+        {
+          "id": "three_lines",
+          "type": "long_text",
+          "label": "What are your three lines for a busy week?"
+        },
+        {
+          "id": "heard",
+          "type": "short_text",
+          "label": "What praise or feedback will you hear at its true size?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "three_lines",
+          "plan_section": "carry"
+        },
+        {
+          "field_id": "heard",
+          "plan_section": "carry"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the facts line only."
+          }
+        ],
+        "field_ids": [
+          "three_lines"
+        ]
+      },
+      "done_when": "You have three lines you could read in half a minute."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. A fair friend's view is saved beside your plain facts."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your facts, your repair and your three-line view."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "facts",
+      "title": "A mistake as facts"
+    },
+    {
+      "id": "friend",
+      "title": "A fair friend's view"
+    },
+    {
+      "id": "repair",
+      "title": "What went well and one repair"
+    },
+    {
+      "id": "carry",
+      "title": "Your three-line fair view"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds a mistake as plain facts, a fair friend's view, one repair and your three-line view.",
+    "book_bridge": "Drafts, Not Verdicts is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which mistake this month could you write as plain facts?",
+      "What would a fair friend say about it?",
+      "Is your three-line view still the right one?"
+    ],
+    "refresher_ids": [
+      "p1_facts",
+      "p4_carry"
+    ]
+  }
+}

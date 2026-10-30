@@ -1,0 +1,376 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-TWVHM",
+  "slug": "coffee-not-fireworks-twvhm",
+  "title": "Coffee, Not Fireworks",
+  "card_line": "Decide what you want from dating, and meet someone for coffee at your own pace.",
+  "book": {
+    "book_id": "coffee-not-fireworks",
+    "title": "Coffee, Not Fireworks",
+    "subtitle": "Dating Again at Your Own Pace"
+  },
+  "author": {
+    "author_id": "AU-1F1Q2",
+    "display_name": "Isla MacPhail-Osei"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "relationships",
+  "theme_id": "new-chapters",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about dating again at your own pace. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have written what you want, a safety plan, a short introduction and a way to end a coffee politely. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would make dating feel worth trying again for you? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Work out what you want from dating now",
+      "exercise_ids": [
+        "p1_want"
+      ],
+      "intro": "Before you meet anyone, it is useful to know what you are looking for. People want different things after time on their own, and all of them are fine. This part asks you to write down what you would like and what you would rather avoid. Take it slowly.",
+      "ideas": [
+        {
+          "heading": "What you want from dating now may differ from what you wanted before.",
+          "body": "Time passes and wants change. You may once have wanted a serious relationship quickly. Now you might want company, a friend to go for walks with, or a chance to see how it feels. Any of these is a fair answer. Write the one that is true for you today."
+        },
+        {
+          "heading": "Knowing what you would rather avoid saves time and awkwardness.",
+          "body": "A short list of things you do not want is as useful as one of things you do. It might include long messaging before meeting, pressure to move fast, or someone who lives far away. Spotting these early lets you say so kindly and move on without fuss."
+        },
+        {
+          "heading": "A modest first meeting is easier to enjoy than a grand one.",
+          "body": "Fireworks are exciting in a film. In real life, a big evening out can feel heavy before it starts. A coffee is short, public and cheap. If it goes well, you can arrange another. If it does not, you have lost an hour. That keeps the stakes low enough to be curious."
+        }
+      ],
+      "takeaway": "Know what you want and what you would rather avoid. A small first meeting keeps the pressure low."
+    },
+    {
+      "number": 2,
+      "focus": "Plan how you will stay safe when meeting someone",
+      "exercise_ids": [
+        "p2_safety"
+      ],
+      "intro": "Meeting someone new is easier when the practical side is settled. This part covers three ordinary precautions: choosing a public place, telling a friend, and arranging your own way home. You write your plan once and use it each time you meet someone.",
+      "ideas": [
+        {
+          "heading": "A busy public place is the right setting for a first meeting.",
+          "body": "Choose somewhere you know, with other people around and staff nearby. A cafe in daylight suits well. Suggest it yourself rather than accepting a place you have never been. A person who is happy with a public place is showing you something good."
+        },
+        {
+          "heading": "Tell a friend where you are going and when you expect to be home.",
+          "body": "Send a friend the name of the place, the time, and your plan to message them afterwards. Nobody expects you to share every detail of the person. This is an ordinary precaution, and most friends are glad to be asked. If you have no friend nearby, a relative or neighbour will do."
+        },
+        {
+          "heading": "Your own way home is part of the plan, not an afterthought.",
+          "body": "Travel to and from the meeting under your own steam. Know the last bus or train, or have your car or a taxi sorted. Do not accept a lift from someone you have just met. Leaving when you choose is much easier when your route is already yours."
+        }
+      ],
+      "takeaway": "Pick a public place, tell a friend, and keep your own way home. Three small steps, written down once."
+    },
+    {
+      "number": 3,
+      "focus": "Write a short, honest introduction about yourself",
+      "exercise_ids": [
+        "p3_intro"
+      ],
+      "intro": "A profile or first message does not need to impress anyone. It needs to be true and easy to read. This part asks you for a few plain sentences about who you are and what you enjoy. You can use them on a site, in a message, or just for yourself.",
+      "ideas": [
+        {
+          "heading": "Three or four plain sentences say more than a long list.",
+          "body": "Say who you are, what you enjoy, and what you are looking for. That is nearly all anyone needs. A long paragraph of interests tends to blur together. A few clear lines are easy to read and easy to answer. Short is kind to the reader and to you."
+        },
+        {
+          "heading": "Specific details are more inviting than general claims.",
+          "body": "Saying you love travel gives the reader little to ask about. Saying you walk the same hill every Sunday gives them something to say. Pick one or two concrete things from your week. They make it easy for someone to reply with a real question."
+        },
+        {
+          "heading": "Being honest about what you want saves both of you time.",
+          "body": "If you want something slow and friendly, say so in a sentence. The right people will read that as welcome. You are not trying to suit everyone. You are trying to be clear, so that the person who replies already knows what you mean."
+        }
+      ],
+      "takeaway": "A few plain, specific, honest sentences are enough. Say who you are and what pace you want."
+    },
+    {
+      "number": 4,
+      "focus": "Meet for coffee, leave kindly and set your own pace",
+      "exercise_ids": [
+        "p4_coffee"
+      ],
+      "intro": "A first coffee is a short, easy meeting. This part covers how to arrange one, how to end it politely, and how to notice how you feel afterwards. It also asks you to decide the pace you want, including when to pause for a while.",
+      "ideas": [
+        {
+          "heading": "Fix an end time before you arrive and the meeting is easier.",
+          "body": "Say when you arrange it. For example, «I have about an hour.» That gives both of you an easy exit. You will not need to invent one later. If it is going well, you can always stay longer. If it is not, an hour is a fair time to have given."
+        },
+        {
+          "heading": "A kind sentence ends a meeting politely, whether or not you want another.",
+          "body": "Try «It was good to meet you, and I need to head off now.» If you would like to meet again, add that. If not, «Thank you for the coffee, I do not think we are a match» is honest and short. You owe a courteous word, not a long explanation."
+        },
+        {
+          "heading": "How you feel afterwards tells you more than how it looked on paper.",
+          "body": "Afterwards, notice whether you felt at ease, bored, tired or glad. All are useful. Feeling flat after a pleasant evening is information too. Pause for a week or a month between meetings whenever you want. Your pace is yours to set, and you can stop for a while without explaining."
+        }
+      ],
+      "takeaway": "Fix an end time, say a kind goodbye, and notice how you feel afterwards. Your pace is yours."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_want",
+      "title": "Write what you want from dating",
+      "purpose": "A short list of what you would like and what you would rather avoid.",
+      "why": "Think about what dating would need to look like for you to enjoy it. Write what you would like in one column and what you would rather avoid in the other. Two or three lines each is plenty. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List what you would like from dating now."
+        },
+        {
+          "text": "List what you would rather avoid."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wants",
+          "type": "two_column",
+          "label": "What would you like from dating, and what would you rather avoid?",
+          "columns": [
+            "Would like",
+            "Would rather avoid"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "wants",
+          "plan_section": "want"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you want and one you do not."
+          }
+        ],
+        "field_ids": [
+          "wants"
+        ]
+      },
+      "done_when": "You have at least one line in each column."
+    },
+    {
+      "id": "p2_safety",
+      "title": "Set up your safety plan",
+      "purpose": "A short safety plan for meeting someone new.",
+      "why": "Select the steps you would use for a first meeting, and name the friend you would tell. If no friend comes to mind, write a relative or neighbour, or write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Select the steps you would use."
+        },
+        {
+          "text": "Name who you would tell."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "checklist",
+          "label": "Which safety steps will you use for a first meeting?",
+          "options": [
+            "A public place in daylight",
+            "A friend who knows where and when",
+            "My own way there and back",
+            "A time I will leave by"
+          ]
+        },
+        {
+          "id": "friend",
+          "type": "short_text",
+          "label": "Who will you tell?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "safety"
+        },
+        {
+          "field_id": "friend",
+          "plan_section": "safety"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one friend you would tell."
+          }
+        ],
+        "field_ids": [
+          "friend"
+        ]
+      },
+      "done_when": "You have chosen your steps and named someone to tell."
+    },
+    {
+      "id": "p3_intro",
+      "title": "Write your introduction",
+      "purpose": "Three or four plain sentences about you that you could share.",
+      "why": "Write a few sentences as you would say them to a friendly stranger. Include one concrete detail from your week and one line about the pace you want. Nobody else needs to see it. If words will not come, write one sentence.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write who you are and what you enjoy."
+        },
+        {
+          "text": "Add one line about the pace you want."
+        }
+      ],
+      "fields": [
+        {
+          "id": "intro",
+          "type": "long_text",
+          "label": "How would you introduce yourself in three or four sentences?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "intro",
+          "plan_section": "intro"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence about what you enjoy."
+          }
+        ],
+        "field_ids": [
+          "intro"
+        ]
+      },
+      "done_when": "You have a few sentences that sound like you."
+    },
+    {
+      "id": "p4_coffee",
+      "title": "Plan your first coffee",
+      "purpose": "A polite closing line and a pace you are comfortable with.",
+      "why": "Write the sentence you would use to end a first coffee. Then say what pace you want for the next few weeks, including any pause. If you are not meeting anyone yet, write what you would like to be true.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your closing sentence."
+        },
+        {
+          "text": "Describe the pace you want."
+        }
+      ],
+      "fields": [
+        {
+          "id": "closing",
+          "type": "short_text",
+          "label": "What will you say to end a first coffee politely?"
+        },
+        {
+          "id": "pace",
+          "type": "short_text",
+          "label": "What pace would suit you over the next few weeks?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "closing",
+          "plan_section": "coffee"
+        },
+        {
+          "field_id": "pace",
+          "plan_section": "coffee"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence to end a coffee kindly."
+          }
+        ],
+        "field_ids": [
+          "closing"
+        ]
+      },
+      "done_when": "You have a closing sentence and a pace in your own words."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your safety plan is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you want, your safety steps, your introduction and your closing line."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "want",
+      "title": "What you want from dating"
+    },
+    {
+      "id": "safety",
+      "title": "Your safety plan"
+    },
+    {
+      "id": "intro",
+      "title": "Your introduction"
+    },
+    {
+      "id": "coffee",
+      "title": "Your first coffee"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote what you want from dating, a safety plan, a short introduction and a way to end a coffee. They sit together in your plan.",
+    "book_bridge": "Coffee, Not Fireworks is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Is what you want from dating still the same?",
+      "Which safety steps did you use this month?"
+    ],
+    "refresher_ids": [
+      "p2_safety",
+      "p4_coffee"
+    ]
+  }
+}

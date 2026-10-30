@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-KMWTQ",
+  "slug": "homework-without-the-war-kmwtq",
+  "title": "Homework Without the War",
+  "card_line": "Set a time, a place and a short check-in for homework evenings.",
+  "book": {
+    "book_id": "homework-without-the-war",
+    "title": "Homework Without the War",
+    "subtitle": "Calmer Evenings for School Families"
+  },
+  "author": {
+    "author_id": "AU-0KY5N",
+    "display_name": "Ligaya Abellera-Cruz"
+  },
+  "genre": "parenting",
+  "theme_id": "raising-with-care",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about homework evenings in a school family. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a set time, a place and a short check-in worked out with your child. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the hardest moment of a homework evening at your house? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family evenings. If tension at home ever puts anyone at risk, please set it aside for now. Safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Look at how homework evenings go now without blaming anyone",
+      "exercise_ids": [
+        "p1_evening"
+      ],
+      "intro": "Before changing anything, it helps to see what actually happens. Homework evenings often run on tiredness, with everyone doing their best. This part asks you to watch one or two evenings and note where things tip, for you and for your child.",
+      "ideas": [
+        {
+          "heading": "Most homework rows begin before the homework does.",
+          "body": "The tension often starts at the school gate or with the first question about the day. Children arrive tired and hungry, and adults arrive with a list. By the time a book is opened, both sides are braced. Noticing where the evening turns tells you more than arguing about the work itself."
+        },
+        {
+          "heading": "Your child's version of the evening is worth hearing.",
+          "body": "Ask once, when nothing else is going on, what the hardest part is. The answer may surprise you. It might be noise, a task they do not understand, or being watched. You do not have to agree. Listening shows them you are on their side of the table."
+        },
+        {
+          "heading": "Watching without fixing for a couple of evenings gives you real information.",
+          "body": "It is hard to keep quiet, but a note or two is more useful than a guess. Write down when they start, where they sit and when things tip. Keep it neutral and short. Then you are working from what happens, not from how you remember it feeling."
+        }
+      ],
+      "takeaway": "Homework rows often start before the books come out. Watch first, listen to your child, and change things afterwards."
+    },
+    {
+      "number": 2,
+      "focus": "Choose a set time and a set place",
+      "exercise_ids": [
+        "p2_plan"
+      ],
+      "intro": "Homework is easier to start when everyone knows when and where it happens. A set time and a set spot remove one argument before it begins. This part asks you to agree both with your child, so the plan belongs to them as well as to you.",
+      "ideas": [
+        {
+          "heading": "A break after school comes before homework, not instead of it.",
+          "body": "Children need time to eat, move about and talk before they sit down again. Thirty minutes is often enough, and an hour suits some families better. Agree the length together. A break that is fixed in advance is less of a negotiation than one argued over at four o'clock."
+        },
+        {
+          "heading": "The place matters less than using the same place each evening.",
+          "body": "A kitchen table, a bedroom desk or a corner of the living room can all work. What counts is that it is agreed, reasonably quiet and has what your child needs close by. Phones can stay in another room for the duration. Let your child choose from the options you can both live with."
+        },
+        {
+          "heading": "Giving your child a say makes the plan easier to keep.",
+          "body": "A plan handed down tends to be argued with. Offer two or three workable times and let your child pick. Ask what would make the place better. They are more likely to follow a rule they helped to write. Put the result on paper where you both see it."
+        }
+      ],
+      "takeaway": "A set time and a set place remove an argument before it starts. Agree both with your child, and write them down."
+    },
+    {
+      "number": 3,
+      "focus": "Add a short check-in at the start and the end",
+      "exercise_ids": [
+        "p3_checkin"
+      ],
+      "intro": "A short check-in gives homework a clear beginning and end, and it keeps you close without hovering. Five minutes is enough. This part asks you to try one question before your child begins and one when they finish, and to keep your own part small.",
+      "ideas": [
+        {
+          "heading": "A five-minute check at the start settles what the evening holds.",
+          "body": "Ask what homework there is, how long it might take and whether anything is unclear. Your child can answer in a line. It saves the surprise at nine o'clock of a project nobody mentioned. It also lets them tell you whether they need you or would rather work alone."
+        },
+        {
+          "heading": "Being nearby is usually better than sitting over their shoulder.",
+          "body": "Many children work best with a parent in the next room, ready if asked. Sitting alongside and correcting every line can turn the work into a performance. Offer to look at the first question together if they are stuck, then step back. Say where you will be."
+        },
+        {
+          "heading": "A closing question ends the evening on something other than the work.",
+          "body": "When homework is done, ask one question: what went well, or what was hard. Then stop. Do not go back over mistakes. Mistakes are for the teacher and the next lesson. The close is about the two of you, a short chat before the rest of the evening takes over."
+        }
+      ],
+      "takeaway": "Five minutes at the start and one question at the end give the evening a shape. Stay near, and let your child do the work."
+    },
+    {
+      "number": 4,
+      "focus": "Work with the teacher and hand over responsibility step by step",
+      "exercise_ids": [
+        "p4_handover"
+      ],
+      "intro": "Homework belongs to your child, and the aim is for them to own it. Teachers are partners in that. This part looks at raising a concern with school in a level-headed way. It also looks at one job you can hand over now, so your child carries a little more each term.",
+      "ideas": [
+        {
+          "heading": "A short note to the teacher is better than weeks of evening worry.",
+          "body": "If homework regularly takes far longer than expected, or your child is stuck, tell the teacher. Keep it factual: how long it took and what was unclear. Teachers can often adjust the task or explain it differently. They would rather hear early than find out at the end of term."
+        },
+        {
+          "heading": "Handing over one job at a time works better than handing over everything.",
+          "body": "Choose one thing your child can own, such as packing the bag, writing down the tasks or starting without a reminder. Say so plainly, and then hold back. They may forget once or twice. That is how a job moves from you to them. Add another later."
+        },
+        {
+          "heading": "Responsibility grows when the consequences belong to the child.",
+          "body": "If a piece of work is handed in late or untidy, the result is theirs to deal with. Stepping in to rescue it teaches them that you always will. Be available to talk about it afterwards. Over time, your child learns to plan because the plan is theirs."
+        }
+      ],
+      "takeaway": "Tell the teacher early, and hand over one job at a time. Homework becomes your child's when the consequences are theirs too."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_evening",
+      "title": "Note how an evening goes",
+      "purpose": "A short record of one homework evening and what your child says is hardest.",
+      "why": "Over the next evening or two, watch how homework goes and jot down the start time, the place and the moment things tip. Then, at a quiet time, ask your child what is hardest. Write their answer in their words. If you cannot ask yet, leave that part for later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Jot down the time, the place and where things tip."
+        },
+        {
+          "text": "Ask your child what is hardest."
+        }
+      ],
+      "fields": [
+        {
+          "id": "evening",
+          "type": "long_text",
+          "label": "What happened during homework, and where did it tip?"
+        },
+        {
+          "id": "hardest",
+          "type": "short_text",
+          "label": "What does your child say is the hardest part?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "evening",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "hardest",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on where the evening tips."
+          }
+        ],
+        "field_ids": [
+          "evening"
+        ]
+      },
+      "done_when": "You have noted one evening, your child's answer, or both."
+    },
+    {
+      "id": "p2_plan",
+      "title": "Agree a time and a place",
+      "purpose": "A time and place for homework that you and your child have both chosen.",
+      "why": "Offer your child two or three possible times and places. Let them choose and say what would suit them. Write the result in one line and put it where you both see it. If your child is not ready to talk, try again another evening.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Offer two or three options."
+        },
+        {
+          "text": "Write the chosen time and place down."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "What time and place did you agree for homework?"
+        },
+        {
+          "id": "asked",
+          "type": "short_text",
+          "label": "What did your child ask for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "setup"
+        },
+        {
+          "field_id": "asked",
+          "plan_section": "setup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the time and place in one line."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a time and a place written down."
+    },
+    {
+      "id": "p3_checkin",
+      "title": "Try a short check-in",
+      "purpose": "Two check-in questions you tried and a note of how they went.",
+      "why": "Choose one question for the start and one for the end of homework. Try them for a few evenings. Keep your part to a minute or two. Then write what you asked and how your child responded. If an evening is too rushed, leave it out.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a start question and an end question."
+        },
+        {
+          "text": "Try them and note the response."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "short_text",
+          "label": "Which two questions will you ask?"
+        },
+        {
+          "id": "response",
+          "type": "long_text",
+          "label": "How did your child respond?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "tried"
+        },
+        {
+          "field_id": "response",
+          "plan_section": "tried"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the two questions."
+          }
+        ],
+        "field_ids": [
+          "questions"
+        ]
+      },
+      "done_when": "You have two questions and a note on one try."
+    },
+    {
+      "id": "p4_handover",
+      "title": "Choose one job to hand over",
+      "purpose": "One job your child will own and one point to raise with school.",
+      "why": "Pick one homework job your child could take on, such as packing the bag. Say it to them plainly. Then note anything worth telling the teacher, even if it is small. If nothing needs raising, write that instead.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one job to hand over."
+        },
+        {
+          "text": "Note one thing to tell the teacher, if any."
+        }
+      ],
+      "fields": [
+        {
+          "id": "job",
+          "type": "short_text",
+          "label": "Which homework job will your child take on?"
+        },
+        {
+          "id": "teacher",
+          "type": "short_text",
+          "label": "What, if anything, will you tell the teacher?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "job",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "teacher",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the job you will hand over."
+          }
+        ],
+        "field_ids": [
+          "job"
+        ]
+      },
+      "done_when": "One job is chosen and the teacher point is written, or marked none."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your time and place are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your evening set-up and the job you are handing over."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "How evenings go now"
+    },
+    {
+      "id": "setup",
+      "title": "Time and place"
+    },
+    {
+      "id": "tried",
+      "title": "Your check-in"
+    },
+    {
+      "id": "next",
+      "title": "Handing over"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds how evenings go now, your time and place, your check-in and the job you are handing over.",
+    "book_bridge": "Homework Without the War is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What is the hardest moment of homework this month?",
+      "Is the time and place still working for you both?",
+      "Which job could your child take on next?"
+    ],
+    "refresher_ids": [
+      "p2_plan",
+      "p4_handover"
+    ]
+  }
+}

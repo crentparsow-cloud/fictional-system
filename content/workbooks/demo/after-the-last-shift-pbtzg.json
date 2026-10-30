@@ -1,0 +1,387 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-PBTZG",
+  "slug": "after-the-last-shift-pbtzg",
+  "title": "After the Last Shift",
+  "card_line": "Shape a weekly pattern for the first year after full-time work.",
+  "book": {
+    "book_id": "after-the-last-shift",
+    "title": "After the Last Shift",
+    "subtitle": "Shaping the First Year of Retirement"
+  },
+  "author": {
+    "author_id": "AU-Q03MF",
+    "display_name": "Desmond Kalantzis-Webb"
+  },
+  "genre": "wellbeing",
+  "theme_id": "ageing-well",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about the shape of the days after full-time work. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a weekly pattern and an outline for the first year. It is not money, pension or health advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What will you miss most about your working week? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Name what you will miss and give the week a shape",
+      "exercise_ids": [
+        "p1_shape"
+      ],
+      "intro": "Leaving full-time work takes away a structure: where you go, when you start and who you see. This part asks what you will miss and what you will not. Then you sketch a weekly pattern with a few fixed points in it.",
+      "ideas": [
+        {
+          "heading": "Missing parts of work is ordinary, and so is not missing others.",
+          "body": "Many people miss the people, the purpose or the routine. Many are glad to be rid of the alarm, the commute or the pressure. Both lists are fair. Writing them out shows what you want to replace and what you are happy to leave behind."
+        },
+        {
+          "heading": "A few fixed points give the week a shape without filling it.",
+          "body": "A fixed point is something at a set time: a Tuesday walk, a Thursday coffee, a Saturday market. Three or four are enough. The rest of the week can stay open. Too much planning recreates the job you left. Choose ones you like the sound of."
+        },
+        {
+          "heading": "The first weeks are likely to feel odd, and that is normal.",
+          "body": "Without the usual structure, some people feel at a loose end. Others feel a lightness they did not expect. Expect to try things and drop some. You are working out a new pattern, not performing one. There is no right pace for it."
+        }
+      ],
+      "takeaway": "Write down what you will miss and what you will not. Then give the week three or four fixed points."
+    },
+    {
+      "number": 2,
+      "focus": "Keep in touch with work friends and do something for others",
+      "exercise_ids": [
+        "p2_people"
+      ],
+      "intro": "Work gave you people to see and a reason to turn up. Both can continue in other forms. This part looks at keeping in touch with the people you saw regularly and at finding something useful to do for others each week.",
+      "ideas": [
+        {
+          "heading": "Friendships from work need a deliberate invitation to continue.",
+          "body": "Colleagues you chatted to daily may drift if nobody arranges anything. A message, a coffee or a walk in the first weeks makes it clear you want to stay in touch. Pick two people. Suggest a date. Let them reply in their own time."
+        },
+        {
+          "heading": "Being useful to others is a good use of an open morning.",
+          "body": "Many people miss being needed. A weekly slot at a school, club, library, garden or neighbour's door can fill that. It need not be formal. One regular hour for someone else gives the week a point. Choose something you know how to do."
+        },
+        {
+          "heading": "Start with small commitments you can end easily.",
+          "body": "Offer a trial month, or a single morning, before you agree to anything longer. A small start lets you find out whether you like it. Saying no to more is easier when you have a clear limit from the beginning."
+        }
+      ],
+      "takeaway": "Invite two colleagues to stay in touch, and try one small, easy-to-end way of being useful to others."
+    },
+    {
+      "number": 3,
+      "focus": "Move in ways you enjoy and share the home",
+      "exercise_ids": [
+        "p3_home"
+      ],
+      "intro": "More time at home brings two questions: how you want to move, and how you share the space with someone who is now around more. This part takes both in turn. You write one way to be active and one thing to agree with the person you live with.",
+      "ideas": [
+        {
+          "heading": "Movement you enjoy is more likely to continue than movement you endure.",
+          "body": "Think about what you liked before work took over: walking, swimming, the allotment, dancing, cycling. Pick something you enjoy and can reach easily. No distance, speed or schedule is needed. Start with the amount that feels pleasant. Do it with someone if you like."
+        },
+        {
+          "heading": "Being home more changes the household for everyone.",
+          "body": "A partner or housemate used to the empty house may find it strange to have you in it. You may find it strange too. Talking about it early is easier than leaving it to build. Raise it in an ordinary moment, not a formal meeting."
+        },
+        {
+          "heading": "Agreeing a little time apart suits both of you.",
+          "body": "Decide which days or hours each of you has the house to yourselves, or a separate room. Say what you each need, in plain terms. Agree to review it after a few weeks. It is a trial, and it can change. Small arrangements go a long way."
+        }
+      ],
+      "takeaway": "Choose a way of moving you enjoy, and talk early with the people at home about space and time apart."
+    },
+    {
+      "number": 4,
+      "focus": "Try one new thing and outline the rest of the year",
+      "exercise_ids": [
+        "p4_year"
+      ],
+      "intro": "Work often left no room for things you were curious about. This part asks you to choose one thing to learn or try and to look at the rest of the first year in broad strokes. The plan is a loose outline you can change.",
+      "ideas": [
+        {
+          "heading": "Choose something that work never left room for.",
+          "body": "Look back at what you said you would do one day: a language, a course, an instrument, a trip, a repair. Pick one. Try a small first step, such as a book from the library or a first lesson. You can stop if it is not for you."
+        },
+        {
+          "heading": "The first year can be planned in seasons, not days.",
+          "body": "Divide the year into four. For each, write one or two things you would like to try or keep going. Leave gaps. Plans for a year ahead are best kept loose, because you will learn what suits you as you go."
+        },
+        {
+          "heading": "Check the plan now and then, and change it when it stops fitting.",
+          "body": "At the end of each season, look at what you wrote. Keep what you enjoy. Swap what you do not. A plan is a draft of the life you want, and it is allowed to change as often as you do."
+        }
+      ],
+      "takeaway": "Pick one new thing to try, then outline the year in four seasons and change it as you learn what suits you."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_shape",
+      "title": "Shape your week",
+      "purpose": "A short list of what you will miss and what you will not, plus fixed points.",
+      "why": "Write what you will miss about work and what you will not. Then choose three or four fixed points for a usual week, each with a day. If nothing comes to mind, write one word.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write what you will and will not miss."
+        },
+        {
+          "text": "Choose three or four fixed points."
+        }
+      ],
+      "fields": [
+        {
+          "id": "miss",
+          "type": "two_column",
+          "label": "What will you miss, and what will you not?",
+          "columns": [
+            "Will miss",
+            "Will not miss"
+          ],
+          "min_items": 1,
+          "max_items": 5
+        },
+        {
+          "id": "fixed",
+          "type": "long_text",
+          "label": "Which three or four fixed points would shape your week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "miss",
+          "plan_section": "shape"
+        },
+        {
+          "field_id": "fixed",
+          "plan_section": "shape"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you will miss and one you will not."
+          }
+        ],
+        "field_ids": [
+          "miss"
+        ]
+      },
+      "done_when": "You have both lists and at least two fixed points."
+    },
+    {
+      "id": "p2_people",
+      "title": "Keep in touch and be useful",
+      "purpose": "Two people to contact and one way to be useful to others.",
+      "why": "Name two people from work you would like to see again and how you could invite them. Then name one thing you could do for others each week. Choose a small one. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name two people and how to invite them."
+        },
+        {
+          "text": "Name one small way to be useful."
+        }
+      ],
+      "fields": [
+        {
+          "id": "contact",
+          "type": "long_text",
+          "label": "Which two people will you invite, and how?"
+        },
+        {
+          "id": "useful",
+          "type": "short_text",
+          "label": "What could you do for others each week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "contact",
+          "plan_section": "people"
+        },
+        {
+          "field_id": "useful",
+          "plan_section": "people"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name and one way to get in touch."
+          }
+        ],
+        "field_ids": [
+          "contact"
+        ]
+      },
+      "done_when": "You have two names and one idea for helping others."
+    },
+    {
+      "id": "p3_home",
+      "title": "Plan movement and shared time",
+      "purpose": "One way to be active and one thing to agree at home.",
+      "why": "Write one way of moving you enjoy and when it could fit. Then write one thing to agree with the person you live with, such as time apart. If you live alone, write something for your own space. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one way of moving you enjoy."
+        },
+        {
+          "text": "Write one thing to agree at home."
+        }
+      ],
+      "fields": [
+        {
+          "id": "move",
+          "type": "short_text",
+          "label": "What way of moving would you enjoy?"
+        },
+        {
+          "id": "agree",
+          "type": "short_text",
+          "label": "What is one thing to agree at home?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "move",
+          "plan_section": "home"
+        },
+        {
+          "field_id": "agree",
+          "plan_section": "home"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one way of moving you enjoy."
+          }
+        ],
+        "field_ids": [
+          "move"
+        ]
+      },
+      "done_when": "You have one way to move and one thing to agree."
+    },
+    {
+      "id": "p4_year",
+      "title": "Outline your first year",
+      "purpose": "One new thing to try and a loose outline for four seasons.",
+      "why": "Choose one thing to try. Then write one or two ideas for each season of the year. Leave gaps. If nothing comes to mind for a season, leave it blank.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one new thing."
+        },
+        {
+          "text": "Write an idea or two for each season."
+        }
+      ],
+      "fields": [
+        {
+          "id": "newthing",
+          "type": "short_text",
+          "label": "What is one thing you would like to learn or try?"
+        },
+        {
+          "id": "seasons",
+          "type": "long_text",
+          "label": "What would you like in each of the four seasons?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "newthing",
+          "plan_section": "year"
+        },
+        {
+          "field_id": "seasons",
+          "plan_section": "year"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one new thing you would like to try."
+          }
+        ],
+        "field_ids": [
+          "newthing"
+        ]
+      },
+      "done_when": "You have one new thing and a rough outline for the year."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your people and your small way of helping are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your weekly shape and your outline for the first year."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "shape",
+      "title": "Your week's shape"
+    },
+    {
+      "id": "people",
+      "title": "People and being useful"
+    },
+    {
+      "id": "home",
+      "title": "Movement and the home"
+    },
+    {
+      "id": "year",
+      "title": "Your first year"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your weekly shape, the people you will keep in touch with, your home arrangements and your outline for the year.",
+    "book_bridge": "After the Last Shift is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which fixed point in your week suited you best this month?",
+      "Who did you see or speak to from work?",
+      "What would you change in your outline for the year?"
+    ],
+    "refresher_ids": [
+      "p1_shape",
+      "p4_year"
+    ]
+  }
+}

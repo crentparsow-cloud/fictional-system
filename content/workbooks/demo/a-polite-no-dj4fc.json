@@ -1,0 +1,365 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-DJ4FC",
+  "slug": "a-polite-no-dj4fc",
+  "title": "A Polite No",
+  "card_line": "Say no to small requests with three short sentences you have practised.",
+  "book": {
+    "book_id": "a-polite-no",
+    "title": "A Polite No",
+    "subtitle": "Setting Limits Without a Speech"
+  },
+  "author": {
+    "author_id": "AU-CG7QM",
+    "display_name": "Mireille Okafor-Gauthier"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "personal_development",
+  "theme_id": "quiet-confidence",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about saying no to small requests without a long explanation. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have three short ways to say no, one you have tried, and a plan for the next. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which request did you agree to recently and wish you had not? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday requests. If saying no at home would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice the yeses you wish had been noes",
+      "exercise_ids": [
+        "p1_yeses"
+      ],
+      "intro": "Most of us say yes more often than we mean to. A colleague wants a favour, a friend needs a lift, a relative asks for Saturday. Each yes seems small at the time. This part looks back over the last few weeks for the ones you regret, without blame.",
+      "ideas": [
+        {
+          "heading": "A yes you regret is useful information, not a mistake.",
+          "body": "When a yes sits badly afterwards, it tells you something about what matters to you. Perhaps it cost an evening you needed, or money set aside for something else. The feeling is worth noting rather than pushing away. Looked at calmly, it shows you where to choose differently."
+        },
+        {
+          "heading": "Most regretted yeses happen in the first few seconds.",
+          "body": "A request arrives and the answer is out before you have thought about it. Many people agree quickly to avoid an awkward pause or to seem helpful. That kind of yes is more reflex than decision. A few seconds before you reply is often all it takes to choose."
+        },
+        {
+          "heading": "Small requests add up to a week that belongs to other people.",
+          "body": "One favour rarely matters on its own. The trouble comes when several arrive in the same week and each takes an hour or two. By Friday the time you meant for rest, family or your own work has gone. The total tells you more than any single request."
+        }
+      ],
+      "takeaway": "A regretted yes is a clue to what matters to you. Finding a few is the start of saying no with care."
+    },
+    {
+      "number": 2,
+      "focus": "Learn three short ways to say no",
+      "exercise_ids": [
+        "p2_words"
+      ],
+      "intro": "A no does not need a speech. Long explanations invite argument and leave you feeling you owe something. This part gives you three short ways to say no, each for a different kind of request. You write your own version of each, so the words are ready when you need them.",
+      "ideas": [
+        {
+          "heading": "The plain no suits requests you never wanted.",
+          "body": "Some requests deserve a simple answer. \"No, thank you\" or \"Not this time\" is complete on its own. A reason is optional, and it often gives the other person something to argue with. Said warmly and without apology, a plain no is polite. It is usually accepted more easily than you expect."
+        },
+        {
+          "heading": "A short reason is enough when you want to explain.",
+          "body": "Sometimes you want to give a reason, perhaps to a friend or a manager. Keep it to one sentence and make it true. \"I have plans on Saturday\" says all that is needed. There is no need to list everything on your plate, or to prove your reason is good enough."
+        },
+        {
+          "heading": "An offer turns a no into something you can give.",
+          "body": "When you would like to help, but not in the way you were asked, offer what you can. \"Not Friday, but I could look at it on Monday\" keeps things warm without giving up your time. Only offer what you would be glad to do. An offer you resent is another regretted yes."
+        }
+      ],
+      "takeaway": "You have three ways to say no: plain, with a short reason, or with an offer. Each fits in one sentence."
+    },
+    {
+      "number": 3,
+      "focus": "Say no to one small request and see what follows",
+      "exercise_ids": [
+        "p3_try"
+      ],
+      "intro": "Reading about saying no is easier than doing it. This part asks you to try one of your sentences on a small request, the kind that causes no trouble either way. Then you look at what actually happened, which is often calmer than the moment before you spoke.",
+      "ideas": [
+        {
+          "heading": "Start with a request where little is at stake.",
+          "body": "Choose something small: an extra task you could pass on, an invitation you do not want, a sales call. A small no lets you hear yourself say the words with little riding on the answer. Bigger requests can wait until the sentences feel familiar. There is no prize for starting with the hardest."
+        },
+        {
+          "heading": "The pause before you answer is yours to take.",
+          "body": "You can say \"Let me check and come back to you\" to almost any request. That gives you time to decide whether you want to agree. Once you have decided, reply with one of your three sentences. Taking a moment is ordinary, and it lets the considered answer arrive first."
+        },
+        {
+          "heading": "What follows a no is usually smaller than you feared.",
+          "body": "Before saying no, many people picture disappointment, anger or a damaged friendship. Afterwards, the reply is often a shrug or a quick \"No problem\". Sometimes there is a moment of awkwardness, and then it passes. What really happened is a better guide than the worry was."
+        }
+      ],
+      "takeaway": "A small no, tried once, shows you what really happens when you refuse. It is usually quieter than the worry."
+    },
+    {
+      "number": 4,
+      "focus": "Protect the time you freed and plan the next limit",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Every no gives something back: an evening, an hour, some attention. If nothing claims that time, the next request fills it. This last part asks what the freed time is for. Then you choose one more limit and write it as a sentence you could say.",
+      "ideas": [
+        {
+          "heading": "Freed time needs a purpose or it fills up again.",
+          "body": "When you say no to a Saturday favour, the Saturday is open. Without a plan, the next request lands in exactly that space. Decide what the time is for, even if the answer is rest. Put it in the diary, and \"I have plans\" is the plain truth."
+        },
+        {
+          "heading": "A limit is easier to keep when you can say it in one sentence.",
+          "body": "A limit is a line you decide on ahead of time, such as no work messages after seven, or lending money only once. Written as one plain sentence, it is easy to remember and to say. Long rules with exceptions are hard to keep in mind when someone is asking face to face."
+        },
+        {
+          "heading": "Each polite no makes the next one more familiar.",
+          "body": "The first few times, saying no can feel strange. With each short sentence you use, the words become more your own. Nobody gets it right all the time, and a yes you regret now and then is ordinary. What changes is that you notice it sooner."
+        }
+      ],
+      "takeaway": "Freed time needs a purpose, and a limit works best as one sentence. With both, the next polite no comes more easily."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_yeses",
+      "title": "List the yeses you regret",
+      "purpose": "A short list of recent yeses and what each one cost you.",
+      "why": "Think back over the last three or four weeks. Find the times you agreed to something and wished afterwards you had said no. Write each one down with what it cost you. Three or four is plenty. Nothing needs fixing yet.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write down each yes you regret."
+        },
+        {
+          "text": "Note what each one cost you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "yeses",
+          "type": "two_column",
+          "label": "Which recent yeses do you wish had been noes?",
+          "columns": [
+            "What you agreed to",
+            "What it cost you"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "yeses",
+          "plan_section": "yeses"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one yes you regret and what it cost."
+          }
+        ],
+        "field_ids": [
+          "yeses"
+        ]
+      },
+      "done_when": "You have at least one regretted yes on the list."
+    },
+    {
+      "id": "p2_words",
+      "title": "Write your three noes",
+      "purpose": "Three short sentences in your own words, ready for the next request.",
+      "why": "Pick a request you meet often, at work or at home. Write one sentence for each of the three ways. Read them aloud and change any word that does not sound like you.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a request you meet often."
+        },
+        {
+          "text": "Write a plain no, one with a reason, one with an offer."
+        },
+        {
+          "text": "Read them aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "request",
+          "type": "short_text",
+          "label": "Which request do you meet most often that you would like to refuse?"
+        },
+        {
+          "id": "three",
+          "type": "long_text",
+          "label": "Your three sentences: plain, with a reason, with an offer"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "three",
+          "plan_section": "words"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one plain no you could use this week."
+          }
+        ],
+        "field_ids": [
+          "three"
+        ]
+      },
+      "done_when": "You have three sentences you could say out loud."
+    },
+    {
+      "id": "p3_try",
+      "title": "Try one small no",
+      "purpose": "A note of one small no you said and what happened afterwards.",
+      "why": "Over the next few days, wait for a small request you would rather refuse. Use one of your three sentences, or ask for a moment first. Then write down what happened. If no request comes, write about the one you expect.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Answer a small request with one of your sentences."
+        },
+        {
+          "text": "Write down what followed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "what_happened",
+          "type": "long_text",
+          "label": "What did you say no to, and what happened next?"
+        },
+        {
+          "id": "how_hard",
+          "type": "scale_0_10",
+          "label": "How hard did it feel, from 0 to 10",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "what_happened",
+          "plan_section": "tried"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about a no you said."
+          }
+        ],
+        "field_ids": [
+          "what_happened"
+        ]
+      },
+      "done_when": "You have written down one no and what followed."
+    },
+    {
+      "id": "p4_next",
+      "title": "Plan your next limit",
+      "purpose": "A use for the freed time and one new limit in a sentence.",
+      "why": "Look back at the no from Part 3, or the one you plan to say. Decide what the time it gives back is for. Then choose one more limit and write it as a sentence you could say aloud.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name what the freed time is for."
+        },
+        {
+          "text": "Write one more limit as a single sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "freed_time",
+          "type": "short_text",
+          "label": "What will you do with the time your no gave back?"
+        },
+        {
+          "id": "next_limit",
+          "type": "short_text",
+          "label": "Your next limit, in one sentence"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "freed_time",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "next_limit",
+          "plan_section": "next"
+        }
+      ],
+      "done_when": "The freed time has a use and one limit is written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your three sentences are saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your three noes and your next limit."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "yeses",
+      "title": "Yeses to look at again"
+    },
+    {
+      "id": "words",
+      "title": "Your three ways to say no"
+    },
+    {
+      "id": "tried",
+      "title": "A no you tried"
+    },
+    {
+      "id": "next",
+      "title": "Your next limit"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your regretted yeses, your three noes, the one you tried and your next limit.",
+    "book_bridge": "A Polite No is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which request did you say no to this month, and which sentence did you use?",
+      "Which yes this month do you wish had been a no?",
+      "Is your next limit still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_words",
+      "p4_next"
+    ]
+  }
+}

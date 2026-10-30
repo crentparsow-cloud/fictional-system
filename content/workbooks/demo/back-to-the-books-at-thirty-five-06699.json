@@ -1,0 +1,381 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-06699",
+  "slug": "back-to-the-books-at-thirty-five-06699",
+  "title": "Back to the Books at Thirty-Five",
+  "card_line": "Plan study time around your life and write your first essay.",
+  "book": {
+    "book_id": "back-to-the-books-at-thirty-five",
+    "title": "Back to the Books at Thirty-Five",
+    "subtitle": "Returning to Study as an Adult"
+  },
+  "author": {
+    "author_id": "AU-0TKBN",
+    "display_name": "Olivier Tremblay-Singh"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "education",
+  "theme_id": "unrushed-learning",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about returning to study as an adult and fitting it around real life. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a study timetable that suits you, a way into academic reading and a first essay plan. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a study plan you can read at the end."
+    ],
+    "why_prompt": "Why are you going back to study now? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Name why you are going back and when you can study",
+      "exercise_ids": [
+        "p1_reason"
+      ],
+      "intro": "Adults return to study with jobs, families and a full diary. That is normal, and it shapes how you plan. This part asks you to say why you are going back and then find the hours that really exist in your week.",
+      "ideas": [
+        {
+          "heading": "Knowing your reason carries you through the dull weeks.",
+          "body": "Every course has stretches that feel flat. A reason you wrote down yourself is easy to return to. It might be a job, a subject you love or something you owe your younger self. Keep it short and put it where you will see it."
+        },
+        {
+          "heading": "Study time has to come from real gaps in your week.",
+          "body": "Look at a normal week and find the pockets that already exist: a lunch break, a train, an hour after the children are in bed. A timetable built on hours you do not have falls apart by Wednesday. Real gaps, even small ones, hold up better."
+        },
+        {
+          "heading": "Several short sessions can serve you better than one long one.",
+          "body": "Three sessions of forty minutes are easier to protect than a single Sunday afternoon. Short sessions fit between other duties, and you can return to the material while it is fresh. Choose a length you can manage in your busiest week, not your quietest."
+        }
+      ],
+      "takeaway": "A reason you wrote yourself keeps you going, and a timetable built on real gaps will hold. Short sessions fit adult life."
+    },
+    {
+      "number": 2,
+      "focus": "Read academic texts with a purpose",
+      "exercise_ids": [
+        "p2_read"
+      ],
+      "intro": "Academic reading is not like reading a novel. You are not expected to take in every word. This part shows you how to approach a long text with a question in mind, so that you read what matters and leave the rest.",
+      "ideas": [
+        {
+          "heading": "You do not have to read an academic text from start to finish.",
+          "body": "Start with the title, the opening summary and the headings. Read the first and last lines of each section. Then decide which parts deserve a slow read. Skimming first tells you what the text is for, and saves time on the parts that do not matter to you."
+        },
+        {
+          "heading": "A question in your head makes the reading go further.",
+          "body": "Before you open a chapter, write down what you want from it. It might be a definition, an argument or an example for your essay. With a question to hold, you notice the answer when it appears. Without one, the words slide past."
+        },
+        {
+          "heading": "Notes in your own words show what you have understood.",
+          "body": "Copying a sentence takes seconds and teaches little. Putting it into your own words takes longer and tells you whether you followed it. Write a line or two per section, and mark any word you could not explain. Those marks tell you what to look up."
+        }
+      ],
+      "takeaway": "Read with a question and in your own words. Skim first, then read slowly where it counts."
+    },
+    {
+      "number": 3,
+      "focus": "Plan your first essay in small steps",
+      "exercise_ids": [
+        "p3_plan"
+      ],
+      "intro": "A first essay can look huge. Cut into steps, it becomes a series of small jobs. This part takes you through reading the question, making a plan and writing a first paragraph. Nothing needs to be polished yet, and a rough start is a real start.",
+      "ideas": [
+        {
+          "heading": "Read the essay question three times before you write anything.",
+          "body": "Underline the instruction words, such as discuss, compare or explain. Underline the topic. Then put the question in your own words. Many essays go off course because the writer answered a different question. A few minutes here saves hours later."
+        },
+        {
+          "heading": "A plan of three or four points is enough to begin.",
+          "body": "Write your answer in one sentence. Then list the three or four points that support it, with a note of the evidence for each. That is your plan. It can change as you read. It gives you a shape to fill, which is easier than facing a blank page."
+        },
+        {
+          "heading": "A rough first paragraph is better than a perfect blank page.",
+          "body": "Write the first paragraph without stopping to fix it. You can improve it later, when you know what you want to say. Set a timer for twenty minutes if it helps. Once there are words on the page, editing them feels like a smaller job."
+        }
+      ],
+      "takeaway": "An essay is a series of small steps. Understand the question, plan three or four points and write a rough paragraph."
+    },
+    {
+      "number": 4,
+      "focus": "Ask for help early and keep going in busy weeks",
+      "exercise_ids": [
+        "p4_busy"
+      ],
+      "intro": "Every student gets stuck at some point, and every adult student has a week when life takes over. This last part is about asking for help and about what to do when study slips. You finish with a plan for a busy week.",
+      "ideas": [
+        {
+          "heading": "Asking for help early is a normal part of studying.",
+          "body": "Tutors, librarians and other students expect questions. A short, specific one gets the best answer, such as asking what a marker wants to see in the introduction. Do not wait until you are deep in difficulty. An early question often takes two minutes to answer."
+        },
+        {
+          "heading": "A busy week calls for a smaller plan, not a stopped one.",
+          "body": "When work or family takes over, cut your study down to the smallest useful piece. Read one page, write one paragraph or review your notes for fifteen minutes. Keeping a thread going means you do not have to start again from nothing next week."
+        },
+        {
+          "heading": "Other people can protect your study time if you tell them.",
+          "body": "Say when you will be studying and ask for it to be left alone. Share the plan with family, friends or colleagues. Most people are glad to help when they know what you need. A closed door means little unless they know why it is closed."
+        }
+      ],
+      "takeaway": "Ask early, shrink the plan in busy weeks and tell people when you are studying. Small steps keep you moving."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_reason",
+      "title": "Say why and find your hours",
+      "purpose": "Your reason for studying and three real gaps in your week.",
+      "why": "Write one or two sentences on why you are going back to study. Then look at a normal week and find three gaps where study could fit. Be honest about the hours you really have. If you only find two, that is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your reason for studying in a sentence."
+        },
+        {
+          "text": "Find three real gaps in your week."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reason",
+          "type": "short_text",
+          "label": "Why are you going back to study?"
+        },
+        {
+          "id": "gaps",
+          "type": "two_column",
+          "label": "Where in your week could you study?",
+          "columns": [
+            "Day and time",
+            "How long"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "reason",
+          "plan_section": "reason"
+        },
+        {
+          "field_id": "gaps",
+          "plan_section": "hours"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your reason in one line."
+          }
+        ],
+        "field_ids": [
+          "reason"
+        ]
+      },
+      "done_when": "You have a reason and at least two gaps."
+    },
+    {
+      "id": "p2_read",
+      "title": "Read one text with a question",
+      "purpose": "A question, a skim of one text and notes in your own words.",
+      "why": "Choose a short text from your course. Write a question you want it to answer. Skim the headings and the first and last lines of each section. Then write a few lines in your own words. If the text is too hard, pick a shorter one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a question for the text."
+        },
+        {
+          "text": "Skim it, then note the answer in your own words."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What question do you want this text to answer?"
+        },
+        {
+          "id": "notes",
+          "type": "long_text",
+          "label": "What did you find, in your own words?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question",
+          "plan_section": "reading"
+        },
+        {
+          "field_id": "notes",
+          "plan_section": "reading"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question for a text you need to read."
+          }
+        ],
+        "field_ids": [
+          "question"
+        ]
+      },
+      "done_when": "You have a question and a few lines of notes."
+    },
+    {
+      "id": "p3_plan",
+      "title": "Plan your first essay",
+      "purpose": "The essay question in your words, a one sentence answer and three points.",
+      "why": "Take an essay question, or invent one to try it out. Put it into your own words. Write your answer in one sentence. Then list three points that back it up. If the question is not set yet, use a topic you have been reading about.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Rewrite the question in your own words."
+        },
+        {
+          "text": "Write a one sentence answer and three points."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question_own_words",
+          "type": "short_text",
+          "label": "What is the essay question, in your own words?"
+        },
+        {
+          "id": "essay_points",
+          "type": "long_text",
+          "label": "What is your answer, and which three points support it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question_own_words",
+          "plan_section": "essay"
+        },
+        {
+          "field_id": "essay_points",
+          "plan_section": "essay"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a one sentence answer to the question."
+          }
+        ],
+        "field_ids": [
+          "essay_points"
+        ]
+      },
+      "done_when": "You have an answer in one sentence and at least two points."
+    },
+    {
+      "id": "p4_busy",
+      "title": "Plan for a busy week",
+      "purpose": "A smaller study plan for a busy week and one person to tell.",
+      "why": "Think of a week when study will be squeezed. Write the smallest useful thing you could do in it. Then name one person you will tell when you plan to study, and one person you could ask for help.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your smallest useful study task."
+        },
+        {
+          "text": "Name who you will tell and who you could ask."
+        }
+      ],
+      "fields": [
+        {
+          "id": "busy_week",
+          "type": "short_text",
+          "label": "What is the smallest study you could do in a busy week?"
+        },
+        {
+          "id": "people",
+          "type": "short_text",
+          "label": "Who will you tell, and who could you ask for help?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "busy_week",
+          "plan_section": "busy"
+        },
+        {
+          "field_id": "people",
+          "plan_section": "busy"
+        }
+      ],
+      "done_when": "You have a small task and at least one name."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your reading notes are saved and ready for your essay."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your reason, your hours, your essay and your busy week."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "reason",
+      "title": "Why you are studying"
+    },
+    {
+      "id": "hours",
+      "title": "Your study hours"
+    },
+    {
+      "id": "reading",
+      "title": "Your reading"
+    },
+    {
+      "id": "essay",
+      "title": "Your first essay plan"
+    },
+    {
+      "id": "busy",
+      "title": "Your busy week plan"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote your reason for studying and found the hours that really exist in your week. You also read a text with a question, planned a first essay and set a small plan for busy weeks.",
+    "book_bridge": "Back to the Books at Thirty-Five is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which study session worked best for you this month?",
+      "What question did you ask someone this month?",
+      "Do your study hours still fit your week?"
+    ],
+    "refresher_ids": [
+      "p1_reason",
+      "p4_busy"
+    ]
+  }
+}

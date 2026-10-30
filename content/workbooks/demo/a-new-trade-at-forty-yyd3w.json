@@ -1,0 +1,391 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-YYD3W",
+  "slug": "a-new-trade-at-forty-yyd3w",
+  "title": "A New Trade at Forty",
+  "card_line": "Turn what you have done into a plan for a new line of work.",
+  "book": {
+    "book_id": "a-new-trade-at-forty",
+    "title": "A New Trade at Forty",
+    "subtitle": "Changing Career Mid-Life"
+  },
+  "author": {
+    "author_id": "AU-JNCDE",
+    "display_name": "Hester Quarrington"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "career",
+  "theme_id": "work-worth-choosing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about moving into a new line of work in mid-life. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of skills you can carry over, one small test, and a money plan for the move. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What kind of work are you thinking about moving towards? A few words will do."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Take stock of what you have done and enjoyed",
+      "exercise_ids": [
+        "p1_stock"
+      ],
+      "intro": "Years in one job leave a lot behind that nobody has written down. Before you look at new work, look at what you already know. This part asks you to list what you have done and mark what you liked. It is a record, not a verdict.",
+      "ideas": [
+        {
+          "heading": "What you did every week for years counts as experience.",
+          "body": "Daily tasks feel ordinary because you do them so often. Training a new starter, calming a difficult customer or ordering stock are all skills other employers pay for. Write them down in plain words. If you cannot see why one matters, ask a former colleague what they relied on you for."
+        },
+        {
+          "heading": "What you enjoyed matters as much as what you were good at.",
+          "body": "Plenty of people are good at tasks they dislike. A new trade built on those tasks will feel like the old job again. Mark the parts of your work that made time pass quickly. They point towards work you might stay in for another twenty years."
+        },
+        {
+          "heading": "Forty is not late to change, and it is not too early to be careful.",
+          "body": "You have bills, habits and people who rely on you. That is a reason to plan, not a reason to stay put. A change made with a list in your hand is calmer than one made in a rush after a rough patch at work."
+        }
+      ],
+      "takeaway": "Your past work holds more than your job title says. Write down what you did and what you enjoyed before you look at anything new."
+    },
+    {
+      "number": 2,
+      "focus": "Work out what carries over to the new trade",
+      "exercise_ids": [
+        "p2_carry"
+      ],
+      "intro": "A new trade does not wipe out the old one. Some of what you know moves across, and some gaps are real. This part sets your list against the work you have in mind. You will see what you already have and what you would need to learn.",
+      "ideas": [
+        {
+          "heading": "Most of your skills are about people and organisation, and they travel.",
+          "body": "Managing a rota, handling complaints and keeping to a deadline are needed almost everywhere. Employers in a new field often care about these as much as the trade skill itself. Name yours clearly so you can say them in an interview without searching for words."
+        },
+        {
+          "heading": "The gap between your skills and the new job is usually smaller than it looks.",
+          "body": "A job advert lists everything the employer would like. Most hires meet only part of it. Read two or three adverts for the work you want and mark what you already do. What remains is a short list of things to learn, which is easier to face than a vague worry."
+        },
+        {
+          "heading": "Pick one target trade so your effort has somewhere to go.",
+          "body": "Keeping five options open feels safe but slows you down. Choose the one that looks best on paper today. You can change your mind after the tests in Part 3. A named target lets you ask people sharp questions and plan a course."
+        }
+      ],
+      "takeaway": "Your old skills move with you. Name one target trade and list the few real gaps."
+    },
+    {
+      "number": 3,
+      "focus": "Test the new work in small, cheap ways",
+      "exercise_ids": [
+        "p3_test"
+      ],
+      "intro": "Quitting a job to find out whether you like something is an expensive experiment. There are cheaper ones. This part asks you to talk to people already doing the work, try a taster and look at a short course. You then know more before you spend real money or leave anything behind.",
+      "ideas": [
+        {
+          "heading": "A conversation with someone in the trade tells you more than an advert.",
+          "body": "Ask a person doing the work what an ordinary week looks like. Ask what they would tell a newcomer and what surprised them. Most people are glad to talk for twenty minutes. Offer coffee. Take notes, because small details often decide whether the work suits you."
+        },
+        {
+          "heading": "A taster day or a weekend of unpaid help is a fair test.",
+          "body": "Spend a day alongside someone, or give a few hours to a local project doing similar work. You see the dull parts as well as the good ones. If you still want it afterwards, that is useful. If you do not, you have lost very little."
+        },
+        {
+          "heading": "A short course is a test as well as a qualification.",
+          "body": "Choose something that fits around your job, such as an evening class or a few Saturdays. Check what the course costs and what it leads to. Finishing it shows employers you are serious. Hating it tells you something before you have committed much."
+        }
+      ],
+      "takeaway": "Test before you leap. Talk to someone in the trade, try a taster and look at a short course."
+    },
+    {
+      "number": 4,
+      "focus": "Plan the money and write your first application",
+      "exercise_ids": [
+        "p4_money"
+      ],
+      "intro": "A change of work often means a dip in pay for a while. Knowing how long, and how you will cover it, takes much of the fear away. This part asks for a simple money plan and a first application. Neither has to be perfect. Both make the move real.",
+      "ideas": [
+        {
+          "heading": "Work out the lowest income you could live on for six months.",
+          "body": "List the bills you have to pay and the spending you could cut. The total is your floor. Compare it with what the new work might pay at the start. The gap shows how much you need saved or earned in another way. This is not financial advice, only arithmetic."
+        },
+        {
+          "heading": "Plan for the move in stages instead of one big jump.",
+          "body": "You might keep your job and train in the evenings. You might go part-time first. Staged moves give you income while you learn. They take longer, but they let you step back if the new trade is not what you hoped."
+        },
+        {
+          "heading": "Your first application should say what you bring, not apologise for your age.",
+          "body": "Lead with the skills you listed in Part 2 and the test you ran in Part 3. Keep it to one page. Say plainly that you are changing trade and why. Employers hire people who know what they want, and you now can say so."
+        }
+      ],
+      "takeaway": "A move is easier with a money floor and a first step on paper. Write both down this week."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_stock",
+      "title": "List what you have done",
+      "purpose": "A short list of your past work, with the parts you enjoyed marked.",
+      "why": "Think back over your working life. Write down the tasks you did most often, then mark the ones you enjoyed. Aim for six to eight tasks. If you are stuck, think of what colleagues asked you for help with.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write down the tasks you did most often."
+        },
+        {
+          "text": "Mark the ones you enjoyed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tasks",
+          "type": "two_column",
+          "label": "What did you do most in your past work?",
+          "columns": [
+            "The task",
+            "Did you enjoy it? A word will do"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tasks",
+          "plan_section": "stock"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down three tasks you did often."
+          }
+        ],
+        "field_ids": [
+          "tasks"
+        ]
+      },
+      "done_when": "You have at least three tasks written down, with a note on each."
+    },
+    {
+      "id": "p2_carry",
+      "title": "Match your skills to a trade",
+      "purpose": "One target trade and a short list of skills that carry over.",
+      "why": "Choose one kind of work you would like to try. Read two adverts for it. Write the skills you already have and the gaps you can see. If a gap looks large, write it down anyway.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name one target trade."
+        },
+        {
+          "text": "Read two adverts for it."
+        },
+        {
+          "text": "List what you have and what is missing."
+        }
+      ],
+      "fields": [
+        {
+          "id": "target",
+          "type": "short_text",
+          "label": "Which one trade will you look at first?"
+        },
+        {
+          "id": "carry",
+          "type": "two_column",
+          "label": "Which skills carry over, and what is missing?",
+          "columns": [
+            "Skills you have",
+            "Gaps to fill"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "target",
+          "plan_section": "carry"
+        },
+        {
+          "field_id": "carry",
+          "plan_section": "carry"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the trade you will look at first."
+          }
+        ],
+        "field_ids": [
+          "target"
+        ]
+      },
+      "done_when": "You have one trade named and at least two skills and one gap listed."
+    },
+    {
+      "id": "p3_test",
+      "title": "Plan one small test",
+      "purpose": "One person to talk to or one taster, with a date to ask.",
+      "why": "Pick one cheap test from this part. It could be a conversation, a taster day or a look at a course. Write who or what it is and when you will ask. If you do not know anyone, write where you could find them.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a conversation, a taster or a course."
+        },
+        {
+          "text": "Write who to ask and by when."
+        }
+      ],
+      "fields": [
+        {
+          "id": "test",
+          "type": "short_text",
+          "label": "Which small test will you try first?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Who will you ask, and when?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "test",
+          "plan_section": "test"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "test"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name or place to start with."
+          }
+        ],
+        "field_ids": [
+          "ask"
+        ]
+      },
+      "done_when": "You have a test chosen and a person or place to ask."
+    },
+    {
+      "id": "p4_money",
+      "title": "Set your money floor",
+      "purpose": "A monthly figure you can live on and a first application step.",
+      "why": "List the bills you pay each month. Add them up and write the total. Then write one thing you could do about your first application this week. A rough figure is fine for now.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your regular bills."
+        },
+        {
+          "text": "Write the monthly total."
+        },
+        {
+          "text": "Name one step towards an application."
+        }
+      ],
+      "fields": [
+        {
+          "id": "floor",
+          "type": "short_text",
+          "label": "What is the lowest monthly income you could manage on?"
+        },
+        {
+          "id": "apply",
+          "type": "short_text",
+          "label": "What one step will you take on your first application?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "floor",
+          "plan_section": "money"
+        },
+        {
+          "field_id": "apply",
+          "plan_section": "money"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your rough monthly total."
+          }
+        ],
+        "field_ids": [
+          "floor"
+        ]
+      },
+      "done_when": "You have a monthly figure and one application step written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your target trade and skills are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your skills, a test and a money floor."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "stock",
+      "title": "What you have done and enjoyed"
+    },
+    {
+      "id": "carry",
+      "title": "Skills that carry over"
+    },
+    {
+      "id": "test",
+      "title": "Your first small test"
+    },
+    {
+      "id": "money",
+      "title": "Money floor and first step"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your past work, your target trade, a first test and your money floor.",
+    "book_bridge": "A New Trade at Forty is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you learn this month about the trade you are looking at?",
+      "Which small test have you tried since last time?",
+      "Is your money floor still right?"
+    ],
+    "refresher_ids": [
+      "p2_carry",
+      "p4_money"
+    ]
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-T7QC9",
+  "slug": "evenings-with-less-light-t7qc9",
+  "title": "Evenings With Less Light",
+  "card_line": "Lower the lights, set a simple wind-down and plan for late nights and travel.",
+  "book": {
+    "book_id": "evenings-with-less-light",
+    "title": "Evenings With Less Light",
+    "subtitle": "Gentler Evenings Before Bed"
+  },
+  "author": {
+    "author_id": "AU-PZ9DF",
+    "display_name": "Haruka Tanabe-Ellis"
+  },
+  "genre": "wellbeing",
+  "theme_id": "softer-nights",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about gentler evenings. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a lower-light hour, a wind-down in your own words and a plan for late nights and travel. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What does a usual evening look like at your place? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice your evenings as they are now",
+      "exercise_ids": [
+        "p1_shape"
+      ],
+      "intro": "Before changing anything, look at what an evening is like now. Most of us have never written one down. This part asks only for an honest picture: what you do, what is on, and when the last hour starts. Nothing needs to change yet.",
+      "ideas": [
+        {
+          "heading": "Your evening already has a shape, and you can write it down.",
+          "body": "Think of last night. What happened between dinner and bed, and in what order? Most evenings follow a pattern nobody planned. Writing the order out in plain steps shows the shape. It is a description, not a verdict, so you can be as honest as you like."
+        },
+        {
+          "heading": "Light and noise are easier to notice once you list them.",
+          "body": "List the lamps, screens and sounds that were on. Overhead lights, a television, a phone in your hand and music in the next room all add up. You may find the evening is brighter and louder than you thought. Or you may find it is already quiet. Both are useful to know."
+        },
+        {
+          "heading": "Some parts of the evening you will want to keep exactly as they are.",
+          "body": "Perhaps you like the radio while you wash up, or a call with your sister. Mark those parts. Gentler evenings are built around them, not over them. The aim is to add softness, not to remove everything you enjoy. Write them down so they are not lost."
+        }
+      ],
+      "takeaway": "An evening has a shape you can describe. Notice the light, the noise and the parts worth keeping."
+    },
+    {
+      "number": 2,
+      "focus": "Make the last hour lower in light and noise",
+      "exercise_ids": [
+        "p2_hour"
+      ],
+      "intro": "A lower-light hour is the simplest change in this workbook. It means turning down what you can control for the last stretch of the evening. This part looks at three ways to do it, and you choose the one that suits your home. Start small.",
+      "ideas": [
+        {
+          "heading": "A lower-light hour begins by switching off the brightest light.",
+          "body": "Overhead lights are usually the brightest. Switch them off and use a lamp or two instead. The room looks different at once. Nobody needs to buy anything. If you live with others, tell them what you are trying so the room does not become a negotiation."
+        },
+        {
+          "heading": "Turning down sound can matter as much as turning down light.",
+          "body": "A television in the background or a phone playing clips keeps the evening busy. Try one quiet stretch: music at low volume, or nothing at all. Notice how the room feels. You may like it, or you may want the radio back. Both answers are fine."
+        },
+        {
+          "heading": "Pick a time for the hour to start and let it move when it needs to.",
+          "body": "Choose a rough start, such as nine o'clock. It is a marker, not a rule. Some evenings it will begin at half past. Some evenings it will not happen. That is ordinary. A flexible start survives a real week better than a strict one."
+        }
+      ],
+      "takeaway": "A lower-light hour is lamps instead of overhead lights, less sound and a flexible start time."
+    },
+    {
+      "number": 3,
+      "focus": "Build a simple wind-down you actually like",
+      "exercise_ids": [
+        "p3_winddown"
+      ],
+      "intro": "A wind-down is a few things you do in the same order near the end of the evening. It lasts best when it is short and pleasant. This part asks you to choose three steps from things you already enjoy and put them in an order that feels natural.",
+      "ideas": [
+        {
+          "heading": "A wind-down is better with three steps than with ten.",
+          "body": "Long lists get dropped quickly. Three steps are easy to remember. For example: put out tomorrow's clothes, make a hot drink, read a few pages. Choose steps that take little effort and that you would do anyway. Small and pleasant beats thorough."
+        },
+        {
+          "heading": "Steps you enjoy will last longer than steps you admire.",
+          "body": "It is tempting to add stretching or journaling because they sound sensible. If you dislike them, they will not last. Choose what you enjoy: a bath, a crossword, a hot drink. Enjoyment is the reason the steps will stay in your evening."
+        },
+        {
+          "heading": "Doing the steps in the same order gives the evening a clear ending.",
+          "body": "Order matters more than speed. When the tea comes before the book and the book before the lamp, each step leads to the next. You stop deciding what to do next. The evening has an ending you can recognise, even on a busy night."
+        }
+      ],
+      "takeaway": "Three enjoyable steps in a steady order make a wind-down. Short and pleasant is enough."
+    },
+    {
+      "number": 4,
+      "focus": "Plan for late nights and travel",
+      "exercise_ids": [
+        "p4_late"
+      ],
+      "intro": "Some evenings will not go to plan. A late finish, guests or a night in a hotel can take the usual shape away. This part is about having a short version ready. You write a small kit of what travels with you and a one-step evening for late nights.",
+      "ideas": [
+        {
+          "heading": "A late night needs a one-step evening, not a full one.",
+          "body": "When you get home late, the full wind-down may not fit. Choose the single step you like best. A hot drink, one lamp, a few pages of a book. One step still marks the end of the day. It also keeps the evening yours, even in a short form."
+        },
+        {
+          "heading": "A small travel kit makes a strange room feel less strange.",
+          "body": "Hotel rooms and spare beds come with bright lights and odd sounds. Pack one or two small things from home: a book, a tea bag, a small lamp or a cloth to cover a bright light. They give you something familiar to start from. Keep the kit in one bag so it is ready."
+        },
+        {
+          "heading": "Letting a night go is part of having a plan.",
+          "body": "Some nights nothing works. The train is delayed or the children are awake. Letting that night go is a choice, not a lapse. Tomorrow's evening is a fresh start, with the same three steps waiting. The plan is there to return to, not to be kept perfectly."
+        }
+      ],
+      "takeaway": "Keep a one-step evening for late nights and a small kit for travel. A night that goes differently is just a night."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_shape",
+      "title": "Write down a usual evening",
+      "purpose": "A plain list of one recent evening, with its light and noise.",
+      "why": "Think of a recent evening at home. List what happened from dinner onwards, in order. Beside each step, note what was on: lights, screens or sound. Mark any step you would like to keep. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the steps of the evening in order."
+        },
+        {
+          "text": "Note the light and sound beside each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "evening",
+          "type": "two_column",
+          "label": "What happened, and what was on?",
+          "columns": [
+            "What you did",
+            "Light and sound"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "Which part would you like to keep as it is?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "evening",
+          "plan_section": "shape"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "shape"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three steps of last night in order."
+          }
+        ],
+        "field_ids": [
+          "evening"
+        ]
+      },
+      "done_when": "You have the steps of one evening on the page."
+    },
+    {
+      "id": "p2_hour",
+      "title": "Plan your lower-light hour",
+      "purpose": "A lower-light hour in your own terms: start time, lights and sound.",
+      "why": "Choose a rough start time for the last hour. Decide which lights you will switch off and which lamp you will use. Then decide what to do about sound. Choose only what feels doable. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a rough start time."
+        },
+        {
+          "text": "Decide on the lights and the sound."
+        }
+      ],
+      "fields": [
+        {
+          "id": "start",
+          "type": "short_text",
+          "label": "When might your lower-light hour start?"
+        },
+        {
+          "id": "how",
+          "type": "long_text",
+          "label": "What will you do with the lights and the sound?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "start",
+          "plan_section": "hour"
+        },
+        {
+          "field_id": "how",
+          "plan_section": "hour"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a rough start time."
+          }
+        ],
+        "field_ids": [
+          "start"
+        ]
+      },
+      "done_when": "You have a start time and one change to lights or sound."
+    },
+    {
+      "id": "p3_winddown",
+      "title": "Choose your three wind-down steps",
+      "purpose": "Three steps, in order, that you would enjoy near the end of an evening.",
+      "why": "List a few things you already enjoy in the evening. Pick the three that take least effort. Put them in the order you would like. If you cannot choose, write the first two that come to mind.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List things you already enjoy."
+        },
+        {
+          "text": "Choose three and put them in order."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "Which three steps, in what order, make your wind-down?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "winddown"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one step you would enjoy."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "You have three steps in an order."
+    },
+    {
+      "id": "p4_late",
+      "title": "Plan your late-night evening",
+      "purpose": "A one-step evening and a small travel kit, written down.",
+      "why": "Decide on the one step you would keep on a late night. Then list two or three small things to pack for a night away. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose your one step for late nights."
+        },
+        {
+          "text": "List two or three things for a travel kit."
+        }
+      ],
+      "fields": [
+        {
+          "id": "one_step",
+          "type": "short_text",
+          "label": "Which single step would you keep on a late night?"
+        },
+        {
+          "id": "kit",
+          "type": "short_text",
+          "label": "What would go in your small travel kit?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "one_step",
+          "plan_section": "late"
+        },
+        {
+          "field_id": "kit",
+          "plan_section": "late"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your one step for a late night."
+          }
+        ],
+        "field_ids": [
+          "one_step"
+        ]
+      },
+      "done_when": "You have a one-step evening and a kit list."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your lower-light hour is saved and ready to try."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your hour, your wind-down and your late-night plan."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "shape",
+      "title": "Your usual evening"
+    },
+    {
+      "id": "hour",
+      "title": "Your lower-light hour"
+    },
+    {
+      "id": "winddown",
+      "title": "Your wind-down"
+    },
+    {
+      "id": "late",
+      "title": "Late nights and travel"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your usual evening, your lower-light hour, your wind-down and your plan for late nights and travel.",
+    "book_bridge": "Evenings With Less Light is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which evening this month suited you best, and why?",
+      "Which wind-down step do you still like?",
+      "What went into your travel kit this time?"
+    ],
+    "refresher_ids": [
+      "p3_winddown",
+      "p4_late"
+    ]
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-XKQ58",
+  "slug": "a-pot-on-the-hob-xkq58",
+  "title": "A Pot on the Hob",
+  "card_line": "Cook one pot on a Sunday and eat it three ways during the week.",
+  "book": {
+    "book_id": "a-pot-on-the-hob",
+    "title": "A Pot on the Hob",
+    "subtitle": "Four Weeks of Simple Cooking Ahead"
+  },
+  "author": {
+    "author_id": "AU-4W407",
+    "display_name": "Niamh Corrigan-Oduya"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "nourishing-meals",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about cooking one pot and eating it through the week. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a pot you can make, three ways to serve it and a time to cook. It is everyday cooking, not diet or nutrition advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What is one pot of food you already know how to make? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday cooking. If thinking about food is difficult for you, or if using this workbook would put you at risk, set it aside for now."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose one soup or stew from what you already have",
+      "exercise_ids": [
+        "p1_cupboard"
+      ],
+      "intro": "A pot on the hob is one of the plainest ways to cook for a week. This part asks you to look in your cupboards and fridge and pick a soup or stew that suits what you already have. Cooking from what is there saves a trip to the shop.",
+      "ideas": [
+        {
+          "heading": "Most cupboards already hold the start of a pot.",
+          "body": "Look for an onion, a tin of tomatoes, some lentils, rice, a stock cube or a bag of frozen vegetables. Not all of them, just a few. A soup or stew needs a base, something filling and a little flavour. You rarely need to buy much more."
+        },
+        {
+          "heading": "A pot is forgiving, so exact quantities matter less than you think.",
+          "body": "Soup and stew take well to a handful more or less of most things. Start with what you have and taste as you go. If it is thin, cook it down. If it is thick, add water. It is hard to get it wrong in a way that matters."
+        },
+        {
+          "heading": "One large pot takes about the same effort as a small one.",
+          "body": "Chopping and stirring take the same time whether the pot holds two portions or six. Make more than you need today. The extra is what makes the rest of the week easier. Choose a pot big enough for it, and a lid that fits."
+        }
+      ],
+      "takeaway": "Look at what you already have and build a pot around it. One large pot is no harder than a small one."
+    },
+    {
+      "number": 2,
+      "focus": "Cook once and eat it three ways",
+      "exercise_ids": [
+        "p2_three"
+      ],
+      "intro": "What makes a pot worth the trouble is eating it more than once without it feeling the same. This part looks at three ways to serve one pot over the week: as it is, with something added and changed into another meal.",
+      "ideas": [
+        {
+          "heading": "The first serving can be the pot just as it comes.",
+          "body": "On the day you cook, eat it plain, with bread or rice. That gives you a clear idea of the flavour. Take notes on what it needs: salt, more pepper, a squeeze of lemon. Those notes guide the changes you make later."
+        },
+        {
+          "heading": "The second serving can have something added.",
+          "body": "Stir in a handful of greens, a spoon of curry paste or a tin of beans. The base stays the same and the taste moves. Add the extra to the portion you are heating, not the whole pot, so the rest stays plain."
+        },
+        {
+          "heading": "The third serving can become a different meal.",
+          "body": "Thick stew over rice or pasta, soup blended smooth, a stew under a lid of mashed potato or pastry. The same pot now looks like another dinner. Choose whichever is easiest for you on the day you will be most tired."
+        }
+      ],
+      "takeaway": "Eat it plain first, then with something added, then as a different meal. One pot can cover three dinners."
+    },
+    {
+      "number": 3,
+      "focus": "Store, cool and reheat it with care",
+      "exercise_ids": [
+        "p3_store"
+      ],
+      "intro": "Cooking ahead only works if the food is stored sensibly. This part gives plain, general guidance on cooling, storing and reheating. It does not replace the official guidance where you live. You then write your own short storage plan, using words and containers you already have.",
+      "ideas": [
+        {
+          "heading": "Cool the pot soon after cooking and do not leave it out for hours.",
+          "body": "Hot food left at room temperature is where problems start. Once the pot has stopped steaming, divide it into shallow containers so it cools quickly. Then cover it and put it in the fridge. Do not leave it on the hob overnight."
+        },
+        {
+          "heading": "Label what you store, and use it within a short time.",
+          "body": "Put the date on the container with a pen or tape. Plan to eat refrigerated portions within a couple of days. Freeze anything beyond that. Check the guidance for where you live for the exact times. Labels mean you never need to guess."
+        },
+        {
+          "heading": "Reheat until it is steaming hot all the way through.",
+          "body": "Warm food through, not just on the surface. Stir halfway and check the middle is steaming hot. Reheat only the portion you plan to eat, and do it once. If you are unsure about a portion, do not eat it."
+        }
+      ],
+      "takeaway": "Cool it quickly, label it with the date and reheat until steaming hot throughout. Check local guidance for exact times."
+    },
+    {
+      "number": 4,
+      "focus": "Keep a short list of pots and a weekly cooking slot",
+      "exercise_ids": [
+        "p4_slot"
+      ],
+      "intro": "One good pot is a start. A short list of pots you like, and a set time to cook, make it easy to repeat from one week to the next. This last part asks you to name three pots you like and to choose a time in your week for cooking one of them. The slot can move when it needs to, so pick a time that is realistic for you.",
+      "ideas": [
+        {
+          "heading": "Three pots you like are enough to rotate.",
+          "body": "A list of three keeps the week varied without much planning. Include one you know well, one you want to try and one you could make very easily. Write them down with the two or three main ingredients. That is your menu."
+        },
+        {
+          "heading": "A set cooking slot makes the pot part of the week.",
+          "body": "Sunday works for many people. Any time you are at home for a couple of hours will do. A set slot means you know when the shopping is done and when the pot goes on. It need not be rigid. Move it when the week requires."
+        },
+        {
+          "heading": "A week without a pot is still a normal week.",
+          "body": "Some weeks you will order a takeaway or eat toast. That is ordinary and needs no apology. The list and the slot will be there next week. Come back to them when it suits you. Nobody is keeping score, and the pot will keep until you want it."
+        }
+      ],
+      "takeaway": "Keep a list of three pots and a time to cook. A week without a pot is still a normal week."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_cupboard",
+      "title": "Choose a pot from your cupboard",
+      "purpose": "A list of what you have and the soup or stew it could make.",
+      "why": "Look in your cupboards, fridge and freezer. List what could go into a pot: a base, something filling, a bit of flavour. Choose one soup or stew to try. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List what could go in a pot."
+        },
+        {
+          "text": "Choose one soup or stew."
+        }
+      ],
+      "fields": [
+        {
+          "id": "have",
+          "type": "long_text",
+          "label": "What do you have that could go in a pot?"
+        },
+        {
+          "id": "pot",
+          "type": "short_text",
+          "label": "Which soup or stew will you make?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "have",
+          "plan_section": "pot"
+        },
+        {
+          "field_id": "pot",
+          "plan_section": "pot"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things you have for a pot."
+          }
+        ],
+        "field_ids": [
+          "have"
+        ]
+      },
+      "done_when": "You have a list of ingredients and one pot chosen."
+    },
+    {
+      "id": "p2_three",
+      "title": "Plan three ways to eat it",
+      "purpose": "Three servings of your pot planned for the week.",
+      "why": "Take the pot you chose. Write how you would eat it the first time, the second and the third. Think about what you have that would change it. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the first serving, plain."
+        },
+        {
+          "text": "Write a second and a third that differ."
+        }
+      ],
+      "fields": [
+        {
+          "id": "three",
+          "type": "long_text",
+          "label": "How could you eat the same pot three ways?"
+        },
+        {
+          "id": "extra",
+          "type": "short_text",
+          "label": "What could you add to change it?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "three",
+          "plan_section": "three"
+        },
+        {
+          "field_id": "extra",
+          "plan_section": "three"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one way to change the pot."
+          }
+        ],
+        "field_ids": [
+          "three"
+        ]
+      },
+      "done_when": "You have three ways to serve the pot."
+    },
+    {
+      "id": "p3_store",
+      "title": "Write your storage plan",
+      "purpose": "A short plan for cooling, storing and reheating your pot.",
+      "why": "Write how you will cool the pot, what containers you will use and where you will put the date. Add how you will check it is hot all the way through when you reheat. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write how you will cool and store it."
+        },
+        {
+          "text": "Write how you will reheat it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "store",
+          "type": "long_text",
+          "label": "How will you cool, store and reheat your pot?"
+        },
+        {
+          "id": "containers",
+          "type": "short_text",
+          "label": "What containers do you have that would do?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "store",
+          "plan_section": "store"
+        },
+        {
+          "field_id": "containers",
+          "plan_section": "store"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write how you will cool the pot."
+          }
+        ],
+        "field_ids": [
+          "store"
+        ]
+      },
+      "done_when": "You have a plan for cooling, storing and reheating."
+    },
+    {
+      "id": "p4_slot",
+      "title": "Name your pots and your slot",
+      "purpose": "Three pots you like and a time in the week to cook.",
+      "why": "Write three pots you like or want to try. Then choose a time in your week when you could cook one. Pick a time that suits you rather than an ideal one. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three pots you like."
+        },
+        {
+          "text": "Choose a time to cook."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pots",
+          "type": "long_text",
+          "label": "Which three pots would you like on your list?"
+        },
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When in your week could you cook?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pots",
+          "plan_section": "slot"
+        },
+        {
+          "field_id": "slot",
+          "plan_section": "slot"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one pot you would like on your list."
+          }
+        ],
+        "field_ids": [
+          "pots"
+        ]
+      },
+      "done_when": "You have three pots listed and a time chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your three ways to serve the pot are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your pot, your storage plan and your cooking slot."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "pot",
+      "title": "Your first pot"
+    },
+    {
+      "id": "three",
+      "title": "Three ways to eat it"
+    },
+    {
+      "id": "store",
+      "title": "Storing and reheating"
+    },
+    {
+      "id": "slot",
+      "title": "Your list and slot"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your first pot, three ways to eat it, how you will store it and your list of pots.",
+    "book_bridge": "A Pot on the Hob is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which pot did you cook this month?",
+      "Which of the three ways did you like best?",
+      "Is your cooking slot still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_three",
+      "p4_slot"
+    ]
+  }
+}
