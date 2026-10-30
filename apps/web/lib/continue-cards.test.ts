@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { ContinueCard } from "./catalogue-types";
-import { CONTINUE_CAP, anyWellbeing, continueStatus, splitContinueCards, withDailyCheck } from "./continue-cards";
+import { CONTINUE_CAP, anyWellbeing, continueStatus, continueUnitWord, splitContinueCards, withDailyCheck } from "./continue-cards";
 
 function card(over: Partial<ContinueCard> & Pick<ContinueCard, "enrolmentId">): ContinueCard {
   return {
@@ -17,6 +17,10 @@ function card(over: Partial<ContinueCard> & Pick<ContinueCard, "enrolmentId">): 
     unitCount: 6,
     currentUnit: 2,
     hasDailyCheck: false,
+    pace: "weekly",
+    paceChosen: false,
+    shelfId: null,
+    habitAllowed: true,
     ...over,
   };
 }
@@ -48,5 +52,15 @@ describe("continue cards", () => {
   it("flags Help now when any card is a wellbeing title", () => {
     expect(anyWellbeing([card({ enrolmentId: "a" })])).toBe(false);
     expect(anyWellbeing([card({ enrolmentId: "a" }), card({ enrolmentId: "b", safetyTier: "standard" })])).toBe(true);
+  });
+});
+
+describe("continue card unit word", () => {
+  it("follows the unit and the pace", () => {
+    expect(continueUnitWord(card({ enrolmentId: "a" }))).toBe("Week");
+    expect(continueUnitWord(card({ enrolmentId: "b", pace: "daily" }))).toBe("Part");
+    expect(continueUnitWord(card({ enrolmentId: "c", unitLabel: "part", pace: "own_pace" }))).toBe("Part");
+    expect(continueUnitWord(card({ enrolmentId: "d", unitLabel: "chapter", pace: "daily" }))).toBe("Chapter");
+    expect(continueUnitWord(card({ enrolmentId: "e", unitLabel: "unit" }))).toBe("Unit");
   });
 });

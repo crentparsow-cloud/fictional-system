@@ -14,7 +14,7 @@
  * an email is a poor place to keep that. The email falls back to the dates.
  */
 
-export type UnitKind = "week" | "day" | "module" | "chapter";
+export type UnitKind = "week" | "day" | "module" | "chapter" | "part";
 
 export interface OutlineEntry {
   number: number;

@@ -18,11 +18,12 @@ export const BADGE_LABELS: Record<WorkbookDetail["card"]["badge"], string> = {
   demo: "Demo",
 };
 
-export const UNIT_WORDS: Record<"week" | "day" | "module" | "chapter", string> = {
+export const UNIT_WORDS: Record<"week" | "day" | "module" | "chapter" | "part", string> = {
   week: "Week",
   day: "Day",
   module: "Module",
   chapter: "Chapter",
+  part: "Part",
 };
 
 export function unitWord(detail: WorkbookDetail): string {

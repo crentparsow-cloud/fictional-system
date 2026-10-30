@@ -78,7 +78,7 @@ export function WorkbookBuilder({
   const [stored, setStored] = useState<BuilderModel | null>(null);
   const [outline, setOutline] = useState<BuilderUnit[] | null>(null);
   const first = useRef(true);
-  const word = unitKind === "day" || unitKind === "module" || unitKind === "chapter" ? unitKind : "week";
+  const word = unitKind === "day" || unitKind === "module" || unitKind === "chapter" || unitKind === "part" ? unitKind : "week";
   const Word = word.charAt(0).toUpperCase() + word.slice(1);
 
   // Offer work saved in this browser, and an outline made on the outline page.

@@ -4,7 +4,7 @@ import type { createAdminClient } from "@/lib/supabase/admin";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
-const KINDS: readonly UnitKind[] = ["week", "day", "module", "chapter"];
+const KINDS: readonly UnitKind[] = ["week", "day", "module", "chapter", "part"];
 
 /**
  * The first week's plan for a reader who has just started a trial (14.20):

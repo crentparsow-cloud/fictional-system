@@ -24,6 +24,8 @@ const ALL_TEXT = () => [
   ...INVITE_STATEMENTS,
   statusLine({ label: "Sam", friendFinishedToday: true }),
   statusLine({ label: "Sam", friendFinishedToday: false }),
+  statusLine({ label: "Sam", friendFinishedToday: false, friendPace: "weekly", friendFinishedThisWeek: false }),
+  statusLine({ label: "Sam", friendFinishedToday: false, friendPace: "own_pace" }),
   ...Array.from({ length: 8 }, (_, i) => talkItOver(i)),
   TALK_IT_OVER_NOTE,
 ];
@@ -93,5 +95,15 @@ describe("polling", () => {
     expect(pollDelayMs({ realtimeConnected: false, hidden: false })).toBe(45_000);
     expect(pollDelayMs({ realtimeConnected: true, hidden: false })).toBe(300_000);
     expect(pollDelayMs({ realtimeConnected: false, hidden: true })).toBe(0);
+  });
+});
+
+describe("status line and pace", () => {
+  it("follows the friend's pace", () => {
+    expect(statusLine({ label: "Sam", friendFinishedToday: false })).toBe("Sam has not done a step yet today.");
+    expect(statusLine({ label: "Sam", friendFinishedToday: false, friendPace: "weekly", friendFinishedThisWeek: true })).toBe("Sam has done a step this week.");
+    expect(statusLine({ label: "Sam", friendFinishedToday: false, friendPace: "few_times_a_week", friendFinishedThisWeek: false })).toBe("Sam has not done a step yet this week.");
+    expect(statusLine({ label: "Sam", friendFinishedToday: false, friendPace: "own_pace" })).toBe("Sam goes at their own pace.");
+    expect(statusLine({ label: "Sam", friendFinishedToday: true, friendPace: "own_pace" })).toBe("Sam has done a step today.");
   });
 });
