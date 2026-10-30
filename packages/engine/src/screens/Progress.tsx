@@ -37,7 +37,7 @@ export function ProgressScreen({ workbook: doc, facts, events, onOpenStep, onOpe
   const done = unitsDone(doc, facts);
   const step = currentStep(doc, facts);
   const earned = earnedMilestones(doc, facts);
-  const unitWord = { week: "weeks", day: "days", module: "modules", chapter: "chapters" }[doc.structure.unit];
+  const unitWord = { week: "weeks", day: "days", module: "modules", chapter: "chapters", part: "parts" }[doc.structure.unit];
   const days = doc.daily_check ? recentDailyChecks(events, 14, now, store) : [];
   const dayLabel = (iso: string) =>
     new Date(`${iso}T12:00:00`).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });

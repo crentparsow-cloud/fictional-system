@@ -74,6 +74,8 @@ export interface PlayerProps {
   buyNote?: string;
   /** Extra content on the Finish screen after the book card (author recommendations, 14.12). */
   finishExtra?: ReactNode;
+  /** Extra content on the Start screen before the why prompt (the pace question, 0069). */
+  startExtra?: ReactNode;
   /**
    * Higher-tier workbooks (F-022): the reader must press "I have read this"
    * on the Start screen before any unit opens. While unacknowledged the
@@ -135,6 +137,7 @@ export function Player({
   buyHref,
   buyNote,
   finishExtra,
+  startExtra,
   requireAcknowledge,
   acknowledged,
   onAcknowledge,
@@ -214,7 +217,7 @@ export function Player({
   const whyRaw = store.get(START_SCOPE, "why");
   const why = typeof whyRaw === "string" ? whyRaw : "";
   const toolkitTitles = doc.toolkit.map((t) => t.title);
-  const unitWord = { week: "Week", day: "Day", module: "Module", chapter: "Chapter" }[doc.structure.unit];
+  const unitWord = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part" }[doc.structure.unit];
 
   const go = (target: PlayerView) => {
     setNotice(null);
@@ -325,6 +328,7 @@ export function Player({
           <StartScreen
             workbook={doc}
             firstName={firstName}
+            extra={startExtra}
             why={why}
             readOnly={readOnly}
             onWhyChange={(w) => liveStore.set(START_SCOPE, "why", w)}
