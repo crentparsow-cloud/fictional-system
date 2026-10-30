@@ -8,11 +8,14 @@ import type { HabitView, OnThisDayView } from "@/lib/habit/server";
  * The habit layer on Today (4.4, 4.5, 4.6, 11.2, "On this day"). Everything
  * here is quiet: the companion, a note when a new mark is earned, the
  * streak as two small figures once the reader has chosen it, and one link to
- * the settings. The streak and its offer never reach a mental health title:
- * the database only counts steps on titles outside the wellbeing tiers.
+ * the settings. The streak and its offer never reach a Mind and Mood or
+ * higher tier title: the database only counts steps on workbooks
+ * app.habit_allowed() lets in (0069), and hideStreak keeps the streak line
+ * and offer off while such a title leads Today.
  */
-export function HabitPanel({ habit, onThisDay, readOnly = false }: { habit: HabitView; onThisDay: OnThisDayView | null; readOnly?: boolean }) {
+export function HabitPanel({ habit, onThisDay, readOnly = false, hideStreak = false }: { habit: HabitView; onThisDay: OnThisDayView | null; readOnly?: boolean; hideStreak?: boolean }) {
   const newMarks = habit.marks.filter((m) => m.isNew);
+  const showStreak = !hideStreak && habit.anyStreakTitle;
   return (
     <div className="habit-panel" data-testid="habit-panel">
       {habit.companion ? <Companion view={habit.companion} /> : null}
@@ -39,7 +42,7 @@ export function HabitPanel({ habit, onThisDay, readOnly = false }: { habit: Habi
 
       {onThisDay ? <OnThisDay view={onThisDay} /> : null}
 
-      {habit.run ? (
+      {habit.run && showStreak ? (
         <p className="run-line small" data-testid="run-line">
           <span>
             Streak <b>{habit.run.current}</b>
@@ -49,7 +52,7 @@ export function HabitPanel({ habit, onThisDay, readOnly = false }: { habit: Habi
         </p>
       ) : null}
 
-      {habit.offer && !readOnly ? (
+      {habit.offer && showStreak && !readOnly ? (
         <section className="card habit-offer" aria-labelledby="habit-offer-h">
           <h2 id="habit-offer-h">Count your finished steps?</h2>
           <p>
@@ -72,7 +75,7 @@ export function HabitPanel({ habit, onThisDay, readOnly = false }: { habit: Habi
       ) : null}
 
       <p className="small habit-link">
-        <Link href="/you/habit">{habit.hasWellbeingTitle && !habit.run ? "Companion and reminders" : "Streak and reminders"}</Link>
+        <Link href="/you/habit">{!showStreak ? "Companion, pace and reminders" : "Streak, pace and reminders"}</Link>
       </p>
     </div>
   );
