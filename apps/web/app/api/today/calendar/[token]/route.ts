@@ -56,7 +56,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     admin.from("workbooks").select("title, short_title").eq("id", target.workbook_id).maybeSingle(),
   ]);
   const unit = (listing as { structure?: { unit?: string } } | null)?.structure?.unit;
-  const word: UnitWord = unit === "week" || unit === "day" || unit === "module" || unit === "chapter" ? unit : "unit";
+  const word: UnitWord = unit === "week" || unit === "day" || unit === "module" || unit === "chapter" || unit === "part" ? unit : "unit";
   const w = wb as { title?: string; short_title?: string | null } | null;
   const steps = stepsFromUnitSections((units ?? []) as { unit_number: number | null; body: unknown }[]);
   const left = remainingSteps(steps, doneExerciseIds((events ?? []) as { kind: string; ref: string | null }[]));

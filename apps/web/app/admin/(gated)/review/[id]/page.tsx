@@ -69,6 +69,7 @@ interface WorkbookRow {
   licence_ref: string | null;
   price_point_id: string | null;
   in_membership: boolean;
+  themes?: { shelf_id: string | null } | null;
 }
 
 interface SignoffRow {
@@ -133,7 +134,7 @@ export default async function ReviewVersionPage({
   const v = vData as VersionRow;
 
   const [wbRes, reqRes, signRes, noteRes, ovrRes, assignRes, staffRes, priceRes, subRes] = await Promise.all([
-    supabase.from("workbooks").select("id, code, title, status, safety_tier, genre_id, licence_ref, price_point_id, in_membership").eq("id", v.workbook_id).maybeSingle(),
+    supabase.from("workbooks").select("id, code, title, status, safety_tier, genre_id, licence_ref, price_point_id, in_membership, themes(shelf_id)").eq("id", v.workbook_id).maybeSingle(),
     supabase.rpc("release_requirements", { p_version: v.id }),
     supabase
       .from("release_signoffs")
@@ -165,7 +166,7 @@ export default async function ReviewVersionPage({
     if (r.error) console.error(`admin_review_${tag}_failed`, r.error.code ?? "");
   }
   if (!wbRes.data) notFound();
-  const w = wbRes.data as WorkbookRow;
+  const w = wbRes.data as unknown as WorkbookRow;
   // F-039: the comment thread with the author organisation, and its name.
   const [thread, orgRes] = await Promise.all([
     loadThread(w.id),
@@ -175,7 +176,7 @@ export default async function ReviewVersionPage({
   const orgName = (Array.isArray(orgRel) ? orgRel[0]?.display_name : orgRel?.display_name) || "The author organisation";
 
   // The validator, on the server, against this version's JSON.
-  const result = runValidator(v.content);
+  const result = runValidator(v.content, w.themes?.shelf_id ?? null);
   {
     const { error } = await supabase.rpc("record_validation", {
       p_version: v.id,

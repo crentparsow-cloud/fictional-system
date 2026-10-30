@@ -5,7 +5,7 @@ import { loadMyPairs } from "@/lib/friends/server";
 /**
  * The polling fallback for "friend finished a step" (6.2):
  *
- *   GET /api/friends/status -> { pairs: [{ pairId, friendFinishedToday, iFinishedToday, nudgeSentToday, nudgeCode }] }
+ *   GET /api/friends/status -> { pairs: [{ pairId, friendFinishedToday, friendFinishedThisWeek, iFinishedToday, nudgeSentToday, nudgeCode }] }
  *
  * The signed-in reader's own pairings, as public.my_pairs returns them:
  * status flags and a nudge code only. No ids of the other person, no
@@ -22,7 +22,7 @@ export async function GET() {
     {
       pairs: pairs
         .filter((p) => p.status === "active")
-        .map((p) => ({ pairId: p.pairId, friendFinishedToday: p.friendFinishedToday, iFinishedToday: p.iFinishedToday, nudgeSentToday: p.nudgeSentToday, nudgeCode: p.nudgeCode })),
+        .map((p) => ({ pairId: p.pairId, friendFinishedToday: p.friendFinishedToday, friendFinishedThisWeek: p.friendFinishedThisWeek ?? false, iFinishedToday: p.iFinishedToday, nudgeSentToday: p.nudgeSentToday, nudgeCode: p.nudgeCode })),
     },
     { headers: NO_STORE },
   );

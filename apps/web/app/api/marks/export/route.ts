@@ -11,7 +11,7 @@ import { exportFileName, exportMarkdown } from "@/lib/reading/marks";
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-const UNIT_WORDS = new Set(["week", "day", "module", "chapter"]);
+const UNIT_WORDS = new Set(["week", "day", "module", "chapter", "part"]);
 
 export async function GET(request: NextRequest) {
   const check = await requireOwnedEnrolment(request.nextUrl.searchParams.get("enrolment"));
