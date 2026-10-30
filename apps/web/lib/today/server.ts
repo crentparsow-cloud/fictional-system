@@ -19,6 +19,7 @@ import { buildSuggestions } from "@/lib/today/suggest";
 import { buildPath, type PathNode } from "@/lib/reading/path";
 import { doneExerciseIds, hasFromFieldPaths, nextStep, stepsFromUnitSections, type ProgrammeStep } from "@/lib/today/steps";
 import { countedFinishes, rhythmLine, rhythmUnit, thisWeekMarked, type UnitWord } from "@/lib/today/week";
+import { dueToday, nextPartLine, paceInputFromEvents } from "@/lib/pace";
 
 /**
  * Everything the Today page shows, worked out on the server under the
@@ -57,6 +58,10 @@ export interface TodayView {
   /** Programmes with a daily check, for the existing quick tap. */
   continueCards: ContinueCard[];
   timeZone: string;
+  /** False when the programme leading Today is one streaks never reach (Mind and Mood, higher tier). The streak line and offer then stay off. */
+  leadHabitAllowed: boolean;
+  /** True when the pace of the programme leading Today suggests a part today. Own pace never does. */
+  leadDue: boolean;
 }
 
 export interface ReviewView {
@@ -68,7 +73,7 @@ export interface ReviewView {
   stillTrueDay: string;
 }
 
-const UNIT_WORDS: UnitWord[] = ["week", "day", "module", "chapter", "unit"];
+const UNIT_WORDS: UnitWord[] = ["week", "day", "module", "chapter", "part", "unit"];
 const unitWordOf = (u: string): UnitWord => ((UNIT_WORDS as string[]).includes(u) ? (u as UnitWord) : "unit");
 
 interface EnrolmentRow {
@@ -94,7 +99,7 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       outsideMembership: new Set(),
     });
     const cards = selectTodayCards({ now, programmes: [], savedTools: [], suggestions, membershipStartedAt: subRows, monthThreeOffer });
-    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/explore")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone };
+    return { hasProgrammes: false, wellbeing: false, cards, hrefs: cards.map((c) => (c.kind === "suggestion" ? `/w/${encodeURIComponent(c.suggestion.slug)}` : "/explore")), rhythm: null, strip: null, welcomeBack: null, review: null, continueCards: [], timeZone, leadHabitAllowed: true, leadDue: false };
   }
 
   const ids = cardsAll.map((c) => c.enrolmentId);
@@ -144,6 +149,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     const steps = isTop ? stepsFromUnitSections(unitsOf.get(enrolOf.get(c.enrolmentId)?.version_id ?? "") ?? []) : [];
     stepsOf.set(c.enrolmentId, steps);
     const done = doneExerciseIds(eventsOf.get(c.enrolmentId) ?? []);
+    const localDay = (d: Date) => localParts(d, settingsOf.get(c.enrolmentId)?.timezone ?? tz).date;
+    const due = isTop && dueToday(paceInputFromEvents(c.pace, eventsOf.get(c.enrolmentId) ?? [], localDay), localDay(now));
     return {
       enrolmentId: c.enrolmentId,
       slug: c.slug,
@@ -153,6 +160,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
       unitWord: unitWordOf(c.unitLabel),
       unitCount: c.unitCount,
       next: nextStep(steps, done),
+      pace: c.pace,
+      due,
     };
   });
 
@@ -201,7 +210,10 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     const at = rhythmUnit(steps, p.next);
     if (at) {
       rhythm = {
-        line: rhythmLine({ unitWord: p.unitWord, unit: at.unit, unitCount: p.unitCount, stepsInUnit: at.stepsInUnit }),
+        line:
+          p.pace && p.pace !== "weekly"
+            ? nextPartLine({ unit: p.unitWord, pace: p.pace, number: at.unit, count: p.unitCount, due: p.due === true })
+            : rhythmLine({ unitWord: p.unitWord, unit: at.unit, unitCount: p.unitCount, stepsInUnit: at.stepsInUnit }),
         marked: thisWeekMarked(finishes, now, settingsOf.get(p.enrolmentId)?.timezone ?? tz),
       };
     }
@@ -246,6 +258,8 @@ export async function loadTodayView(userId: string, now: Date = new Date()): Pro
     review,
     continueCards: cardsAll,
     timeZone: tz,
+    leadDue: stepCard?.kind === "step" && stepCard.programme.due === true,
+    leadHabitAllowed: stepCard?.kind === "step" ? cardsAll.find((c) => c.enrolmentId === stepCard.programme.enrolmentId)?.habitAllowed !== false : true,
   };
 }
 
