@@ -1,0 +1,356 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-GA0DR",
+  "slug": "the-quieter-phone-ga0dr",
+  "title": "The Quieter Phone",
+  "card_line": "Notice when you pick up your phone and keep the changes you liked.",
+  "book": {
+    "book_id": "the-quieter-phone",
+    "title": "The Quieter Phone",
+    "subtitle": "Calmer Screen Habits, Week by Week"
+  },
+  "author": {
+    "author_id": "AU-QP3S0",
+    "display_name": "Priya Ramdhanie-Cole"
+  },
+  "genre": "life_skills",
+  "theme_id": "digital-ease",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about noticing how you use your phone and changing only what you want to change. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short list of changes you liked and a plan to keep them. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When do you most often pick up your phone without quite meaning to?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice when and why you pick up your phone",
+      "exercise_ids": [
+        "p1_notice"
+      ],
+      "intro": "You cannot change what you have not noticed. Most of us pick up our phones far more often than we would guess. This part asks you to watch your own use for a day, with curiosity and no judgement. Nothing needs to change yet.",
+      "ideas": [
+        {
+          "heading": "Picking up your phone is often a reaction, not a decision.",
+          "body": "A pause in the queue, a lull in the talk, a sound from the next room. The hand reaches before the thought arrives. That does not make you weak. A phone is built to be easy to reach, and routines form around easy things."
+        },
+        {
+          "heading": "Each pick-up has a reason, even when you cannot name it.",
+          "body": "Some pick-ups are useful: a map, a message from a friend, the time. Others fill a gap, avoid a task or answer a flicker of boredom. Telling the two apart is the point. You are not hunting for guilt, only for patterns."
+        },
+        {
+          "heading": "Writing it down shows more than guessing does.",
+          "body": "Ask a friend how often they check their phone and the answer is usually too low. A few jotted lines tell you more than memory can. Note the time and what you were doing. Even three entries will show you something."
+        }
+      ],
+      "takeaway": "Many pick-ups are reactions, and each has a reason. A few notes show you which ones you would rather change."
+    },
+    {
+      "number": 2,
+      "focus": "Quieten the alerts and apps that pull hardest",
+      "exercise_ids": [
+        "p2_tidy"
+      ],
+      "intro": "Some apps and alerts are designed to bring you back. Others are tools you are glad to have. This part looks at what sits on your first screen and which sounds you hear. You will change one alert and one app, and leave the rest alone.",
+      "ideas": [
+        {
+          "heading": "An alert you did not ask for is someone else's choice about your attention.",
+          "body": "Many apps send alerts by default. Each one tugs you back to the screen, whether or not the news matters to you. You can switch off any that do not. Keep the ones you would miss, such as calls from family."
+        },
+        {
+          "heading": "What sits on your first screen gets used most.",
+          "body": "Apps you see first are apps you open first. If a feed or game sits there, your thumb finds it without thought. Moving it into a folder or onto a later page adds a small pause. That pause is often enough to let you choose."
+        },
+        {
+          "heading": "Small changes are easier to keep than big ones.",
+          "body": "Deleting every app in one evening is hard to keep up. Changing one alert and moving one app takes a few minutes. You can see how it feels for a week. If you miss something, put it back. Nothing here is permanent."
+        }
+      ],
+      "takeaway": "Switch off the alerts you did not ask for and move one pulling app to a later page. One small change at a time is easier to keep."
+    },
+    {
+      "number": 3,
+      "focus": "Find phone-down times and places that suit your household",
+      "exercise_ids": [
+        "p3_times"
+      ],
+      "intro": "A phone-down time works best when it fits the people you live with. Meals, the bedroom and the school run are common choices, but yours may differ. This part asks you to pick one time or place and think about how to put it to others kindly.",
+      "ideas": [
+        {
+          "heading": "A phone-down time is easier to keep when it is tied to a place.",
+          "body": "\"No phones at the table\" is clearer than \"fewer phones\". A place gives everyone the same signal, and nobody has to judge the moment. Choose somewhere you already gather, such as the kitchen, the car or the sofa, and keep the rule the same each time."
+        },
+        {
+          "heading": "Agreeing it together works better than announcing it.",
+          "body": "People keep rules they helped to make. Ask the others what they would be happy to try, and listen to the answer. A shared plan can be small. It might cover one meal a week, or the hour before bed."
+        },
+        {
+          "heading": "A spot for the phone to rest makes the choice easier.",
+          "body": "A phone left in your pocket is hard to ignore. A basket by the door or a charger in another room takes it out of reach. Putting it down then needs no willpower, only a place to put it. Choose a spot that everyone in the home can see and use."
+        }
+      ],
+      "takeaway": "Pick one time or place, agree it with your household, and give the phones somewhere to rest."
+    },
+    {
+      "number": 4,
+      "focus": "Look back and keep the changes you liked",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "After a few weeks you have tried several small things. Some suited you and some did not. This final part asks you to look back, keep what worked and let the rest go. Then you choose a date to look again.",
+      "ideas": [
+        {
+          "heading": "Keeping a change means choosing it, not forcing it.",
+          "body": "Some changes will feel like yours and some will feel like someone else's rules. Keep the first kind. If a change makes your day harder, drop it without guilt. The aim is a phone that suits you, not a perfect record."
+        },
+        {
+          "heading": "A change you liked is worth writing down.",
+          "body": "It is easy to forget what felt better. Note the alert you switched off, the app you moved, the meal without phones. Written down, each one is easy to repeat later. It also reminds you that you made the choice."
+        },
+        {
+          "heading": "Looking again after a month keeps the plan current.",
+          "body": "Phones, apps and households change. What suits you now may not suit you in spring. Pick a date and put it in the diary. On that day, read your plan, keep what works and change whatever no longer fits you."
+        }
+      ],
+      "takeaway": "Keep the changes you liked, drop the ones you did not, and look again on a date you have chosen."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_notice",
+      "title": "Watch your phone for a day",
+      "purpose": "A short note of when and why you picked up your phone.",
+      "why": "Choose one ordinary day. Each time you notice yourself picking up the phone, jot down the time and what you were doing. Three or four entries are plenty. If you cannot recall any, write what you remember from this morning.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one ordinary day."
+        },
+        {
+          "text": "Jot down a few pick-ups with the time and the reason."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pickups",
+          "type": "two_column",
+          "label": "When did you pick up your phone, and what was going on?",
+          "columns": [
+            "When",
+            "What was going on"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pickups",
+          "plan_section": "noticed"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one pick-up from today."
+          }
+        ],
+        "field_ids": [
+          "pickups"
+        ]
+      },
+      "done_when": "You have at least one pick-up written down."
+    },
+    {
+      "id": "p2_tidy",
+      "title": "Quieten one alert and one app",
+      "purpose": "One alert switched off and one app moved off your first screen.",
+      "why": "Look at the apps that pull you most. Choose one whose alerts you can do without and switch them off. Then move one app off your home screen, into a folder or onto a later page. Keep it to one of each.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Switch off one alert."
+        },
+        {
+          "text": "Move one app off your first screen."
+        }
+      ],
+      "fields": [
+        {
+          "id": "alert",
+          "type": "short_text",
+          "label": "Which alert will you switch off?"
+        },
+        {
+          "id": "moved",
+          "type": "short_text",
+          "label": "Which app will you move off your first screen?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "alert",
+          "plan_section": "tidied"
+        },
+        {
+          "field_id": "moved",
+          "plan_section": "tidied"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Switch off one alert and write down which."
+          }
+        ],
+        "field_ids": [
+          "alert"
+        ]
+      },
+      "done_when": "One alert is off and one app has moved."
+    },
+    {
+      "id": "p3_times",
+      "title": "Choose a phone-down time",
+      "purpose": "One time or place in your household where phones rest.",
+      "why": "Think about the people you live with, or your own day if you live alone. Pick one time or place that suits, such as meals or the bedroom at night. Then write how you will put it to the others.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick one time or place."
+        },
+        {
+          "text": "Write how you will suggest it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "Which time or place could be phone-down in your household?"
+        },
+        {
+          "id": "saying",
+          "type": "short_text",
+          "label": "How will you suggest it, in one sentence?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "phonefree"
+        },
+        {
+          "field_id": "saying",
+          "plan_section": "phonefree"
+        }
+      ],
+      "done_when": "You have a time or place and a sentence to say."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Keep what you liked",
+      "purpose": "A short list of changes to keep and one to drop.",
+      "why": "Look back over what you tried. Write down the changes you liked and want to keep, and one you would drop. Then choose a date next month to look again at your plan.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the changes you liked."
+        },
+        {
+          "text": "Choose a date to look again."
+        }
+      ],
+      "fields": [
+        {
+          "id": "keep",
+          "type": "long_text",
+          "label": "Which changes did you like, and which will you drop?"
+        },
+        {
+          "id": "look_again",
+          "type": "short_text",
+          "label": "When will you look at this plan again?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "keep",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "look_again",
+          "plan_section": "keep"
+        }
+      ],
+      "done_when": "Your keepers are listed and a date is chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "noticed",
+      "title": "When you pick up your phone"
+    },
+    {
+      "id": "tidied",
+      "title": "Your alert and your app"
+    },
+    {
+      "id": "phonefree",
+      "title": "Your phone-down time"
+    },
+    {
+      "id": "keep",
+      "title": "Changes to keep"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your pick-ups, the alert and app you changed, your phone-down time and the changes you will keep.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which change from this plan did you keep this month?",
+      "When did you notice yourself reaching for your phone this month?",
+      "Is your phone-down time still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_tidy",
+      "p4_keep"
+    ]
+  }
+}

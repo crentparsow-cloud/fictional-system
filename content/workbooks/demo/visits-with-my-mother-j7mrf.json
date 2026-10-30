@@ -1,0 +1,384 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-J7MRF",
+  "slug": "visits-with-my-mother-j7mrf",
+  "title": "Visits With My Mother",
+  "card_line": "Bring photos, music and objects to visits and go along with the moment.",
+  "book": {
+    "book_id": "visits-with-my-mother",
+    "title": "Visits With My Mother",
+    "subtitle": "Keeping Conversation Going as Memory Changes"
+  },
+  "author": {
+    "author_id": "AU-PJM1M",
+    "display_name": "Declan Hennessy-Ruane"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "life_skills",
+  "theme_id": "caring-hands",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_medical_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about keeping conversation going on visits as a parent's memory changes. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a bag of things to bring, a way to go along with the moment and a pattern for visits. It is not medical advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What does the person you visit enjoy most? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday visits and caring. If using it would put you or the person you visit at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Look at what visits are like now and what you both enjoy",
+      "exercise_ids": [
+        "p1_now"
+      ],
+      "intro": "Visits change as memory changes, and it is useful to look at them as they are. This part asks you to note how a visit usually goes, what the person you visit enjoys and what you enjoy too. The picture shapes everything that follows.",
+      "ideas": [
+        {
+          "heading": "A visit has good moments even when it also has hard ones.",
+          "body": "Think of the last few visits and write down the best minute of each. It might be a laugh, a song or a cup of tea taken together. Hard moments are real, and they are not the whole picture. Starting with the good ones tells you what to do more of."
+        },
+        {
+          "heading": "What the person enjoys now may differ from what they enjoyed before.",
+          "body": "Tastes and energy shift. Someone who loved long talks may now prefer a walk or a song. Watch what brings a smile and what brings a frown. Follow the smiles. You are getting to know the person as they are today."
+        },
+        {
+          "heading": "Your own enjoyment of the visit counts too.",
+          "body": "A visit is time for both of you. If you dread it, admit that to yourself. Then ask what would make it lighter: a different hour, a shorter stay, a task to do together. Time you can manage is time you can keep giving."
+        }
+      ],
+      "takeaway": "Notice the best minute of each visit and what brings a smile. Plan more of that, for both of you."
+    },
+    {
+      "number": 2,
+      "focus": "Bring photos, music and objects that start a conversation",
+      "exercise_ids": [
+        "p2_bag"
+      ],
+      "intro": "Memory often holds on to old things: faces, songs and objects from long ago. This part asks you to put together a few items to bring on visits and to try one. They give you both something to look at and talk about, so the visit does not rest on questions.",
+      "ideas": [
+        {
+          "heading": "An old photograph gives you both something to look at together.",
+          "body": "Choose a few from long ago: a wedding, a street, a holiday. Name the people gently as you go. Say \"Here you are at the seaside.\" Let the other person say what they like. If they are quiet, the photo still keeps you company. Write names on the back."
+        },
+        {
+          "heading": "Music from their younger years often reaches them when talk does not.",
+          "body": "Find the songs that were popular when they were twenty. Play them softly and hum along. Singing needs no memory for facts. Watch their face and follow their lead. A short playlist on a phone is plenty, and a radio station from their youth works too."
+        },
+        {
+          "heading": "Everyday objects can start a story.",
+          "body": "A tin of buttons, a worn recipe book, a familiar hat or tool: hold it up and say \"I remember this.\" Let them touch it. Objects from a trade or a hobby are best. Bring one or two a visit, not a bagful. Keep what works and drop what does not."
+        }
+      ],
+      "takeaway": "Bring photos, music and a familiar object. They give the visit something to share beyond questions."
+    },
+    {
+      "number": 3,
+      "focus": "Go along with the moment instead of correcting",
+      "exercise_ids": [
+        "p3_along"
+      ],
+      "intro": "When memory changes, a person may say things that are not quite right. Correcting can leave both of you upset. This part asks you to try going along with the moment: accepting what is said and following where it leads. It is a skill that grows with use.",
+      "ideas": [
+        {
+          "heading": "Correcting a memory usually costs more than it gains.",
+          "body": "If your mother says she must go to work, telling her she retired years ago can bring distress. The facts matter less than how she feels. You can let the details pass. Ask \"What do you do there?\" and listen to the answer."
+        },
+        {
+          "heading": "Joining their world is a kindness and not a lie.",
+          "body": "You are not tricking anyone. You are meeting them where they are. If they speak of a lost friend as if present, you might say \"Tell me about her.\" The feeling is real. Answer the feeling, and let the details go."
+        },
+        {
+          "heading": "Safety and health are the exception, and those go to the care team.",
+          "body": "If something is unsafe, act. If you notice a change in health, mood or behaviour, tell the care team. Going along with the moment is for everyday talk. It is not a way of ignoring things that need attention. When in doubt, ask the care team."
+        }
+      ],
+      "takeaway": "Answer the feeling, not the facts, in everyday conversation. Tell the care team about any change in health."
+    },
+    {
+      "number": 4,
+      "focus": "Set a rhythm for visits and look after yourself afterwards",
+      "exercise_ids": [
+        "p4_rhythm"
+      ],
+      "intro": "Short, regular visits tend to suit people better than long, rare ones. They are also easier for you to sustain. This last part asks you to plan a pattern and share visits with others. You also decide what you will do for yourself after a hard visit.",
+      "ideas": [
+        {
+          "heading": "Short visits at a regular time suit both of you.",
+          "body": "Half an hour at the same time each week gives structure. Many people are at their best at a certain hour, so choose it with care. Leave while the visit is still going well. Predictable visits are something they can feel settled about, even if they forget the date."
+        },
+        {
+          "heading": "Sharing visits with family and friends spreads the load and widens the company.",
+          "body": "Ask a brother, a cousin or an old neighbour to take a turn. Give them a few tips: what to bring, what to avoid saying. A rota on the fridge shows who is going when. Different visitors bring different conversation, and you get a rest."
+        },
+        {
+          "heading": "A hard visit deserves a few minutes for you afterwards.",
+          "body": "Sit in the car, take a short walk or make a cup of tea. Note one thing that went well. Call a friend if you can. You have given a lot, and a feeling of heaviness is ordinary. If it stays with you, talk to someone you trust or to the care team."
+        }
+      ],
+      "takeaway": "Keep visits short and regular, share them with others and give yourself a few minutes after a hard one."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_now",
+      "title": "Look at your recent visits",
+      "purpose": "The best minute of recent visits and what the person you visit enjoys most.",
+      "why": "Think of your last few visits. Write the best minute of each, however small. Then write what the person you visit enjoys most now. If a visit was all hard, write the one moment that was easiest. Do not worry about getting it right.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the best minute of recent visits."
+        },
+        {
+          "text": "Write what they enjoy most now."
+        }
+      ],
+      "fields": [
+        {
+          "id": "best",
+          "type": "long_text",
+          "label": "What was the best minute of your last few visits?"
+        },
+        {
+          "id": "enjoys",
+          "type": "short_text",
+          "label": "What does the person you visit enjoy most now?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "best",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "enjoys",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the best minute of your last visit."
+          }
+        ],
+        "field_ids": [
+          "best"
+        ]
+      },
+      "done_when": "You have at least one good moment and one thing they enjoy."
+    },
+    {
+      "id": "p2_bag",
+      "title": "Pack a visit bag",
+      "purpose": "A few photos, songs or objects to bring, and the one you will try first.",
+      "why": "Choose a few things that might start a conversation: two or three photos, a song or two, one familiar object. Pick the one you will try at your next visit. Watch their face and follow their lead. If nothing comes to mind, start with one photo.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose photos, songs or objects to bring."
+        },
+        {
+          "text": "Pick the one you will try first."
+        }
+      ],
+      "fields": [
+        {
+          "id": "items",
+          "type": "long_text",
+          "label": "Which photos, songs or objects will you bring?"
+        },
+        {
+          "id": "first",
+          "type": "short_text",
+          "label": "Which one will you try first?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "items",
+          "plan_section": "bag"
+        },
+        {
+          "field_id": "first",
+          "plan_section": "bag"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one photo, song or object to bring."
+          }
+        ],
+        "field_ids": [
+          "items"
+        ]
+      },
+      "done_when": "You have a few items listed and one chosen to try."
+    },
+    {
+      "id": "p3_along",
+      "title": "Try going along",
+      "purpose": "A thing you usually correct and what you could say instead.",
+      "why": "Think of something the person you visit says that you often correct. Write it down. Then write what you could say instead, one that answers the feeling and not the fact. Try it at your next visit if you like. If nothing comes to mind, leave it for now.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write something you usually correct."
+        },
+        {
+          "text": "Write what you could say instead."
+        }
+      ],
+      "fields": [
+        {
+          "id": "usual",
+          "type": "short_text",
+          "label": "What do they say that you usually correct?"
+        },
+        {
+          "id": "instead",
+          "type": "short_text",
+          "label": "What could you say instead?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "usual",
+          "plan_section": "along"
+        },
+        {
+          "field_id": "instead",
+          "plan_section": "along"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you could say instead."
+          }
+        ],
+        "field_ids": [
+          "instead"
+        ]
+      },
+      "done_when": "You have one thing you correct and a reply to try."
+    },
+    {
+      "id": "p4_rhythm",
+      "title": "Set up your visit rhythm",
+      "purpose": "A day, time and length of visit, who could share, and a plan for after.",
+      "why": "Choose a day, a time and a length of visit that suit you both. Then think of one person who could take a turn. Finish with what you will do for yourself after a hard visit. If a set time is not possible, choose a part of the week.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a day, time and length of visit."
+        },
+        {
+          "text": "Name who could take a turn and what you will do after."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rhythm",
+          "type": "short_text",
+          "label": "What day, time and length of visit suit you both?"
+        },
+        {
+          "id": "after",
+          "type": "long_text",
+          "label": "Who could take a turn, and what will you do for yourself after a hard visit?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rhythm",
+          "plan_section": "rhythm"
+        },
+        {
+          "field_id": "after",
+          "plan_section": "rhythm"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one day and time for a visit."
+          }
+        ],
+        "field_ids": [
+          "rhythm"
+        ]
+      },
+      "done_when": "You have a day and time, and a plan for after a hard visit."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your visit bag is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your visits now, your bag, your replies and your rhythm."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "Visits now"
+    },
+    {
+      "id": "bag",
+      "title": "Your visit bag"
+    },
+    {
+      "id": "along",
+      "title": "Going along"
+    },
+    {
+      "id": "rhythm",
+      "title": "Your rhythm"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds how visits are now, your visit bag, what you could say instead and your rhythm.",
+    "book_bridge": "Visits With My Mother is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What was the best minute of a visit this month?",
+      "Which item from the bag started the best talk?",
+      "How are you looking after yourself after visits?"
+    ],
+    "refresher_ids": [
+      "p2_bag",
+      "p4_rhythm"
+    ]
+  }
+}

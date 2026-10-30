@@ -1,0 +1,352 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-RPT7D",
+  "slug": "small-rules-for-ordinary-days-rpt7d",
+  "title": "Small Rules for Ordinary Days",
+  "card_line": "Write three small rules for your days and learn how to restart them after a gap.",
+  "book": {
+    "book_id": "small-rules-for-ordinary-days",
+    "title": "Small Rules for Ordinary Days",
+    "subtitle": "Habits You Can Restart Any Time"
+  },
+  "author": {
+    "author_id": "AU-JKB28",
+    "display_name": "Friederike Ostwald-Rehm"
+  },
+  "genre": "personal_development",
+  "theme_id": "chosen-habits",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about three small rules for your days, and how to restart them after a gap. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have noticed your good days, written three rules, tried them and planned a restart. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one small thing that makes an ordinary day go well for you? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice the days that already go well.",
+      "exercise_ids": [
+        "p1_good"
+      ],
+      "intro": "Before adding anything new, look at what already works. Some of your days go better than others, and the reasons are often small. This part asks you to recall a few good days and find what they had in common. You are looking for patterns, not perfection.",
+      "ideas": [
+        {
+          "heading": "A good ordinary day often has a few simple things in it.",
+          "body": "Perhaps a walk before work, an early start, or a proper lunch. Think of your last three good days and list what happened. The same small things tend to appear. They are a better guide than any advice from outside."
+        },
+        {
+          "heading": "It is easier to repeat what works than to invent something new.",
+          "body": "A new routine takes effort to build. Something you already do on good days needs only a nudge. Look for what you do without trying and make it a little more likely. That is a gentler place to begin. Pick one and give it a little more room."
+        },
+        {
+          "heading": "Your good days and your hard days may differ by one thing.",
+          "body": "Compare a day that went well with one that did not. Look for a single difference, such as sleep, an early message, or a missed meal. You may not find one, and that is fine. Still, patterns tend to show themselves with a little attention."
+        }
+      ],
+      "takeaway": "Look at your good days and find the small things they share."
+    },
+    {
+      "number": 2,
+      "focus": "Write three small rules and keep them very small.",
+      "exercise_ids": [
+        "p2_rules"
+      ],
+      "intro": "A rule is a short sentence you decide on in advance. Three is enough to shape a day without crowding it. This part asks you to write three rules from what you noticed. Each should be so small that it is hard to say no to.",
+      "ideas": [
+        {
+          "heading": "Three rules are plenty for most people's days.",
+          "body": "More than three and none of them will stick. Choose the ones that matter most to you. Keep a short list on a card or in a notebook. If you can recall them without looking, the number is right. Keep the list where you can see it."
+        },
+        {
+          "heading": "A good rule is specific, small and yours.",
+          "body": "\"Water on the desk before I sit down\" is a rule. \"Be healthier\" is a wish. Write rules you could follow on a tired Tuesday. Use your own words, so they sound like you and not like a poster. Try reading it aloud to check."
+        },
+        {
+          "heading": "Start so small that it feels almost silly.",
+          "body": "Two minutes of tidying, one page of reading, a glass of water. A rule this small is easy to begin. You can always do more on a day when you feel like it. Starting small leaves room for the rule to grow."
+        }
+      ],
+      "takeaway": "Write three specific rules, small enough to follow on a tired day."
+    },
+    {
+      "number": 3,
+      "focus": "Try the rules and see what to change.",
+      "exercise_ids": [
+        "p3_test"
+      ],
+      "intro": "A rule on paper is a guess. You only learn if it works by trying it. This part asks you to test your three rules over a week or two. You will see which fit your life, and which ones need to be smaller, moved or dropped.",
+      "ideas": [
+        {
+          "heading": "Test each rule for a week before you judge it.",
+          "body": "Give each rule a fair run. Some will fit at once. Others will turn out to need a different time or a smaller size. Try to see the first week as information. It tells you how to adjust. Jot a line when it suits you."
+        },
+        {
+          "heading": "A rule that never works is telling you something.",
+          "body": "If a rule keeps slipping, ask why. It may be at the wrong time of day or too large. It may not matter to you after all. Change it, shrink it or drop it. A rule that nobody follows helps no one."
+        },
+        {
+          "heading": "Pair a rule with something you already do.",
+          "body": "Attach the new rule to an existing moment: after you make tea, when you lock the door, before you open your email. The existing moment acts as a reminder. This is often easier than relying on memory. Pick the moment that happens at much the same point in most days."
+        }
+      ],
+      "takeaway": "Test each rule for a week, then adjust it, shrink it or drop it."
+    },
+    {
+      "number": 4,
+      "focus": "Restart after a gap and revise your rules.",
+      "exercise_ids": [
+        "p4_restart"
+      ],
+      "intro": "Everyone has weeks when the rules slip, because of illness, travel or a busy spell. The aim is not to avoid gaps but to restart easily. This part gives you a short way back in, and a moment to revise your rules for the weeks ahead.",
+      "ideas": [
+        {
+          "heading": "A gap is a normal part of any set of rules.",
+          "body": "Holidays, colds and deadlines will interrupt. When they do, there is nothing to make up. Do not try to double up. Pick the rule that matters most, do it once, and the restart has begun. It is a restart, and the rules are still yours. Nothing is owed."
+        },
+        {
+          "heading": "Restart with the smallest rule first.",
+          "body": "Choose the easiest of your three and begin there. Once it is back in place, add the next. Starting with the smallest gives you a quick win and takes the pressure off. The others will follow when they are ready."
+        },
+        {
+          "heading": "Revise your rules a few times a year.",
+          "body": "Your life changes, so your rules may need to. Read them every few months. Ask whether each one still fits, whether it should be smaller, and whether a new one is needed. A short review keeps the list useful. Cross out anything that no longer fits."
+        }
+      ],
+      "takeaway": "After a gap, restart with the smallest rule and add the others when ready."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_good",
+      "title": "Recall three good days",
+      "purpose": "A short list of three good days and what they had in common.",
+      "why": "Think of three recent ordinary days that went well. For each one, write what happened that helped. Look for something they share. If you can only think of one, one is enough.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Recall three good days."
+        },
+        {
+          "text": "Note what each one included."
+        }
+      ],
+      "fields": [
+        {
+          "id": "days",
+          "type": "two_column",
+          "label": "Which days went well, and what was in them?",
+          "columns": [
+            "The day",
+            "What was in it"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "days",
+          "plan_section": "good_days"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one good day and one thing in it."
+          }
+        ],
+        "field_ids": [
+          "days"
+        ]
+      },
+      "done_when": "You have at least one good day and what it included."
+    },
+    {
+      "id": "p2_rules",
+      "title": "Write your three rules",
+      "purpose": "Three short rules in your own words.",
+      "why": "Look at what your good days had in common. Write three rules from it. Make each one specific and small enough to follow on a tired day. Read them aloud and change any word that does not sound like you.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write three rules."
+        },
+        {
+          "text": "Make each one small."
+        },
+        {
+          "text": "Read them aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What are your three small rules?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small rule."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "You have three rules, or at least one."
+    },
+    {
+      "id": "p3_test",
+      "title": "Test your rules for a week",
+      "purpose": "A note of how each rule went and what to change.",
+      "why": "Try your rules for a week. At the end, write how each one went. Choose one to keep, one to shrink and one to change if needed. If you have not tried them yet, write when you will.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Try the rules for a week."
+        },
+        {
+          "text": "Write how each went."
+        }
+      ],
+      "fields": [
+        {
+          "id": "how_it_went",
+          "type": "long_text",
+          "label": "How did each rule go, and what will you change?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "how_it_went",
+          "plan_section": "tested"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on how one rule went."
+          }
+        ],
+        "field_ids": [
+          "how_it_went"
+        ]
+      },
+      "done_when": "You have a note on each rule and one change."
+    },
+    {
+      "id": "p4_restart",
+      "title": "Plan your restart",
+      "purpose": "Your smallest rule, a way back after a gap and a review date.",
+      "why": "Pick the smallest of your rules as your restart rule. Write what you will do first when you return after a gap. Then choose a date a few months away to read your rules again.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name your restart rule."
+        },
+        {
+          "text": "Choose a review date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "restart",
+          "type": "short_text",
+          "label": "Which rule will you restart with after a gap?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you read your rules again?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "restart",
+          "plan_section": "restart"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "restart"
+        }
+      ],
+      "done_when": "You have a restart rule and a review date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your three rules are saved and ready to try."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your good days, your rules and your restart."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "good_days",
+      "title": "Days that went well"
+    },
+    {
+      "id": "rules",
+      "title": "Your three rules"
+    },
+    {
+      "id": "tested",
+      "title": "How the rules went"
+    },
+    {
+      "id": "restart",
+      "title": "Your restart plan"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your good days, your three rules, how they went and your way back after a gap.",
+    "book_bridge": "Small Rules for Ordinary Days is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which rule has fitted your days best this month?",
+      "Have you had a gap, and how did you restart?",
+      "Do your rules still fit your life?"
+    ],
+    "refresher_ids": [
+      "p2_rules",
+      "p4_restart"
+    ]
+  }
+}

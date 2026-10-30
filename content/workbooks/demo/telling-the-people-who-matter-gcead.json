@@ -1,0 +1,366 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-GCEAD",
+  "slug": "telling-the-people-who-matter-gcead",
+  "title": "Telling the People Who Matter",
+  "card_line": "Write a few plain sentences for telling people about a separation.",
+  "book": {
+    "book_id": "telling-the-people-who-matter",
+    "title": "Telling the People Who Matter",
+    "subtitle": "Sharing News of a Separation Calmly"
+  },
+  "author": {
+    "author_id": "AU-PVT1E",
+    "display_name": "Clodagh Ní Fhaoláin-Burke"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "relationships",
+  "theme_id": "new-chapters",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about telling people about a separation calmly. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of who to tell, a few plain sentences, ready replies and a note of what stays private. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two. Skip anything that does not suit you.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who is the first person you want to tell? One name is enough.",
+    "extra_safety_note": "This workbook is for everyday conversations about a separation, which can be a risky time for some people. If using it would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "List who needs to know and in what order",
+      "exercise_ids": [
+        "p1_who"
+      ],
+      "intro": "Telling people about a separation is steadier when you choose the order yourself. Otherwise the news can travel before you do. This part asks you to list the people who need to hear from you, and to put them in the order that feels right.",
+      "ideas": [
+        {
+          "heading": "Close family and close friends usually come first.",
+          "body": "The people who would be hurt to hear it from someone else belong at the top. That often means children, parents, siblings and one or two close friends. Start with those you trust to listen. Their reaction can then steady you for the harder conversations."
+        },
+        {
+          "heading": "People at work and school can wait until you are ready.",
+          "body": "Employers, neighbours and the school may need to know something eventually. They do not need to know today. Decide what each of them needs, such as new contact details or who collects the children, and tell them only that. Practical information can be short and plain."
+        },
+        {
+          "heading": "People are usually glad to hear it from you rather than from others.",
+          "body": "Once more than a few people know, the news usually spreads. If you want it to arrive in your own words, tell the key people first. Ask them to give you time before passing it on. That request is reasonable. Most people will respect it."
+        }
+      ],
+      "takeaway": "Decide the order yourself: close people first, practical contacts later, and ask for a little time before it is passed on."
+    },
+    {
+      "number": 2,
+      "focus": "Write a few plain sentences you can repeat",
+      "exercise_ids": [
+        "p2_words"
+      ],
+      "intro": "You will probably say the news many times. Having a few plain sentences ready means you say it the same way and keep control of the telling. This part asks you to write them, including a simpler version for children.",
+      "ideas": [
+        {
+          "heading": "Three plain sentences are enough: what has happened, what happens next, what you ask of them.",
+          "body": "For example: «We have decided to separate». Then «I will be living somewhere new from next month». Then «I wanted you to hear it from me». That is complete. You can add detail when someone asks. You do not owe it otherwise."
+        },
+        {
+          "heading": "Children need short, calm, honest sentences at their own level.",
+          "body": "Say what is happening, that it is not their fault, and what stays the same, such as school and their own room. Keep the words simple and the tone steady. Expect questions later. People who work with families can offer more guidance on what to say at each age."
+        },
+        {
+          "heading": "Say it aloud before you say it to anyone else.",
+          "body": "A sentence that reads well on paper can stick in your throat. Say it to the mirror or to a trusted friend first. Change any word that sounds false. Hearing yourself say it once makes the real conversation less of a first time."
+        }
+      ],
+      "takeaway": "Three plain sentences, a gentler version for children, and a run through aloud."
+    },
+    {
+      "number": 3,
+      "focus": "Meet questions, opinions and advice calmly",
+      "exercise_ids": [
+        "p3_replies"
+      ],
+      "intro": "Once people know, some will ask questions and some will offer opinions. Most mean well. This part asks you to prepare a few replies for questions you would rather not answer and advice you did not ask for. Each reply is one short sentence.",
+      "ideas": [
+        {
+          "heading": "You can answer a question with less than it asks for.",
+          "body": "A question does not oblige a full account. Give the part you are comfortable with and stop. «It was a joint decision» or «We are both looking after the children» are complete answers. Silence afterwards is the other person's to fill. You are allowed to leave it there."
+        },
+        {
+          "heading": "Advice is usually kindness in a clumsy form.",
+          "body": "Friends and relatives offer opinions because they care and feel helpless. You can thank them and carry on with «Thank you, I will think about that». You need not follow it, argue with it or explain why not. A thank you ends the matter politely."
+        },
+        {
+          "heading": "You can decline to hear criticism of anyone, including yourself.",
+          "body": "Some people will want to criticise your former partner, or you. You can say «I would rather not talk about that» and change the subject. Kind people will follow your lead. Those who do not may be better seen less often for a while."
+        }
+      ],
+      "takeaway": "Answer with less than is asked, thank people for advice, and change the subject when you want to."
+    },
+    {
+      "number": 4,
+      "focus": "Decide what stays private and say so kindly",
+      "exercise_ids": [
+        "p4_private"
+      ],
+      "intro": "You are not required to share everything. Some details belong to you, to your former partner or to the children. This part asks you to decide what stays private and to write a kind way of saying so. You can change your mind later.",
+      "ideas": [
+        {
+          "heading": "Privacy is a fair choice, not a way of hiding.",
+          "body": "Details of money, reasons and arrangements may be nobody else's business. Deciding to keep them to yourself is ordinary. It protects the people involved, the children most of all. A calm, clear line is easier on everyone. Share only what serves a purpose."
+        },
+        {
+          "heading": "Decide in advance which subjects are closed.",
+          "body": "Write a short list of topics you will not discuss, such as the reasons, the finances or a new relationship. Knowing your list beforehand means you do not decide in the moment at a family meal. You can always share more later if you choose."
+        },
+        {
+          "heading": "A kind sentence closes a subject without a quarrel.",
+          "body": "Try «I would rather keep that to myself, but thank you for asking». Say it warmly and once. If the question comes again, repeat it in the same words. Repeating calmly is not rude. It tells the person the subject is closed without raising the temperature."
+        }
+      ],
+      "takeaway": "Decide what stays private beforehand, and close a subject with one kind sentence, repeated if needed."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_who",
+      "title": "List who to tell",
+      "purpose": "A list of people to tell and a rough order.",
+      "why": "Write the names of the people who need to hear from you and put them in the order you would tell them. Three or four names are enough. If it feels like too much, write the first name only.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the names of the people to tell."
+        },
+        {
+          "text": "Put them in the order you would tell them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who",
+          "type": "ranked_list",
+          "label": "Who will you tell, and in what order?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "who",
+          "plan_section": "who"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the name of the first person you will tell."
+          }
+        ],
+        "field_ids": [
+          "who"
+        ]
+      },
+      "done_when": "You have at least one name and a first person."
+    },
+    {
+      "id": "p2_words",
+      "title": "Write your plain sentences",
+      "purpose": "A few sentences you can repeat, and a version for children.",
+      "why": "Write three short sentences for adults: what has happened, what happens next and what you would like from them. If there are children, write a simpler version. If words will not come, write one sentence.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three short sentences for adults."
+        },
+        {
+          "text": "Write a simpler version for children, if there are any."
+        }
+      ],
+      "fields": [
+        {
+          "id": "adults",
+          "type": "long_text",
+          "label": "What three plain sentences will you say to adults?"
+        },
+        {
+          "id": "kids",
+          "type": "long_text",
+          "label": "What will you say to children, if there are any?",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "adults",
+          "plan_section": "words"
+        },
+        {
+          "field_id": "kids",
+          "plan_section": "words"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one plain sentence for adults."
+          }
+        ],
+        "field_ids": [
+          "adults"
+        ]
+      },
+      "done_when": "You have three sentences you could say aloud."
+    },
+    {
+      "id": "p3_replies",
+      "title": "Write three ready replies",
+      "purpose": "Three short replies for questions, advice and criticism.",
+      "why": "Write one short reply for each of three things. One is a question you would rather not answer. One is advice you do not want. One is a remark you would prefer not to hear. If one is hard, write the other two.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one reply for each of the three."
+        },
+        {
+          "text": "Read them aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "replies",
+          "type": "long_text",
+          "label": "What will you say to a question, to advice and to criticism?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "replies",
+          "plan_section": "replies"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one reply for a question you would rather not answer."
+          }
+        ],
+        "field_ids": [
+          "replies"
+        ]
+      },
+      "done_when": "You have at least one reply you could say aloud."
+    },
+    {
+      "id": "p4_private",
+      "title": "Decide what stays private",
+      "purpose": "A list of closed subjects and a sentence to close them.",
+      "why": "Write the subjects you would prefer to keep private for now. Then write the kind sentence you would use to close each one. If no subject comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the subjects you would keep private."
+        },
+        {
+          "text": "Write a kind sentence to close them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "closed",
+          "type": "short_text",
+          "label": "Which subjects would you like to keep private?"
+        },
+        {
+          "id": "closing",
+          "type": "short_text",
+          "label": "What kind sentence will you use to close a subject?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "closed",
+          "plan_section": "private"
+        },
+        {
+          "field_id": "closing",
+          "plan_section": "private"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one subject you would keep private."
+          }
+        ],
+        "field_ids": [
+          "closed"
+        ]
+      },
+      "done_when": "You have a list of closed subjects and a closing sentence."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your plain sentences are saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds who to tell, your sentences, your replies and what stays private."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "who",
+      "title": "Who to tell"
+    },
+    {
+      "id": "words",
+      "title": "Your plain sentences"
+    },
+    {
+      "id": "replies",
+      "title": "Your ready replies"
+    },
+    {
+      "id": "private",
+      "title": "What stays private"
+    }
+  ],
+  "finish": {
+    "summary": "You listed who to tell and wrote the sentences you will say. You also wrote ready replies and what stays private.",
+    "book_bridge": "Telling the People Who Matter is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Who have you told since you began, and how did it go?",
+      "Is there a subject you would now like to keep private?"
+    ],
+    "refresher_ids": [
+      "p2_words",
+      "p4_private"
+    ]
+  }
+}

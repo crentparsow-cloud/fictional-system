@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-PYE8Y",
+  "slug": "still-curious-at-seventy-pye8y",
+  "title": "Still Curious at Seventy",
+  "card_line": "Build a weekly pattern of learning, moving and company at seventy.",
+  "book": {
+    "book_id": "still-curious-at-seventy",
+    "title": "Still Curious at Seventy",
+    "subtitle": "Learning, Moving and Keeping Company in Later Life"
+  },
+  "author": {
+    "author_id": "AU-Q03MF",
+    "display_name": "Desmond Kalantzis-Webb"
+  },
+  "genre": "wellbeing",
+  "theme_id": "ageing-well",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about shaping a week of learning, moving and company at seventy. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a weekly pattern you can keep or change. It covers everyday life, not medical advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Try the exercise. A word or two is fine if that is all you have.",
+      "Your answers build a weekly pattern you can read at the end.",
+      "If you have worries about falls, dizziness or memory, talk to a health professional."
+    ],
+    "why_prompt": "What would a good week look like for you? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Say what a good week looks like and pick a subject",
+      "exercise_ids": [
+        "p1_good_week"
+      ],
+      "intro": "Time after full-time work can feel wide open. It is worth saying what a good week holds for you before you fill it. This part asks you to describe that week in your own words. Then you choose one subject you have always been curious about.",
+      "ideas": [
+        {
+          "heading": "A good week is one you describe yourself, not one you inherit.",
+          "body": "Other people have views on how a person of seventy should spend a week. You are not bound by them. Think of a week you would be glad to have lived and write down what was in it. It might be quiet, or full. The only test is that it sounds like you."
+        },
+        {
+          "heading": "Curiosity does not retire when work does.",
+          "body": "Most of us left a few questions unasked while we were busy. How a bridge stays up, where a name comes from, what a language sounds like. They are still there. Pick one that has stayed with you over the years. It does not need to be useful to anyone."
+        },
+        {
+          "heading": "One subject is enough to start, and it can be small.",
+          "body": "A single subject gives the week a thread. You might borrow a book, find a talk or ask a neighbour who knows more than you. You can drop it for another next month. Starting small means there is less to put off, and more chance you will begin."
+        }
+      ],
+      "takeaway": "A good week is yours to describe. One subject you are curious about gives it a thread."
+    },
+    {
+      "number": 2,
+      "focus": "Move gently in ways that suit your body",
+      "exercise_ids": [
+        "p2_move"
+      ],
+      "intro": "Moving a little each week is part of an ordinary life at any age. This part is about gentle movement and steadiness in everyday tasks around the home. It is general, not a programme. Take it at the pace that suits you, and leave out anything that does not.",
+      "ideas": [
+        {
+          "heading": "A short walk at a set time is easier to keep than a plan.",
+          "body": "Pick a time that already has something at it, such as after the paper or before lunch. Walk for as long as feels comfortable, even ten minutes. Some mornings you will go further and some you will stay close to home. Both are part of the pattern."
+        },
+        {
+          "heading": "Everyday tasks around the home already ask for steadiness.",
+          "body": "Getting dressed, reaching a high shelf, carrying a basket upstairs and standing at the sink all use it. You can do them in a considered way. Slow down, keep a hand on something steady, and sit when sitting is easier. This is about comfort at home, nothing more."
+        },
+        {
+          "heading": "Moving less on some weeks does not undo the rest.",
+          "body": "Bad weather, a cold or a busy few days will interrupt anything. A quiet week is a quiet week. Start again with the smallest thing, such as a walk to the end of the road. Your pattern is the shape of many weeks, not one."
+        }
+      ],
+      "takeaway": "Gentle movement can sit inside the day you already have. A quiet week changes nothing about the weeks around it."
+    },
+    {
+      "number": 3,
+      "focus": "Find company and share what you know",
+      "exercise_ids": [
+        "p3_company"
+      ],
+      "intro": "Many people find the days after work are quieter than they expected. This part looks at the company that fits you. That might be a club, a young neighbour, a phone call or a skill you can pass on. You go at your own pace, and once is enough to find out.",
+      "ideas": [
+        {
+          "heading": "Going to a group once costs you very little.",
+          "body": "A club, class or group nearby can be tried for a single visit. You can leave early, sit at the back and decide afterwards. If it is not for you, you have lost an hour. If it is, you have found a regular place to be with people."
+        },
+        {
+          "heading": "Younger relatives and neighbours are often curious about your life.",
+          "body": "You have seen towns, jobs and customs that have changed. Many younger people would like to hear about them and rarely ask. Offer a story over a cup of tea. In return, they may show you something on your phone, and both of you come away knowing more."
+        },
+        {
+          "heading": "Something you already know how to do is worth sharing.",
+          "body": "After years of work you know how to do things well, such as reading a map, mending a hem or keeping a timetable. Teaching it to someone, or volunteering where it is useful, puts that knowledge to use. It can be an hour a month. You choose how much."
+        }
+      ],
+      "takeaway": "One visit to a group is a small trial. What you know is worth passing on to someone who would like it."
+    },
+    {
+      "number": 4,
+      "focus": "Keep a pattern for the weeks that suit you and the ones that do not",
+      "exercise_ids": [
+        "p4_pattern"
+      ],
+      "intro": "A pattern is only useful if it bends. Some weeks your energy will be low, and the week still counts. This last part covers simple ways to remember things, how to take the quiet weeks, and what matters to you. You finish with a weekly pattern of learning, moving and company.",
+      "ideas": [
+        {
+          "heading": "Lists and a weekly diary are ordinary tools, whatever your age.",
+          "body": "A list by the door, a calendar on the wall and a notebook by the phone take little effort. Write appointments, birthdays and plans down once and look at them each morning. Everyone forgets things. If you are worried about your memory, talk to a health professional."
+        },
+        {
+          "heading": "A week with low energy can still be a good one.",
+          "body": "Some weeks are for rest. Choose the smallest version of each thing: a stroll to the gate, one page of your book, a short call. Doing a little is enough. Rest is part of a good week as well, and you are allowed to take it."
+        },
+        {
+          "heading": "Writing down what matters to you shapes the weeks ahead.",
+          "body": "Write a few lines on what you value, who you want to see and what you would like to try. They give you something to check your week against. It is for you, not for anyone to mark. Read it again in a few months. It may change, and that is fine."
+        }
+      ],
+      "takeaway": "A pattern that bends will outlast one that does not. Write down what matters and let your energy set the size."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_good_week",
+      "title": "Describe a good week",
+      "purpose": "A short description of a good week and one subject you are curious about.",
+      "why": "Picture a week you would be glad to have had. Write down a few things that happen in it. Then name one subject you have always been curious about. If nothing comes to mind, write one word for a week you remember well.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a few things that happen in a good week."
+        },
+        {
+          "text": "Name one subject you have been curious about."
+        }
+      ],
+      "fields": [
+        {
+          "id": "good_week",
+          "type": "long_text",
+          "label": "What happens in a good week for you?"
+        },
+        {
+          "id": "subject",
+          "type": "short_text",
+          "label": "Which subject have you always been curious about?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "good_week",
+          "plan_section": "week"
+        },
+        {
+          "field_id": "subject",
+          "plan_section": "week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one subject you are curious about."
+          }
+        ],
+        "field_ids": [
+          "subject"
+        ]
+      },
+      "done_when": "You have a subject, or at least one word for your week."
+    },
+    {
+      "id": "p2_move",
+      "title": "Choose gentle movement that suits you",
+      "purpose": "A gentle walk or movement and one everyday task to do with care.",
+      "why": "Think of a gentle way of moving that you enjoy or would like to try. Pick a time that suits you. Then choose one task around the home to do in a slower, steadier way. If you would rather not choose today, write the task alone.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick a gentle way to move and a time for it."
+        },
+        {
+          "text": "Choose one task at home to do with care."
+        }
+      ],
+      "fields": [
+        {
+          "id": "movement",
+          "type": "short_text",
+          "label": "What gentle movement would you like to fit into your week, and when?"
+        },
+        {
+          "id": "home_task",
+          "type": "short_text",
+          "label": "Which task at home could you do more steadily?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "movement",
+          "plan_section": "move"
+        },
+        {
+          "field_id": "home_task",
+          "plan_section": "move"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one gentle way to move."
+          }
+        ],
+        "field_ids": [
+          "movement"
+        ]
+      },
+      "done_when": "You have written down a movement or a task."
+    },
+    {
+      "id": "p3_company",
+      "title": "Pick one way to keep company",
+      "purpose": "One group, person or skill to share that you could try once.",
+      "why": "Think of a club, a class, a neighbour or a relative you would enjoy seeing. Choose one to try, even for a single visit or call. Add something you know how to do that you could share. If nothing suits right now, write the people you miss.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one group or person to see."
+        },
+        {
+          "text": "Name something you could share with others."
+        }
+      ],
+      "fields": [
+        {
+          "id": "company",
+          "type": "short_text",
+          "label": "Which group or person would you like to spend time with?"
+        },
+        {
+          "id": "share",
+          "type": "short_text",
+          "label": "What do you know how to do that you could share?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "company",
+          "plan_section": "company"
+        },
+        {
+          "field_id": "share",
+          "plan_section": "company"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one person or group."
+          }
+        ],
+        "field_ids": [
+          "company"
+        ]
+      },
+      "done_when": "You have named one person, group or skill."
+    },
+    {
+      "id": "p4_pattern",
+      "title": "Write your weekly pattern",
+      "purpose": "A weekly pattern of learning, moving and company, with a small version for quiet weeks.",
+      "why": "Bring your answers together in a few lines: one thing to learn, one way to move and one way to keep company. Then write the smallest version of each for a week with low energy. Change anything that does not fit.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one line each for learning, moving and company."
+        },
+        {
+          "text": "Write the smallest version of each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pattern",
+          "type": "long_text",
+          "label": "What does your usual week of learning, moving and company look like?"
+        },
+        {
+          "id": "small_week",
+          "type": "long_text",
+          "label": "What is the smallest version, for a week with low energy?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pattern",
+          "plan_section": "pattern"
+        },
+        {
+          "field_id": "small_week",
+          "plan_section": "pattern"
+        }
+      ],
+      "done_when": "You have a line each for learning, moving and company."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers are saved. Part 3 is about company."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your pattern holds your subject, your movement and your company."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "week",
+      "title": "A good week and your subject"
+    },
+    {
+      "id": "move",
+      "title": "Gentle movement"
+    },
+    {
+      "id": "company",
+      "title": "Company and sharing"
+    },
+    {
+      "id": "pattern",
+      "title": "Your weekly pattern"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote what a good week holds for you, a subject you are curious about and a gentle way to move. You also chose company to try and a weekly pattern with a small version for quiet weeks.",
+    "book_bridge": "Still Curious at Seventy is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What have you learned this month that you did not know?",
+      "Which week was the quietest, and what did the small version look like?",
+      "Is your pattern still the right shape for you?"
+    ],
+    "refresher_ids": [
+      "p3_company",
+      "p4_pattern"
+    ]
+  }
+}

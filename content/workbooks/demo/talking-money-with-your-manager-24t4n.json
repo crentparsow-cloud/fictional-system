@@ -1,0 +1,391 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-24T4N",
+  "slug": "talking-money-with-your-manager-24t4n",
+  "title": "Talking Money with Your Manager",
+  "card_line": "Prepare and rehearse what you will say when you ask about your pay.",
+  "book": {
+    "book_id": "talking-money-with-your-manager",
+    "title": "Talking Money with Your Manager",
+    "subtitle": "Preparing for a Pay Conversation"
+  },
+  "author": {
+    "author_id": "AU-JNCDE",
+    "display_name": "Hester Quarrington"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "career",
+  "theme_id": "work-worth-choosing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about preparing for a conversation with your manager about your pay. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have your evidence, a short script, a rehearsal and a follow-up email. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would you most like to be different about how you are paid? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Collect your results and what comparable roles pay",
+      "exercise_ids": [
+        "p1_evidence"
+      ],
+      "intro": "A pay conversation is easier with facts in front of you. This part asks you to gather what you have done in the last year and what similar roles pay. You are not building a case against anyone. You are making a clear, calm summary that your manager can read in a few minutes.",
+      "ideas": [
+        {
+          "heading": "Your manager cannot see all of your work, so write it down.",
+          "body": "Managers often know only part of what you do. Over a year, projects, extra tasks and quiet fixes are forgotten. List what you achieved, with dates and outcomes where you can. Include feedback from colleagues or customers. This gives your manager a fuller picture."
+        },
+        {
+          "heading": "Results carry more weight when they are specific.",
+          "body": "A line such as handled complaints says little. Cleared the complaints backlog and kept it clear since spring says a lot. Add what changed for the team or the customers. Facts you can point to are harder to dispute and easier to remember."
+        },
+        {
+          "heading": "Look at what comparable roles pay before you name a figure.",
+          "body": "Check job adverts, pay surveys from professional bodies and what colleagues in similar roles are willing to share. Note the range, not a single number. Be honest about differences in location, employer size and experience. A range you can explain is more credible than a round figure from nowhere."
+        }
+      ],
+      "takeaway": "Write down your results, make them specific, and note what comparable roles pay. Facts give the conversation a firm start."
+    },
+    {
+      "number": 2,
+      "focus": "Write what you will say, clearly and calmly",
+      "exercise_ids": [
+        "p2_script"
+      ],
+      "intro": "Words come out more steadily when they are written first. This part asks you to decide what you want to ask for, why, and how to open the conversation. Your script is short: a request, your reasons and a question. It gives you something to return to if the meeting wanders.",
+      "ideas": [
+        {
+          "heading": "Decide on your request before you write anything else.",
+          "body": "Choose the figure or range you will ask for, and the date you would like it to start. If pay is not the only change you want, such as a new title or extra training, list it as well. Knowing your request keeps the conversation from drifting into vague hopes."
+        },
+        {
+          "heading": "Open with your reasons and keep them to three.",
+          "body": "Pick the three strongest points from your list. Lead with what you have done and what the role now covers. Keep the tone factual, not defensive. Three clear reasons are easier to follow than ten. The rest of your notes stay with you in case they are asked for."
+        },
+        {
+          "heading": "End your opening with a question that invites a reply.",
+          "body": "After your reasons, ask something open, such as whether your manager sees any gap between what you have described and what the role pays. This hands the conversation over. It shows you want a discussion, and it gives you the chance to listen."
+        }
+      ],
+      "takeaway": "Write your request, give three reasons and finish with a question. A short script keeps the meeting steady."
+    },
+    {
+      "number": 3,
+      "focus": "Rehearse aloud until the words feel like your own",
+      "exercise_ids": [
+        "p3_rehearse"
+      ],
+      "intro": "Reading a script silently is different from saying it. Rehearsing aloud shows you where the words stumble and where you rush. This part asks you to practise with a friend or by yourself, and to prepare for the replies you might hear. The real conversation may then feel more familiar.",
+      "ideas": [
+        {
+          "heading": "Say the script aloud at least twice before the meeting.",
+          "body": "Words that look fine on paper can sound stiff. Read your script aloud and change anything you would not say to a colleague. Do it again until it flows. Time it. A request that takes under two minutes leaves room for your manager to respond."
+        },
+        {
+          "heading": "Practise with another person if you can.",
+          "body": "A friend can play your manager and ask the awkward questions. Ask them to react naturally, not to be harsh. You will find out which of your points are clear and which need work. If nobody is available, speak to a mirror or record yourself on your phone."
+        },
+        {
+          "heading": "Prepare for the replies you might hear, including not now.",
+          "body": "Your manager may say yes, no, not now, or that they need to ask someone else. Decide in advance what you would say to each. For not now, ask what would need to change and when you can talk again. A ready reply keeps you steady."
+        }
+      ],
+      "takeaway": "Say the script aloud, ideally to another person, and plan your reply to yes, no and not now."
+    },
+    {
+      "number": 4,
+      "focus": "Hold the meeting, hear the reply and follow up in writing",
+      "exercise_ids": [
+        "p4_followup"
+      ],
+      "intro": "The meeting is only one step. What happens afterwards often matters just as much. This part covers asking for the right time, listening to the reply and sending a short email that records what was said. You draft that email now, so it is ready to adapt.",
+      "ideas": [
+        {
+          "heading": "Ask for a meeting in advance rather than catching your manager in passing.",
+          "body": "Send a short message asking for twenty or thirty minutes to talk about your role and pay. Say what it is about so there are no surprises. A booked slot shows you take it seriously. It also gives your manager time to think and perhaps to check with others."
+        },
+        {
+          "heading": "Listen to the whole reply before you respond.",
+          "body": "Your manager may raise points you had not expected. Let them finish. Write short notes. Then ask questions to understand: what would you need to see, and by when? You do not have to settle everything in the room. A thoughtful pause is acceptable."
+        },
+        {
+          "heading": "A short follow-up email keeps a record of what was agreed.",
+          "body": "Within a day, send a few lines. Thank your manager, state what you understood, and say what happens next and when. If a decision was put off, name the date. This is a record, not a complaint. If your manager recalls things differently, they can say so early."
+        }
+      ],
+      "takeaway": "Book the meeting, hear the full reply and follow up in writing within a day. The email keeps everyone clear."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_evidence",
+      "title": "List your results and range",
+      "purpose": "A list of your results and a pay range from comparable roles.",
+      "why": "List four or five things you have done in the last year, with what changed because of them. Then note the pay range for similar roles, and where you found it. If you have only two results so far, begin with those.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your results, with what changed."
+        },
+        {
+          "text": "Note the pay range and where you found it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "results",
+          "type": "two_column",
+          "label": "What have you achieved in the last year?",
+          "columns": [
+            "What you did",
+            "What changed"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "range",
+          "type": "short_text",
+          "label": "What range do comparable roles pay, and where did you find it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "results",
+          "plan_section": "evidence"
+        },
+        {
+          "field_id": "range",
+          "plan_section": "evidence"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one result and what changed."
+          }
+        ],
+        "field_ids": [
+          "results"
+        ]
+      },
+      "done_when": "You have at least two results and a range."
+    },
+    {
+      "id": "p2_script",
+      "title": "Write your short script",
+      "purpose": "A request, three reasons and an opening question on one page.",
+      "why": "Write the figure or range you will ask for. Add your three strongest reasons from Part 1, in one sentence each. Finish with a question for your manager. Keep the whole script to about half a page.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your request and start date."
+        },
+        {
+          "text": "Add three reasons in one sentence each."
+        },
+        {
+          "text": "Write your closing question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "request",
+          "type": "short_text",
+          "label": "What exactly will you ask for?"
+        },
+        {
+          "id": "reasons",
+          "type": "long_text",
+          "label": "What are your three reasons and your closing question?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "request",
+          "plan_section": "script"
+        },
+        {
+          "field_id": "reasons",
+          "plan_section": "script"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your request in one sentence."
+          }
+        ],
+        "field_ids": [
+          "request"
+        ]
+      },
+      "done_when": "You have a request, three reasons and a question."
+    },
+    {
+      "id": "p3_rehearse",
+      "title": "Rehearse and plan your replies",
+      "purpose": "A rehearsal done once, and a planned answer to each reply.",
+      "why": "Say your script aloud, to a friend or to yourself, then note what you would change. Next, write one line you would say if the answer is yes, no or not now. Keep each line short and calm.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Say your script aloud once."
+        },
+        {
+          "text": "Write a line for yes, no and not now."
+        }
+      ],
+      "fields": [
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What one thing would you change after saying it aloud?"
+        },
+        {
+          "id": "replies",
+          "type": "long_text",
+          "label": "What will you say if the answer is yes, no or not now?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "change",
+          "plan_section": "rehearsal"
+        },
+        {
+          "field_id": "replies",
+          "plan_section": "rehearsal"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Say it aloud once and note one change."
+          }
+        ],
+        "field_ids": [
+          "change"
+        ]
+      },
+      "done_when": "You have rehearsed once and written three replies."
+    },
+    {
+      "id": "p4_followup",
+      "title": "Draft your follow-up email",
+      "purpose": "A draft email you can adapt after the meeting, and a date to ask for it.",
+      "why": "Write the email you would send after the meeting, with gaps for what was said. Include thanks, your understanding of the reply and the next step with a date. Then choose when you will ask for the meeting.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Draft a thank-you and a summary with gaps."
+        },
+        {
+          "text": "Choose the date to ask for the meeting."
+        }
+      ],
+      "fields": [
+        {
+          "id": "email",
+          "type": "long_text",
+          "label": "What will your follow-up email say?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will you ask for the meeting?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "email",
+          "plan_section": "followup"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "followup"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the thank-you line."
+          }
+        ],
+        "field_ids": [
+          "email"
+        ]
+      },
+      "done_when": "The email is drafted and the date is chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your script is saved and ready to rehearse."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your evidence, script, replies and follow-up email."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "evidence",
+      "title": "Your results and range"
+    },
+    {
+      "id": "script",
+      "title": "Your short script"
+    },
+    {
+      "id": "rehearsal",
+      "title": "Rehearsal and replies"
+    },
+    {
+      "id": "followup",
+      "title": "Meeting and follow-up"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your results, your script, your planned replies and your follow-up email.",
+    "book_bridge": "Talking Money with Your Manager is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What have you achieved lately that is worth adding to your list?",
+      "Has anything changed in what comparable roles pay?",
+      "When will you next talk to your manager about your role?"
+    ],
+    "refresher_ids": [
+      "p2_script",
+      "p4_followup"
+    ]
+  }
+}

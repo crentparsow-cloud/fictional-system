@@ -1,0 +1,331 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-XB0A1",
+  "slug": "the-sunday-morning-circle-xb0a1",
+  "title": "The Sunday Morning Circle",
+  "card_line": "Plan a children's group session in four parts and share the plan with other volunteers.",
+  "book": {
+    "book_id": "the-sunday-morning-circle",
+    "title": "The Sunday Morning Circle",
+    "subtitle": "Planning Sessions for Children's Groups"
+  },
+  "author": {
+    "author_id": "AU-ASZZY",
+    "display_name": "Aoife Brannigan-Oduya"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "education",
+  "theme_id": "guiding-learners",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning one children's group session and sharing the plan with other volunteers. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a one-page session plan, a named person to ask about your rules and a date to review. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a one-page plan you can share."
+    ],
+    "why_prompt": "What do you most want the children to take home from a Sunday morning?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Know who comes and what they need",
+      "exercise_ids": [
+        "p1_children"
+      ],
+      "intro": "A good session starts with the children, not the activity. Who comes, how old they are and what they enjoy shapes everything else. This part asks you to describe your group in plain words and to decide what you hope each child takes home.",
+      "ideas": [
+        {
+          "heading": "Planning starts with who is in the room, not what is in the box.",
+          "body": "It is tempting to begin with a craft or a game you like. Begin instead with the children. Think of their ages, how long they sit still and what they are curious about. A plan that fits them will work with simple materials."
+        },
+        {
+          "heading": "Children need to feel welcome before they can join in.",
+          "body": "Some arrive eager and some arrive tired or shy. A warm hello by name, a place to sit and a clear start tell them they belong. Time spent on this at the door is not wasted. It lets the rest of the morning go smoothly."
+        },
+        {
+          "heading": "One clear hope for the morning is better than five.",
+          "body": "Ask what you want each child to take home. It might be a story, a song, a new friend or a skill. Pick one. A single hope keeps the session simple, and it gives you something to look back on afterwards."
+        }
+      ],
+      "takeaway": "Plan around the children who come. Choose one thing you hope each of them takes home."
+    },
+    {
+      "number": 2,
+      "focus": "Give each session a simple shape",
+      "exercise_ids": [
+        "p2_shape"
+      ],
+      "intro": "A session with a shape is easier to lead and easier for children to follow. Four steps are enough: welcome, story, activity and close. This part walks through what each step is for. Then you sketch one session with a rough time for each.",
+      "ideas": [
+        {
+          "heading": "A welcome settles the group before anything else begins.",
+          "body": "Greet children by name, say what the morning holds and let them arrive. A short song or a simple question works well. Keep the welcome brief but never skip it. Children who feel settled listen better to the story that follows."
+        },
+        {
+          "heading": "A story gives the whole group something to share.",
+          "body": "The story can be told, read or acted out. It need not be long, and it need not be elaborate. What matters is that everyone hears it together. It also gives the activity a reason, because the children have something to respond to."
+        },
+        {
+          "heading": "A close tells children the morning is finished and they are welcome back.",
+          "body": "End on purpose, with a short song, a thank-you or a look back at the day. Then say goodbye to each child. A clear close lets everyone leave calmly. It also gives parents a moment to hear what the morning held."
+        }
+      ],
+      "takeaway": "Welcome, story, activity and close give any session a shape. Each step has a job, and a rough time keeps it on track."
+    },
+    {
+      "number": 3,
+      "focus": "Plan for mixed ages and for children who find groups hard",
+      "exercise_ids": [
+        "p3_everyone"
+      ],
+      "intro": "Few groups have children all of one age or one temperament. Some join in at once and others hang back. This part looks at small changes that let more children take part. You choose two changes to try in your next session.",
+      "ideas": [
+        {
+          "heading": "An activity with more than one way in suits mixed ages.",
+          "body": "Offer a version for younger children and one with an extra step for older ones. Everyone works on the same thing, so no child feels set apart. Older children can lead a part, and younger ones can watch and learn from them."
+        },
+        {
+          "heading": "Some children find a group hard, and a small change can make room.",
+          "body": "A child may find noise, crowds or sudden changes tiring. A quiet corner, a job to do or a warning before a change can make the morning easier. Ask the child and the family what works. They usually know. Ask the family before the morning, so the child arrives knowing what to expect."
+        },
+        {
+          "heading": "Choice lets children take part in their own way.",
+          "body": "Give two options where you can: draw or build, sit or stand, speak or listen. Choice shows children that their way of joining in is welcome. It also takes pressure off you, because you are no longer trying to fit everyone into one task."
+        }
+      ],
+      "takeaway": "Offer more than one way in, make room for children who find groups hard and give choices where you can."
+    },
+    {
+      "number": 4,
+      "focus": "Work with other volunteers, keep to your rules and review the term",
+      "exercise_ids": [
+        "p4_share"
+      ],
+      "intro": "You rarely run a group alone, and the plan works best when others can use it. This part covers sharing the plan, following your organisation's rules for the safety of children and knowing who to ask. It ends with a look back over a term.",
+      "ideas": [
+        {
+          "heading": "A shared plan lets any volunteer pick up the morning.",
+          "body": "Write the session on one page, with times, materials and who does what. If you are ill, someone else can lead from it. Volunteers also feel more confident when they know their part before the morning begins. Short, plain notes work better than a long document that nobody reads."
+        },
+        {
+          "heading": "Your organisation's rules on keeping children safe come first.",
+          "body": "Your parish or club will have its own rules and a named person to ask. Read them, follow them and keep them with your plan. If you are unsure about anything, ask that person before the session, not after. Keep a copy of the rules where every volunteer can find it."
+        },
+        {
+          "heading": "A short review at the end of a term shows what to keep.",
+          "body": "Sit down with the other volunteers and ask what went well, what felt hard and what the children enjoyed. Write down two things to keep and one to change. Then begin planning the next term from there. Ten minutes after the last session of a term is usually enough."
+        }
+      ],
+      "takeaway": "Share your plan on one page, follow your organisation's rules and ask its named person when unsure. Review each term."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_children",
+      "title": "Describe who comes",
+      "purpose": "A short picture of your group and what you hope they take home.",
+      "why": "Think of a typical Sunday morning. Write who comes, their ages and what they need from the morning. Then choose one thing you hope each child takes home. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Describe the children who come."
+        },
+        {
+          "text": "Choose one thing you hope they take home."
+        }
+      ],
+      "fields": [
+        {
+          "id": "who",
+          "type": "long_text",
+          "label": "Who comes to your group, and what do they need from a morning?"
+        },
+        {
+          "id": "takehome",
+          "type": "short_text",
+          "label": "What do you hope each child takes home?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "who",
+          "plan_section": "who"
+        },
+        {
+          "field_id": "takehome",
+          "plan_section": "who"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about who comes."
+          }
+        ],
+        "field_ids": [
+          "who"
+        ]
+      },
+      "done_when": "The group is described and one hope is chosen."
+    },
+    {
+      "id": "p2_shape",
+      "title": "Sketch one session",
+      "purpose": "A four-step outline of one session with a rough time for each step.",
+      "why": "Take a session you could run soon. Write what you will do for the welcome, the story, the activity and the close. Add a rough number of minutes beside each. A line for each step is enough.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one line for each of the four steps."
+        },
+        {
+          "text": "Add a rough time for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "shape",
+          "type": "long_text",
+          "label": "What will you do in the welcome, the story, the activity and the close?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "shape",
+          "plan_section": "session"
+        }
+      ],
+      "done_when": "All four steps have a line and a rough time."
+    },
+    {
+      "id": "p3_everyone",
+      "title": "Plan for every child",
+      "purpose": "Two small changes that let more children join in.",
+      "why": "Think about the youngest, the oldest and the child who finds groups hard. Choose two changes to your session, such as a choice of tasks or a quiet corner. Write them in a line each.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of three different children."
+        },
+        {
+          "text": "Write two changes for your session."
+        }
+      ],
+      "fields": [
+        {
+          "id": "mixed",
+          "type": "long_text",
+          "label": "What could you change so younger, older and quieter children can all join in?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "mixed",
+          "plan_section": "everyone"
+        }
+      ],
+      "done_when": "Two changes are written down."
+    },
+    {
+      "id": "p4_share",
+      "title": "Write a plan to share",
+      "purpose": "A one-page plan, a named person to ask and a date to review.",
+      "why": "Gather your answers into one page you could hand to another volunteer. Write the name of the person in your organisation you would ask about its rules. Choose a date to review the term.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Name your person to ask."
+        },
+        {
+          "text": "Choose a review date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Who is the person you would ask about your organisation's rules?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you review the term and plan the next one?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ask",
+          "plan_section": "share"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "share"
+        }
+      ],
+      "done_when": "You have a name and a review date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "who",
+      "title": "Who comes and what you hope for"
+    },
+    {
+      "id": "session",
+      "title": "Your session shape"
+    },
+    {
+      "id": "everyone",
+      "title": "Changes so every child can join in"
+    },
+    {
+      "id": "share",
+      "title": "Sharing and reviewing"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a one-page plan in your own words. It holds who comes, your session shape, two changes for every child and who to ask.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did the children enjoy most this month?",
+      "Which change for mixed ages did you try, and how did it go?",
+      "Is your review date still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_shape",
+      "p4_share"
+    ]
+  }
+}

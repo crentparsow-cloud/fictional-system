@@ -1,0 +1,390 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-EK8V2",
+  "slug": "the-new-starters-desk-ek8v2",
+  "title": "The New Starter's Desk",
+  "card_line": "Welcome a new starter with a buddy, a desk and a plan for the first month.",
+  "book": {
+    "book_id": "the-new-starters-desk",
+    "title": "The New Starter's Desk",
+    "subtitle": "A Four-Week Welcome for New Team Members"
+  },
+  "author": {
+    "author_id": "AU-1ZS6X",
+    "display_name": "Tama Rāwiri-Hughes"
+  },
+  "genre": "leadership",
+  "theme_id": "welcoming-workplaces",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about welcoming a new team member over their first month. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a welcome note, a first-week plan, a list of unwritten rules and a month-one conversation. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would have made your own first week easier? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Get ready before day one with a buddy, a desk and a welcome note",
+      "exercise_ids": [
+        "p1_ready"
+      ],
+      "intro": "A new starter's first impression forms before they arrive. A clear welcome note, a buddy and a desk that is ready all say that they were expected. This part asks you to prepare the three. It takes a few hours and spares both of you a nervous first morning.",
+      "ideas": [
+        {
+          "heading": "A welcome note should say where to go, when and who will meet them.",
+          "body": "Send it a few days ahead. Give the address, the time, how to get in and the name of the person who will greet them. Say what to bring. Add one friendly line. People who know what to expect arrive calmer."
+        },
+        {
+          "heading": "A buddy gives the starter someone to ask the small questions.",
+          "body": "Pick a colleague who is patient and knows the place well. The buddy shows where things are, eats lunch with them and answers what feels too small for the manager. Agree the buddy's time ahead, so it counts as part of their job."
+        },
+        {
+          "heading": "A desk that is ready tells the starter they were expected.",
+          "body": "Set up the equipment, the logins and the chair before they arrive. Leave a simple note and perhaps a mug. Nothing costly is needed. Waiting for a laptop on day one makes people feel like an interruption. A ready desk says the opposite."
+        }
+      ],
+      "takeaway": "Send a clear welcome note, name a buddy, and have the desk ready. Preparation tells the starter they were expected."
+    },
+    {
+      "number": 2,
+      "focus": "Plan the first week with introductions and one small early win",
+      "exercise_ids": [
+        "p2_week"
+      ],
+      "intro": "The first week sets the pace. Too much information at once leaves people lost. Too little leaves them idle. This part asks you to plan a gentle first week. Spread the introductions out, and give one small piece of work that the starter can finish.",
+      "ideas": [
+        {
+          "heading": "Spread introductions over the week instead of doing them all at once.",
+          "body": "Names are hard to hold when thirty arrive in an hour. Introduce the immediate team first, then others as the week goes on. Give each person a line about what they do. A short written list of names and roles is useful for the starter to keep."
+        },
+        {
+          "heading": "A small early win gives the starter something to feel proud of.",
+          "body": "Choose a task that is real, short and likely to go well. Aim to finish by Friday, with the buddy nearby. Say thank you when it is done. Early success builds confidence and shows the starter how their work fits."
+        },
+        {
+          "heading": "A quiet hour for the starter to read and settle is not wasted.",
+          "body": "Starters take in a lot. Leave space in the diary for reading, setting up and thinking. Do not fill every slot with meetings. A starter who has time to absorb will ask better questions in week two. Tell them the quiet time is on purpose, so they do not feel idle."
+        }
+      ],
+      "takeaway": "Space out the introductions, give one small task to finish, and leave quiet time in the diary."
+    },
+    {
+      "number": 3,
+      "focus": "Check in often and write down the unwritten rules",
+      "exercise_ids": [
+        "p3_rules"
+      ],
+      "intro": "Every workplace has customs nobody has written down: when people take lunch, how to reach the manager, which meetings matter. Starters pick these up slowly, often by getting them wrong. This part asks you to write them down, and to check in so that questions are welcome.",
+      "ideas": [
+        {
+          "heading": "Unwritten rules are the part of the job a starter finds hardest.",
+          "body": "Where to sit, whether to reply to emails in the evening, who to ask about what. These rarely appear in any manual. Starters guess and sometimes guess wrong. Writing the rules down takes an hour, and every future starter benefits."
+        },
+        {
+          "heading": "Short, regular check-ins catch problems while they are small.",
+          "body": "Meet for ten minutes at the end of the first few days, then weekly. Ask what is going well, what is confusing and what they need. Listen more than you speak. A worry mentioned early is much easier to fix than one that has grown."
+        },
+        {
+          "heading": "Say that questions are welcome, and answer them without judgement.",
+          "body": "Say it out loud: ask me anything, however small. When a question comes, thank them and answer plainly. If you show impatience once, they may stop asking. Starters who ask early avoid larger mistakes later. A team where nobody feels silly asking is also one where people share what they know."
+        }
+      ],
+      "takeaway": "Write down the unwritten rules, check in briefly and often, and welcome every question."
+    },
+    {
+      "number": 4,
+      "focus": "Hold a month-one conversation and learn what to change",
+      "exercise_ids": [
+        "p4_month"
+      ],
+      "intro": "At the end of the first month, the starter knows enough to say what worked and what did not. This part asks you to plan that conversation and to note what you would change for the next person. A good welcome is built from what each starter tells you.",
+      "ideas": [
+        {
+          "heading": "A month-one conversation asks the starter how it has gone.",
+          "body": "Set aside half an hour. Ask what was useful, what was confusing and what they wish they had known. Ask about the work and how they feel about the team. Listen without defending. Their honest view is the best guide you have."
+        },
+        {
+          "heading": "Agree what comes next, in work and in support.",
+          "body": "Talk about the next three months: what they will do, what they want to learn, how often you will meet. Check that they know who to ask for what. A first month is a start. The aim is that they feel settled enough to carry on with confidence."
+        },
+        {
+          "heading": "Each starter shows you what to change for the next one.",
+          "body": "Write down the gaps they found: a missing login, an unclear rule, a lonely lunch. Change the welcome note, the desk list or the rules. Keep the notes in one place. Over time your welcome fits real experience, because it is built on it."
+        }
+      ],
+      "takeaway": "Ask the starter how the month went, agree what comes next, and change the welcome for the next person."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_ready",
+      "title": "Prepare the welcome",
+      "purpose": "A welcome note draft, a buddy named and a list for the desk.",
+      "why": "Draft the welcome note in a few lines. Name a buddy and agree their time. List what the desk needs: equipment, logins and a note. If you have no starter yet, plan for the next one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Draft the welcome note."
+        },
+        {
+          "text": "Name a buddy."
+        },
+        {
+          "text": "List what the desk needs."
+        }
+      ],
+      "fields": [
+        {
+          "id": "note",
+          "type": "long_text",
+          "label": "What will your welcome note say?"
+        },
+        {
+          "id": "buddy",
+          "type": "short_text",
+          "label": "Who will be the buddy?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "note",
+          "plan_section": "ready"
+        },
+        {
+          "field_id": "buddy",
+          "plan_section": "ready"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first line of the note."
+          }
+        ],
+        "field_ids": [
+          "note"
+        ]
+      },
+      "done_when": "You have a note, a buddy and a desk list."
+    },
+    {
+      "id": "p2_week",
+      "title": "Plan the first week",
+      "purpose": "A simple first-week plan with introductions and one early task.",
+      "why": "List who the starter will meet and on which day. Choose one small, real task they can finish by the end of the week. Note who will be nearby to help. Keep the plan to one page.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List who they meet and when."
+        },
+        {
+          "text": "Choose one small task."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meet",
+          "type": "two_column",
+          "label": "Who will they meet, and on which day?",
+          "columns": [
+            "Person",
+            "Day"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "win",
+          "type": "short_text",
+          "label": "What small task can they finish by Friday?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meet",
+          "plan_section": "week"
+        },
+        {
+          "field_id": "win",
+          "plan_section": "week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one task for the first week."
+          }
+        ],
+        "field_ids": [
+          "meet"
+        ]
+      },
+      "done_when": "The week has introductions and one early task."
+    },
+    {
+      "id": "p3_rules",
+      "title": "Write the unwritten rules",
+      "purpose": "A list of unwritten rules and a plan for check-ins.",
+      "why": "Think about what surprised you when you started, or what newcomers often ask. Write down five unwritten rules in plain words. Then decide when you will check in during the first month.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write five unwritten rules."
+        },
+        {
+          "text": "Choose your check-in times."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What are five unwritten rules a starter should know?"
+        },
+        {
+          "id": "checks",
+          "type": "short_text",
+          "label": "When will you check in with them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        },
+        {
+          "field_id": "checks",
+          "plan_section": "rules"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two unwritten rules."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "You have a list of rules and the check-in times."
+    },
+    {
+      "id": "p4_month",
+      "title": "Plan the month-one conversation",
+      "purpose": "Questions for the month-one conversation and one change for the next starter.",
+      "why": "Write three questions you will ask at the end of the month. Then name one thing you would change in the welcome for the next starter, based on what you know now.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three questions."
+        },
+        {
+          "text": "Name one change for the next starter."
+        }
+      ],
+      "fields": [
+        {
+          "id": "qs",
+          "type": "long_text",
+          "label": "What three questions will you ask at month one?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What one thing will you change for the next starter?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "qs",
+          "plan_section": "month"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "month"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question for month one."
+          }
+        ],
+        "field_ids": [
+          "qs"
+        ]
+      },
+      "done_when": "You have three questions and one change."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first-week plan is saved and ready to share."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your welcome, first week, unwritten rules and month-one questions."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "ready",
+      "title": "Before day one"
+    },
+    {
+      "id": "week",
+      "title": "The first week"
+    },
+    {
+      "id": "rules",
+      "title": "Unwritten rules and check-ins"
+    },
+    {
+      "id": "month",
+      "title": "The month-one conversation"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your welcome, your first-week plan, your unwritten rules and your month-one questions.",
+    "book_bridge": "The New Starter's Desk is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did your last starter say you could change?",
+      "Are the unwritten rules still up to date?",
+      "Who has been a good buddy lately?"
+    ],
+    "refresher_ids": [
+      "p2_week",
+      "p4_month"
+    ]
+  }
+}

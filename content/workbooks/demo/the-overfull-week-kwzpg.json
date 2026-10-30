@@ -1,0 +1,379 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-KWZPG",
+  "slug": "the-overfull-week-kwzpg",
+  "title": "The Overfull Week",
+  "card_line": "Sort the week into must, should and could, and say one honest no.",
+  "book": {
+    "book_id": "the-overfull-week",
+    "title": "The Overfull Week",
+    "subtitle": "Making Room When Everything Needs You"
+  },
+  "author": {
+    "author_id": "AU-7WKXG",
+    "display_name": "Nadia Farouk-Hassan"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "renewing-energy",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about a week that holds too much. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have your week sorted into must, should and could. You will also have one honest no and a few pockets of rest. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What is one thing in this week you wish was not there? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See the whole week on one page",
+      "exercise_ids": [
+        "p1_page"
+      ],
+      "intro": "A full week is hard to judge when you only see it one day at a time. This part asks you to put all of it on a single page: work, home, other people's needs and your own. Seeing it together is the first step to making room.",
+      "ideas": [
+        {
+          "heading": "Writing the week down shows how much it holds.",
+          "body": "In your head, a week is a blur of things you ought to do. On paper it is a list with an end. Write everything: meetings, lessons, meals, lifts, calls, even small jobs. Some will surprise you. The page tells you what the week is carrying."
+        },
+        {
+          "heading": "Other people's needs fill a week faster than your own.",
+          "body": "Add what you do for others: favours, lifts, messages, cover for a colleague. Many weeks are mostly made of these. It is not a criticism. It shows where your hours go. Put your own needs on the page as well, such as a meal or an hour alone."
+        },
+        {
+          "heading": "A week that cannot all be done is a fact about the week, not about you.",
+          "body": "If the list is longer than the hours, the week is overfull. That says something about the size of the week. It says nothing about how well you organise. Nobody could finish that list in that time, however skilled or tired."
+        }
+      ],
+      "takeaway": "Put the whole week on one page. If it holds more than the hours allow, that is about the week, not about you."
+    },
+    {
+      "number": 2,
+      "focus": "Sort the week into must, should and could",
+      "exercise_ids": [
+        "p2_sort"
+      ],
+      "intro": "Once the week is on a page, you can sort it. Three headings are enough: must, should and could. Each item goes under one of them. This part explains how to tell them apart and why the middle heading is where most of the room is.",
+      "ideas": [
+        {
+          "heading": "A must is something with real consequences if it does not happen.",
+          "body": "Picking up a child. Sending a report by its deadline. Paying a bill. A must has a consequence that arrives soon, and other people would also call it serious. Keep this heading short. Many things feel like musts but are not."
+        },
+        {
+          "heading": "A should is something you feel obliged to do but could defend moving.",
+          "body": "Shoulds come from custom, duty or what others expect. Reply to the group chat within the hour. Bake for the sale. Ask of each one what happens if it waits a week. If the answer is very little, it can move."
+        },
+        {
+          "heading": "A could is a pleasant extra, and this heading is allowed to be empty.",
+          "body": "Coulds are what you would enjoy if there were room. A film, a longer walk, seeing a friend. In an overfull week, there may be none. That is a sign the week needs trimming, not a sign you did the sorting wrongly."
+        }
+      ],
+      "takeaway": "Sort the week into must, should and could. Most of the room for change is in the shoulds."
+    },
+    {
+      "number": 3,
+      "focus": "Say one honest no and keep it kind",
+      "exercise_ids": [
+        "p3_no"
+      ],
+      "intro": "Sorting shows what can go. An honest no is one way it goes. This part is about choosing one request or task and declining it plainly and kindly. One is enough. Even a single no gives the week a little room.",
+      "ideas": [
+        {
+          "heading": "An honest no gives a true reason or none at all.",
+          "body": "You do not need to invent a clash. \"I am full this week\" is true and short. It also tells the person the issue is capacity, not them. If you prefer, say nothing about why. Either way, keep it to a sentence."
+        },
+        {
+          "heading": "Say no to the task, not to the person.",
+          "body": "\"I cannot take on the rota this term\" refuses a job. It does not refuse the friendship or the colleague. Keep that clear in your wording and your tone. Warm and brief is the best mix. Thank them for asking if it fits."
+        },
+        {
+          "heading": "A no may feel worse before you say it than after.",
+          "body": "The wait before you speak is usually the hard part. Afterwards, most people carry on as normal. Write the sentence first so that the words are ready. Then send or say it when you are ready. Pick a moment when you are not rushed."
+        }
+      ],
+      "takeaway": "Choose one thing to decline, say no to the task and not the person, and keep it to a sentence."
+    },
+    {
+      "number": 4,
+      "focus": "Build small pockets of rest into the week",
+      "exercise_ids": [
+        "p4_pockets"
+      ],
+      "intro": "An overfull week usually has no rest in it, because rest is the first thing to go. This part asks you to put small pockets back, a few minutes at a time. They are modest by design, so they fit even a week like yours.",
+      "ideas": [
+        {
+          "heading": "A pocket of rest can be five minutes.",
+          "body": "It need not be an afternoon. Five minutes with a drink, a window or a chair counts. The idea is to stop for a short while with nothing else going on. In a full week, five minutes in the right place is realistic."
+        },
+        {
+          "heading": "Pockets work best placed between things, not squeezed into them.",
+          "body": "Look at your page for the gaps between one item and the next. A pocket after a lesson, before a lift, once the dishes are done. Marking it on the page makes it a real part of the week, like the rest of the list."
+        },
+        {
+          "heading": "Protecting a pocket means holding it as a must for that time.",
+          "body": "Once a pocket has a place, it belongs on the must list for that slot. Others may ask for the time. \"I have something at three\" is enough. You are not required to say what. If the pocket moves, move it, but do not drop it."
+        }
+      ],
+      "takeaway": "Put a few five-minute pockets of rest into the week, between items, and hold them as fixed."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_page",
+      "title": "Put the week on one page",
+      "purpose": "One page listing everything the week holds, for others and for you.",
+      "why": "Write down everything the coming week asks of you, in any order. Include what you do for other people and anything you want for yourself. Do not tidy it. If nothing comes to mind, write one word.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List everything the week holds."
+        },
+        {
+          "text": "Add what you want for yourself."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week",
+          "type": "long_text",
+          "label": "What does your week hold?"
+        },
+        {
+          "id": "surprise",
+          "type": "short_text",
+          "label": "What on the page surprised you?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week",
+          "plan_section": "page"
+        },
+        {
+          "field_id": "surprise",
+          "plan_section": "page"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List the five biggest things in the week."
+          }
+        ],
+        "field_ids": [
+          "week"
+        ]
+      },
+      "done_when": "The week is on one page, untidied."
+    },
+    {
+      "id": "p2_sort",
+      "title": "Sort into must, should, could",
+      "purpose": "Your week sorted under three headings, with one should marked as able to wait.",
+      "why": "Take your page from Part 1. Put each item under must, should or could. Be strict with must. Then mark one should that could wait a week. If nothing comes to mind, write one word.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Put each item under a heading."
+        },
+        {
+          "text": "Mark one should that could wait."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sorted",
+          "type": "long_text",
+          "label": "Which items go under must, should and could?"
+        },
+        {
+          "id": "wait",
+          "type": "short_text",
+          "label": "Which one should could wait a week?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sorted",
+          "plan_section": "sort"
+        },
+        {
+          "field_id": "wait",
+          "plan_section": "sort"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your three biggest musts."
+          }
+        ],
+        "field_ids": [
+          "sorted"
+        ]
+      },
+      "done_when": "Every item has a heading and one should is marked."
+    },
+    {
+      "id": "p3_no",
+      "title": "Write one honest no",
+      "purpose": "One honest no written out and ready to say or send.",
+      "why": "Choose one should from your page that you could decline. Write the sentence you would use. Keep it warm, brief and true. You can decide later whether to send it. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one item to decline."
+        },
+        {
+          "text": "Write a warm, brief, true sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "what",
+          "type": "short_text",
+          "label": "What will you say no to?"
+        },
+        {
+          "id": "words",
+          "type": "long_text",
+          "label": "What is your honest sentence?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "what",
+          "plan_section": "no"
+        },
+        {
+          "field_id": "words",
+          "plan_section": "no"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the item you would decline."
+          }
+        ],
+        "field_ids": [
+          "what"
+        ]
+      },
+      "done_when": "You have named one no and written the sentence."
+    },
+    {
+      "id": "p4_pockets",
+      "title": "Place pockets of rest",
+      "purpose": "Up to three small pockets of rest placed in the week, each with a time.",
+      "why": "Look at your week page for gaps between items. Choose up to three where a five-minute pause would fit. Write when each is and what you might do. If you can only find one, write that one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Find gaps between items."
+        },
+        {
+          "text": "Write a time and an activity for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pockets",
+          "type": "two_column",
+          "label": "Where in the week could a short pause fit?",
+          "columns": [
+            "When",
+            "What you might do"
+          ],
+          "min_items": 1,
+          "max_items": 3
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pockets",
+          "plan_section": "pockets"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one time for a five-minute pause."
+          }
+        ],
+        "field_ids": [
+          "pockets"
+        ]
+      },
+      "done_when": "At least one pocket has a time on the page."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your week is sorted and saved on your page."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your sorted week, your honest no and your pockets of rest."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "page",
+      "title": "The week on one page"
+    },
+    {
+      "id": "sort",
+      "title": "Must, should and could"
+    },
+    {
+      "id": "no",
+      "title": "One honest no"
+    },
+    {
+      "id": "pockets",
+      "title": "Pockets of rest"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your week on one page, your sorting, one honest no and your pockets of rest.",
+    "book_bridge": "The Overfull Week is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you sort under could this month?",
+      "What did you say no to, and how did it land?",
+      "Where did a pocket of rest fit best?"
+    ],
+    "refresher_ids": [
+      "p2_sort",
+      "p4_pockets"
+    ]
+  }
+}

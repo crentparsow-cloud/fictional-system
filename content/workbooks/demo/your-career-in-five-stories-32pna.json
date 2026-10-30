@@ -1,0 +1,388 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-32PNA",
+  "slug": "your-career-in-five-stories-32pna",
+  "title": "Your Career in Five Stories",
+  "card_line": "Choose five stories from your working life and practise telling them aloud.",
+  "book": {
+    "book_id": "your-career-in-five-stories",
+    "title": "Your Career in Five Stories",
+    "subtitle": "Preparing Answers for Interviews"
+  },
+  "author": {
+    "author_id": "AU-JNCDE",
+    "display_name": "Hester Quarrington"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "career",
+  "theme_id": "work-worth-choosing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about choosing five stories from your working life and telling them well in interviews. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have five stories chosen, one shaped, matched to questions and practised aloud. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which moment at work are you most glad to have lived through? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose five moments from your working life",
+      "exercise_ids": [
+        "p1_five"
+      ],
+      "intro": "Interviewers often ask for an example. People freeze because they have not prepared one. This part asks you to look back over your working life and pick five moments worth telling. They can come from paid work, volunteering or home. You are choosing, not writing yet.",
+      "ideas": [
+        {
+          "heading": "Five good stories cover most interview questions.",
+          "body": "Interviewers ask about teamwork, problems, change, pressure and results. A few well-chosen stories can answer all of these from different angles. You do not need a story for each possible question. You need a small set you know well and can adapt."
+        },
+        {
+          "heading": "Your stories can come from anywhere you have done something that mattered.",
+          "body": "Work is the usual source, but not the only one. Volunteering, caring, a club or a course can show the same skills. Think of times you solved something, learned quickly or worked with others. If it shows who you are at work, it counts."
+        },
+        {
+          "heading": "Pick moments where you acted, not just where things happened to you.",
+          "body": "A good story has you in it, making choices. A company changing is background. Proposing a new rota that the team adopted is a story. Look for moments where your action made a difference, however small. The detail is what makes it believable."
+        }
+      ],
+      "takeaway": "Choose five moments where you acted and something changed. They can come from any part of your life."
+    },
+    {
+      "number": 2,
+      "focus": "Shape each story with a clear start, middle and end",
+      "exercise_ids": [
+        "p2_shape"
+      ],
+      "intro": "A story told well is short and has a shape. Interviewers lose track of long, rambling answers. This part gives you a simple structure and asks you to shape one of your moments into a story of about two minutes. You can use the same form for the others.",
+      "ideas": [
+        {
+          "heading": "A story needs four parts: situation, task, action and result.",
+          "body": "Say briefly what the situation was and what you were asked to do. Then spend most of your time on what you did, step by step. End with what happened. This keeps the story clear and puts you at the centre without overstating your part."
+        },
+        {
+          "heading": "Spend most of the time on what you did.",
+          "body": "Many people give a long setting and a quick action. Reverse it. Give one or two sentences of background and then explain your choices. The interviewer wants to know how you think and act. The detail of your steps answers that."
+        },
+        {
+          "heading": "Finish with what changed, and what you learned.",
+          "body": "Say what the outcome was, in plain terms. If there is a measure, give it. If not, say what people noticed. Add one line on what you learned or would do differently. That shows you reflect, and it ends the answer cleanly."
+        }
+      ],
+      "takeaway": "Shape each story as situation, task, action and result. Spend most of the time on what you did."
+    },
+    {
+      "number": 3,
+      "focus": "Match your stories to the questions you may be asked",
+      "exercise_ids": [
+        "p3_match"
+      ],
+      "intro": "Interviewers ask many questions, but they tend to fall into a few groups. This part asks you to match each of your stories to the kinds of question it could answer. One story can serve two or three questions, with a slightly different emphasis each time.",
+      "ideas": [
+        {
+          "heading": "Most interview questions fall into a handful of themes.",
+          "body": "Common themes are working with others, solving a problem, handling pressure, dealing with change and showing results. Read the job advert and note which themes matter for the role. Ask which of your stories fits each one. You will see where you have gaps."
+        },
+        {
+          "heading": "One story can answer several questions if you change the emphasis.",
+          "body": "A story about a difficult project can show teamwork in one answer and problem solving in another. Choose which part to stress. Keep the facts the same and change the focus. Prepared in this way, five stories go a long way."
+        },
+        {
+          "heading": "Be ready to say plainly what you did not know or got wrong.",
+          "body": "Questions about mistakes or gaps are common. Have an honest answer ready. Say what happened, what you learned and what you do now. Interviewers respect honesty more than a polished answer that avoids the question. A calm account of a mistake often shows more than a story where nothing went wrong."
+        }
+      ],
+      "takeaway": "Match each story to a few common themes, and change the emphasis to fit the question. Keep your account honest."
+    },
+    {
+      "number": 4,
+      "focus": "Tell your stories aloud and reflect on how they sounded",
+      "exercise_ids": [
+        "p4_aloud"
+      ],
+      "intro": "A story that reads well can sound stiff when spoken. Saying it aloud shows where it drags and where it moves. This part asks you to tell two of your stories out loud and to note what you would change. A friend or a recording will do. A short reflection finishes the workbook.",
+      "ideas": [
+        {
+          "heading": "Say each story aloud at least once before the interview.",
+          "body": "Silent rehearsal hides problems. When you speak, you find the sentences that are too long and the details that do not matter. Keep each story to about two minutes. Practise until the words feel like yours rather than read from a page."
+        },
+        {
+          "heading": "Ask a friend to put the question, then listen to your answer.",
+          "body": "A friend can ask the question the way an interviewer would. Ask them what they understood and what they would like to know more about. Their answers show you where you were clear and where you lost them. If nobody is around, record yourself."
+        },
+        {
+          "heading": "Notice which stories you enjoy telling, as those often come across best.",
+          "body": "Stories you care about carry energy. If one of the five feels flat, swap it for another moment. Interest is catching. You do not need to perform. Speak as you would to a colleague you trust, and let the story do the work."
+        }
+      ],
+      "takeaway": "Practise aloud, ask a friend to listen, and swap any story that feels flat."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_five",
+      "title": "List five moments to tell",
+      "purpose": "A list of five moments from your working life, each in a line.",
+      "why": "Think back over your working life. Write down five moments where you did something that mattered, in one line each. Do not shape them yet. If you can only find three, begin with those.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think back over your working life."
+        },
+        {
+          "text": "Write five moments, one line each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "moments",
+          "type": "long_text",
+          "label": "Which five moments will you choose?"
+        },
+        {
+          "id": "proud",
+          "type": "short_text",
+          "label": "Which of the five are you proudest of?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "moments",
+          "plan_section": "moments"
+        },
+        {
+          "field_id": "proud",
+          "plan_section": "moments"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one moment."
+          }
+        ],
+        "field_ids": [
+          "moments"
+        ]
+      },
+      "done_when": "You have a list of at least three moments."
+    },
+    {
+      "id": "p2_shape",
+      "title": "Shape one story",
+      "purpose": "One story written in four parts: situation, task, action and result.",
+      "why": "Choose one of your five moments. Write one or two sentences for each of the four parts, with the most space for the action. Keep the whole story to about two minutes spoken. Read it aloud once.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one moment."
+        },
+        {
+          "text": "Write the four parts in a few sentences each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "which",
+          "type": "short_text",
+          "label": "Which moment will you shape first?"
+        },
+        {
+          "id": "story",
+          "type": "long_text",
+          "label": "What are the situation, task, action and result?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "which",
+          "plan_section": "shape"
+        },
+        {
+          "field_id": "story",
+          "plan_section": "shape"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the situation in one sentence."
+          }
+        ],
+        "field_ids": [
+          "which"
+        ]
+      },
+      "done_when": "One story has all four parts written down."
+    },
+    {
+      "id": "p3_match",
+      "title": "Match stories to questions",
+      "purpose": "Each of your stories linked to one or more likely questions.",
+      "why": "Write down four or five questions you might be asked. Beside each, note which of your stories you would use. Check that you are not using one story for every answer. If you have a gap, note what kind of story you need.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List four or five likely questions."
+        },
+        {
+          "text": "Note which story answers each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "match",
+          "type": "two_column",
+          "label": "Which questions might come up, and which story fits each?",
+          "columns": [
+            "Question",
+            "Story"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "gap",
+          "type": "short_text",
+          "label": "Which question has no story yet?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "match",
+          "plan_section": "match"
+        },
+        {
+          "field_id": "gap",
+          "plan_section": "match"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Match one question to one story."
+          }
+        ],
+        "field_ids": [
+          "match"
+        ]
+      },
+      "done_when": "Each question has a story or a noted gap."
+    },
+    {
+      "id": "p4_aloud",
+      "title": "Tell two stories aloud",
+      "purpose": "Two stories told aloud and a note of what to change.",
+      "why": "Tell two of your stories aloud, to a friend or into a recording. Afterwards, note what ran long, what was unclear and what went well. Make one change to a story. If you can only do one, do one.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Tell two stories aloud."
+        },
+        {
+          "text": "Note one change for a story."
+        }
+      ],
+      "fields": [
+        {
+          "id": "notice",
+          "type": "long_text",
+          "label": "What ran long, what was unclear and what went well?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What one change will you make to a story?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "notice",
+          "plan_section": "aloud"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "aloud"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Tell one story aloud and note one change."
+          }
+        ],
+        "field_ids": [
+          "notice"
+        ]
+      },
+      "done_when": "You have told two stories and noted a change."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your first story is shaped and saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your five moments, a shaped story, your matches and your notes."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "moments",
+      "title": "Your five moments"
+    },
+    {
+      "id": "shape",
+      "title": "A story shaped"
+    },
+    {
+      "id": "match",
+      "title": "Stories and questions"
+    },
+    {
+      "id": "aloud",
+      "title": "Telling the stories"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your five moments, one shaped story, your matches to questions and your notes from telling them aloud.",
+    "book_bridge": "Your Career in Five Stories is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which story did you use most recently, and how did it go?",
+      "Which moment from work lately could become a sixth story?",
+      "Which question still has no story?"
+    ],
+    "refresher_ids": [
+      "p2_shape",
+      "p4_aloud"
+    ]
+  }
+}

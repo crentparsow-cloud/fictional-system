@@ -1,0 +1,395 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-DCQDG",
+  "slug": "the-first-year-written-down-dcqdg",
+  "title": "The First Year, Written Down",
+  "card_line": "Keep weekly notes through the first year and a list of who to call for what.",
+  "book": {
+    "book_id": "the-first-year-written-down",
+    "title": "The First Year, Written Down",
+    "subtitle": "Weekly Notes for New Parents"
+  },
+  "author": {
+    "author_id": "AU-56780",
+    "display_name": "Ffion Rees-Adeyemi"
+  },
+  "genre": "parenting",
+  "theme_id": "early-days",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_medical_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about keeping weekly notes through the first year with a baby. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of who to call for what, a share of jobs and your first notes. It is not medical advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the one question you most want answered this month? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life with a new baby. If using it would put you or anyone at home at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Write down who to call for what",
+      "exercise_ids": [
+        "p1_call"
+      ],
+      "intro": "In the first weeks, questions come at odd hours and the answers are scattered. One list of who to call for what saves searching. This part asks you to write one, with names and numbers, and to note the people already around you.",
+      "ideas": [
+        {
+          "heading": "A list of who to call for what is worth writing before you need it.",
+          "body": "Questions about your baby's health go to the health team. Questions about money, work or the house go elsewhere. Write each kind of question beside the right contact and number. Put the list on the fridge. At three in the morning you will not want to go searching."
+        },
+        {
+          "heading": "The people around you are your first set of contacts.",
+          "body": "Partner, parents, a neighbour, a friend who has been through it: each can do something different. One can bring a meal, another can listen. Write down each name and what you would ask them for. Knowing who is nearby is a comfort in itself."
+        },
+        {
+          "heading": "Writing things down in the first days gives you something to return to.",
+          "body": "Days blur when sleep is short. A few lines a week, with dates, will remind you what happened and when. Note questions as they come, and any firsts. Keep the notebook where you sit most. A list is easier than trying to remember."
+        }
+      ],
+      "takeaway": "Write your who to call for what list now, and note the people around you. A line or two a week gives you a record to return to."
+    },
+    {
+      "number": 2,
+      "focus": "Share the night and day jobs and say what would suit you",
+      "exercise_ids": [
+        "p2_share"
+      ],
+      "intro": "Nobody can do everything, and visitors keep asking what they can do. This part asks you to divide night and day jobs with a partner or helper. It also asks you to decide what to say when someone offers, so the offer becomes something useful.",
+      "ideas": [
+        {
+          "heading": "Night and day jobs are easier to share when each has a name beside it.",
+          "body": "List the jobs: feeds, changes, settling, washing, meals. Then agree who does which, and when. Swapping now and then is fine. If you are on your own, name the jobs that someone else could take. A written split saves the quiet resentment of guessing."
+        },
+        {
+          "heading": "When visitors ask what they can do, a ready answer is a gift to them.",
+          "body": "Most people want to be useful and do not know how. Have a short list ready: a meal, a load of washing, an hour with the baby while you rest. Say it plainly and without apology. They are often glad to be asked, and you get what you want."
+        },
+        {
+          "heading": "Saying no to visitors is allowed too.",
+          "body": "You can say \"Not this week, thank you.\" Then offer Sunday. Short visits at a time that suits you are kinder than long ones at a time that does not. Close friends will understand. Choose who comes and when, and keep the first weeks gentle."
+        }
+      ],
+      "takeaway": "Put a name beside each job, and have a ready answer when someone offers. Visitors can come on your terms."
+    },
+    {
+      "number": 3,
+      "focus": "Build a few small routines and prepare for health checks",
+      "exercise_ids": [
+        "p3_notes"
+      ],
+      "intro": "Small routines give a day a shape, and a few written questions make the most of a health check. This part also covers getting out of the house, one short trip at a time. All of it goes into your weekly notes.",
+      "ideas": [
+        {
+          "heading": "A few small fixed points give the day a shape.",
+          "body": "A morning cup of tea, a walk at noon, a bath before the evening feed: choose two or three anchors. Do not plan the whole day. Babies change, so the anchors should be loose. They give you something to hold when the hours run together."
+        },
+        {
+          "heading": "Questions written down get asked, and questions kept in your head get forgotten.",
+          "body": "Keep a page at the back of the notebook for questions about your baby's health. Add to it whenever one comes to mind. Take it to the next check and note the answers. Anything about feeding, sleep or growth goes to the health team, not to this workbook."
+        },
+        {
+          "heading": "Getting out of the house works best one short trip at a time.",
+          "body": "A ten-minute walk round the block counts. Pack the bag the night before and choose somewhere near. Another day, go a little further, or meet a friend. There is no need to rush. A change of view is enough."
+        }
+      ],
+      "takeaway": "Choose two or three fixed points in the day, write questions before health checks, and go out one short trip at a time."
+    },
+    {
+      "number": 4,
+      "focus": "Look at how you are doing and write a few lines for later",
+      "exercise_ids": [
+        "p4_you"
+      ],
+      "intro": "Most of the notebook is about the baby. This last part turns to you: how you are, who you see and what you want to remember. You also write a few lines for later, so the year is kept in words as well as in photos.",
+      "ideas": [
+        {
+          "heading": "How you are doing matters as much as how the baby is doing.",
+          "body": "Ask yourself once a week how you are. Think about sleep, meals, company and time outside. Write a line. If the answer is hard, say so to someone you trust, or to the health team. Noticing early is better than waiting. You are part of the picture."
+        },
+        {
+          "heading": "Friends with babies and friends without them both have a place.",
+          "body": "Parents with babies share the details, and friends without can remind you of life before. Keep both. Send a message, meet for a short coffee, or say plainly that you are tired. Good friends adjust to the new rhythm, and the ones who do not can wait a while."
+        },
+        {
+          "heading": "A few lines about each month make a record you will be glad of.",
+          "body": "Note the firsts, the funny things and the ordinary days. Add a photo and the date. Short is fine. A year on, you will not remember the order of events but your notes will. Finish with a note to yourself about what you have learned."
+        }
+      ],
+      "takeaway": "Write a line about how you are, keep up friendships, and record the small moments. The notebook is for you as well."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_call",
+      "title": "Write your who to call list",
+      "purpose": "A list of who to call for what, and the people closest to you.",
+      "why": "Write the kinds of question you might have: your baby's health, practical help, a listening ear. Beside each, write who you would call. Add a number if you have it. If a line is blank, leave it for later.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the kinds of question you might have."
+        },
+        {
+          "text": "Put a name beside each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "calls",
+          "type": "two_column",
+          "label": "Who would you call for each kind of question?",
+          "columns": [
+            "Kind of question",
+            "Who to call"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "near",
+          "type": "short_text",
+          "label": "Who are the people closest to you right now?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "calls",
+          "plan_section": "call"
+        },
+        {
+          "field_id": "near",
+          "plan_section": "call"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question and who you would call."
+          }
+        ],
+        "field_ids": [
+          "calls"
+        ]
+      },
+      "done_when": "You have at least three kinds of question with a name beside each."
+    },
+    {
+      "id": "p2_share",
+      "title": "Share the jobs and answer offers",
+      "purpose": "A split of night and day jobs and a ready answer for offers of help.",
+      "why": "List the night and day jobs and put a name beside each. Then write the sentence you will say when someone asks what they can do. Keep it specific. If you are on your own, write what you would most like taken off your hands.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the jobs and who does each."
+        },
+        {
+          "text": "Write your answer to an offer of help."
+        }
+      ],
+      "fields": [
+        {
+          "id": "jobs",
+          "type": "two_column",
+          "label": "Which night and day jobs are there, and who does each?",
+          "columns": [
+            "The job",
+            "Who does it"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "What will you say when someone asks what they can do?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "jobs",
+          "plan_section": "share"
+        },
+        {
+          "field_id": "offer",
+          "plan_section": "share"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you would like someone to do."
+          }
+        ],
+        "field_ids": [
+          "offer"
+        ]
+      },
+      "done_when": "You have a split of jobs and a sentence ready for offers."
+    },
+    {
+      "id": "p3_notes",
+      "title": "Start your weekly notes",
+      "purpose": "Two or three fixed points for your day and a first page of questions.",
+      "why": "Choose two or three fixed points that give your day a shape. Then start a page of questions for your next health check, with whatever is on your mind now. If nothing comes to mind, write one word and add to it later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose two or three fixed points."
+        },
+        {
+          "text": "Start a page of questions for the next check."
+        }
+      ],
+      "fields": [
+        {
+          "id": "anchors",
+          "type": "short_text",
+          "label": "Which two or three fixed points will give your day a shape?"
+        },
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What would you like to ask at the next health check?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "anchors",
+          "plan_section": "notes"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "notes"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one fixed point in your day."
+          }
+        ],
+        "field_ids": [
+          "anchors"
+        ]
+      },
+      "done_when": "You have at least one fixed point and one question."
+    },
+    {
+      "id": "p4_you",
+      "title": "Write a note to yourself",
+      "purpose": "A line on how you are doing and a few lines to read later.",
+      "why": "Write one line on how you are this week. Then write a few lines for the person you will be in a year: what you want to remember, and what you have learned. Short is fine. If the first line is hard, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a line on how you are this week."
+        },
+        {
+          "text": "Write a few lines for later."
+        }
+      ],
+      "fields": [
+        {
+          "id": "now",
+          "type": "short_text",
+          "label": "How are you doing this week, in a line?"
+        },
+        {
+          "id": "later",
+          "type": "long_text",
+          "label": "What would you like to remember about this year?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "now",
+          "plan_section": "you"
+        },
+        {
+          "field_id": "later",
+          "plan_section": "you"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line on how you are."
+          }
+        ],
+        "field_ids": [
+          "now"
+        ]
+      },
+      "done_when": "You have a line about now and a few lines for later."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your jobs and your answer to offers are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your list, your jobs, your notes and a note to yourself."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "call",
+      "title": "Who to call"
+    },
+    {
+      "id": "share",
+      "title": "Sharing the jobs"
+    },
+    {
+      "id": "notes",
+      "title": "Weekly notes"
+    },
+    {
+      "id": "you",
+      "title": "A note to yourself"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds who to call for what, your share of jobs, your first notes and a note to yourself.",
+    "book_bridge": "The First Year, Written Down is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What would you like to remember about this month?",
+      "Who did you call this month, and was the list right?",
+      "How are you doing, in a line?"
+    ],
+    "refresher_ids": [
+      "p1_call",
+      "p4_you"
+    ]
+  }
+}

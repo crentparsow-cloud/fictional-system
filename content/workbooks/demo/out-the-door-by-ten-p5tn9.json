@@ -1,0 +1,373 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-P5TN9",
+  "slug": "out-the-door-by-ten-p5tn9",
+  "title": "Out the Door by Ten",
+  "card_line": "Walk ten minutes at the same time each day and plan a week of movement.",
+  "book": {
+    "book_id": "out-the-door-by-ten",
+    "title": "Out the Door by Ten",
+    "subtitle": "Moving More in an Ordinary Week"
+  },
+  "author": {
+    "author_id": "AU-3C6MR",
+    "display_name": "Gwenllian Pryce-Adeyemi"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "everyday-movement",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about moving a little more in an ordinary week. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a ten minute walk that fits your day and a simple plan for the week. It covers general movement only, not medical advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Try the exercise. A word or two is fine if that is all you have.",
+      "Your answers build a weekly plan you can read at the end.",
+      "If you have a health condition, or have not been active for a long time, check with a health professional before you start."
+    ],
+    "why_prompt": "What is one reason you would like to move a little more? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice how much you already move in a week",
+      "exercise_ids": [
+        "p1_week"
+      ],
+      "intro": "Before you change anything, look at what is already there. Most weeks hold more movement than people expect. This part asks you to notice an ordinary week with no targets and no judgement. You will write down what you find, and nothing more.",
+      "ideas": [
+        {
+          "heading": "You already move in more places than you would first list.",
+          "body": "Walking to the bus, carrying shopping, climbing the stairs at work and hanging out washing all count. People tend to name only the planned things, such as a class or a walk. Put the ordinary ones beside them and the week looks different. This is general movement, not a measure of anything."
+        },
+        {
+          "heading": "Noticing is enough for the first week, with nothing to reach.",
+          "body": "A target turns a look at your week into a test, so leave it out. You are not counting steps against a figure or timing anything. Write down what you did in plain words, such as walked to the shop or sat most of Tuesday. Both belong on the page."
+        },
+        {
+          "heading": "A quiet stretch in your week is information, not a fault.",
+          "body": "Weekends differ from workdays, and wet weeks differ from dry ones. A quiet Thursday tells you something about your diary, nothing more. Once you can see where the quiet stretches fall, you can see where ten minutes might fit later. For now, only note them."
+        }
+      ],
+      "takeaway": "You already move in more ways than you first listed. Looking at your week without a target is the whole first step."
+    },
+    {
+      "number": 2,
+      "focus": "Fit a ten minute walk into a time that suits you",
+      "exercise_ids": [
+        "p2_walk"
+      ],
+      "intro": "A walk is easier to remember when it has a place in your day. This part is about choosing a time and a route, then going out for ten minutes. The pace is yours. Some weeks it will happen and some weeks it will not, and either is fine.",
+      "ideas": [
+        {
+          "heading": "Ten minutes is long enough to count as a walk.",
+          "body": "Ten minutes is short enough to fit between other things and long enough to leave the house and come back. It needs no kit. Shoes you already own and a coat for the weather will do. Nobody else needs to know you went, and you can go at your own speed."
+        },
+        {
+          "heading": "A walk tied to something you already do is easier to remember.",
+          "body": "Pick a fixed point, such as after breakfast or once the post has arrived. Walking at the same time means less effort spent deciding. The time is a cue, not a rule. If the usual slot goes in a busy week, take another one and carry on."
+        },
+        {
+          "heading": "A walk with a turning point keeps the decision small.",
+          "body": "Choose a landmark about five minutes away, such as a postbox or a bench. Walk to it and turn round. You are then not weighing up how far to go, which makes setting out easier. Go beyond it only on the days you feel like it."
+        }
+      ],
+      "takeaway": "Ten minutes at a time you choose is a walk. Tie it to something you already do and pick a turning point."
+    },
+    {
+      "number": 3,
+      "focus": "Use the movement already built into your week",
+      "exercise_ids": [
+        "p3_built"
+      ],
+      "intro": "You do not need a new activity to move more. Stairs, errands and household jobs are already there. This part looks at those, then at a few gentle stretches at the start and end of the day. You choose how much, and you can leave stretching out altogether.",
+      "ideas": [
+        {
+          "heading": "Errands are a chance to move that costs no extra time.",
+          "body": "Getting off the bus a stop early, taking the stairs or walking to the shop can sit inside a trip you were making anyway. Pick one that suits your route and your body. Leave the others for another week. One small change you keep is worth more than five you drop."
+        },
+        {
+          "heading": "Gentle stretching can be a few slow movements, not a routine.",
+          "body": "At the start or end of the day, reach up, roll your shoulders and lean gently to each side. Go only as far as feels comfortable and stop if anything hurts. Two minutes is plenty. Leave it out on any morning when it does not appeal."
+        },
+        {
+          "heading": "Your body sets the pace, so choose movement that suits it.",
+          "body": "Some knees, backs and hips prefer gentler options. Take the lift if stairs are hard for you, or walk on the flat. Moving less than someone else is not a lesser effort. Choose what you can do comfortably, and change it when your week changes."
+        }
+      ],
+      "takeaway": "Your week already holds chances to move. Pick the one that suits your body and leave the rest."
+    },
+    {
+      "number": 4,
+      "focus": "Move with others and plan a week that fits your diary",
+      "exercise_ids": [
+        "p4_plan"
+      ],
+      "intro": "Company, poor weather and a full diary all shape how much you move in a week. This last part deals with each in turn. You finish by sketching a week of movement in pencil, so it can change when your week does.",
+      "ideas": [
+        {
+          "heading": "Company can make a walk easier to turn up for.",
+          "body": "A friend, a neighbour or a local group gives the walk a fixed time and someone to talk to. Ask once and see what they say. Many community walks welcome anyone, and you can go along just once to find out. If you prefer to go alone, that is a fair choice too."
+        },
+        {
+          "heading": "Wet days and dark mornings are easier with an indoor option ready.",
+          "body": "Decide beforehand what you will do when the weather is poor. It might be a few laps of the house, a walk round a shop or some stretching in the kitchen. With an alternative to hand, a grey morning changes the place and leaves the plan alone."
+        },
+        {
+          "heading": "A weekly plan should be written in pencil and fit your diary.",
+          "body": "List the days with room in them and the movement that suits each. Leave some space. A plan with every slot full is hard to follow. Expect to move things around, and count a shifted walk as part of the plan, not a gap in it."
+        }
+      ],
+      "takeaway": "Company and a wet day option make movement easier to turn up for. A weekly plan in pencil lets the week change."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_week",
+      "title": "Look at your ordinary week",
+      "purpose": "A short note of where movement already happens in your week and where it is quiet.",
+      "why": "Think back over the last seven days. Write down the times you moved, however small, and the stretches where you mostly sat. Use plain words and leave out numbers. If nothing comes to mind, write one word for the day you remember best.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write down the times you moved, however small."
+        },
+        {
+          "text": "Note the quiet stretches beside them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week_look",
+          "type": "two_column",
+          "label": "Where did you move this week, and where was it quiet?",
+          "columns": [
+            "Where you moved",
+            "Where it was quiet"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week_look",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one time you moved this week."
+          }
+        ],
+        "field_ids": [
+          "week_look"
+        ]
+      },
+      "done_when": "You have at least one line about your week."
+    },
+    {
+      "id": "p2_walk",
+      "title": "Choose your ten minute walk",
+      "purpose": "A time, a route and a turning point for one short walk.",
+      "why": "Pick a time that already has something happening at it, and a landmark about five minutes away. Write both down. Then walk it once if you can, and note how it went. If this week is too full, write the plan and leave the walk for next week.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a time linked to something you already do."
+        },
+        {
+          "text": "Choose a turning point five minutes away."
+        },
+        {
+          "text": "Walk it once and note how it felt."
+        }
+      ],
+      "fields": [
+        {
+          "id": "walk_time",
+          "type": "short_text",
+          "label": "At what time, and after what, could you walk for ten minutes?"
+        },
+        {
+          "id": "turning_point",
+          "type": "short_text",
+          "label": "Where is your turning point?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "walk_time",
+          "plan_section": "walk"
+        },
+        {
+          "field_id": "turning_point",
+          "plan_section": "walk"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the time and the turning point."
+          }
+        ],
+        "field_ids": [
+          "walk_time",
+          "turning_point"
+        ]
+      },
+      "done_when": "You have a time and a turning point written down."
+    },
+    {
+      "id": "p3_built",
+      "title": "Spot movement already in your week",
+      "purpose": "Two ordinary chances to move and one gentle stretch you might try.",
+      "why": "Look at the errands and jobs in your next few days. Choose two where you could move a little more, such as the stairs or a longer route. Then pick one gentle stretch and a time for it. If none appeal, write the one you dislike least.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose two errands or jobs that could hold more movement."
+        },
+        {
+          "text": "Pick one gentle stretch and a time for it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "chances",
+          "type": "long_text",
+          "label": "Which two errands or jobs could hold a little more movement?"
+        },
+        {
+          "id": "stretch",
+          "type": "short_text",
+          "label": "Which gentle stretch, and when, might you try?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "chances",
+          "plan_section": "built"
+        },
+        {
+          "field_id": "stretch",
+          "plan_section": "built"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one errand where you could walk a little further."
+          }
+        ],
+        "field_ids": [
+          "chances"
+        ]
+      },
+      "done_when": "You have at least one errand written down."
+    },
+    {
+      "id": "p4_plan",
+      "title": "Sketch your week of movement",
+      "purpose": "A weekly plan of movement that fits your body and your diary.",
+      "why": "Write the week, one line per day. Use your ten minute walk, any errands or stretches you liked, and an indoor option for wet weather. Leave at least one day empty. If a line does not suit you, change it.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write one line for each day of the week."
+        },
+        {
+          "text": "Add an indoor option for wet weather."
+        }
+      ],
+      "fields": [
+        {
+          "id": "week_plan",
+          "type": "long_text",
+          "label": "What will your week of movement look like?"
+        },
+        {
+          "id": "wet_day",
+          "type": "short_text",
+          "label": "What will you do on a wet day?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "week_plan",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "wet_day",
+          "plan_section": "plan"
+        }
+      ],
+      "done_when": "Your week has some lines and one day is left empty."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your walk is written down and ready when you are."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your week, your walk and your wet day option."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "Your week as it is"
+    },
+    {
+      "id": "walk",
+      "title": "Your ten minute walk"
+    },
+    {
+      "id": "built",
+      "title": "Movement already in your week"
+    },
+    {
+      "id": "plan",
+      "title": "Your week of movement"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote down where you already move, your ten minute walk and two ordinary chances to move more. You also sketched a weekly plan with a wet day option.",
+    "book_bridge": "Out the Door by Ten is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which walk did you enjoy most this month?",
+      "What has changed in your week since you started?",
+      "Does your weekly plan still fit your diary?"
+    ],
+    "refresher_ids": [
+      "p2_walk",
+      "p4_plan"
+    ]
+  }
+}

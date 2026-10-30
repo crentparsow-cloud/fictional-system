@@ -1,0 +1,388 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-6VDBX",
+  "slug": "your-first-team-6vdbx",
+  "title": "Your First Team",
+  "card_line": "Meet each person on your new team and agree how you will work together.",
+  "book": {
+    "book_id": "your-first-team",
+    "title": "Your First Team",
+    "subtitle": "Six Weeks as a New Manager"
+  },
+  "author": {
+    "author_id": "AU-8WS7W",
+    "display_name": "Efua Dadzie-Lamptey"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about your first six weeks as a new manager. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have planned meeting each person, agreed roles and goals, set up check-ins and planned your first feedback. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What worries you most about leading this team? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Meet each person and write down what they need",
+      "exercise_ids": [
+        "p1_meet"
+      ],
+      "intro": "Before you change anything, find out how your team works and what each person needs. This part asks you to meet everyone one to one and listen. You take brief notes, and you promise nothing you cannot deliver. The first weeks set the tone for the rest.",
+      "ideas": [
+        {
+          "heading": "Meet each person on their own before you make changes.",
+          "body": "A half-hour one to one gives each person a chance to say what they think without the group listening. Ask about their work, what is going well and what gets in the way. Let them talk. You will learn more by listening than by announcing your plans."
+        },
+        {
+          "heading": "Ask three plain questions and write down the answers.",
+          "body": "What do you enjoy most? What gets in your way? What would you like me to know? Keep the questions the same for everyone so that you can compare. Write notes soon after each meeting. Memory blurs, and the notes will matter in a month."
+        },
+        {
+          "heading": "Avoid promising changes in your first meetings with people.",
+          "body": "People will tell you what to fix. Thank them, and say you will think it over. Promises made too early are hard to keep and easy to regret. Come back with a response once you have met everyone. People trust a manager who listens before acting."
+        }
+      ],
+      "takeaway": "Meet each person alone, ask the same plain questions and write down the answers. Promise nothing yet."
+    },
+    {
+      "number": 2,
+      "focus": "Agree roles and goals with each person",
+      "exercise_ids": [
+        "p2_roles"
+      ],
+      "intro": "People do their best work when they know what they are responsible for and what a good result looks like. This part asks you to agree each person's role and one or two goals, together with them. Agreement matters more than the wording. A goal nobody understands will not be met.",
+      "ideas": [
+        {
+          "heading": "Write each role in a few lines and check that the person agrees.",
+          "body": "Say what the job covers, what they decide alone and what they bring to you. Write it down, then ask if it matches how they see it. Gaps between your view and theirs are better found now than in a dispute later."
+        },
+        {
+          "heading": "Choose one or two goals for each person, not a long list.",
+          "body": "More goals dilute attention. Pick the one or two that matter most for the next few months. Make each one clear enough that you could both tell whether it has been reached. Discuss it together so that the goal is theirs as well as yours."
+        },
+        {
+          "heading": "Link each person's goals to what the team is for.",
+          "body": "People care more about work when they see where it leads. Explain how each role contributes to the team's purpose. If the connection is weak, that tells you something about the goal or the role. Be willing to adjust either."
+        }
+      ],
+      "takeaway": "Agree roles in plain words, set one or two goals together, and link them to the team's purpose."
+    },
+    {
+      "number": 3,
+      "focus": "Set how you will check in and work together",
+      "exercise_ids": [
+        "p3_checkins"
+      ],
+      "intro": "Check-ins keep small problems small. They also show your team that you are interested. This part asks you to decide how often you will meet each person, what you will talk about and how the team will work together. You then write it as a short agreement the team can see.",
+      "ideas": [
+        {
+          "heading": "A regular check-in works better than a rare, long meeting.",
+          "body": "Fifteen to thirty minutes, every week or two, keeps you in touch. Keep the time fixed, so it survives busy weeks. Let the person set most of the agenda. If you cancel, rearrange it at once. The reliability matters as much as the talk."
+        },
+        {
+          "heading": "Use the same short structure so each person knows what to expect.",
+          "body": "Open with how they are. Then go through progress on their goals, anything blocking them and what they need from you. Close with one action each. People relax when the format is familiar, and notes become easy to compare over time."
+        },
+        {
+          "heading": "Agree a few working rules with the whole team.",
+          "body": "Decide together how you will share news, how fast to reply, when to meet and how to raise a problem. Write them in a few lines. Ask the team to add their own. Rules the team helped to write are easier to follow and to point back to."
+        }
+      ],
+      "takeaway": "Meet each person regularly with the same short structure, and agree a few working rules with the whole team."
+    },
+    {
+      "number": 4,
+      "focus": "Give first feedback and review the team together",
+      "exercise_ids": [
+        "p4_feedback"
+      ],
+      "intro": "Feedback is easier when you start early and keep it small. A team review looks at how things are working for everyone, including you. This part asks you to plan your first feedback conversation and a review at the end of the six weeks. Both are ways of listening.",
+      "ideas": [
+        {
+          "heading": "Say what you saw, what effect it had and what you would like next.",
+          "body": "Describe the specific thing: the report on Tuesday, the way the call was handled. Say what effect it had. Then say what you would like more of, or different. Stay with facts. A person can use what you saw. They cannot use a general impression."
+        },
+        {
+          "heading": "Begin with something that went well when you can say so honestly.",
+          "body": "Most people do something worth naming. Say it plainly and mean it. This is not a trick to soften bad news. It tells the person what to keep doing. When you do need to raise a concern, they know you notice the good as well."
+        },
+        {
+          "heading": "Ask the team how you are doing as well.",
+          "body": "At the end of six weeks, ask each person what to keep, stop or start in how you manage. Listen without arguing. Thank them. Tell the team what you will change. A manager who invites feedback shows that it goes both ways."
+        }
+      ],
+      "takeaway": "Give feedback on what you saw, begin with what went well, and ask the team for feedback on you."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_meet",
+      "title": "Plan your one to ones",
+      "purpose": "Three questions and a schedule for meeting each person.",
+      "why": "Write the three questions you will ask everyone. List the people on your team and a date for each meeting. Allow half an hour each. If the team is large, begin with the people you know least.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three questions."
+        },
+        {
+          "text": "List each person with a date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "qs",
+          "type": "long_text",
+          "label": "What three questions will you ask each person?"
+        },
+        {
+          "id": "people",
+          "type": "two_column",
+          "label": "Who will you meet, and when?",
+          "columns": [
+            "Person",
+            "Date"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "qs",
+          "plan_section": "meet"
+        },
+        {
+          "field_id": "people",
+          "plan_section": "meet"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question to ask everyone."
+          }
+        ],
+        "field_ids": [
+          "qs"
+        ]
+      },
+      "done_when": "You have three questions and at least one date."
+    },
+    {
+      "id": "p2_roles",
+      "title": "Draft roles and goals",
+      "purpose": "A role and one goal drafted for each of two team members.",
+      "why": "Choose two people on your team. For each, write a role in two or three lines and one goal. Note anything you need to check with them. These are drafts to talk through, not decisions.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick two people."
+        },
+        {
+          "text": "Draft a role and a goal for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "draft",
+          "type": "long_text",
+          "label": "What role and goal will you propose for each person?"
+        },
+        {
+          "id": "check",
+          "type": "short_text",
+          "label": "What do you need to check with them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "draft",
+          "plan_section": "roles"
+        },
+        {
+          "field_id": "check",
+          "plan_section": "roles"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Draft one role in two lines."
+          }
+        ],
+        "field_ids": [
+          "draft"
+        ]
+      },
+      "done_when": "Two drafts are written and one point to check is noted."
+    },
+    {
+      "id": "p3_checkins",
+      "title": "Set up check-ins and rules",
+      "purpose": "A check-in rhythm and three working rules for the team.",
+      "why": "Decide how often you will meet each person and for how long. Write your short structure in four lines. Then draft three working rules to take to the team for changes.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose how often and how long."
+        },
+        {
+          "text": "Draft three working rules."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rhythm",
+          "type": "short_text",
+          "label": "How often will you meet each person, and for how long?"
+        },
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What three working rules will you propose to the team?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rhythm",
+          "plan_section": "checkins"
+        },
+        {
+          "field_id": "rules",
+          "plan_section": "checkins"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose how often you will meet."
+          }
+        ],
+        "field_ids": [
+          "rhythm"
+        ]
+      },
+      "done_when": "You have a rhythm and three rules to share."
+    },
+    {
+      "id": "p4_feedback",
+      "title": "Plan feedback and a team review",
+      "purpose": "One feedback conversation planned and a date for a team review.",
+      "why": "Choose one person and one specific thing they did lately. Write what you saw, what effect it had and what you would like next. Then choose a date for the six-week team review.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your feedback in three parts."
+        },
+        {
+          "text": "Choose the date of the team review."
+        }
+      ],
+      "fields": [
+        {
+          "id": "fb",
+          "type": "long_text",
+          "label": "What did you see, what effect did it have and what would you like next?"
+        },
+        {
+          "id": "date",
+          "type": "short_text",
+          "label": "When will you hold the team review?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "fb",
+          "plan_section": "feedback"
+        },
+        {
+          "field_id": "date",
+          "plan_section": "feedback"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write what you saw in one sentence."
+          }
+        ],
+        "field_ids": [
+          "fb"
+        ]
+      },
+      "done_when": "One piece of feedback is written and the review has a date."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your drafts are saved and ready to talk through."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your one to ones, roles, check-ins and feedback."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "meet",
+      "title": "Your one to ones"
+    },
+    {
+      "id": "roles",
+      "title": "Roles and goals"
+    },
+    {
+      "id": "checkins",
+      "title": "Check-ins and rules"
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback and review"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your one to ones, your roles and goals, your check-ins and your first feedback.",
+    "book_bridge": "Your First Team is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Who on the team have you not spoken to properly lately?",
+      "Are your check-ins still happening on time?",
+      "What has the team asked you to change?"
+    ],
+    "refresher_ids": [
+      "p2_roles",
+      "p4_feedback"
+    ]
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-TJWHK",
+  "slug": "the-open-air-ledger-tjwhk",
+  "title": "The Open-Air Ledger",
+  "card_line": "Keep a cash book you will actually use, and know what each day brought in.",
+  "book": {
+    "book_id": "the-open-air-ledger",
+    "title": "The Open-Air Ledger",
+    "subtitle": "Simple Books for Market Traders"
+  },
+  "author": {
+    "author_id": "AU-9ZG4W",
+    "display_name": "Chidinma Obiora-Lane"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "business",
+  "theme_id": "ventures-taking-shape",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about keeping simple books as a market trader. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a one-page cash book, a weekly count, the earnings on your lines and money set aside. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "How do you keep track of your takings now? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start a one-page cash book that you will really use",
+      "exercise_ids": [
+        "p1_book"
+      ],
+      "intro": "A cash book records what comes in and what goes out. Most traders know roughly how the day went. A page that takes two minutes to fill gives you the exact figure. This part asks you to set up one page and decide when in the day you will fill it in.",
+      "ideas": [
+        {
+          "heading": "A cash book needs only a few columns.",
+          "body": "Write the date, what the entry is, money in and money out. That is all. Keep it on one page in a notebook that fits your bag. A book with too many columns gets abandoned by midday. Add detail later only if you find you need it."
+        },
+        {
+          "heading": "Fill it in at the same time each day, while the memory is fresh.",
+          "body": "Pick a quiet moment, such as when you pack up. Write down takings and what you paid out. Waiting until the weekend means guessing. Even a rough entry made on the day is worth more than a neat one made a week later."
+        },
+        {
+          "heading": "Keep receipts and notes in one place so the book can be checked.",
+          "body": "A shoebox or an envelope for each week will do. When you buy stock, put the receipt straight in. If a payment has no receipt, write a short note on the page. Later you can match the book to the paper, and you will find mistakes sooner."
+        }
+      ],
+      "takeaway": "Use one page, a few columns, and fill it in at the same time each day. Keep every receipt in one place."
+    },
+    {
+      "number": 2,
+      "focus": "Count the cash weekly and check it against the book",
+      "exercise_ids": [
+        "p2_count"
+      ],
+      "intro": "The book says what should be in the box. The box says what is there. When they differ, you have learned something. This part asks you to count your cash once a week and compare it with the book. A small difference is normal. A pattern is worth knowing about.",
+      "ideas": [
+        {
+          "heading": "A weekly count shows whether the book matches the box.",
+          "body": "Choose a fixed day. Count the cash, add any bank or mobile money, and compare the total with the book. Write down both figures. If they match, you have a reliable record. If not, you know to look closer before the gap grows."
+        },
+        {
+          "heading": "Small differences are normal, so look for the pattern.",
+          "body": "A little short one week and a little over the next is usually a slip in counting or change. A gap that repeats in the same direction points to something specific: a sale you forget to write, or money taken out and not noted. Note the difference each time."
+        },
+        {
+          "heading": "Write down the money you take out for yourself, so the book is true.",
+          "body": "Cash taken for lunch, transport or the family belongs in the book too. If it goes unrecorded, your profit looks bigger than it is. Give your own spending a line of its own. It shows what you really draw from the business."
+        }
+      ],
+      "takeaway": "Count on a fixed day, compare with the book and write down what you take for yourself."
+    },
+    {
+      "number": 3,
+      "focus": "Work out your costs and what each line earns",
+      "exercise_ids": [
+        "p3_lines"
+      ],
+      "intro": "Takings are not profit. Each line you sell costs something to buy and bring to the stall. This part asks you to work out what you earn on a few of your lines. The sum is plain: the selling price, less what the item cost you, less what it took to carry and sell.",
+      "ideas": [
+        {
+          "heading": "Profit on a line is the price less everything it cost you.",
+          "body": "Start with what you paid for the item. Add the carriage, packing and any fees. Take that from the price you sell it at. What remains is what the item earns. Many traders count only the purchase price and so think they earn more than they do."
+        },
+        {
+          "heading": "Some lines earn more than others, and your best seller may not be your best earner.",
+          "body": "A fast-moving line with a small gap between cost and price may bring in less than a slow one with a large gap. Work out the earnings per item and how many you sell. Compare lines side by side. The result can change what you stock."
+        },
+        {
+          "heading": "Prices need checking whenever your costs change.",
+          "body": "If your supplier raises a price, or the cost of getting to market goes up, your earnings on that line fall. Look at your costs now and then. Adjust the price or choose a different line. Checking regularly stops a slow squeeze you did not notice."
+        }
+      ],
+      "takeaway": "Profit is price less all costs. Work it out for each line, and check it when costs change."
+    },
+    {
+      "number": 4,
+      "focus": "Set money aside for stock, rent and slow months",
+      "exercise_ids": [
+        "p4_aside"
+      ],
+      "intro": "Money comes in unevenly, but costs arrive on a schedule. Rent, stock and a slow month all need cash on the day. This part asks you to name what is due ahead, and to decide how much of each week's takings to put aside. A separate pot for each need is enough.",
+      "ideas": [
+        {
+          "heading": "List the bills that are coming before you spend this week's takings.",
+          "body": "Rent, market fees, stock orders, transport, a licence renewal. Write them with the dates they fall due. Seeing them together shows what the next month needs. Spending first and finding out later is how traders end up short on a payment day."
+        },
+        {
+          "heading": "Set aside a fixed amount from each week's takings, however small.",
+          "body": "Decide an amount you can manage and move it out of the cash box as soon as you count. A small sum put aside every week grows into something useful. Keep it apart, in a separate envelope or account, so it does not get spent by mistake."
+        },
+        {
+          "heading": "A slow-month pot covers your costs in a quiet spell.",
+          "body": "Trade rises and falls with the season, the weather and local events. In a good week, put a little extra in the slow-month pot. When a quiet spell arrives, you can pay your costs without borrowing. Keep a note of when the pot is used."
+        }
+      ],
+      "takeaway": "Know what is coming, set a fixed amount aside each week, and keep a separate pot for slow months."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_book",
+      "title": "Set up your cash book page",
+      "purpose": "A one-page layout and a set time for filling it in.",
+      "why": "Rule up a page with the columns you will use. Write one real day's entries from memory as a trial run. Then choose the time of day you will fill it in. If you already keep a book, redraw it more plainly.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Rule up your columns."
+        },
+        {
+          "text": "Practise with one day's entries."
+        },
+        {
+          "text": "Choose when you will fill it in."
+        }
+      ],
+      "fields": [
+        {
+          "id": "cols",
+          "type": "short_text",
+          "label": "Which columns will your cash book have?"
+        },
+        {
+          "id": "time",
+          "type": "short_text",
+          "label": "At what time of day will you fill it in?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "cols",
+          "plan_section": "book"
+        },
+        {
+          "field_id": "time",
+          "plan_section": "book"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down your columns."
+          }
+        ],
+        "field_ids": [
+          "cols"
+        ]
+      },
+      "done_when": "You have a page set up and a time chosen."
+    },
+    {
+      "id": "p2_count",
+      "title": "Do a weekly count",
+      "purpose": "A count of cash against the book, with the difference noted.",
+      "why": "Count the cash you hold now, and add what is in the bank or on your phone. Compare it with what the book says. Write both figures and the difference. If the book is not up to date, update it first.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Count cash and other money."
+        },
+        {
+          "text": "Compare with the book and note the difference."
+        }
+      ],
+      "fields": [
+        {
+          "id": "figures",
+          "type": "two_column",
+          "label": "What do you hold, and what does the book say?",
+          "columns": [
+            "Counted",
+            "Book says"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "day",
+          "type": "short_text",
+          "label": "Which day of the week will you do the count?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "figures",
+          "plan_section": "count"
+        },
+        {
+          "field_id": "day",
+          "plan_section": "count"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Count your cash and write the figure."
+          }
+        ],
+        "field_ids": [
+          "figures"
+        ]
+      },
+      "done_when": "You have both figures and the gap, even if the gap is nil."
+    },
+    {
+      "id": "p3_lines",
+      "title": "Work out what three lines earn",
+      "purpose": "Three lines with their cost, price and what each earns.",
+      "why": "Choose three lines you sell often. For each, write what it costs you in total, the price you sell at, and the difference. If you do not know a cost, write your best guess and mark it to check.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose three lines."
+        },
+        {
+          "text": "Write cost, price and difference for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lines",
+          "type": "long_text",
+          "label": "For each of three lines, what are the cost, the price and the difference?"
+        },
+        {
+          "id": "best",
+          "type": "short_text",
+          "label": "Which line earns most for each item sold?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lines",
+          "plan_section": "lines"
+        },
+        {
+          "field_id": "best",
+          "plan_section": "lines"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Work out one line."
+          }
+        ],
+        "field_ids": [
+          "lines"
+        ]
+      },
+      "done_when": "Three lines have a cost, a price and a difference."
+    },
+    {
+      "id": "p4_aside",
+      "title": "Plan what you set aside",
+      "purpose": "A list of coming bills and a weekly amount for each pot.",
+      "why": "List the bills due in the next two months, with dates. Then decide a weekly amount to set aside for stock, rent and slow months. Choose figures you can keep up. If you are unsure, begin with the smallest.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the bills and dates."
+        },
+        {
+          "text": "Choose a weekly amount for each pot."
+        }
+      ],
+      "fields": [
+        {
+          "id": "bills",
+          "type": "two_column",
+          "label": "Which bills are coming, and when are they due?",
+          "columns": [
+            "Bill",
+            "Due date"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "pots",
+          "type": "short_text",
+          "label": "How much will you set aside each week, and for what?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "bills",
+          "plan_section": "aside"
+        },
+        {
+          "field_id": "pots",
+          "plan_section": "aside"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down one bill and its date."
+          }
+        ],
+        "field_ids": [
+          "bills"
+        ]
+      },
+      "done_when": "Bills are listed and each pot has an amount."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your weekly count is saved and ready to repeat."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your cash book, count, line earnings and pots."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "book",
+      "title": "Your cash book"
+    },
+    {
+      "id": "count",
+      "title": "Your weekly count"
+    },
+    {
+      "id": "lines",
+      "title": "What your lines earn"
+    },
+    {
+      "id": "aside",
+      "title": "Money set aside"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your cash book page, your weekly count, what your lines earn and the money you set aside.",
+    "book_bridge": "The Open-Air Ledger is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did the book match the box each week this month?",
+      "Which line earned more than you thought?",
+      "Has your slow-month pot grown?"
+    ],
+    "refresher_ids": [
+      "p2_count",
+      "p4_aside"
+    ]
+  }
+}

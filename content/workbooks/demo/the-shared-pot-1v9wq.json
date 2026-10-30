@@ -1,0 +1,357 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-1V9WQ",
+  "slug": "the-shared-pot-1v9wq",
+  "title": "The Shared Pot",
+  "card_line": "Write group rules everyone agrees to, keep clear records and plan payouts without arguments.",
+  "book": {
+    "book_id": "the-shared-pot",
+    "title": "The Shared Pot",
+    "subtitle": "Running a Savings Group Well"
+  },
+  "author": {
+    "author_id": "AU-JKGDQ",
+    "display_name": "Wanjiru Kamau-Otieno"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "finance",
+  "theme_id": "money-for-later",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about running a savings group well, with rules everyone agrees to and records everyone can see. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have group rules, a record plan and a way to handle late payments and payouts. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can share with the group."
+    ],
+    "why_prompt": "What is the one thing your group most needs to agree on?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Agree group rules, contributions and roles",
+      "exercise_ids": [
+        "p1_rules"
+      ],
+      "intro": "A savings group runs on trust, and trust is easier when everyone knows the rules. This part asks you to write down how much each member puts in, when and who does which job. Agreeing these early prevents most arguments later.",
+      "ideas": [
+        {
+          "heading": "Written rules that everyone has agreed to prevent most disputes.",
+          "body": "When rules live only in people's memories, each member remembers them differently. Write them down in plain words. Read them out at a meeting and ask for agreement. Then give each member a copy to keep. Keep the master copy with the person who holds the records."
+        },
+        {
+          "heading": "Contributions should be a sum every member can manage.",
+          "body": "If the amount is too high, the poorest member falls behind and the group strains. Agree a sum, a day and a place for paying in. Keep it the same for everyone unless the group decides otherwise together. Review the sum once a year, and change it only by group agreement."
+        },
+        {
+          "heading": "Clear roles stop jobs from being forgotten or fought over.",
+          "body": "A group usually needs someone to lead meetings, someone to hold the money and someone to keep the records. Splitting these between different people adds a check. Write down who does what, and for how long. Roles can rotate each year, which spreads the load and the trust."
+        }
+      ],
+      "takeaway": "Write the rules, the contribution and the roles in plain words, and agree them together."
+    },
+    {
+      "number": 2,
+      "focus": "Keep records, receipts and monthly reports",
+      "exercise_ids": [
+        "p2_records"
+      ],
+      "intro": "Good records are what let a group keep trust over months and years. Every member should be able to see what went in, what came out and what remains. This part covers what to record, how to give receipts and how to report to the group each month.",
+      "ideas": [
+        {
+          "heading": "Every payment in or out should be written down on the day.",
+          "body": "Memory fades and arguments grow. A simple book with the date, the member's name, the amount and the purpose is enough. Fill it in at the time, not days later, when details can be lost. A page that is filled in as you go is worth far more than one rebuilt later."
+        },
+        {
+          "heading": "A receipt shows a member that their money was received.",
+          "body": "Give a signed receipt for every contribution, even a small one. The member keeps it and the book keeps a copy. If a question comes up later, both sides have proof, and nobody needs to rely on trust alone. Receipts also protect the person holding the money from false claims."
+        },
+        {
+          "heading": "A short monthly report keeps everyone informed.",
+          "body": "Read out the total held, what came in and went out and any money owed. Let members ask questions. A regular report builds confidence, because nothing is hidden. It also catches mistakes early, while they are small. Fifteen minutes at the start of each meeting is enough."
+        }
+      ],
+      "takeaway": "Write down every payment on the day, give receipts and report to the group each month."
+    },
+    {
+      "number": 3,
+      "focus": "Handle late payments and disputes fairly",
+      "exercise_ids": [
+        "p3_late"
+      ],
+      "intro": "Sooner or later a member will pay late or disagree with a decision. A group that has planned for this can deal with it calmly and fairly. This part asks you to decide, before it happens, what you will do and who members can go to.",
+      "ideas": [
+        {
+          "heading": "Decide what happens when a payment is late before it is late.",
+          "body": "Agree a grace period, any fee and what is said to the member. Write it into the rules. When a payment is late, the group then follows what everyone already accepted, and nobody feels singled out. A rule made calmly is fairer than one made in the middle of an argument."
+        },
+        {
+          "heading": "A late payment is often a sign of a hard month, not bad faith.",
+          "body": "A member who is struggling may be too embarrassed to say so. A quiet, private word is usually better than a public reminder. The group can agree in advance whether it allows a short delay or a smaller payment. Whatever the group agrees, apply it the same way to every member."
+        },
+        {
+          "heading": "Name one person or a small panel to hear disputes.",
+          "body": "Members should know who to go to and what the process is. Listening to both sides, writing down what is agreed and reporting it to the group keeps things fair. A clear path stops quarrels spreading through the whole group."
+        }
+      ],
+      "takeaway": "Agree in advance what happens with late payments, speak privately first and name who hears disputes."
+    },
+    {
+      "number": 4,
+      "focus": "Plan payouts so everyone knows what to expect",
+      "exercise_ids": [
+        "p4_payout"
+      ],
+      "intro": "Payouts are the moment a group's work becomes real for its members. They are also where arguments are most likely. This final part asks you to settle how payouts are ordered and agreed, and to read the plan aloud together.",
+      "ideas": [
+        {
+          "heading": "Agree the order and timing of payouts in advance.",
+          "body": "Some groups pay out in turn, some by need and some at the end of a cycle. Whatever the group chooses, agree it openly and write it down. Members should be able to see where they stand. Open discussion now saves long arguments when the time comes."
+        },
+        {
+          "heading": "Changes to the plan should be agreed by the group, not decided by one person.",
+          "body": "Life changes, and a member may need to swap turns. Agree how such requests are made and decided, for instance by a vote at a meeting. Record the decision so nobody is later unsure what was said. Keeping a written note of each change means the plan stays current."
+        },
+        {
+          "heading": "Reading the plan aloud together gives everyone the same understanding.",
+          "body": "Set aside time to go through the whole plan: rules, records, late payments and payouts. Invite questions and changes. Members who have heard it, and agreed, are far more likely to follow it. Add the date it was agreed. A signed copy from each member is a good finishing touch."
+        }
+      ],
+      "takeaway": "Settle the payout order and how changes are agreed. Read the whole plan aloud so every member shares one understanding."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_rules",
+      "title": "Write your group rules",
+      "purpose": "Group rules for contributions and roles, in plain words.",
+      "why": "Write the rules your group will agree on: how much each member pays, when and where, and who does which job. Keep each to a line.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write the contribution rule."
+        },
+        {
+          "text": "Write who does which job."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What rules will your group agree on for contributions and roles?"
+        },
+        {
+          "id": "jobs",
+          "type": "short_text",
+          "label": "Who does which job?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "rules"
+        },
+        {
+          "field_id": "jobs",
+          "plan_section": "rules"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one rule for contributions."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "Your contribution rule and roles are written."
+    },
+    {
+      "id": "p2_records",
+      "title": "Plan your records",
+      "purpose": "A list of what your records will show and who reads the monthly report.",
+      "why": "Choose what your record book will show each month. Then name who will read the monthly report to the group.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose what your records show."
+        },
+        {
+          "text": "Name who reads the report."
+        }
+      ],
+      "fields": [
+        {
+          "id": "show",
+          "type": "checklist",
+          "label": "What will your records show each month?",
+          "options": [
+            "Date of each payment",
+            "Member's name",
+            "Amount paid or paid out",
+            "Signed receipt",
+            "Total held"
+          ]
+        },
+        {
+          "id": "reader",
+          "type": "short_text",
+          "label": "Who will read out the monthly report?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "show",
+          "plan_section": "records"
+        },
+        {
+          "field_id": "reader",
+          "plan_section": "records"
+        }
+      ],
+      "done_when": "Your record items and a reader are chosen."
+    },
+    {
+      "id": "p3_late",
+      "title": "Plan for late payments",
+      "purpose": "A rule for late payments and a named person for disputes.",
+      "why": "Write what your group will do when a payment is late, including what is said and when. Then name who members can go to with a dispute.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your late payment rule."
+        },
+        {
+          "text": "Name who hears disputes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "late",
+          "type": "long_text",
+          "label": "What happens in your group when a payment is late?"
+        },
+        {
+          "id": "dispute",
+          "type": "short_text",
+          "label": "Who do members go to with a dispute?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "late",
+          "plan_section": "late"
+        },
+        {
+          "field_id": "dispute",
+          "plan_section": "late"
+        }
+      ],
+      "done_when": "A late payment rule and a person for disputes are written."
+    },
+    {
+      "id": "p4_payout",
+      "title": "Plan your payouts",
+      "purpose": "A payout order and a date to read the plan aloud.",
+      "why": "Write how payouts will be ordered and agreed. Then choose a date for the group to hear the whole plan read aloud.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write how payouts are ordered."
+        },
+        {
+          "text": "Choose a date to read the plan."
+        }
+      ],
+      "fields": [
+        {
+          "id": "payout",
+          "type": "long_text",
+          "label": "How will payouts be ordered and agreed?"
+        },
+        {
+          "id": "date",
+          "type": "short_text",
+          "label": "When will the group read the plan aloud together?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "payout",
+          "plan_section": "payout"
+        },
+        {
+          "field_id": "date",
+          "plan_section": "payout"
+        }
+      ],
+      "done_when": "A payout plan and a date are written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "rules",
+      "title": "Your group rules"
+    },
+    {
+      "id": "records",
+      "title": "Your records"
+    },
+    {
+      "id": "late",
+      "title": "Late payments and disputes"
+    },
+    {
+      "id": "payout",
+      "title": "Your payouts"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short group plan in your own words. It holds your rules, your records, your plan for late payments and your payouts.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did the monthly report go as planned, and did members have questions?",
+      "Was any payment late, and how did the group deal with it?",
+      "Is the payout plan still right for the group?"
+    ],
+    "refresher_ids": [
+      "p2_records",
+      "p4_payout"
+    ]
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-5HQVZ",
+  "slug": "tea-walks-and-other-breaks-5hqvz",
+  "title": "Tea, Walks and Other Breaks",
+  "card_line": "Put real breaks into your week with tea, short walks and screen-free lunches.",
+  "book": {
+    "book_id": "tea-walks-and-other-breaks",
+    "title": "Tea, Walks and Other Breaks",
+    "subtitle": "Slowing the Pace of a Busy Week"
+  },
+  "author": {
+    "author_id": "AU-PZ9DF",
+    "display_name": "Haruka Tanabe-Ellis"
+  },
+  "genre": "wellbeing",
+  "theme_id": "even-pace",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about putting real breaks into a busy week. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a tea break, a walk or a lunch away from screens, and a way to ask for them. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "Where in your week do you never stop? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Find the places in your week with no breaks",
+      "exercise_ids": [
+        "p1_map"
+      ],
+      "intro": "A busy week can run from one thing to the next without a gap. You may not notice until you look. This part asks you to go through a usual week and mark where you do stop, and where you do not.",
+      "ideas": [
+        {
+          "heading": "A break is a stop with nothing else attached to it.",
+          "body": "Eating while answering email is not a break. Waiting for a train while reading messages is not one either. A break has no task running beside it. Be honest about which of your pauses count and which are still work."
+        },
+        {
+          "heading": "Most weeks have a few places where a break would fit naturally.",
+          "body": "Look at the points where one thing ends and another begins: after a meeting, before a school run, once the post is read. These are natural places to stop. A break there takes nothing from the rest of the schedule. It only needs claiming."
+        },
+        {
+          "heading": "Noticing the missing breaks is not a complaint about your week.",
+          "body": "You may be busy for good reasons. The point is not to blame work, family or yourself. It is to see the week as it is. A week mapped honestly is easier to change in one small place than a week described as just hectic."
+        }
+      ],
+      "takeaway": "A break has nothing else running beside it. Find where your week already has room for one."
+    },
+    {
+      "number": 2,
+      "focus": "Make a proper tea break",
+      "exercise_ids": [
+        "p2_tea"
+      ],
+      "intro": "A tea break is one of the oldest ways of stopping. It has a start and an end, and your hands are busy with something small. This part looks at what makes a tea break feel like a pause and how to fit one into your week.",
+      "ideas": [
+        {
+          "heading": "Making the tea is part of the break.",
+          "body": "The kettle, the cup and the waiting give the break a shape. Take your time over them. If you drink the tea at your desk while working, you have only moved the cup. Step away from the work, even to the next room, and drink it there."
+        },
+        {
+          "heading": "A break is easier to keep when it has a set place.",
+          "body": "Choose a chair, a step or a window where you always take your tea. A fixed place tells you the break has started. You are no longer deciding on each occasion whether to stop. Over time the place itself becomes the signal."
+        },
+        {
+          "heading": "Ten unhurried minutes is long enough.",
+          "body": "A tea break does not need an hour. Ten minutes with the cup and nothing else is enough. If the day only allows five, five will do. What matters is that you finish the cup before you go back to what you were doing."
+        }
+      ],
+      "takeaway": "Make the tea, take it to a set place and finish it before you go back. Ten minutes is enough."
+    },
+    {
+      "number": 3,
+      "focus": "Add a short walk and a lunch away from screens",
+      "exercise_ids": [
+        "p3_walk"
+      ],
+      "intro": "Two other breaks suit most weeks: a short walk and a lunch away from a screen. Both are modest and both are easy to plan. This part looks at how short a walk can be and what a lunch away from screens asks of you.",
+      "ideas": [
+        {
+          "heading": "A short walk can be a lap of the block.",
+          "body": "You do not need a route or a destination. Ten minutes out of the door and back is a walk. Leave the phone in your pocket if you can. Pay attention to the pavement, the weather and whatever you pass. A lap of the same block is fine."
+        },
+        {
+          "heading": "A lunch away from screens means the phone stays out of reach, not out of the building.",
+          "body": "Put the phone in a bag or a drawer. Eat at a table, or on a bench. The lunch will probably feel slower, and that is the point. If someone does need to reach you, check the phone once at a set time and put it away again."
+        },
+        {
+          "heading": "Pick one of the two and start there.",
+          "body": "Doing both straight away is a lot. Choose whichever suits your week better. A walk suits a day at a desk. A lunch away from screens suits a day of constant messages. Try that one when it suits you, and add the other later if you like."
+        }
+      ],
+      "takeaway": "A walk can be a lap of the block, and a lunch can be a phone in a drawer. Pick one to try first."
+    },
+    {
+      "number": 4,
+      "focus": "Ask the people around you to respect your breaks",
+      "exercise_ids": [
+        "p4_ask"
+      ],
+      "intro": "Breaks are easier to keep when the people around you know about them. A colleague, partner or child may ring or call out at the wrong moment. This part is about telling them, kindly and briefly, what you are doing and when.",
+      "ideas": [
+        {
+          "heading": "People respect a break more easily when they know about it.",
+          "body": "Most interruptions are not unkind. People do not know you have stopped. A short heads-up, such as \"I am taking ten minutes at three\", turns a surprise into a plan. Say it once and plainly. Most people are glad to be told."
+        },
+        {
+          "heading": "A request lands better with a time attached.",
+          "body": "\"Can we talk after my break?\" is clearer than \"Not now.\" The other person knows when to return. They are not left guessing. Choose a time you will really be back, and keep to it. Then the next request will be easier."
+        },
+        {
+          "heading": "Some interruptions will still come, and that is fine.",
+          "body": "A break can be cut short by a real need. Take it up again afterwards, or on another day. One shortened break does not cancel the rest. What counts is that you keep asking for them, kindly and without fuss."
+        }
+      ],
+      "takeaway": "Tell people when you are taking a break and when you will be back. Say it kindly, once, and keep it short."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_map",
+      "title": "Map the breaks in your week",
+      "purpose": "A short map of your week showing where you stop and where you do not.",
+      "why": "Go through a usual week, one day at a time. Write down any point where you truly stop, even for two minutes. Then mark two places where a break could fit. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the points where you truly stop."
+        },
+        {
+          "text": "Mark two places a break could fit."
+        }
+      ],
+      "fields": [
+        {
+          "id": "map",
+          "type": "two_column",
+          "label": "Where do you stop, and where could you?",
+          "columns": [
+            "Where I stop",
+            "Where a break could fit"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "map",
+          "plan_section": "map"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one place a break could fit."
+          }
+        ],
+        "field_ids": [
+          "map"
+        ]
+      },
+      "done_when": "You have noted at least one place where a break could fit."
+    },
+    {
+      "id": "p2_tea",
+      "title": "Plan one proper tea break",
+      "purpose": "One tea break planned with a time, a place and a cup.",
+      "why": "Choose a time this week when a tea break could fit, using your map from Part 1. Choose where you will drink it. Write both down. Any hot or cold drink will do. If nothing comes to mind, write one word.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Choose a time from your map."
+        },
+        {
+          "text": "Choose where you will sit."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When could a tea break fit this week?"
+        },
+        {
+          "id": "where",
+          "type": "short_text",
+          "label": "Where will you take it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "tea"
+        },
+        {
+          "field_id": "where",
+          "plan_section": "tea"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write one time for a tea break."
+          }
+        ],
+        "field_ids": [
+          "when"
+        ]
+      },
+      "done_when": "You have a time and a place for one tea break."
+    },
+    {
+      "id": "p3_walk",
+      "title": "Plan a walk or a lunch",
+      "purpose": "One short walk or lunch away from screens planned for this week.",
+      "why": "Choose a short walk or a lunch away from screens. Write when you will do it and what you will do with your phone. Afterwards, add a line on what it was like. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a walk or a lunch."
+        },
+        {
+          "text": "Decide on the time and the phone."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan",
+          "type": "short_text",
+          "label": "Which will you try, and when?"
+        },
+        {
+          "id": "after",
+          "type": "long_text",
+          "label": "What was it like, or what do you expect?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "plan",
+          "plan_section": "walk"
+        },
+        {
+          "field_id": "after",
+          "plan_section": "walk"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which break you will try."
+          }
+        ],
+        "field_ids": [
+          "plan"
+        ]
+      },
+      "done_when": "You have a plan and a line about it."
+    },
+    {
+      "id": "p4_ask",
+      "title": "Ask for your breaks",
+      "purpose": "A short line you could say to someone about your break.",
+      "why": "Pick one person who often interrupts you at the time of your break. Write the sentence you would say to them, including when you will be back. Read it aloud. If nothing comes to mind, write one word.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Pick one person to tell."
+        },
+        {
+          "text": "Write the sentence, with a time to return."
+        }
+      ],
+      "fields": [
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Who could you tell about your breaks?"
+        },
+        {
+          "id": "line",
+          "type": "short_text",
+          "label": "What will you say to them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "person",
+          "plan_section": "ask"
+        },
+        {
+          "field_id": "line",
+          "plan_section": "ask"
+        }
+      ],
+      "short_version": {
+        "minutes": 1,
+        "steps": [
+          {
+            "text": "Write the sentence you would say."
+          }
+        ],
+        "field_ids": [
+          "person"
+        ]
+      },
+      "done_when": "You have a name and a sentence written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your tea break is saved and ready to plan around."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your breaks and the words to ask for them."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "map",
+      "title": "Where my week has room"
+    },
+    {
+      "id": "tea",
+      "title": "My tea break"
+    },
+    {
+      "id": "walk",
+      "title": "A walk or a lunch"
+    },
+    {
+      "id": "ask",
+      "title": "Asking for my breaks"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds where your week has room, your tea break, a walk or lunch and the sentence you will use to ask.",
+    "book_bridge": "Tea, Walks and Other Breaks is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which break did you take this month, and where?",
+      "Where did your week have no room at all?",
+      "Who knows about your breaks now?"
+    ],
+    "refresher_ids": [
+      "p2_tea",
+      "p4_ask"
+    ]
+  }
+}

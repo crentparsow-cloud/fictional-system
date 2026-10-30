@@ -1,0 +1,350 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-TZT8G",
+  "slug": "the-long-view-on-saving-tzt8g",
+  "title": "The Long View on Saving",
+  "card_line": "Understand how saving, pensions and investing work, and write your own questions first.",
+  "book": {
+    "book_id": "the-long-view-on-saving",
+    "title": "The Long View on Saving",
+    "subtitle": "Pensions, ISAs and How Investing Works"
+  },
+  "author": {
+    "author_id": "AU-RSCF4",
+    "display_name": "Iona Bhattacharya-Reid"
+  },
+  "publisher_id": "PB-7AFQE",
+  "genre": "finance",
+  "theme_id": "patient-investing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook explains how saving, pensions and investing work, so you can ask better questions. This workbook is general learning and is not financial, legal or tax advice. It explains and does not recommend. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have your own list of questions. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short list of questions you can read at the end."
+    ],
+    "why_prompt": "What would you most like to understand about saving and investing?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Understand cash savings, an emergency fund and why time matters",
+      "exercise_ids": [
+        "p1_cash"
+      ],
+      "intro": "Long-term money starts with the basics. This part looks at cash savings, an emergency fund and why time can matter so much. It uses made-up round numbers for illustration only. They are not forecasts and not a recommendation.",
+      "ideas": [
+        {
+          "heading": "Cash savings are for needs you can see coming and those you cannot.",
+          "body": "Money you may need soon belongs in an account you can reach, where its value does not swing. That covers planned costs, such as a repair, and surprises. Keeping it separate from longer-term money stops the two being confused."
+        },
+        {
+          "heading": "An emergency fund is a cushion, built before you need it.",
+          "body": "It is a sum set aside for a shock, such as a broken boiler or a gap in work. How large depends on your costs and your situation. Many people build it first, because it stops a surprise from forcing them to sell something later."
+        },
+        {
+          "heading": "Time can matter more than amount, because growth builds on growth.",
+          "body": "Imagine a made-up sum that earns a little each year. Next year the little is earned on the sum and the earlier little. This is compound growth. It rewards patience, but it is not certain, and nobody can say how much any real sum will earn."
+        }
+      ],
+      "takeaway": "Cash covers needs you can reach quickly. Time can add to long-term money through compounding, but nothing is certain."
+    },
+    {
+      "number": 2,
+      "focus": "Learn what shares, bonds and funds are",
+      "exercise_ids": [
+        "p2_words"
+      ],
+      "intro": "Investing uses a few words that sound harder than they are. This part explains shares, bonds and funds in plain terms, along with the idea of an index fund. It explains rather than recommends. Value can fall as well as rise.",
+      "ideas": [
+        {
+          "heading": "A share is a small piece of ownership in a company.",
+          "body": "If the company does well, the share may rise in value and may pay out a part of the profit. If it does badly, the share can fall. Owning shares means accepting that the value moves up and down, sometimes sharply."
+        },
+        {
+          "heading": "A bond is a loan you make to a company or a government.",
+          "body": "The borrower promises to pay interest and to return the money on a set date. Bonds usually move less than shares, but they still carry risk. The borrower might not pay, and the value can change before the end date."
+        },
+        {
+          "heading": "A fund pools many investments, and an index fund follows a market.",
+          "body": "A fund collects money from many people and spreads it across lots of shares or bonds. An index fund aims to copy a market list instead of picking winners. Funds charge fees, which is why checking the charges matters. Compare the charge on any fund before you choose it."
+        }
+      ],
+      "takeaway": "Shares are ownership, bonds are loans and funds pool many of either. Values can rise and fall."
+    },
+    {
+      "number": 3,
+      "focus": "Read about pensions and ISAs, charges and how to check a firm",
+      "exercise_ids": [
+        "p3_pensions"
+      ],
+      "intro": "Pensions and ISAs are ways of holding savings and investments, with their own rules. This part describes them in general terms. Rules change and differ by person, so check the details that apply to you. It also covers charges and how to check a firm.",
+      "ideas": [
+        {
+          "heading": "A pension is a long-term pot with rules about when you can use it.",
+          "body": "Pensions are designed for later life. Money goes in, is invested and is usually locked until a set age. Tax rules often favour pension saving. Those rules change, so check the current ones for your own case. Employers often add money too, which is worth asking about."
+        },
+        {
+          "heading": "An ISA is a wrapper that changes how savings or investments are taxed.",
+          "body": "It does not decide what you hold. You can hold cash or investments inside one. The rules set a yearly limit and differ between types. Read the current rules or ask a regulated adviser before choosing. Different types suit different purposes."
+        },
+        {
+          "heading": "Charges take a share of your money year after year.",
+          "body": "Even small yearly charges add up over decades. Look for what you pay and compare. Before using any firm, search for it on the Financial Conduct Authority register. If it is not there, or the details differ, walk away. A lower charge leaves more of your money invested."
+        }
+      ],
+      "takeaway": "Pensions and ISAs follow their own rules, charges add up over time and firms can be checked on the FCA register."
+    },
+    {
+      "number": 4,
+      "focus": "Understand risk, losses and scams, and write your own questions first",
+      "exercise_ids": [
+        "p4_questions"
+      ],
+      "intro": "Anything that can grow can also fall. This final part looks at risk, losses and scams. It asks you to write your own questions before you speak to a regulated adviser or a public guidance service. Your questions come first, so you lead the conversation.",
+      "ideas": [
+        {
+          "heading": "Risk means the value can go down as well as up.",
+          "body": "Higher possible growth usually comes with a higher chance of loss. Nobody can say what will happen next year. How much risk is right depends on when you need the money and how you would feel if it fell. Writing down how much you could bear to lose is a useful first step."
+        },
+        {
+          "heading": "Scams promise safe, high returns, and that combination should stop you.",
+          "body": "Be cautious of pressure to act fast, offers out of the blue and promises of certain gains. Real investments carry risk. If something sounds too good, stop, check the firm on the register and ask someone you trust. Scammers rely on speed, so slowing down is your best defence."
+        },
+        {
+          "heading": "Your own questions make a conversation with an adviser more useful.",
+          "body": "Write down what you want to know before you go, such as what the charges are and what could go wrong. An adviser can then answer you, not just present a product. Regulated advisers and public guidance services are there to explain."
+        }
+      ],
+      "takeaway": "Risk and loss are part of investing, and scams promise too much. Write your questions before you speak to anyone."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_cash",
+      "title": "Note your cash cushion",
+      "purpose": "A note of where your cash sits and how many months of costs you would like in it.",
+      "why": "Think about the cash you could reach quickly. Write where it sits now and how many months of essential costs you would like it to cover. A guess is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write where your cash sits."
+        },
+        {
+          "text": "Write how many months you would like covered."
+        }
+      ],
+      "fields": [
+        {
+          "id": "months",
+          "type": "short_text",
+          "label": "How many months of essential costs would you like in cash savings?"
+        },
+        {
+          "id": "where",
+          "type": "short_text",
+          "label": "Where does your cash sit now?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "months",
+          "plan_section": "cash"
+        },
+        {
+          "field_id": "where",
+          "plan_section": "cash"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write how many months you would like covered."
+          }
+        ],
+        "field_ids": [
+          "months"
+        ]
+      },
+      "done_when": "You have a note of where your cash sits and a number of months."
+    },
+    {
+      "id": "p2_words",
+      "title": "Explain the words yourself",
+      "purpose": "Your own words for shares, bonds and funds, and the word that is still unclear.",
+      "why": "Write what a share, a bond and a fund are, in your own words. Then note which word is still unclear. There is no wrong answer here, only a list of what to ask.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write each word in your own terms."
+        },
+        {
+          "text": "Note the one still unclear."
+        }
+      ],
+      "fields": [
+        {
+          "id": "words",
+          "type": "long_text",
+          "label": "In your own words, what are a share, a bond and a fund?"
+        },
+        {
+          "id": "unclear",
+          "type": "short_text",
+          "label": "Which word is still unclear?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "words",
+          "plan_section": "words"
+        },
+        {
+          "field_id": "unclear",
+          "plan_section": "words"
+        }
+      ],
+      "done_when": "Three words are explained and one unclear word is noted."
+    },
+    {
+      "id": "p3_pensions",
+      "title": "List what to look into",
+      "purpose": "A note of the pension or ISA you want to understand and what to check about its charges.",
+      "why": "Think about any pension or ISA you have, or have heard about. Write which one, and what you would like to find out about its charges. If you have neither, write one you have heard of.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a pension or ISA."
+        },
+        {
+          "text": "Write what you want to know about its charges."
+        }
+      ],
+      "fields": [
+        {
+          "id": "which",
+          "type": "short_text",
+          "label": "Which pension or ISA do you want to understand better?"
+        },
+        {
+          "id": "charges",
+          "type": "long_text",
+          "label": "What would you like to find out about its charges?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "which",
+          "plan_section": "pensions"
+        },
+        {
+          "field_id": "charges",
+          "plan_section": "pensions"
+        }
+      ],
+      "done_when": "One pension or ISA and your charge questions are written down."
+    },
+    {
+      "id": "p4_questions",
+      "title": "Write your own questions",
+      "purpose": "A list of questions to take to an adviser or guidance service, and one scam sign to watch for.",
+      "why": "Write the questions you would take to a regulated adviser or public guidance service. Then write one sign of a scam that you will watch for.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your questions."
+        },
+        {
+          "text": "Write one scam sign."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What questions will you take to a regulated adviser or guidance service?"
+        },
+        {
+          "id": "scam",
+          "type": "short_text",
+          "label": "What is one sign of a scam that you will watch for?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "questions"
+        },
+        {
+          "field_id": "scam",
+          "plan_section": "questions"
+        }
+      ],
+      "done_when": "Your questions are written and one scam sign is noted."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "cash",
+      "title": "Your cash cushion"
+    },
+    {
+      "id": "words",
+      "title": "Words in your own terms"
+    },
+    {
+      "id": "pensions",
+      "title": "Pension or ISA to look into"
+    },
+    {
+      "id": "questions",
+      "title": "Your questions to ask"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short list in your own words. It holds your cash cushion, words in your own terms, what to look into and your questions to ask.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which word or idea from this workbook have you looked into further?",
+      "What new question would you add to your list?",
+      "Has anything changed about the cash you would like to keep?"
+    ],
+    "refresher_ids": [
+      "p2_words",
+      "p4_questions"
+    ]
+  }
+}

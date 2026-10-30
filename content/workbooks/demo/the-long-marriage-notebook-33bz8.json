@@ -1,0 +1,382 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-33BZ8",
+  "slug": "the-long-marriage-notebook-33bz8",
+  "title": "The Long Marriage Notebook",
+  "card_line": "Build a weekly check-in and a shared plan for the year ahead as a couple.",
+  "book": {
+    "book_id": "the-long-marriage-notebook",
+    "title": "The Long Marriage Notebook",
+    "subtitle": "Small Rituals for Couples"
+  },
+  "author": {
+    "author_id": "AU-PVT1E",
+    "display_name": "Clodagh Ní Fhaoláin-Burke"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "relationships",
+  "theme_id": "partners-in-step",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about small rituals for couples in a long relationship. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a weekly chat, a note of what goes well and a fairer way to disagree. You will also have a shared plan for the year ahead. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end, and take to your partner."
+    ],
+    "why_prompt": "What is one small thing you and your partner already do that you value? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk at home, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Set up a short weekly chat",
+      "exercise_ids": [
+        "p1_chat"
+      ],
+      "intro": "Long relationships run on small routines. A short weekly talk keeps the practical and the personal from piling up. This part looks at how to hold one, what to ask, and how to keep it light enough that you both turn up.",
+      "ideas": [
+        {
+          "heading": "Twenty minutes at a set time beats a long talk now and then.",
+          "body": "Pick the same slot each week, such as Sunday after breakfast. Short and regular beats long and rare. You both know it is coming, so small things get said before they grow. Keep it away from screens and from the busiest part of the day."
+        },
+        {
+          "heading": "Three questions are enough to keep the talk open.",
+          "body": "Ask each other what went well this week, what was hard, and what is coming up. Take turns and listen without answering at once. The questions are plain on purpose. They leave room for either of you to say something that matters, and equally room for nothing much."
+        },
+        {
+          "heading": "Keep complaints and logistics out of the first half.",
+          "body": "Start with what is going well, then move to the diary and the chores. A talk that opens with criticism puts the other person on guard for the rest. Beginning with something warm sets a different tone. Save the hard topics for when you both have energy."
+        }
+      ],
+      "takeaway": "A short, regular talk with three plain questions, starting warm, keeps small things from growing."
+    },
+    {
+      "number": 2,
+      "focus": "Notice what goes well and say so",
+      "exercise_ids": [
+        "p2_good"
+      ],
+      "intro": "It is easy to notice what irritates and to overlook what works. This part asks you to pay attention to the good, small and ordinary, and to say it aloud. Appreciation is something you can practise, like any other skill.",
+      "ideas": [
+        {
+          "heading": "Noticing is a skill that grows with use.",
+          "body": "In a long marriage, kindnesses become routine and stop registering. Each week, look for three things your partner did that you valued, however small. The tea left on the side, the school form done. After a few weeks you start seeing them without looking."
+        },
+        {
+          "heading": "Say the specific thing, not a general thanks.",
+          "body": "«Thanks for everything» slides past. «Thank you for sorting the car this week, I was dreading it» lands. Name the act and what it meant. It takes ten seconds. People tend to repeat what they know has been seen, and to feel seen themselves."
+        },
+        {
+          "heading": "Good times deserve as much attention as the problems.",
+          "body": "Couples often talk only when something is wrong. Make room to remember what went well, a good weekend or a joke you shared. Writing it in the notebook gives you something to read back on a dull week. It keeps the whole picture in view."
+        }
+      ],
+      "takeaway": "Look for three small good things a week, and say the specific one aloud."
+    },
+    {
+      "number": 3,
+      "focus": "Retell old stories fairly and disagree well",
+      "exercise_ids": [
+        "p3_stories"
+      ],
+      "intro": "Every long relationship has stories about what happened and who was to blame. They shape how you hear each other. This part looks at retelling old stories with fresh eyes, and at the way you disagree when something comes up.",
+      "ideas": [
+        {
+          "heading": "Old stories can be told again with a little more room in them.",
+          "body": "A story such as «you always forget» hardens over years. Ask whether it is still true, and whether it was ever the whole picture. Try telling it with the other person's view added. Often the story loosens, even if the facts stay the same."
+        },
+        {
+          "heading": "Disagreeing fairly means one subject and one turn at a time.",
+          "body": "Agree on the topic first, so you are not arguing about two things. Each person speaks without interruption for a few minutes. Then each says back what the other said. Only after that do you look for a way forward. The order matters more than the cleverness."
+        },
+        {
+          "heading": "You can disagree and still be on the same side.",
+          "body": "Most couples argue about the same few things for years, and that is normal. The aim is not to win. It is to stay kind while you differ. Try «We see this differently, and I still want us to find a way». It keeps you facing the problem together."
+        }
+      ],
+      "takeaway": "Retell old stories with the other view in them, and take turns on one subject at a time."
+    },
+    {
+      "number": 4,
+      "focus": "Make a shared plan for the year ahead",
+      "exercise_ids": [
+        "p4_year"
+      ],
+      "intro": "Couples who plan together have something to look towards. This part asks you to sketch a shared year: things to do, things to keep and things to talk about. It is a draft to bring to your partner, not a contract.",
+      "ideas": [
+        {
+          "heading": "A shared plan starts with what each of you wants.",
+          "body": "Before you combine, each person writes their own wishes for the year: a trip, a project, more time with friends, fewer commitments. Write them as plain lines. Then compare. You will find overlaps and differences. Both are useful. Neither person's list should be quietly dropped."
+        },
+        {
+          "heading": "Small rituals deserve a place in the plan alongside big events.",
+          "body": "A holiday matters, and so does Friday supper. Include the little things you want to keep: a walk, a film night, a call to a parent. These are what the year is made of. A plan with only big events leaves out most of the days."
+        },
+        {
+          "heading": "Agree when you will look at the plan again.",
+          "body": "A year is long, and life changes. Set a date, perhaps every three months, to read the plan together. Move what needs moving, drop what no longer fits, and add what is new. A plan you revisit stays useful, and a plan you never open does not."
+        }
+      ],
+      "takeaway": "Start with each person's wishes, include small rituals, and agree when to read the plan again."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_chat",
+      "title": "Design your weekly chat",
+      "purpose": "A time, a place and three questions for a weekly chat.",
+      "why": "Choose a time and place for a short weekly talk with your partner. Write the three questions you would use. Say what you would like to start with. If your partner is not ready, plan it for yourself first.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a time and a place."
+        },
+        {
+          "text": "Write your three questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When and where could your weekly talk happen?"
+        },
+        {
+          "id": "qs",
+          "type": "long_text",
+          "label": "Which three questions would you ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "slot",
+          "plan_section": "weekly"
+        },
+        {
+          "field_id": "qs",
+          "plan_section": "weekly"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question you would ask each week."
+          }
+        ],
+        "field_ids": [
+          "qs"
+        ]
+      },
+      "done_when": "You have a time, a place and three questions."
+    },
+    {
+      "id": "p2_good",
+      "title": "Notice what goes well",
+      "purpose": "Three good things from this week and one to say aloud.",
+      "why": "Think back over the past week. Write three small things your partner did or that went well between you. Pick one and write how you could say it to them. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three small good things from this week."
+        },
+        {
+          "text": "Pick one and write how you would say it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "good",
+          "type": "long_text",
+          "label": "What three things went well this week?"
+        },
+        {
+          "id": "say",
+          "type": "short_text",
+          "label": "Which one will you say aloud, and how?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "good",
+          "plan_section": "good"
+        },
+        {
+          "field_id": "say",
+          "plan_section": "good"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one good thing from this week."
+          }
+        ],
+        "field_ids": [
+          "good"
+        ]
+      },
+      "done_when": "You have three good things and one thank you written."
+    },
+    {
+      "id": "p3_stories",
+      "title": "Retell one old story",
+      "purpose": "One old story told again, with your partner's view in it.",
+      "why": "Choose one old story you tell about your relationship that has hardened. Write it as you tell it. Then write it again with your partner's view included. If it feels too sore, pick a smaller one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the old story as you tell it."
+        },
+        {
+          "text": "Write it again with your partner's view."
+        }
+      ],
+      "fields": [
+        {
+          "id": "old",
+          "type": "long_text",
+          "label": "Which old story would you like to tell again?"
+        },
+        {
+          "id": "new",
+          "type": "long_text",
+          "label": "How does it read with your partner's view added?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "old",
+          "plan_section": "stories"
+        },
+        {
+          "field_id": "new",
+          "plan_section": "stories"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line of the story as your partner might tell it."
+          }
+        ],
+        "field_ids": [
+          "new"
+        ]
+      },
+      "done_when": "You have written the story twice."
+    },
+    {
+      "id": "p4_year",
+      "title": "Sketch your shared year",
+      "purpose": "A draft of wishes and small rituals to bring to your partner.",
+      "why": "Write your own wishes for the year ahead, then two small rituals you would like to keep. Bring it to your partner when it suits you, and agree a date to look at the plan again. If nothing comes, write one wish.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your wishes for the year ahead."
+        },
+        {
+          "text": "Write two small rituals you want to keep."
+        }
+      ],
+      "fields": [
+        {
+          "id": "wishes",
+          "type": "long_text",
+          "label": "What do you want from the year ahead?"
+        },
+        {
+          "id": "rituals",
+          "type": "short_text",
+          "label": "Which small rituals would you like to keep?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "wishes",
+          "plan_section": "year"
+        },
+        {
+          "field_id": "rituals",
+          "plan_section": "year"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one wish for the year ahead."
+          }
+        ],
+        "field_ids": [
+          "wishes"
+        ]
+      },
+      "done_when": "You have a few wishes and two small rituals written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your good things are saved. Say one aloud when it suits you."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your weekly chat, your good things, your retold story and your shared year."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "weekly",
+      "title": "Your weekly chat"
+    },
+    {
+      "id": "good",
+      "title": "What goes well"
+    },
+    {
+      "id": "stories",
+      "title": "An old story retold"
+    },
+    {
+      "id": "year",
+      "title": "Your shared year"
+    }
+  ],
+  "finish": {
+    "summary": "You designed a weekly chat and noted what goes well. You also retold an old story and sketched a shared year.",
+    "book_bridge": "The Long Marriage Notebook is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Did your weekly chat happen this month, and what did you notice?",
+      "Which small ritual would you like to keep?"
+    ],
+    "refresher_ids": [
+      "p1_chat",
+      "p2_good"
+    ]
+  }
+}

@@ -1,0 +1,381 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-Y8A4V",
+  "slug": "room-in-the-diary-y8a4v",
+  "title": "Room in the Diary",
+  "card_line": "Put the month on one page, hand back one commitment and book a rest hour.",
+  "book": {
+    "book_id": "room-in-the-diary",
+    "title": "Room in the Diary",
+    "subtitle": "Making Space for Rest in a Crowded Month"
+  },
+  "author": {
+    "author_id": "AU-XJ20B",
+    "display_name": "Harnoor Dhaliwal-Fournier"
+  },
+  "genre": "wellbeing",
+  "theme_id": "renewing-energy",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about making space for rest in a crowded month. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have your month on one page, one commitment handed back and a rest hour booked. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short page you can read at the end."
+    ],
+    "why_prompt": "What is in your diary this month that you did not choose? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Put the whole month on one page and find the gaps",
+      "exercise_ids": [
+        "p1_page"
+      ],
+      "intro": "A crowded month feels crowded partly because you cannot see all of it at once. This part asks you to put everything on a single page: work, family, errands, plans. Then you look for the gaps. There may be fewer than you hoped, and that is useful to know.",
+      "ideas": [
+        {
+          "heading": "You cannot judge a month from inside one busy day.",
+          "body": "A single day shows only its own list. Put the whole month on one page and the pattern appears. You see which weeks are heavy, which are lighter, and where several things land on one date. The page does not add anything. It only shows what is already there."
+        },
+        {
+          "heading": "Some things in the diary were chosen and some just arrived.",
+          "body": "Mark each entry as something you chose, something you agreed to or something required. The labels are for you alone. Many people find the middle group is bigger than they thought. That group is where there is room to adjust."
+        },
+        {
+          "heading": "A gap is a stretch of time with nothing booked in it.",
+          "body": "Look for an evening, an afternoon or part of a weekend with nothing in it. Mark it clearly. It does not need a plan. At this stage you are only finding out where the empty stretches are, and whether you have any. Even one is worth knowing about."
+        }
+      ],
+      "takeaway": "Putting the month on one page shows what is there, what you chose and where the gaps are."
+    },
+    {
+      "number": 2,
+      "focus": "Hand back one commitment and find the words to do it",
+      "exercise_ids": [
+        "p2_handback"
+      ],
+      "intro": "Finding a gap is easier than making one. Sometimes the only way to make room is to hand something back. This part looks at choosing one thing to give up or turn down. It also gives you the few words that make that possible without a long explanation.",
+      "ideas": [
+        {
+          "heading": "Handing back one commitment can make more room than shuffling ten.",
+          "body": "Moving things around gives a tidier diary, but the same load. Giving one thing back gives time back. Look at your middle group of entries from Part 1. Pick the one you agreed to without much thought, or the one you now find hard to face."
+        },
+        {
+          "heading": "A kind and clear message is better than a long apology.",
+          "body": "A short message works well: \"I am sorry, I cannot do the second Saturday after all. Thank you for asking.\" It states the change, gives thanks and stops. A long apology invites the other person to reassure you, which keeps the matter open."
+        },
+        {
+          "heading": "Offer something smaller only if you can do it gladly.",
+          "body": "Sometimes you can give less, such as a phone call instead of a visit. Offer it only if it feels easy. An offer made from guilt becomes the next commitment on the page. Otherwise a plain thank you is enough."
+        }
+      ],
+      "takeaway": "Give back one commitment with a short, kind message. Offer something smaller only if it is easy."
+    },
+    {
+      "number": 3,
+      "focus": "Book a rest hour and keep it like any other appointment",
+      "exercise_ids": [
+        "p3_rest"
+      ],
+      "intro": "Rest that is left to chance tends to give way to everything else. This part asks you to book one hour in your diary, give it a name and keep it as you would a dentist visit. What you do in the hour is up to you.",
+      "ideas": [
+        {
+          "heading": "A rest hour needs a date and a time, like anything else in the diary.",
+          "body": "If it is only a wish, the next request will take its place. Choose a particular hour from the gaps you found and write it in. A named slot is easier to protect than a vague hope for spare time. Put it in ink if you use paper."
+        },
+        {
+          "heading": "Rest can be doing very little, and you choose what that is.",
+          "body": "Some people nap, others sit with a book or look out of the window. Nothing is required of the hour. It need not be productive or even pleasant. It only has to be yours. Decide in advance so that the hour does not turn into chores."
+        },
+        {
+          "heading": "You can say you have an appointment without saying what for.",
+          "body": "When someone asks for that hour, \"I have something booked then\" is true and enough. You owe no further detail. If the answer is always to move it for others, the hour was never really booked. Hold it as fixed, within reason."
+        }
+      ],
+      "takeaway": "Book a rest hour with a date and time, decide what it holds, and keep it like any appointment."
+    },
+    {
+      "number": 4,
+      "focus": "Notice what kind of rest you wanted and plan next month",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Not all rest feels the same. After your hour, it is worth noticing what you got from it, and what kind would suit next month. This part ends with a short plan for the coming month, built from what you have found out.",
+      "ideas": [
+        {
+          "heading": "Different kinds of rest suit different weeks.",
+          "body": "A quiet hour alone suits a week full of people. A walk with a friend suits a week of sitting indoors. Notice which kind you wanted, not which kind you think you ought to want. Your own answer is the useful one."
+        },
+        {
+          "heading": "What you notice after a rest hour is a better guide than a guess.",
+          "body": "After the hour, note what it was like. Did you want longer? Did you want company? Did you feel restless? Those answers tell you more than a general idea of what rest is. Keep a line or two, no more."
+        },
+        {
+          "heading": "Next month's diary can start with the rest hour rather than finish with it.",
+          "body": "When you plan a month, put the rest hour in first. Then add everything else around it. This is easier to do while your page for this month is fresh in mind. If the hour has to move, move it, but do not delete it."
+        }
+      ],
+      "takeaway": "Notice what kind of rest you wanted, and put it into next month first."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_page",
+      "title": "Put the month on one page",
+      "purpose": "One page showing the month, with each entry marked and the gaps noted.",
+      "why": "Write out everything in the coming month on one page, in the order it falls. Mark each entry as chosen, agreed to or required. Then note any gaps. If nothing comes to mind, write one word.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write everything in the month on one page."
+        },
+        {
+          "text": "Mark each entry and note the gaps."
+        }
+      ],
+      "fields": [
+        {
+          "id": "month",
+          "type": "long_text",
+          "label": "What is in the diary this month?"
+        },
+        {
+          "id": "gaps",
+          "type": "short_text",
+          "label": "Where are the gaps, if any?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "month",
+          "plan_section": "page"
+        },
+        {
+          "field_id": "gaps",
+          "plan_section": "page"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List the five biggest things in the month."
+          }
+        ],
+        "field_ids": [
+          "month"
+        ]
+      },
+      "done_when": "The month is on one page and the gaps are noted."
+    },
+    {
+      "id": "p2_handback",
+      "title": "Choose one to hand back",
+      "purpose": "One commitment chosen and a short message drafted to hand it back.",
+      "why": "Look at the entries you agreed to rather than chose. Pick one you could give back or turn down. Write the message you would send in two or three sentences. You do not need to send it today. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one to hand back."
+        },
+        {
+          "text": "Draft the message in two or three sentences."
+        }
+      ],
+      "fields": [
+        {
+          "id": "which",
+          "type": "short_text",
+          "label": "Which commitment could you hand back?"
+        },
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What short message would you send?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "which",
+          "plan_section": "handback"
+        },
+        {
+          "field_id": "message",
+          "plan_section": "handback"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which commitment you could hand back."
+          }
+        ],
+        "field_ids": [
+          "which"
+        ]
+      },
+      "done_when": "You have chosen one commitment and drafted the message."
+    },
+    {
+      "id": "p3_rest",
+      "title": "Book your rest hour",
+      "purpose": "A rest hour with a date, a time and a rough plan for it.",
+      "why": "Choose a gap from your page. Write the date and time of one rest hour. Then write what you might do in it, however little. Put it in your diary now. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a gap and write the date and time."
+        },
+        {
+          "text": "Write what you might do in it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "slot",
+          "type": "short_text",
+          "label": "When is your rest hour?"
+        },
+        {
+          "id": "what",
+          "type": "short_text",
+          "label": "What might you do in it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "slot",
+          "plan_section": "rest"
+        },
+        {
+          "field_id": "what",
+          "plan_section": "rest"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write a date and time for your rest hour."
+          }
+        ],
+        "field_ids": [
+          "slot"
+        ]
+      },
+      "done_when": "The rest hour has a date and time and is in the diary."
+    },
+    {
+      "id": "p4_next",
+      "title": "Plan next month's rest",
+      "purpose": "A note on the rest you wanted and where it goes next month.",
+      "why": "Write a line or two on what your rest hour was like and what kind of rest you wanted. Then choose when next month's rest hour might go. If you did not book one, write what you would like instead.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what the rest hour was like."
+        },
+        {
+          "text": "Choose a slot for next month."
+        }
+      ],
+      "fields": [
+        {
+          "id": "noticed",
+          "type": "long_text",
+          "label": "What was your rest hour like, or what kind of rest do you want?"
+        },
+        {
+          "id": "next_slot",
+          "type": "short_text",
+          "label": "When might next month's rest hour go?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "noticed",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "next_slot",
+          "plan_section": "next"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about the rest you wanted."
+          }
+        ],
+        "field_ids": [
+          "noticed"
+        ]
+      },
+      "done_when": "You have a note on rest and a slot for next month."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever it suits you."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your message is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your month, your rest hour and your plan for next month."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "page",
+      "title": "This month on one page"
+    },
+    {
+      "id": "handback",
+      "title": "What you hand back"
+    },
+    {
+      "id": "rest",
+      "title": "Your rest hour"
+    },
+    {
+      "id": "next",
+      "title": "Next month"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your month, the commitment you handed back, your rest hour and next month's slot.",
+    "book_bridge": "Room in the Diary is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you hand back or turn down this month?",
+      "When was your rest hour, and what kind of rest did you want?",
+      "Where is next month's rest hour in your diary?"
+    ],
+    "refresher_ids": [
+      "p2_handback",
+      "p3_rest"
+    ]
+  }
+}

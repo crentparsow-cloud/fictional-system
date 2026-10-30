@@ -1,0 +1,363 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-EDYRR",
+  "slug": "the-repayment-notebook-edyrr",
+  "title": "The Repayment Notebook",
+  "card_line": "Work out what you can spare each month and compare two ways of ordering repayments.",
+  "book": {
+    "book_id": "the-repayment-notebook",
+    "title": "The Repayment Notebook",
+    "subtitle": "Steady Steps With What You Owe"
+  },
+  "author": {
+    "author_id": "AU-D21DK",
+    "display_name": "Rhiannon Asante-Pugh"
+  },
+  "publisher_id": "PB-7AFQE",
+  "genre": "finance",
+  "theme_id": "paying-it-down",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is a steady, gentle look at repaying what you owe. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will know what you can spare each month and have a record plan. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part. Stop whenever you like.",
+      "Answer the exercise. If nothing comes to mind, write one word.",
+      "Your answers build a short notebook page you can read at the end."
+    ],
+    "why_prompt": "What would a steady plan for repayment mean to you?",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk in any way, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Work out what you can spare each month",
+      "exercise_ids": [
+        "p1_spare"
+      ],
+      "intro": "Repayment starts with an honest look at your month. This part asks you to write down what comes in, what goes out and what is left. Rough numbers are fine. The aim is a sum you could manage in an ordinary month, without strain.",
+      "ideas": [
+        {
+          "heading": "A realistic amount is one you can keep up in an ordinary month.",
+          "body": "A figure that works only in a good month leads to missed payments. Choose a sum you could pay even when things are a little tight. Steady, smaller payments are easier to sustain than large, uneven ones. If your income changes, you can review the sum."
+        },
+        {
+          "heading": "Your essentials come before any extra repayment.",
+          "body": "Housing, food, heating and travel to work protect your basic life. Cover those first, then see what remains. Paying extra at the cost of the rent or energy bill can create bigger problems than it solves. A plan that keeps a roof over your head comes first."
+        },
+        {
+          "heading": "Writing down every outgoing often shows a little more room.",
+          "body": "When you list your spending, small things appear that you had forgotten, such as subscriptions. There is no need to cut them. Seeing them lets you decide on purpose, and you may find a sum you had not expected. Nothing on the list is a fault."
+        }
+      ],
+      "takeaway": "Cover essentials first and choose a sum you could pay even in a tight month."
+    },
+    {
+      "number": 2,
+      "focus": "Compare two common ways of ordering repayments",
+      "exercise_ids": [
+        "p2_order"
+      ],
+      "intro": "When you owe money to more than one lender, the order of repayment is a choice. This part describes two common ways in general terms. It does not recommend either. Which suits you depends on your debts, your feelings and your circumstances.",
+      "ideas": [
+        {
+          "heading": "Smallest balance first clears debts one at a time.",
+          "body": "You pay the minimum on everything and put any extra towards the smallest balance. When it is cleared, you move to the next. Some people like the sense of progress this gives, even if it may cost more in interest."
+        },
+        {
+          "heading": "Highest rate first aims to limit the interest you pay.",
+          "body": "You pay the minimum on everything and put any extra towards the debt with the highest interest rate. This can cost less overall, but progress may feel slower. Interest rates are shown on your statements. Check each rate on your latest statement."
+        },
+        {
+          "heading": "Neither way is right for everyone, so the choice is yours.",
+          "body": "Some people choose by the numbers and others by how they feel. A third option is to keep paying the minimums while you get advice. An independent adviser can look at your debts and explain what each choice would mean."
+        }
+      ],
+      "takeaway": "Smallest balance first and highest rate first are two common orders. Neither suits everyone, and the choice is yours."
+    },
+    {
+      "number": 3,
+      "focus": "Talk to lenders, keep records and spot offers that sound too good",
+      "exercise_ids": [
+        "p3_records"
+      ],
+      "intro": "Dealing with lenders goes better with a little preparation. This part covers how to approach them, what to keep on record and how to spot offers that sound too good. It stays general. A lender or adviser can tell you about your own accounts.",
+      "ideas": [
+        {
+          "heading": "Contacting a lender early gives you more options.",
+          "body": "Lenders hear from people in difficulty often. Telling them sooner, rather than later, usually leaves more room to agree something. Explain your situation calmly, say what you can pay and ask what they can offer. A call or letter does not commit you to anything."
+        },
+        {
+          "heading": "A simple record of every contact protects you.",
+          "body": "Keep copies of letters, and note the date, name and outcome of every call. Keep payment receipts and account numbers together. If there is ever a dispute, your records show what was said and what you did. A folder or notebook is enough."
+        },
+        {
+          "heading": "An offer that sounds too good to be true usually is.",
+          "body": "Be wary of promises to wipe your debts, fees taken up front or pressure to decide quickly. Check any firm on the Financial Conduct Authority register. If you are unsure, pause and ask an independent adviser. Genuine advice rarely arrives unasked or demands payment before it starts."
+        }
+      ],
+      "takeaway": "Contact lenders early, keep records of everything and be wary of offers that sound too good."
+    },
+    {
+      "number": 4,
+      "focus": "Get through tight months and know when to ask an independent adviser",
+      "exercise_ids": [
+        "p4_tight"
+      ],
+      "intro": "Some months go badly. A bill, a lost shift or an illness can knock a plan sideways. This part looks at what to do in a tight month and when asking an independent debt advice service can be a good step. Many services do not charge.",
+      "ideas": [
+        {
+          "heading": "A tight month is a setback, and a plan can absorb it.",
+          "body": "Decide in advance what you will do when money is short. You might pay the minimums only, or pause an extra payment. A planned response is calmer than one made on the day, and you can return to your usual sum later."
+        },
+        {
+          "heading": "Small setbacks are normal and do not undo your progress.",
+          "body": "Everyone who repays a debt meets a bad month. What matters is that you notice it, adjust and carry on. Write a line about what happened. It gives you something to look back on when things are steadier. A pause is not the end of the plan."
+        },
+        {
+          "heading": "An independent adviser is worth asking when the plan stops fitting.",
+          "body": "If you cannot cover essentials, if letters are escalating or if you feel stuck, an independent debt adviser can look at the whole picture. Many do not charge. Calling one is a practical step, and it is yours to take."
+        }
+      ],
+      "takeaway": "Plan for tight months, expect the odd setback and ask an independent adviser when the plan stops fitting."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_spare",
+      "title": "Find what you can spare",
+      "purpose": "An amount you could pay each month towards what you owe.",
+      "why": "Look at what comes in and goes out in an ordinary month. Write the amount you could spare towards what you owe, and where you looked to find it. A small sum is fine.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Look at an ordinary month."
+        },
+        {
+          "text": "Write the amount you could spare."
+        }
+      ],
+      "fields": [
+        {
+          "id": "spare",
+          "type": "short_text",
+          "label": "How much could you spare each month towards what you owe?"
+        },
+        {
+          "id": "where",
+          "type": "short_text",
+          "label": "Which spending did you look at to find it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "spare",
+          "plan_section": "spare"
+        },
+        {
+          "field_id": "where",
+          "plan_section": "spare"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write an amount you could spare."
+          }
+        ],
+        "field_ids": [
+          "spare"
+        ]
+      },
+      "done_when": "You have an amount, even a small one, written down."
+    },
+    {
+      "id": "p2_order",
+      "title": "Try both orders on paper",
+      "purpose": "Your debts listed in two orders, and a note on which feels right.",
+      "why": "List your debts under each way of ordering: smallest balance first, then highest rate first. Then write which, if either, feels like a better fit for you.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your debts in each order."
+        },
+        {
+          "text": "Note which feels better to you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "order",
+          "type": "two_column",
+          "label": "In what order would your debts be paid under each way?",
+          "columns": [
+            "Smallest balance first",
+            "Highest rate first"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        },
+        {
+          "id": "lean",
+          "type": "short_text",
+          "label": "Which way suits you better, if either?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "order",
+          "plan_section": "order"
+        },
+        {
+          "field_id": "lean",
+          "plan_section": "order"
+        }
+      ],
+      "done_when": "Both orders are listed and a leaning is noted."
+    },
+    {
+      "id": "p3_records",
+      "title": "Plan your records",
+      "purpose": "A list of what to keep for each lender and an offer that would make you pause.",
+      "why": "Choose what you will keep for each lender. Then write one kind of offer that would make you stop and check before saying yes.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose what to keep."
+        },
+        {
+          "text": "Name an offer to be wary of."
+        }
+      ],
+      "fields": [
+        {
+          "id": "keep",
+          "type": "checklist",
+          "label": "What will you keep for each lender?",
+          "options": [
+            "Copies of letters",
+            "Notes of calls with dates",
+            "Account numbers",
+            "Receipts for payments made"
+          ]
+        },
+        {
+          "id": "wary",
+          "type": "short_text",
+          "label": "What kind of offer would make you stop and check?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "keep",
+          "plan_section": "records"
+        },
+        {
+          "field_id": "wary",
+          "plan_section": "records"
+        }
+      ],
+      "done_when": "Your records are chosen and a warning sign is noted."
+    },
+    {
+      "id": "p4_tight",
+      "title": "Plan for a tight month",
+      "purpose": "A plan for a tight month and a point for asking an adviser.",
+      "why": "Think of a month when money runs short. Write what you will do. Then write the point at which you would contact an independent debt adviser, or write \"not yet\".",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your plan for a tight month."
+        },
+        {
+          "text": "Write when you would ask an adviser."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tight",
+          "type": "long_text",
+          "label": "What will you do in a tight month?"
+        },
+        {
+          "id": "adviser",
+          "type": "short_text",
+          "label": "At what point would you contact an independent debt adviser?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tight",
+          "plan_section": "tight"
+        },
+        {
+          "field_id": "adviser",
+          "plan_section": "tight"
+        }
+      ],
+      "done_when": "A tight-month plan and a point for asking an adviser are written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "spare",
+      "title": "What you can spare"
+    },
+    {
+      "id": "order",
+      "title": "Two orders compared"
+    },
+    {
+      "id": "records",
+      "title": "Your records"
+    },
+    {
+      "id": "tight",
+      "title": "Tight months and advice"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short notebook page in your own words. It holds what you can spare, the two orders you compared, your records plan and your plan for tight months.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "How did this month compare with the amount you planned to spare?",
+      "What did you add to your records this month?",
+      "Is your plan for tight months still the right one?"
+    ],
+    "refresher_ids": [
+      "p2_order",
+      "p4_tight"
+    ]
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-ZSFV9",
+  "slug": "your-workplace-pension-explained-slowly-zsfv9",
+  "title": "Your Workplace Pension, Explained Slowly",
+  "card_line": "Read your pension letters line by line and write your questions for the provider.",
+  "book": {
+    "book_id": "your-workplace-pension-explained-slowly",
+    "title": "Your Workplace Pension, Explained Slowly",
+    "subtitle": "Reading Your Pension Letters, Line by Line"
+  },
+  "author": {
+    "author_id": "AU-RSCF4",
+    "display_name": "Iona Bhattacharya-Reid"
+  },
+  "publisher_id": "PB-7AFQE",
+  "genre": "finance",
+  "theme_id": "patient-investing",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about reading your pension letters line by line, at a gentle pace. This workbook is general learning and is not financial, legal or tax advice. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a list of pensions to track down and questions to ask your provider. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short list of questions you can read at the end."
+    ],
+    "why_prompt": "What do you most want to know about your pension?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Understand what a workplace pension is and find any old pots",
+      "exercise_ids": [
+        "p1_pots"
+      ],
+      "intro": "A workplace pension is money put aside for later life through your job. This part explains the basics in general terms, including how contributions and tax relief work. It also asks you to list any pensions from past jobs, which can be easy to lose track of.",
+      "ideas": [
+        {
+          "heading": "A workplace pension grows from your pay and your employer's contribution.",
+          "body": "A share of your pay goes into the pension each month, and your employer usually adds money too. The pot is invested until you reach an age at which you can use it. Your payslip or pension letter shows the amounts."
+        },
+        {
+          "heading": "Tax relief means some of the tax you would have paid goes into your pot.",
+          "body": "In general terms, pension contributions attract tax relief, so the pot receives more than the take-home cost to you. The details depend on how your scheme is set up and on current rules, which change. Check your own case."
+        },
+        {
+          "heading": "Every job may have left a pension behind.",
+          "body": "People who change jobs often have several small pots from past employers. They are easy to forget when you move house. List each employer you had since you began work and note whether you remember a pension. Even a small old pot is worth finding, because it may have grown."
+        }
+      ],
+      "takeaway": "A workplace pension is built from your pay and your employer's money. Past jobs may have left pots to find."
+    },
+    {
+      "number": 2,
+      "focus": "Read an annual statement line by line",
+      "exercise_ids": [
+        "p2_statement"
+      ],
+      "intro": "The annual pension statement is the letter most people put in a drawer. It holds the figures that matter, in a fixed order. This part walks through the main lines, so a statement becomes something you can read, not something you fear.",
+      "ideas": [
+        {
+          "heading": "Start with the pot value and the date it was worked out.",
+          "body": "The statement shows how much the pot was worth on a stated date. Values move with markets, so the figure is a snapshot. Look at the date first, then the total. Compare it with last year's letter if you have it."
+        },
+        {
+          "heading": "The contributions section shows what went in during the year.",
+          "body": "You will usually see your own payments, your employer's payments and any tax relief. Check they match what you expect from your payslips. If something looks missing, note it and ask the provider or your employer. A gap in contributions is worth a question to your employer."
+        },
+        {
+          "heading": "The projection is an estimate, not a promise.",
+          "body": "Most statements show what the pot might be worth at retirement. It rests on assumptions about growth, charges and inflation. Read the figure as one example of what could happen. The real result may be higher or lower. Check whether the figure allows for rising prices, and read the small print."
+        }
+      ],
+      "takeaway": "Read the value and date first, then contributions, then the projection. The projection is an estimate."
+    },
+    {
+      "number": 3,
+      "focus": "Look at charges and your default fund",
+      "exercise_ids": [
+        "p3_charges"
+      ],
+      "intro": "Charges and the fund your money sits in affect your pot over many years. Most people never choose a fund and are placed in a default. This part asks where to find both on your statement and what to ask the provider.",
+      "ideas": [
+        {
+          "heading": "Charges are taken from your pot, usually year after year.",
+          "body": "They may appear as a yearly percentage or as an amount in pounds. They are easy to overlook because they are taken quietly. Find the charge on your statement or provider's website, and note what it covers. Ask for the charge in pounds as well, to see what it costs you."
+        },
+        {
+          "heading": "The default fund is where your money goes if you make no choice.",
+          "body": "Most workplace schemes place new members in a default fund, designed for a broad group of people. It may suit you or it may not. Find its name and read what the provider says about it. It is worth knowing what it holds and why."
+        },
+        {
+          "heading": "You are allowed to ask what your money is invested in.",
+          "body": "Providers will usually give information on request. Ask for the fund name, the charge and how the fund has behaved. You can also ask whether other funds are available and what they charge. Asking commits you to nothing. Providers usually answer such requests by letter, phone or online."
+        }
+      ],
+      "takeaway": "Find the charge and the fund's name. Providers will explain them if you ask."
+    },
+    {
+      "number": 4,
+      "focus": "Check your State Pension forecast and write your questions",
+      "exercise_ids": [
+        "p4_questions"
+      ],
+      "intro": "A workplace pension is only one part of retirement income. The State Pension is another, and you can get a forecast of yours. This last part covers the forecast, the questions to write for your provider and where public guidance is available.",
+      "ideas": [
+        {
+          "heading": "The State Pension forecast shows what you are on course to receive.",
+          "body": "It is available from the government and depends on your National Insurance record. The forecast also shows the earliest age you can claim. It is a useful companion to your workplace pension statement. It is worth checking from time to time, as rules and records change."
+        },
+        {
+          "heading": "Writing your questions first makes a call with your provider shorter.",
+          "body": "Write down what you do not understand, such as the charges, the fund or a missing payment. Keep the list in front of you during the call. Note the date, the name and the answer you are given. Prepared questions also stop you forgetting the one you most wanted to ask."
+        },
+        {
+          "heading": "Public guidance services explain pensions without selling anything.",
+          "body": "There are services set up to give plain guidance on pensions, at no cost to you, and without trying to sell a product. They can explain options once you are near the age to use your pot. Take your list with you."
+        }
+      ],
+      "takeaway": "Check your State Pension forecast, write your questions before calling and use public guidance when you want it."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_pots",
+      "title": "List your possible pots",
+      "purpose": "A list of employers who may have left you a pension.",
+      "why": "Think back over your jobs. Write each employer and anything you remember about a pension there. If you remember nothing, write the employer's name anyway.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List your past employers."
+        },
+        {
+          "text": "Note what you remember about each pension."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pots",
+          "type": "two_column",
+          "label": "Which employers might have left you a pension?",
+          "columns": [
+            "Employer",
+            "What you know about the pension"
+          ],
+          "min_items": 1,
+          "max_items": 8
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pots",
+          "plan_section": "pots"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one past employer."
+          }
+        ],
+        "field_ids": [
+          "pots"
+        ]
+      },
+      "done_when": "At least one employer is listed."
+    },
+    {
+      "id": "p2_statement",
+      "title": "Mark your statement",
+      "purpose": "A note of which lines you understand and which you do not.",
+      "why": "Take your latest pension statement. Go through it line by line and mark what you understand and what you do not. Write the unclear lines as questions.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Read the statement line by line."
+        },
+        {
+          "text": "Write the unclear lines as questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lines",
+          "type": "long_text",
+          "label": "Which lines of your statement do you understand, and which do you not?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lines",
+          "plan_section": "statement"
+        }
+      ],
+      "done_when": "Your clear and unclear lines are written down."
+    },
+    {
+      "id": "p3_charges",
+      "title": "Find your charge and fund",
+      "purpose": "The charge on your pension and the name of your default fund.",
+      "why": "Look at your statement or provider's website. Write the charge you can find, and the name of the fund your money is in. If you cannot find them, write that.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Find the charge."
+        },
+        {
+          "text": "Find the fund's name."
+        }
+      ],
+      "fields": [
+        {
+          "id": "charge",
+          "type": "short_text",
+          "label": "What charge does your pension show, and where did you find it?"
+        },
+        {
+          "id": "fund",
+          "type": "short_text",
+          "label": "What is the name of your fund, if you can find it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "charge",
+          "plan_section": "charges"
+        },
+        {
+          "field_id": "fund",
+          "plan_section": "charges"
+        }
+      ],
+      "done_when": "A charge and a fund name, or a note that you could not find them, are written."
+    },
+    {
+      "id": "p4_questions",
+      "title": "Write your provider questions",
+      "purpose": "A list of questions for your provider and a time to check your State Pension forecast.",
+      "why": "Write the questions you would ask your pension provider. Then choose a time to check your State Pension forecast.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your questions."
+        },
+        {
+          "text": "Choose a time to check the forecast."
+        }
+      ],
+      "fields": [
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What will you ask your pension provider?"
+        },
+        {
+          "id": "forecast",
+          "type": "short_text",
+          "label": "When will you check your State Pension forecast?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "questions",
+          "plan_section": "questions"
+        },
+        {
+          "field_id": "forecast",
+          "plan_section": "questions"
+        }
+      ],
+      "done_when": "Your questions are written and a time is chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved in your plan."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan now holds everything you wrote."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "pots",
+      "title": "Possible pots"
+    },
+    {
+      "id": "statement",
+      "title": "Your statement"
+    },
+    {
+      "id": "charges",
+      "title": "Charges and fund"
+    },
+    {
+      "id": "questions",
+      "title": "Your questions"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short list in your own words. It holds possible pots, your statement notes, your charge and fund and your questions for the provider.",
+    "book_bridge": "This book is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which pension letter did you read this month, and what did it say?",
+      "Which question to your provider have you asked, and what was the answer?",
+      "Have you traced any more past pensions?"
+    ],
+    "refresher_ids": [
+      "p2_statement",
+      "p4_questions"
+    ]
+  }
+}

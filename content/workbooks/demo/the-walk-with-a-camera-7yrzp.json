@@ -1,0 +1,361 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-7YRZP",
+  "slug": "the-walk-with-a-camera-7yrzp",
+  "title": "The Walk With a Camera",
+  "card_line": "Choose ten photographs from your neighbourhood and make a small collection.",
+  "book": {
+    "book_id": "the-walk-with-a-camera",
+    "title": "The Walk With a Camera",
+    "subtitle": "Seeing Your Neighbourhood Through a Lens"
+  },
+  "author": {
+    "author_id": "AU-CKAX8",
+    "display_name": "Tessa Wyborn-Liang"
+  },
+  "genre": "personal_development",
+  "theme_id": "creative-habits",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about taking a camera on your usual walk and seeing it fresh. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have chosen ten photographs and made a small collection of your neighbourhood. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one street or corner near you that you pass without looking? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice the light by walking at a different time.",
+      "exercise_ids": [
+        "p1_light"
+      ],
+      "intro": "A familiar street can look new in different light. Early morning, late afternoon and evening each change colour and shadow. This part asks you to walk a route you know at a time you do not usually walk it. You will note what looks different and take a few photographs.",
+      "ideas": [
+        {
+          "heading": "The same street looks different at another time of day.",
+          "body": "Low sun makes long shadows and warm walls. Midday light is flat. Evening brings lit windows. A route you walk without thinking can give you several quite different pictures. A phone is enough, and no special gear is needed. Try it for one week."
+        },
+        {
+          "heading": "Look for where the light lands before you look for a subject.",
+          "body": "Notice a bright patch on a wall, a shadow across a pavement, a glow through a gate. Then wait and see what the light falls on. Letting light lead you is a good way of finding pictures you would not plan."
+        },
+        {
+          "heading": "Slowing down is the main skill.",
+          "body": "Walk at half your usual pace. Stop where something catches your eye, even for a moment. Take a few frames from different positions. You will pass fewer things, and you will see more of them. Time spent standing still is not time wasted."
+        }
+      ],
+      "takeaway": "Choose a new time for a familiar walk, follow the light and slow down."
+    },
+    {
+      "number": 2,
+      "focus": "Move in close to textures, plants and small details.",
+      "exercise_ids": [
+        "p2_detail"
+      ],
+      "intro": "Small things are easy to miss and easy to photograph. A wall, a leaf or a worn doorstep can make a strong picture. This part asks you to look down, look close and fill the frame with something small. You will collect a few details from one short walk.",
+      "ideas": [
+        {
+          "heading": "Getting close turns ordinary things into pictures.",
+          "body": "Peeling paint, a rusted hinge, moss between paving stones. Move near enough that the object fills the frame. Without the surroundings, a viewer sees shape, colour and texture. A common thing becomes interesting because you looked at it so carefully. Try this with something you pass daily."
+        },
+        {
+          "heading": "Plants and weeds are everywhere and always different.",
+          "body": "A weed in a crack or a hedge in seed is easy to reach and does not move away. Try the same plant from above, from the side and from low down. You may find that the third angle is the one you like best."
+        },
+        {
+          "heading": "Check the edges of the frame before you press the button.",
+          "body": "Look for stray bright spots, a bin or a bit of someone's sleeve. Shift a step to the left or crouch lower. A small move can tidy a picture. Taking a second look at the edges is a small habit, and it can tidy any photograph."
+        }
+      ],
+      "takeaway": "Move close, try three angles, and check the edges. Small details make good pictures."
+    },
+    {
+      "number": 3,
+      "focus": "Photograph places and people, and ask before you do.",
+      "exercise_ids": [
+        "p3_ask"
+      ],
+      "intro": "Streets are made of people, shops and signs as well as light and leaves. Pictures of them tell you most about where you live. They also carry a duty to be polite. This part covers photographing places, and asking before you photograph a person.",
+      "ideas": [
+        {
+          "heading": "A place has more to say when you include a sign of life.",
+          "body": "A bench with a coat left on it, a shop with its shutters half up, a bicycle against a wall. These details tell a viewer that someone lives here. You can often suggest people without showing their faces, which is also kinder to those who pass."
+        },
+        {
+          "heading": "Ask before you photograph a person, and accept a no.",
+          "body": "A smile and a short question is usually enough. Say what you are doing and why. If someone says no, thank them and move on. Asking first leads to more relaxed pictures, and it keeps your walk friendly. Most people say yes once they know why you are asking."
+        },
+        {
+          "heading": "Shops and private property deserve a quick word.",
+          "body": "If you are photographing a shopfront, a stall or a garden, a quick hello costs nothing. Many owners are pleased to be asked. Take extra care with children, and do not photograph them without the permission of an adult who is with them."
+        }
+      ],
+      "takeaway": "Show life in your places, and always ask before you photograph a person."
+    },
+    {
+      "number": 4,
+      "focus": "Choose ten photographs and make a small collection.",
+      "exercise_ids": [
+        "p4_ten"
+      ],
+      "intro": "A pile of photographs is not a collection. Choosing is where you decide what your walk was about. This last part asks you to look back at everything you took, pick ten and put them in an order. You will also give the set a title and a place to live.",
+      "ideas": [
+        {
+          "heading": "Choosing ten is easier if you cut in rounds.",
+          "body": "Go through your photographs once and remove the clear misses. Go through again and keep the ones you like. Then pick the strongest ten. Do not agonise over the last place. A near miss can go in another set, or in a folder of its own for later."
+        },
+        {
+          "heading": "Order the photographs so they feel like a walk.",
+          "body": "Start with a wide scene, move into details, and end on something quiet. Or follow the light from morning to evening. There is no right answer. Try two orders and see which one reads more naturally. Ask yourself where the eye settles."
+        },
+        {
+          "heading": "A title and a place to keep them make it a collection.",
+          "body": "Give the set a short title, such as the name of your street. Save the ten in one folder, or print them. Show them to one person. A collection that is named and kept is more likely to be looked at again."
+        }
+      ],
+      "takeaway": "Cut in rounds, choose an order and give the ten a title. Then show them to someone."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_light",
+      "title": "Walk at a new time",
+      "purpose": "A note of what looked different at another time of day.",
+      "why": "Pick a route you know. Walk it at a time you do not usually go, even for ten minutes. Take a few photographs, then write what looked different. If you cannot go out, write about the light from a window.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Walk a known route at a new time."
+        },
+        {
+          "text": "Take a few photographs."
+        },
+        {
+          "text": "Write what looked different."
+        }
+      ],
+      "fields": [
+        {
+          "id": "time",
+          "type": "short_text",
+          "label": "What time did you walk, and what looked different?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "time",
+          "plan_section": "light"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing that looked different."
+          }
+        ],
+        "field_ids": [
+          "time"
+        ]
+      },
+      "done_when": "You have a note on how the light changed the street."
+    },
+    {
+      "id": "p2_detail",
+      "title": "Collect five small details",
+      "purpose": "A list of five small details you found close to home.",
+      "why": "Walk for ten minutes and look only at small things. Photograph five of them, each filling the frame. Write what each one was. If five is too many, a list of two is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Find five small details."
+        },
+        {
+          "text": "Photograph each one close up."
+        },
+        {
+          "text": "Write what each one was."
+        }
+      ],
+      "fields": [
+        {
+          "id": "details",
+          "type": "long_text",
+          "label": "What five small details did you find?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "details",
+          "plan_section": "details"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Photograph and name one small detail."
+          }
+        ],
+        "field_ids": [
+          "details"
+        ]
+      },
+      "done_when": "You have a short list of close up subjects."
+    },
+    {
+      "id": "p3_ask",
+      "title": "Practise asking first",
+      "purpose": "The words you will use to ask, and a place or person you might photograph.",
+      "why": "Write the sentence you would use to ask someone if you may photograph them or their shop. Then name a person or place near you that you might ask. You do not have to ask yet.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your asking sentence."
+        },
+        {
+          "text": "Name a person or place you might ask."
+        }
+      ],
+      "fields": [
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "What sentence will you use to ask permission?"
+        },
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Whom or what might you photograph?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sentence",
+          "plan_section": "places"
+        },
+        {
+          "field_id": "who",
+          "plan_section": "places"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write your asking sentence."
+          }
+        ],
+        "field_ids": [
+          "sentence"
+        ]
+      },
+      "done_when": "You have a sentence ready and one idea of where to use it."
+    },
+    {
+      "id": "p4_ten",
+      "title": "Choose your ten",
+      "purpose": "A title and a list of ten photographs in order.",
+      "why": "Look through your photographs and cut them down to ten. Put them in an order that reads like a walk. Give the set a short title and say where you will keep it.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose ten photographs."
+        },
+        {
+          "text": "Put them in order."
+        },
+        {
+          "text": "Write a title and a place to keep them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "ten",
+          "type": "long_text",
+          "label": "What ten photographs did you choose, in order?"
+        },
+        {
+          "id": "title",
+          "type": "short_text",
+          "label": "What is the title of your collection?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "ten",
+          "plan_section": "collection"
+        },
+        {
+          "field_id": "title",
+          "plan_section": "collection"
+        }
+      ],
+      "done_when": "You have ten photographs, an order and a title."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your close up details are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your walk, your details, your asking words and your ten."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "light",
+      "title": "Light on your walk"
+    },
+    {
+      "id": "details",
+      "title": "Small details"
+    },
+    {
+      "id": "places",
+      "title": "Asking and places"
+    },
+    {
+      "id": "collection",
+      "title": "Your collection of ten"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your light walk, your details, your asking sentence and the ten you chose.",
+    "book_bridge": "The Walk With a Camera is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which walk gave you your best photograph this month?",
+      "What have you noticed that you missed before?",
+      "Who have you shown your collection to?"
+    ],
+    "refresher_ids": [
+      "p1_light",
+      "p4_ten"
+    ]
+  }
+}

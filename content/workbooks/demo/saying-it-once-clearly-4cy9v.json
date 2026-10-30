@@ -1,0 +1,367 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-4CY9V",
+  "slug": "saying-it-once-clearly-4cy9v",
+  "title": "Saying It Once, Clearly",
+  "card_line": "Write the one sentence that says what you think, and say it aloud.",
+  "book": {
+    "book_id": "saying-it-once-clearly",
+    "title": "Saying It Once, Clearly",
+    "subtitle": "Speaking Up When You Would Rather Not"
+  },
+  "author": {
+    "author_id": "AU-CG7QM",
+    "display_name": "Mireille Okafor-Gauthier"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "personal_development",
+  "theme_id": "quiet-confidence",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about saying what you think once, clearly, when you would rather stay quiet. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have one sentence in your own words, practised aloud, and a plan for the next place to use it. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When did you last hold back something you wanted to say? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice the moments you hold back and what they cost.",
+      "exercise_ids": [
+        "p1_hold"
+      ],
+      "intro": "Most quiet people have a clear idea of what they would say, and then say nothing. The moment passes and the thought stays. This part asks you to look at when you hold back and what it costs. You will not try to change anything yet.",
+      "ideas": [
+        {
+          "heading": "Holding back often feels polite, but it has a price.",
+          "body": "A view that goes unsaid does not disappear. It may turn into a decision you did not want, a task you took on, or a meeting you left annoyed. Noticing the price is the first step to deciding if it is worth paying."
+        },
+        {
+          "heading": "The moments cluster, so you can see them coming.",
+          "body": "Many people hold back in the same places: team meetings, family calls, shops and queues. Look over the past fortnight and find yours. Knowing where it happens lets you prepare for it ahead of time. Write down two or three places on your own list, and you will be less surprised by them."
+        },
+        {
+          "heading": "Wanting to speak does not mean wanting to argue.",
+          "body": "You can say what you think without trying to win. A short, calm statement of your view is enough. It leaves room for the other person to answer. Quiet people often avoid speaking because they imagine a row that rarely arrives."
+        }
+      ],
+      "takeaway": "Find the moments you hold back and see what each one costs you."
+    },
+    {
+      "number": 2,
+      "focus": "Write one sentence that says what you think and practise it aloud.",
+      "exercise_ids": [
+        "p2_sentence"
+      ],
+      "intro": "A clear sentence is easier to say than a half formed thought. This part asks you to write one sentence about something you want to say or ask. You then read it aloud, alone first and with a friend if you can. Hearing yourself helps.",
+      "ideas": [
+        {
+          "heading": "One sentence is easier to say than a speech.",
+          "body": "Pick a single point. Write it in plain words, with no apology at the start and no list of reasons. \"I would like to finish this first\" is complete. Shorter versions are easier to remember when your heart is going fast."
+        },
+        {
+          "heading": "Saying it aloud changes how the sentence feels.",
+          "body": "Words that look fine on paper may sound stiff when spoken. Read yours out loud and change any word you would not use. Do it a few times. Your own voice becomes more familiar, and it will feel less strange when it counts."
+        },
+        {
+          "heading": "A friend can listen without needing to reply.",
+          "body": "Ask someone you trust to hear your sentence and say only whether it was clear. They do not need to advise. Saying it to another person once makes the second time, in the meeting or the queue, a little more ordinary."
+        }
+      ],
+      "takeaway": "Write one plain sentence, say it aloud, and try it on one friendly listener."
+    },
+    {
+      "number": 3,
+      "focus": "Speak up in a real place, then leave a pause.",
+      "exercise_ids": [
+        "p3_speak"
+      ],
+      "intro": "Rehearsing is useful, but the point is to use the sentence. This part asks you to pick a small, real moment and say your sentence there. It also covers the pause after you speak, which many people rush to fill. You will note what happened afterwards.",
+      "ideas": [
+        {
+          "heading": "Pick a small moment for the first try.",
+          "body": "A queue, a shop counter or a short meeting is a good place to start. Choose somewhere little depends on the result. Say your sentence once. You are testing how it feels to speak, not winning an argument. Afterwards, notice how long the moment really took."
+        },
+        {
+          "heading": "Stop after the sentence and let a pause happen.",
+          "body": "The urge is to keep talking and soften what you said. Resist that. A pause is not a sign of weakness. It gives the other person room to take it in. Count slowly to three in your head if it helps."
+        },
+        {
+          "heading": "Afterwards, write down what actually happened.",
+          "body": "The reaction is often milder than you pictured. A nod, a shrug, a change of plan. Make a note of it. Next time you feel the old hesitation, you will have a real memory to set against the imagined one."
+        }
+      ],
+      "takeaway": "Try your sentence in a small real moment, stop, and let the pause do its work."
+    },
+    {
+      "number": 4,
+      "focus": "Handle a pushback without over-explaining and choose where next.",
+      "exercise_ids": [
+        "p4_next"
+      ],
+      "intro": "Sometimes people answer back, and the old habit is to explain more. This part covers a short way to hold your position calmly. You will also look at what has changed so far and choose the next place to speak up.",
+      "ideas": [
+        {
+          "heading": "You can repeat your sentence instead of adding reasons.",
+          "body": "If someone pushes back, say it again in the same words, in a friendly tone. \"I understand, and I would still like to finish this first.\" More reasons give more to argue with. Repeating is calm, clear and fair. It sounds firm and kind together."
+        },
+        {
+          "heading": "It is fine to say that you will think about it.",
+          "body": "If the answer is not clear in the moment, say so. \"Let me come back to you\" is a full reply. It stops you agreeing under pressure. Follow up when you have decided, and keep your reply short. People respect a considered answer more than a rushed one."
+        },
+        {
+          "heading": "Look back at what changed before you choose the next place.",
+          "body": "Notice what was easier than you expected and what was still hard. Pick one new setting to use your sentence in: a call, a family dinner, a group chat. Small steps in new places add up. Choose somewhere ordinary, where the stakes are low enough to learn from."
+        }
+      ],
+      "takeaway": "Repeat your sentence rather than explaining, and choose the next place to speak up."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_hold",
+      "title": "List the moments you hold back",
+      "purpose": "A short list of moments you held back and what each cost you.",
+      "why": "Think back over the last two weeks. Find the moments you wanted to speak and did not. Write each one, with what it cost you. Two or three is plenty. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note each moment you held back."
+        },
+        {
+          "text": "Write what each one cost you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "moments",
+          "type": "two_column",
+          "label": "When did you hold back, and what did it cost?",
+          "columns": [
+            "The moment",
+            "What it cost you"
+          ],
+          "min_items": 1,
+          "max_items": 5
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "moments",
+          "plan_section": "moments"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one moment you held back."
+          }
+        ],
+        "field_ids": [
+          "moments"
+        ]
+      },
+      "done_when": "You have at least one moment on the list."
+    },
+    {
+      "id": "p2_sentence",
+      "title": "Write your one sentence",
+      "purpose": "One plain sentence that says what you think or need.",
+      "why": "Pick one moment from your list. Write a single sentence that says what you think or need. Use plain words and no apology. Read it aloud and change any word that does not sound like you.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a moment."
+        },
+        {
+          "text": "Write one sentence."
+        },
+        {
+          "text": "Read it aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "moment",
+          "type": "short_text",
+          "label": "Which moment will your sentence be for?"
+        },
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "What is your one sentence?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "sentence",
+          "plan_section": "sentence"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one sentence about one moment."
+          }
+        ],
+        "field_ids": [
+          "sentence"
+        ]
+      },
+      "done_when": "You have one sentence you can say aloud."
+    },
+    {
+      "id": "p3_speak",
+      "title": "Speak once and note it",
+      "purpose": "A note of where you spoke and what followed.",
+      "why": "Choose a small, real moment and say your sentence there. Then stop and leave a pause. Afterwards, write down what happened. If no moment arrives, write about the one you expect.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Say your sentence once."
+        },
+        {
+          "text": "Leave a pause."
+        },
+        {
+          "text": "Write what followed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "what_happened",
+          "type": "long_text",
+          "label": "Where did you speak up, and what happened next?"
+        },
+        {
+          "id": "hard",
+          "type": "scale_0_10",
+          "label": "How hard did it feel, from 0 to 10",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "what_happened",
+          "plan_section": "spoke"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about what happened."
+          }
+        ],
+        "field_ids": [
+          "what_happened"
+        ]
+      },
+      "done_when": "You have written where you spoke and what followed."
+    },
+    {
+      "id": "p4_next",
+      "title": "Prepare for pushback and choose next",
+      "purpose": "A short reply to pushback and the next place to speak up.",
+      "why": "Write the short reply you will use if someone pushes back. Keep it to one sentence and add no new reasons. Then name the next place you would like to use your sentence.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your reply to pushback."
+        },
+        {
+          "text": "Name the next place."
+        }
+      ],
+      "fields": [
+        {
+          "id": "reply",
+          "type": "short_text",
+          "label": "What will you say if someone pushes back?"
+        },
+        {
+          "id": "next_place",
+          "type": "short_text",
+          "label": "Where will you speak up next?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "reply",
+          "plan_section": "next"
+        },
+        {
+          "field_id": "next_place",
+          "plan_section": "next"
+        }
+      ],
+      "done_when": "You have a reply ready and a next place chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your sentence is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your sentence, the time you spoke and your next place."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "moments",
+      "title": "Moments you held back"
+    },
+    {
+      "id": "sentence",
+      "title": "Your one sentence"
+    },
+    {
+      "id": "spoke",
+      "title": "A time you spoke up"
+    },
+    {
+      "id": "next",
+      "title": "Your reply and next place"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds the moments you held back, your sentence, the time you used it and where you go next.",
+    "book_bridge": "Saying It Once, Clearly is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Where did you speak up this month?",
+      "Which sentence worked best for you?",
+      "Where would you like to speak up next?"
+    ],
+    "refresher_ids": [
+      "p2_sentence",
+      "p4_next"
+    ]
+  }
+}

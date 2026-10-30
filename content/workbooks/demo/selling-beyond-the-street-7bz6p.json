@@ -1,0 +1,395 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-7BZ6P",
+  "slug": "selling-beyond-the-street-7bz6p",
+  "title": "Selling Beyond the Street",
+  "card_line": "Take orders by message and send them out, with one stock count for shop and online.",
+  "book": {
+    "book_id": "selling-beyond-the-street",
+    "title": "Selling Beyond the Street",
+    "subtitle": "Taking a Small Shop Online"
+  },
+  "author": {
+    "author_id": "AU-9ZG4W",
+    "display_name": "Chidinma Obiora-Lane"
+  },
+  "publisher_id": "PB-7JEW0",
+  "genre": "business",
+  "theme_id": "ventures-taking-shape",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about taking orders by message and sending them out from a small shop or stall. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have an order routine and one stock count. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is the hardest part of selling beyond your stall or shop? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose one channel and show your best lines well",
+      "exercise_ids": [
+        "p1_channel"
+      ],
+      "intro": "Many traders try every app at once and keep none up. One channel, kept well, is easier for you and for customers. This part asks you to pick that channel and choose the few lines worth showing first. You then note how you will photograph them.",
+      "ideas": [
+        {
+          "heading": "One channel done well is better than four done halfway.",
+          "body": "Customers want to know where to find you and that someone will answer. Pick the place where your customers already are, such as a messaging app or a social page. Keep it up to date. You can add a second channel later, once the first runs smoothly."
+        },
+        {
+          "heading": "Start with the five lines that you sell most reliably.",
+          "body": "You do not need to list the whole shop. Look at what you sell most often and what customers ask about. Those five lines make a first showcase. A short list is easier to photograph, price and keep in stock. Add more once the routine settles."
+        },
+        {
+          "heading": "A clear photo in daylight tells the customer what they are buying.",
+          "body": "Take pictures near a window or outside, against a plain background. Show the whole item, then a close view of the cloth, the stitching or the label. Add the size and the price in the message. Customers cannot touch the goods, so the picture has to do that for them."
+        }
+      ],
+      "takeaway": "Pick one channel, show five lines, and photograph them plainly. A small start is easier to keep up."
+    },
+    {
+      "number": 2,
+      "focus": "Set a fixed routine for orders and payments",
+      "exercise_ids": [
+        "p2_routine"
+      ],
+      "intro": "An order taken in a hurry is easy to lose. A fixed routine means each customer gets the same clear steps. This part sets out what you ask for, how you confirm and how you are paid. You write it as a short message you can copy and send when an order arrives.",
+      "ideas": [
+        {
+          "heading": "Each order needs the same few details written down.",
+          "body": "Ask for the item, the size or colour, the quantity, the delivery address and a phone number. Write them in one place, not scattered across chats. When the details are always the same, mistakes are easier to spot. Your order book can be a page in a notebook."
+        },
+        {
+          "heading": "Confirm the total with the customer before they pay.",
+          "body": "Send back a short message with the items, the price, the delivery charge and the total. Ask the customer to reply to confirm. That reply is your record. It protects both of you if there is a question later about what was ordered or what was paid."
+        },
+        {
+          "heading": "Choose one or two ways to be paid and say so plainly.",
+          "body": "Too many payment options mean too much to check. Decide whether you take bank transfer, a card link or cash on delivery. State this in your first reply. Wait until payment has arrived in your account before you send the goods, and note the date in your book."
+        }
+      ],
+      "takeaway": "Ask for the same details, confirm the total, and name your payment methods. A routine you can copy saves time."
+    },
+    {
+      "number": 3,
+      "focus": "Pack and send orders in a set way",
+      "exercise_ids": [
+        "p3_send"
+      ],
+      "intro": "Once an order is paid, the customer is waiting. A set way of packing, labelling and sending keeps parcels from going astray. This part asks who delivers, what it costs and what you tell the customer. It ends with a plain list of steps.",
+      "ideas": [
+        {
+          "heading": "Decide how goods will leave you before the first order arrives.",
+          "body": "Options include a courier, a rider, a bus parcel or collection from the shop. Each has a cost and a time. Choose one or two and find out the price for your usual parcel. With the answers ready, you can reply to customers straight away."
+        },
+        {
+          "heading": "Pack and label each order in the same way.",
+          "body": "Use one type of bag or box, a label with the name and address, and a copy of the order inside. A photo of the packed parcel before it leaves is a useful record. When something is queried, you can show exactly what was sent."
+        },
+        {
+          "heading": "Tell the customer when the parcel has left and when to expect it.",
+          "body": "Send one message on the day of dispatch. Give the date, the carrier and any tracking number. Ask them to tell you when it arrives. A customer who is kept informed rarely needs to chase, and you hear about problems early."
+        }
+      ],
+      "takeaway": "Choose how goods travel, pack every parcel alike, and message the customer when it leaves."
+    },
+    {
+      "number": 4,
+      "focus": "Keep shop and online stock in one count",
+      "exercise_ids": [
+        "p4_stock"
+      ],
+      "intro": "Selling in two places invites selling the same item twice. One count of what you hold, updated when anything moves, prevents that. This part asks you to set up that count and decide when you check it. A page in a notebook is enough.",
+      "ideas": [
+        {
+          "heading": "Keep one stock list for the shop and for online orders.",
+          "body": "Two lists drift apart within days. Use a single page or sheet, with each line and the number you hold. Every sale, in the shop or by message, comes off the same number. Whoever sells updates the list straight away."
+        },
+        {
+          "heading": "Mark an item as held when the order is confirmed, not when it ships.",
+          "body": "If you wait until the parcel goes, the shop may sell the item in between. Reserve it as soon as the customer confirms. If payment does not arrive after a few days, release the item and tell the customer. That keeps the count true."
+        },
+        {
+          "heading": "A weekly count of the real shelf catches what the list misses.",
+          "body": "Once a week, count what is on the shelf and compare it with the list. Differences happen: damaged goods, gifts, small slips. Correct the list and note the reason. Over time you learn where stock goes missing and can close the gap."
+        }
+      ],
+      "takeaway": "One list, updated when an order is confirmed and checked weekly against the shelf, keeps both places honest."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_channel",
+      "title": "Pick a channel and five lines",
+      "purpose": "One chosen channel and a list of the five lines to show first.",
+      "why": "Think about where your customers already message you. Choose one place to take orders. Then list the five lines you sell most, with a price for each. If you are unsure, pick the place you check most often.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one channel."
+        },
+        {
+          "text": "List five lines with prices."
+        }
+      ],
+      "fields": [
+        {
+          "id": "channel",
+          "type": "short_text",
+          "label": "Which one channel will you use for orders?"
+        },
+        {
+          "id": "lines",
+          "type": "two_column",
+          "label": "Which five lines will you show first?",
+          "columns": [
+            "Line",
+            "Price"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "channel",
+          "plan_section": "channel"
+        },
+        {
+          "field_id": "lines",
+          "plan_section": "channel"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name your channel."
+          }
+        ],
+        "field_ids": [
+          "channel"
+        ]
+      },
+      "done_when": "One channel is chosen and the lines are listed."
+    },
+    {
+      "id": "p2_routine",
+      "title": "Write your order message",
+      "purpose": "A short order message you can copy and send to each new customer.",
+      "why": "Write the message you would send when an order arrives. It should ask for the details you need, give the total and say how to pay. Keep it short and friendly. Read it as if you were the customer.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List the details you need from an order."
+        },
+        {
+          "text": "Write the confirm-and-pay message."
+        }
+      ],
+      "fields": [
+        {
+          "id": "details",
+          "type": "short_text",
+          "label": "What details do you need from an order?"
+        },
+        {
+          "id": "message",
+          "type": "long_text",
+          "label": "What is your message to confirm an order and ask for payment?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "details",
+          "plan_section": "orders"
+        },
+        {
+          "field_id": "message",
+          "plan_section": "orders"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List the details you need."
+          }
+        ],
+        "field_ids": [
+          "details"
+        ]
+      },
+      "done_when": "You have a message you could send today."
+    },
+    {
+      "id": "p3_send",
+      "title": "Set your sending steps",
+      "purpose": "A short list of steps from paid order to parcel on its way.",
+      "why": "Write the steps you will follow once an order is paid. Include how you pack, who carries it and what you tell the customer. Add the usual delivery cost. If you do not know the cost, write who you will ask.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the steps from payment to dispatch."
+        },
+        {
+          "text": "Add the usual cost of delivery."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "What are your steps from paid order to dispatch?"
+        },
+        {
+          "id": "cost",
+          "type": "short_text",
+          "label": "What does delivery usually cost, or who will you ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "sending"
+        },
+        {
+          "field_id": "cost",
+          "plan_section": "sending"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first three steps."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "You have the steps and a delivery cost or a name to ask."
+    },
+    {
+      "id": "p4_stock",
+      "title": "Set up your single count",
+      "purpose": "A stock list for your five lines and a day for the weekly count.",
+      "why": "Write your five lines with the number you hold now. Decide who updates the list and when. Choose a day of the week to count the shelf against it. A page in a notebook is enough.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write each line and how many you hold."
+        },
+        {
+          "text": "Choose the day for your weekly count."
+        }
+      ],
+      "fields": [
+        {
+          "id": "count",
+          "type": "two_column",
+          "label": "Which lines do you hold, and how many?",
+          "columns": [
+            "Line",
+            "Number held"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "day",
+          "type": "short_text",
+          "label": "On which day will you count the shelf?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "count",
+          "plan_section": "stock"
+        },
+        {
+          "field_id": "day",
+          "plan_section": "stock"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line and its number."
+          }
+        ],
+        "field_ids": [
+          "count"
+        ]
+      },
+      "done_when": "The list has numbers and the count day is chosen."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your order message is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your channel, order routine, sending steps and stock count."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "channel",
+      "title": "Your channel and first lines"
+    },
+    {
+      "id": "orders",
+      "title": "Your order routine"
+    },
+    {
+      "id": "sending",
+      "title": "Your sending steps"
+    },
+    {
+      "id": "stock",
+      "title": "Your stock count"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your channel and first lines, your order message, your sending steps and your stock count.",
+    "book_bridge": "Selling Beyond the Street is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which orders went smoothly this month, and which took longer than expected?",
+      "Does the shelf match your stock list?",
+      "Is one channel still enough?"
+    ],
+    "refresher_ids": [
+      "p2_routine",
+      "p4_stock"
+    ]
+  }
+}

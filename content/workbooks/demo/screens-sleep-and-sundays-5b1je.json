@@ -1,0 +1,383 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-5B1JE",
+  "slug": "screens-sleep-and-sundays-5b1je",
+  "title": "Screens, Sleep and Sundays",
+  "card_line": "Agree a family screen plan, an evening wind-down and one slower day a week.",
+  "book": {
+    "book_id": "screens-sleep-and-sundays",
+    "title": "Screens, Sleep and Sundays",
+    "subtitle": "Gentle Family Routines"
+  },
+  "author": {
+    "author_id": "AU-77Q79",
+    "display_name": "Thandiwe Mokoena-Dube"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "parenting",
+  "theme_id": "raising-with-care",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about the small routines of family life. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a family screen plan, an evening wind-down and one slower day a week, all agreed together. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which part of your family's day feels most rushed? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If using it would put anyone at home at risk, please set it aside for now. Safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Notice how your family's routines run now without blame",
+      "exercise_ids": [
+        "p1_notice"
+      ],
+      "intro": "Every family already has routines, even if nobody chose them. Screens come out at certain times, bedtime drifts, Sundays fill up. This part asks you to look at how things run now, as a curious observer. There is no right answer and nobody is in trouble.",
+      "ideas": [
+        {
+          "heading": "Your family already has routines, whether you chose them or not.",
+          "body": "The phone on the table at breakfast, the film before bed, the Sunday errands: all of these are routines. They grew from what was easy at the time. Seeing them clearly is the first step. You cannot decide to keep or change something you have not noticed."
+        },
+        {
+          "heading": "Looking at screens without blame gives you a truer picture.",
+          "body": "If a child expects a telling-off, they will hide how much they use. Say you are curious, not checking up. Include the adults, because children see how phones are used at home. Note when screens are used, where and for what, and what else is going on at the time."
+        },
+        {
+          "heading": "Sleep is shaped by the whole evening, not by one thing.",
+          "body": "Late bedtimes often have several causes: homework, supper, a bright screen, a noisy house. Look at the whole stretch from tea to lights out. Note when each person goes to bed and roughly when they fall asleep. A pattern often shows up within a few evenings."
+        }
+      ],
+      "takeaway": "Every family has routines already. Look at them with curiosity, and include the adults."
+    },
+    {
+      "number": 2,
+      "focus": "Agree a family screen plan together",
+      "exercise_ids": [
+        "p2_screens"
+      ],
+      "intro": "A screen plan works best when the whole family has a say in it. This part asks you to hold a short talk. You agree a few points: when screens are on, where they stay and what is off limits. The adults agree to follow it too.",
+      "ideas": [
+        {
+          "heading": "A plan the family made together is easier to follow than one handed down.",
+          "body": "Hold a short talk with everyone, including the youngest who can join. Ask what each person likes about screens and what bothers them. Then ask for ideas. Children often suggest rules stricter than you would. Write the agreed points on one sheet."
+        },
+        {
+          "heading": "Where screens live matters as much as when they are on.",
+          "body": "A charging spot in the hall or kitchen at night keeps phones out of bedrooms. Meals can be eaten without screens by everyone. Pick two or three places or times and say them plainly. Fewer, clearer points are easier to remember than a long list of limits."
+        },
+        {
+          "heading": "Adults following the plan is what makes it believable.",
+          "body": "Children notice when a rule applies only to them. If phones leave the table, they leave for adults as well. Say so at the start. When someone forgets, a light reminder is enough. It is a family plan, so it belongs to all of you."
+        }
+      ],
+      "takeaway": "Make the screen plan together, keep it to two or three points, and follow it as adults too."
+    },
+    {
+      "number": 3,
+      "focus": "Build a short evening wind-down",
+      "exercise_ids": [
+        "p3_winddown"
+      ],
+      "intro": "A wind-down is a short, familiar run of steps before bed. It gives the evening an end. This part asks you to choose three simple steps your family can share. They can range from tidying up to a story or a quiet talk. Fit them to your own house.",
+      "ideas": [
+        {
+          "heading": "A short, steady wind-down tells everyone the day is closing.",
+          "body": "It might be bath, pyjamas, teeth, a story and lights out, or a cup of tea and a book for older children. The order matters less than keeping it much the same. Familiar steps mark the shift from busy to quiet. Twenty to thirty minutes is plenty."
+        },
+        {
+          "heading": "Screens go off before the wind-down starts, not during it.",
+          "body": "Agree a time when screens are put away for the night. Then the wind-down begins with no pull from a bright device. Give a five-minute warning so no one is cut off mid-game. Phones charge outside bedrooms. Adults put theirs away too."
+        },
+        {
+          "heading": "Older children can design their own wind-down within the family plan.",
+          "body": "A teenager will not want a story, but may want music, a shower and a chat on the landing. Give them the outline and let them fill it in. A quick word at their door still counts as contact. Respecting their choices makes them more willing to keep the plan."
+        }
+      ],
+      "takeaway": "A wind-down is a few familiar steps after screens go off. Let older children build their own version."
+    },
+    {
+      "number": 4,
+      "focus": "Choose one slower day and review the plan together",
+      "exercise_ids": [
+        "p4_slow"
+      ],
+      "intro": "Family life moves fast, and one day with less in it changes how the week feels. This last part asks you to choose a slower day, such as Sunday, and to plan what it holds and what it leaves out. Then you set a time to review the whole plan with the family.",
+      "ideas": [
+        {
+          "heading": "A slower day works when it has fewer plans, not more activities.",
+          "body": "Pick one day and protect it. Say no to a few things in advance. Keep a late start, a shared meal and something outdoors if you can. The point is time together with nothing to rush for. A long list of extras defeats the purpose."
+        },
+        {
+          "heading": "Each person can name one thing they want from the slower day.",
+          "body": "Ask everyone what would make the day feel slow to them. A child might want pancakes, a teenager a lie-in, a parent an hour with a book. Write them down and fit in what you can. When people choose, they take part instead of waiting to be entertained."
+        },
+        {
+          "heading": "A review after a few weeks lets the plan change with the family.",
+          "body": "Set a date to talk about what is working. Ask what to keep, what to drop and what to try. A plan made in autumn may not suit spring. Adjusting is part of the process, not a sign that something has gone wrong."
+        }
+      ],
+      "takeaway": "Protect one slower day with fewer plans. Review the whole plan together after a few weeks."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_notice",
+      "title": "Notice a typical day",
+      "purpose": "A short note of when screens are used and when everyone goes to bed.",
+      "why": "Over a few days, note when screens come out, where, and who uses them, adults included. Also note when each person goes to bed. Write it as a description, not a verdict. A rough note is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Note when screens come out and who uses them."
+        },
+        {
+          "text": "Note when each person goes to bed."
+        }
+      ],
+      "fields": [
+        {
+          "id": "screens",
+          "type": "long_text",
+          "label": "When and where do screens come out in your house?"
+        },
+        {
+          "id": "bedtimes",
+          "type": "short_text",
+          "label": "When does each person usually go to bed?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "screens",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "bedtimes",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about when screens come out."
+          }
+        ],
+        "field_ids": [
+          "screens"
+        ]
+      },
+      "done_when": "You have a rough note of screens and bedtimes."
+    },
+    {
+      "id": "p2_screens",
+      "title": "Write your family screen plan",
+      "purpose": "A one-sheet screen plan with two or three points everyone has agreed.",
+      "why": "Hold a short family talk. Ask each person what they like and what bothers them about screens. Agree two or three points, such as where phones sleep and meals without screens. Write them on one sheet. If someone is not ready, leave their point for next time.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Ask each person what they like and what bothers them."
+        },
+        {
+          "text": "Agree two or three points and write them down."
+        }
+      ],
+      "fields": [
+        {
+          "id": "points",
+          "type": "long_text",
+          "label": "Which two or three screen points did your family agree?"
+        },
+        {
+          "id": "adults",
+          "type": "short_text",
+          "label": "What will the adults do to follow the plan?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "points",
+          "plan_section": "screens"
+        },
+        {
+          "field_id": "adults",
+          "plan_section": "screens"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one screen point you could agree on."
+          }
+        ],
+        "field_ids": [
+          "points"
+        ]
+      },
+      "done_when": "You have two or three screen points written on one sheet."
+    },
+    {
+      "id": "p3_winddown",
+      "title": "Design your wind-down",
+      "purpose": "Three wind-down steps and a time when screens go off.",
+      "why": "Choose three steps for the last stretch of the evening, such as tidying, teeth and a story. Pick a time when screens go off before they begin. Ask the children what they would add. If your evenings vary, write the usual pattern.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose three steps for the wind-down."
+        },
+        {
+          "text": "Pick a time when screens go off."
+        }
+      ],
+      "fields": [
+        {
+          "id": "steps",
+          "type": "long_text",
+          "label": "Which three steps will make up your family's wind-down?"
+        },
+        {
+          "id": "off",
+          "type": "short_text",
+          "label": "What time will screens go off?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "steps",
+          "plan_section": "winddown"
+        },
+        {
+          "field_id": "off",
+          "plan_section": "winddown"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one wind-down step you already do."
+          }
+        ],
+        "field_ids": [
+          "steps"
+        ]
+      },
+      "done_when": "You have three steps and a time for screens to go off."
+    },
+    {
+      "id": "p4_slow",
+      "title": "Plan a slower day",
+      "purpose": "A slower day with what it holds, and a date to review the plan.",
+      "why": "Choose the day that will be your slower one. Ask each person for one thing they would like from it. Then pick a date, a few weeks ahead, to sit down and review the whole plan together. If the date is unclear, say roughly when.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose the slower day and one wish from each person."
+        },
+        {
+          "text": "Pick a date for the family review."
+        }
+      ],
+      "fields": [
+        {
+          "id": "day",
+          "type": "short_text",
+          "label": "Which day will be your slower day, and what will it hold?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you review the plan together?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "day",
+          "plan_section": "slow"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "slow"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write which day will be your slower one."
+          }
+        ],
+        "field_ids": [
+          "day"
+        ]
+      },
+      "done_when": "You have a slower day chosen and a date for the review."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your family screen plan is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your screens, your wind-down and your slower day."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "How things run now"
+    },
+    {
+      "id": "screens",
+      "title": "Family screen plan"
+    },
+    {
+      "id": "winddown",
+      "title": "Evening wind-down"
+    },
+    {
+      "id": "slow",
+      "title": "A slower day"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds how things run now, your screen plan, your wind-down and your slower day.",
+    "book_bridge": "Screens, Sleep and Sundays is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which part of the plan is working best this month?",
+      "What has changed in your evenings since the wind-down?",
+      "What would the family like from the next slower day?"
+    ],
+    "refresher_ids": [
+      "p2_screens",
+      "p4_slow"
+    ]
+  }
+}

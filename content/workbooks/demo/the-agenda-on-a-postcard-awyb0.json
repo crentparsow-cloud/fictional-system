@@ -1,0 +1,387 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-AWYB0",
+  "slug": "the-agenda-on-a-postcard-awyb0",
+  "title": "The Agenda on a Postcard",
+  "card_line": "Run meetings from a postcard agenda that ends with a decision.",
+  "book": {
+    "book_id": "the-agenda-on-a-postcard",
+    "title": "The Agenda on a Postcard",
+    "subtitle": "Shorter Meetings That Decide Things"
+  },
+  "author": {
+    "author_id": "AU-GFYGM",
+    "display_name": "Meenakshi Iyer-Rao"
+  },
+  "genre": "productivity",
+  "theme_id": "purposeful-time",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about running shorter meetings that end with a decision. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a meeting audit, a postcard agenda, a decision note and a plan to cancel or merge one meeting. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Which meeting last week could have been shorter, or not held at all? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Look at a week of meetings and ask what each is for",
+      "exercise_ids": [
+        "p1_audit"
+      ],
+      "intro": "Most diaries fill with meetings nobody chose. Before you change how you run them, look at what you already attend. This part asks you to list one week of meetings and give each a purpose in a few words. Some will have a clear one. Others will not.",
+      "ideas": [
+        {
+          "heading": "Every meeting needs a purpose you can state in one sentence.",
+          "body": "If you cannot say why a meeting exists, the people in it cannot either. Try finishing this sentence: we meet so that we can decide, share or solve something. A meeting with no such sentence is a candidate for change. Write the sentence beside each entry in your diary."
+        },
+        {
+          "heading": "Meetings do three jobs: deciding, sharing news and working a problem together.",
+          "body": "Each job needs a different shape. Deciding needs the right people and a clear question. Sharing news can often be a short written note. Problem work needs time and a few minds. Mixing the three in one slot is why many meetings drift and overrun."
+        },
+        {
+          "heading": "Counting the hours shows what meetings really cost.",
+          "body": "Add up the time of every person in the room, not just yours. A one-hour meeting of eight people takes eight hours of work from the week. Seeing that figure makes people ask whether the meeting earns its place. Do the sum before you decide what to keep."
+        }
+      ],
+      "takeaway": "Give every meeting a one-sentence purpose, and count the hours of everyone in the room. Then decide what to keep."
+    },
+    {
+      "number": 2,
+      "focus": "Write a postcard agenda with a time limit for each item",
+      "exercise_ids": [
+        "p2_postcard"
+      ],
+      "intro": "A postcard has room for a handful of lines. That limit is the point. If the agenda does not fit, the meeting is probably trying to do too much. This part asks you to write one agenda as if on a postcard, with the purpose, the items and the minutes for each.",
+      "ideas": [
+        {
+          "heading": "An agenda that fits on a postcard keeps the meeting focused.",
+          "body": "Start with the purpose at the top. Add three or four items at most, each as a question to answer. Leave out background that people can read beforehand. A short agenda is easier to send, to read and to follow. If it will not fit, split the meeting."
+        },
+        {
+          "heading": "Give each item a time limit and say it out loud.",
+          "body": "Write the minutes beside each item. At the start, read them aloud. Keep an eye on the clock and say when time is nearly up. People relax when they know the end is in sight. A time limit also makes it clear which item matters most."
+        },
+        {
+          "heading": "Send the postcard before the meeting so people arrive ready.",
+          "body": "Share the agenda a day ahead, with anything to read. Ask people to bring a view on each question. Those who cannot attend can send comments. Meetings go faster when nobody is hearing the topic for the first time. Keep the pre-reading short, so that people actually read it."
+        }
+      ],
+      "takeaway": "Write the purpose and three or four questions with minutes beside them. Send it ahead so people arrive ready."
+    },
+    {
+      "number": 3,
+      "focus": "End each meeting with a short decision note",
+      "exercise_ids": [
+        "p3_note"
+      ],
+      "intro": "A meeting that ends without a decision tends to be followed by another. A decision note closes the loop: what was decided, who will do what and by when. This part asks you to write a note for the meeting you planned. You can use the same layout for any meeting.",
+      "ideas": [
+        {
+          "heading": "A meeting is not finished until the decision is said aloud.",
+          "body": "Leave the last few minutes to sum up. Ask what has been decided and what has not. If something is still open, name who will bring it back and when. Saying it aloud lets people correct a misunderstanding before they leave the room."
+        },
+        {
+          "heading": "A decision note has four lines: decision, action, owner and date.",
+          "body": "Write what was decided, what needs doing, who does it and by when. Keep it to those four. Send it within the hour while memories are fresh. Four lines are read, where full minutes tend not to be. The note becomes the record people look back to."
+        },
+        {
+          "heading": "Not every item ends in a decision, and that is acceptable.",
+          "body": "Some items are for sharing or exploring. Say so at the start. For those, the note records what was learned and what happens next. What matters is that each item leaves with a clear outcome, even if the outcome is to gather more information."
+        }
+      ],
+      "takeaway": "End each meeting by saying what was decided. Send four lines: decision, action, owner and date."
+    },
+    {
+      "number": 4,
+      "focus": "Cancel, merge or replace meetings that do not earn their time",
+      "exercise_ids": [
+        "p4_change"
+      ],
+      "intro": "Better agendas change the meetings you keep. Some meetings are better ended. This part asks you to look back at your audit and choose what to cancel, merge or replace with a short written update. Start with one. A small change is easier to carry through.",
+      "ideas": [
+        {
+          "heading": "A meeting with no decisions and no questions can become a message.",
+          "body": "Regular updates often fit in a few written lines. Replace the meeting with a note sent at the same time. Invite replies for anything that needs discussion. People get their time back, and the information still reaches them. If a question comes up in reply, you can call a short meeting then."
+        },
+        {
+          "heading": "Two meetings with the same people can often become one.",
+          "body": "Check your audit for meetings with a similar group and a related subject. Merge them into a single slot with a postcard agenda. You save the setup time and the second round of reminders. Keep the merged meeting only as long as the agenda needs."
+        },
+        {
+          "heading": "Cancelling a meeting is easier when you say what will replace it.",
+          "body": "People worry that a gap means lost contact. Tell them what happens instead: a note, a shorter call or a check when needed. Try it for a month and ask for views. If the change does not work, you can put the meeting back."
+        }
+      ],
+      "takeaway": "Turn update meetings into messages, merge overlapping ones, and say what replaces anything you cancel."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_audit",
+      "title": "Audit one week of meetings",
+      "purpose": "A list of one week of meetings, each with its length and purpose.",
+      "why": "Open your diary for the past or coming week. List each meeting, its length and its purpose in a few words. Note any where you cannot name a purpose. Five entries are enough.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List each meeting and its length."
+        },
+        {
+          "text": "Write its purpose in a few words."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meetings",
+          "type": "two_column",
+          "label": "Which meetings did you have, and what was each for?",
+          "columns": [
+            "Meeting and length",
+            "Purpose"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "unclear",
+          "type": "short_text",
+          "label": "Which meeting has no clear purpose?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meetings",
+          "plan_section": "audit"
+        },
+        {
+          "field_id": "unclear",
+          "plan_section": "audit"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List three meetings and their purpose."
+          }
+        ],
+        "field_ids": [
+          "meetings"
+        ]
+      },
+      "done_when": "You have a list with a purpose or a gap against each."
+    },
+    {
+      "id": "p2_postcard",
+      "title": "Write one postcard agenda",
+      "purpose": "One postcard agenda with a purpose, items and minutes.",
+      "why": "Pick a meeting you run or attend. Write its purpose at the top, then three or four items as questions, each with minutes. Check that the total fits the time. If it does not, cut an item.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the purpose in one line."
+        },
+        {
+          "text": "Write three or four questions with minutes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "purpose",
+          "type": "short_text",
+          "label": "What is the purpose of this meeting, in one line?"
+        },
+        {
+          "id": "items",
+          "type": "long_text",
+          "label": "What questions will it answer, and how many minutes for each?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "purpose",
+          "plan_section": "postcard"
+        },
+        {
+          "field_id": "items",
+          "plan_section": "postcard"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the purpose of one meeting."
+          }
+        ],
+        "field_ids": [
+          "purpose"
+        ]
+      },
+      "done_when": "The agenda fits on a postcard and the minutes add up."
+    },
+    {
+      "id": "p3_note",
+      "title": "Draft a decision note",
+      "purpose": "A four-line decision note for the meeting on your postcard.",
+      "why": "Imagine your meeting has just ended. Write the four lines you would send: what was decided, what needs doing, who does it and the date. Use plain words. If you cannot predict the decision, write the likeliest one.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the decision and the action."
+        },
+        {
+          "text": "Add the owner and the date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "note",
+          "type": "long_text",
+          "label": "What are your four lines: decision, action, owner and date?"
+        },
+        {
+          "id": "open",
+          "type": "short_text",
+          "label": "Which item might stay open, and who will bring it back?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "note",
+          "plan_section": "note"
+        },
+        {
+          "field_id": "open",
+          "plan_section": "note"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the decision in one line."
+          }
+        ],
+        "field_ids": [
+          "note"
+        ]
+      },
+      "done_when": "The note has four lines you could send."
+    },
+    {
+      "id": "p4_change",
+      "title": "Choose one meeting to change",
+      "purpose": "One meeting chosen to cancel, merge or replace, with what happens next.",
+      "why": "Look at your audit from Part 1. Choose one meeting to cancel, merge or replace. Write what will take its place and when you will tell the people involved. If nothing seems right, pick the one with the least clear purpose.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one meeting from your audit."
+        },
+        {
+          "text": "Write what replaces it and when you will tell people."
+        }
+      ],
+      "fields": [
+        {
+          "id": "which",
+          "type": "short_text",
+          "label": "Which meeting will you cancel, merge or replace?"
+        },
+        {
+          "id": "instead",
+          "type": "long_text",
+          "label": "What will take its place, and when will you tell people?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "which",
+          "plan_section": "change"
+        },
+        {
+          "field_id": "instead",
+          "plan_section": "change"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name the meeting you will change."
+          }
+        ],
+        "field_ids": [
+          "which"
+        ]
+      },
+      "done_when": "One meeting is chosen and its replacement is written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your postcard agenda is saved and ready to send."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your audit, postcard, decision note and one change."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "audit",
+      "title": "Your meeting audit"
+    },
+    {
+      "id": "postcard",
+      "title": "Your postcard agenda"
+    },
+    {
+      "id": "note",
+      "title": "Your decision note"
+    },
+    {
+      "id": "change",
+      "title": "The meeting you will change"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your meeting audit, your postcard agenda, your decision note and the one meeting you will change.",
+    "book_bridge": "The Agenda on a Postcard is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which meeting this month ended with a clear decision?",
+      "Has the changed meeting been missed?",
+      "Which meeting is next in line for a postcard?"
+    ],
+    "refresher_ids": [
+      "p2_postcard",
+      "p4_change"
+    ]
+  }
+}

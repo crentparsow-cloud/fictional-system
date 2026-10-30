@@ -1,0 +1,369 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-5X1C5",
+  "slug": "the-shopping-list-on-the-fridge-5x1c5",
+  "title": "The Shopping List on the Fridge",
+  "card_line": "Plan a week of everyday meals and keep the shopping list on the fridge.",
+  "book": {
+    "book_id": "the-shopping-list-on-the-fridge",
+    "title": "The Shopping List on the Fridge",
+    "subtitle": "Planning a Week of Everyday Meals"
+  },
+  "author": {
+    "author_id": "AU-4W407",
+    "display_name": "Niamh Corrigan-Oduya"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "wellbeing",
+  "theme_id": "nourishing-meals",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about planning a week of everyday meals and keeping the shopping list where you can see it. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan for five evenings and a list of meals your household likes. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Try the exercise. A word or two is fine if that is all you have.",
+      "Your answers build a meal plan you can read at the end."
+    ],
+    "why_prompt": "What makes planning meals for the week hard in your home? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday meal planning. If thinking about food is hard for you, or using it would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Write down what you ate last week without judging it",
+      "exercise_ids": [
+        "p1_last_week"
+      ],
+      "intro": "A plan starts from what really happens in your kitchen. This part asks you to look back over last week and write down what you ate. There is no counting and no marking. You are looking for the meals that came up again and the ones that went wrong.",
+      "ideas": [
+        {
+          "heading": "A plain list of last week's meals is the best place to start.",
+          "body": "Write what was eaten, in order, in whatever words come. Toast on Monday, jacket potatoes on Tuesday, a takeaway on Friday. Do not add anything up. The list shows how your week really went. That is a firmer base for a plan than how you wish it had gone."
+        },
+        {
+          "heading": "Meals you repeat without trying show what your household likes.",
+          "body": "Look for the dishes that appeared more than once, or the ones everyone finished. They are the start of your plan. People often plan meals they think they ought to cook and then cook something else. Starting from what already works saves the effort."
+        },
+        {
+          "heading": "A meal that went wrong tells you about time, not about you.",
+          "body": "Perhaps a late finish meant beans on toast, or the shop was out of an ingredient. Note the reason in a few words. Most of the time it points to tiredness or a missing item, and both can be planned around. It is not a verdict on how you cook."
+        }
+      ],
+      "takeaway": "Last week's meals, written plainly, are the base for your plan. Repeated dishes show what your household already likes."
+    },
+    {
+      "number": 2,
+      "focus": "Plan five evening meals on one page",
+      "exercise_ids": [
+        "p2_five"
+      ],
+      "intro": "Deciding what to cook at six o'clock is hard. Deciding on a quiet afternoon is easier. This part asks you to choose five evening meals for the coming week and put them on a single page. Two evenings stay open for leftovers, a takeaway or plans that change.",
+      "ideas": [
+        {
+          "heading": "Five planned evenings leave room for the other two.",
+          "body": "You do not need seven meals mapped out. Five gives the week a shape, and the other two nights can take leftovers, a quick snack or a meal out. A plan with some give in it survives a late bus or a sudden invitation, so you are less likely to abandon it."
+        },
+        {
+          "heading": "Put the meals that need time on the evenings you have time.",
+          "body": "Look at your diary first. A stew suits the evening when nobody is rushing out. A quick pasta suits the night of the school concert or the late shift. Matching the meal to the evening is the main skill in planning, and it grows with time."
+        },
+        {
+          "heading": "One page you can see is better than a plan in your head.",
+          "body": "Write the five meals on a sheet of paper and put it on the fridge. Everyone in the house can read it, and nobody has to ask what is for tea. The page can be crossed through and changed. It is there to save you deciding, not to hold you to it."
+        }
+      ],
+      "takeaway": "Five meals on one page, matched to your evenings, is a plan. Keep it where the household can see it."
+    },
+    {
+      "number": 3,
+      "focus": "Build the shopping list from the plan and the cupboard",
+      "exercise_ids": [
+        "p3_list"
+      ],
+      "intro": "A list made at the shop is usually longer than a list made at home. This part shows you how to build one from your plan and a quick look at what you already have. It saves buying the same tin twice. The list lives on the fridge and grows through the week.",
+      "ideas": [
+        {
+          "heading": "Check the cupboard before you write a single item.",
+          "body": "Open the fridge, the freezer and the cupboard with your plan beside you. Cross off anything you already hold. Many households find a half packet of rice or a forgotten tin that covers a meal. What is left is your list, and it will be shorter than you thought."
+        },
+        {
+          "heading": "Group the list by where things sit in the shop.",
+          "body": "Put fruit and vegetables together, then tins and packets, then the fridge items. You walk the shop once and do not double back. It also shows quickly if the list has grown too long. A list in shop order is quicker to use, and easier to hand to someone else."
+        },
+        {
+          "heading": "A list kept on the fridge catches what runs out.",
+          "body": "Leave a pen beside it. When the milk or the oil is nearly gone, write it down at once. That removes the worry of remembering at the shop. Anyone in the house can add to it. By shopping day the list is half written without any effort."
+        }
+      ],
+      "takeaway": "Check the cupboard first, then write the list in shop order. A pen by the fridge catches the rest."
+    },
+    {
+      "number": 4,
+      "focus": "Make breakfasts and lunches simple and keep a list of meals you like",
+      "exercise_ids": [
+        "p4_rotation"
+      ],
+      "intro": "Evening meals are only part of the week. This part covers breakfasts and lunches that take five minutes, and small, easy ways to add water, fruit and vegetables if you want to. It ends with a rotating list of meals your household likes, so planning gets quicker each week.",
+      "ideas": [
+        {
+          "heading": "Breakfasts and lunches work best when you pick two or three and repeat them.",
+          "body": "Choose a couple of five minute options, such as porridge, toast with something on it, or a sandwich and fruit. Having the same few means you buy less and decide less. If you want variety, change one thing a week. A new lunch is not required."
+        },
+        {
+          "heading": "Fruit, vegetables and water can be added in small, easy ways.",
+          "body": "Keep a jug of water on the table. Put a piece of fruit by the kettle. Add a handful of frozen peas to a pasta sauce. These are small changes to what you already do. Take only the ones that appeal, and leave the rest for another week."
+        },
+        {
+          "heading": "A rotating list of meals gives you a plan without starting over.",
+          "body": "Write down ten or so meals your household likes. Each week, choose five from the list. When someone enjoys a new dish, add it. When something stops being popular, cross it off. After a few weeks you will plan in minutes."
+        }
+      ],
+      "takeaway": "A few repeated breakfasts and lunches keep the week simple. A rotating list of liked meals makes the next plan quick."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_last_week",
+      "title": "Write down last week's meals",
+      "purpose": "A plain list of last week's meals and the ones your household liked.",
+      "why": "Think back over the last week and write down what was eaten, in whatever words come. Mark the meals that went down well. No counting and no marking out of ten. If you cannot remember a day, leave it blank or write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the meals from the last week."
+        },
+        {
+          "text": "Mark the ones the household liked."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meals_last_week",
+          "type": "two_column",
+          "label": "What did you eat last week, and what did you like?",
+          "columns": [
+            "The meal",
+            "How it went"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meals_last_week",
+          "plan_section": "last_week"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down two meals from last week that went well."
+          }
+        ],
+        "field_ids": [
+          "meals_last_week"
+        ]
+      },
+      "done_when": "You have at least one meal written down."
+    },
+    {
+      "id": "p2_five",
+      "title": "Plan five evening meals",
+      "purpose": "A one page plan of five evening meals matched to your week.",
+      "why": "Look at your diary for the coming week. Choose five evenings and a meal for each, with quicker meals on the busier nights. Leave two evenings open. If five feels like too many, write three.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Pick five evenings from your week."
+        },
+        {
+          "text": "Match a meal to each, with the quick ones on busy nights."
+        }
+      ],
+      "fields": [
+        {
+          "id": "five_meals",
+          "type": "long_text",
+          "label": "Which five evening meals will you cook this week?"
+        },
+        {
+          "id": "busy_night",
+          "type": "short_text",
+          "label": "Which evening is your busiest, and what will you cook then?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "five_meals",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "busy_night",
+          "plan_section": "plan"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write down two evening meals for this week."
+          }
+        ],
+        "field_ids": [
+          "five_meals"
+        ]
+      },
+      "done_when": "You have at least three evening meals written down."
+    },
+    {
+      "id": "p3_list",
+      "title": "Build your shopping list",
+      "purpose": "A shopping list built from your plan, with what you already have taken off.",
+      "why": "Take your plan and look through the fridge, freezer and cupboard. Write down what each meal needs, then cross off what you already have. Put what is left in the order of the shop. If it feels like a lot, start with one meal.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List what each planned meal needs."
+        },
+        {
+          "text": "Cross off what you have and group the rest."
+        }
+      ],
+      "fields": [
+        {
+          "id": "shopping_list",
+          "type": "long_text",
+          "label": "What will you buy for this week's meals?"
+        },
+        {
+          "id": "already_have",
+          "type": "short_text",
+          "label": "What did you find that you already had?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "shopping_list",
+          "plan_section": "list"
+        },
+        {
+          "field_id": "already_have",
+          "plan_section": "list"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List what one planned meal needs."
+          }
+        ],
+        "field_ids": [
+          "shopping_list"
+        ]
+      },
+      "done_when": "You have a list, even a short one."
+    },
+    {
+      "id": "p4_rotation",
+      "title": "Start your list of liked meals",
+      "purpose": "Two quick breakfasts or lunches and a start on a list of liked meals.",
+      "why": "Choose a quick breakfast and a quick lunch you would be happy to repeat. Then write down the meals your household likes best, as many as come to mind. This is the list you will draw from each week. Five is a fine start.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one quick breakfast and one quick lunch."
+        },
+        {
+          "text": "Write the meals your household likes."
+        }
+      ],
+      "fields": [
+        {
+          "id": "quick_meals",
+          "type": "short_text",
+          "label": "Which quick breakfast and lunch could you repeat?"
+        },
+        {
+          "id": "liked_meals",
+          "type": "long_text",
+          "label": "Which meals does your household like best?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "quick_meals",
+          "plan_section": "rotation"
+        },
+        {
+          "field_id": "liked_meals",
+          "plan_section": "rotation"
+        }
+      ],
+      "done_when": "You have two quick meals and at least three liked meals."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your evening meals are written down and ready to cook."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your meals, your list and the meals you like."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "last_week",
+      "title": "Last week's meals"
+    },
+    {
+      "id": "plan",
+      "title": "Your five evening meals"
+    },
+    {
+      "id": "list",
+      "title": "Your shopping list"
+    },
+    {
+      "id": "rotation",
+      "title": "Meals your household likes"
+    }
+  ],
+  "finish": {
+    "summary": "You wrote down last week's meals, a plan for five evenings and a shopping list. You also started a list of the meals your household likes.",
+    "book_bridge": "The Shopping List on the Fridge is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which meal from your list did your household enjoy most this month?",
+      "What have you added to the list of liked meals?",
+      "Is the page on the fridge still working for you?"
+    ],
+    "refresher_ids": [
+      "p2_five",
+      "p4_rotation"
+    ]
+  }
+}

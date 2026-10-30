@@ -1,0 +1,396 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-HJY00",
+  "slug": "teams-that-carry-it-together-hjy00",
+  "title": "Teams That Carry It Together",
+  "card_line": "Share the work in a volunteer team with clear roles and rotas.",
+  "book": {
+    "book_id": "teams-that-carry-it-together",
+    "title": "Teams That Carry It Together",
+    "subtitle": "Sharing the Work in Volunteer Teams"
+  },
+  "author": {
+    "author_id": "AU-1ZS6X",
+    "display_name": "Tama Rāwiri-Hughes"
+  },
+  "genre": "leadership",
+  "theme_id": "shared-direction",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about sharing the work in a volunteer team. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a map of who does what, clear roles, a rota with handovers and a plan for thanking people. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who in your team carries more than their share? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See who does what now and who is carrying too much",
+      "exercise_ids": [
+        "p1_tasks"
+      ],
+      "intro": "Volunteer teams often rely on two or three people who never say no. Everyone else assumes it is all in hand. This part asks you to write down every regular task and who does it. The picture is usually a surprise, and it is the start of sharing the work more evenly.",
+      "ideas": [
+        {
+          "heading": "In most volunteer teams, a few people quietly do most of the work.",
+          "body": "Willing people get asked again, and they say yes again. Over time the same names appear on every job. Nobody planned it that way. Looking at the full list of tasks shows how uneven it has become, and gives you facts to share rather than a complaint."
+        },
+        {
+          "heading": "Tasks nobody has named are the ones that land on the same person.",
+          "body": "Unlocking the hall, buying the milk, sending the reminder. These jobs are small and easy to miss, so they fall to whoever notices. Write them all down, including the ones that seem too minor. The unseen jobs often take up the most time."
+        },
+        {
+          "heading": "Carrying too much is a risk to the team as well as to the person.",
+          "body": "If one person holds all the keys, accounts and contacts, a holiday or an illness stops everything. They may also tire and step back without warning. Sharing the load protects the person and keeps the team running when anyone is away."
+        }
+      ],
+      "takeaway": "Write down every task and who does it. The list shows who carries too much and which jobs nobody has named."
+    },
+    {
+      "number": 2,
+      "focus": "Give each job a clear role with a name beside it",
+      "exercise_ids": [
+        "p2_roles"
+      ],
+      "intro": "A role is a small set of tasks that one person owns. Clear roles stop jobs being done twice or not at all. This part asks you to group the tasks from Part 1 into a handful of roles and write a few lines about each. Keep them short enough to read in a minute.",
+      "ideas": [
+        {
+          "heading": "A role should fit on a few lines and take a few hours a month.",
+          "body": "Long role descriptions put people off. Write what the job is, roughly how long it takes and when it falls. If a task is huge, split it into two roles. A newcomer should be able to read a role and say yes or no without guessing what it involves."
+        },
+        {
+          "heading": "Each role needs one named person, even when others lend a hand.",
+          "body": "Shared ownership often means nobody owns it. Put one name beside each role. That person can ask for help, but the job is theirs to see through. Others know who to ask. It also makes it easy to spot a role that has no owner."
+        },
+        {
+          "heading": "Roles last longer when they have an end date.",
+          "body": "A role with no end can feel like a permanent duty. Offer terms, such as one season or one year, and agree when they finish. People say yes more readily when they can see when it ends. Renewal is easy if they want to carry on."
+        }
+      ],
+      "takeaway": "Group tasks into short roles, give each one an owner, and set an end date. People say yes to what they can see the edges of."
+    },
+    {
+      "number": 3,
+      "focus": "Set up rotas and handovers so jobs do not stay with one person",
+      "exercise_ids": [
+        "p3_rota"
+      ],
+      "intro": "Rotas share the regular jobs. Handovers pass a job on without losing what the last person knew. This part asks you to choose one repeating job, write a simple rota for it and add a short handover note. The aim is a team where anyone can step in.",
+      "ideas": [
+        {
+          "heading": "A rota spreads a regular job across the whole team.",
+          "body": "Locking up, refreshments, the weekly email: any task that repeats can rotate. Agree the order and share it with everyone. Put the dates where all can see them. People can plan ahead, and nobody is asked at the last minute. The load becomes fair and visible."
+        },
+        {
+          "heading": "Swapping should be easy, so that people can still say yes.",
+          "body": "Life gets in the way. Let people swap dates among themselves and tell one named person. A rota that cannot bend gets ignored. Keep the rule short: find your own swap, then update the sheet. Nobody needs to give a reason."
+        },
+        {
+          "heading": "A handover note is one page of what the next person needs to know.",
+          "body": "Say where the keys live, who to call, what usually goes wrong and what the next three weeks hold. Write it while the job is fresh. The next person starts with confidence, and the last one can leave without worrying that things will fall apart."
+        }
+      ],
+      "takeaway": "Rotate the regular jobs, make swaps easy and write a one-page handover note for each role."
+    },
+    {
+      "number": 4,
+      "focus": "Recruit help and thank people properly",
+      "exercise_ids": [
+        "p4_ask"
+      ],
+      "intro": "Every team loses people now and then. Asking for new helpers and thanking existing ones go together. This part asks you to write a clear invitation for one role and plan how you will thank someone already giving their time. Small, honest gestures count for more than large, vague ones.",
+      "ideas": [
+        {
+          "heading": "Ask for a specific job, not for help in general.",
+          "body": "People find it hard to say yes to a vague request. They can say yes to one clear job: a role, a few hours, a start date. Use a role you wrote in Part 2. Ask in person where you can, and say why you thought of them."
+        },
+        {
+          "heading": "A first task that is small and well explained keeps new helpers.",
+          "body": "Start new people with something that takes an hour and has a clear end. Pair them with someone experienced and show them the handover note. A good first experience matters more than a big first job. They can take on more once they feel at home."
+        },
+        {
+          "heading": "Thanks work best when they are prompt, personal and specific.",
+          "body": "Say what the person did and what difference it made. A short message soon after is better than a speech months later. Mention it in front of the team if they would like that, and in private if they would not. Ask people what they prefer."
+        }
+      ],
+      "takeaway": "Ask for one clear job, give new people a small first task, and thank people for what they actually did."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_tasks",
+      "title": "List tasks and who does them",
+      "purpose": "A list of regular tasks with the name of who does each.",
+      "why": "Write down the jobs your team does in a normal month, large and small. Beside each, write who usually does it. Then look for names that appear many times. If you are unsure who does a job, write a question mark.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "List regular tasks, large and small."
+        },
+        {
+          "text": "Write who usually does each one."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tasks",
+          "type": "two_column",
+          "label": "Which tasks does your team do, and who does each?",
+          "columns": [
+            "Task",
+            "Who does it"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "heavy",
+          "type": "short_text",
+          "label": "Whose name appears most often on the list?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tasks",
+          "plan_section": "tasks"
+        },
+        {
+          "field_id": "heavy",
+          "plan_section": "tasks"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "List three tasks and who does them."
+          }
+        ],
+        "field_ids": [
+          "tasks"
+        ]
+      },
+      "done_when": "You have a list of tasks with names beside them."
+    },
+    {
+      "id": "p2_roles",
+      "title": "Write three clear roles",
+      "purpose": "Three short role descriptions, each with an owner or a gap.",
+      "why": "Choose three roles from your task list. For each, write what the job is, how long it takes and when it falls. Add the name of the owner, or write gap if nobody holds it yet.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose three roles from your list."
+        },
+        {
+          "text": "Write the job, the time and the owner."
+        }
+      ],
+      "fields": [
+        {
+          "id": "roles",
+          "type": "long_text",
+          "label": "What are three roles, with the job, the time and the owner?"
+        },
+        {
+          "id": "gap",
+          "type": "short_text",
+          "label": "Which role has no owner yet?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "roles",
+          "plan_section": "roles"
+        },
+        {
+          "field_id": "gap",
+          "plan_section": "roles"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one role in two lines."
+          }
+        ],
+        "field_ids": [
+          "roles"
+        ]
+      },
+      "done_when": "Three roles are written and any gap is named."
+    },
+    {
+      "id": "p3_rota",
+      "title": "Draft a rota and a handover",
+      "purpose": "A simple rota for one repeating job and the first lines of a handover note.",
+      "why": "Choose one job that repeats. List who will do it over the next six turns. Then write three lines a newcomer would need: where things are, who to ask and what often goes wrong.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose one repeating job."
+        },
+        {
+          "text": "Write the order of people for six turns."
+        },
+        {
+          "text": "Write three lines of handover."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rota",
+          "type": "two_column",
+          "label": "Who will do the job over the next six turns?",
+          "columns": [
+            "Date",
+            "Who"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "note",
+          "type": "long_text",
+          "label": "What three lines would a newcomer need to know?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rota",
+          "plan_section": "rota"
+        },
+        {
+          "field_id": "note",
+          "plan_section": "rota"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first three turns of the rota."
+          }
+        ],
+        "field_ids": [
+          "rota"
+        ]
+      },
+      "done_when": "The rota has names and the note has three lines."
+    },
+    {
+      "id": "p4_ask",
+      "title": "Write an invitation and thanks",
+      "purpose": "A short invitation for one role and a thank-you for someone already helping.",
+      "why": "Take one role that needs an owner. Write two or three lines asking someone to take it, with the time and the start date. Then write a thank-you to one person who already helps, saying what they did.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write an invitation for one role."
+        },
+        {
+          "text": "Write a thank-you to one helper."
+        }
+      ],
+      "fields": [
+        {
+          "id": "invite",
+          "type": "long_text",
+          "label": "What invitation will you send for the role that needs an owner?"
+        },
+        {
+          "id": "thanks",
+          "type": "short_text",
+          "label": "Who will you thank, and for what?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "invite",
+          "plan_section": "ask"
+        },
+        {
+          "field_id": "thanks",
+          "plan_section": "ask"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line of thanks."
+          }
+        ],
+        "field_ids": [
+          "invite"
+        ]
+      },
+      "done_when": "One invitation and one thank-you are written."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your roles are saved and ready to share."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your task list, roles, rota and invitation."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "tasks",
+      "title": "Who does what now"
+    },
+    {
+      "id": "roles",
+      "title": "Your clear roles"
+    },
+    {
+      "id": "rota",
+      "title": "Rota and handover"
+    },
+    {
+      "id": "ask",
+      "title": "Invitations and thanks"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds who does what, your clear roles, your rota and handover, and your invitation and thanks.",
+    "book_bridge": "Teams That Carry It Together is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which jobs were done by the same few people this month?",
+      "Does each role still have a named owner?",
+      "Who has not yet been thanked?"
+    ],
+    "refresher_ids": [
+      "p2_roles",
+      "p4_ask"
+    ]
+  }
+}

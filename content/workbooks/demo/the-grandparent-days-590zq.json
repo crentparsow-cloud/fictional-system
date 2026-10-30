@@ -1,0 +1,388 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-590ZQ",
+  "slug": "the-grandparent-days-590zq",
+  "title": "The Grandparent Days",
+  "card_line": "Agree a regular day or call with the parents and keep one tradition going.",
+  "book": {
+    "book_id": "the-grandparent-days",
+    "title": "The Grandparent Days",
+    "subtitle": "Staying Close Without Taking Over"
+  },
+  "author": {
+    "author_id": "AU-R2438",
+    "display_name": "Mereana Tautahi-Cole"
+  },
+  "genre": "parenting",
+  "theme_id": "changing-families",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about staying close to your grandchildren without taking over. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a regular day or call to suggest to the parents and one tradition to keep going. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What do you most want to share with your grandchildren? One line is enough.",
+    "extra_safety_note": "This workbook is for everyday family life. If using it would put you or a child at risk, please set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See the time you have with your grandchildren and what you would like",
+      "exercise_ids": [
+        "p1_time"
+      ],
+      "intro": "Grandparents come in many kinds: nearby or far away, weekly or occasional, sometimes raising the children themselves. This part asks you to look at the time you have now and what you would like it to be. It is a picture, not a complaint.",
+      "ideas": [
+        {
+          "heading": "Your time with the children is worth counting before you try to change it.",
+          "body": "Write down when you last saw or spoke to each grandchild and how long it lasted. Include calls and messages. The result is often smaller or larger than you expected. Either way, you start from what is true, and you can talk about it plainly with the parents later."
+        },
+        {
+          "heading": "What you would like may differ from what is possible, and both matter.",
+          "body": "You may want a weekly visit, while the parents can manage a monthly one. Say what you would like, honestly, to yourself first. Then think about what else would be good enough. Wanting more is not demanding. It is information."
+        },
+        {
+          "heading": "Each grandchild may want something different from you.",
+          "body": "A toddler wants a lap and a song. A ten-year-old wants a fishing trip. A teenager wants you to listen and not hurry them. Think about each one by name. What do they like doing with you, and what would they like to do more?"
+        }
+      ],
+      "takeaway": "Count the time you have, say what you would like, and think about what each grandchild enjoys."
+    },
+    {
+      "number": 2,
+      "focus": "Talk with the parents about their rules and yours",
+      "exercise_ids": [
+        "p2_talk"
+      ],
+      "intro": "The children's parents set the rules, and grandparents work within them. Differences are normal and can be talked about. This part asks you to find out what matters most to the parents. You also say what matters most to you, so the children are not caught between.",
+      "ideas": [
+        {
+          "heading": "The parents' rules come first, even when you would do it differently.",
+          "body": "Sweets, bedtimes, screens and manners are theirs to decide. You may have raised your own children differently and well. That is no reason to overrule. Ask what matters most to them, and follow it. Trust grows when they see you following their lead."
+        },
+        {
+          "heading": "A short, friendly talk beats a correction in front of the children.",
+          "body": "Choose a quiet moment and ask \"Is there anything you would like me to do differently?\" Listen without defending. If something worries you, say it as a question. Never criticise a parent in front of a child. A calm conversation keeps everyone on the same side."
+        },
+        {
+          "heading": "Your house can have its own ways within what the parents allow.",
+          "body": "Grandparents' homes are often special because they are different: a particular biscuit tin, a game, an old song. These are yours to keep. Check any big differences with the parents first. Small ways of your own are part of what the children love."
+        }
+      ],
+      "takeaway": "Follow the parents' rules, ask them what matters, and keep a few ways that are your own."
+    },
+    {
+      "number": 3,
+      "focus": "Agree a regular day or call that you can keep",
+      "exercise_ids": [
+        "p3_regular"
+      ],
+      "intro": "A regular time gives everyone something to count on. For the children, it is a fixed point. For the parents, it is easy to plan around. This part asks you to suggest one regular day or call, and to keep it simple enough to last.",
+      "ideas": [
+        {
+          "heading": "A fixed day or call is easier for everyone than \"whenever you can\".",
+          "body": "Open invitations are hard to act on, and busy parents put them off. A set time, such as Tuesday after school or Sunday at six, goes into the diary. Suggest it and let the parents adjust. It becomes something the children can count on."
+        },
+        {
+          "heading": "Distance does not stop a regular call, and the call can have a shape.",
+          "body": "A video call with a grandparent can be short and still work. Read a story, show them the garden, play a simple game. Ten minutes is plenty for small ones. Older children may prefer messages. Let them choose how to keep in touch."
+        },
+        {
+          "heading": "Keep the arrangement small enough that you can always manage it.",
+          "body": "A weekly visit that you often cancel is worse than a fortnightly one that always happens. Be honest about your energy, your health and your other commitments. Start small and add more later. Children notice when a plan holds. Reliability matters more than quantity."
+        }
+      ],
+      "takeaway": "Suggest one fixed day or call, and keep it small enough to be reliable."
+    },
+    {
+      "number": 4,
+      "focus": "Keep small traditions going and pass on your stories",
+      "exercise_ids": [
+        "p4_tradition"
+      ],
+      "intro": "Children remember small, repeated things: the way you make toast, the song you sing, the story you tell. This part asks you to choose one tradition to keep going and one story to pass on. They need not be grand.",
+      "ideas": [
+        {
+          "heading": "A small tradition does more than a grand gesture.",
+          "body": "A Friday pancake, a birthday card in your handwriting, a walk to the same bench. Children hold on to these. Choose one that you enjoy and can keep, and tell the parents about it. Small and repeated beats large and rare."
+        },
+        {
+          "heading": "Your stories give children a place in a longer history.",
+          "body": "Tell them where you grew up, what school was like, how you met their grandparent. Keep it short and true. Children like to hear that grown-ups were once small. Write a story down or record it on a phone, so it can be kept."
+        },
+        {
+          "heading": "Asking the children for their stories keeps it a two-way exchange.",
+          "body": "Ask what they did at school, what they are reading, what they would like to learn. Listen. A grandparent who is interested is a gift in itself. Let the tradition include something they bring to it, so it belongs to them too."
+        }
+      ],
+      "takeaway": "Keep one small tradition and pass on one short story. Ask the children for theirs."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_time",
+      "title": "Look at your time together",
+      "purpose": "A note of when you last saw each grandchild and how much time you would like.",
+      "why": "Write each grandchild's name and when you last saw or spoke to them, calls included. Then write how much time with them you would like. Be honest with yourself. If you cannot remember exactly, give a rough guess.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write each grandchild and when you last saw them."
+        },
+        {
+          "text": "Write the time you would like."
+        }
+      ],
+      "fields": [
+        {
+          "id": "last",
+          "type": "two_column",
+          "label": "When did you last see or speak to each grandchild?",
+          "columns": [
+            "Grandchild",
+            "When you last saw or spoke"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "wish",
+          "type": "short_text",
+          "label": "How much time with them would you like?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "last",
+          "plan_section": "now"
+        },
+        {
+          "field_id": "wish",
+          "plan_section": "now"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one grandchild and the last time you spoke."
+          }
+        ],
+        "field_ids": [
+          "last"
+        ]
+      },
+      "done_when": "Each grandchild has a line and you have written what you would like."
+    },
+    {
+      "id": "p2_talk",
+      "title": "Prepare a talk with the parents",
+      "purpose": "Your guess at what matters to the parents and one question to ask them.",
+      "why": "Think about the rules that matter most to the children's parents. Write your best guess. Then write one question you will ask them, in your own words. Choose a calm time to ask. If it feels awkward, start with a small question.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what you think matters most to the parents."
+        },
+        {
+          "text": "Write one question to ask them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "parents",
+          "type": "short_text",
+          "label": "What do you think matters most to the parents?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Which one question will you ask them?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "parents",
+          "plan_section": "parents"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "parents"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one question for the parents."
+          }
+        ],
+        "field_ids": [
+          "ask"
+        ]
+      },
+      "done_when": "You have a guess and a question written down."
+    },
+    {
+      "id": "p3_regular",
+      "title": "Suggest a regular day or call",
+      "purpose": "A regular day or call, and the words you will use to suggest it.",
+      "why": "Choose one regular day or call that you could keep up. Make it small enough that you can always manage it. Write the sentence you will use to suggest it to the parents. If a fixed day is not possible, suggest a fixed week.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one regular day or call."
+        },
+        {
+          "text": "Write how you will suggest it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "regular",
+          "type": "short_text",
+          "label": "What regular day or call will you suggest?"
+        },
+        {
+          "id": "how",
+          "type": "short_text",
+          "label": "How will you put it to the parents?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "regular",
+          "plan_section": "regular"
+        },
+        {
+          "field_id": "how",
+          "plan_section": "regular"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the day or call you would suggest."
+          }
+        ],
+        "field_ids": [
+          "regular"
+        ]
+      },
+      "done_when": "You have a day or call and a sentence to suggest it."
+    },
+    {
+      "id": "p4_tradition",
+      "title": "Choose a tradition and a story",
+      "purpose": "One small tradition to keep going and one story to pass on.",
+      "why": "Pick one small tradition that you enjoy and can keep, and one short story from your own life. Write both in a line or two. Think about how each grandchild could add something of their own. If one is enough for now, choose the tradition.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a tradition."
+        },
+        {
+          "text": "Choose a story to pass on."
+        }
+      ],
+      "fields": [
+        {
+          "id": "tradition",
+          "type": "short_text",
+          "label": "Which small tradition will you keep going?"
+        },
+        {
+          "id": "story",
+          "type": "short_text",
+          "label": "Which story will you pass on?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "tradition",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "story",
+          "plan_section": "keep"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small tradition you already have."
+          }
+        ],
+        "field_ids": [
+          "tradition"
+        ]
+      },
+      "done_when": "You have a tradition and a story, or a tradition alone."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your talk with the parents is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your time, your talk, your regular day and your tradition."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "now",
+      "title": "Your time now"
+    },
+    {
+      "id": "parents",
+      "title": "Talking with the parents"
+    },
+    {
+      "id": "regular",
+      "title": "Your regular day or call"
+    },
+    {
+      "id": "keep",
+      "title": "Tradition and story"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your time now, your talk with the parents, your regular day or call and your tradition and story.",
+    "book_bridge": "The Grandparent Days is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "When did you last spend time with each grandchild?",
+      "How is the regular day or call going?",
+      "What tradition or story did you share this month?"
+    ],
+    "refresher_ids": [
+      "p3_regular",
+      "p4_tradition"
+    ]
+  }
+}
