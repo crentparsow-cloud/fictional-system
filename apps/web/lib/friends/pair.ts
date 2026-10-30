@@ -10,6 +10,8 @@
  * never described as behind; no countdowns; mental health titles are out.
  */
 
+import type { Pace } from "@/lib/pace";
+
 export const NUDGE_CODES = ["thinking_of_you", "ready_when_you_are", "shall_we_do_ours", "no_rush", "nice_one"] as const;
 export type NudgeCode = (typeof NUDGE_CODES)[number];
 
@@ -66,11 +68,23 @@ export interface PairView {
   iFinishedToday: boolean;
   nudgeSentToday: boolean;
   nudgeCode: NudgeCode | null;
+  /** The friend's pace on this workbook (0069). Left out, the line talks about today, as before. */
+  friendPace?: Pace;
+  /** The friend finished a step in this calendar week. */
+  friendFinishedThisWeek?: boolean;
 }
 
-/** One quiet line about the friend. Status only. */
-export function statusLine(p: Pick<PairView, "label" | "friendFinishedToday">): string {
-  return p.friendFinishedToday ? `${p.label} has done a step today.` : `${p.label} has not done a step yet today.`;
+/**
+ * One quiet line about the friend. Status only, in the friend's own rhythm:
+ * a daily friend is described by today, a weekly or three-a-week friend by
+ * this week, and a friend on their own pace is never described as not done.
+ */
+export function statusLine(p: Pick<PairView, "label" | "friendFinishedToday"> & Partial<Pick<PairView, "friendPace" | "friendFinishedThisWeek">>): string {
+  if (p.friendFinishedToday) return `${p.label} has done a step today.`;
+  const pace = p.friendPace ?? "daily";
+  if (pace === "daily") return `${p.label} has not done a step yet today.`;
+  if (pace === "own_pace") return `${p.label} goes at their own pace.`;
+  return p.friendFinishedThisWeek ? `${p.label} has done a step this week.` : `${p.label} has not done a step yet this week.`;
 }
 
 const TALK_PROMPTS = [

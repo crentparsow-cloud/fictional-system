@@ -1,5 +1,6 @@
 import "server-only";
 import { isNudgeCode, type PairView } from "@/lib/friends/pair";
+import { isPace } from "@/lib/pace";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -15,6 +16,17 @@ interface Row {
   i_finished_today: boolean;
   nudge_sent_today: boolean;
   nudge_code: string | null;
+}
+
+interface PaceRow {
+  pair_id: string;
+  friend_pace: string | null;
+  friend_finished_this_week: boolean;
+}
+
+export function withPace(v: PairView, r: PaceRow | undefined): PairView {
+  if (!r || !isPace(r.friend_pace)) return v;
+  return { ...v, friendPace: r.friend_pace, friendFinishedThisWeek: r.friend_finished_this_week === true };
 }
 
 export function toPairView(r: Row): PairView {
@@ -37,9 +49,11 @@ export function toPairView(r: Row): PairView {
 export async function loadMyPairs(): Promise<PairView[]> {
   try {
     const supabase = await createUserClient();
-    const { data, error } = await supabase.rpc("my_pairs");
+    const [{ data, error }, paces] = await Promise.all([supabase.rpc("my_pairs"), supabase.rpc("my_pair_paces")]);
     if (error) return [];
-    return ((data ?? []) as Row[]).map(toPairView);
+    // The friend's pace (0069). Best effort: without it the line talks about today.
+    const paceOf = new Map(((paces.error ? [] : (paces.data ?? [])) as PaceRow[]).map((r) => [r.pair_id, r]));
+    return ((data ?? []) as Row[]).map((r) => withPace(toPairView(r), paceOf.get(r.pair_id)));
   } catch {
     return [];
   }

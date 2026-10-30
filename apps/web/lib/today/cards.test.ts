@@ -18,6 +18,27 @@ const tool = (id: string): SavedTool => ({ enrolmentId: "e1", toolId: id, title:
 const sug = (kind: Suggestion["kind"]): Suggestion => ({ kind, slug: kind, title: kind, line: "line" });
 const all = [sug("related"), sug("next_programme"), sug("start_here")];
 
+describe("pace on Today", () => {
+  it("leads with a programme whose pace suggests a part today, never hiding the rest", () => {
+    const cards = selectTodayCards({
+      now,
+      programmes: [
+        programme("recent", { lastOpenedAt: "2026-10-10T08:00:00Z", pace: "own_pace", due: false }),
+        programme("due", { lastOpenedAt: "2026-10-01T08:00:00Z", pace: "daily", due: true }),
+      ],
+      savedTools: [],
+      suggestions: [],
+      membershipStartedAt: null,
+    });
+    expect(cards[0]?.kind === "step" && cards[0].programme.enrolmentId).toBe("due");
+  });
+
+  it("still leads with a programme that is not due when it is the only one with a step", () => {
+    const cards = selectTodayCards({ now, programmes: [programme("weekly", { pace: "weekly", due: false })], savedTools: [], suggestions: [], membershipStartedAt: null });
+    expect(cards[0]?.kind).toBe("step");
+  });
+});
+
 describe("selectTodayCards", () => {
   it("shows today's step, one saved tool and one suggestion, three at most", () => {
     const cards = selectTodayCards({ now, programmes: [programme("e1")], savedTools: [tool("a"), tool("b")], suggestions: all, membershipStartedAt: null });

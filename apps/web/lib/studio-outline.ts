@@ -15,7 +15,7 @@ import { blankExercise, type BuilderUnit } from "@/lib/studio-builder";
  * to an idea. When there are more ideas than units, units take several.
  */
 
-export const UNIT_KINDS = ["week", "day", "module", "chapter"] as const;
+export const UNIT_KINDS = ["week", "day", "module", "chapter", "part"] as const;
 export type OutlineUnitKind = (typeof UNIT_KINDS)[number];
 
 export const PACES = ["one", "two", "three"] as const;

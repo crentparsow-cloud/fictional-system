@@ -1,4 +1,5 @@
 import type { ProgrammeStep } from "@/lib/today/steps";
+import type { Pace } from "@/lib/pace";
 import type { UnitWord } from "@/lib/today/week";
 
 /**
@@ -31,6 +32,10 @@ export interface ProgrammeToday {
   unitCount: number | null;
   /** The next unfinished step, or null when every step is done or none can be read. */
   next: ProgrammeStep | null;
+  /** The reader's pace for this programme (0069). Defaults to weekly when left out. */
+  pace?: Pace;
+  /** True when the pace suggests a part today. Own pace is never due, and nothing ever locks. */
+  due?: boolean;
 }
 
 export interface SavedTool {
@@ -79,10 +84,14 @@ export function isWellbeingReader(programmes: readonly Pick<ProgrammeToday, "saf
   return programmes.some((p) => p.safetyTier !== "none");
 }
 
-/** The programme whose step leads Today: the most recently opened one that has a step to do. */
+/**
+ * The programme whose step leads Today: one whose pace suggests a part today
+ * comes first, then the most recently opened. Any programme with a step to
+ * do can lead; a programme that is not due is never held back.
+ */
 export function leadProgramme(programmes: readonly ProgrammeToday[]): ProgrammeToday | null {
   const withStep = programmes.filter((p) => p.next);
-  withStep.sort((a, b) => Date.parse(b.lastOpenedAt) - Date.parse(a.lastOpenedAt));
+  withStep.sort((a, b) => Number(b.due === true) - Number(a.due === true) || Date.parse(b.lastOpenedAt) - Date.parse(a.lastOpenedAt));
   return withStep[0] ?? null;
 }
 

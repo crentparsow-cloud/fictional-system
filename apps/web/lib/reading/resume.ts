@@ -26,8 +26,8 @@ export function resumeHref(slug: string, row: PlaceRow): string {
   return `/read/${encodeURIComponent(slug)}?${q.toString()}`;
 }
 
-type Unit = "week" | "day" | "module" | "chapter" | "unit";
-const CAP: Record<Unit, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", unit: "Unit" };
+type Unit = "week" | "day" | "module" | "chapter" | "part" | "unit";
+const CAP: Record<Unit, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part", unit: "Unit" };
 
 /** "Week 3" or "Week 3, in the middle of a step". No dates, no counts of time away. */
 export function resumeWhere(word: Unit, row: PlaceRow): string {

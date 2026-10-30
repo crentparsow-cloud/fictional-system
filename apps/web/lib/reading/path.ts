@@ -85,8 +85,8 @@ export function pathChange(prev: readonly PathNode[], next: readonly PathNode[])
   return { closed, movedTo: nowToday !== wasToday ? nowToday : null };
 }
 
-export type UnitWord = "week" | "day" | "module" | "chapter" | "unit";
-const CAP: Record<UnitWord, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", unit: "Unit" };
+export type UnitWord = "week" | "day" | "module" | "chapter" | "part" | "unit";
+const CAP: Record<UnitWord, string> = { week: "Week", day: "Day", module: "Module", chapter: "Chapter", part: "Part", unit: "Unit" };
 export const unitName = (word: UnitWord, n: number) => `${CAP[word]} ${n}`;
 
 export interface Celebration {
