@@ -1,9 +1,13 @@
 /**
- * Mental health lint (build list 11.3). Titles on the standard and higher
- * safety tiers (tiers 1 and 2) never count days, never set a daily goal and
- * never press the reader to hurry. This check finds the language that would.
+ * Mental health lint (build list 11.3). Titles streaks never reach never
+ * count days, never set a daily goal and never press the reader to hurry.
+ * This check finds the language that would. Since 30 October 2026 the rule is
+ * by shelf: a title on the Mind and Mood shelf, or on the higher tier
+ * (habitAllowed in @akana/schema, app.habit_allowed in migration 0069). When
+ * the caller does not know the shelf, every standard and higher tier title is
+ * checked, as any of them could sit on Mind and Mood.
  *
- * It runs inside validateWorkbook for those tiers, so it sits in the publish
+ * It runs inside validateWorkbook for those titles, so it sits in the publish
  * path: Studio validation, the admin review check and `pnpm validate` all
  * call it. The app also runs it over its own streak, companion and mark
  * wording (apps/web/lib/habit/copy.test.ts), so a line written for a streak
