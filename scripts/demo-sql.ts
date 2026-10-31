@@ -15,7 +15,8 @@
  * Running a file twice is safe: an already published version is left alone.
  *
  * With --groups, also writes <dir>/group-<n>.sql for each group in the title
- * list that has at least one written title, split into parts under 300 KB.
+ * list that has at least one written title (groups 1 to 8, and 9 and 10 for
+ * the faith titles), split into parts under 300 KB.
  * Always writes <dir>/mv-live.sql, which sets the in_review Maya Vaughn titles
  * live (see the note above it below). Nothing here connects to a database.
  */
@@ -91,6 +92,8 @@ if (groupsPath) {
       size += n;
     }
     const filled = parts.filter((p) => p.length);
+    // Groups 9 and 10 (the faith titles) are listed before their files exist; say so rather than write an empty file.
+    if (filled.length === 0) console.log(`group-${g}: no written titles yet, no file written`);
     filled.forEach((p, i) => {
       const name = filled.length === 1 ? `group-${g}.sql` : `group-${g}-part-${i + 1}.sql`;
       // One transaction: the file starts with begin; and ends with commit;.
