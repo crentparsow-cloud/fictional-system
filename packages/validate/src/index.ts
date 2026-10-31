@@ -19,7 +19,7 @@ import {
   genreProfile,
 } from "./rules";
 import { habitLanguageHits } from "./habit-lint";
-import { checkDemo, DEMO_IDENTITY_PATHS } from "./demo";
+import { FAITH_SHELF, checkDemo, DEMO_IDENTITY_PATHS } from "./demo";
 
 export * from "./rules";
 export * from "./stability";
@@ -88,6 +88,9 @@ function excerpt(s: string, n = 70): string {
   return s.length > n ? s.slice(0, n) + "..." : s;
 }
 
+const FAITH_STORY_ALLOW =
+  /\b(Jesus|Christ|Peter|Paul|Elijah|Elisha|the (apostles?|disciples?|prophets?)) (heals|healed|heal|cures|cured) (a|an|the|his|her|two|ten|many|people|crowds|those)\b/gi;
+
 const BANNED_RE = BANNED_PHRASES.map((p) => new RegExp(p, "gi"));
 
 // ---------- checks ----------
@@ -124,7 +127,9 @@ function checkStyle(doc: Workbook, out: Finding[], opts: ValidateOptions): void 
     }
 
     if (!opts.skipClaims) {
-      const cleaned = s.replace(CLAIM_ALLOW, "");
+      // On the faith shelf a scripture story told in the third person ("Jesus heals a man in Mark 2") is narration, not a claim about the reader.
+      const story = opts.shelf === FAITH_SHELF ? s.replace(FAITH_STORY_ALLOW, "") : s;
+      const cleaned = story.replace(CLAIM_ALLOW, "");
       for (const m of cleaned.matchAll(claimRe)) {
         out.push({ severity: "error", category: "claims", path, message: `claim word '${m[0]}'`, excerpt: excerpt(s) });
       }
