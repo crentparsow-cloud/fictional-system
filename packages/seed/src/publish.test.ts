@@ -66,8 +66,8 @@ describe("planPublish: versions by content hash", () => {
     expect(out.workbooks.find((w) => w.code === classicCode)!.current_version_id).toBe(old.id);
   });
 
-  it("does not null a pointer the database holds for a title with no content in this build", () => {
-    const bare = seed.workbooks.find((w) => w.badge === "demo" && !w.current_version_id)!;
+  it("does not null a pointer the database holds for a title with no content in this build (any badge)", () => {
+    const bare = seed.workbooks.find((w) => !w.current_version_id)!;
     const db: DbSnapshot = { workbooks: new Map([[bare.id, { status: "draft", current_version_id: "11111111-1111-5111-8111-111111111111" }]]), versions: [] };
     const out = planPublish(seed, db).seed.workbooks.find((w) => w.id === bare.id)!;
     expect(out.current_version_id).toBe("11111111-1111-5111-8111-111111111111");

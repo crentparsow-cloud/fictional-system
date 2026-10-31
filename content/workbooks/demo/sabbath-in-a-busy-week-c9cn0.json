@@ -1,0 +1,337 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-C9CN0",
+  "slug": "sabbath-in-a-busy-week-c9cn0",
+  "title": "Sabbath in a Busy Week",
+  "card_line": "Find a few hours of rest and worship in a week that feels full.",
+  "book": {
+    "book_id": "sabbath-in-a-busy-week",
+    "title": "Sabbath in a Busy Week",
+    "subtitle": "Four Weeks Towards a Day of Rest"
+  },
+  "author": {
+    "author_id": "AU-1A05T",
+    "display_name": "Jerome Whitlock-Bayliss"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "career",
+  "theme_id": "work-as-calling",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about finding a few hours of rest and worship in a busy week. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan for a Sabbath that fits your own week. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two, about your own week.",
+      "Your answers build a short Sabbath plan you can read at the end."
+    ],
+    "why_prompt": "What does a day of rest look like in your week at present?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Understand what the Sabbath is for.",
+      "exercise_ids": [
+        "p1_needs"
+      ],
+      "intro": "Genesis 2 describes God resting on the seventh day. Exodus 20 gives the Sabbath as a day set apart. This part looks at why the Bible keeps it. Read the two chapters if you can. Then name what your own week is missing.",
+      "ideas": [
+        {
+          "heading": "The Sabbath is a gift of rest before it is a rule.",
+          "body": "In Genesis 2, God rests and blesses the day. It is set apart for rest and for delight. Exodus 20 then asks the people to keep it. Many Christians read both chapters together and hear an invitation, not a burden."
+        },
+        {
+          "heading": "Rest is a way of saying that you are not holding everything up.",
+          "body": "Stopping work admits that the world will go on without you for a day. Your tasks and your inbox will wait. That may be hard to believe. Trying it once, for a few hours, will show you what happens. You may be surprised by how little falls apart."
+        },
+        {
+          "heading": "A Sabbath is for worship and for rest, and both are meant.",
+          "body": "The day set apart is not only about stopping. It is also about turning to God, often with other people. Think of a time of worship, a meal or a prayer. Rest and worship belong together in the one day."
+        }
+      ],
+      "takeaway": "The Sabbath is a gift of rest and worship. It is an invitation, and it is for you."
+    },
+    {
+      "number": 2,
+      "focus": "Stop work and decide what to leave undone.",
+      "exercise_ids": [
+        "p2_stop"
+      ],
+      "intro": "Sabbath means stopping, and stopping means leaving some things unfinished. This part looks at what you will put down, for how long, and what you will tell others about it. You will choose a stopping time and a short list of what can wait.",
+      "ideas": [
+        {
+          "heading": "Stopping is a decision made before the day begins.",
+          "body": "If you wait until you feel finished, you will never stop. Choose a time to put work down, such as Saturday at six. Tell the household. When the time comes, stop even if a task is half done. Half a task can wait until tomorrow without harm."
+        },
+        {
+          "heading": "Decide in advance what you will leave undone.",
+          "body": "Write a short list of things that will wait: email, shopping, a report, housework. Having the list ready makes it easier to say no to yourself. The list does not need to be long, and it can change from week to week."
+        },
+        {
+          "heading": "Leaving things undone feels odd at first, and that is normal.",
+          "body": "You may feel restless or guilty. That is common. Notice the feeling without acting on it. After a few attempts, many people find that the world goes on. Be patient with yourself while you learn to stop. It is a skill, and it takes a few tries."
+        }
+      ],
+      "takeaway": "Choose when you will stop and what will wait. Tell someone at home."
+    },
+    {
+      "number": 3,
+      "focus": "Fill the time with delight, worship and people.",
+      "exercise_ids": [
+        "p3_fill"
+      ],
+      "intro": "Rest is more than the absence of work. This part looks at what makes a day of rest worth having: things you enjoy, worship and time with others. You will choose a few to include, and you can keep them modest.",
+      "ideas": [
+        {
+          "heading": "Delight belongs in a day of rest.",
+          "body": "Walk, cook something slow, read, sit in the garden. Isaiah 58 speaks of calling the Sabbath a delight. Choose things that give you pleasure and take little effort to prepare. A day of rest is not a day of chores."
+        },
+        {
+          "heading": "Worship gives the day its centre.",
+          "body": "Go to church if you can, or pray at home, or read a psalm. Worship turns rest into more than time off. It reminds you who the day belongs to. Keep it short if your week has been long. A psalm read aloud and a prayer in your own words are enough."
+        },
+        {
+          "heading": "Rest is better shared with other people.",
+          "body": "Invite a friend for a meal, call a relative, or visit someone who lives alone. The Sabbath was given to a whole community, not only to individuals. Time with others turns rest into fellowship, and it keeps the day from feeling lonely."
+        }
+      ],
+      "takeaway": "Delight, worship and company fill a day of rest. Choose a few and keep them modest."
+    },
+    {
+      "number": 4,
+      "focus": "Fit Sabbath around shift work and family life.",
+      "exercise_ids": [
+        "p4_fit"
+      ],
+      "intro": "Not every week has a quiet Sunday. Shift workers, carers and parents of small children all find a different shape. This part asks you to build a Sabbath that fits your actual week, even if it is only a few hours. Small and real is enough.",
+      "ideas": [
+        {
+          "heading": "A Sabbath does not need to be a full day to be real.",
+          "body": "If a full day is not possible, begin with four hours, or a long evening. Keep the same pattern: stop, worship, delight, people. You can lengthen it later. A short Sabbath you keep is better than a long one you only plan."
+        },
+        {
+          "heading": "Shift workers can choose the day that is theirs.",
+          "body": "If you work on Sundays, pick another day or half day. The point is a regular time set apart, and the day on the calendar can vary. Tell your church or your family which day it is, so that they can protect it with you."
+        },
+        {
+          "heading": "Family life calls for a Sabbath that includes the children.",
+          "body": "Plan something that suits the whole house: a long meal, a walk, a game and a prayer. Children will not be quiet, but they can rest from school and chores. Let the day be gentle and let it be shared."
+        }
+      ],
+      "takeaway": "A Sabbath can be a few hours on any day. Make it fit your week and your household."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_needs",
+      "title": "Name what you want rest for",
+      "purpose": "A short note on what your week lacks and what you want from a day of rest.",
+      "why": "Look at your last week. Write down where you had no rest, and what you would like to do with a spare half day. Two or three lines are plenty.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Look back over your last week."
+        },
+        {
+          "text": "Write what you would like rest for."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lacking",
+          "type": "long_text",
+          "label": "Where was there no rest in your last week?"
+        },
+        {
+          "id": "want",
+          "type": "short_text",
+          "label": "What would you like to do with a few hours of rest?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lacking",
+          "plan_section": "needs"
+        },
+        {
+          "field_id": "want",
+          "plan_section": "needs"
+        }
+      ],
+      "done_when": "You have named where rest was missing and what you want it for."
+    },
+    {
+      "id": "p2_stop",
+      "title": "Set your stopping time",
+      "purpose": "A time to stop work and a short list of what will wait.",
+      "why": "Choose when your Sabbath will start and end. Write the tasks that will wait until it is over. Tell one person at home what you plan.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a start and an end."
+        },
+        {
+          "text": "List what will wait."
+        }
+      ],
+      "fields": [
+        {
+          "id": "window",
+          "type": "short_text",
+          "label": "When will your rest begin and end?"
+        },
+        {
+          "id": "waits",
+          "type": "long_text",
+          "label": "What will you leave undone?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "window",
+          "plan_section": "stop"
+        },
+        {
+          "field_id": "waits",
+          "plan_section": "stop"
+        }
+      ],
+      "done_when": "You have a stopping time and a list of what waits."
+    },
+    {
+      "id": "p3_fill",
+      "title": "Choose your delights and company",
+      "purpose": "A few things you will enjoy, a way to worship and a person to spend time with.",
+      "why": "Write three things you enjoy that fit in a few hours. Add the worship you will join or make. Name one person you would like to spend time with.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List three things you enjoy."
+        },
+        {
+          "text": "Choose how you will worship, and with whom."
+        }
+      ],
+      "fields": [
+        {
+          "id": "delights",
+          "type": "long_text",
+          "label": "What will you enjoy in your Sabbath?"
+        },
+        {
+          "id": "company",
+          "type": "short_text",
+          "label": "How will you worship, and whom will you spend time with?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "delights",
+          "plan_section": "fill"
+        },
+        {
+          "field_id": "company",
+          "plan_section": "fill"
+        }
+      ],
+      "done_when": "You have some delights, a way to worship and one person named."
+    },
+    {
+      "id": "p4_fit",
+      "title": "Fit a Sabbath to your week",
+      "purpose": "A plan for a Sabbath of any length, on a day that works for you.",
+      "why": "Look at your week. Choose the longest stretch you can set apart, even a few hours. Write the day, the length and who it involves. Try it once, and change it afterwards.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose the day and the length."
+        },
+        {
+          "text": "Name who it involves."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "Which day and how long can your Sabbath be?"
+        },
+        {
+          "id": "who",
+          "type": "short_text",
+          "label": "Who else will it involve?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when",
+          "plan_section": "fit"
+        },
+        {
+          "field_id": "who",
+          "plan_section": "fit"
+        }
+      ],
+      "done_when": "You have a day, a length and the people it involves."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what you want rest for, your stopping time, your delights and your Sabbath."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "needs",
+      "title": "What you want rest for"
+    },
+    {
+      "id": "stop",
+      "title": "Your stopping time"
+    },
+    {
+      "id": "fill",
+      "title": "What fills the time"
+    },
+    {
+      "id": "fit",
+      "title": "Your Sabbath plan"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short Sabbath plan. It holds what you want rest for, your stopping time, what fills the time and the Sabbath that fits your week.",
+    "book_bridge": "Sabbath in a Busy Week is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "How did your Sabbath go this month?",
+      "What would you change about it now?"
+    ],
+    "refresher_ids": [
+      "p2_stop",
+      "p4_fit"
+    ]
+  }
+}

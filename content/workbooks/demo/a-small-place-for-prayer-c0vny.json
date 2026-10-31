@@ -1,0 +1,374 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-C0VNY",
+  "slug": "a-small-place-for-prayer-c0vny",
+  "title": "A Small Place for Prayer",
+  "card_line": "Set up a small prayer corner at home and use it every day.",
+  "book": {
+    "book_id": "a-small-place-for-prayer",
+    "title": "A Small Place for Prayer",
+    "subtitle": "Making an Icon Corner in Four Weeks"
+  },
+  "author": {
+    "author_id": "AU-NQZGX",
+    "display_name": "Theodora Vasilakis-Reid"
+  },
+  "genre": "relationships",
+  "theme_id": "faith-at-home",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about setting up a small place for prayer at home. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a chosen corner, short morning and evening prayers, a plan for children and guests, and a simple feast list. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Where in your home do you already go quiet, even for a moment?",
+    "extra_safety_note": "This workbook is for everyday family life. If using it at home would put you or anyone in your household at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Choose one corner, one icon and one small lamp.",
+      "exercise_ids": [
+        "p1_corner"
+      ],
+      "intro": "A prayer corner starts with a decision about where. It does not need a spare room or a shelf built for the purpose. This part asks you to look at the rooms you live in and pick one spot. Then you decide what goes there and keep it small.",
+      "ideas": [
+        {
+          "heading": "The best spot is one you pass often and can stand in quietly.",
+          "body": "Look for a wall that catches the morning light, or a corner of the bedroom or hallway. Choose a place you walk past, so you notice it. Quiet matters more than size. Matthew 6 speaks of praying in a private room, and a corner can serve the same purpose."
+        },
+        {
+          "heading": "One icon is enough to begin, and a small one will do.",
+          "body": "Choose an icon of Christ, the Mother of God or a saint your family loves. A printed card in a plain frame is fine. Some families ask their priest to bless it. More can be added later, but one is a full beginning."
+        },
+        {
+          "heading": "A small lamp tells the household that this spot is for prayer.",
+          "body": "Many families keep a small oil lamp or a candle by the icon. If a flame is not safe in your home, a battery light works as well. Light it when you pray and put it out afterwards. Keep it clear of curtains, paper and small hands."
+        }
+      ],
+      "takeaway": "One corner, one icon and one lamp are a full start. Keep it small enough to look after."
+    },
+    {
+      "number": 2,
+      "focus": "Say a short prayer at the corner in the morning and evening.",
+      "exercise_ids": [
+        "p2_prayers"
+      ],
+      "intro": "Prayer at the corner can be very short. A minute in the morning and a minute in the evening is a real beginning. This part asks what you already know by heart, and what you might add in your own words. You write both down, so they are ready.",
+      "ideas": [
+        {
+          "heading": "A prayer of one minute is still a real prayer.",
+          "body": "A few lines said standing before the icon are complete in themselves. Many Christians turn to the Lord's Prayer or the Jesus Prayer. Choose one you already know. There is no need to learn a whole book before you begin."
+        },
+        {
+          "heading": "Your own words belong beside the prayers you already know.",
+          "body": "Name one person and ask God to keep them. Thank God for one thing from the day. Say sorry for one thing, plainly. Some people read Psalm 141 in the evening. Short sentences in your own voice are welcome at the corner."
+        },
+        {
+          "heading": "Morning and evening prayers can differ in length and tone.",
+          "body": "In the morning you look ahead. Name the day and ask for help with what is in it. In the evening you look back with thanks. If your church holds Vespers, listen to how it closes the day, then echo that at home."
+        }
+      ],
+      "takeaway": "Two short prayers, one for each end of the day, are enough. Use words you already own."
+    },
+    {
+      "number": 3,
+      "focus": "Make room at the corner for children and guests.",
+      "exercise_ids": [
+        "p3_welcome"
+      ],
+      "intro": "A prayer corner belongs to the whole household, and sometimes to visitors. Children need something short and something to do. Guests need to know they are welcome and not expected to join. This part asks you to plan one small thing for each.",
+      "ideas": [
+        {
+          "heading": "Children can take a part, even a very small one.",
+          "body": "In Mark 10, Jesus welcomes children when others turn them away. At home, let a child say Amen, name a person to pray for, or carry the book to the corner. A small job makes the corner theirs too, and they will remember it."
+        },
+        {
+          "heading": "Keep prayer short enough for the youngest person present.",
+          "body": "One minute is plenty with small children. If they wriggle or wander off, let them. The point is that they see you stop and pray. It does not need to be a lesson, and it does not need to be tidy."
+        },
+        {
+          "heading": "A guest is welcome at the corner but never expected to join.",
+          "body": "If a visitor asks about the icon, answer in a sentence or two. Offer to let them stand quietly if they wish. Do not press anyone to pray. An open, easy welcome says more about your faith than a long explanation."
+        }
+      ],
+      "takeaway": "Give children one small job and guests one easy sentence. The corner then belongs to the household."
+    },
+    {
+      "number": 4,
+      "focus": "Mark feasts and fasts, and keep the whole thing simple.",
+      "exercise_ids": [
+        "p4_year"
+      ],
+      "intro": "The Church year gives the corner a rhythm. Feast days and fasting seasons come round whether life is quiet or busy. This final part asks you to mark one of them at the corner. It also asks for a single sentence you can use on the busiest mornings.",
+      "ideas": [
+        {
+          "heading": "Feasts and fasts give the corner a shape through the year.",
+          "body": "Your parish calendar lists them. On a feast, you might add fresh flowers or a longer reading. In a fasting season, you might keep the prayers plainer. Choose one occasion to begin with. Add others as the year turns, one at a time."
+        },
+        {
+          "heading": "Let your parish guide how you fast, and keep it modest.",
+          "body": "Fasting is part of church life, not a private contest. Follow what your own parish asks as far as health and age allow. Where strict fasting is hard, a gentler form is still a way of paying attention. Never use it to judge anyone."
+        },
+        {
+          "heading": "On a busy morning the corner can shrink to one sentence.",
+          "body": "Light the lamp, say one line and go. A short prayer said on a hard morning counts for as much as a long one on a quiet one. The corner is there to be used, not to be kept perfect."
+        }
+      ],
+      "takeaway": "Mark one feast and keep one sentence ready. A simple corner is easier to keep than a grand one."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_corner",
+      "title": "Choose your prayer corner",
+      "purpose": "A chosen spot and a short list of what will go there.",
+      "why": "Walk through your home and stand in two or three possible places. Pick the one that feels quietest and is safe for a lamp. Write down where it is and what you will place there. If nothing comes to mind, write the name of one room.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Stand in two or three possible spots."
+        },
+        {
+          "text": "Pick one and write where it is."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where in your home will your prayer corner be?"
+        },
+        {
+          "id": "items",
+          "type": "long_text",
+          "label": "What will you place there: an icon, a lamp, anything else?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "place",
+          "plan_section": "corner"
+        },
+        {
+          "field_id": "items",
+          "plan_section": "corner"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one spot in your home."
+          }
+        ],
+        "field_ids": [
+          "place"
+        ]
+      },
+      "done_when": "You have named one spot and one thing to put there."
+    },
+    {
+      "id": "p2_prayers",
+      "title": "Write your short prayers",
+      "purpose": "A morning prayer and an evening prayer in your own words.",
+      "why": "Write what you will say at the corner in the morning and in the evening. Use a familiar prayer by name if you like, and add a line of your own. Read them aloud once. If nothing comes to mind, write one word of thanks.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a morning prayer in a few lines."
+        },
+        {
+          "text": "Write an evening prayer in a few lines."
+        },
+        {
+          "text": "Read both aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "morning",
+          "type": "long_text",
+          "label": "What will you say at the corner in the morning?"
+        },
+        {
+          "id": "evening",
+          "type": "long_text",
+          "label": "What will you say at the corner in the evening?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "morning",
+          "plan_section": "prayers"
+        },
+        {
+          "field_id": "evening",
+          "plan_section": "prayers"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line for the morning."
+          }
+        ],
+        "field_ids": [
+          "morning"
+        ]
+      },
+      "done_when": "You have two short prayers you could say aloud."
+    },
+    {
+      "id": "p3_welcome",
+      "title": "Plan for children and guests",
+      "purpose": "One small part for a child and one sentence for a guest.",
+      "why": "Think of a child who spends time in your home, such as your own, a grandchild or a godchild. Choose one small part they could take at the corner. Then write one sentence for a guest who asks about it. If no child comes to mind, write a part for yourself.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one small job for a child."
+        },
+        {
+          "text": "Write one sentence for a guest."
+        }
+      ],
+      "fields": [
+        {
+          "id": "child_part",
+          "type": "short_text",
+          "label": "What small part could a child take at your corner?"
+        },
+        {
+          "id": "guest_line",
+          "type": "short_text",
+          "label": "What would you say to a guest who asks about it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "child_part",
+          "plan_section": "welcome"
+        },
+        {
+          "field_id": "guest_line",
+          "plan_section": "welcome"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one job for a child."
+          }
+        ],
+        "field_ids": [
+          "child_part"
+        ]
+      },
+      "done_when": "You have one job for a child and one line for a guest."
+    },
+    {
+      "id": "p4_year",
+      "title": "Plan a simple year",
+      "purpose": "One feast to mark and one sentence for busy mornings.",
+      "why": "Look at your parish calendar and pick one feast or fast to mark at the corner. Decide how you will mark it. Then write the one sentence you will use when time is short. If the calendar is not to hand, name the feast you love most.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one feast or fast."
+        },
+        {
+          "text": "Write one sentence for busy mornings."
+        }
+      ],
+      "fields": [
+        {
+          "id": "feast",
+          "type": "long_text",
+          "label": "Which feast or fast will you mark first, and how?"
+        },
+        {
+          "id": "busy",
+          "type": "short_text",
+          "label": "What is your one sentence for a busy morning?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "feast",
+          "plan_section": "year"
+        },
+        {
+          "field_id": "busy",
+          "plan_section": "year"
+        }
+      ],
+      "done_when": "You have named one feast and one short sentence."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your morning and evening prayers are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your corner, prayers, welcome and first feast."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "corner",
+      "title": "Your prayer corner"
+    },
+    {
+      "id": "prayers",
+      "title": "Your morning and evening prayers"
+    },
+    {
+      "id": "welcome",
+      "title": "Children and guests"
+    },
+    {
+      "id": "year",
+      "title": "Your first feast and busy-morning sentence"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your chosen corner, your morning and evening prayers, your plan for children and guests and your first feast.",
+    "book_bridge": "A Small Place for Prayer is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which feast or fast did you mark at the corner this month?",
+      "Which prayer did you say most often this month?",
+      "Does your corner still suit the room?"
+    ],
+    "refresher_ids": [
+      "p2_prayers",
+      "p4_year"
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-CNN64",
+  "slug": "visiting-well-cnn64",
+  "title": "Visiting Well",
+  "card_line": "For people who visit the sick, the housebound and the bereaved on behalf of their church.",
+  "book": {
+    "book_id": "visiting-well",
+    "title": "Visiting Well",
+    "subtitle": "Six Weeks for Pastoral Visitors"
+  },
+  "author": {
+    "author_id": "AU-1A05T",
+    "display_name": "Jerome Whitlock-Bayliss"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "leadership",
+  "theme_id": "serving-together",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is for people who visit the sick, the housebound and the bereaved on behalf of their church. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan for your next visit. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise about a real visit, or one you expect to make.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Whom do you visit, or hope to visit, on behalf of your church?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Understand what a visit is for and listen more than you talk.",
+      "exercise_ids": [
+        "p1_begin"
+      ],
+      "intro": "A pastoral visit is a short time given to one person. You are not there to fix anything or to give a talk. This part looks at what a visit is and is not, and at listening. You will plan how to begin your next visit.",
+      "ideas": [
+        {
+          "heading": "A visit is time and attention, not advice.",
+          "body": "Most people you visit already have doctors, family and plenty of opinions. What you bring is your time and your full attention. Sit down, put your phone away and let the person set the pace. That is already a gift."
+        },
+        {
+          "heading": "Listening more than talking is the main skill of a visitor.",
+          "body": "Ask one open question and then stay quiet. People often say the thing that matters after a pause. Resist the urge to share your own story. If you do share one, keep it brief and return to them. Nodding is allowed."
+        },
+        {
+          "heading": "Some visits will be short, and a short visit is still a visit.",
+          "body": "A person who is tired or in pain may manage only a few minutes. Watch for signs, and ask whether it is a good time. Leaving early, with a kind word, shows respect. You can say that you will come again."
+        }
+      ],
+      "takeaway": "A visitor gives time and attention. Ask one open question, then listen."
+    },
+    {
+      "number": 2,
+      "focus": "Offer prayer only if wanted, and visit the bereaved gently.",
+      "exercise_ids": [
+        "p2_words"
+      ],
+      "intro": "Many visitors wonder when to pray and what to say to someone who has lost a person they love. This part looks at offering prayer so that the person can say yes or no. It also looks at visiting after a death, when words are few. You will write your own words.",
+      "ideas": [
+        {
+          "heading": "Offer to pray, and be ready to hear no.",
+          "body": "Ask whether the person would like a prayer, and make it easy to decline. Some will say yes. Others will prefer to talk. Either answer is welcome. A prayer should never be a way of ending the visit or filling a pause."
+        },
+        {
+          "heading": "A short prayer in plain words is often enough.",
+          "body": "You do not need long phrases. Name the person, say what they have told you, and ask God to be with them. You might use a familiar prayer such as the Lord's Prayer if they know it. Stop when the prayer is done."
+        },
+        {
+          "heading": "With someone grieving, presence matters more than the right sentence.",
+          "body": "After a death, people rarely remember what a visitor said. They remember who came. Say their loved one's name. Say you are sorry. Do not hurry to explain, or to say that things happen for a reason. Sitting with them is part of the visit."
+        }
+      ],
+      "takeaway": "Offer prayer, and let the answer be no. With the bereaved, being there matters most."
+    },
+    {
+      "number": 3,
+      "focus": "Keep confidences wisely and know when to pass a concern on.",
+      "exercise_ids": [
+        "p3_tell"
+      ],
+      "intro": "People tell visitors private things. Most of it stays with you. Some of it, such as a risk to someone's safety, needs to go to others. This part sets out the difference. It asks who in your church receives a concern, so that you know before the day comes.",
+      "ideas": [
+        {
+          "heading": "Most of what you hear is private, and you keep it that way.",
+          "body": "Do not repeat a person's illness, worries or family matters to others in the congregation, even to be kind. Prayer requests are for the person to share when they choose. Ask before you pass on any detail, however small it seems."
+        },
+        {
+          "heading": "A concern about safety is not yours to carry alone.",
+          "body": "If you think someone is at risk of harm, tell your church's safeguarding lead. The same goes if you see signs that a child or an adult is being hurt. If there is no lead, tell the minister. Do it soon. You are not expected to investigate."
+        },
+        {
+          "heading": "Say clearly at the start what you can keep private.",
+          "body": "If someone begins to share something heavy, you can say that you will keep it private unless there is a risk to someone. Saying so early avoids a harder conversation later. It also respects them, because they know where they stand."
+        }
+      ],
+      "takeaway": "Keep private things private. A concern about safety goes to your church's safeguarding contact, and you do not carry it alone."
+    },
+    {
+      "number": 4,
+      "focus": "Look after yourself so you can keep visiting.",
+      "exercise_ids": [
+        "p4_rest"
+      ],
+      "intro": "Visiting can be tiring, and hearing hard things can stay with you. A visitor who is worn out has less to give. This part asks what you want after a visit and who can listen to you. You will plan one thing for yourself.",
+      "ideas": [
+        {
+          "heading": "Visiting takes energy, and it is right to notice how much.",
+          "body": "Sitting with illness and sorrow can leave you tired. That is not a flaw. Notice what a visit costs you and how long it takes you to settle afterwards. Give yourself the same patience you offer the people you visit."
+        },
+        {
+          "heading": "You do not need to carry what you hear alone.",
+          "body": "Within the limits of privacy, you can talk to your minister or a trusted fellow visitor about how a visit went, without names. Ask your church to name a person you can speak with. Sharing the weight is allowed, and it is a sign of good sense."
+        },
+        {
+          "heading": "Rest between visits is part of the work.",
+          "body": "Plan visits so that you have time before and after. A short walk, a cup of tea or a few minutes of prayer in the car can mark the end of a visit. Say no to a visit on a day when you are unwell."
+        }
+      ],
+      "takeaway": "Visiting costs energy. Rest, and someone to talk to, are part of the work."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_begin",
+      "title": "Plan how to begin a visit",
+      "purpose": "An opening line and two open questions for your next visit.",
+      "why": "Think of someone you visit or will visit. Write how you will greet them, and two open questions that invite them to talk. Add one thing you will leave out, such as giving advice.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your greeting."
+        },
+        {
+          "text": "Write two open questions."
+        }
+      ],
+      "fields": [
+        {
+          "id": "opening",
+          "type": "short_text",
+          "label": "How will you greet the person and begin?"
+        },
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What two open questions will you ask?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "opening",
+          "plan_section": "begin"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "begin"
+        }
+      ],
+      "done_when": "You have a greeting and two open questions written down."
+    },
+    {
+      "id": "p2_words",
+      "title": "Find words for prayer and grief",
+      "purpose": "A way to offer prayer and a short line for someone grieving.",
+      "why": "Write how you would offer to pray, in one sentence. Then write one short thing you could say to someone who has lost a person they love. Say both aloud once. If nothing comes, write a name.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your offer of prayer."
+        },
+        {
+          "text": "Write one line for someone grieving."
+        }
+      ],
+      "fields": [
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "How will you offer to pray with someone?"
+        },
+        {
+          "id": "grief",
+          "type": "short_text",
+          "label": "What will you say to someone who is grieving?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "offer",
+          "plan_section": "words"
+        },
+        {
+          "field_id": "grief",
+          "plan_section": "words"
+        }
+      ],
+      "done_when": "You have one offer of prayer and one line for the bereaved."
+    },
+    {
+      "id": "p3_tell",
+      "title": "Know who to tell",
+      "purpose": "The name of your church's safeguarding contact and a sentence about privacy.",
+      "why": "Find out who receives safeguarding concerns in your church and write their name. Then write one sentence about what you keep private and what you would pass on. If you do not know, note whom to ask.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the name of your safeguarding contact."
+        },
+        {
+          "text": "Write your sentence about privacy."
+        }
+      ],
+      "fields": [
+        {
+          "id": "contact",
+          "type": "short_text",
+          "label": "Who receives safeguarding concerns at your church?"
+        },
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "What will you say to someone about privacy?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "contact",
+          "plan_section": "privacy"
+        },
+        {
+          "field_id": "sentence",
+          "plan_section": "privacy"
+        }
+      ],
+      "done_when": "You have a name, or a note of whom to ask, and one sentence."
+    },
+    {
+      "id": "p4_rest",
+      "title": "Plan some rest after visits",
+      "purpose": "One thing you will do after a visit and one person you can talk to.",
+      "why": "Decide what you will do after a visit to settle, such as a walk or a short prayer. Name one person you can talk to, without sharing private details. Write both down.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose what you will do after a visit."
+        },
+        {
+          "text": "Name one person to talk to."
+        }
+      ],
+      "fields": [
+        {
+          "id": "after",
+          "type": "short_text",
+          "label": "What will you do after a visit?"
+        },
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Whom can you talk to?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "after",
+          "plan_section": "rest"
+        },
+        {
+          "field_id": "person",
+          "plan_section": "rest"
+        }
+      ],
+      "done_when": "You have named one thing to do and one person to talk to."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds how you begin, your words, your privacy line and your rest."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "begin",
+      "title": "How you will begin a visit"
+    },
+    {
+      "id": "words",
+      "title": "Words for prayer and grief"
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy and who to tell"
+    },
+    {
+      "id": "rest",
+      "title": "Rest after visits"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan for your visits. It holds how you will begin, your words for prayer and grief, your privacy line and your rest.",
+    "book_bridge": "Visiting Well is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Whom did you visit this month, and what did you notice?",
+      "What do you want to do differently on your next visit?"
+    ],
+    "refresher_ids": [
+      "p1_begin",
+      "p4_rest"
+    ]
+  }
+}

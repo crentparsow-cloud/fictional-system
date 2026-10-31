@@ -143,3 +143,39 @@ describe("demo profile: wording", () => {
     expect(hasError(withIdeaBody(mood(), `Try one small no each day this week. ${FILLER}`), /every day language/, MIND_AND_MOOD_SHELF)).toBe(true);
   });
 });
+
+describe("demo profile: faith titles (31 October 2026)", () => {
+  const FAITH = "faith-and-spirituality";
+  /** The sample on the faith shelf, with its quoted reader lines unquoted so only the line under test is checked. */
+  const faith = (tier: "none" | "standard" = "none"): Doc => {
+    const d: Doc = { ...sample(), safety_tier: tier, theme_id: "rhythms-of-prayer" };
+    for (const u of d.units) for (const i of u.ideas) i.body = i.body.replace(/"/g, "");
+    return d;
+  };
+  const line = (d: Doc, l: string) => withIdeaBody(d, `${l} ${FILLER}`);
+  const ok = (l: string, tier: "none" | "standard" = "none") => expect(errors(line(faith(tier), l), FAITH).filter((m) => m.startsWith("units[].ideas[]") && !/I or We/.test(m))).toEqual([]);
+
+  it("lets ordinary faith words through on both tiers", () => {
+    for (const tier of ["none", "standard"] as const) {
+      ok("God is with you in the kitchen as much as in church. Prayer can be a few words over the washing up.", tier);
+      ok("The Holy Spirit, the Eucharist, the saints, the Psalms, sin, confession and mercy all belong here. Amen.", tier);
+      ok("Say the Lord's Prayer, then pray for one person by name in your own words.", tier);
+      ok("Keep the Sabbath as a day of rest each week, and go to Mass or the Sunday service.", tier);
+    }
+  });
+
+  it("accepts scripture by book and chapter, a gospel story told in the third person, and free will", () => {
+    ok("Read Luke 15 slowly, then Luke chapter 15 again, and chapter 3 of John.");
+    ok("Jesus heals a man in Mark 2 after his friends lower him through a roof.", "standard");
+    ok("Christ sets us free, and free will is part of the gift.");
+  });
+
+  it("still fails scripture quoted beyond five words, a page citation, a healing promise and free misuse", () => {
+    expect(hasError(line(faith(), 'Psalm 23 begins "The Lord is my shepherd, I shall not want" and goes on.'), /on a faith title/, FAITH)).toBe(true);
+    expect(errors(line(faith(), 'Psalm 23 begins "The Lord is my shepherd" and goes on.'), FAITH).some((m) => /quoted/.test(m))).toBe(false);
+    expect(hasError(line(faith(), "See page 12 of the parish booklet."), /citation/, FAITH)).toBe(true);
+    expect(hasError(line(faith("standard"), "Prayer heals you over time."), /claim word/, FAITH)).toBe(true);
+    expect(hasError(line(faith(), "The whole workbook is free to read."), /'free' on a paid title/, FAITH)).toBe(true);
+    expect(hasError(line(faith(), "Pray when it suits you — morning or evening."), /em dash/, FAITH)).toBe(true);
+  });
+});

@@ -1,0 +1,331 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-X1EHA",
+  "slug": "offering-the-working-day-x1eha",
+  "title": "Offering the Working Day",
+  "card_line": "A morning offering, a pause at midday and an evening review for working people.",
+  "book": {
+    "book_id": "offering-the-working-day",
+    "title": "Offering the Working Day",
+    "subtitle": "Six Weeks of Prayer at Work"
+  },
+  "author": {
+    "author_id": "AU-E5MP6",
+    "display_name": "Siobhán Carrick-Doherty"
+  },
+  "genre": "career",
+  "theme_id": "work-as-calling",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about bringing prayer into the working day. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a morning offering, a midday pause, an evening review and a short rule, all in your own words. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two, about your own working day.",
+      "Your answers build a short rule of prayer you can read at the end."
+    ],
+    "why_prompt": "What does a normal working day look like for you? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Begin the working day by offering it to God.",
+      "exercise_ids": [
+        "p1_morning"
+      ],
+      "intro": "Before the first email or the first customer, there is a moment when the day is still yours to give. This part looks at a morning offering. It asks you to write a few lines in your own words that hand the day over to God.",
+      "ideas": [
+        {
+          "heading": "A morning offering takes less than a minute.",
+          "body": "Many Christians begin the day with an offering. It can be a sentence said before you get up or on the way in. You name the day's work, the people you will meet and the tasks ahead, and you give them to God."
+        },
+        {
+          "heading": "Your own words are enough for an offering.",
+          "body": "There are traditional morning offerings in prayer books, and you may use one. You can also say what is on your mind in your own words. Honest and short is better than polished and long. God knows the day already."
+        },
+        {
+          "heading": "Naming the day ahead lets you meet it with a clear head.",
+          "body": "Say what you expect: a meeting, a deadline, a difficult phone call. Offering them in advance puts them in order. When the day arrives you have already looked at it once, and given it away. Even a few seconds of this can set the tone for a meeting or a shift."
+        }
+      ],
+      "takeaway": "A morning offering is a few honest lines. Say what the day holds and give it to God."
+    },
+    {
+      "number": 2,
+      "focus": "See your work as a share in God's work and pause at midday.",
+      "exercise_ids": [
+        "p2_pause"
+      ],
+      "intro": "The Bible begins with God at work, and many Christians see their jobs as a share in that. This part looks at what that might mean in an ordinary job, and at a short pause at midday. The Angelus is one way to mark noon.",
+      "ideas": [
+        {
+          "heading": "Ordinary work can be a share in God's work.",
+          "body": "In Genesis 1 and 2, God works to make and care for the world. Cleaning, teaching, driving, coding and caring all make or look after something. You do not need a religious job for your work to matter to God."
+        },
+        {
+          "heading": "A midday pause marks the middle of the day without taking long.",
+          "body": "Stop for a minute at noon. Put down what you are doing and say a short prayer, such as the Angelus or a line of your own. Then go back to work. A short pause is easy to fit in."
+        },
+        {
+          "heading": "A pause works best when you tie it to something you already do.",
+          "body": "Link it to lunch, a clock, or the moment you make a drink. That way you do not have to remember. If you forget on one day, nothing is lost. Try again when you can, and keep the words short."
+        }
+      ],
+      "takeaway": "Work is a share in God's work. A minute at midday can mark that."
+    },
+    {
+      "number": 3,
+      "focus": "Pray for people at work and review the day in the evening.",
+      "exercise_ids": [
+        "p3_review"
+      ],
+      "intro": "Work brings you into regular contact with people you did not choose. This part looks at praying for colleagues and customers, including difficult ones. It also looks at an evening review, in which you look back over the day with honesty and thanks.",
+      "ideas": [
+        {
+          "heading": "You can pray for difficult colleagues without pretending to like them.",
+          "body": "Name the person and ask God to be good to them. You do not need to feel warm. Praying for someone is a way of seeing them as a person, and it can change the way you speak to them."
+        },
+        {
+          "heading": "Customers and strangers are part of your work too.",
+          "body": "The person at the counter, the caller and the delivery driver are all people. A short thought for them as you begin a task is enough. Ask God to keep them well, then be patient and polite in how you answer."
+        },
+        {
+          "heading": "An evening review looks back at the day with thanks and honesty.",
+          "body": "At the end of the day, ask where you were glad, where you were short with someone and what you would do differently. Thank God for the good. Ask forgiveness for the rest. Then let the day go, and rest. You can write a few lines in a notebook if that suits you better than speaking."
+        }
+      ],
+      "takeaway": "Pray for the people you work with. At the end of the day, look back with thanks and honesty."
+    },
+    {
+      "number": 4,
+      "focus": "Gather the pieces into a short rule of prayer for work.",
+      "exercise_ids": [
+        "p4_rule"
+      ],
+      "intro": "A working rule of prayer is a short list you can keep, however busy the week. This part pulls together your offering, your pause and your review. It asks you to decide what stays on a busy day. You can revise it later.",
+      "ideas": [
+        {
+          "heading": "A rule is a short list, not a timetable.",
+          "body": "Write three things: your morning offering, your midday pause and your evening review. Each takes about a minute. A rule you can say from memory is more useful than a long plan on paper. Keep it where you work, perhaps tucked into a drawer, a notebook or the inside of a locker door."
+        },
+        {
+          "heading": "Decide in advance what stays on your busiest days.",
+          "body": "On a heavy day you may manage only one piece. Choose which one before the day starts. Keeping something small is better than dropping everything. It holds the thread of prayer through the week, even when the week is full."
+        },
+        {
+          "heading": "Look at your rule now and then and let it change with your work.",
+          "body": "A new job, a new shift or a new baby changes what is possible. Look at your rule every few weeks. Cut what has become heavy and add what you miss. A rule should fit your life, and not the other way round."
+        }
+      ],
+      "takeaway": "A working rule is three short pieces and a choice for busy days. Let it change as your work changes."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_morning",
+      "title": "Write your morning offering",
+      "purpose": "A morning offering of three or four lines, in your own words.",
+      "why": "Write three or four lines that offer your day's work to God. Name one task, one person and one thing you are unsure of. Read it aloud once. Use it tomorrow if you wish.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a task, a person and an unknown."
+        },
+        {
+          "text": "Write three or four lines and read them aloud."
+        }
+      ],
+      "fields": [
+        {
+          "id": "offering",
+          "type": "long_text",
+          "label": "What will you say to God at the start of your working day?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "offering",
+          "plan_section": "morning"
+        }
+      ],
+      "done_when": "You have three or four lines you could say aloud."
+    },
+    {
+      "id": "p2_pause",
+      "title": "Choose your midday pause",
+      "purpose": "A short midday prayer and the moment you will say it.",
+      "why": "Decide when your pause will fall and what you will do. Choose a short prayer, such as the Angelus, or write one line of your own. Say it once today if you can.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a moment in your working day."
+        },
+        {
+          "text": "Choose or write a short prayer."
+        }
+      ],
+      "fields": [
+        {
+          "id": "moment",
+          "type": "short_text",
+          "label": "When in your working day will you pause?"
+        },
+        {
+          "id": "words",
+          "type": "short_text",
+          "label": "What will you say in your pause?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "moment",
+          "plan_section": "midday"
+        },
+        {
+          "field_id": "words",
+          "plan_section": "midday"
+        }
+      ],
+      "done_when": "You have a moment and a few words chosen."
+    },
+    {
+      "id": "p3_review",
+      "title": "Pray for someone, review today",
+      "purpose": "One person named in prayer and three honest lines about your day.",
+      "why": "Name one colleague or customer you will pray for, with a few words to say. Then write three lines about the day: one thing to thank God for, one thing you regret and one thing to try tomorrow.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one person at work."
+        },
+        {
+          "text": "Write three lines looking back over your day."
+        }
+      ],
+      "fields": [
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Whom at work will you pray for?"
+        },
+        {
+          "id": "review",
+          "type": "long_text",
+          "label": "What three lines would you write about today?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "person",
+          "plan_section": "people"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "review"
+        }
+      ],
+      "done_when": "You have named one person and written your three lines."
+    },
+    {
+      "id": "p4_rule",
+      "title": "Write your working rule",
+      "purpose": "A short rule of prayer for work, with the piece you would keep on a busy day.",
+      "why": "Write your morning offering, midday pause and evening review as three short lines. Mark the one you would keep on your busiest day. Put the page where you work.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your three pieces as short lines."
+        },
+        {
+          "text": "Mark the one to keep on a busy day."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rule",
+          "type": "long_text",
+          "label": "What is your short rule of prayer for work?"
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "Which piece will you keep on your busiest day?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rule",
+          "plan_section": "rule"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "rule"
+        }
+      ],
+      "done_when": "Your rule is on one page with a busy day piece marked."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your offering, your pause, your review and your working rule."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "morning",
+      "title": "Your morning offering"
+    },
+    {
+      "id": "midday",
+      "title": "Your midday pause"
+    },
+    {
+      "id": "people",
+      "title": "People at work"
+    },
+    {
+      "id": "review",
+      "title": "Your evening review"
+    },
+    {
+      "id": "rule",
+      "title": "Your working rule"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short rule of prayer for work. It holds your morning offering, your midday pause, the people you pray for and your evening review.",
+    "book_bridge": "Offering the Working Day is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which piece of your working rule have you kept this month?",
+      "What would you change in it now?"
+    ],
+    "refresher_ids": [
+      "p1_morning",
+      "p4_rule"
+    ]
+  }
+}

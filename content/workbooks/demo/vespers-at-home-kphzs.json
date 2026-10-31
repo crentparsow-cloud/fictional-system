@@ -1,0 +1,324 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-KPHZS",
+  "slug": "vespers-at-home-kphzs",
+  "title": "Vespers at Home",
+  "card_line": "A short evening prayer at home, built up piece by piece over six weeks.",
+  "book": {
+    "book_id": "vespers-at-home",
+    "title": "Vespers at Home",
+    "subtitle": "Six Weeks of Evening Prayer"
+  },
+  "author": {
+    "author_id": "AU-C7YJ6",
+    "display_name": "Ioana Constantinescu-Byrne"
+  },
+  "genre": "personal_development",
+  "theme_id": "rhythms-of-prayer",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook builds a short evening prayer at home, one piece at a time. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short order of prayer written in your own words. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Try the exercise this evening, or whenever it suits you.",
+      "Your answers build a short order of prayer you can read at the end."
+    ],
+    "why_prompt": "When in the evening could you give a few quiet minutes to prayer?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Mark the evening with a lamp and one psalm.",
+      "exercise_ids": [
+        "p1_lamp"
+      ],
+      "intro": "Evening prayer begins by stopping. This part looks at lighting a lamp or candle and reading one psalm. You choose the time and the place. The aim is a small spot in your home where prayer can happen, and a time you can return to.",
+      "ideas": [
+        {
+          "heading": "A lit lamp tells the household that the day is changing.",
+          "body": "Many Christians have lit a lamp as evening prayer begins. It marks a change from work to prayer. A candle or a small lamp is enough. Light it, stand or sit for a moment, and let the room go quiet before you speak."
+        },
+        {
+          "heading": "One psalm is enough for an evening, and Psalm 104 is a good place to start.",
+          "body": "Psalm 104 praises God for creation, from the hills to the night itself. You can read it aloud or in a low voice. You do not need to read the whole psalm at once. A few verses read slowly suit a short prayer."
+        },
+        {
+          "heading": "A chosen place makes it easier to begin.",
+          "body": "Choose a chair, a shelf or a corner of the table where you will pray. An icon, a cross or a plain candle can mark it. When the place is ready, you spend less time deciding and more time praying. It can be small."
+        }
+      ],
+      "takeaway": "A lamp, a psalm and a chosen place are enough to begin an evening prayer."
+    },
+    {
+      "number": 2,
+      "focus": "Add the evening hymn and Psalm 141.",
+      "exercise_ids": [
+        "p2_order"
+      ],
+      "intro": "Two pieces carry much of an evening prayer. One is the hymn O Gladsome Light, which greets Christ as the day ends. The other is Psalm 141, known by its opening words Lord, I have cried. This part looks at both and asks you to put your pieces in order.",
+      "ideas": [
+        {
+          "heading": "O Gladsome Light gives you words for the end of the day.",
+          "body": "This old evening hymn greets Christ as the light at day's close. You can find it in a prayer book, and you can read it or sing it. Reading it slowly is enough. It marks the moment the day is handed back to God."
+        },
+        {
+          "heading": "Psalm 141 lets you pray with the words of others.",
+          "body": "Psalm 141 begins with a cry to God to hear. Many Christians have prayed it in the evening, with a lamp or with incense. Praying with an old psalm means you do not need to invent each word. You borrow what has carried others."
+        },
+        {
+          "heading": "An order of prayer lets you stop deciding what comes next.",
+          "body": "Put the lamp first, then the hymn, then the psalm. Having an order means you can pray without planning each step. You can change it later. For now, one order that you can repeat is useful, and short enough to learn by heart."
+        }
+      ],
+      "takeaway": "The hymn and the psalm give an evening prayer its shape. Put them in an order you can repeat."
+    },
+    {
+      "number": 3,
+      "focus": "Pray the prayer of Simeon and name the people you love.",
+      "exercise_ids": [
+        "p3_names"
+      ],
+      "intro": "Simeon appears in Luke 2, where he holds the infant Jesus and gives thanks. Many Christians use his short prayer near the end of the day. This part also asks you to name the people you want to remember. Names make a short prayer personal.",
+      "ideas": [
+        {
+          "heading": "Simeon's prayer is a fitting way to close the day.",
+          "body": "In Luke 2, Simeon is an old man who has waited a long time. When he sees Jesus, he gives thanks and says he can depart in peace. Read the passage, then say the prayer of Simeon in your own words if you prefer."
+        },
+        {
+          "heading": "Praying for others by name takes less time than you might think.",
+          "body": "Say a name, then pause. You do not need a speech. Ask God to keep that person. Even three or four names, said slowly, fill a few minutes. A short prayer for each person is still a real prayer, and it can be as plain as you like."
+        },
+        {
+          "heading": "A short list on paper lets you pray without worrying about forgetting.",
+          "body": "Keep a small card by your lamp. Write names as they come to mind, and add or remove them as needs change. A line such as \"Lord, keep Anna tonight\" is a full prayer. Your own words are enough, and you can use the same ones each evening."
+        }
+      ],
+      "takeaway": "Simeon's prayer closes the day, and names make it personal. A few names, said slowly, are a full evening prayer."
+    },
+    {
+      "number": 4,
+      "focus": "Write a short rule of evening prayer to keep.",
+      "exercise_ids": [
+        "p4_rule"
+      ],
+      "intro": "A short rule is a plan you can keep. This part gathers the pieces into one page. It asks how long your prayer takes and what to keep on an evening when you are short of time. You can change it later.",
+      "ideas": [
+        {
+          "heading": "A rule should fit on a card and take about ten minutes.",
+          "body": "The lamp, hymn, psalm, names and Simeon's prayer fit within ten minutes if each is short. A page you can read at a glance is more useful than a long plan. Cut anything that makes the prayer feel heavy. You can add pieces back later."
+        },
+        {
+          "heading": "A shorter version for tired evenings keeps the prayer going.",
+          "body": "Decide now what you will keep when you are short of time. Perhaps it is the lamp and one name. Writing it down beforehand removes the choice when you are tired. A short prayer is still prayer. It is not a lesser one."
+        },
+        {
+          "heading": "Revisit your rule now and then, and change what no longer fits.",
+          "body": "Seasons of work, family and health change what is possible. A rule that suited one winter may not suit the next. Look at it every so often. Adjust it without feeling that you have let anything slip. A rule exists to serve your prayer, and not the other way round."
+        }
+      ],
+      "takeaway": "A short rule, a shorter version and a chance to revise it make an evening prayer you can keep."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_lamp",
+      "title": "Set your lamp and psalm",
+      "purpose": "A time, a place and a psalm chosen for your evening prayer.",
+      "why": "Decide when in the evening you will pray, and where. Choose a lamp or candle and a psalm, such as Psalm 104. Write your choices down. Try the prayer once if you can.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a time and a place."
+        },
+        {
+          "text": "Choose a lamp and a psalm."
+        }
+      ],
+      "fields": [
+        {
+          "id": "when_where",
+          "type": "short_text",
+          "label": "When and where will you pray in the evening?"
+        },
+        {
+          "id": "psalm",
+          "type": "short_text",
+          "label": "Which psalm will you read?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "when_where",
+          "plan_section": "setup"
+        },
+        {
+          "field_id": "psalm",
+          "plan_section": "setup"
+        }
+      ],
+      "done_when": "You have a time, a place and a psalm written down."
+    },
+    {
+      "id": "p2_order",
+      "title": "Put your pieces in order",
+      "purpose": "A short order for your evening prayer, from lamp to psalm.",
+      "why": "Write the pieces so far in the order you will use them: lamp, hymn, psalm. Read through them once aloud. Note anything that felt too long and shorten it.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the pieces in order."
+        },
+        {
+          "text": "Read them aloud once and trim."
+        }
+      ],
+      "fields": [
+        {
+          "id": "order",
+          "type": "long_text",
+          "label": "In what order will you say your evening prayer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "order",
+          "plan_section": "order"
+        }
+      ],
+      "done_when": "You have an order and have read it through once."
+    },
+    {
+      "id": "p3_names",
+      "title": "List the names you will pray",
+      "purpose": "A short list of names, with a few words of prayer for each.",
+      "why": "Write between one and six names of people you want to remember in prayer. Beside each, write a few words to say, such as keep, comfort or guide. Read the list aloud once.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the names that come to mind."
+        },
+        {
+          "text": "Add a few words to say for each."
+        }
+      ],
+      "fields": [
+        {
+          "id": "names",
+          "type": "two_column",
+          "label": "Whom will you remember in your evening prayer?",
+          "columns": [
+            "Name",
+            "A few words to pray"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "names",
+          "plan_section": "names"
+        }
+      ],
+      "done_when": "You have at least one name with a few words beside it."
+    },
+    {
+      "id": "p4_rule",
+      "title": "Write your short rule",
+      "purpose": "One page with your evening order and a shorter version for tired evenings.",
+      "why": "Copy your lamp, hymn, psalm, names and Simeon's prayer into one short list. Then mark the two pieces you would keep on a tired evening. Put the page where you pray.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write the whole order on one page."
+        },
+        {
+          "text": "Mark the two pieces for tired evenings."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rule",
+          "type": "long_text",
+          "label": "What is your full evening rule, in order?"
+        },
+        {
+          "id": "short_rule",
+          "type": "short_text",
+          "label": "Which pieces will you keep on a tired evening?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rule",
+          "plan_section": "rule"
+        },
+        {
+          "field_id": "short_rule",
+          "plan_section": "rule"
+        }
+      ],
+      "done_when": "Your rule fits on one page with a shorter version marked."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your setting, your order, your names and your short rule."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "setup",
+      "title": "Your time, place and psalm"
+    },
+    {
+      "id": "order",
+      "title": "Your order of prayer"
+    },
+    {
+      "id": "names",
+      "title": "Names to remember"
+    },
+    {
+      "id": "rule",
+      "title": "Your short rule"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short order of prayer in your own words. It holds your time and place, your order, your names and your short rule.",
+    "book_bridge": "Vespers at Home is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which piece of your evening prayer has felt most like your own?",
+      "What would you add or cut this month?"
+    ],
+    "refresher_ids": [
+      "p2_order",
+      "p4_rule"
+    ]
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-CRPDM",
+  "slug": "content-with-daily-bread-crpdm",
+  "title": "Content With Daily Bread",
+  "card_line": "Learn contentment from the Lord's Prayer and the manna in the wilderness.",
+  "book": {
+    "book_id": "content-with-daily-bread",
+    "title": "Content With Daily Bread",
+    "subtitle": "Four Weeks on Enough"
+  },
+  "author": {
+    "author_id": "AU-JKGDQ",
+    "display_name": "Wanjiru Kamau-Otieno"
+  },
+  "publisher_id": "PB-5YMGY",
+  "genre": "personal_development",
+  "theme_id": "generous-living",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about contentment and what counts as enough. It comes in four short parts, each a few minutes of reading and one exercise. It is not financial, legal or tax advice. By the end you will have written your own sense of enough and a way to share it. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When did you last feel you had enough, even for an afternoon?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Learn from the manna that enough comes one day at a time.",
+      "exercise_ids": [
+        "p1_enough"
+      ],
+      "intro": "In Exodus 16, the people of Israel are hungry in the wilderness and God sends bread each morning. They are told to gather only what they need for the day. This part asks you to read that story with your own household in mind. You will look at what enough means for you today.",
+      "ideas": [
+        {
+          "heading": "Manna was given in portions for one day, not stored for months.",
+          "body": "The story in Exodus 16 says the people gathered what they needed. Those who kept extra found it spoiled. Whatever else the story says, it asks the reader to think about trust and hoarding. Read the chapter and see what you notice."
+        },
+        {
+          "heading": "Enough is a different sum for each household.",
+          "body": "A family with three children needs more than a single person does. Enough also changes as life changes. Nobody else can fix your figure. It helps to name it in plain words, such as a roof, regular meals and a little set aside. Write your own version."
+        },
+        {
+          "heading": "Wanting more is ordinary, and naming it is useful.",
+          "body": "Most people feel the pull of the next purchase or the better house. There is nothing shameful in noticing it. Say what you want and ask whether it adds to enough or goes beyond it. Honest naming is the first step to contentment."
+        }
+      ],
+      "takeaway": "Manna came one day at a time. Enough is a figure only you can name, and naming it comes first."
+    },
+    {
+      "number": 2,
+      "focus": "Pray for daily bread and notice what it asks of you.",
+      "exercise_ids": [
+        "p2_bread"
+      ],
+      "intro": "The Lord's Prayer includes a line asking for daily bread. It is one of the shortest requests in the prayer, and one of the plainest. This part asks you to pray that line slowly, in your own words, and to notice what you ask for and what you leave out.",
+      "ideas": [
+        {
+          "heading": "The prayer asks for bread for today, not for the whole year.",
+          "body": "Matthew 6 gives the Lord's Prayer and then speaks of not worrying about tomorrow. Praying for one day's food keeps you close to what you need now. You can plan sensibly and still pray this way. The two sit together without trouble, and many people find the short prayer a plain one to say."
+        },
+        {
+          "heading": "Daily bread is shared bread, since the prayer uses the word our.",
+          "body": "The Lord's Prayer is written in the plural. It asks for bread for everyone who prays it, not only for you. Think of the people near you who may need more than they have. Let your own prayer name them too."
+        },
+        {
+          "heading": "Thanks for bread you already have belongs in the same prayer.",
+          "body": "Before asking, say thanks for the last meal. Gratitude does not remove need, but it tells you what you already hold. Say it at the table. Children pick up the habit of thanks by hearing it each time you sit down."
+        }
+      ],
+      "takeaway": "Pray for today's bread and say our, not my. Thanks for what you have belongs in the same prayer."
+    },
+    {
+      "number": 3,
+      "focus": "Read Paul's words on contentment in Philippians 4.",
+      "exercise_ids": [
+        "p3_learn"
+      ],
+      "intro": "Paul writes from prison in Philippians 4 and speaks of having learned to be content. He does not say it was easy. This part asks you to read that chapter slowly. Then you note what Paul says he has learned, and where you are still learning.",
+      "ideas": [
+        {
+          "heading": "Paul says contentment is learned, and so it can be practised.",
+          "body": "Philippians 4 describes a man who has known both plenty and need. He says he learned to manage in either. Learning takes time and some false starts. You do not have to be content already to begin learning. Start where you are and read the chapter again when you can."
+        },
+        {
+          "heading": "Contentment is not the same as giving up on change.",
+          "body": "You can be thankful for what you have and still work, save and plan. Paul keeps working and writing. Contentment means your peace does not depend on the next purchase. It does not mean you stop caring about your family's needs."
+        },
+        {
+          "heading": "Comparing yourself with others quickly wears down contentment.",
+          "body": "Looking at a neighbour's car or a friend's holiday makes your own enough feel small. Notice when this happens and name it. Then turn to something you are thankful for. The habit takes time, and you will slip. Return to it without scolding yourself."
+        }
+      ],
+      "takeaway": "Paul learned contentment over time. It does not mean you stop working, only that your peace is not tied to more."
+    },
+    {
+      "number": 4,
+      "focus": "Share what is enough with the people around you.",
+      "exercise_ids": [
+        "p4_share"
+      ],
+      "intro": "Enough is meant to be shared. When you know your own figure, you can see more clearly what you can pass on. This part asks you to choose one way of sharing from what you have. Your choice is your own and this is not financial advice.",
+      "ideas": [
+        {
+          "heading": "Sharing from enough begins with one clear decision.",
+          "body": "Decide what you will give, to whom, and how often. A small gift made regularly can mean more than a large one made once. This workbook does not tell you how much. Choose something that leaves your family secure and your conscience at rest."
+        },
+        {
+          "heading": "Time, food and welcome can be shared as well as money.",
+          "body": "A pot of rice for a neighbour, an afternoon with someone lonely or a seat at your table are all ways of sharing. Acts 2 describes believers who shared what they had as needs arose. Look at what you have in each of these three."
+        },
+        {
+          "heading": "A savings group or church can make sharing easier.",
+          "body": "Many people give more readily alongside others. A savings group, a church fund or a family arrangement spreads the load. If you belong to one, ask how it shares. Check any money matter with someone qualified, as this workbook offers no advice."
+        }
+      ],
+      "takeaway": "Share from enough in time, food and welcome as well as money. Decide on one way and keep it modest."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_enough",
+      "title": "Name your enough",
+      "purpose": "A plain description of what enough looks like for your household.",
+      "why": "Read Exodus 16 once. Then write what enough looks like for your household today, in plain words, without figures if you prefer. Add one thing you want that goes beyond it. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Exodus 16."
+        },
+        {
+          "text": "Write what enough means for you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "enough",
+          "type": "long_text",
+          "label": "What does enough look like for your household?"
+        },
+        {
+          "id": "beyond",
+          "type": "short_text",
+          "label": "What is one thing you want that goes beyond it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "enough",
+          "plan_section": "enough"
+        },
+        {
+          "field_id": "beyond",
+          "plan_section": "enough"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about what enough means."
+          }
+        ],
+        "field_ids": [
+          "enough"
+        ]
+      },
+      "done_when": "You have a short description of enough written down."
+    },
+    {
+      "id": "p2_bread",
+      "title": "Pray for daily bread",
+      "purpose": "A short prayer for today's bread, with thanks and other people's names.",
+      "why": "Write a short prayer in your own words that asks for what you need today. Begin with thanks for one meal. Add the name of one person who may need more than you. If the words do not come, write the word bread.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one line of thanks."
+        },
+        {
+          "text": "Write one line of asking, and one name."
+        }
+      ],
+      "fields": [
+        {
+          "id": "thanks",
+          "type": "short_text",
+          "label": "What are you thankful for at your table?"
+        },
+        {
+          "id": "asking",
+          "type": "long_text",
+          "label": "Your prayer for today's bread, and one name to include"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "thanks",
+          "plan_section": "bread"
+        },
+        {
+          "field_id": "asking",
+          "plan_section": "bread"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line of thanks."
+          }
+        ],
+        "field_ids": [
+          "thanks"
+        ]
+      },
+      "done_when": "You have a short prayer with thanks and one name."
+    },
+    {
+      "id": "p3_learn",
+      "title": "Note what you are learning",
+      "purpose": "One thing you are learning about contentment and one comparison to let go.",
+      "why": "Read Philippians 4. Write one thing about contentment you are still learning. Then write one comparison that you often make with someone else. Name it kindly. If you cannot think of one, write one thing you are glad of.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Philippians 4."
+        },
+        {
+          "text": "Write what you are learning."
+        }
+      ],
+      "fields": [
+        {
+          "id": "learning",
+          "type": "short_text",
+          "label": "What are you still learning about contentment?"
+        },
+        {
+          "id": "comparison",
+          "type": "short_text",
+          "label": "Which comparison do you make most often?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "learning",
+          "plan_section": "learn"
+        },
+        {
+          "field_id": "comparison",
+          "plan_section": "learn"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you are learning."
+          }
+        ],
+        "field_ids": [
+          "learning"
+        ]
+      },
+      "done_when": "You have named one lesson and one comparison."
+    },
+    {
+      "id": "p4_share",
+      "title": "Choose one way to share",
+      "purpose": "One way of sharing from what is enough, and when you will do it.",
+      "why": "Choose one way to share: time, food, welcome or money. Write what it is, who it is for and roughly when. Keep it modest. This is your decision and not financial advice. If money is tight, choose time or food.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one way to share."
+        },
+        {
+          "text": "Write who it is for and when."
+        }
+      ],
+      "fields": [
+        {
+          "id": "share",
+          "type": "short_text",
+          "label": "What will you share, and with whom?"
+        },
+        {
+          "id": "when",
+          "type": "short_text",
+          "label": "When will you do it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "share",
+          "plan_section": "share"
+        },
+        {
+          "field_id": "when",
+          "plan_section": "share"
+        }
+      ],
+      "done_when": "You have one way to share written down with a time."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your prayer for today's bread is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your enough, your prayer, your lesson and a way to share."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "enough",
+      "title": "Your enough"
+    },
+    {
+      "id": "bread",
+      "title": "Your prayer for bread"
+    },
+    {
+      "id": "learn",
+      "title": "What you are learning"
+    },
+    {
+      "id": "share",
+      "title": "How you will share"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your sense of enough, your prayer for daily bread, what you are learning and one way to share.",
+    "book_bridge": "Content With Daily Bread is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did enough look like for you this month?",
+      "Which comparison did you notice, and what did you do?",
+      "Who did you share with this month?"
+    ],
+    "refresher_ids": [
+      "p1_enough",
+      "p4_share"
+    ]
+  }
+}

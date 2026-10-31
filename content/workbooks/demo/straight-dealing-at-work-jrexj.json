@@ -1,0 +1,329 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-JREXJ",
+  "slug": "straight-dealing-at-work-jrexj",
+  "title": "Straight Dealing at Work",
+  "card_line": "Honesty, fairness and courage in ordinary jobs, with Scripture as the guide.",
+  "book": {
+    "book_id": "straight-dealing-at-work",
+    "title": "Straight Dealing at Work",
+    "subtitle": "Six Weeks on Integrity and Faith"
+  },
+  "author": {
+    "author_id": "AU-Q0X8F",
+    "display_name": "Winsome Clarke-Adeyemi"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "career",
+  "theme_id": "work-as-calling",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_legal_or_tax_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about honesty, fairness and courage in ordinary jobs, with Scripture as the guide. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a short personal code for work. It is not legal or tax advice. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise about your own work, in a line or two.",
+      "Your answers build a short code for work that you can read at the end."
+    ],
+    "why_prompt": "Where in your job is it hardest to be honest? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Be faithful in a workplace that does not share your faith.",
+      "exercise_ids": [
+        "p1_place"
+      ],
+      "intro": "Daniel worked for foreign kings and served them well. The book of Daniel shows a person who did good work and kept his own convictions. This part asks how you can do both in your job. You will name one place where it matters.",
+      "ideas": [
+        {
+          "heading": "Daniel did good work for people who did not share his faith.",
+          "body": "In Daniel 1 and Daniel 6, officials trust Daniel because he is careful and honest. He does not withdraw from the workplace. He serves well. Good work is one way of showing what you value. It is also a way of serving the people who rely on you."
+        },
+        {
+          "heading": "Faith at work is often shown quietly, through how you do small things.",
+          "body": "Being on time is part of it. So is telling the truth about a delay. So is speaking to the cleaner and the director in the same way. Few people will ask what you believe. They will notice how you behave."
+        },
+        {
+          "heading": "There are limits, and Daniel knew where his were.",
+          "body": "Daniel 6 tells of a decree he could not follow without giving up prayer. He chose to pray as before. Few people face such a choice, but it is wise to know in advance what you would not do. Decide it on a calm day, not in the middle of pressure."
+        }
+      ],
+      "takeaway": "Daniel served well and kept his convictions. Honest, careful work is a quiet witness."
+    },
+    {
+      "number": 2,
+      "focus": "Deal fairly with customers, colleagues and staff.",
+      "exercise_ids": [
+        "p2_fair"
+      ],
+      "intro": "Proverbs and the prophets speak of honest scales and fair wages. This part turns to ordinary dealings: prices, time sheets, expenses and how you deal with those who report to you. You will pick one dealing you want to get right.",
+      "ideas": [
+        {
+          "heading": "Honest weights are about small amounts as much as large ones.",
+          "body": "Proverbs 11 speaks of false scales as something God dislikes. A short measure, a padded invoice or a rounded up time sheet all count. The amount is not the point. Being exact is. A person who is careful with small amounts is likely to be trusted with larger ones, and honest with both."
+        },
+        {
+          "heading": "Fair dealing means telling people what they are really getting.",
+          "body": "Describe your product or your work as it is. Do not hide fees, delays or limits in small print. If you buy, pay on time. If you are unsure whether something is legal or tax compliant, ask a qualified adviser."
+        },
+        {
+          "heading": "A manager's power is a trust, to be used fairly.",
+          "body": "If you manage people, you decide their hours, tasks and sometimes pay. Deal with them as you would like to be dealt with. Listen before you decide. Give the pay and the praise that are due. Power used fairly is part of honest work."
+        }
+      ],
+      "takeaway": "Honest weights, plain terms and fair management are ordinary acts of faith at work."
+    },
+    {
+      "number": 3,
+      "focus": "Speak up when it matters and own up when you are wrong.",
+      "exercise_ids": [
+        "p3_ownup"
+      ],
+      "intro": "Honesty sometimes costs something. It may mean raising a concern or admitting a mistake. This part looks at when to speak, when to wait and how to put things right. Ephesians 4 and Proverbs 28 are worth reading alongside it.",
+      "ideas": [
+        {
+          "heading": "Speaking up should be truthful, timely and kind.",
+          "body": "Raise a concern with the person who can act on it, in private first. Keep to what you saw. Ephesians 4 speaks of telling the truth with care for others. Anger can wait until you have cooled, and a calm conversation is more likely to be heard."
+        },
+        {
+          "heading": "Sometimes the wise move is to stay quiet, for a while.",
+          "body": "Not every irritation needs raising. Ask whether the matter is serious, whether you have the facts, and whether anyone is at risk. If it involves a crime or someone's safety, do not wait. Seek advice from a qualified person or the right authority."
+        },
+        {
+          "heading": "Owning a mistake quickly costs less than hiding it.",
+          "body": "Proverbs 28 contrasts the one who hides wrongs with the one who confesses them. In an office, that means saying plainly what went wrong, what you will do and who should know. Then put it right as best you can."
+        }
+      ],
+      "takeaway": "Speak truthfully and kindly, wait when it is wise, and own your mistakes early."
+    },
+    {
+      "number": 4,
+      "focus": "Write a short personal code for work.",
+      "exercise_ids": [
+        "p4_code"
+      ],
+      "intro": "A code is a few lines you can read on a hard day. This part gathers what you have worked out and asks you to write it down. Keep it short and in your own words. You can revise it as your work changes.",
+      "ideas": [
+        {
+          "heading": "A code of three to five lines is easier to keep than a long list.",
+          "body": "Choose lines you can remember, such as telling the truth about delays or paying invoices on time. Each line should describe something you do, not something you avoid. A short code can be read in a minute, which is when you will need it."
+        },
+        {
+          "heading": "A code should be tested against a real situation.",
+          "body": "Pick a recent day and ask how your code would have guided you. Where did you fall short? Where did you do well already? Adjust any line that proved vague. A code is useful only if it meets real days."
+        },
+        {
+          "heading": "A code is easier to keep when someone else knows it.",
+          "body": "Tell a friend, a minister or a colleague what you have written. Ask them to ask you about it now and then. Honesty at work is hard to keep alone, and a second pair of eyes is welcome. They may also notice a line that is vague or too hard to keep."
+        }
+      ],
+      "takeaway": "A short code, tested on a real day and shared with one person, is easier to keep."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_place",
+      "title": "Name where faith meets your work",
+      "purpose": "One place at work where being honest and faithful matters most.",
+      "why": "Read Daniel 1 or Daniel 6 if you have time. Then think of your own workplace. Write one situation where doing right matters, and what Daniel's example suggests for you.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Daniel 1 or Daniel 6, if you can."
+        },
+        {
+          "text": "Write one situation at work."
+        }
+      ],
+      "fields": [
+        {
+          "id": "place",
+          "type": "long_text",
+          "label": "Where in your job does being faithful matter most?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "place",
+          "plan_section": "place"
+        }
+      ],
+      "done_when": "One situation is written down."
+    },
+    {
+      "id": "p2_fair",
+      "title": "Check one dealing for fairness",
+      "purpose": "One dealing at work, looked at honestly, and what you would change.",
+      "why": "Pick one regular dealing, such as an invoice, a time sheet or a decision about someone's hours. Write how it works now and whether it is fair to everyone involved. Note one change.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Pick one regular dealing."
+        },
+        {
+          "text": "Write whether it is fair, and one change."
+        }
+      ],
+      "fields": [
+        {
+          "id": "dealing",
+          "type": "short_text",
+          "label": "Which dealing at work do you want to look at?"
+        },
+        {
+          "id": "change",
+          "type": "short_text",
+          "label": "What, if anything, would you change?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "dealing",
+          "plan_section": "fair"
+        },
+        {
+          "field_id": "change",
+          "plan_section": "fair"
+        }
+      ],
+      "done_when": "You have named a dealing and decided on a change, or on none."
+    },
+    {
+      "id": "p3_ownup",
+      "title": "Plan to speak or own up",
+      "purpose": "One concern or mistake, and the first sentence you would say about it.",
+      "why": "Think of something at work you have wanted to raise, or a mistake you have not yet owned. Write whom you would tell and the first sentence you would say. Decide whether to speak now or wait.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name the matter and the person."
+        },
+        {
+          "text": "Write your first sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "matter",
+          "type": "short_text",
+          "label": "What do you want to raise or own up to?"
+        },
+        {
+          "id": "sentence",
+          "type": "short_text",
+          "label": "What is your first sentence, and to whom?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "matter",
+          "plan_section": "ownup"
+        },
+        {
+          "field_id": "sentence",
+          "plan_section": "ownup"
+        }
+      ],
+      "done_when": "You have a matter, a person and a first sentence."
+    },
+    {
+      "id": "p4_code",
+      "title": "Write your personal code",
+      "purpose": "Three to five lines that describe how you will deal at work.",
+      "why": "Write three to five short lines that begin with what you do. Use your own words. Check each against a recent day at work. Share the code with one person you trust.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three to five short lines."
+        },
+        {
+          "text": "Check each against a recent day."
+        }
+      ],
+      "fields": [
+        {
+          "id": "code",
+          "type": "long_text",
+          "label": "What are the lines of your code for work?"
+        },
+        {
+          "id": "tell",
+          "type": "short_text",
+          "label": "Whom will you show it to?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "code",
+          "plan_section": "code"
+        },
+        {
+          "field_id": "tell",
+          "plan_section": "code"
+        }
+      ],
+      "done_when": "Your code is written and you know whom to show it to."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your workplace, a dealing, a matter to raise and your code."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "place",
+      "title": "Where faith meets your work"
+    },
+    {
+      "id": "fair",
+      "title": "A dealing to look at"
+    },
+    {
+      "id": "ownup",
+      "title": "Speaking up or owning up"
+    },
+    {
+      "id": "code",
+      "title": "Your code for work"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page about your work. It holds where faith meets your job, a dealing to look at, a matter to raise and your code.",
+    "book_bridge": "Straight Dealing at Work is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which line of your code did you use this month?",
+      "What would you add to it now?"
+    ],
+    "refresher_ids": [
+      "p2_fair",
+      "p4_code"
+    ]
+  }
+}

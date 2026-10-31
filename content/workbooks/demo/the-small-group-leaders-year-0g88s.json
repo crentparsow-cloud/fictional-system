@@ -1,0 +1,337 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-0G88S",
+  "slug": "the-small-group-leaders-year-0g88s",
+  "title": "The Small Group Leader's Year",
+  "card_line": "A season of leading a small group, one skill a week.",
+  "book": {
+    "book_id": "the-small-group-leaders-year",
+    "title": "The Small Group Leader's Year",
+    "subtitle": "Twelve Weeks of Leading a Home Group"
+  },
+  "author": {
+    "author_id": "AU-BT1YF",
+    "display_name": "Losa Faleolo-Pierce"
+  },
+  "genre": "leadership",
+  "theme_id": "serving-together",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is for people who lead a small group, at church or at home. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a plan for your own group's season. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise in a line or two, about your own group.",
+      "Your answers build a short plan for your season, which you can read at the end."
+    ],
+    "why_prompt": "Which group do you lead, or hope to lead, and what do you want it to be like?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See why a small group is worth leading and how to prepare a session.",
+      "exercise_ids": [
+        "p1_session"
+      ],
+      "intro": "A small group is where many people are known by name. This part asks why your group exists and how to prepare one session. A session needs a welcome, a few questions and a prayer. You do not need to be an expert to lead it.",
+      "ideas": [
+        {
+          "heading": "A small group exists so that people are known by name.",
+          "body": "In a Sunday gathering a person can stay anonymous. In a group of eight, someone notices when you are away. Many people value that kind of attention. Your first task is not to teach. It is to see that everyone is known."
+        },
+        {
+          "heading": "A session has three parts: a welcome, a few questions and a prayer.",
+          "body": "Plan the welcome first, then two or three questions, then a short closing prayer. Write them on one page. Too many questions crowd the evening. A single page lets you lead without rustling through papers, and lets you look at people instead."
+        },
+        {
+          "heading": "Your job is to host a conversation, not to give a talk.",
+          "body": "A leader who talks for most of the evening leaves little room for anyone else. Think of yourself as a host. You set out the question, welcome the answers and keep an eye on the time. The group does most of the speaking."
+        }
+      ],
+      "takeaway": "A small group is for knowing people by name. A page with a welcome, questions and a prayer is enough to lead a session."
+    },
+    {
+      "number": 2,
+      "focus": "Ask better questions, listen well and pray together.",
+      "exercise_ids": [
+        "p2_try"
+      ],
+      "intro": "A group talks when the questions are open and the leader is willing to wait. This part looks at the kinds of question that draw people out, at silence, and at prayer in the group. You will choose one thing to try at your next meeting.",
+      "ideas": [
+        {
+          "heading": "An open question draws out more than a one word answer.",
+          "body": "A question such as \"What stood out to you?\" invites a story. A question with a yes or no answer closes the conversation. Write your questions in advance and change any that can be answered with one word. Ask them slowly."
+        },
+        {
+          "heading": "Silence after a question is not a problem to solve.",
+          "body": "After you ask, wait. Many people need a few seconds to think before they speak. If you fill the gap, they never get the chance. Counting slowly to ten in your head can hold the pause for you. The group will usually fill it in their own time."
+        },
+        {
+          "heading": "Prayer in a group can be short, spoken and shared.",
+          "body": "Not everyone prays aloud, and nobody should be put on the spot. Invite prayers of a single line if people wish, or pray for names read from a list. Say that anyone may pass. A short prayer said by several people is full enough."
+        }
+      ],
+      "takeaway": "Open questions and patient silence give a group room to speak. Short prayers let everyone take part, or pass."
+    },
+    {
+      "number": 3,
+      "focus": "Handle different voices, disagreement and care with wisdom.",
+      "exercise_ids": [
+        "p3_voices"
+      ],
+      "intro": "Every group has a quiet member, a talkative one and, sooner or later, a disagreement. Some members will also tell you things that call for care. This part looks at all three, and at knowing when to pass something on. Your church will have its own safeguarding contact.",
+      "ideas": [
+        {
+          "heading": "A quiet member may have much to say if you invite them kindly.",
+          "body": "Do not call on someone by surprise. Put a question to the whole group and let people think. Speak to quiet members before or after the meeting. With a talkative member, thank them, then ask what someone else is thinking."
+        },
+        {
+          "heading": "Disagreement is ordinary and can be handled with calm and fairness.",
+          "body": "People in a group will see things differently. Name the disagreement, let each person speak once, and say back what you heard. You do not need to settle it that evening. It is fine to ask people to carry on talking afterwards."
+        },
+        {
+          "heading": "You are not the only person who cares for the group, and you may pass things on.",
+          "body": "If someone shares something serious, listen kindly. Do not promise to keep secret anything that may put a person at risk. Know who your church's safeguarding contact is, and pass any concern about safety to them. Passing it on is part of caring."
+        }
+      ],
+      "takeaway": "Quiet and talkative members both need a place. Serious concerns are for your church's safeguarding contact, not for you to carry alone."
+    },
+    {
+      "number": 4,
+      "focus": "Serve together, share the leading and end the season well.",
+      "exercise_ids": [
+        "p4_season"
+      ],
+      "intro": "A group that only meets inside its own walls can grow tired. This last part looks at hospitality, at serving others together and at raising a new leader. It ends with closing a season well. You will plan your next step.",
+      "ideas": [
+        {
+          "heading": "Hospitality and serving others together turn a group outward.",
+          "body": "Tea, a shared meal or snacks give people a reason to arrive early and stay on. Ask members to bring something so that the host does not do it all. Add a small task for someone outside the group, such as a meal for a neighbour."
+        },
+        {
+          "heading": "A good leader is already looking for the next one.",
+          "body": "Watch for a member who listens well or arrives early. Invite them to lead a part of the evening, such as the opening question. Let them try it and give them kind feedback. Sharing the leading keeps the group from resting on one person."
+        },
+        {
+          "heading": "Ending a season well means thanking people and asking what comes next.",
+          "body": "Set aside the last session to look back, say thank you by name and ask each person what they would like next. Some will stay and some will move on. Letting a season end gives people a clear choice, and it leaves room for new members to join."
+        }
+      ],
+      "takeaway": "A group that serves, shares the leading and closes its seasons clearly is easier to lead and easier to join."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_session",
+      "title": "Plan one session on a page",
+      "purpose": "A page that holds your next session: welcome, questions and prayer.",
+      "why": "Pick your next meeting. Write a short welcome line, two or three questions and one way to close in prayer. Keep it to a single page. If you do not lead yet, plan an imagined session.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write your welcome line."
+        },
+        {
+          "text": "Write two or three questions and a closing prayer."
+        }
+      ],
+      "fields": [
+        {
+          "id": "welcome_line",
+          "type": "short_text",
+          "label": "How will you welcome people at the start?"
+        },
+        {
+          "id": "questions",
+          "type": "long_text",
+          "label": "What questions will you ask, and how will you close in prayer?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "welcome_line",
+          "plan_section": "session"
+        },
+        {
+          "field_id": "questions",
+          "plan_section": "session"
+        }
+      ],
+      "done_when": "Your welcome, questions and closing prayer are on one page."
+    },
+    {
+      "id": "p2_try",
+      "title": "Choose one thing to try",
+      "purpose": "One listening or prayer idea for your next meeting, written down.",
+      "why": "Choose one idea from this part: an open question, a pause after asking, or a short group prayer. Write exactly what you will say and do. Try it at your next meeting.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one idea from Part 2."
+        },
+        {
+          "text": "Write the exact words you will use."
+        }
+      ],
+      "fields": [
+        {
+          "id": "choice",
+          "type": "short_text",
+          "label": "Which idea will you try at your next meeting?"
+        },
+        {
+          "id": "wording",
+          "type": "short_text",
+          "label": "What exactly will you say?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "choice",
+          "plan_section": "try"
+        },
+        {
+          "field_id": "wording",
+          "plan_section": "try"
+        }
+      ],
+      "done_when": "You know what you will say and when you will say it."
+    },
+    {
+      "id": "p3_voices",
+      "title": "Plan for different voices",
+      "purpose": "A step for a quiet member, a step for a talkative one, and a safeguarding contact.",
+      "why": "Think of the members of your group, real or imagined. Write one thing you will do for a quiet member and one for a talkative one. Then write who you would tell about a safety concern.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one step for each kind of member."
+        },
+        {
+          "text": "Name your church's safeguarding contact."
+        }
+      ],
+      "fields": [
+        {
+          "id": "members",
+          "type": "long_text",
+          "label": "What will you do for your quiet and your talkative members?"
+        },
+        {
+          "id": "contact",
+          "type": "short_text",
+          "label": "Who is your church's contact for a safety concern?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "members",
+          "plan_section": "voices"
+        },
+        {
+          "field_id": "contact",
+          "plan_section": "voices"
+        }
+      ],
+      "done_when": "You have a step for each voice and a contact named, or a note to ask."
+    },
+    {
+      "id": "p4_season",
+      "title": "Plan your next season",
+      "purpose": "A new leader to invite, a way to serve, and a thank you.",
+      "why": "Write the name of one member you could invite to lead part of an evening. Name one way the group could serve someone outside it. Then write what you want to thank the group for.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a member to invite."
+        },
+        {
+          "text": "Name one way to serve, and one thank you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "next_leader",
+          "type": "short_text",
+          "label": "Whom could you invite to lead part of an evening?"
+        },
+        {
+          "id": "serve",
+          "type": "short_text",
+          "label": "How could your group serve someone outside it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "next_leader",
+          "plan_section": "season"
+        },
+        {
+          "field_id": "serve",
+          "plan_section": "season"
+        }
+      ],
+      "done_when": "You have named a member and a way to serve."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your session, your idea to try, your voices and your next season."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "session",
+      "title": "Your next session"
+    },
+    {
+      "id": "try",
+      "title": "Something to try"
+    },
+    {
+      "id": "voices",
+      "title": "Different voices"
+    },
+    {
+      "id": "season",
+      "title": "Your next season"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan for your group. It holds your session page, a thing to try, your plan for different voices and your next season.",
+    "book_bridge": "The Small Group Leader's Year is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you try with your group this month?",
+      "Whom have you invited to lead?",
+      "What does your group need next?"
+    ],
+    "refresher_ids": [
+      "p1_session",
+      "p4_season"
+    ]
+  }
+}
