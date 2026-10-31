@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-BK6HZ",
+  "slug": "sunday-lunch-monday-prayers-bk6hz",
+  "title": "Sunday Lunch, Monday Prayers",
+  "card_line": "Carry Sunday's Bible story into the week, one family table at a time.",
+  "book": {
+    "book_id": "sunday-lunch-monday-prayers",
+    "title": "Sunday Lunch, Monday Prayers",
+    "subtitle": "Six Weeks of Faith Around the Family Table"
+  },
+  "author": {
+    "author_id": "AU-BT1YF",
+    "display_name": "Losa Faleolo-Pierce"
+  },
+  "genre": "relationships",
+  "theme_id": "faith-at-home",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about carrying Sunday's Bible story into the week around your family table. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a table story, a question for each person, a Monday prayer and a weekly pattern. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who sits at your table most weeks, and when do you all eat together?",
+    "extra_safety_note": "This workbook is for everyday family life. If using it at home would put you or anyone in your household at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Bring one Bible story and one question to Sunday lunch.",
+      "exercise_ids": [
+        "p1_table"
+      ],
+      "intro": "Sunday lunch is often the one meal when everyone is in the same room. That makes it a good place for a short story from the Bible. This part asks you to choose a story that suits your household. Then you write one question that each person can answer.",
+      "ideas": [
+        {
+          "heading": "A short story told aloud is enough for one lunch.",
+          "body": "Choose a story that takes two minutes to tell, such as the feeding of the crowd in Mark 6. Tell it in your own words, then send everyone to read it for themselves. You do not need a commentary. You need a story and a pause."
+        },
+        {
+          "heading": "One question for each person keeps the table from becoming a lesson.",
+          "body": "Ask something every age can answer, such as which part of the story they noticed. Let the youngest go first. There are no wrong answers at this table. A question invites people in, while a lecture sends them to their phones."
+        },
+        {
+          "heading": "The meal itself belongs to the story you tell.",
+          "body": "In Luke 24, two travellers recognise Jesus as he breaks bread at their table. Meals have long been where people notice God. Say a short grace, pass the food and let the story sit alongside the plates. Nothing needs to be solemn."
+        }
+      ],
+      "takeaway": "Tell a short story and ask a question everyone can answer. A table that listens is already a good start."
+    },
+    {
+      "number": 2,
+      "focus": "Say a short prayer for each school and work day.",
+      "exercise_ids": [
+        "p2_monday"
+      ],
+      "intro": "Sunday's story has to reach Monday morning or it stays at the table. This part is about short prayers for the week ahead. They are for the people who leave the house and the people who stay. You will write one prayer for a school day and one for a working day.",
+      "ideas": [
+        {
+          "heading": "A prayer for the day can fit into the time it takes to find your shoes.",
+          "body": "Say it by the door or over breakfast. Name the day ahead and ask God to be with each person in it. Ten seconds is long enough. Short prayers fit a busy house far better than long ones, and children learn them quickly."
+        },
+        {
+          "heading": "Each person can be named, whatever they are heading to.",
+          "body": "A child with a test, a parent on shift work, a grandparent at home. Say each name aloud and what the day holds for them. Being named in prayer by someone who loves you is a plain, steady gift, and it costs nothing but a few seconds."
+        },
+        {
+          "heading": "The words can be your own, passed round the table.",
+          "body": "Take turns to pray one sentence. Older children can lead once they are ready. Nobody has to speak in public if they would rather not. You may name the Lord's Prayer and say it together when time allows, since many people already know it by heart."
+        }
+      ],
+      "takeaway": "A short prayer by the door, with each name said aloud, carries Sunday into Monday."
+    },
+    {
+      "number": 3,
+      "focus": "Include the wider family and serve someone together.",
+      "exercise_ids": [
+        "p3_wider"
+      ],
+      "intro": "A household is rarely just the people under one roof. Grandparents, cousins and neighbours belong in the picture. This part asks you to widen the table a little. You will choose one relative to include and one act of service the family could do together.",
+      "ideas": [
+        {
+          "heading": "Grandparents and cousins can be part of the same story.",
+          "body": "Ring a grandparent after lunch and tell them what you read. Ask them what they remember from childhood. Cousins can share a question by message. Deuteronomy 6 speaks of passing faith on at home, and the older generation often holds the best stories."
+        },
+        {
+          "heading": "A family serves best when each person has a part they can do.",
+          "body": "In Matthew 25, Jesus speaks of feeding the hungry and visiting the sick. A family might cook a meal for a neighbour or help with a church rota. Give the youngest a job they can finish. Small tasks done together are remembered."
+        },
+        {
+          "heading": "Serving together is easier when it is planned and small.",
+          "body": "Pick one person and one act. Put a date on it. Keep it light enough that a busy week does not end it. A bag of shopping delivered, or an hour spent in a garden, is a real act of service."
+        }
+      ],
+      "takeaway": "Widen the table by one person and one act of service. Both can be small and still count."
+    },
+    {
+      "number": 4,
+      "focus": "Settle on a simple weekly pattern you can keep.",
+      "exercise_ids": [
+        "p4_pattern"
+      ],
+      "intro": "A pattern that is too grand will not last. This part asks what your household can honestly keep, week after week. You will choose what fits your life from the earlier parts and let the rest go. Then you write the weekly pattern in a few lines.",
+      "ideas": [
+        {
+          "heading": "A weekly pattern needs only three or four parts.",
+          "body": "Perhaps a story and a question on Sunday, a short prayer on school mornings, and a call to a relative once a month. Anything beyond that is a bonus. Pick what suits your house, not what suits a book. A small pattern kept is better than a large one dropped."
+        },
+        {
+          "heading": "It is fine to drop a part that does not fit.",
+          "body": "If the Monday prayer does not work, try another time or leave it. Households change when children grow and shifts alter. A pattern that bends is more useful than one that breaks, and nobody needs to feel they have let God down."
+        },
+        {
+          "heading": "Missing a Sunday does not undo anything.",
+          "body": "Some weeks the lunch is rushed or the house is full of visitors. Pick it up the next week with a short story and a question. Grace runs through the whole of Luke 15, and your table can be as gentle with itself."
+        }
+      ],
+      "takeaway": "Keep three or four parts and let the rest go. A pattern that bends will outlast one that does not."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_table",
+      "title": "Choose a table story",
+      "purpose": "A story to tell at lunch and a question for each person.",
+      "why": "Pick one Bible story you could tell in about two minutes. Write one question that a child and a grandparent could both answer. Think of your own household as you do it. If no story comes to mind, write the name of a book you would open.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a short Bible story."
+        },
+        {
+          "text": "Write one question for the whole table."
+        }
+      ],
+      "fields": [
+        {
+          "id": "story",
+          "type": "short_text",
+          "label": "Which Bible story will you tell at your next Sunday lunch?"
+        },
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What one question will you ask everyone at the table?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "story",
+          "plan_section": "table"
+        },
+        {
+          "field_id": "question",
+          "plan_section": "table"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one story you could tell."
+          }
+        ],
+        "field_ids": [
+          "story"
+        ]
+      },
+      "done_when": "You have named a story and written one question."
+    },
+    {
+      "id": "p2_monday",
+      "title": "Write a Monday prayer",
+      "purpose": "A short prayer for the school or work day ahead.",
+      "why": "Write a prayer of two or three sentences for the start of a school or working day. Name the people it covers. Read it aloud once at home. If you cannot find the words, write the names of the people and add the word thanks.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List who leaves the house on a typical day."
+        },
+        {
+          "text": "Write two or three sentences of prayer for them."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "short_text",
+          "label": "Who will you name in your Monday prayer?"
+        },
+        {
+          "id": "prayer",
+          "type": "long_text",
+          "label": "Your Monday prayer, in your own words"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "people",
+          "plan_section": "monday"
+        },
+        {
+          "field_id": "prayer",
+          "plan_section": "monday"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the names you would pray for."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "done_when": "You have a short prayer and the names it covers."
+    },
+    {
+      "id": "p3_wider",
+      "title": "Widen the table",
+      "purpose": "One relative to include and one act of service.",
+      "why": "Choose one relative who is not at your table, such as a grandparent or cousin, and decide how to include them. Then choose one act of service your household could do together. Pick something small. If nothing comes to mind, name one neighbour.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name one relative and how to include them."
+        },
+        {
+          "text": "Name one act of service and a rough date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "relative",
+          "type": "short_text",
+          "label": "Which relative will you include, and how?"
+        },
+        {
+          "id": "service",
+          "type": "short_text",
+          "label": "What small act of service could your household do together?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "relative",
+          "plan_section": "wider"
+        },
+        {
+          "field_id": "service",
+          "plan_section": "wider"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one relative to include."
+          }
+        ],
+        "field_ids": [
+          "relative"
+        ]
+      },
+      "done_when": "You have a relative and an act of service written down."
+    },
+    {
+      "id": "p4_pattern",
+      "title": "Write your weekly pattern",
+      "purpose": "A short weekly pattern your household could honestly keep.",
+      "why": "Look back at your answers from the first three parts. Choose the three or four that fit your week best. Write them as a simple pattern with the day for each. Leave out anything that feels like too much.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Review your earlier answers."
+        },
+        {
+          "text": "Write three or four parts of your weekly pattern."
+        }
+      ],
+      "fields": [
+        {
+          "id": "pattern",
+          "type": "long_text",
+          "label": "What is your weekly pattern, part by part and day by day?"
+        },
+        {
+          "id": "leave_out",
+          "type": "short_text",
+          "label": "What will you leave out for now?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "pattern",
+          "plan_section": "pattern"
+        },
+        {
+          "field_id": "leave_out",
+          "plan_section": "pattern"
+        }
+      ],
+      "done_when": "You have a pattern of three or four parts written down."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. Your wider family and your act of service are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your table story, Monday prayer and weekly pattern."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "table",
+      "title": "Your table story and question"
+    },
+    {
+      "id": "monday",
+      "title": "Your Monday prayer"
+    },
+    {
+      "id": "wider",
+      "title": "The wider family and service"
+    },
+    {
+      "id": "pattern",
+      "title": "Your weekly pattern"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your table story and question, your Monday prayer, your wider family and act of service, and your weekly pattern.",
+    "book_bridge": "Sunday Lunch, Monday Prayers is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which story did your table hear this month?",
+      "Who did you include from the wider family?",
+      "Which part of your weekly pattern needs changing?"
+    ],
+    "refresher_ids": [
+      "p1_table",
+      "p4_pattern"
+    ]
+  }
+}

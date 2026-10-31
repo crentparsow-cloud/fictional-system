@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-EB501",
+  "slug": "a-lighter-lent-eb501",
+  "title": "A Lighter Lent",
+  "card_line": "Six weeks of simpler living and giving through Lent.",
+  "book": {
+    "book_id": "a-lighter-lent",
+    "title": "A Lighter Lent",
+    "subtitle": "Six Weeks of Prayer, Fasting and Almsgiving"
+  },
+  "author": {
+    "author_id": "AU-Y8MZQ",
+    "display_name": "Agnieszka Lessard-Nowak"
+  },
+  "genre": "personal_development",
+  "theme_id": "generous-living",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about a lighter Lent of prayer, fasting and almsgiving. It comes in four short parts, each a few minutes of reading and one exercise. It is not financial, legal or tax advice. By the end you will have a plan for the season. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What would you most like to put down or take up this Lent?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start from Ash Wednesday and the three disciplines of Lent.",
+      "exercise_ids": [
+        "p1_three"
+      ],
+      "intro": "Lent has three old disciplines: prayer, fasting and almsgiving. Matthew 6 speaks of all three. This part asks you to look at each and choose one small step for each. Lighter here means fewer, simpler things done well, not a bigger list than you can carry.",
+      "ideas": [
+        {
+          "heading": "Prayer, fasting and almsgiving belong together as one rhythm.",
+          "body": "Prayer turns you towards God. Fasting makes room. Almsgiving turns you towards your neighbour. Many Christians keep all three through Lent. You do not need to keep each at full strength. A little of all three is a good shape for the season."
+        },
+        {
+          "heading": "Ash Wednesday begins Lent with a mark and a plain reminder.",
+          "body": "Many Christians receive ashes on the forehead. It is a sign of sorrow for sin and of mortality. Psalm 51 is often read at this time. If you cannot get to church, you can still begin the day with a short prayer at home."
+        },
+        {
+          "heading": "A lighter Lent is easier to keep than a heavy one.",
+          "body": "Many people set big resolutions and lose heart by the second week. Choose one step in each discipline and make it small enough to do on your worst day. You can add more later. A small Lent kept is better than a large one dropped."
+        }
+      ],
+      "takeaway": "Lent has three disciplines: prayer, fasting and almsgiving. Choose one small step in each."
+    },
+    {
+      "number": 2,
+      "focus": "Clear one cupboard, one drawer and one habit, and fast gently.",
+      "exercise_ids": [
+        "p2_clear"
+      ],
+      "intro": "Lent is a good time to let go of what you do not need. This part asks you to clear a little space in your home and in your day. It also asks what a gentle fast might look like for you. A fast here is never a diet or a health plan.",
+      "ideas": [
+        {
+          "heading": "Clearing one cupboard, one drawer and one habit is enough.",
+          "body": "Pick three small things. A cupboard of old tins, a drawer of cables, a habit such as scrolling late at night. Work through them over the weeks. Simple living begins with less clutter, and each cleared space is room for something better."
+        },
+        {
+          "heading": "A fast is about attention, not about losing weight.",
+          "body": "Fasting in Lent is a way of noticing what you lean on. It is not a diet and not a health plan. Choose something modest, such as sweets, a meal out or a screen. If strict fasting is hard for you, choose another way of giving something up."
+        },
+        {
+          "heading": "A fast without kindness misses the point.",
+          "body": "Isaiah 58 speaks sharply about fasting that ignores other people. If your fast makes you short with your family, it needs adjusting. Keep it quiet. Do not tell people about it for credit. Let your giving up lead to giving, and let the room it makes be used."
+        }
+      ],
+      "takeaway": "Clear one cupboard, one drawer and one habit. Fast modestly, and let it make you kinder."
+    },
+    {
+      "number": 3,
+      "focus": "Give money and time to your neighbour in a way that fits your life.",
+      "exercise_ids": [
+        "p3_give"
+      ],
+      "intro": "Almsgiving means giving to people in need. It has long been part of Lent, and it works best when planned. This part asks you to choose what you will give, and to whom. Your plan is your own choice and not financial, legal or tax advice.",
+      "ideas": [
+        {
+          "heading": "Almsgiving begins with deciding on an amount you can keep to.",
+          "body": "Choose a sum that fits your household and does not cause worry. Decide where it goes: a food bank, a parish fund, a person you know. This workbook gives no financial advice, so check your own situation. A small sum given steadily is a real gift."
+        },
+        {
+          "heading": "Giving time can be worth as much as giving money.",
+          "body": "Visit a neighbour who lives alone, cook a meal for a bereaved family or offer to drive someone to an appointment. Matthew 25 counts such acts as done to Christ. Choose one action that suits your week and put it in the diary."
+        },
+        {
+          "heading": "Giving is best done quietly and without keeping score.",
+          "body": "Matthew 6 warns against giving to be noticed. Do it without announcing it. Do not compare your giving with anyone else's. When you are done, let it go. The gift belongs to the person who receives it. Ask nothing in return, not even thanks."
+        }
+      ],
+      "takeaway": "Plan one gift of money and one gift of time. Give quietly and let it go."
+    },
+    {
+      "number": 4,
+      "focus": "Walk through Holy Week and decide what to carry into Easter.",
+      "exercise_ids": [
+        "p4_easter"
+      ],
+      "intro": "Holy Week brings Lent to its centre. From Palm Sunday to Holy Saturday the church remembers the last days of Jesus. This final part asks you to mark that week in a simple way. It also asks what you want to keep when Easter arrives.",
+      "ideas": [
+        {
+          "heading": "Holy Week asks you to slow down and attend to the story.",
+          "body": "Read one gospel account across the week, such as Luke 22 to Luke 24. Go to the services if you can. At home, light a candle in the evenings. The days are heavy and the story is plain. Let it be heard."
+        },
+        {
+          "heading": "Easter does not end Lent's good habits, it asks which to keep.",
+          "body": "On Easter morning the fast ends and the feasting begins. Many Christians keep the Easter season for fifty days. Ask which one thing from Lent you would carry on. A cleared drawer, a weekly visit or a short prayer are all fair choices."
+        },
+        {
+          "heading": "A lighter Lent can be remembered in a few lines.",
+          "body": "Write down what you did and what you noticed. Keep it short. Next year you can read it and begin from there instead of from nothing. Lent is a season you return to, so a note to your future self is useful."
+        }
+      ],
+      "takeaway": "Mark Holy Week in a plain way and choose one thing to carry into Easter. A short note will remind you next year."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_three",
+      "title": "Choose three small steps",
+      "purpose": "One small step each for prayer, fasting and almsgiving.",
+      "why": "Write one small step for each of the three disciplines. Keep each one light enough to manage on a busy day. If one discipline feels too much, write what you would do on the smallest scale. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a step for prayer."
+        },
+        {
+          "text": "Write a step for fasting and one for almsgiving."
+        }
+      ],
+      "fields": [
+        {
+          "id": "prayer",
+          "type": "short_text",
+          "label": "What small step will you take in prayer this Lent?"
+        },
+        {
+          "id": "fast_give",
+          "type": "two_column",
+          "label": "What will you fast from, and what will you give?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "prayer",
+          "plan_section": "three"
+        },
+        {
+          "field_id": "fast_give",
+          "plan_section": "three"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one small step for prayer."
+          }
+        ],
+        "field_ids": [
+          "prayer"
+        ]
+      },
+      "done_when": "You have one small step for each discipline."
+    },
+    {
+      "id": "p2_clear",
+      "title": "Pick what to clear",
+      "purpose": "One cupboard, one drawer, one habit and a gentle fast.",
+      "why": "Name one cupboard, one drawer and one habit to clear during Lent. Then name a gentle fast that is modest and is not a diet. If strict fasting is hard for you, choose another way of giving something up.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a cupboard, a drawer and a habit."
+        },
+        {
+          "text": "Name a gentle fast."
+        }
+      ],
+      "fields": [
+        {
+          "id": "clear",
+          "type": "long_text",
+          "label": "Which cupboard, drawer and habit will you clear?"
+        },
+        {
+          "id": "fast",
+          "type": "short_text",
+          "label": "What gentle fast will you keep, and what will you do if it is hard?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "clear",
+          "plan_section": "clear"
+        },
+        {
+          "field_id": "fast",
+          "plan_section": "clear"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one thing to clear."
+          }
+        ],
+        "field_ids": [
+          "clear"
+        ]
+      },
+      "done_when": "You have three things to clear and one modest fast."
+    },
+    {
+      "id": "p3_give",
+      "title": "Plan your giving",
+      "purpose": "One gift of money, one gift of time and where each goes.",
+      "why": "Choose an amount you can comfortably give and where it will go. Then choose one gift of time and when you will do it. This is your own decision and is not financial advice. If money is tight, plan time only.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Decide an amount and where it goes."
+        },
+        {
+          "text": "Choose one gift of time and a date."
+        }
+      ],
+      "fields": [
+        {
+          "id": "money",
+          "type": "short_text",
+          "label": "What will you give, and to whom?"
+        },
+        {
+          "id": "time",
+          "type": "short_text",
+          "label": "What gift of time will you give, and when?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "money",
+          "plan_section": "give"
+        },
+        {
+          "field_id": "time",
+          "plan_section": "give"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person you could help."
+          }
+        ],
+        "field_ids": [
+          "time"
+        ]
+      },
+      "done_when": "You have one gift of money or time and when it will happen."
+    },
+    {
+      "id": "p4_easter",
+      "title": "Prepare for Easter",
+      "purpose": "How you will mark Holy Week and one thing to carry on.",
+      "why": "Write how you will mark Holy Week at home or in church. Then choose one thing from Lent to carry into Easter. Write one line about what you noticed. If you do not know yet, come back after Easter.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write how you will mark Holy Week."
+        },
+        {
+          "text": "Choose one thing to carry on."
+        }
+      ],
+      "fields": [
+        {
+          "id": "holy_week",
+          "type": "short_text",
+          "label": "How will you mark Holy Week?"
+        },
+        {
+          "id": "carry",
+          "type": "short_text",
+          "label": "What one thing from Lent will you carry into Easter?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "holy_week",
+          "plan_section": "easter"
+        },
+        {
+          "field_id": "carry",
+          "plan_section": "easter"
+        }
+      ],
+      "done_when": "You have a plan for Holy Week and one thing to carry on."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. Your giving plan is saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your small steps, what you clear, your giving and Easter."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "three",
+      "title": "Your three small steps"
+    },
+    {
+      "id": "clear",
+      "title": "What you clear and fast"
+    },
+    {
+      "id": "give",
+      "title": "Your giving"
+    },
+    {
+      "id": "easter",
+      "title": "Holy Week and Easter"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your three small steps, what you clear, your giving and your plan for Holy Week.",
+    "book_bridge": "A Lighter Lent is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you clear or give this month?",
+      "What did you carry on from Lent?",
+      "What would you like to pray about this month?"
+    ],
+    "refresher_ids": [
+      "p1_three",
+      "p4_easter"
+    ]
+  }
+}

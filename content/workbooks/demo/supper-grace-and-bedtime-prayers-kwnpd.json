@@ -1,0 +1,371 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-KWNPD",
+  "slug": "supper-grace-and-bedtime-prayers-kwnpd",
+  "title": "Supper Grace and Bedtime Prayers",
+  "card_line": "Simple prayers at the table and at bedtime that a whole family can say.",
+  "book": {
+    "book_id": "supper-grace-and-bedtime-prayers",
+    "title": "Supper Grace and Bedtime Prayers",
+    "subtitle": "Six Weeks of Family Prayer"
+  },
+  "author": {
+    "author_id": "AU-E5MP6",
+    "display_name": "Siobhán Carrick-Doherty"
+  },
+  "genre": "relationships",
+  "theme_id": "faith-at-home",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about simple prayers at the table and at bedtime that a whole family can say. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a grace, a bedtime prayer, a prayer list and a plan for hard nights. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "When does your family sit down together, even once in a week?",
+    "extra_safety_note": "This workbook is for everyday family life. If using it at home would put you or anyone in your household at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Start with a grace before meals that everyone can learn.",
+      "exercise_ids": [
+        "p1_grace"
+      ],
+      "intro": "A grace is one of the shortest prayers a family can say. It takes less than a minute and needs nobody to be good at praying. This part asks you to choose a grace your household can learn. You will also decide how the Sign of the Cross fits in.",
+      "ideas": [
+        {
+          "heading": "A grace works best when it is short and the same each time.",
+          "body": "Children learn what they hear again and again. Choose a few lines and keep to them. Many families use a familiar grace, and others write their own. Either is welcome. The sameness is what lets a small child join in."
+        },
+        {
+          "heading": "The Sign of the Cross gives even a toddler something to do.",
+          "body": "Many Christians begin and end prayer with it. A very small child can copy the movement long before they can say the words. Do it slowly so they can follow. It marks the start of the prayer without anyone having to explain."
+        },
+        {
+          "heading": "Saying thanks at the table can take in the people who made the meal.",
+          "body": "After the grace, thank whoever cooked, whoever earned the money and whoever laid the table. It teaches gratitude to people as well as to God. In John 6, Jesus gives thanks before sharing bread with a crowd. Your table is a small version of that."
+        }
+      ],
+      "takeaway": "A short grace, said the same way each time, is easy for every age to learn."
+    },
+    {
+      "number": 2,
+      "focus": "Pray short prayers at bedtime and thank God for the day in turn.",
+      "exercise_ids": [
+        "p2_bedtime"
+      ],
+      "intro": "Bedtime is when children slow down and the house goes quiet. It is a good moment for a few words to God. This part is about a short bedtime prayer and a way of thanking God for the day. Each person gets a turn, out loud or in silence.",
+      "ideas": [
+        {
+          "heading": "A bedtime prayer can be three short lines.",
+          "body": "Many families say the Our Father, a Hail Mary or a few words of their own. Pick lines that a tired child can say. Sit on the edge of the bed, switch the light low and keep the pace slow. Short prayers suit sleepy people."
+        },
+        {
+          "heading": "Taking turns to say thanks lets each person speak.",
+          "body": "Ask each person for one thing from the day that they are glad of. Let the youngest begin. An answer like a good sandwich or a kind teacher is a real prayer of thanks. Do not correct or improve anyone's answer."
+        },
+        {
+          "heading": "Silence is allowed if someone does not want to speak.",
+          "body": "A child who is shy, or an adult who is tired, can say Amen and nothing more. Psalm 4 ends with a person lying down to sleep. Bedtime prayer is not a performance. It is a way of ending the day together."
+        }
+      ],
+      "takeaway": "Three short lines and one thing to be thankful for are enough for bedtime."
+    },
+    {
+      "number": 3,
+      "focus": "Pray for family, friends and neighbours, and ask Mary and the saints to join you.",
+      "exercise_ids": [
+        "p3_names"
+      ],
+      "intro": "Prayer grows when it reaches beyond the people in the room. This part asks you to build a short list of people to pray for. It also asks you to think about whether Mary or a saint has a place in your family's prayer. Both are written down so they can be used.",
+      "ideas": [
+        {
+          "heading": "A short list of names makes prayer for others easy to start.",
+          "body": "Write down five or six names: a grandparent, a friend who is ill, a neighbour who lives alone. Say them aloud at bedtime. A list takes the pressure off remembering. You can change the names as life changes. A list on the fridge door works as well as one by the bed."
+        },
+        {
+          "heading": "Children pray more readily for people they know by name.",
+          "body": "Ask a child who they would like to pray for and write the name down. Praying for a classmate or an aunt makes the prayer concrete. It also teaches them that other people matter, which needs no lecture. A child who prays for a friend often asks about them the next day."
+        },
+        {
+          "heading": "Many families ask Mary or a favourite saint to pray with them.",
+          "body": "The Hail Mary is among the best-known family prayers. Some households choose a saint whose name a child shares. Luke 1 tells of Mary's visit to Elizabeth. Say what suits your family, and keep it short and warm. If it is not part of your family's prayer, leave it out."
+        }
+      ],
+      "takeaway": "A list of names turns a general wish into particular prayers. Add Mary or a saint if that is part of your family's life."
+    },
+    {
+      "number": 4,
+      "focus": "Keep praying on busy and difficult nights.",
+      "exercise_ids": [
+        "p4_hard"
+      ],
+      "intro": "Some evenings the house is loud, someone is ill or the day has gone badly. Those are the nights when a long prayer is hardest. This part asks you to plan a very short version for them. You write it now so that it is ready when you need it.",
+      "ideas": [
+        {
+          "heading": "A shorter prayer is better than none on a busy night.",
+          "body": "On a hard evening, the Sign of the Cross and one Amen is a full prayer. Keep a one-line version ready. The next evening is a fresh start. A short prayer said with attention is worth more than a long one said in a rush."
+        },
+        {
+          "heading": "Difficult nights are a good time to name what is hard.",
+          "body": "If someone is grieving or unwell, say so in the prayer, in plain words. Psalm 13 shows a person telling God exactly how things are. Children cope better when sad things are named, and a short honest prayer is enough."
+        },
+        {
+          "heading": "Pick the one prayer you would least want to lose.",
+          "body": "If the pattern shrinks to one thing, which would it be? Perhaps the grace, or a goodnight blessing on each child's forehead. Know which it is. That one stays when everything else has to bend. Tell the family which it is, so everyone knows what the house holds on to."
+        }
+      ],
+      "takeaway": "Plan a one-line prayer for hard nights. Know which prayer you would keep above the others."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_grace",
+      "title": "Choose a family grace",
+      "purpose": "A grace your household can say together at the table.",
+      "why": "Choose a grace, either a familiar one by name or a few lines of your own. Write down the words you will use and who will lead it. Keep it short enough for the youngest person. If nothing comes to mind, write the word thanks.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose or write a grace."
+        },
+        {
+          "text": "Decide who leads it."
+        }
+      ],
+      "fields": [
+        {
+          "id": "grace",
+          "type": "long_text",
+          "label": "What grace will your family say before meals?"
+        },
+        {
+          "id": "leader",
+          "type": "short_text",
+          "label": "Who will lead it, or will you take turns?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "grace",
+          "plan_section": "grace"
+        },
+        {
+          "field_id": "leader",
+          "plan_section": "grace"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write the first line of your grace."
+          }
+        ],
+        "field_ids": [
+          "grace"
+        ]
+      },
+      "done_when": "You have a grace written down and a leader chosen."
+    },
+    {
+      "id": "p2_bedtime",
+      "title": "Shape your bedtime prayer",
+      "purpose": "A short bedtime prayer and a way to give thanks in turn.",
+      "why": "Write a bedtime prayer of about three lines. Then write the question you will ask for the turn-taking, such as one thing each person is glad of. Say it aloud once. If you are stuck, write the Sign of the Cross.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write three short lines for bedtime."
+        },
+        {
+          "text": "Write your thanks question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "bedtime",
+          "type": "long_text",
+          "label": "What three lines will your family say at bedtime?"
+        },
+        {
+          "id": "question",
+          "type": "short_text",
+          "label": "What question will you ask so each person can say thanks?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "bedtime",
+          "plan_section": "bedtime"
+        },
+        {
+          "field_id": "question",
+          "plan_section": "bedtime"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line for bedtime."
+          }
+        ],
+        "field_ids": [
+          "bedtime"
+        ]
+      },
+      "done_when": "You have three lines and one question written down."
+    },
+    {
+      "id": "p3_names",
+      "title": "Make a prayer list",
+      "purpose": "A short list of people, and any saint you wish to include.",
+      "why": "Write down five or six names of family, friends and neighbours you would like to pray for. If a saint or Mary is part of your family's prayer, note which one. Keep the list where you pray. If you can only think of two names, two is enough.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write five or six names."
+        },
+        {
+          "text": "Add a saint if you wish."
+        }
+      ],
+      "fields": [
+        {
+          "id": "names",
+          "type": "long_text",
+          "label": "Whose names will you pray for as a family?"
+        },
+        {
+          "id": "saint",
+          "type": "short_text",
+          "label": "Is there a saint your family would like to include?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "names",
+          "plan_section": "names"
+        },
+        {
+          "field_id": "saint",
+          "plan_section": "names"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write two names."
+          }
+        ],
+        "field_ids": [
+          "names"
+        ]
+      },
+      "done_when": "You have a short list of names to pray for."
+    },
+    {
+      "id": "p4_hard",
+      "title": "Plan for hard nights",
+      "purpose": "A one-line prayer for hard nights and the prayer you would keep.",
+      "why": "Write the shortest prayer your family could say on a hard night. Then name the one prayer you would keep above the rest. Write them where you will see them. If nothing comes to mind, write Amen.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Write a one-line prayer."
+        },
+        {
+          "text": "Name the prayer you would keep."
+        }
+      ],
+      "fields": [
+        {
+          "id": "short_prayer",
+          "type": "short_text",
+          "label": "What one line could your family say on a hard night?"
+        },
+        {
+          "id": "keep",
+          "type": "short_text",
+          "label": "Which prayer would you keep above all the others?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "short_prayer",
+          "plan_section": "hard"
+        },
+        {
+          "field_id": "keep",
+          "plan_section": "hard"
+        }
+      ],
+      "done_when": "You have a one-line prayer and one prayer you would keep."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. Your prayer list is saved and ready to use."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your grace, bedtime prayer, names and hard-night prayer."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "grace",
+      "title": "Your family grace"
+    },
+    {
+      "id": "bedtime",
+      "title": "Your bedtime prayer"
+    },
+    {
+      "id": "names",
+      "title": "People to pray for"
+    },
+    {
+      "id": "hard",
+      "title": "For hard nights"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your grace, your bedtime prayer, your list of names and your prayer for hard nights.",
+    "book_bridge": "Supper Grace and Bedtime Prayers is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which prayer did your family say most often this month?",
+      "Whose name did you add to your list?",
+      "Which prayer would you keep if time ran short?"
+    ],
+    "refresher_ids": [
+      "p1_grace",
+      "p4_hard"
+    ]
+  }
+}

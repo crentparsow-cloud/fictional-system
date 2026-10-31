@@ -1,0 +1,372 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-577PZ",
+  "slug": "forgiving-slowly-577pz",
+  "title": "Forgiving Slowly",
+  "card_line": "Forgiveness as a long road, never a demand to forget or to return to harm.",
+  "book": {
+    "book_id": "forgiving-slowly",
+    "title": "Forgiving Slowly",
+    "subtitle": "Six Weeks on Forgiveness Without Pretending"
+  },
+  "author": {
+    "author_id": "AU-HESJ2",
+    "display_name": "Ruth Okonkwo-Harland"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "personal_development",
+  "theme_id": "mercy-and-comfort",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about forgiveness as a long road, without pretending. It comes in four short parts, each a few minutes of reading and one exercise. Go at your own pace and stop whenever you wish. By the end you will have your own words for what happened and what forgiveness does and does not mean. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise only if you wish. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Is there a hurt you have been carrying, and would you like to name it in a line?",
+    "extra_safety_note": "This workbook is for everyday situations. If using it would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Name what happened, honestly and in your own words.",
+      "exercise_ids": [
+        "p1_name"
+      ],
+      "intro": "Forgiveness is hard to start while the hurt is still vague. This part asks you to say what happened in plain words. You choose how much to write and how much to leave out. Nothing here asks you to go further than you wish.",
+      "ideas": [
+        {
+          "heading": "Naming a wrong plainly is not the same as holding a grudge.",
+          "body": "Writing what happened, in a line or two, states the facts. Many psalms, such as Psalm 55, tell God exactly what a person has suffered. You are allowed to be as direct. Honest words come before forgiveness, not after it."
+        },
+        {
+          "heading": "You can name the hurt without naming every detail.",
+          "body": "Choose the words that feel safe to write. A few lines are enough. Leave out whatever you would rather not put on a page. You are not writing a case file. You are finding a sentence that is true, and no more than that."
+        },
+        {
+          "heading": "Anger is allowed, and prayer can hold it.",
+          "body": "Many readers expect forgiveness to arrive with no anger left. That is rarely how it goes. Tell God how angry or sad you are, in your own words. Praying honestly is closer to forgiving than pretending to feel calm. God has heard worse than your anger."
+        }
+      ],
+      "takeaway": "Say what happened in a few plain words. Honest naming comes first, and anger can be prayed as well."
+    },
+    {
+      "number": 2,
+      "focus": "Learn what forgiveness is not, and take it slowly.",
+      "exercise_ids": [
+        "p2_not"
+      ],
+      "intro": "Forgiveness is often confused with other things. It is not excusing what happened, and it is not going back to how things were. This part sets out the differences. You decide which words fit your own situation, and you set the pace.",
+      "ideas": [
+        {
+          "heading": "Forgiving someone does not mean saying what they did was acceptable.",
+          "body": "A wrong stays wrong. You can forgive and still say it was unjust. Forgiving is a decision about what you carry, not a ruling that nothing happened. Hold both ideas together: it mattered, and you are choosing to release the debt."
+        },
+        {
+          "heading": "Forgiveness and reconciliation are two different things.",
+          "body": "Forgiving takes one person. Reconciling takes two, and needs the other to change. You may forgive someone and never see them again. You may also meet and still be wary. Nothing in forgiveness requires you to return to harm. You can wish someone well from a safe distance, and pray for them there."
+        },
+        {
+          "heading": "Forgiveness can be a decision that you take up many times.",
+          "body": "You may decide to forgive on Monday and feel the hurt again on Friday. That does not undo the decision. Say it again in your own words. Many people find forgiving is slow and goes in stages, and slow is fine."
+        }
+      ],
+      "takeaway": "Forgiving is not excusing, and it is not going back. You may forgive and still keep your distance."
+    },
+    {
+      "number": 3,
+      "focus": "Read Joseph's story and the Lord's Prayer for a pattern.",
+      "exercise_ids": [
+        "p3_read"
+      ],
+      "intro": "Scripture does not rush forgiveness. Joseph waits many years before he speaks to the brothers who sold him. The Lord's Prayer then links being forgiven with forgiving. This part asks you to read both and to notice what stands out for you.",
+      "ideas": [
+        {
+          "heading": "Joseph takes years, and the story does not hurry him.",
+          "body": "In Genesis 37, Joseph's brothers sell him into slavery. In Genesis 45 he tells them who he is, and in Genesis 50 he speaks kindly to them. Between those chapters lie long years. Read the chapters and notice how much time passes."
+        },
+        {
+          "heading": "Joseph names the harm even as he forgives.",
+          "body": "In Genesis 50 Joseph says plainly that his brothers meant to hurt him. He does not pretend. He also tests them before he reveals himself, in Genesis 42 to 44. The story shows forgiving with eyes open. Read it as a story of someone who did not pretend, and see how that sits with you."
+        },
+        {
+          "heading": "The Lord's Prayer places forgiving beside being forgiven.",
+          "body": "Matthew 6 gives the prayer, and then adds a line about forgiving others. Some readers find that line hard. Read it slowly. It speaks of a pattern of mercy in which you also receive, and it does not ask you to rush."
+        }
+      ],
+      "takeaway": "Joseph took years and named the harm. The Lord's Prayer places forgiving beside being forgiven."
+    },
+    {
+      "number": 4,
+      "focus": "Forgive yourself where it is needed, and keep your distance where it is wise.",
+      "exercise_ids": [
+        "p4_distance"
+      ],
+      "intro": "Some hurts we carry are our own doing. Some people are better kept at a distance, whether or not you forgive them. This last part looks at both. It also says plainly that your safety matters more than any wish to reconcile.",
+      "ideas": [
+        {
+          "heading": "Forgiving yourself starts with saying what you did, plainly.",
+          "body": "If you regret something you did, name it without excuses and without harsh words. Psalm 51 is a prayer of someone owning a wrong. Say sorry to God, and to the person where it is safe to do so. Then let it be."
+        },
+        {
+          "heading": "Keeping your distance can sit alongside forgiveness.",
+          "body": "You may forgive someone and still not phone them, meet them or share your news. That is a limit, and it is allowed. Jesus often withdrew from crowds. Decide what you will and will not do, and say it kindly if the moment comes."
+        },
+        {
+          "heading": "Your safety comes before any wish to reconcile.",
+          "body": "If someone has harmed you and could do so again, keeping apart is wise. Forgiveness does not ask you to go back to harm. Speak to a person you trust, such as a friend, relative or minister, about how to stay safe."
+        }
+      ],
+      "takeaway": "Name what you did without harshness. Keep your distance where it is wise, because safety comes first."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_name",
+      "title": "Name what happened",
+      "purpose": "A few plain words about the hurt, only as much as you wish.",
+      "why": "Write one or two sentences about what happened. Use plain words and leave out any detail you would rather not write. You may stop at any point. If nothing comes to mind, write one word that fits how it felt.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write a line about what happened."
+        },
+        {
+          "text": "Write a line about how it felt."
+        }
+      ],
+      "fields": [
+        {
+          "id": "what",
+          "type": "long_text",
+          "label": "In a few plain words, what happened?"
+        },
+        {
+          "id": "felt",
+          "type": "short_text",
+          "label": "How did it feel, in a word or a line?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "what",
+          "plan_section": "name"
+        },
+        {
+          "field_id": "felt",
+          "plan_section": "name"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one word that fits."
+          }
+        ],
+        "field_ids": [
+          "what"
+        ]
+      },
+      "done_when": "You have written as much as you wish, even one word."
+    },
+    {
+      "id": "p2_not",
+      "title": "Say what forgiving is not",
+      "purpose": "Your own words for what forgiveness does not mean in your case.",
+      "why": "Read the three ideas again if you like. Then write what forgiveness would not mean for you, such as excusing or going back. Add one thing you are not ready to do yet. Leave it blank if you wish.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write what forgiving would not mean for you."
+        },
+        {
+          "text": "Write one thing you are not ready for."
+        }
+      ],
+      "fields": [
+        {
+          "id": "not",
+          "type": "long_text",
+          "label": "What would forgiving not mean in your situation?"
+        },
+        {
+          "id": "not_yet",
+          "type": "short_text",
+          "label": "What are you not ready to do yet?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "not",
+          "plan_section": "not"
+        },
+        {
+          "field_id": "not_yet",
+          "plan_section": "not"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing forgiving would not mean."
+          }
+        ],
+        "field_ids": [
+          "not"
+        ]
+      },
+      "done_when": "You have written what forgiving does not mean for you."
+    },
+    {
+      "id": "p3_read",
+      "title": "Read Joseph and the prayer",
+      "purpose": "One thing you notice in Genesis 45 to 50 or Matthew 6.",
+      "why": "Read part of Genesis 45 or 50, or Matthew 6. Write one thing that stands out, or one line you would like to ask God about. If it is too much today, close the book and come back another time.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read a section of one passage."
+        },
+        {
+          "text": "Write what stood out."
+        }
+      ],
+      "fields": [
+        {
+          "id": "notice",
+          "type": "long_text",
+          "label": "What stood out when you read the passage?"
+        },
+        {
+          "id": "ask",
+          "type": "short_text",
+          "label": "Is there a line you would like to ask God about?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "notice",
+          "plan_section": "read"
+        },
+        {
+          "field_id": "ask",
+          "plan_section": "read"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one thing you noticed."
+          }
+        ],
+        "field_ids": [
+          "notice"
+        ]
+      },
+      "done_when": "You have noted one thing, or left it for another day."
+    },
+    {
+      "id": "p4_distance",
+      "title": "Write your limits",
+      "purpose": "What you will do, what you will not do and a word for yourself.",
+      "why": "Write one thing you will do, such as pray for someone by name, and one thing you will not do, such as meeting them alone. Then write a kind sentence to yourself. Skip any part you would rather leave.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write what you will and will not do."
+        },
+        {
+          "text": "Write one kind sentence to yourself."
+        }
+      ],
+      "fields": [
+        {
+          "id": "limits",
+          "type": "two_column",
+          "label": "What will you do, and what will you not do?"
+        },
+        {
+          "id": "kind",
+          "type": "short_text",
+          "label": "What kind sentence could you say to yourself?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "limits",
+          "plan_section": "limits"
+        },
+        {
+          "field_id": "kind",
+          "plan_section": "limits"
+        }
+      ],
+      "done_when": "You have written your limits, or a word for yourself."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. What you noticed is saved. Take your time with the last part."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds what happened, what forgiving is not, what you read and your limits."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "name",
+      "title": "What happened"
+    },
+    {
+      "id": "not",
+      "title": "What forgiving is not"
+    },
+    {
+      "id": "read",
+      "title": "What you read and noticed"
+    },
+    {
+      "id": "limits",
+      "title": "Your limits and a word for yourself"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what happened, what forgiving does not mean for you, what you noticed in your reading and your limits.",
+    "book_bridge": "Forgiving Slowly is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What do you want to say to God about this hurt now?",
+      "Has your sense of what forgiving means changed?",
+      "What limit do you still want to keep?"
+    ],
+    "refresher_ids": [
+      "p2_not",
+      "p4_distance"
+    ]
+  }
+}

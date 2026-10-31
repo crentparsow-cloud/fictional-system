@@ -1,0 +1,332 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-G96XJ",
+  "slug": "psalms-of-the-long-night-g96xj",
+  "title": "Psalms of the Long Night",
+  "card_line": "Pray the lament psalms in hard seasons, with Help now one tap away.",
+  "book": {
+    "book_id": "psalms-of-the-long-night",
+    "title": "Psalms of the Long Night",
+    "subtitle": "Four Weeks of Lament and Hope"
+  },
+  "author": {
+    "author_id": "AU-C7YJ6",
+    "display_name": "Ioana Constantinescu-Byrne"
+  },
+  "genre": "personal_development",
+  "theme_id": "mercy-and-comfort",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about praying the lament psalms in hard seasons. It comes in four short parts, each a few minutes of reading and one exercise. You pray in your own words and at your own pace. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Read the psalm named in the part, in the Bible you already use.",
+      "Answer the exercise. One line is enough, and you may leave any question blank."
+    ],
+    "why_prompt": "What has made your nights long lately? One line is enough, or leave it for now."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Say how long it has been, out loud, to God.",
+      "exercise_ids": [
+        "p1_howlong"
+      ],
+      "intro": "Some nights are long because something is still unresolved. Psalm 13 begins with a person asking God how long it will go on. This part invites you to read that psalm and to put your own how long into words. Nothing needs to be settled by the end.",
+      "ideas": [
+        {
+          "heading": "The psalm begins by saying the hard thing plainly, and so can you.",
+          "body": "Psalm 13 does not open with praise or a tidy lesson. The writer asks how long God will seem absent, and says it aloud. Many Christians have prayed this psalm in dark seasons. You can begin where the psalmist does, with what is actually true tonight."
+        },
+        {
+          "heading": "A complaint made to God is still a prayer.",
+          "body": "The psalm is addressed to God from the first line. That matters. The writer is not talking about God from a distance. Bringing a grievance to God is a way of staying in conversation. You may find it easier to pray once you stop tidying up what you say."
+        },
+        {
+          "heading": "The psalm turns, but you can wait to turn with it.",
+          "body": "Near its end, Psalm 13 moves towards trust. Read it and notice that shift. Notice too that the writer reaches it after saying the hard part. If you are not there yet, you can stay with the first verses for as long as you like."
+        }
+      ],
+      "takeaway": "Psalm 13 gives you words for how long. You can pray it in the middle of the night, before anything is resolved."
+    },
+    {
+      "number": 2,
+      "focus": "Notice what your soul is thirsty for.",
+      "exercise_ids": [
+        "p2_thirst"
+      ],
+      "intro": "Psalm 42 speaks of a deer longing for water. The writer remembers better times and asks why the soul is so low. This part invites you to name what you miss and to speak to your own soul as the psalmist does. You can keep it short.",
+      "ideas": [
+        {
+          "heading": "Longing for God can sit alongside missing what you used to have.",
+          "body": "In Psalm 42 the writer is thirsty for God and also remembers walking with the crowd to worship. Both longings are in the same psalm. You can miss a person, a place or a way of praying while you long for God."
+        },
+        {
+          "heading": "Remembering good times can be part of prayer, even when it hurts.",
+          "body": "The psalmist recalls festivals and voices raised in worship. The memory is painful, but it is still brought to God. If you miss a person or a place, you can name it in your prayer. Remembering is not a lack of faith."
+        },
+        {
+          "heading": "You may speak to your own soul as well as to God.",
+          "body": "More than once in Psalm 42 the writer asks the soul why it is cast down. It is a question, not a scolding. You could ask yourself the same question gently. Then you can wait for an answer, or leave the question open."
+        }
+      ],
+      "takeaway": "Psalm 42 lets you miss what you have lost and still turn towards God. Both can be said in the same prayer."
+    },
+    {
+      "number": 3,
+      "focus": "Read the darkest psalm slowly, with help close by.",
+      "exercise_ids": [
+        "p3_verses"
+      ],
+      "intro": "Psalm 88 is the one psalm that ends without any light. Some readers find it hard, and others find it a relief. This part invites you to read it gently, for a short time, with Help now in the app one tap away. You may stop at any verse.",
+      "ideas": [
+        {
+          "heading": "The Bible includes a prayer that ends in darkness, and that is allowed.",
+          "body": "Psalm 88 closes without comfort. It is still in Scripture and it is still addressed to God. Its place there tells you something about what prayer can hold. You can stop pretending that every night ends in light by morning."
+        },
+        {
+          "heading": "You can read a hard psalm in small pieces and stop when you like.",
+          "body": "There is no need to read all of Psalm 88 at once. Read a few verses, then close the book. Come back later, or not at all. Choosing how much to read is a gentle way of looking after yourself in prayer."
+        },
+        {
+          "heading": "Praying alone in the dark is not the only way to pray.",
+          "body": "The psalms were sung in company. If a night feels too long, you can read the psalm aloud to a friend, a priest or someone from church who already knows you. Help now in the app is there whenever you want it. Reaching out is not a step back."
+        }
+      ],
+      "takeaway": "Psalm 88 shows that prayer can hold darkness without a happy ending. You decide how much to read, and you can read it with someone."
+    },
+    {
+      "number": 4,
+      "focus": "Learn to wait for the morning, one verse at a time.",
+      "exercise_ids": [
+        "p4_evening"
+      ],
+      "intro": "Psalm 130 is a prayer from the depths that ends in waiting. It speaks of watching for the morning and of forgiveness. This part invites you to read it and to shape a few lines for the end of a hard day. Nothing here is a test.",
+      "ideas": [
+        {
+          "heading": "Waiting is a way of praying, and it does not need many words.",
+          "body": "In Psalm 130 the writer waits and hopes for the Lord. Little else is happening on the surface. Waiting can be one slow sentence, said and then left. You might say it when evening comes, in church or at home, and then sit quietly for a moment."
+        },
+        {
+          "heading": "Mercy and forgiveness can sit beside lament in the same psalm.",
+          "body": "Psalm 130 speaks of the depths, then of forgiveness, then of hope. The writer does not wait for the night to be over before praying about mercy. You can bring a sorrow and a regret to God in the same evening, and say both plainly."
+        },
+        {
+          "heading": "You can end a hard evening with a few lines and leave it there.",
+          "body": "Choose a verse, a name to remember and a closing word of your own. Say them when the evening comes, then put the light out. The prayer can stay this small for as long as you like. It can stay as it is."
+        }
+      ],
+      "takeaway": "Psalm 130 shows prayer from the depths and prayer that waits. A few lines at the end of a hard day can be enough."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_howlong",
+      "title": "Ask your own how long",
+      "purpose": "One honest sentence to God about what is dragging on, in your own words.",
+      "why": "Read Psalm 13 once. Then write a sentence or two to God beginning with how long. Name what is dragging on, as plainly as the psalm does. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Psalm 13 slowly, once."
+        },
+        {
+          "text": "Write your own how long to God."
+        }
+      ],
+      "fields": [
+        {
+          "id": "howlong",
+          "type": "long_text",
+          "label": "What do you want to ask God how long about?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "howlong",
+          "plan_section": "howlong"
+        }
+      ],
+      "done_when": "You have written a sentence or a single word, and that is enough."
+    },
+    {
+      "id": "p2_thirst",
+      "title": "Name what you are thirsty for",
+      "purpose": "A short note of what you miss and one gentle question to your own soul.",
+      "why": "Read Psalm 42. Write a few words on what you miss and what your soul is thirsty for. Then write one question to your own soul, as the psalmist does. If the note stays short, that is fine.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Psalm 42."
+        },
+        {
+          "text": "Write what you miss and what you long for."
+        },
+        {
+          "text": "Write one gentle question to your soul."
+        }
+      ],
+      "fields": [
+        {
+          "id": "thirst",
+          "type": "long_text",
+          "label": "What are you thirsty for at the moment?"
+        },
+        {
+          "id": "soulq",
+          "type": "short_text",
+          "label": "Your gentle question to your own soul",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "thirst",
+          "plan_section": "thirst"
+        },
+        {
+          "field_id": "soulq",
+          "plan_section": "thirst"
+        }
+      ],
+      "done_when": "You have one longing written down, with or without a question."
+    },
+    {
+      "id": "p3_verses",
+      "title": "Read a few verses, then stop",
+      "purpose": "A note of which verses you read and one word for how they sat with you.",
+      "why": "Read as much of Psalm 88 as feels right, and stop when you like. Write which verses you read. If a word comes for how they sat with you, add it. If not, leave it blank.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read a few verses of Psalm 88."
+        },
+        {
+          "text": "Stop whenever you wish, and close the book kindly."
+        }
+      ],
+      "fields": [
+        {
+          "id": "verses",
+          "type": "short_text",
+          "label": "Which verses did you read?"
+        },
+        {
+          "id": "word",
+          "type": "short_text",
+          "label": "One word for how they sat with you",
+          "optional": true
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "verses",
+          "plan_section": "darkest"
+        },
+        {
+          "field_id": "word",
+          "plan_section": "darkest"
+        }
+      ],
+      "done_when": "You have stopped reading and noted where you were."
+    },
+    {
+      "id": "p4_evening",
+      "title": "Shape a few lines for evening",
+      "purpose": "A short evening prayer: one verse, one name and a closing word of your own.",
+      "why": "Choose one verse from Psalm 130, one person or concern to name, and a closing word in your own words. Write them down. Say them when evening comes, if you wish. Keep them as short as you like.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a verse from Psalm 130."
+        },
+        {
+          "text": "Choose a name and a closing word."
+        }
+      ],
+      "fields": [
+        {
+          "id": "verse",
+          "type": "short_text",
+          "label": "Which verse from Psalm 130 will you say?"
+        },
+        {
+          "id": "name_close",
+          "type": "short_text",
+          "label": "Whom or what will you name, and how will you close?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "verse",
+          "plan_section": "evening"
+        },
+        {
+          "field_id": "name_close",
+          "plan_section": "evening"
+        }
+      ],
+      "done_when": "Your lines are written down and you are content to leave them."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your how long, your thirst, Psalm 88 and your evening lines."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "howlong",
+      "title": "Your how long"
+    },
+    {
+      "id": "thirst",
+      "title": "What you are thirsty for"
+    },
+    {
+      "id": "darkest",
+      "title": "The darkest psalm"
+    },
+    {
+      "id": "evening",
+      "title": "Your evening lines"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your how long, what you are thirsty for, a note on Psalm 88 and your evening lines.",
+    "book_bridge": "Psalms of the Long Night is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Which psalm have you gone back to this month?",
+      "What would you change in your evening lines now?"
+    ],
+    "refresher_ids": [
+      "p1_howlong",
+      "p4_evening"
+    ]
+  }
+}

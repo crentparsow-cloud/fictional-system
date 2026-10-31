@@ -1,0 +1,363 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-ZEG8Z",
+  "slug": "open-hands-full-table-zeg8z",
+  "title": "Open Hands, Full Table",
+  "card_line": "Giving time, money and welcome, starting from what you already have.",
+  "book": {
+    "book_id": "open-hands-full-table",
+    "title": "Open Hands, Full Table",
+    "subtitle": "Six Weeks of Generous Living"
+  },
+  "author": {
+    "author_id": "AU-Q0X8F",
+    "display_name": "Winsome Clarke-Adeyemi"
+  },
+  "publisher_id": "PB-F5VRD",
+  "genre": "personal_development",
+  "theme_id": "generous-living",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "advice_guardrail": "not_financial_advice",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about giving time, money and welcome, starting from what you already have. It comes in four short parts, each a few minutes of reading and one exercise. It is not financial, legal or tax advice. By the end you will have a giving plan that fits your life. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing you have that you could share with someone this week?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See what you have as a gift and take stock of it.",
+      "exercise_ids": [
+        "p1_stock"
+      ],
+      "intro": "Psalm 24 opens by saying the earth and all in it belong to God. Read that way, what you hold is on loan as well as earned. This part asks you to look at your time, skills, money and home. You list what you have before deciding what to give.",
+      "ideas": [
+        {
+          "heading": "Everything you hold can be received as a gift as well as earned.",
+          "body": "Psalm 24 starts with the earth belonging to God. You may have worked hard for what you have, and that is true. It is also true that health, family and opportunity came from beyond you. Holding both thoughts loosens a tight grip."
+        },
+        {
+          "heading": "You cannot give well until you know what you have.",
+          "body": "Take an honest look at your week: hours that could be given, skills you use at work, a spare room, a full freezer. Write them down. Most people have more to offer than they think. A plain list is better than a vague feeling of having little."
+        },
+        {
+          "heading": "Having little does not stop you giving.",
+          "body": "In Mark 12, Jesus notices a widow who gives two small coins. The story is told in a few lines. Whatever you have, there is something you can pass on. Start with the size of your own life, not the size of someone else's."
+        }
+      ],
+      "takeaway": "What you hold is a gift as well as earnings. Write down what you have before deciding what to give."
+    },
+    {
+      "number": 2,
+      "focus": "Give money in a way that you can sustain.",
+      "exercise_ids": [
+        "p2_money"
+      ],
+      "intro": "Giving money is often where people feel most pressure or guilt. This part takes it plainly. It asks you to choose a way of giving that fits your household and that you can keep up. This workbook gives no financial advice. Your decision is your own.",
+      "ideas": [
+        {
+          "heading": "A gift you can sustain is better than one you have to drop.",
+          "body": "Decide a sum that sits comfortably alongside your bills and commitments. A modest gift given steadily does more than a large one that causes strain. Nothing here tells you how much. That is for you and your household to settle."
+        },
+        {
+          "heading": "Giving with a purpose is easier than giving on impulse.",
+          "body": "Choose a cause or two you care about: your church, a food bank, a person in your family. Knowing where your gift goes makes it easier to keep up. Say a short prayer for the people it will reach. A gift with a face to it is easier to keep up."
+        },
+        {
+          "heading": "Giving openly or quietly is a choice, and both can be sincere.",
+          "body": "Matthew 6 speaks about giving without announcing it. Some people also give openly to encourage others. Ask yourself why you are giving and who it is for. Keep the answer honest, and do not judge how other people give. God sees the reason, and you need not explain it to anyone."
+        }
+      ],
+      "takeaway": "Choose a gift you can sustain, for a cause you care about. The amount is for you and your household to decide."
+    },
+    {
+      "number": 3,
+      "focus": "Give time and skills, and open your table.",
+      "exercise_ids": [
+        "p3_time"
+      ],
+      "intro": "Money is one gift among several. Time, skills and welcome often matter more to the person who receives them. This part asks you to look at what you can offer from your week, and to think about who you could welcome to a meal.",
+      "ideas": [
+        {
+          "heading": "Your skills may be worth more to someone than your money.",
+          "body": "A bookkeeper can help a small charity with its accounts. A cook can feed a church event. A driver can take someone to an appointment. Think about what you do well. Offer it to someone who would value it, and ask what they need."
+        },
+        {
+          "heading": "Hospitality can start with one extra place at the table.",
+          "body": "In Luke 14, Jesus tells his host to invite people who cannot repay him. You do not need a feast. A pot of soup and a chair is enough. Choose someone who is often on their own and ask them to join you."
+        },
+        {
+          "heading": "Giving time works best when it has a regular slot.",
+          "body": "One hour on a set day is easier to keep than a vague offer. A food bank rota is one example. Choose a slot you can honestly keep, and tell the person you are helping so they can count on it."
+        }
+      ],
+      "takeaway": "Offer a skill, a slot of time and a seat at your table. Small, regular gifts are the ones that last."
+    },
+    {
+      "number": 4,
+      "focus": "Write a giving plan that fits your life.",
+      "exercise_ids": [
+        "p4_plan"
+      ],
+      "intro": "Giving that is not planned often gets crowded out by the week. This last part asks you to pull your answers into one short plan. It covers money, time, skills and welcome, each in a line. Keep it modest and reread it every few months.",
+      "ideas": [
+        {
+          "heading": "A giving plan fits on half a page.",
+          "body": "List what you will give in money, time, skills and welcome, with a rough rhythm for each. Write it where you will see it. A short plan is more likely to be read and used than a long one. Put it on the fridge or inside a prayer book."
+        },
+        {
+          "heading": "Your plan will change as your life changes.",
+          "body": "A new baby, a job change or an illness all alter what you can give. Reread the plan now and then and adjust it. Revising is not giving up. It is being honest about the season you are in, which is a form of gratitude too."
+        },
+        {
+          "heading": "Give thanks for the chance to give.",
+          "body": "Giving is a privilege as well as a duty. Philippians 4 thanks a church that supported Paul. Receiving thanks matters too. When you give, say a short prayer of thanks, and when you receive, be gracious. Giving and receiving both belong at an open table."
+        }
+      ],
+      "takeaway": "Write a short plan for money, time, skills and welcome. Reread it now and then and let it change."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_stock",
+      "title": "Take stock of what you have",
+      "purpose": "A short list of the time, skills, money and space you have to offer.",
+      "why": "Write a plain list of what you could give. Include hours in the week, skills, a spare place at the table and anything else. Do not judge the list. If nothing comes to mind, write one thing you are thankful for.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List your time and skills."
+        },
+        {
+          "text": "List anything else you have to share."
+        }
+      ],
+      "fields": [
+        {
+          "id": "have",
+          "type": "long_text",
+          "label": "What do you have that you could give: time, skills, space or money?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "have",
+          "plan_section": "stock"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write three things you have."
+          }
+        ],
+        "field_ids": [
+          "have"
+        ]
+      },
+      "done_when": "You have a list of what you have to offer."
+    },
+    {
+      "id": "p2_money",
+      "title": "Choose how to give money",
+      "purpose": "A way of giving money that suits your household.",
+      "why": "Think about a sum you could give comfortably, and where it could go. You do not need to write a figure. This is not financial advice, and the decision is yours. If money is tight, write how you could give time instead.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Name a cause you care about."
+        },
+        {
+          "text": "Write how you would give, in a line."
+        }
+      ],
+      "fields": [
+        {
+          "id": "cause",
+          "type": "short_text",
+          "label": "Where would you like your giving to go?"
+        },
+        {
+          "id": "how",
+          "type": "short_text",
+          "label": "How will you give: how often, and in what way?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "cause",
+          "plan_section": "money"
+        },
+        {
+          "field_id": "how",
+          "plan_section": "money"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one cause."
+          }
+        ],
+        "field_ids": [
+          "cause"
+        ]
+      },
+      "done_when": "You have named a cause and a way to give."
+    },
+    {
+      "id": "p3_time",
+      "title": "Offer time and a seat",
+      "purpose": "One gift of time or skill and one person to welcome.",
+      "why": "Choose one gift of time or skill and the person or group who could use it. Then name one person to invite to a meal. Write when each could happen. If nothing comes to mind, write one name.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose a gift of time or skill."
+        },
+        {
+          "text": "Name one person to invite."
+        }
+      ],
+      "fields": [
+        {
+          "id": "offer",
+          "type": "short_text",
+          "label": "What gift of time or skill will you offer, and to whom?"
+        },
+        {
+          "id": "guest",
+          "type": "short_text",
+          "label": "Who will you invite to your table?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "offer",
+          "plan_section": "time"
+        },
+        {
+          "field_id": "guest",
+          "plan_section": "time"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Name one person you could invite."
+          }
+        ],
+        "field_ids": [
+          "guest"
+        ]
+      },
+      "done_when": "You have one gift and one guest named."
+    },
+    {
+      "id": "p4_plan",
+      "title": "Write your giving plan",
+      "purpose": "A short giving plan covering money, time, skills and welcome.",
+      "why": "Pull your earlier answers into one short plan. Write a line each for money, time, skills and welcome. Add when you will look at the plan again. Keep it modest. If a line is empty, leave it for now.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write a line for each kind of giving."
+        },
+        {
+          "text": "Choose when to look at it again."
+        }
+      ],
+      "fields": [
+        {
+          "id": "plan",
+          "type": "long_text",
+          "label": "What is your giving plan, in a line for each kind of gift?"
+        },
+        {
+          "id": "review",
+          "type": "short_text",
+          "label": "When will you look at this plan again?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "plan",
+          "plan_section": "plan"
+        },
+        {
+          "field_id": "review",
+          "plan_section": "plan"
+        }
+      ],
+      "done_when": "You have a short plan and a date to reread it."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. Your gift of time and your guest are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your stock, money, time and a table to share."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "stock",
+      "title": "What you have"
+    },
+    {
+      "id": "money",
+      "title": "Giving money"
+    },
+    {
+      "id": "time",
+      "title": "Time, skills and welcome"
+    },
+    {
+      "id": "plan",
+      "title": "Your giving plan"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds what you have, your way of giving money, your gift of time and your giving plan.",
+    "book_bridge": "Open Hands, Full Table is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did you give this month, in time or money?",
+      "Who sat at your table this month?",
+      "Does your giving plan still fit your life?"
+    ],
+    "refresher_ids": [
+      "p1_stock",
+      "p4_plan"
+    ]
+  }
+}

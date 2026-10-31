@@ -1,0 +1,333 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-DCSC6",
+  "slug": "welcome-at-the-door-dcsc6",
+  "title": "Welcome at the Door",
+  "card_line": "A four-week course for the people who greet, seat and remember newcomers.",
+  "book": {
+    "book_id": "welcome-at-the-door",
+    "title": "Welcome at the Door",
+    "subtitle": "Four Weeks for Church Welcome Teams"
+  },
+  "author": {
+    "author_id": "AU-1ZS6X",
+    "display_name": "Tama Rāwiri-Hughes"
+  },
+  "genre": "leadership",
+  "theme_id": "serving-together",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is for the people who greet, seat and remember newcomers at church. It comes in four short parts, each a few minutes of reading and one exercise. By the end you will have a welcome plan and a rota. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise with your own church in mind.",
+      "Your answers build a short welcome plan you can share with your team."
+    ],
+    "why_prompt": "Which church do you welcome people into, and what is its front door like?"
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "See why welcome matters and what it feels like to arrive.",
+      "exercise_ids": [
+        "p1_feel"
+      ],
+      "intro": "In Romans 15, Paul asks the church to welcome one another. A welcome team acts on that at the door. This part looks at why welcome matters and what it feels like to the person arriving. You will write what you want newcomers to feel.",
+      "ideas": [
+        {
+          "heading": "Welcome is something Christians are asked to do, not a bonus.",
+          "body": "Paul's words in Romans 15 make welcome part of how the church lives. It is not an extra for the friendly few. A team gives that welcome a regular shape, so that it does not depend on who happens to be standing nearby."
+        },
+        {
+          "heading": "A newcomer decides quickly whether they feel wanted.",
+          "body": "People walking into a church for the first time notice who looks at them. Within moments they sense whether they were expected. A smile and a hello at the door count for a great deal. Clear signs and tidy chairs add to it."
+        },
+        {
+          "heading": "Welcome is for everyone who arrives, including regulars and the shy.",
+          "body": "Newcomers are not the only ones who want to be noticed. A member who has been away, or a quiet person at the back, may want a greeting too. A good team looks for people who are on their own, and goes to them."
+        }
+      ],
+      "takeaway": "Welcome is part of how Christians live together. A newcomer feels it in the first few moments."
+    },
+    {
+      "number": 2,
+      "focus": "Plan the first five minutes for a newcomer.",
+      "exercise_ids": [
+        "p2_five"
+      ],
+      "intro": "The first five minutes shape much of what follows. They include the car park, the door, finding a seat and the first word someone says. This part walks through those minutes and asks you to write what your team will do at each step. Keep each step small.",
+      "ideas": [
+        {
+          "heading": "Greet people at the door within seconds, not minutes.",
+          "body": "Stand where people can see you. Smile, say hello and give your name. Offer a hand if it suits the person. Do not ask too many questions yet. A warm greeting and a clear direction are enough for a start."
+        },
+        {
+          "heading": "Show people where to go without making them ask.",
+          "body": "Newcomers often do not know where to find seats, toilets, children's rooms or coffee. Offer to show them, and walk with them rather than pointing. Tell them what happens next in the service. Clear signs are useful too, but a person who walks with them is better still."
+        },
+        {
+          "heading": "Offer a seat and an introduction, and let them decline.",
+          "body": "Invite a newcomer to sit with you or with someone friendly. Introduce them to one person nearby. Some will prefer to sit alone at the back, and that is their right. Offer again next time, without pressure, and let them settle at their own speed."
+        }
+      ],
+      "takeaway": "A greeting, a direction and a seat make a good first five minutes. Keep each step small and kind."
+    },
+    {
+      "number": 3,
+      "focus": "Remember names, follow up kindly and learn the safeguarding basics.",
+      "exercise_ids": [
+        "p3_follow"
+      ],
+      "intro": "A welcome does not end at the door. This part looks at remembering names, following up with a note or a call, and the basics of safeguarding. Safeguarding keeps children and adults safe. Your church will have its own policy and a named lead.",
+      "ideas": [
+        {
+          "heading": "Names make people feel known, so write them down.",
+          "body": "After the service, write down the names of new people with a few notes, such as where they live or who they came with. Use their names next week. Ask permission before you keep their details, and keep them private."
+        },
+        {
+          "heading": "A short follow-up within a week shows you meant it.",
+          "body": "Send a card or a message, or ask someone who knows them to say hello. Thank them for coming. Do not ask for a promise. Let them decide whether to come back. One kind note is enough, and so is a short call if you know them."
+        },
+        {
+          "heading": "Safeguarding basics belong to every member of the welcome team.",
+          "body": "Know your church's safeguarding lead and policy. Follow its guidance on being alone with a child. Pass any concern about someone's safety to the lead straight away. Welcome teams see many people, so they are well placed to notice when something seems wrong. Say what you saw, and leave the rest to the lead."
+        }
+      ],
+      "takeaway": "Names, a kind follow-up and a clear safeguarding contact carry a welcome beyond the door."
+    },
+    {
+      "number": 4,
+      "focus": "Build a welcome rota that lasts.",
+      "exercise_ids": [
+        "p4_rota"
+      ],
+      "intro": "A team that depends on one keen person will not last. This part looks at sharing the work, keeping the rota light and saying thank you. You will draft a rota for the next four weeks, with a spare name for each.",
+      "ideas": [
+        {
+          "heading": "A rota should share the work so that no one carries it alone.",
+          "body": "Spread the roles of greeting, handing out items and seating across several people. Ask each person how often they are happy to serve. A spare name for each week covers illness and holidays, and keeps the team steady. Nobody should feel stuck on a weekly commitment they cannot keep."
+        },
+        {
+          "heading": "Clear roles make the work lighter and easier to join.",
+          "body": "Write down what each role involves in a few lines. Greeter, host, seat finder. New volunteers can then see what is asked of them. Offer a short trial before anyone signs up for good, and let them step back without any awkwardness. A role that is easy to describe is easier to say yes to."
+        },
+        {
+          "heading": "Thanking the team keeps it going.",
+          "body": "Say thank you by name, in person, now and then. Ask what is working and what is tiring. Listen, and change the rota. People stay on a team where their time is respected, and where someone notices what they do."
+        }
+      ],
+      "takeaway": "A shared rota, clear roles and plain thanks keep a welcome team going."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_feel",
+      "title": "Describe a welcome you valued",
+      "purpose": "A memory of being welcomed, and what you want newcomers to feel.",
+      "why": "Think of a time you walked into a place and felt welcome, or did not. Write what the people did. Then write one thing you want a newcomer to feel at your church door.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Recall a welcome you valued."
+        },
+        {
+          "text": "Write what you want newcomers to feel."
+        }
+      ],
+      "fields": [
+        {
+          "id": "memory",
+          "type": "long_text",
+          "label": "What did people do that made you feel welcome?"
+        },
+        {
+          "id": "feel",
+          "type": "short_text",
+          "label": "What do you want a newcomer to feel?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "memory",
+          "plan_section": "feel"
+        },
+        {
+          "field_id": "feel",
+          "plan_section": "feel"
+        }
+      ],
+      "done_when": "You have a memory and one hope for newcomers written down."
+    },
+    {
+      "id": "p2_five",
+      "title": "Write your first five minutes",
+      "purpose": "A short plan of what your team does from the door to the seat.",
+      "why": "Walk through your door as a newcomer would. Write what a team member says and does at three points: the door, the walk to a seat and the first introduction.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Walk through your door as a newcomer."
+        },
+        {
+          "text": "Write what your team says and does at each point."
+        }
+      ],
+      "fields": [
+        {
+          "id": "five",
+          "type": "long_text",
+          "label": "What will your team say and do in a newcomer's first five minutes?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "five",
+          "plan_section": "five"
+        }
+      ],
+      "done_when": "You have a line for the door, the walk and the introduction."
+    },
+    {
+      "id": "p3_follow",
+      "title": "Plan names and follow-up",
+      "purpose": "A way to record names, a follow-up message and your safeguarding lead.",
+      "why": "Decide how your team will record the names of new people and keep them private. Write a short follow-up message in your own words. Note the name of your safeguarding lead.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Decide how names are recorded and kept private."
+        },
+        {
+          "text": "Write a short follow-up message."
+        }
+      ],
+      "fields": [
+        {
+          "id": "record",
+          "type": "short_text",
+          "label": "How will your team record names and keep them private?"
+        },
+        {
+          "id": "message",
+          "type": "short_text",
+          "label": "What will your follow-up message say?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "record",
+          "plan_section": "follow"
+        },
+        {
+          "field_id": "message",
+          "plan_section": "follow"
+        }
+      ],
+      "done_when": "You have a way to record names and a message written."
+    },
+    {
+      "id": "p4_rota",
+      "title": "Draft a rota that lasts",
+      "purpose": "A draft rota with roles, names and a spare for each week.",
+      "why": "List the roles your team needs. Write names beside each for the next four weeks, with a spare. Add one way you will say thank you. Share the draft with the team for comment.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "List the roles and possible names."
+        },
+        {
+          "text": "Add a spare name and a thank you."
+        }
+      ],
+      "fields": [
+        {
+          "id": "roles",
+          "type": "two_column",
+          "label": "Which roles does your team need, and who might fill them?",
+          "columns": [
+            "Role",
+            "Names"
+          ],
+          "min_items": 1,
+          "max_items": 6
+        },
+        {
+          "id": "thanks",
+          "type": "short_text",
+          "label": "How will you thank the team?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "roles",
+          "plan_section": "rota"
+        },
+        {
+          "field_id": "thanks",
+          "plan_section": "rota"
+        }
+      ],
+      "done_when": "Your draft has roles, names and one way to say thank you."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your hopes for newcomers, your first five minutes, your follow-up and your rota."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "feel",
+      "title": "What you want newcomers to feel"
+    },
+    {
+      "id": "five",
+      "title": "The first five minutes"
+    },
+    {
+      "id": "follow",
+      "title": "Names and follow-up"
+    },
+    {
+      "id": "rota",
+      "title": "Your welcome rota"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short welcome plan. It holds what you want newcomers to feel, your first five minutes, your follow-up and a draft rota.",
+    "book_bridge": "Welcome at the Door is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did a newcomer say about their first visit?",
+      "What would you change about your first five minutes?"
+    ],
+    "refresher_ids": [
+      "p2_five",
+      "p4_rota"
+    ]
+  }
+}

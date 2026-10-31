@@ -1,0 +1,372 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-AABM4",
+  "slug": "the-year-before-the-wedding-aabm4",
+  "title": "The Year Before the Wedding",
+  "card_line": "Eight honest conversations about faith, money, family and the years ahead.",
+  "book": {
+    "book_id": "the-year-before-the-wedding",
+    "title": "The Year Before the Wedding",
+    "subtitle": "Eight Conversations for Engaged Couples"
+  },
+  "author": {
+    "author_id": "AU-1A05T",
+    "display_name": "Jerome Whitlock-Bayliss"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "relationships",
+  "theme_id": "faith-at-home",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "none",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is for two people engaged to be married. It comes in four short parts, each a few minutes of reading and one exercise, and each leads to a conversation you have together. By the end you will have written down what you hope for and where you come from. You will also have rules for disagreeing and a plan for the first year. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part on your own.",
+      "Answer the exercise, then talk it over together.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "What is one thing you hope your marriage will be like?",
+    "extra_safety_note": "This workbook is for everyday conversations between two people who respect each other. If using it would put either of you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Talk about what marriage means and where each of you comes from.",
+      "exercise_ids": [
+        "p1_picture"
+      ],
+      "intro": "Two people arrive at an engagement with different pictures of marriage. Each picture was drawn at a family table, often long before you met. This part asks each of you to say what marriage means to you. Then you look at the families that shaped those ideas.",
+      "ideas": [
+        {
+          "heading": "Each of you carries a picture of marriage that you rarely say aloud.",
+          "body": "Perhaps it comes from parents, grandparents or a couple at church. It may include who cooks, who earns and who gives way. Saying the picture aloud lets you compare. Genesis 2 describes two people becoming one household, but each household begins with two different histories."
+        },
+        {
+          "heading": "Your families will shape your first year more than you expect.",
+          "body": "Holidays, phone calls, money habits and ways of arguing all come from home. Neither family is right or wrong. They are different. Describe yours to each other in plain words, and listen without defending anyone. Notice where your answers match and where they do not."
+        },
+        {
+          "heading": "It is kinder to ask a question than to guess the answer.",
+          "body": "Do not assume your partner shares your picture. Ask what a typical Sunday looked like at their house. Ask who sorted out the problems. Curious questions in the engagement save a good deal of puzzlement in the first year. They also show that you want to know."
+        }
+      ],
+      "takeaway": "Say your picture of marriage aloud and ask about theirs. Questions now are kinder than surprises later."
+    },
+    {
+      "number": 2,
+      "focus": "Talk about faith, prayer and money.",
+      "exercise_ids": [
+        "p2_faith_money"
+      ],
+      "intro": "Faith and money touch almost every other part of a shared life. Couples often put off talking about either until they have to. This part asks you to talk about both while there is time. Your answers are for the two of you, and this workbook gives no financial advice.",
+      "ideas": [
+        {
+          "heading": "Faith at home needs a plan, even a very small one.",
+          "body": "Ask each other how you pray now and whether you want to pray together. Decide which church you will attend and what you will do when you disagree. Ruth 1 shows two people choosing to share a faith and a home. A small, honest plan is enough."
+        },
+        {
+          "heading": "Praying together can start with one sentence.",
+          "body": "Many couples find it awkward at first. Try a sentence at the end of the day, taking turns. Thank God for one thing and name one worry. You do not need to pray well. You need only to be willing to do it side by side."
+        },
+        {
+          "heading": "Money is easier to discuss as plans than as accusations.",
+          "body": "Talk about what each of you earns, owes and hopes for, and agree what you will share. Keep the tone level and the notes plain. This is a conversation between two people, not a verdict. For decisions, speak to a qualified adviser."
+        }
+      ],
+      "takeaway": "Say your plan for faith and money aloud while you are both calm. A small plan agreed now beats a large argument later."
+    },
+    {
+      "number": 3,
+      "focus": "Talk about disagreeing well, and about work, rest and time together.",
+      "exercise_ids": [
+        "p3_rules"
+      ],
+      "intro": "Every couple disagrees. What matters is how you do it and whether you are both safe. This part looks at how each of you argues and what rest each of you needs. It also looks at work and time together, so the diary does not decide for you.",
+      "ideas": [
+        {
+          "heading": "Disagreeing well means staying kind while you stay honest.",
+          "body": "Agree some plain rules together. No name-calling, no walking out without saying when you will return, and no bringing up old arguments. Ephesians 4 speaks of dealing with anger without letting the sun go down on it. Ask each other how you want to be spoken to."
+        },
+        {
+          "heading": "Disagreement is never a reason to feel afraid at home.",
+          "body": "If one of you is ever frightened, controlled or hurt by the other, that is not an argument to work through in a workbook. Tell someone you trust, such as a friend, relative or minister, and put your safety first. A good marriage is a safe place."
+        },
+        {
+          "heading": "Work, rest and time together all need a place in the week.",
+          "body": "Talk about hours, tiredness and how each of you recovers. Exodus 20 sets out a day of rest. Decide what your equivalent will be, and protect an evening for each other. Time together is easiest to keep when it is booked."
+        }
+      ],
+      "takeaway": "Agree how you will disagree, and what rest and time together each need. Safety at home comes first."
+    },
+    {
+      "number": 4,
+      "focus": "Talk about children, the vows and the first year.",
+      "exercise_ids": [
+        "p4_year"
+      ],
+      "intro": "The last conversations look furthest ahead. Children, if and when, are a subject on which two people can honestly differ. The vows are the words you will say before others. This part asks you to say what you hope for, then to plan the first year with a little care.",
+      "ideas": [
+        {
+          "heading": "Children are a subject to listen to each other on, not to settle in one evening.",
+          "body": "Ask whether you want children, how many, and when. Listen to the whole answer. Differences here are real and deserve patience. Nobody should be pushed into an answer before they are ready. Psalm 127 describes children as a gift, but a gift comes with a conversation first."
+        },
+        {
+          "heading": "The vows are promises you can read together beforehand.",
+          "body": "Read the vows slowly and ask what each phrase asks of you. Discuss the ones that feel heavy. Meaning the words matters more than liking the sound of them. Take your time over them. Your minister can tell you which vows your church uses."
+        },
+        {
+          "heading": "The first year is a time to expect adjustments.",
+          "body": "Moving in, new routines and the first disagreement over the dishes are normal. Plan one check-in a month. Ask what is going well and what needs a change. 1 Corinthians 13 is read at many weddings, and it describes the everyday detail of love."
+        }
+      ],
+      "takeaway": "Listen on children, read the vows slowly and plan a check-in for the first year. Marriage starts well when it is talked about."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_picture",
+      "title": "Write your picture of marriage",
+      "purpose": "Your picture of marriage and one thing you notice about your families.",
+      "why": "Each of you answers on your own first. Write what marriage means to you, in a few lines. Then write one habit from your family you would like to keep and one you would change. Share your answers over a quiet cup of tea.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write what marriage means to you."
+        },
+        {
+          "text": "Note one family habit to keep and one to change."
+        }
+      ],
+      "fields": [
+        {
+          "id": "meaning",
+          "type": "long_text",
+          "label": "What does marriage mean to you?"
+        },
+        {
+          "id": "family",
+          "type": "two_column",
+          "label": "Which family habits would you keep, and which would you change?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "meaning",
+          "plan_section": "picture"
+        },
+        {
+          "field_id": "family",
+          "plan_section": "picture"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one line about what marriage means to you."
+          }
+        ],
+        "field_ids": [
+          "meaning"
+        ]
+      },
+      "done_when": "You have each written your picture and shared it."
+    },
+    {
+      "id": "p2_faith_money",
+      "title": "Plan faith and money talks",
+      "purpose": "One plan for faith together and one for talking about money.",
+      "why": "Choose one way you could pray or worship together and write it down. Then choose a time to sit down and talk about money, with a list of what to cover. This workbook offers no advice on money. If you cannot decide, write what you would like to talk about.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Write one way to share your faith."
+        },
+        {
+          "text": "Write a time to talk about money."
+        }
+      ],
+      "fields": [
+        {
+          "id": "faith",
+          "type": "short_text",
+          "label": "What is one way you could share faith together?"
+        },
+        {
+          "id": "money",
+          "type": "short_text",
+          "label": "When will you sit down to talk about money, and what will you cover?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "faith",
+          "plan_section": "faith"
+        },
+        {
+          "field_id": "money",
+          "plan_section": "faith"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one way to share your faith."
+          }
+        ],
+        "field_ids": [
+          "faith"
+        ]
+      },
+      "done_when": "You have a plan for faith and a time for money."
+    },
+    {
+      "id": "p3_rules",
+      "title": "Agree how you disagree",
+      "purpose": "Three plain rules for disagreeing, and an evening for each other.",
+      "why": "Each of you suggests one plain rule for arguments. Agree three together and write them down. Then choose one evening a week for time together. If you cannot agree on three, write one and add more later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Agree three plain rules for disagreements."
+        },
+        {
+          "text": "Choose a weekly evening together."
+        }
+      ],
+      "fields": [
+        {
+          "id": "rules",
+          "type": "long_text",
+          "label": "What three rules will you keep when you disagree?"
+        },
+        {
+          "id": "evening",
+          "type": "short_text",
+          "label": "Which evening each week is for the two of you?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "rules",
+          "plan_section": "disagree"
+        },
+        {
+          "field_id": "evening",
+          "plan_section": "disagree"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one rule for disagreements."
+          }
+        ],
+        "field_ids": [
+          "rules"
+        ]
+      },
+      "done_when": "You have agreed rules and chosen an evening."
+    },
+    {
+      "id": "p4_year",
+      "title": "Plan your first year",
+      "purpose": "What you hope for with children, and a monthly check-in.",
+      "why": "Write what you each hope for on the subject of children, and where you still differ. Then choose a day each month for a check-in during the first year. Write one question to ask at it. If you disagree, write both answers.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Write your hopes about children, and where you differ."
+        },
+        {
+          "text": "Choose a monthly check-in date and one question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "children",
+          "type": "long_text",
+          "label": "What do you each hope for about children, and where do you differ?"
+        },
+        {
+          "id": "checkin",
+          "type": "short_text",
+          "label": "What question will you ask at your monthly check-in?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "children",
+          "plan_section": "year"
+        },
+        {
+          "field_id": "checkin",
+          "plan_section": "year"
+        }
+      ],
+      "done_when": "You have written your hopes and a monthly question."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your plans for faith and money are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds your picture, faith, agreed rules and first year."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "picture",
+      "title": "Your picture of marriage"
+    },
+    {
+      "id": "faith",
+      "title": "Faith and money"
+    },
+    {
+      "id": "disagree",
+      "title": "How you disagree"
+    },
+    {
+      "id": "year",
+      "title": "Your first year"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds your picture of marriage, your plans for faith and money, your rules for disagreeing and your first-year check-in.",
+    "book_bridge": "The Year Before the Wedding is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "What did the two of you talk about this month that surprised you?",
+      "Which of your agreed rules has been hardest to keep?",
+      "What do you want to ask at your next check-in?"
+    ],
+    "refresher_ids": [
+      "p3_rules",
+      "p4_year"
+    ]
+  }
+}

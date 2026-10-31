@@ -1,0 +1,362 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-H2K6J",
+  "slug": "kept-company-in-grief-h2k6j",
+  "title": "Kept Company in Grief",
+  "card_line": "A gentle companion for the months after someone dies. It does not promise to take grief away.",
+  "book": {
+    "book_id": "kept-company-in-grief",
+    "title": "Kept Company in Grief",
+    "subtitle": "Eight Weeks With the Psalms After a Death"
+  },
+  "author": {
+    "author_id": "AU-Y8MZQ",
+    "display_name": "Agnieszka Lessard-Nowak"
+  },
+  "genre": "personal_development",
+  "theme_id": "mercy-and-comfort",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook keeps you company with the Psalms in the months after someone dies. It does not promise to take grief away. It comes in four short parts, each a few minutes of reading and one exercise. Go at your own pace and stop whenever you wish. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Answer the exercise only if you wish. A line or two is enough.",
+      "Your answers build a short plan you can read at the end."
+    ],
+    "why_prompt": "Who has died, if you would like to say their name here?",
+    "extra_safety_note": "This workbook is for everyday life after a loss. If using it would put you at risk, set it aside for now. Your safety comes first."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Be gentle with the first weeks, and notice who is near.",
+      "exercise_ids": [
+        "p1_near"
+      ],
+      "intro": "The first weeks after a death are often a blur of tasks and visitors. There is no right way to feel and nothing to get through quickly. This part asks you to read Psalm 23 slowly and to notice the people around you. You choose how much to take in.",
+      "ideas": [
+        {
+          "heading": "The first weeks can be as quiet and as plain as you need.",
+          "body": "You may not feel like praying, eating or answering messages. That is all right. Let the practical tasks wait where they can. A short, simple prayer is enough, even one word. Nothing about grief needs to be done properly. Rest when you can, and let others carry the rest."
+        },
+        {
+          "heading": "Psalm 23 speaks of company in the darkest valley.",
+          "body": "This well-known psalm does not say the valley is avoided. It says the shepherd is there in it. Read it aloud if you can, or ask someone to read it to you. You can stop after a line or two."
+        },
+        {
+          "heading": "Let one or two people near you know how you are.",
+          "body": "You need not tell everyone. Choose a friend, a relative or a priest you already know, and say honestly how the day is. Accept an offer of a meal or a lift. People often want to help and do not know how."
+        }
+      ],
+      "takeaway": "The first weeks can be plain and slow. Psalm 23 speaks of company in the valley, and so can a friend."
+    },
+    {
+      "number": 2,
+      "focus": "Let tears and lament have a place in your prayer.",
+      "exercise_ids": [
+        "p2_lament"
+      ],
+      "intro": "Many of the Psalms are cries rather than calm songs. They give permission to weep in front of God. This part asks you to read Psalm 6 and to notice what words are close to your own. You may add your own lines, or only listen.",
+      "ideas": [
+        {
+          "heading": "The Psalms let people be honest about sorrow.",
+          "body": "Psalm 6 speaks of weariness and tears at night. Nothing is tidied up. You can use it as it stands, or put your own words beside it. God is not alarmed by sorrow. A psalm shows that grief has long been brought to prayer."
+        },
+        {
+          "heading": "Crying is not a lack of faith.",
+          "body": "In John 11, Jesus weeps at the grave of his friend Lazarus. If he wept, you may weep. Tears can come at odd moments and in odd places. Let them come. There is no need to hide them or to apologise for them."
+        },
+        {
+          "heading": "You can be angry or numb as well as sad.",
+          "body": "Grief takes many forms: anger, tiredness, a blank space where feeling should be. All of them can be prayed. Tell God plainly what you feel, or sit in silence. Neither is wrong, and the Psalms contain both. Some of them end without any answer at all."
+        }
+      ],
+      "takeaway": "Tears and anger can be prayed. Psalm 6 shows sorrow brought to God without tidying it up."
+    },
+    {
+      "number": 3,
+      "focus": "Remember the person and prepare for hard days.",
+      "exercise_ids": [
+        "p3_remember"
+      ],
+      "intro": "Remembering is part of grieving. Photos, stories and names keep a person close. Some days will be harder than others, such as a birthday or an anniversary. This part asks you to choose a way of remembering, and to think about a hard day to come.",
+      "ideas": [
+        {
+          "heading": "Photos, stories and names keep the person in the conversation.",
+          "body": "Put a photograph where you can see it. Tell a story about them to someone who knew them. Say their name aloud. Many people worry about upsetting others by mentioning the person. Often others are glad to hear it. Hearing a name said aloud can be a comfort to the whole room."
+        },
+        {
+          "heading": "Some churches pray for the dead, and others give thanks and entrust.",
+          "body": "Some churches include prayer for the dead in their worship. Others prefer thanksgiving for the life and trust in God's care. Do what sits right within your own tradition. A short prayer of thanks for who they were is welcome everywhere."
+        },
+        {
+          "heading": "Anniversaries and hard days can be met with a small plan.",
+          "body": "Birthdays, holidays and the day of the death can feel heavy. Choose how you would like to spend one, such as lighting a candle or visiting a grave. Ask a friend to be near. You may change the plan on the day."
+        }
+      ],
+      "takeaway": "Remembering keeps love close. A small plan for a hard day is kinder than meeting it unprepared."
+    },
+    {
+      "number": 4,
+      "focus": "Read of hope in John 11 and decide who to keep talking to.",
+      "exercise_ids": [
+        "p4_carry"
+      ],
+      "intro": "Many Christians turn to the story of Lazarus for hope. Hope does not remove sorrow, and it can sit alongside it. This part asks you to read John 11 and to think about how you carry love forward. It also asks who you will keep talking to.",
+      "ideas": [
+        {
+          "heading": "John 11 holds both grief and hope in one chapter.",
+          "body": "Jesus weeps and he also calls Lazarus out of the tomb. Martha says she believes in the resurrection, yet she still grieves. The chapter does not hurry anyone. Read it slowly and notice where you stand. You may find yourself with Martha, or with Mary, or somewhere between."
+        },
+        {
+          "heading": "Love for the person does not end when they die.",
+          "body": "You may carry their sayings, kindnesses and values. You might give to a cause they cared for, cook their recipe or keep a tradition. These are ways of carrying love forward. Choose one that feels right, and leave the rest."
+        },
+        {
+          "heading": "Keep talking to people who will listen.",
+          "body": "Grief can last longer than the people around you expect. Choose one or two friends, relatives or members of your church who will listen on a slow day. Tell them what you would like. You owe no one an explanation."
+        }
+      ],
+      "takeaway": "Hope and sorrow can share a chapter and a life. Keep one or two people to talk to."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_near",
+      "title": "Note who is near",
+      "purpose": "The names of one or two people close to you.",
+      "why": "Write down one or two people who are near you at the moment. Add one small thing they could do, such as a meal or a call. You may leave this blank if it is too much today. A name alone is enough.",
+      "minutes": 4,
+      "steps": [
+        {
+          "text": "Write one or two names."
+        },
+        {
+          "text": "Write one small thing they could do."
+        }
+      ],
+      "fields": [
+        {
+          "id": "people",
+          "type": "short_text",
+          "label": "Who is near you at the moment?"
+        },
+        {
+          "id": "small",
+          "type": "short_text",
+          "label": "What small thing could they do for you?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "people",
+          "plan_section": "near"
+        },
+        {
+          "field_id": "small",
+          "plan_section": "near"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one name."
+          }
+        ],
+        "field_ids": [
+          "people"
+        ]
+      },
+      "done_when": "You have written a name, or left it for another day."
+    },
+    {
+      "id": "p2_lament",
+      "title": "Write a line of lament",
+      "purpose": "A line or two of your own words beside Psalm 6.",
+      "why": "Read part of Psalm 6. Then write a line or two in your own words to God about how things are. It can be sad, angry or blank. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read a few verses of Psalm 6."
+        },
+        {
+          "text": "Write a line to God about how things are."
+        }
+      ],
+      "fields": [
+        {
+          "id": "lament",
+          "type": "long_text",
+          "label": "What would you like to say to God tonight?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "lament",
+          "plan_section": "lament"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Write one word to God."
+          }
+        ],
+        "field_ids": [
+          "lament"
+        ]
+      },
+      "done_when": "You have written a line, or one word, or sat quietly."
+    },
+    {
+      "id": "p3_remember",
+      "title": "Choose a way to remember",
+      "purpose": "One way to remember the person and a plan for one hard day.",
+      "why": "Choose one way of remembering, such as a photo, a story or a candle. Then think of one hard day ahead and write how you might spend it. You can change the plan on the day. Leave blank anything that is too much.",
+      "minutes": 6,
+      "steps": [
+        {
+          "text": "Choose a way to remember."
+        },
+        {
+          "text": "Write a plan for one hard day."
+        }
+      ],
+      "fields": [
+        {
+          "id": "remember",
+          "type": "short_text",
+          "label": "How would you like to remember them?"
+        },
+        {
+          "id": "hard_day",
+          "type": "short_text",
+          "label": "How might you spend a hard day that is coming?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "remember",
+          "plan_section": "remember"
+        },
+        {
+          "field_id": "hard_day",
+          "plan_section": "remember"
+        }
+      ],
+      "short_version": {
+        "minutes": 2,
+        "steps": [
+          {
+            "text": "Choose one way to remember them."
+          }
+        ],
+        "field_ids": [
+          "remember"
+        ]
+      },
+      "done_when": "You have chosen one way to remember, or left it for later."
+    },
+    {
+      "id": "p4_carry",
+      "title": "Carry love forward",
+      "purpose": "One way to carry love forward and one person to keep talking to.",
+      "why": "Read some of John 11. Then write one way you could carry the person's love forward, and one person you will keep talking to. Take your time. If nothing comes to mind, write their name.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read some of John 11."
+        },
+        {
+          "text": "Write one way to carry love forward."
+        }
+      ],
+      "fields": [
+        {
+          "id": "carry",
+          "type": "short_text",
+          "label": "How could you carry their love forward?"
+        },
+        {
+          "id": "talk",
+          "type": "short_text",
+          "label": "Who will you keep talking to?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "carry",
+          "plan_section": "carry"
+        },
+        {
+          "field_id": "talk",
+          "plan_section": "carry"
+        }
+      ],
+      "done_when": "You have written one way, or one name, or paused."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it at any point."
+    },
+    {
+      "id": "part_three",
+      "trigger": "unit_complete:3",
+      "message": "Part 3 done. Your way of remembering is saved. Go gently."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your plan holds who is near, your lament, how you remember and how you carry love."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "near",
+      "title": "Who is near"
+    },
+    {
+      "id": "lament",
+      "title": "Your lament"
+    },
+    {
+      "id": "remember",
+      "title": "How you remember"
+    },
+    {
+      "id": "carry",
+      "title": "Carrying love forward"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short plan in your own words. It holds who is near you, your lament, how you remember and how you carry love forward.",
+    "book_bridge": "Kept Company in Grief is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Who would you like to talk to this month?",
+      "Is there a psalm you would like to read again?",
+      "How would you like to remember them this month?"
+    ],
+    "refresher_ids": [
+      "p2_lament",
+      "p3_remember"
+    ]
+  }
+}

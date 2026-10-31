@@ -1,0 +1,319 @@
+{
+  "schema_version": "3.1",
+  "code": "AK-1QX95",
+  "slug": "questions-welcome-1qx95",
+  "title": "Questions Welcome",
+  "card_line": "Bible people who asked hard questions, and room for yours.",
+  "book": {
+    "book_id": "questions-welcome",
+    "title": "Questions Welcome",
+    "subtitle": "Six Weeks With Doubt in the Bible"
+  },
+  "author": {
+    "author_id": "AU-4SXM8",
+    "display_name": "Hyejin Park-Lindqvist"
+  },
+  "publisher_id": "PB-2E6YP",
+  "genre": "personal_development",
+  "theme_id": "mercy-and-comfort",
+  "language": "en",
+  "spelling": "en-GB",
+  "is_demo": true,
+  "depth": "full",
+  "badge": "demo",
+  "licence_ref": null,
+  "safety_tier": "standard",
+  "structure": {
+    "unit": "part",
+    "count": 4,
+    "free_units": 1
+  },
+  "start": {
+    "welcome": "This workbook is about honest questions in faith, and the people in the Bible who asked them. It comes in four short parts, each a few minutes of reading and one exercise. Your questions are welcome here. Part 1 is free to read.",
+    "how_it_works": [
+      "Read the three ideas in each part.",
+      "Read the Bible passage named, in the translation you use.",
+      "Answer the exercise in a line or two. You may leave any question blank."
+    ],
+    "why_prompt": "What question about faith have you carried for a while? One line is enough."
+  },
+  "units": [
+    {
+      "number": 1,
+      "focus": "Learn from Job that asking God hard questions is allowed.",
+      "exercise_ids": [
+        "p1_myquestion"
+      ],
+      "intro": "Job loses much of what he has, and then he asks why. His friends offer answers, and he keeps asking anyway. This part looks at Job's questions and invites you to write down one of your own. You do not need an answer to it.",
+      "ideas": [
+        {
+          "heading": "Job asks his questions to God, and not only to his friends.",
+          "body": "Across the book of Job, the main speaker turns to God again and again. His friends give explanations, but Job wants God to answer. Asking directly can feel bold. The book counts it as a serious kind of faith, not a lack of it."
+        },
+        {
+          "heading": "Neat answers from other people can add to the weight of a question.",
+          "body": "Job's friends mean well, and they talk a great deal. Their quick explanations do not match what Job is living through. If people have given you tidy answers to a real question, you are not alone in finding them thin. Listening can be kinder."
+        },
+        {
+          "heading": "A question put honestly is a kind of trust.",
+          "body": "People do not ask God why unless they think God is there to hear. Job's questions assume that. Writing down your question is not an attack. It assumes that God can take it. You can leave it unpolished, and you can word it however it comes."
+        }
+      ],
+      "takeaway": "Job asks God directly, and the book keeps his questions in. An honest question can be a way of staying in the conversation."
+    },
+    {
+      "number": 2,
+      "focus": "See that the Bible makes room for complaints and for why.",
+      "exercise_ids": [
+        "p2_complaint"
+      ],
+      "intro": "The psalms are full of the word why. The prophet Habakkuk complains to God about what he sees around him. This part looks at both and asks where your own complaint belongs. In these books, a complaint is a form of prayer.",
+      "ideas": [
+        {
+          "heading": "The psalms hold many whys, and the church has kept them.",
+          "body": "Psalm 10 asks why God stands far off. Psalm 22 asks why God seems to have gone. These psalms were collected, sung and handed on. They were not hidden away or edited out of the book. Generations of Christians have prayed them as their own."
+        },
+        {
+          "heading": "Habakkuk complains about injustice and is not told to be quiet.",
+          "body": "In the book of Habakkuk, the prophet protests at what he sees around him. He asks how long and why. He then says he will stand and wait for a reply. The book gives his complaint room, and it gives God's answer room too."
+        },
+        {
+          "heading": "Complaining and trusting can sit in the same prayer.",
+          "body": "Habakkuk ends his book with a song of trust. The complaint is still there at the start. Neither cancels the other. If your prayer holds both, that is not confusion. It is how these writers prayed, and you can pray both in one sitting."
+        }
+      ],
+      "takeaway": "The Bible keeps whys and complaints inside prayer. You can bring yours in the same way."
+    },
+    {
+      "number": 3,
+      "focus": "Meet two people who doubted and were still taken seriously.",
+      "exercise_ids": [
+        "p3_whoask"
+      ],
+      "intro": "John the Baptist sends a message from prison asking whether Jesus is the one. Thomas will not believe the news of the resurrection until he sees for himself. This part looks at how the story handles each of them. It asks who you could ask.",
+      "ideas": [
+        {
+          "heading": "John asks his question from prison, and Jesus answers him kindly.",
+          "body": "In Matthew 11, John sends friends to ask whether Jesus is the one. Jesus sends back word of what is happening around him. He then speaks well of John to the crowd. John is not told off for asking, and nobody sends him away."
+        },
+        {
+          "heading": "Thomas wants to see, and Jesus meets him where he is.",
+          "body": "In John 20, Thomas says he must see for himself. A week later Jesus comes and invites him to look. Thomas does not get a lecture. The story remembers him as the one who doubted, and as the one who answered with worship."
+        },
+        {
+          "heading": "It can be easier to ask a question when you know whom to ask.",
+          "body": "John sent friends to ask on his behalf. Thomas asked among friends. You might have a person you trust, a group, or a minister who already knows you. Think of someone who would listen without hurrying to fix anything, and who already knows you a little."
+        }
+      ],
+      "takeaway": "John and Thomas both asked, and both were answered with care. Think of one person you could ask."
+    },
+    {
+      "number": 4,
+      "focus": "Live faithfully while some questions stay open.",
+      "exercise_ids": [
+        "p4_keep"
+      ],
+      "intro": "Some questions go a long time without an answer. Job, Habakkuk and Thomas all went on living and praying with what they did not know. This part asks how you might do the same in ordinary ways. It looks at what you can keep doing while a question waits.",
+      "ideas": [
+        {
+          "heading": "You can keep praying, reading and gathering with a question still open.",
+          "body": "A question need not be settled before you pray or go to church. Habakkuk decides to keep watch while he waits. Small, steady ways of praying can carry you through a long wait. Choose ones that feel honest rather than forced."
+        },
+        {
+          "heading": "Some questions are held rather than solved.",
+          "body": "Many people carry a question for years. Holding it is different from ignoring it. You can return to it now and then, read what others have written, or sit with it quietly. It can stay unanswered without spoiling the rest of your faith."
+        },
+        {
+          "heading": "A community can carry your questions when you cannot.",
+          "body": "Faith in the Bible is rarely lived alone. Others pray when you cannot find the words. You may find that a friend, a small group or a service carries you for a while. Letting them do so is allowed. It does not mean your faith is weak."
+        }
+      ],
+      "takeaway": "An open question and a living faith can go together. Keep what you can, and let others carry the rest for now."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "p1_myquestion",
+      "title": "Write down one real question",
+      "purpose": "One honest question about faith, written plainly, with no answer attached.",
+      "why": "Read the opening chapters of Job if you have time. Then write one question you would like to put to God, as plainly as Job would. You do not need an answer. If nothing comes to mind, write one word.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read the opening chapters of Job, if you can."
+        },
+        {
+          "text": "Write your question in a sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "question",
+          "type": "long_text",
+          "label": "What is one question you would like to ask God?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "question",
+          "plan_section": "question"
+        }
+      ],
+      "done_when": "One question is written down, and it may stay unanswered."
+    },
+    {
+      "id": "p2_complaint",
+      "title": "Put a complaint into prayer",
+      "purpose": "A short complaint to God, written in the manner of the psalms.",
+      "why": "Read Psalm 22 or the first chapter of Habakkuk. Then write a short complaint to God in your own words. Say what you see, ask why, and stop there. If nothing comes to mind, write one line.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Read Psalm 22 or Habakkuk 1."
+        },
+        {
+          "text": "Write what you see and ask why."
+        }
+      ],
+      "fields": [
+        {
+          "id": "complaint",
+          "type": "long_text",
+          "label": "What would you say to God about it, if you said it plainly?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "complaint",
+          "plan_section": "complaint"
+        }
+      ],
+      "done_when": "A complaint is written, and it is allowed to stay unresolved."
+    },
+    {
+      "id": "p3_whoask",
+      "title": "Choose someone to ask",
+      "purpose": "One person you trust to hear your question, and how you might begin.",
+      "why": "Look at the question from Part 1. Think of one person who would listen without rushing to fix it. Write their name and what you would say first. You can ask later.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Think of someone who listens well."
+        },
+        {
+          "text": "Write your opening sentence."
+        }
+      ],
+      "fields": [
+        {
+          "id": "person",
+          "type": "short_text",
+          "label": "Who could you talk to about your question?"
+        },
+        {
+          "id": "first_words",
+          "type": "short_text",
+          "label": "How might you begin?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "person",
+          "plan_section": "ask"
+        },
+        {
+          "field_id": "first_words",
+          "plan_section": "ask"
+        }
+      ],
+      "done_when": "A name is written down, or you have noted that no one comes to mind yet."
+    },
+    {
+      "id": "p4_keep",
+      "title": "Choose what to keep doing",
+      "purpose": "One small thing to keep doing while your question waits, and one place to bring it.",
+      "why": "Look back at your question. Choose one small thing to keep doing while it stays open, such as reading a psalm or sitting with others at church. Name one place or person to bring the question.",
+      "minutes": 5,
+      "steps": [
+        {
+          "text": "Choose one small thing to keep doing."
+        },
+        {
+          "text": "Name where you will bring your question."
+        }
+      ],
+      "fields": [
+        {
+          "id": "keep_doing",
+          "type": "short_text",
+          "label": "What will you keep doing while your question stays open?"
+        },
+        {
+          "id": "place",
+          "type": "short_text",
+          "label": "Where or with whom will you bring it?"
+        }
+      ],
+      "feeds_plan": [
+        {
+          "field_id": "keep_doing",
+          "plan_section": "keep"
+        },
+        {
+          "field_id": "place",
+          "plan_section": "keep"
+        }
+      ],
+      "done_when": "You have named one thing to keep doing and one place for your question."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "first",
+      "trigger": "first_exercise",
+      "message": "Your first answer is saved. You can add to it whenever you wish."
+    },
+    {
+      "id": "part_two",
+      "trigger": "unit_complete:2",
+      "message": "Part 2 done. Your answers so far are saved."
+    },
+    {
+      "id": "all_done",
+      "trigger": "program_complete",
+      "message": "Four parts done. Your page holds your question, your complaint, someone to ask and what you will keep doing."
+    }
+  ],
+  "plan_sections": [
+    {
+      "id": "question",
+      "title": "Your question"
+    },
+    {
+      "id": "complaint",
+      "title": "Your complaint to God"
+    },
+    {
+      "id": "ask",
+      "title": "Someone to ask"
+    },
+    {
+      "id": "keep",
+      "title": "What you will keep doing"
+    }
+  ],
+  "finish": {
+    "summary": "Four parts, and a short page in your own words. It holds your question, your complaint to God, someone to ask and what you will keep doing.",
+    "book_bridge": "Questions Welcome is a demo title in the Akana catalogue, written to show how a workbook works. Your answers stay yours."
+  },
+  "keep_going": {
+    "monthly_questions": [
+      "Has your question changed this month?",
+      "Who have you talked to about it?"
+    ],
+    "refresher_ids": [
+      "p1_myquestion",
+      "p4_keep"
+    ]
+  }
+}
