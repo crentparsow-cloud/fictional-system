@@ -32,6 +32,8 @@ export const DEMO_PROFILE = {
   pages: [4, 6] as [number, number],
   /** A quoted line longer than this reads as a passage from a book, not words a reader might say. */
   quoteMaxWords: 15,
+  /** Faith shelf: scripture is referenced, never quoted, so no quoted span runs past this. */
+  faithQuoteMaxWords: 5,
   /** A quoted span this long next to an attribution ("as she wrote") reads as a quotation. */
   attributedQuoteMinWords: 4,
 } as const;
@@ -45,6 +47,16 @@ export const DEMO_IDENTITY_PATHS: ReadonlySet<string> = new Set(["title", "book.
 
 /** The shelf whose titles get the strictest wording rules. */
 export const MIND_AND_MOOD_SHELF = "mind-and-mood";
+/** The faith shelf (31 October 2026): scripture by book and chapter, quotes of five words at most. */
+export const FAITH_SHELF = "faith-and-spirituality";
+
+// Books of the Bible, with the deuterocanonical books, for scripture references such as "Luke 15" or "Luke chapter 15".
+const BIBLE_BOOK =
+  "Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Song of (?:Songs|Solomon)|Isaiah|Jeremiah|Lamentations|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Tobit|Judith|Wisdom|Sirach|Ecclesiasticus|Baruch|Maccabees|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation";
+/** A scripture reference by book and chapter is not a page citation. */
+export const SCRIPTURE_CHAPTER_RE = new RegExp(String.raw`\b(?:${BIBLE_BOOK}) chapter \d+|\bchapter \d+ of (?:the )?(?:book of |gospel of |letter to the )?(?:${BIBLE_BOOK})\b`, "gi");
+// Faith uses of "free" that say nothing about a price: free will, set free, made free, free from.
+const FAITH_FREE_RE = /\bfree will\b|\b(?:set|sets|setting|made|makes) (?:\w+ ){0,2}free\b|\bfree (?:from|of (?:sin|fear|guilt|shame|worry))\b/gi;
 
 export interface DemoOptions {
   /** The title's shelf id from the registry (content/registry/themes.json). When unknown, a wellbeing genre title is treated as Mind and Mood. */
@@ -196,6 +208,7 @@ export function checkDemo(doc: Workbook, raw: unknown, out: DemoFinding[], opts:
 
   // Wording.
   const mood = opts.shelf ? opts.shelf === MIND_AND_MOOD_SHELF : doc.genre === "wellbeing";
+  const faith = opts.shelf === FAITH_SHELF;
   const gentle = doc.safety_tier !== "none";
   for (const [path, s] of readerStrings(doc)) {
     // Quotations. A demo book is invented, so there is nothing to quote. Short
@@ -205,17 +218,18 @@ export function checkDemo(doc: Workbook, raw: unknown, out: DemoFinding[], opts:
       for (const m of sentence.matchAll(QUOTED_RE)) {
         const n = count(m[1]);
         if (n > P.quoteMaxWords) err("style", path, `a quoted passage of ${n} words; a demo quotes no book, real or invented`, cut(m[1] ?? ""));
+        else if (faith && n > P.faithQuoteMaxWords) err("style", path, `a quoted passage of ${n} words on a faith title; reference scripture by book and chapter and quote ${P.faithQuoteMaxWords} words at most`, cut(m[1] ?? ""));
         else if (n >= P.attributedQuoteMinWords && ATTRIBUTION_RE.test(sentence.replace(QUOTED_RE, ""))) {
           err("style", path, "quoted words put down to a writer or a book; a demo quotes no book, real or invented", cut(sentence));
         }
       }
     }
-    if (CITE_RE.test(s)) err("style", path, "a page or chapter citation; a demo quotes no book", cut(s));
+    if (CITE_RE.test(s.replace(SCRIPTURE_CHAPTER_RE, ""))) err("style", path, "a page or chapter citation; a demo quotes no book", cut(s));
     if (DASH_RE.test(s)) err("style", path, "a hyphen used as a dash; use a comma, a full stop or 'and'", cut(s));
     // Catalogue identity: only the dash and quotation bans above apply.
     if (DEMO_IDENTITY_PATHS.has(path)) continue;
     // "free" in a line the reader might say ("I'm free on Monday") is not a price.
-    for (const sentence of s.replace(QUOTED_RE, '"q"').split(/(?<=[.!?])\s+/)) {
+    for (const sentence of (faith ? s.replace(FAITH_FREE_RE, "") : s).replace(QUOTED_RE, '"q"').split(/(?<=[.!?])\s+/)) {
       if (FREE_RE.test(sentence) && !(PART_ONE_RE.test(sentence) && !WIDER_RE.test(sentence))) {
         err("claims", path, "'free' on a paid title; only Part 1 is free, and the app says so", cut(sentence));
       }
