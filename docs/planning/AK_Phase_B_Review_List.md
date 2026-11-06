@@ -70,7 +70,7 @@ Items Crent must confirm before launch. Each line is a decision already built, s
 - [ ] Feature flags default off. Turn on in /admin/flags: reader_passkeys, web_push, programme_friends.
 - [ ] Passkeys are a second check, not passwordless sign-in.
 - [ ] Exercise sending covers only the free-unit exercises of tier none titles.
-- [ ] No analytics events were added for any Phase B feature.
+- [ ] 35 analytics events for Phase B features were added in the hardening round (PR 8). Check the event list in docs before launch.
 
 ## New environment variables
 
@@ -96,7 +96,7 @@ All are optional and the feature degrades quietly while blank.
 ## Other things found at integration
 
 - [ ] Four new daily or monthly crons are in vercel.json: membership upkeep, win-back, org monthly report and newsletter send. Check CRON_SECRET is set wherever they run.
-- [ ] Migrations 0049 to 0066 are applied by supabase/staging/phase-b_apply_0049_0066.sql. Run it on staging first, after a backup. Nothing has been applied anywhere yet.
+- [ ] Migrations 0049 to 0066 were applied to staging and production on 22 October 2026, and 0069 and 0070 on 30 October. 0067 and 0068 (PR 8, hardening) are on staging only and go to production when PR 8 merges.
 - [ ] The workbook-gift preview function was renamed workbook_gift_preview in migration 0053 so it does not clash with the gift membership preview in 0054.
 - [ ] The Stripe webhook now runs gift and bundle handling first, then the existing handler, then the growth handler. Test one gift purchase, one bundle purchase and one referral in the Stripe sandbox before launch.
 
@@ -106,5 +106,15 @@ These were turned on for the demo period only (Crent, 30 October 2026). Each mus
 
 - [ ] Demo titles fully open to signed-in readers. Make app.demo_fully_open() return false in a new migration (it is defined in 0070_demo_fully_open.sql) and make demoFullyOpen() in apps/web/lib/demo-period.ts return false. Update the tests in supabase/tests/0070_demo_fully_open.sql and apps/web/lib/demo-period.test.ts to match. Demos then show only their free first part again, with "Demo titles cannot be bought".
 - [ ] themes.min_books is set to 1 on staging and production. Set it back to the launch value.
-- [ ] 117 demo and Maya Vaughn titles are set live. Decide which stay live at launch and take the rest down.
+- [ ] 135 demo and Maya Vaughn titles are set live (115 demos, of which 18 are faith titles with no theological review, and 20 Maya Vaughn titles). Decide which stay live at launch and take the rest down.
 - [ ] The programme_friends flag is on in staging. Decide whether it stays on before production.
+
+## Findings from the external static audit (received 31 October 2026)
+
+An outside reviewer read the core code (sealing, answers, checkout, webhook, tenancy, validator) without running anything. Four findings stand and are not yet closed. The rest of the report either confirmed the design or described work done since (Phase B, hardening, Stripe test purchases, publishing).
+
+- [ ] Accessibility: nobody has done the manual keyboard and screen reader pass on the signed-in player (docs/ACCESSIBILITY.md). Until it is done and the defects closed, /trust must not claim WCAG AA.
+- [ ] Shared identity on tenant hosts (F-133) is not built. Tenant hosts serve the catalogue and locked pages only, with no sign-in or checkout. Decide the route (sign in on the tenant host with its own cookie, or hop to the Akana apex and back) before selling any white-label deal.
+- [ ] Progress durability: progress_events has no unique key on (enrolment_id, kind, ref), so duplicates are possible, and the client does not queue a failed progress write for retry. Add the unique key and an outbound queue, or accept it in the support copy. Do not claim "never lose progress offline" until then.
+- [ ] Runtime headers: confirm on the live deployment, in a browser, that the auth cookies are __Host- scoped and the Content-Security-Policy header is present. Both are in the code; neither has been checked at runtime.
+- [ ] Refund path: charge.refunded revokes entitlement in code, but a refund has not been exercised end to end with a test card. Run one refund and one cooling-off cancel in the Stripe sandbox alongside the approved live test purchase.
