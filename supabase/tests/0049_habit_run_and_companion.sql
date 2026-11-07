@@ -40,8 +40,6 @@ insert into public.progress_events (enrolment_id, kind, ref, at) values
   ('a4900000-0000-0000-0000-0000000000e1', 'step_done', 's1', now() - interval '3 days'),
   ('a4900000-0000-0000-0000-0000000000e1', 'step_done', 's2', now() - interval '2 days'),
   ('a4900000-0000-0000-0000-0000000000e1', 'step_done', 's3', now() - interval '1 day'),
-  -- the same step done again does not count twice
-  ('a4900000-0000-0000-0000-0000000000e1', 'step_done', 's3', now() - interval '1 hour'),
   ('a4900000-0000-0000-0000-0000000000e2', 'step_done', 's1', now() - interval '5 days'),
   ('a4900000-0000-0000-0000-0000000000e2', 'step_done', 's2', now() - interval '4 days'),
   ('a4900000-0000-0000-0000-0000000000e2', 'step_done', 's3', now() - interval '3 days'),

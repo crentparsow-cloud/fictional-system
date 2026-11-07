@@ -166,7 +166,8 @@ do $$ begin
   end if;
 end $$;
 
--- 9. A refund ends the gift, claimed or not.
+-- 9. A refund ends the gift, claimed or not. 0068: only the refunded gift's
+-- time comes off the shared entitlement; the first gift's three months stay.
 select pg_temp.as_service();
 do $$ declare r jsonb; begin
   r := public.gift_refund('pi_g54_two');
@@ -176,8 +177,10 @@ do $$ declare r jsonb; begin
 end $$;
 reset role;
 do $$ begin
-  if (select status from public.entitlements where user_id = '54540000-0000-0000-0000-000000000002' and source = 'gift') <> 'revoked' then
-    raise exception 'refund should revoke the entitlement';
+  if (select status from public.entitlements where user_id = '54540000-0000-0000-0000-000000000002' and source = 'gift') <> 'active'
+     or (select ends_at from public.entitlements where user_id = '54540000-0000-0000-0000-000000000002' and source = 'gift') > now() + interval '93 days'
+     or (select ends_at from public.entitlements where user_id = '54540000-0000-0000-0000-000000000002' and source = 'gift') < now() + interval '88 days' then
+    raise exception 'a refund should take back only the refunded gift''s month';
   end if;
 end $$;
 
@@ -244,12 +247,18 @@ do $$ begin
 end $$;
 
 -- 12. The student price. A link, a one-use token, one address for one account, a year.
+-- 0068: the server asks and confirms for the signed-in reader (service role);
+-- the address and token are hashed in the database.
+select pg_temp.as_service();
+do $$ begin
+  perform public.student_request_for('54540000-0000-0000-0000-000000000004', 'Sam@Uni.ac.uk', repeat('b', 40));
+  if public.student_verify_for('54540000-0000-0000-0000-000000000004', repeat('c', 40)) <> 'invalid' then raise exception 'wrong token verified'; end if;
+  if public.student_verify_for('54540000-0000-0000-0000-000000000004', repeat('b', 40)) <> 'verified' then raise exception 'verify'; end if;
+  if public.student_verify_for('54540000-0000-0000-0000-000000000004', repeat('b', 40)) <> 'invalid' then raise exception 'token used twice'; end if;
+end $$;
+reset role;
 select test_as('54540000-0000-0000-0000-000000000004');
 do $$ begin
-  perform public.student_request(repeat('a', 64), 'uni.ac.uk', repeat('b', 64));
-  if public.student_verify(repeat('c', 64)) <> 'invalid' then raise exception 'wrong token verified'; end if;
-  if public.student_verify(repeat('b', 64)) <> 'verified' then raise exception 'verify'; end if;
-  if public.student_verify(repeat('b', 64)) <> 'invalid' then raise exception 'token used twice'; end if;
   if (select count(*) from public.student_verifications) <> 1 then raise exception 'own row'; end if;
   begin
     perform token_hash from public.student_verifications;
@@ -259,20 +268,25 @@ end $$;
 reset role;
 do $$ begin
   if (select expires_at from public.student_verifications where user_id = '54540000-0000-0000-0000-000000000004') < now() + interval '364 days' then raise exception 'a year'; end if;
+  if (select email_domain from public.student_verifications where user_id = '54540000-0000-0000-0000-000000000004') <> 'uni.ac.uk' then raise exception 'domain'; end if;
 end $$;
 select test_as('54540000-0000-0000-0000-000000000005');
 do $$ begin
   if (select count(*) from public.student_verifications) <> 0 then raise exception 'another reader saw a row'; end if;
-  perform public.student_request(repeat('a', 64), 'uni.ac.uk', repeat('d', 64));
-  if public.student_verify(repeat('d', 64)) <> 'email_in_use' then raise exception 'one address, two accounts'; end if;
+end $$;
+reset role;
+select pg_temp.as_service();
+do $$ begin
+  perform public.student_request_for('54540000-0000-0000-0000-000000000005', 'sam@uni.ac.uk', repeat('d', 40));
+  if public.student_verify_for('54540000-0000-0000-0000-000000000005', repeat('d', 40)) <> 'email_in_use' then raise exception 'one address, two accounts'; end if;
 end $$;
 reset role;
 
 -- An expired link.
 update public.student_verifications set token_expires_at = now() - interval '1 minute' where user_id = '54540000-0000-0000-0000-000000000005';
-select test_as('54540000-0000-0000-0000-000000000005');
+select pg_temp.as_service();
 do $$ begin
-  if public.student_verify(repeat('d', 64)) <> 'expired' then raise exception 'an old link verified'; end if;
+  if public.student_verify_for('54540000-0000-0000-0000-000000000005', repeat('d', 40)) <> 'expired' then raise exception 'an old link verified'; end if;
 end $$;
 reset role;
 

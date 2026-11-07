@@ -319,9 +319,9 @@ insert into public.progress_events (enrolment_id, kind, ref, at)
 select 'a0210000-0000-0000-0000-0000000000b1', 'step_done', 'step_' || g, '2026-07-10T10:00:00Z' from generate_series(1, 30) g;
 insert into public.progress_events (enrolment_id, kind, ref, at)
 select 'a0210000-0000-0000-0000-0000000000b2', 'step_done', 'step_' || g, '2026-07-11T10:00:00Z' from generate_series(1, 20) g;
--- the same step twice counts once; a step in August does not count in July
+-- a step in August does not count in July. (Since 0071 the same step cannot be
+-- stored twice, so the old repeat-counts-once row is refused at the index.)
 insert into public.progress_events (enrolment_id, kind, ref, at) values
-  ('a0210000-0000-0000-0000-0000000000b1', 'step_done', 'step_1', '2026-07-12T10:00:00Z'),
   ('a0210000-0000-0000-0000-0000000000b2', 'step_done', 'step_99', '2026-08-02T10:00:00Z');
 
 select pg_temp.as_service();
