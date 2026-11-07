@@ -105,6 +105,7 @@ All are optional and the feature degrades quietly while blank.
 These were turned on for the demo period only (Crent, 30 October 2026). Each must be reversed before launch.
 
 - [ ] Demo titles fully open to signed-in readers. Make app.demo_fully_open() return false in a new migration (it is defined in 0070_demo_fully_open.sql) and make demoFullyOpen() in apps/web/lib/demo-period.ts return false. Update the tests in supabase/tests/0070_demo_fully_open.sql and apps/web/lib/demo-period.test.ts to match. Demos then show only their free first part again, with "Demo titles cannot be bought".
+- [ ] The prepared switch for the item above is supabase/launch/demo_period_off.sql. Copy it into the next numbered migration at launch; it is not applied by the migration runner.
 - [ ] themes.min_books is set to 1 on staging and production. Set it back to the launch value.
 - [ ] 135 demo and Maya Vaughn titles are set live (115 demos, of which 18 are faith titles with no theological review, and 20 Maya Vaughn titles). Decide which stay live at launch and take the rest down.
 - [ ] The programme_friends flag is on in staging. Decide whether it stays on before production.
