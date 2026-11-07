@@ -96,7 +96,7 @@ All are optional and the feature degrades quietly while blank.
 ## Other things found at integration
 
 - [ ] Four new daily or monthly crons are in vercel.json: membership upkeep, win-back, org monthly report and newsletter send. Check CRON_SECRET is set wherever they run.
-- [ ] Migrations 0049 to 0066 were applied to staging and production on 22 October 2026, and 0069 and 0070 on 30 October. 0067 and 0068 (PR 8, hardening) are on staging only and go to production when PR 8 merges.
+- [x] Migrations 0049 to 0066 were applied to staging and production on 22 October 2026, 0069 and 0070 on 30 October, and 0067, 0068, 0071 and 0072 on 7 November. Both databases are at 0072.
 - [ ] The workbook-gift preview function was renamed workbook_gift_preview in migration 0053 so it does not clash with the gift membership preview in 0054.
 - [ ] The Stripe webhook now runs gift and bundle handling first, then the existing handler, then the growth handler. Test one gift purchase, one bundle purchase and one referral in the Stripe sandbox before launch.
 
@@ -116,6 +116,6 @@ An outside reviewer read the core code (sealing, answers, checkout, webhook, ten
 
 - [ ] Accessibility: nobody has done the manual keyboard and screen reader pass on the signed-in player (docs/ACCESSIBILITY.md). Until it is done and the defects closed, /trust must not claim WCAG AA.
 - [ ] Shared identity on tenant hosts (F-133) is not built. Tenant hosts serve the catalogue and locked pages only, with no sign-in or checkout. Decide the route (sign in on the tenant host with its own cookie, or hop to the Akana apex and back) before selling any white-label deal.
-- [ ] Progress durability: progress_events has no unique key on (enrolment_id, kind, ref), so duplicates are possible, and the client does not queue a failed progress write for retry. Add the unique key and an outbound queue, or accept it in the support copy. Do not claim "never lose progress offline" until then.
-- [ ] Runtime headers: confirm on the live deployment, in a browser, that the auth cookies are __Host- scoped and the Content-Security-Policy header is present. Both are in the code; neither has been checked at runtime.
+- [x] Progress durability: done on 7 November 2026 (migration 0071 and apps/web/lib/progress-client.ts, PR 11). One-off kinds are stored once and client writes queue and retry on the device.
+- [ ] Runtime headers: the Content-Security-Policy header was confirmed at runtime on the hardening-2 preview on 7 November. Still to confirm on the live site in a browser: the auth cookies are __Host- scoped.
 - [ ] Refund path: charge.refunded revokes entitlement in code, but a refund has not been exercised end to end with a test card. Run one refund and one cooling-off cancel in the Stripe sandbox alongside the approved live test purchase.
