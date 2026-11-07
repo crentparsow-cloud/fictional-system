@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { trackClientEvent } from "@/lib/track-client";
 
-/** A link in a read-only box with a copy button and, where the device has one, its share sheet. Nothing is sent anywhere by this component. */
-export function CopyLink({ url, shareText, label }: { url: string; shareText: string; label: string }) {
+/** A link in a read-only box with a copy button and, where the device has one, its share sheet. Nothing is sent anywhere by this component, except (when countAs is set) the name of the event for a daily count. */
+export function CopyLink({ url, shareText, label, countAs }: { url: string; shareText: string; label: string; countAs?: "referral_link_shared" }) {
   const [note, setNote] = useState<string | null>(null);
   const canShare = typeof navigator !== "undefined" && typeof navigator.share === "function";
 
@@ -11,6 +12,7 @@ export function CopyLink({ url, shareText, label }: { url: string; shareText: st
     try {
       await navigator.clipboard.writeText(url);
       setNote("Copied.");
+      if (countAs) trackClientEvent(countAs);
     } catch {
       setNote("Copy did not work. Select the link and copy it by hand.");
     }
@@ -18,6 +20,7 @@ export function CopyLink({ url, shareText, label }: { url: string; shareText: st
   async function share() {
     try {
       await navigator.share({ text: shareText, url });
+      if (countAs) trackClientEvent(countAs);
     } catch {
       // closed without sending, or not supported: the copy button is still there
     }
