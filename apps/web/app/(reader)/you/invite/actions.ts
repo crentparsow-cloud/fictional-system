@@ -7,13 +7,18 @@ import { cleanGiftEmail, isGiftSendStatus } from "@/lib/send-workbook";
 import { sendGiftEmail } from "@/lib/send-workbook-server";
 import { hashInviteToken, newInviteToken } from "@/lib/shared-membership-token";
 import { siteOrigin } from "@/lib/site-url";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
- * Send this workbook (14.14). Runs as the signed-in member, so the database
- * checks they are paying and have not used the quarter (migration 0053
- * gift_send). The token is made here and only its hash is stored. If the
- * email cannot be sent the gift is taken back, so the quarter is not lost.
+ * Send this workbook (14.14). The service role sends for the signed-in
+ * member (0068 gift_send_for): the database checks they are paying, have
+ * not used the quarter and are under the daily limit. The answer never
+ * depends on who owns the address; whether the recipient can take the gift
+ * is decided when they claim it. The token is made here and only its hash is
+ * stored. If the email cannot be sent the gift is taken back, so the quarter
+ * is not lost.
  */
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -25,8 +30,12 @@ export async function sendWorkbookGift(formData: FormData): Promise<void> {
   if (!email || !UUID.test(workbook)) redirect("/you/invite?gift=invalid#gift");
 
   const token = newInviteToken();
-  const supabase = await createUserClient();
-  const { data, error } = await supabase.rpc("gift_send", { p_workbook: workbook, p_email: email, p_token_hash: hashInviteToken(token) });
+  const { data, error } = await createAdminClient().rpc("gift_send_for", {
+    p_user: session.userId,
+    p_workbook: workbook,
+    p_email: email,
+    p_token_hash: hashInviteToken(token),
+  });
   if (error) {
     console.error("gift_send_failed", error.code ?? "");
     redirect("/you/invite?gift=failed#gift");
@@ -38,9 +47,11 @@ export async function sendWorkbookGift(formData: FormData): Promise<void> {
   const expiresAt = new Date(Date.now() + 30 * 86_400_000);
   const sent = await sendGiftEmail({ to: email, token, expiresAt, giftId: row.gift_id }, { origin: siteOrigin() });
   if (sent.status !== "sent" && sent.status !== "sent_test") {
+    const supabase = await createUserClient();
     await supabase.rpc("gift_cancel", { p_gift: row.gift_id });
     redirect("/you/invite?gift=mail_failed#gift");
   }
+  await countEvent("workbook_gift_sent", { userId: session!.userId });
   revalidatePath("/you/invite");
   redirect("/you/invite?gift=sent#gift");
 }

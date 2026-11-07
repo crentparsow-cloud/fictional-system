@@ -35,6 +35,7 @@ import { localParts } from "@/lib/today/reminders";
 import { PaceChoice } from "@/components/pace/PaceChoice";
 import { acknowledgeHigherTier, saveReadingPlace, type PlaceInput } from "./actions";
 import { FinishRecommendations, type RecommendedAuthor } from "@/components/reader/FinishRecommendations";
+import { recordProgress, startProgressQueue } from "@/lib/progress-client";
 
 interface Props {
   workbook: WorkbookV3;
@@ -164,6 +165,11 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
     };
   }, [enrolmentId, onSaved, readOnly]);
 
+  // Send progress left on this device by an earlier page.
+  useEffect(() => {
+    startProgressQueue();
+  }, []);
+
   // Send anything owed when the tab goes away.
   useEffect(() => {
     if (!store) return;
@@ -180,12 +186,7 @@ export function ReadClient({ buyNote, recommendations = [], firstName, workbook,
       // A step done carries the unit it was done in, for the per-unit count
       // only (0036). The event itself stores ids and a time, as ever.
       const unit = kind === "step_done" && lastUnit.current != null ? { unit: lastUnit.current } : {};
-      void fetch("/api/progress", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(ref === undefined ? { enrolment: enrolmentId, kind, ...unit } : { enrolment: enrolmentId, kind, ref, ...unit }),
-        keepalive: true,
-      }).catch(() => undefined);
+      recordProgress({ enrolmentId, kind, ...(ref === undefined ? {} : { ref }), ...(unit.unit === undefined ? {} : { unit: unit.unit }) });
     },
     [enrolmentId, readOnly],
   );

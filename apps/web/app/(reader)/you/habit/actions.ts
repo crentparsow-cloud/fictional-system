@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { createUserClient } from "@/lib/supabase/server";
 import { companionValue, parseHabitForm } from "@/lib/habit/settings";
 import { parsePaceForm } from "@/lib/pace";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Habit settings (4.4, 4.6, 11.2, 12.4). Each action runs as the signed-in
@@ -29,6 +30,7 @@ export async function saveHabit(formData: FormData): Promise<void> {
   if (!form) back("invalid");
   const f = form!;
   const { supabase, userId } = await signedIn();
+  const { data: before } = await supabase.from("habit_settings").select("daily_run_on").eq("user_id", userId).maybeSingle();
   const { error } = await supabase.from("habit_settings").upsert(
     {
       user_id: userId,
@@ -41,6 +43,8 @@ export async function saveHabit(formData: FormData): Promise<void> {
   );
   if (error?.code === "AKH01") back("run-early");
   if (error) back("failed");
+  const wasOn = (before as { daily_run_on?: boolean } | null)?.daily_run_on === true;
+  if (f.runOn !== wasOn) await countEvent(f.runOn ? "streak_turned_on" : "streak_turned_off", { userId });
   revalidatePath("/you/habit");
   revalidatePath("/today");
   back(f.runOn ? "run-on" : "saved");
@@ -54,6 +58,7 @@ export async function acceptRunOffer(): Promise<void> {
   revalidatePath("/you/habit");
   if (error?.code === "AKH01") redirect("/today");
   if (error) redirect("/today");
+  await countEvent("streak_turned_on", { userId });
   redirect("/you/habit?notice=run-on");
 }
 
