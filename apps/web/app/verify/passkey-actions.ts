@@ -8,6 +8,7 @@ import { getRoleMfaSession, passkeyEnabled } from "@/lib/mfa/role-mfa-server";
 import { flagEnabled } from "@/lib/platform/flags-server";
 import { originFrom } from "@/lib/partner";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Passkeys as a second factor (F-143), behind the mfa_passkey flag (off).
@@ -148,5 +149,6 @@ export async function finishPasskey(_prev: FinishState, formData: FormData): Pro
     console.error("passkey_verify_failed", error.code ?? "");
     return { error: "That passkey did not work. Try again, or use your authenticator app." };
   }
+  if (kind === "create") await countEvent("passkey_added");
   redirect(next);
 }
