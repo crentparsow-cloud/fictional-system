@@ -5,6 +5,7 @@ import { getReaderSession } from "@/lib/auth";
 import { isGiftClaimResult, isGiftToken } from "@/lib/send-workbook";
 import { hashInviteToken } from "@/lib/shared-membership-token";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Claim a gifted workbook (14.14). A POST by the signed-in person who holds
@@ -24,6 +25,7 @@ export async function claimGift(formData: FormData): Promise<void> {
     redirect(`/send/${token}?result=unknown`);
   }
   const result = isGiftClaimResult(data) ? data : "unknown";
+  if (result === "claimed") await countEvent("workbook_gift_claimed", { userId: session!.userId });
   if (result === "claimed" || result === "unchanged") {
     const { data: wb } = await createAdminClient()
       .from("workbook_gifts")

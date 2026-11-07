@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
 import { isReferralCode, isReferralUse } from "@/lib/referral";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Use a friend's invitation (6.3). A button press by a signed-in person, a
@@ -20,5 +21,6 @@ export async function useInvitation(formData: FormData): Promise<void> {
   const supabase = await createUserClient();
   const { data, error } = await supabase.rpc("referral_use", { p_code: code });
   const result = error || !isReferralUse(data) ? "unknown_code" : data;
+  if (result === "attached") await countEvent("referral_claimed", { userId: session!.userId });
   redirect(`/r/${code}?result=${result}`);
 }

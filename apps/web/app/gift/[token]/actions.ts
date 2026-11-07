@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
 import { isClaimToken } from "@/lib/gift";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * The button on the gift page. Opening the link changes nothing; this does.
@@ -22,6 +23,9 @@ export async function claimGiftAction(formData: FormData): Promise<void> {
   } catch (err) {
     console.error("claim_gift_failed", err instanceof Error ? err.name : "unknown");
   }
-  if (result === "claimed") redirect("/you?gift=claimed");
+  if (result === "claimed") {
+    await countEvent("gift_claimed", { userId: session!.userId });
+    redirect("/you?gift=claimed");
+  }
   redirect(`/gift/${token}?r=${encodeURIComponent(result)}`);
 }

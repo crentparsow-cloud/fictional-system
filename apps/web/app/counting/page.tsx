@@ -26,6 +26,10 @@ export default async function CountingPage({ searchParams }: { searchParams: Pro
         To know whether Akana is working, we keep a few daily totals: pages viewed, samples opened, free weeks started, checkouts started, purchases and weeks
         completed. Each one adds one to a count for that day, and for the workbook when there is one.
       </p>
+      <p>
+        We also count a few moments inside Akana, such as a highlight or a note being added, a gift sent or claimed, a certificate viewed or a reminder switched on. Each is
+        a total for the day. We never count what you highlighted or wrote, and we do not count streaks, goals or milestones for anyone who reads a mental health title.
+      </p>
       <p>We do not record who you are, your address, your device or anything you write. Your answers are sealed and never counted.</p>
       <p>The totals stay on our own servers. We use no advertising, no third-party analytics and no session recording. We keep the totals for 13 months.</p>
 
