@@ -54,6 +54,13 @@ describe("bundle events", () => {
     expect((await handleBundleEvent(charge({ refunded: false }), repo))?.action).toBe("bundle_partial_refund");
     expect(await handleBundleEvent(charge({ payment_intent: "pi_other" }), repo)).toBeNull();
   });
+  it("closes the bundle's titles when its payment is disputed", async () => {
+    const repo = new Repo();
+    const dispute = (pi: string) => ({ id: "e", type: "charge.dispute.created", data: { object: { payment_intent: pi } } }) as unknown as Stripe.Event;
+    expect((await handleBundleEvent(dispute("pi_1"), repo))?.action).toBe("bundle_disputed");
+    expect(repo.refunds).toEqual(["pi_1"]);
+    expect(await handleBundleEvent(dispute("pi_other"), repo)).toBeNull();
+  });
   it("is not about a bundle when the metadata says otherwise", async () => {
     expect(await handleBundleEvent(session({ metadata: { kind: "gift" } }), new Repo())).toBeNull();
     expect(await handleBundleEvent(session({ metadata: {} }), new Repo())).toBeNull();

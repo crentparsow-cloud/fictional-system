@@ -5,7 +5,8 @@
  * from the marketing pool (migration 0053, values in app_config 'gift').
  */
 
-export type GiftSendStatus = "sent" | "not_member" | "used_this_quarter" | "not_giftable" | "not_eligible" | "waiting";
+/** What the send can answer (0068). Nothing here depends on who owns the address. */
+export type GiftSendStatus = "sent" | "not_member" | "used_this_quarter" | "not_giftable" | "self" | "busy";
 
 export function isGiftSendStatus(v: unknown): v is GiftSendStatus {
   return typeof v === "string" && v in GIFT_SEND_MESSAGES;
@@ -16,8 +17,8 @@ export const GIFT_SEND_MESSAGES: Readonly<Record<GiftSendStatus, string>> = {
   not_member: "Gifts are for members who are paying. A trial does not include one.",
   used_this_quarter: "You have already sent your gift for this quarter.",
   not_giftable: "That workbook cannot be sent just now. Please choose another.",
-  not_eligible: "We cannot send a gift to that address. Gifts are for people who have never paid for Akana.",
-  waiting: "A gift to that address is already waiting to be claimed.",
+  self: "You cannot send a gift to your own address.",
+  busy: "You have sent a few gifts today. Please try again tomorrow.",
 };
 
 export type GiftClaimResult = "claimed" | "unchanged" | "unknown" | "expired" | "not_available" | "not_eligible";
@@ -28,7 +29,7 @@ export const GIFT_CLAIM_MESSAGES: Readonly<Record<GiftClaimResult, string>> = {
   unknown: "That link is not valid.",
   expired: "That link has expired. Gifts can be claimed for 30 days.",
   not_available: "That gift has already been claimed or has been taken back.",
-  not_eligible: "Gifts are for people who have never paid for Akana, so this one cannot be claimed on this account.",
+  not_eligible: "This gift cannot be claimed on this account.",
 };
 
 export function isGiftClaimResult(v: unknown): v is GiftClaimResult {
