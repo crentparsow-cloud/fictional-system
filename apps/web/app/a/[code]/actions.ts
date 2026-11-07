@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
 import { isAuthorLinkCode, isAuthorLinkUse } from "@/lib/author-growth";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Use an author's own link (6.4). A button press by a signed-in person, a
@@ -19,5 +20,6 @@ export async function useAuthorLink(formData: FormData): Promise<void> {
   const supabase = await createUserClient();
   const { data, error } = await supabase.rpc("author_link_use", { p_code: code });
   const result = error || !isAuthorLinkUse(data) ? "unknown_code" : data;
+  if (result === "attached") await countEvent("author_link_visited", { userId: session!.userId });
   redirect(`/a/${code}?result=${result}`);
 }

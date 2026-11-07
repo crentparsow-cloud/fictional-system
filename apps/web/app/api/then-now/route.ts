@@ -5,6 +5,7 @@ import { privateWriteRefusal } from "@/lib/private-writes";
 import { MAX_STEP_TITLE } from "@/lib/reading/then-now";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { newEntryId, sealEntry } from "@/lib/then-now-server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * "Then and now" check-ins (3.10, migration 0059).
@@ -58,5 +59,6 @@ export async function POST(request: NextRequest) {
     .from("then_now_entries")
     .insert({ id, user_id: enrolment.user_id, enrolment_id: enrolment.id, step_ref: step, sealed: sealed.sealed, key_id: sealed.keyId, taken_at: takenAt });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
+  await countEvent("then_now_checked_in", { userId: enrolment.user_id });
   return NextResponse.json({ id, takenAt }, { headers: NO_STORE });
 }

@@ -4,6 +4,7 @@ import { activeDirection } from "@/lib/design/active";
 import { coverFonts } from "@/lib/design/cover-fonts";
 import { COVER_FONT_FAMILIES } from "@/lib/design/cover-render";
 import { verifyQuote } from "@/lib/share/quote";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * A quote image (12.3): GET /api/quote-image?w=<slug>&l=<line>&s=<signature>.
@@ -31,6 +32,7 @@ export async function GET(request: Request) {
   const sig = q.get("s") ?? "";
   if (!secret || !verifyQuote(secret, slug, line, sig)) return notFound();
 
+  await countEvent("quote_image_made");
   const p = activeDirection.light;
   const size = line.length > 140 ? 52 : line.length > 90 ? 62 : 74;
   const flex = { display: "flex" } as const;
