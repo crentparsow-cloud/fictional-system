@@ -33,31 +33,30 @@ insert into public.workbook_versions (id, workbook_id, semver, content, content_
 
 -- ---------------------------------------------------------------------------
 -- 1. A visitor asks for a title. Stored, trimmed, keyed, rate limited.
+--    0068: the server records it (service role) with the hash it computed.
 -- ---------------------------------------------------------------------------
 do $$ declare v_id uuid; v_h text := repeat('a', 64); begin
   perform set_config('request.jwt.claim.sub', '', true);
-  perform set_config('request.jwt.claims', '{"role": "anon"}'::text, true);
-  execute 'set local role anon';
-  v_id := public.submit_title_request('  The Power of Habit!  ', ' Charles Duhigg ', 'Please add it.', v_h);
+  perform set_config('request.jwt.claims', '{"role": "service_role"}'::text, true);
+  execute 'set local role service_role';
+  v_id := public.submit_title_request_as(null, '  The Power of Habit!  ', ' Charles Duhigg ', 'Please add it.', v_h);
   if v_id is null then raise exception 'a request should be stored'; end if;
-  perform public.submit_title_request('the power of habit', null, null, v_h);
-  perform public.submit_title_request('Atomic Habits', null, null, v_h);
-  begin perform public.submit_title_request('A fourth in a day', null, null, v_h);
+  perform public.submit_title_request_as(null, 'the power of habit', null, null, v_h);
+  perform public.submit_title_request_as(null, 'Atomic Habits', null, null, v_h);
+  begin perform public.submit_title_request_as(null, 'A fourth in a day', null, null, v_h);
     raise exception 'the fourth request from one address should be refused'; exception when sqlstate 'AKZ29' then null; end;
-  begin perform public.submit_title_request('', null, null, repeat('b', 64));
+  begin perform public.submit_title_request_as(null, '', null, null, repeat('b', 64));
     raise exception 'an empty title accepted'; exception when sqlstate 'AKZ01' then null; end;
-  begin perform public.submit_title_request('!!!', null, null, repeat('b', 64));
+  begin perform public.submit_title_request_as(null, '!!!', null, null, repeat('b', 64));
     raise exception 'a title with no letters accepted'; exception when sqlstate 'AKZ01' then null; end;
-  begin perform public.submit_title_request(repeat('x', 201), null, null, repeat('b', 64));
+  begin perform public.submit_title_request_as(null, repeat('x', 201), null, null, repeat('b', 64));
     raise exception 'a long title accepted'; exception when sqlstate 'AKZ01' then null; end;
-  begin perform public.submit_title_request('Ok', repeat('x', 201), null, repeat('b', 64));
+  begin perform public.submit_title_request_as(null, 'Ok', repeat('x', 201), null, repeat('b', 64));
     raise exception 'a long author accepted'; exception when sqlstate 'AKZ02' then null; end;
-  begin perform public.submit_title_request('Ok', null, repeat('x', 1001), repeat('b', 64));
+  begin perform public.submit_title_request_as(null, 'Ok', null, repeat('x', 1001), repeat('b', 64));
     raise exception 'a long note accepted'; exception when sqlstate 'AKZ02' then null; end;
-  begin perform public.submit_title_request('Ok', null, null, 'not-a-hash');
+  begin perform public.submit_title_request_as(null, 'Ok', null, null, 'not-a-hash');
     raise exception 'a bad hash accepted'; exception when sqlstate 'AKZ03' then null; end;
-  begin perform * from public.title_requests;
-    raise exception 'a visitor should have no read grant'; exception when insufficient_privilege then null; end;
   reset role;
   if (select title from public.title_requests where id = v_id) <> 'The Power of Habit!' then raise exception 'title should be trimmed'; end if;
   if (select title_key from public.title_requests where id = v_id) <> 'the power of habit' then raise exception 'title key should be normalised'; end if;
@@ -67,15 +66,31 @@ end $$;
 
 -- A signed-in reader is limited by account as well as by address.
 do $$ declare i int; begin
-  perform test_as('a5600000-0000-0000-0000-000000000003');
+  perform set_config('request.jwt.claim.sub', '', true);
+  perform set_config('request.jwt.claims', '{"role": "service_role"}'::text, true);
+  execute 'set local role service_role';
   for i in 1..5 loop
-    perform public.submit_title_request('Reader title ' || i, null, null, encode(pg_catalog.sha256(convert_to('addr' || i, 'UTF8')), 'hex'));
+    perform public.submit_title_request_as('a5600000-0000-0000-0000-000000000003', 'Reader title ' || i, null, null, encode(pg_catalog.sha256(convert_to('addr' || i, 'UTF8')), 'hex'));
   end loop;
-  begin perform public.submit_title_request('Reader title 6', null, null, encode(pg_catalog.sha256(convert_to('addr6', 'UTF8')), 'hex'));
+  begin perform public.submit_title_request_as('a5600000-0000-0000-0000-000000000003', 'Reader title 6', null, null, encode(pg_catalog.sha256(convert_to('addr6', 'UTF8')), 'hex'));
     raise exception 'the sixth request from one reader should be refused'; exception when sqlstate 'AKZ29' then null; end;
-  if (select count(*) from public.title_requests) <> 0 then raise exception 'a reader cannot read requests'; end if;
   reset role;
   if (select count(*) from public.title_requests where user_id = 'a5600000-0000-0000-0000-000000000003') <> 5 then raise exception 'five requests carry the reader'; end if;
+end $$;
+
+-- Readers and visitors read nothing and cannot write directly (0068).
+do $$ begin
+  perform test_as('a5600000-0000-0000-0000-000000000003');
+  if (select count(*) from public.title_requests) <> 0 then raise exception 'a reader cannot read requests'; end if;
+  begin perform public.submit_title_request('Direct', null, null, repeat('e', 64));
+    raise exception 'a reader wrote a request directly'; exception when insufficient_privilege then null; end;
+  reset role;
+  perform set_config('request.jwt.claim.sub', '', true);
+  perform set_config('request.jwt.claims', '{"role": "anon"}'::text, true);
+  execute 'set local role anon';
+  begin perform * from public.title_requests;
+    raise exception 'a visitor should have no read grant'; exception when insufficient_privilege then null; end;
+  reset role;
 end $$;
 
 -- ---------------------------------------------------------------------------
@@ -168,8 +183,8 @@ insert into public.progress_events (enrolment_id, kind, at) values
   ('a5600000-0000-0000-0003-000000000003', 'unit_opened', now() - interval '2 days');
 do $$ declare r record; begin
   perform set_config('request.jwt.claim.sub', '', true);
-  perform set_config('request.jwt.claims', '{"role": "anon"}'::text, true);
-  execute 'set local role anon';
+  perform set_config('request.jwt.claims', '{"role": "service_role"}'::text, true);
+  execute 'set local role service_role';  -- 0068: the rails read this on the server
   select * into r from public.rail_signals('00000000-0000-0000-0000-00000000000a') where workbook_id = 'a5600000-0000-0000-0000-0000000000c1';
   if r.starts <> 4 or r.finishes <> 2 or r.returned <> 1 then raise exception 'expected 4, 2, 1, got %, %, %', r.starts, r.finishes, r.returned; end if;
   if exists (select 1 from public.rail_signals('00000000-0000-0000-0000-00000000000a') where workbook_id = 'a5600000-0000-0000-0000-0000000000c2') then

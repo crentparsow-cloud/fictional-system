@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { loadAccountData } from "@/lib/account-data-server";
 import { answerKeyRing, unseal } from "@/lib/answers";
 import { getReaderSession } from "@/lib/auth";
 import { NO_STORE } from "@/lib/enrolment";
@@ -33,6 +34,11 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  * filtered by user id, and only the replies on that row. Only the partner's
  * name, the share level, the status and the kind words go into the file
  * (partnerForExport). If they cannot be read the part is left out.
+ *
+ * Phase B records (highlights and notes, then-and-now, the daily run,
+ * referrals, gifts, pairs, push devices and the rest) come from
+ * loadAccountData and go into `account_data`, opened for their owner and
+ * never carrying ciphertext, tokens or other people's rows.
  *
  * Errors: 401 no session, 404 unknown tenant, 400 bad format, 429 after 10
  * downloads in an hour (0027), 503 when ANSWERS_KEYS is not set, 500 when a
@@ -124,8 +130,10 @@ export async function GET(request: NextRequest) {
 
   const partner = await readPartner(supabase, session.userId);
 
+  const accountData = await loadAccountData(supabase, session.userId, session.email, await readerTimezone(supabase));
+
   const now = new Date();
-  const doc = buildExport(inputs, answers, unreadable, now, partner);
+  const doc = buildExport(inputs, answers, unreadable, now, partner, accountData);
   const body = format === "json" ? exportJson(doc) : renderExportHtml(doc, { showTitles });
   return new NextResponse(body, {
     status: 200,
@@ -136,6 +144,16 @@ export async function GET(request: NextRequest) {
       "X-Content-Type-Options": "nosniff",
     },
   });
+}
+
+async function readerTimezone(supabase: Awaited<ReturnType<typeof createUserClient>>): Promise<string> {
+  try {
+    const { data } = await supabase.from("today_settings").select("timezone").limit(1);
+    const tz = (data as { timezone: string | null }[] | null)?.[0]?.timezone;
+    return tz || "Europe/London";
+  } catch {
+    return "Europe/London";
+  }
 }
 
 async function readPartner(supabase: Awaited<ReturnType<typeof createUserClient>>, userId: string) {

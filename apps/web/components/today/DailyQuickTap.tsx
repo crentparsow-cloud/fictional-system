@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import { dailyScope, localDay } from "@akana/engine";
 import { fieldKey } from "@/lib/answer-fields";
+import { recordProgress } from "@/lib/progress-client";
 
 type Status = "" | "saving" | "saved" | "failed" | "consent" | "read_only";
 
@@ -57,12 +58,7 @@ export function DailyQuickTap({ enrolmentId, slug, title, question, lead, moreLa
       // One event a day from here, whatever the number of taps. Ids only.
       if (recorded.current !== day) {
         recorded.current = day;
-        void fetch("/api/progress", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ enrolment: enrolmentId, kind: "daily_check_done" }),
-          keepalive: true,
-        }).catch(() => undefined);
+        recordProgress({ enrolmentId, kind: "daily_check_done" });
       }
     } catch {
       setStatus("failed");

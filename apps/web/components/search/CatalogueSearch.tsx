@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { BADGE_LABELS } from "@/lib/catalogue-guard";
-import { buildSearchIndex, groupResults, queryWordHashes, search, searchStatus, type QueryHashes, type SearchEntry, type SearchGroupId } from "@/lib/search";
+import { buildSearchIndex, groupResults, initialQueryFromSearch, queryWordHashes, search, searchStatus, type QueryHashes, type SearchEntry, type SearchGroupId } from "@/lib/search";
+import { trackClientEvent } from "@/lib/track-client";
 
 /**
  * On-device search with Help now first (F-008).
@@ -49,6 +50,10 @@ export interface SearchLabels {
   requestCta: string;
 }
 
+function subscribeNever(): () => void {
+  return () => undefined;
+}
+
 export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headingLevel = 2 }: { entries: SearchEntry[]; labels: SearchLabels; helpHref?: string; headingLevel?: 2 | 3 }) {
   const id = useId();
   const inputId = `${id}-q`;
@@ -56,7 +61,13 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
   const resultsId = `${id}-results`;
   const helpHeadingId = `${id}-help`;
   const index = useMemo(() => buildSearchIndex(entries), [entries]);
-  const [query, setQuery] = useState("");
+  // Prefill from ?q= on the address. Read in the browser only, so the server
+  // never sees it and the page is the same for every reader. Once the reader
+  // types, what they typed wins.
+  const fromAddress = useSyncExternalStore(subscribeNever, () => initialQueryFromSearch(window.location.search), () => "");
+  const [typed, setTyped] = useState<string | null>(null);
+  const query = typed ?? fromAddress;
+  const setQuery = setTyped;
   // Word to hash for the latest query. Looked up by word, so while a new
   // keystroke is being hashed the words already known keep matching.
   const [hashes, setHashes] = useState<QueryHashes | undefined>(undefined);
@@ -87,6 +98,14 @@ export function CatalogueSearch({ entries, labels, helpHref = "/help-now", headi
     const timer = setTimeout(() => setAnnounced(status), 450);
     return () => clearTimeout(timer);
   }, [status]);
+
+  // Counted once per visit, after a pause in typing, when results came back in groups. The words typed are never sent.
+  const countedGroups = useRef(false);
+  useEffect(() => {
+    if (countedGroups.current || !announced || groups.length === 0 || query.trim().length < 2) return;
+    countedGroups.current = true;
+    trackClientEvent("search_grouped_used");
+  }, [announced, groups.length, query]);
 
   const H = headingLevel === 3 ? "h3" : "h2";
 

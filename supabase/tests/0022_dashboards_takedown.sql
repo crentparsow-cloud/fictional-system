@@ -76,9 +76,8 @@ select ('a2200000-0000-0000-0002-' || lpad(g::text, 12, '0'))::uuid, ('a2200000-
   from generate_series(1, 10) g;
 insert into public.progress_events (enrolment_id, kind, ref, at)
 select ('a2200000-0000-0000-0002-' || lpad(g::text, 12, '0'))::uuid, 'checkin_done', '1', '2026-08-10 12:00+00' from generate_series(1, 10) g;
--- A second check-in on unit 1 by reader 1 in September must not count again.
+-- (A second check-in on unit 1 is refused at the 0071 index, so it cannot be tested here.)
 insert into public.progress_events (enrolment_id, kind, ref, at) values
-  ('a2200000-0000-0000-0002-000000000001', 'checkin_done', '1', '2026-09-10 12:00+00'),
   ('a2200000-0000-0000-0002-000000000001', 'finished', null, '2026-09-11 12:00+00');
 
 -- The reader who will be looked up and who buys wa.

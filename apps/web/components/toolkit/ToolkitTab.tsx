@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import { ToolkitCardView, type ToolkitCard } from "@akana/engine";
 import { setSavedTool } from "@/app/(reader)/today/actions";
+import { recordProgress } from "@/lib/progress-client";
 
 export interface ToolkitGroup {
   enrolmentId: string;
@@ -36,12 +37,7 @@ export function ToolkitTab({ groups, saved: savedKeys = [], readOnly = false }: 
   }, [saved]);
   const record = useCallback((enrolmentId: string, toolId: string) => {
     setUsed(`${enrolmentId}:${toolId}`);
-    void fetch("/api/progress", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ enrolment: enrolmentId, kind: "toolkit_used", ref: toolId }),
-      keepalive: true,
-    }).catch(() => undefined);
+    recordProgress({ enrolmentId, kind: "toolkit_used", ref: toolId });
   }, []);
 
   return (

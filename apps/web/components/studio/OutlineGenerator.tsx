@@ -15,6 +15,7 @@ import {
   type OutlineField,
   type OutlineAnswers,
 } from "@/lib/studio-outline";
+import { trackClientEvent } from "@/lib/track-client";
 
 /**
  * The five questions and the editable outline (build list 14.31). All in the
@@ -56,6 +57,7 @@ export function OutlineGenerator() {
     setErrors({});
     setAnswers(parsed.answers);
     setOutline(generateOutline(parsed.answers));
+    trackClientEvent("studio_outline_generated");
     setNote("");
   }
 

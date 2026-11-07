@@ -120,7 +120,17 @@ do $$ begin
   begin perform public.make_certificate('a6500000-0000-0000-0000-0000000000e1', 'Sam'); raise exception 'a certificate for an unfinished programme'; exception when object_not_in_prerequisite_state then null; end;
   begin perform public.make_certificate('a6500000-0000-0000-0000-0000000000e3', 'Sam'); raise exception 'a certificate for someone else''s programme'; exception when insufficient_privilege then null; end;
 end $$;
-insert into public.progress_events (enrolment_id, kind) values ('a6500000-0000-0000-0000-0000000000e1', 'finished'), ('a6500000-0000-0000-0000-0000000000e2', 'finished');
+-- 0068: finished means every step of every unit is done, and the reader holds the workbook beyond its free units.
+reset role;
+update public.workbook_versions set content = '{"units": [{"number": 1, "exercise_ids": ["ex_a"]}, {"number": 2, "exercise_ids": ["ex_b"]}]}'::jsonb
+ where id in ('a6500000-0000-0000-0000-0000000000d1', 'a6500000-0000-0000-0000-0000000000d2');
+insert into public.entitlements (user_id, tenant_id, workbook_id, source, status, starts_at)
+select 'a6500000-0000-0000-0000-000000000001', '00000000-0000-0000-0000-00000000000a', w, 'purchase', 'active', now() - interval '1 day'
+  from unnest(array['a6500000-0000-0000-0000-0000000000c1', 'a6500000-0000-0000-0000-0000000000c2']::uuid[]) w;
+insert into public.progress_events (enrolment_id, kind, ref)
+select e, 'step_done', x from unnest(array['a6500000-0000-0000-0000-0000000000e1', 'a6500000-0000-0000-0000-0000000000e2']::uuid[]) e,
+       unnest(array['ex_a', 'ex_b']) x;
+select test_as('a6500000-0000-0000-0000-000000000001');
 do $$ declare c uuid; begin
   c := public.make_certificate('a6500000-0000-0000-0000-0000000000e1', '  Sam Reader  ');
   if c is null then raise exception 'no certificate id'; end if;

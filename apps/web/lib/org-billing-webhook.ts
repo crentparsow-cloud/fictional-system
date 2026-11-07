@@ -6,6 +6,8 @@ import { mailOrigin, sendOrgBillingMail } from "@/lib/org-billing-mail-server";
 import { reportOps } from "@/lib/ops-alerts";
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countEventServer } from "@/lib/funnel";
+import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 
 export { isOrgBillingEvent } from "@/lib/org-billing";
 
@@ -120,6 +122,7 @@ export function orgBillingRepo(admin: Admin, stripe: Stripe): OrgBillingRepo {
         return "closed";
       }
       if (error) throw new Error(`org_self_serve_provision failed: ${error.code ?? "unknown"}`);
+      await countEventServer(admin, "org_plan_started", { tenantId: MARKETPLACE_TENANT_ID });
       return { licenceId: String(data) };
     },
     async provisionPack(s) {
@@ -145,6 +148,7 @@ export function orgBillingRepo(admin: Admin, stripe: Stripe): OrgBillingRepo {
         return "closed";
       }
       if (error) throw new Error(`org_pack_provision failed: ${error.code ?? "unknown"}`);
+      await countEventServer(admin, "pack_bought", { tenantId: MARKETPLACE_TENANT_ID });
       return { licenceId: String(data) };
     },
     async seatOrganiser(licenceId, userId) {

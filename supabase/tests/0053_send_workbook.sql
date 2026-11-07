@@ -44,32 +44,36 @@ end $$;
 create or replace function pg_temp.h(p text) returns text language sql as $$ select md5(p) || md5(p || 'x') $$;
 
 -- 1. Only a paying member (active, not trialing) can send.
-select test_as('53530000-0000-0000-0000-00000000000b');
+-- 0068: the send is made by the server (service role) for the signed-in member.
+select pg_temp.as_service();
 do $$ declare r record; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'friend53@test', pg_temp.h('t0'));
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-00000000000b', '53530000-0000-0000-0000-0000000000d1', 'friend53@test', pg_temp.h('t0'));
   if r.status <> 'not_member' then raise exception 'a trialist sent a gift: %', r.status; end if;
 end $$;
 reset role;
 
 -- 2. The giver sends one. Not to themselves, not to someone who has paid,
--- not a demo or unpublished title.
-select test_as('53530000-0000-0000-0000-00000000000a');
+-- not a demo or unpublished title. (0068: a payer's address is answered like
+-- any other and refused at the claim; see 0068_phase_b_security.sql.)
+select pg_temp.as_service();
 do $$ declare r record; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'GIVER53@test', pg_temp.h('t1'));
-  if r.status <> 'not_eligible' then raise exception 'gift to self: %', r.status; end if;
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'payer53@test', pg_temp.h('t2'));
-  if r.status <> 'not_eligible' then raise exception 'gift to someone who has paid: %', r.status; end if;
-  select * into r from public.gift_send('53530000-0000-0000-0000-00000000dddd', 'friend53@test', pg_temp.h('t3'));
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-00000000000a', '53530000-0000-0000-0000-0000000000d1', 'GIVER53@test', pg_temp.h('t1'));
+  if r.status <> 'self' then raise exception 'gift to self: %', r.status; end if;
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-00000000000a', '53530000-0000-0000-0000-00000000dddd', 'friend53@test', pg_temp.h('t3'));
   if r.status <> 'not_giftable' then raise exception 'gift of a missing title: %', r.status; end if;
   begin
-    perform * from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'not-an-email', pg_temp.h('t4'));
+    perform * from public.gift_send_for('53530000-0000-0000-0000-00000000000a', '53530000-0000-0000-0000-0000000000d1', 'not-an-email', pg_temp.h('t4'));
     raise exception 'bad email accepted';
   exception when check_violation then null; end;
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'friend53@test', pg_temp.h('t5'));
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-00000000000a', '53530000-0000-0000-0000-0000000000d1', 'friend53@test', pg_temp.h('t5'));
   if r.status <> 'sent' or r.gift_id is null then raise exception 'send: %', r.status; end if;
   -- one a quarter, no rollover
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'other53@test', pg_temp.h('t6'));
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-00000000000a', '53530000-0000-0000-0000-0000000000d1', 'other53@test', pg_temp.h('t6'));
   if r.status <> 'used_this_quarter' then raise exception 'second gift in a quarter: %', r.status; end if;
+end $$;
+reset role;
+select test_as('53530000-0000-0000-0000-00000000000a');
+do $$ begin
   if (select used from public.gift_status()) is not true then raise exception 'status should say used'; end if;
   begin
     perform 1 from public.workbook_gifts;
@@ -129,24 +133,31 @@ end $$;
 insert into auth.users (id, email) values ('53530000-0000-0000-0000-0000000000f1', 'giver53b@test');
 insert into public.subscriptions (user_id, tenant_id, stripe_customer_id, stripe_subscription_id, plan, status, observed_at)
 values ('53530000-0000-0000-0000-0000000000f1', '00000000-0000-0000-0000-00000000000a', 'cus_53f1', 'sub_53f1', 'member_month', 'active', now());
-select test_as('53530000-0000-0000-0000-0000000000f1');
-do $$ declare r record; g uuid; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'new53@test', pg_temp.h('u1'));
+select pg_temp.as_service();
+do $$ declare r record; begin
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-0000000000f1', '53530000-0000-0000-0000-0000000000d1', 'new53@test', pg_temp.h('u1'));
   if r.status <> 'sent' then raise exception 'send u1: %', r.status; end if;
-  g := r.gift_id;
-  if public.gift_cancel(g) <> 'cancelled' then raise exception 'cancel'; end if;
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'new53@test', pg_temp.h('u2'));
+end $$;
+reset role;
+select test_as('53530000-0000-0000-0000-0000000000f1');
+do $$ begin
+  if public.gift_cancel((select gift_id from (select id as gift_id from public.my_gifts() where status = 'sent') x limit 1)) <> 'cancelled' then raise exception 'cancel'; end if;
+end $$;
+reset role;
+select pg_temp.as_service();
+do $$ declare r record; begin
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-0000000000f1', '53530000-0000-0000-0000-0000000000d1', 'new53@test', pg_temp.h('u2'));
   if r.status <> 'sent' then raise exception 'a cancelled gift should give the quarter back: %', r.status; end if;
 end $$;
 reset role;
--- another giver cannot add a second gift to the same waiting address
+-- 0068: another giver may send to the same waiting address; the first claim decides
 insert into auth.users (id, email) values ('53530000-0000-0000-0000-0000000000f2', 'giver53c@test');
 insert into public.subscriptions (user_id, tenant_id, stripe_customer_id, stripe_subscription_id, plan, status, observed_at)
 values ('53530000-0000-0000-0000-0000000000f2', '00000000-0000-0000-0000-00000000000a', 'cus_53f2', 'sub_53f2', 'member_month', 'active', now());
-select test_as('53530000-0000-0000-0000-0000000000f2');
+select pg_temp.as_service();
 do $$ declare r record; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'NEW53+x@test', pg_temp.h('u3'));
-  if r.status <> 'waiting' then raise exception 'a second gift to a waiting address: %', r.status; end if;
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-0000000000f2', '53530000-0000-0000-0000-0000000000d1', 'NEW53+x@test', pg_temp.h('u3'));
+  if r.status <> 'sent' then raise exception 'a second gift to a waiting address: %', r.status; end if;
 end $$;
 reset role;
 -- an unclaimed gift past its date: cannot be claimed, still uses the quarter
@@ -156,18 +167,10 @@ do $$ begin
   if public.gift_claim('53530000-0000-0000-0000-00000000000e', pg_temp.h('u2'), false) <> 'expired' then raise exception 'expired gift claimed'; end if;
 end $$;
 reset role;
-select test_as('53530000-0000-0000-0000-0000000000f1');
+select pg_temp.as_service();
 do $$ declare r record; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'later53@test', pg_temp.h('u4'));
+  select * into r from public.gift_send_for('53530000-0000-0000-0000-0000000000f1', '53530000-0000-0000-0000-0000000000d1', 'later53@test', pg_temp.h('u4'));
   if r.status <> 'used_this_quarter' then raise exception 'an expired gift should still use the quarter: %', r.status; end if;
 end $$;
 reset role;
--- the address is free again for someone else once the old gift has lapsed
-select test_as('53530000-0000-0000-0000-0000000000f2');
-do $$ declare r record; begin
-  select * into r from public.gift_send('53530000-0000-0000-0000-0000000000d1', 'new53@test', pg_temp.h('u5'));
-  if r.status <> 'sent' then raise exception 'a lapsed gift should free the address: %', r.status; end if;
-end $$;
-reset role;
-
 rollback;

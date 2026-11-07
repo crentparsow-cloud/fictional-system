@@ -2,6 +2,8 @@
  * Funnel helpers for /admin/funnel (F-141). Pure.
  */
 
+import { PRODUCT_EVENTS, PRODUCT_EVENT_LABELS } from "@/lib/product-events";
+
 /** The six events /admin/funnel has shown since 0016. */
 export const FUNNEL_EVENTS = ["page_view", "sample_view", "free_week_started", "checkout_started", "purchase", "week_completed"] as const;
 
@@ -12,7 +14,7 @@ export const FUNNEL_EVENTS = ["page_view", "sample_view", "free_week_started", "
  */
 export const ANALYTICS_EVENTS = ["field_answered", "step_finished", "trial_started", "trial_cancelled", "membership_cancelled"] as const;
 
-export const ALL_FUNNEL_EVENTS = [...FUNNEL_EVENTS, ...ANALYTICS_EVENTS] as const;
+export const ALL_FUNNEL_EVENTS = [...FUNNEL_EVENTS, ...ANALYTICS_EVENTS, ...PRODUCT_EVENTS] as const;
 export type FunnelEvent = (typeof ALL_FUNNEL_EVENTS)[number];
 
 export const FUNNEL_LABELS: Record<FunnelEvent, string> = {
@@ -27,6 +29,7 @@ export const FUNNEL_LABELS: Record<FunnelEvent, string> = {
   trial_started: "Trials started",
   trial_cancelled: "Trials cancelled",
   membership_cancelled: "Memberships cancelled",
+  ...PRODUCT_EVENT_LABELS,
 };
 
 /** Counts below this are shown as "fewer than 5" wherever a single workbook is shown. */

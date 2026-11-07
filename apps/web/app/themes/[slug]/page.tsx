@@ -20,6 +20,7 @@ import { breadcrumbLd, collectionPageLd, ldString } from "@/lib/public-seo";
 import { siteOrigin } from "@/lib/site-url";
 import { themeShown } from "@/lib/theme-visibility";
 import { BundleBuy } from "./BundleBuy";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * A Theme page (F-007) at /themes/{slug}: the Theme's plain line and every
@@ -59,6 +60,7 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
   const session = tenantId === MARKETPLACE_TENANT_ID && !wellbeing ? await getReaderSession() : null;
   const bundle = tenantId === MARKETPLACE_TENANT_ID && !wellbeing ? await loadBundleOffer(await createUserClient(), theme.id, tenantId, session?.userId ?? null).catch(() => null) : null;
   const bundleText = bundle ? bundleLines(bundle) : null;
+  if (bundle) await countEvent("bundle_viewed", { userId: session?.userId ?? null });
   const origin = siteOrigin();
   const ld = [
     breadcrumbLd(origin, [{ name: brand.name, path: "/" }, { name: "Themes", path: "/themes" }, { name: theme.name, path: `/themes/${theme.id}` }]),

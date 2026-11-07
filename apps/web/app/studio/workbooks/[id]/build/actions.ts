@@ -12,6 +12,7 @@ import type { BuilderState } from "@/lib/studio-builder-state";
 import { roleCan, withOrg } from "@/lib/studio";
 import { requireStudio } from "@/lib/studio-server";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * The workbook builder's two buttons (build list 8.2). Check runs the same
@@ -97,6 +98,7 @@ export async function runBuilder(_prev: BuilderState, fd: FormData): Promise<Bui
   }
   const saved = (Array.isArray(data) ? data[0] : data) as { version_id?: string } | null;
   if (!saved?.version_id) return fail("The draft did not save. Try again.");
+  await countEvent("builder_saved");
   revalidatePath(`/studio/workbooks/${workbookId}`);
   const back = withOrg(`/studio/workbooks/${workbookId}`, org, Boolean(org));
   redirect(`${back}${back.includes("?") ? "&" : "?"}notice=built`);

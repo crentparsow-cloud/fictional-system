@@ -9,6 +9,7 @@ import { sendConfirmation } from "@/lib/newsletter-server";
 import { createRateLimiter } from "@/lib/rate-limit";
 import { siteOrigin } from "@/lib/site-url";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { countEvent } from "@/lib/funnel-server";
 
 /**
  * Newsletter actions (6.11). Sign-up stores a pending address through the
@@ -69,7 +70,9 @@ async function withToken(fd: FormData, rpc: "newsletter_confirm" | "newsletter_u
 }
 
 export async function confirmNewsletter(fd: FormData): Promise<void> {
-  redirect(`/newsletter/confirm?done=${(await withToken(fd, "newsletter_confirm")) ? "ok" : "unknown"}`);
+  const ok = await withToken(fd, "newsletter_confirm");
+  if (ok) await countEvent("newsletter_confirmed");
+  redirect(`/newsletter/confirm?done=${ok ? "ok" : "unknown"}`);
 }
 
 export async function unsubscribeNewsletter(fd: FormData): Promise<void> {

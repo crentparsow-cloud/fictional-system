@@ -55,7 +55,9 @@ describe("input", () => {
 
 describe("words", () => {
   it("has a message for every outcome the database returns", () => {
-    for (const s of ["sent", "not_member", "used_this_quarter", "not_giftable", "not_eligible", "waiting"]) expect(isGiftSendStatus(s)).toBe(true);
+    for (const s of ["sent", "not_member", "used_this_quarter", "not_giftable", "self", "busy"]) expect(isGiftSendStatus(s)).toBe(true);
+    // 0068: the send never says whether an address has paid or holds the workbook.
+    for (const s of ["not_eligible", "waiting"]) expect(isGiftSendStatus(s)).toBe(false);
     for (const s of ["claimed", "unchanged", "unknown", "expired", "not_available", "not_eligible"]) expect(isGiftClaimResult(s)).toBe(true);
     expect(isGiftSendStatus("other")).toBe(false);
     expect(Object.keys(GIFT_SEND_MESSAGES)).toHaveLength(6);

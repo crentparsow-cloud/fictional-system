@@ -4,6 +4,7 @@ import { getReaderSession } from "@/lib/auth";
 import { flagEnabled } from "@/lib/platform/flags-server";
 import { vapidFromEnv } from "@/lib/push/vapid";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 export interface PushActionState {
   ok: boolean;
@@ -26,6 +27,7 @@ export async function savePushSubscription(subscription: { endpoint: string; p25
     console.error("push_save_failed", error.code ?? "");
     return { ok: false, message: "Could not turn notifications on just now. Try again in a moment." };
   }
+  await countEvent("push_enabled", { userId: session.userId });
   return { ok: true, message: null };
 }
 

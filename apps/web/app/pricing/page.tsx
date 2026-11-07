@@ -52,7 +52,7 @@ export default async function PricingPage() {
     <main className="b-pricing">
       <header className="b-band-hero">
         <div className="wrap b-centre">
-          <h1>Pick what suits you. Start free.</h1>
+          <h1>Pick what suits you. Week 1 is free.</h1>
           <p className="b-lead">Plain prices, VAT included. Week 1 of any workbook is free to read, with no card, before you decide.</p>
           {proof ? <p className="b-small">{proof}</p> : null}
         </div>

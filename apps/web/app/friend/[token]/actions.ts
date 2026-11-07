@@ -5,6 +5,7 @@ import { getReaderSession } from "@/lib/auth";
 import { cleanLabel, isAcceptOutcome } from "@/lib/friends/pair";
 import { hashInviteToken, isInviteToken } from "@/lib/shared-membership-token";
 import { createUserClient } from "@/lib/supabase/server";
+import { countEvent } from "@/lib/funnel-server";
 
 /** Accept an invitation. The outcome word comes from the database and the page turns it into plain wording. */
 export async function acceptPairInvite(formData: FormData): Promise<void> {
@@ -21,6 +22,9 @@ export async function acceptPairInvite(formData: FormData): Promise<void> {
     console.error("pair_accept_failed", error?.code ?? "");
     redirect(`/friend/${token}?outcome=invalid`);
   }
-  if (data === "joined") redirect("/you/friends?notice=joined");
+  if (data === "joined") {
+    await countEvent("friend_paired", { userId: session!.userId });
+    redirect("/you/friends?notice=joined");
+  }
   redirect(`/friend/${token}?outcome=${data}`);
 }

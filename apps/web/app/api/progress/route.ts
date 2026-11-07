@@ -17,6 +17,10 @@ import { announceFinish } from "@/lib/friends/server";
  * so no date or score is ever written there). The pattern matches the 0003
  * check on progress_events.ref.
  *
+ * A repeat of a one-off fact (unit_opened, step_done, checkin_done,
+ * finished) hits the unique index from 0071 and answers 200 with
+ * { ok: true, duplicate: true }. toolkit_used and daily_check_done repeat.
+ *
  * The insert goes through the reader's own client, so RLS checks ownership
  * a second time and the row is refused if the enrolment is not theirs. No
  * admin client here; there is nothing to seal. Nothing in this table is ever
@@ -64,6 +68,10 @@ export async function POST(request: NextRequest) {
     .insert({ enrolment_id: check.enrolment.id, kind: parsed.data.kind, ref: parsed.data.ref ?? null });
   // 0026 refuses progress while an account deletion is pending (F-025).
   if (error?.code === "AKR01") return NextResponse.json({ error: "read_only" }, { status: 403, headers: NO_STORE });
+  // 0071: a one-off fact already stored is a success, not an error. A retry
+  // from the device queue or a second tab lands here. Nothing else runs, so
+  // the side effects below happen once.
+  if (error?.code === "23505") return NextResponse.json({ ok: true, duplicate: true }, { headers: NO_STORE });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
 
   // F-141: daily counts with ids only. The first opening of unit 1 starts the
