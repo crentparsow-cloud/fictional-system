@@ -7,6 +7,7 @@ import { readerDeletion } from "@/lib/account-server";
 import { NO_STORE, requireOwnedEnrolment } from "@/lib/enrolment";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { countFunnelEvent } from "@/lib/funnel";
+import { tenantAnswerFacts } from "@/lib/tenant-reader";
 
 /**
  * Reader answers, sealed (F-134).
@@ -28,6 +29,13 @@ import { countFunnelEvent } from "@/lib/funnel";
  * of user | tenant | field. A row written this way cannot be replayed to
  * another reader, tenant or field: the ciphertext simply will not open
  * there. The service role never reads answers back; GET uses the user client.
+ *
+ * On a tenant host (F-133) the same route serves a tenant-scoped session.
+ * requireOwnedEnrolment has already applied the session scope check and the
+ * tenant match, so the service role write sits behind both. A tenant session
+ * cannot read profiles, workbooks or deletion requests, so the facts the
+ * decisions need come from lib/tenant-reader.ts instead; if they cannot be
+ * read the write is refused. Nothing is counted for the funnel there.
  */
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -87,12 +95,17 @@ export async function PUT(request: NextRequest) {
   if (!check.ok) return check.response;
   const { enrolment, tenantId } = check;
 
+  // F-133: a tenant-scoped session reads these facts another way. Fail closed.
+  const tenantFacts = check.session.scope === "tenant" ? await tenantAnswerFacts(check.supabase, enrolment.workbook_id) : null;
+  if (check.session.scope === "tenant" && !tenantFacts) return NextResponse.json({ error: "unavailable" }, { status: 503, headers: NO_STORE });
+
   // F-025: read only while a deletion is pending. Checked before consent so
   // the reader is told the real reason.
-  const deletion = await readerDeletion(check.supabase, enrolment.user_id);
+  const deletion = tenantFacts ? { readOnly: tenantFacts.readOnly } : await readerDeletion(check.supabase, enrolment.user_id);
   if (deletion.readOnly) {
     return NextResponse.json(
-      { error: "read_only", message: "Your account is read only while its deletion is pending." },
+      // A tenant session is told that it cannot write, not why (R2-6).
+      { error: "read_only", message: tenantFacts ? "You cannot add to your work on this site at the moment." : "Your account is read only while its deletion is pending." },
       { status: 403, headers: NO_STORE },
     );
   }
@@ -103,7 +116,7 @@ export async function PUT(request: NextRequest) {
   // read fails closed.
   // Faith consent (F-150) works the same way for a workbook on the Faith and
   // Spirituality shelf.
-  const [{ data: wbTier }, { data: profile }] = await Promise.all([
+  const [{ data: wbTier }, { data: profile }] = tenantFacts ? [{ data: tenantFacts.workbook }, { data: tenantFacts.profile }] : await Promise.all([
     check.supabase.from("workbooks").select("safety_tier, genre_id, themes(shelf_id)").eq("id", enrolment.workbook_id).maybeSingle(),
     check.supabase
       .from("profiles")
@@ -156,7 +169,7 @@ export async function PUT(request: NextRequest) {
 
   // F-141 / 0036: one more field answered in this unit. A count, not the
   // field name and never the value. Skipped when the reader has opted out.
-  if (firstSave) {
+  if (firstSave && !tenantFacts) {
     await countFunnelEvent(check.supabase, "field_answered", {
       tenantId,
       workbookId: enrolment.workbook_id,
