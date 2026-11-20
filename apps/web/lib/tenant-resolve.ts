@@ -200,28 +200,119 @@ export function routeDecision(tenant: HostTenant | null, path: string): "serve" 
  * home and workbook pages, drawn by app/site in tenant branding, plus Akana's
  * locked pages, which the tenant cannot change: Help now, the offline help
  * page and the legal pages (privacy notice, reader terms). Everything else,
- * the marketplace's own pages included, is a 404 on a tenant host. Reading
- * and sign-in on tenant hosts wait for shared identity (F-133).
+ * the marketplace's own pages included, is a 404 on a tenant host.
  *
  *   /            -> rewrite to /site
  *   /w/<slug>    -> rewrite to /site/w/<slug>
  *   locked pages -> served as they are, in Akana's own look
  *   anything else, /site itself included -> 404
+ *
+ * Reader sign-in on the tenant host (F-133). Only when the caller says the
+ * tenant_sign_in flag is on for this tenant, these are added, each drawn by
+ * app/site in the tenant shell:
+ *
+ *   /sign-in, /welcome, /consent, /my-workbooks, /account,
+ *   /read/<slug>              -> rewrite to /site/...
+ *   /api/answers, /api/progress -> served as they are
+ *
+ * There is no /auth/callback on a tenant host: sign-in is by a code typed on
+ * the site, never by a link, so nothing redirects there.
+ *
+ * Those routes carry `session: true`: the proxy loads, refreshes and
+ * scope-checks the session for them. Every other route on a tenant host is
+ * served with every session cookie removed from the request, so the
+ * catalogue and the locked pages never see a session. With the flag off
+ * nothing here changes.
  */
-export type TenantSiteRoute = { action: "rewrite"; to: string } | { action: "serve" } | { action: "not_found" };
+export type TenantSiteRoute = { action: "rewrite"; to: string; session?: true } | { action: "serve"; session?: true } | { action: "not_found" };
 
 const TENANT_WORKBOOK = /^\/w\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/;
 const TENANT_LOCKED = /^\/(help-now|help-offline|tenant\.css|api\/health)\/?$|^\/(legal|covers|brand)\/.+$/;
+const TENANT_READER_PAGE = /^\/(sign-in|welcome|consent|my-workbooks|account)\/?$/;
+const TENANT_READ = /^\/read\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/;
+const TENANT_READER_API = /^\/api\/(answers|progress)\/?$/;
 
-export function tenantSiteRoute(path: string): TenantSiteRoute {
+export function tenantSiteRoute(path: string, opts: { signIn?: boolean } = {}): TenantSiteRoute {
   if (path === "/") return { action: "rewrite", to: "/site" };
   const w = TENANT_WORKBOOK.exec(path);
   if (w) return { action: "rewrite", to: `/site/w/${w[1]}` };
   if (TENANT_LOCKED.test(path)) return { action: "serve" };
+  if (opts.signIn === true) {
+    const page = TENANT_READER_PAGE.exec(path);
+    if (page) return { action: "rewrite", to: `/site/${page[1]}`, session: true };
+    const read = TENANT_READ.exec(path);
+    if (read) return { action: "rewrite", to: `/site/read/${read[1]}`, session: true };
+    if (TENANT_READER_API.test(path)) return { action: "serve", session: true };
+  }
   return { action: "not_found" };
 }
 
 /** /site is drawn only through the rewrite on a tenant host; on the marketplace it does not exist. */
 export function isTenantSiteInternalPath(path: string): boolean {
   return /^\/site(\/|$)/.test(path);
+}
+
+/**
+ * Is reader sign-in switched on for this tenant (F-133)? Two switches, both
+ * needed: TENANT_SIGN_IN=1 on the deployment, and the tenant_sign_in flag
+ * for the tenant in the database (public.tenant_sign_in_enabled, migration
+ * 0073, which also refuses a tenant that is not an active white-label one).
+ *
+ * With the deployment switch unset nothing is looked up and the answer is
+ * no, so a tenant host behaves exactly as before. A tenant with no known id,
+ * a failed lookup and an unexpected answer are all "no": an outage can turn
+ * sign-in off for a minute, never on. Same plain fetch and the same cache
+ * times as the host lookup above.
+ */
+export function tenantSignInConfigured(): boolean {
+  return process.env.TENANT_SIGN_IN === "1";
+}
+
+const signInCache = new Map<string, { value: boolean; expires: number }>();
+
+/** Test hook. */
+export function clearTenantSignInCache(): void {
+  signInCache.clear();
+}
+
+export async function tenantSignInEnabled(tenant: Pick<HostTenant, "id" | "kind"> | null, deps: ResolveDeps = {}): Promise<boolean> {
+  if (!tenantSignInConfigured()) return false;
+  if (!tenant || tenant.kind !== "white_label" || !tenant.id || !UUID.test(tenant.id)) return false;
+  const id = tenant.id.toLowerCase();
+
+  const now = Date.now();
+  const hit = signInCache.get(id);
+  if (hit && hit.expires > now) return hit.value;
+
+  const url = deps.supabaseUrl ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = deps.publishableKey ?? process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  const doFetch = deps.fetchImpl ?? fetch;
+  let value = false;
+  if (url && key) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), LOOKUP_TIMEOUT_MS);
+    try {
+      const res = await doFetch(`${url.replace(/\/$/, "")}/rest/v1/rpc/tenant_sign_in_enabled`, {
+        method: "POST",
+        headers: { apikey: key, accept: "application/json", "content-type": "application/json" },
+        body: JSON.stringify({ p_tenant: id }),
+        signal: controller.signal,
+        cache: "no-store",
+      });
+      // Only the literal true switches it on.
+      value = res.ok && (await res.json()) === true;
+      if (!res.ok) console.warn(`[tenant] sign-in flag lookup failed (HTTP ${res.status}); sign-in stays off`);
+    } catch {
+      console.warn("[tenant] sign-in flag lookup failed; sign-in stays off");
+      value = false;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  if (signInCache.size >= MAX_ENTRIES) {
+    const oldest = signInCache.keys().next().value;
+    if (oldest !== undefined) signInCache.delete(oldest);
+  }
+  signInCache.set(id, { value, expires: now + (value ? POSITIVE_TTL_MS : NEGATIVE_TTL_MS) });
+  return value;
 }
