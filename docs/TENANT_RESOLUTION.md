@@ -31,10 +31,12 @@ It never uses supabase-js or the session cookies. The proxy may run on the edge 
 | `x-akana-tenant-kind` | `marketplace` or `white_label`. Unchanged. |
 | `x-akana-path` | Path and query, for return-after-gate. Unchanged. |
 | `x-akana-tenant-id` | Tenant uuid, when known. New. |
+| `x-akana-tenant-host` | On a white-label host: the normalised host that resolved. For links that leave the server, such as an emailed link (F-133). |
+| `x-akana-tenant-sign-in` | `1` on a white-label host when reader sign-in is on for the tenant (F-133). Absent otherwise. |
 
-The proxy deletes any `x-akana-tenant-id` the client sent, then sets its own. `tenantIdForRequest()` in `lib/tenant-id.ts` prefers the header and falls back to the slug map, so existing callers keep working. It also refuses an `akana` slug carrying any id other than the marketplace id.
+The proxy deletes any `x-akana-tenant-id`, `x-akana-tenant-host` and `x-akana-tenant-sign-in` the client sent, then sets its own. `tenantIdForRequest()` in `lib/tenant-id.ts` prefers the header and falls back to the slug map, so existing callers keep working. It also refuses an `akana` slug carrying any id other than the marketplace id.
 
-One gap: paths the proxy matcher skips (`_next/static`, `_next/image`, `favicon.ico`, `icons/`, `fonts/`, `manifest.webmanifest`) never pass through the proxy, so a client-supplied header would reach them untouched. None of them read the tenant today. Any new route that reads the tenant must sit inside the matcher.
+One gap: paths the proxy matcher skips (`_next/static`, `_next/image`, `favicon.ico`, `icons/`, `fonts/`, `manifest.webmanifest`) never pass through the proxy, so a client-supplied header would reach them untouched. None of them read the tenant today. Any new route that reads the tenant must sit inside the matcher. The reader routes added for F-133 all do.
 
 ## 3. Cache
 
@@ -57,11 +59,14 @@ The lookup has a 1.5-second timeout. On a timeout, a network error, a non-2xx an
 ## 5. Unknown hosts and staff routes
 
 - **Unknown host:** 404. Never the marketplace. Serving the marketplace on a stray host would let anyone point a domain at Akana and show it under their name.
-- **Staff routes on a tenant host:** `/admin`, `/studio` and `/console` (and anything under them) are a 404 on any host that is not the marketplace. F-066 also says auth stays on the Akana apex, but `/sign-in` and `/auth/callback` are not blocked on tenant hosts yet. That waits on the shared identity decision (F-133, question 5 below).
+- **Staff routes on a tenant host:** `/admin`, `/studio` and `/console` (and anything under them) are a 404 on any host that is not the marketplace.
+- **Sign-in on a tenant host (F-133):** decided on 20 November 2026. A reader signs in on the tenant's own host. `/sign-in` and `/auth/callback` are a 404 there unless reader sign-in is on for that tenant, and then they are served by the tenant site, not by the marketplace pages. See `docs/TENANT_SIGN_IN.md`.
 
 ## 6. Cookies
 
 The auth cookie is `__Host-akana-auth`: `Secure`, `HttpOnly`, `SameSite=Lax`, `Path=/`, and no `Domain` attribute (the `__Host-` prefix forbids one). The browser binds it to the exact host that set it. A tenant host therefore never receives the marketplace session, and one tenant never receives another's, even before the tenant apex is on the Public Suffix List. Server actions also check `Origin`.
+
+The cookie binding is the browser's promise, not ours, and a tenant controls its own DNS. So a session created on a tenant host is also scoped to that tenant in the token, in the database and in the app (F-133). The proxy checks the scope on every request: a tenant-scoped session is removed on the marketplace, and on a tenant host only that tenant's own scoped session reaches the reader routes. The catalogue and the locked pages on a tenant host are served with the session cookies removed from the request. `docs/TENANT_SIGN_IN.md` has the design and the threat model.
 
 ## 7. The database lookup (built)
 
@@ -77,13 +82,15 @@ The demo tenant (slug `demo`, id `00000000-0000-0000-0000-0000000000d1`) resolve
 
 On any white-label host the proxy serves only the tenant site (`/` and `/w/<slug>`, rewritten to `app/site`) and Akana's locked pages (`/help-now`, `/help-offline`, `/legal/*`), plus `/tenant.css`, `/covers/*` and `/brand/*`. Everything else is a 404, sign-in included, and no session is refreshed on a tenant host. `/site` is a 404 on the marketplace. See `docs/WHITE_LABEL_DEMO.md`.
 
+With reader sign-in on for the tenant (F-133: `TENANT_SIGN_IN=1` on the deployment and the `tenant_sign_in` flag for the tenant, asked through `public.tenant_sign_in_enabled` and cached for a minute) the proxy also serves `/sign-in`, `/auth/callback`, `/welcome`, `/consent`, `/my-workbooks`, `/account` and `/read/<slug>`, each rewritten to `app/site`, and `/api/answers` and `/api/progress` as they are. The session is refreshed and scope-checked on those routes only. Everything else is still a 404. A failed flag lookup means off. The list and the reason for each route are in `docs/TENANT_SIGN_IN.md` section 6.
+
 ## 8. Open questions for Crent
 
 1. **Tenant apex (A7).** Which domain hosts tenant subdomains? Until `TENANT_APEX` is set, only custom domains in `tenant_domains` (with the flag on) can serve a white-label site. Section 9 covers how those are added and verified.
 2. **Policy choice.** Settled: the `security definer` function (`public.resolve_tenant`, migration 0008). Hosts cannot be listed.
 3. **Suspended tenants.** Today a suspended or closed tenant is a 404. Should it show a plain "this site is unavailable" page instead?
 4. **Public Suffix List.** Submit the tenant apex once it is bought. Cookie rules already hold without it, but inclusion takes weeks.
-5. **Sign-in on tenant hosts.** With one shared reader identity (F-133), does a tenant reader sign in on the tenant host (its own `__Host-` cookie) or hop to the Akana apex and back?
+5. **Sign-in on tenant hosts.** Settled on 20 November 2026 (F-133): the reader signs in on the tenant host and never visits the Akana apex. One shared identity. The session is scoped to the tenant. Built behind a flag, off by default; the decisions still to confirm are in `docs/planning/AK_Phase_B_Review_List.md` under "Tenant sign-in (F-133)".
 
 ## 9. Custom domains (0033)
 

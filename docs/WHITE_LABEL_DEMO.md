@@ -9,7 +9,9 @@ A white-label host serves two things and nothing else.
 - The tenant site: `/` (the tenant's catalogue) and `/w/<slug>` (a workbook page), drawn by `app/site` in the tenant's branding. The proxy rewrites to them; `/site` itself is a 404 everywhere.
 - Akana's locked pages, in Akana's own look: `/help-now`, `/help-offline`, `/legal/*`, plus `/tenant.css`, `/covers/*` and `/brand/*` files.
 
-If the tenant cannot be read (the database is unreachable), the tenant pages render a plain "This site is not available right now" page on the server, still carrying Help now, the safety line, the wellness notice and the legal links. Every other path is a 404 on a tenant host, including sign-in, the library, reading and checkout. Reading on tenant hosts waits for shared identity (F-133). Nothing is sold on a tenant site.
+If the tenant cannot be read (the database is unreachable), the tenant pages render a plain "This site is not available right now" page on the server, still carrying Help now, the safety line, the wellness notice and the legal links. Every other path is a 404 on a tenant host, including sign-in, the library, reading and checkout.
+
+Reader sign-in and reading on a tenant host (F-133) are built and off by default. When switched on for a tenant, its host also serves `/sign-in`, `/auth/callback`, `/welcome`, `/consent`, `/my-workbooks`, `/account` and `/read/<slug>`, all drawn by `app/site` in the same tenant shell with the same locked standards, plus the two reader API routes. Only what is free opens: the free part of a listed title, and demo titles in the demo period. The workbook page then shows "Start reading" in place of "Reading on this site is coming soon". See `docs/TENANT_SIGN_IN.md`. Nothing is sold on a tenant site.
 
 ## 2. Branding (F-067)
 
@@ -87,7 +89,9 @@ How it stays out of the real money:
 ## 8. Not built here
 
 - Uploading a logo from the admin form. Today the logo is a `/brand/` file in the repo or a Supabase public file URL.
-- Tenant emails, tenant checkout, custom domains and sign-in on tenant hosts. All after launch.
+- Tenant emails and tenant checkout. Both after launch. A tenant site sells nothing: paid parts say "Not on sale on this site yet".
+- Custom domains are built (migration 0033, `docs/TENANT_RESOLUTION.md` section 9).
+- Sign-in and reading on tenant hosts are built behind a flag, off by default (F-133, migration 0073, `docs/TENANT_SIGN_IN.md`). Not built there: checkout, membership, Google sign-in, two-step sign-in, faith consent, and the habit, friends, push, gift and toolkit features.
 
 ## 9. Questions for Crent
 
