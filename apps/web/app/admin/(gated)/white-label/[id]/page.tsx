@@ -5,6 +5,7 @@ import { AdminBack } from "../../_components/Bits";
 import { Notice } from "../../_components/Notice";
 import { addTenantListing, saveTenantBrand, saveTenantListing } from "../actions";
 import { DomainsSection } from "./DomainsSection";
+import { SignInSection } from "./SignInSection";
 import { checkedColours, linksToText, LISTING_PRICE_OPTIONS, whiteLabelAbilities } from "@/lib/admin/white-label";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
@@ -236,6 +237,8 @@ export default async function TenantAdminPage({
       </section>
 
       {tenant.is_demo ? null : <DomainsSection tenantId={tenant.id} disabled={disabled} />}
+
+      <SignInSection tenantId={tenant.id} canEdit={staff.roles.includes("owner")} />
 
       <p>
         <Link href="/admin/demo">Demo publisher and logins</Link>
