@@ -265,16 +265,19 @@ select n.nspname, p.proname
   from pg_proc p join pg_namespace n on n.oid = p.pronamespace
  where has_schema_privilege('tenant_reader', n.oid, 'usage')
    and has_function_privilege('tenant_reader', p.oid, 'execute')
-   and n.nspname not in ('pg_catalog', 'information_schema', 'tenant_scope')
+   and n.nspname not in ('pg_catalog', 'information_schema', 'tenant_scope', 'net')
    and p.proname not like 'tenant\_reader\_%'
 union all
 select n.nspname, c.relname
   from pg_class c join pg_namespace n on n.oid = c.relnamespace
  where c.relkind in ('r', 'v', 'm', 'p')
-   and n.nspname not in ('pg_catalog', 'information_schema')
+   and n.nspname not in ('pg_catalog', 'information_schema', 'net')
+   and has_schema_privilege('tenant_reader', n.oid, 'usage')
    and has_table_privilege('tenant_reader', c.oid, 'select, insert, update, delete')
    and n.nspname || '.' || c.relname not in ('public.enrolments', 'public.progress_events', 'public.answers', 'public.workbook_sections');
 ```
+
+The `net` schema is left out on purpose. On Supabase the pg_net extension grants its schema to every role through PUBLIC, `anon` included, and a role cannot be denied a PUBLIC grant. It is not one of the schemas the Data API exposes, so no token can call it over REST, and a tenant token never leaves the server. Checked on staging on 20 November 2026: with `net` set aside the query returns no rows. Tables in `cron` and `extensions` show a table privilege but `tenant_reader` has no usage on those schemas, so they cannot be reached.
 
 ### B. Enable the hook
 
@@ -329,7 +332,7 @@ The local database is plain Postgres with stand-ins for the Supabase roles, and 
 4. That `auth.getUser(token)` accepts a token whose role is `tenant_reader`.
 5. That `request.jwt.claims` carries `session_id` and `akana_tenant` as the claim readers expect.
 6. That `auth.admin.generateLink({ type: "magiclink", email })` followed by `verifyOtp({ token_hash, type })` yields a session, for an existing account and for one just created with `createUser({ email, email_confirm: true })`, and which `verification_type` comes back in each case.
-7. That the migration's role (`postgres`) may reference and delete from `auth.sessions`, and grant select on `tenants`, `feature_flags` and the scope table to `supabase_auth_admin`.
+7. That the migration's role (`postgres`) may delete from `auth.sessions`. (Proved on staging on 20 November 2026: 0073 applied cleanly there, so the reference to `auth.sessions` and the grants to `supabase_auth_admin` are accepted. The delete itself is exercised by the sign-out step of the staging test.)
 8. That `@supabase/ssr` awaits an asynchronous `setAll` on refresh in the deployed runtime, so a refreshed token is stored before the response ends. It does in 0.12.7 by its source.
 9. That a hook returning an error object stops the refresh cleanly for a revoked or suspended session.
 10. That `supabase_auth_admin` can read `auth.mfa_factors` from inside the hook, that `postgres` can read it from `register_tenant_session`, and that `status` compares with `'verified'` as text (it is an enum there, plain text in the local stand-in). If the hook cannot read it, scoped sessions get no token and tenant sign-in fails closed; ordinary sessions are not affected because they never reach that read.
