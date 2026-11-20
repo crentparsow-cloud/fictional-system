@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { TenantShell } from "@/components/tenant/TenantShell";
 import { TenantUnavailable } from "@/components/tenant/TenantUnavailable";
 import { TenantWorkbookCard } from "@/components/tenant/TenantWorkbookCard";
+import { tenantRequest } from "@/lib/tenant-reader";
 import { getTenantSite, listTenantCatalogue, loadTenantSite, type TenantCard } from "@/lib/tenant-site";
 
 /**
@@ -36,9 +37,11 @@ export default async function TenantHome() {
   }
   const featured = cards.filter((c) => c.featured);
   const rest = cards.filter((c) => !c.featured);
+  // F-133: the reader links show only while sign-in is on for this tenant.
+  const signIn = (await tenantRequest())?.signIn === true;
 
   return (
-    <TenantShell site={site}>
+    <TenantShell site={site} reader={signIn}>
       <section className="tenant-hero">
         <h1>{site.name}</h1>
         <p>Guided workbooks built from our books. Work through them one small step at a time.</p>
