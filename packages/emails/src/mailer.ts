@@ -18,6 +18,7 @@ import { type AuthorProps, type AuthorTemplateName, renderAuthor } from "./autho
 import { type ReaderProps, type ReaderTemplateName, renderReader } from "./reader";
 import { type OrganisationProps, type OrganisationTemplateName, renderOrganisation } from "./organisation";
 import { type GiftProps, renderGift } from "./gift";
+import { type TenantCodeProps, renderTenantCode } from "./tenant-code";
 import { type NewsletterProps, type NewsletterTemplateName, renderNewsletter } from "./newsletter";
 import type { FooterLinks } from "./layout";
 
@@ -258,6 +259,12 @@ export function createMailer(o: MailerOptions) {
     async sendGift(props: GiftProps, s: SendOptions): Promise<SendResult> {
       const r = renderGift(props, env.POSTAL_ADDRESS, s.lang);
       return deliver(r, "transactional", "reader", "gift_workbook", s);
+    },
+
+    /** The sign-in code for a tenant site (F-133). No link, no title; names the site that asked. */
+    async sendTenantCode(props: TenantCodeProps, s: SendOptions): Promise<SendResult> {
+      const r = renderTenantCode(props, env.POSTAL_ADDRESS, s.lang);
+      return deliver(r, "transactional", "reader", "tenant_sign_in_code", s);
     },
   };
 }

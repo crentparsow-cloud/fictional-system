@@ -5,4 +5,5 @@ export * from "./mailer";
 export * from "./catalogue";
 export * from "./organisation";
 export * from "./gift";
+export * from "./tenant-code";
 export * from "./newsletter";
