@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { safeNextPath } from "@/lib/auth";
+import { safeNextPath, sameOriginUrl } from "@/lib/auth";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -12,9 +12,15 @@ export async function GET(request: NextRequest) {
   const code = url.searchParams.get("code");
   const next = safeNextPath(url.searchParams.get("next"));
   if (code) {
-    const supabase = await createUserClient();
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) return NextResponse.redirect(new URL(next, url.origin));
+    // A code this browser has no verifier for (one opened on another device)
+    // must end at the sign-in page with its plain message, never in an error page.
+    try {
+      const supabase = await createUserClient();
+      const { error } = await supabase.auth.exchangeCodeForSession(code);
+      if (!error) return NextResponse.redirect(sameOriginUrl(next, url.origin));
+    } catch {
+      console.error("auth_callback_exchange_failed");
+    }
   }
   return NextResponse.redirect(new URL(`/sign-in?error=link&next=${encodeURIComponent(next)}`, url.origin));
 }
