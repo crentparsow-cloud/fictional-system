@@ -812,6 +812,13 @@ button.btn.paywall-yearly { text-decoration: none; }
 .tenant-brand:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
 .tenant-logo { block-size: 40px; inline-size: auto; max-inline-size: 10rem; }
 .tenant-main { flex: 1; padding-block: 2rem 3rem; }
+.tenant-reader-nav { display: flex; align-items: center; gap: 1rem; margin-inline-start: auto; }
+.tenant-reader-nav a { display: inline-flex; align-items: center; min-block-size: 44px; color: inherit; }
+.tenant-auth { display: grid; justify-items: center; padding-block: 1.5rem 2.5rem; }
+.tenant-auth .auth-card { inline-size: min(100%, 30rem); }
+.tenant-auth .auth-card input[type="text"] { inline-size: 100%; min-block-size: 44px; padding: 0.6rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--ink); font: inherit; letter-spacing: 0.15em; }
+.tenant-shelf { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.tenant-shelf li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .tenant-hero { padding-block: 1rem 1.5rem; }
 .tenant-hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--brand); }
 .tenant-section { margin-block-start: 2rem; }

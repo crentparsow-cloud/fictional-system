@@ -23,8 +23,13 @@ import {
  * notice, the safety line, the privacy line and the links to Help now,
  * Akana's privacy notice, reader terms and cookie statement. Help now keeps
  * Akana's safety colours, which are not brand tokens.
+ *
+ * `reader` adds the two reader links to the header when sign-in is on for
+ * the tenant (F-133). They are plain links: a signed-out visitor who follows
+ * one lands on sign-in. Every reader page (sign-in, welcome, reading, account)
+ * is drawn inside this same shell, so the locked parts are on all of them.
  */
-export function TenantShell({ site, children }: { site: TenantSite; children: React.ReactNode }) {
+export function TenantShell({ site, reader = false, children }: { site: TenantSite; reader?: boolean; children: React.ReactNode }) {
   const { brand } = site;
   const extra: BrandLink[] = [...(brand.footer_links ?? []), ...(brand.legal_links ?? [])];
   return (
@@ -50,6 +55,12 @@ export function TenantShell({ site, children }: { site: TenantSite; children: Re
             ) : null}
             <span className="tenant-name">{site.name}</span>
           </Link>
+          {reader ? (
+            <nav className="tenant-reader-nav" aria-label="Your reading">
+              <a href="/my-workbooks">Your workbooks</a>
+              <a href="/account">Account</a>
+            </nav>
+          ) : null}
           <HelpNowButton />
         </div>
       </header>

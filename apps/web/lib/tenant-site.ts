@@ -1,13 +1,14 @@
 import "server-only";
 import { headers } from "next/headers";
-import { createUserClient } from "@/lib/supabase/server";
+import { createAnonClient } from "@/lib/supabase/anon";
 import { validateBrand, type TenantBrand } from "@/lib/tenant-brand";
 
 /**
  * Reads for the tenant site (app/site, F-067 to F-069, F-074). Everything
- * goes through the user client with the publishable key, so a tenant host
- * sees only what anon may see: public.tenant_site and public.tenant_catalogue
- * (migration 0023) and the public workbook sections.
+ * goes through a client with the publishable key and no session, so a tenant
+ * host sees only what anon may see: public.tenant_site and
+ * public.tenant_catalogue (migration 0023) and the public workbook sections.
+ * A signed-in tenant reader's token is never used for these (F-133).
  *
  * The tenant comes from the proxy's headers. A page refuses (null) unless
  * the request is on a white-label host with a known tenant id and the tenant
@@ -67,7 +68,7 @@ export async function loadTenantSite(): Promise<TenantSite | "not_found" | "unav
 export async function getTenantSite(): Promise<TenantSite | null> {
   const id = await whiteLabelTenantId();
   if (!id) return null;
-  const supabase = await createUserClient();
+  const supabase = createAnonClient();
   const { data, error } = await supabase.rpc("tenant_site", { p_tenant: id });
   if (error) throw new Error(`tenant_site: ${error.code ?? error.message}`);
   const row = (Array.isArray(data) ? data[0] : null) as
@@ -104,7 +105,7 @@ interface CatalogueRow {
 }
 
 export async function listTenantCatalogue(tenantId: string): Promise<TenantCard[]> {
-  const supabase = await createUserClient();
+  const supabase = createAnonClient();
   const { data, error } = await supabase.rpc("tenant_catalogue", { p_tenant: tenantId });
   if (error) throw new Error(`tenant_catalogue: ${error.code ?? error.message}`);
   return ((data ?? []) as CatalogueRow[]).map((r) => ({

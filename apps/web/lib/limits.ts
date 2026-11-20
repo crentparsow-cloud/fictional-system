@@ -24,6 +24,11 @@ import { createRateLimiter, type RateLimiter } from "@/lib/rate-limit";
  * Fail open: if the database cannot be asked, the request goes ahead and the
  * failure is logged. A limiter outage must never lock readers out of signing
  * in or out of their own answers. Only an explicit false means "limited".
+ *
+ * The one exception is asking for a sign-in code on a tenant host (F-133,
+ * R2-5): tenantSigninAllowed below fails closed. Each code there buys five
+ * guesses and sends an email, so a request that cannot be counted is
+ * refused. The Akana site's own sign-in is unchanged.
  */
 export type RateBucket = "signin_email" | "signin_ip" | "checkout_user" | "export_user" | "partner_respond_ip";
 export type SelfBucket = Extract<RateBucket, "checkout_user" | "export_user">;
@@ -85,6 +90,35 @@ export function limiterSalt(env: Record<string, string | undefined> = process.en
   }
 }
 
+/**
+ * The salt for the tenant code path: LEAD_HASH_SALT or nothing. There is no
+ * per-instance stand-in here, because a key that differs on every server
+ * instance counts nothing across them.
+ */
+export function strictLimiterSalt(env: Record<string, string | undefined> = process.env): string | null {
+  try {
+    return leadSalt(env);
+  } catch {
+    console.error("rate_limit_salt_missing");
+    return null;
+  }
+}
+
+/** One hit, fail closed: true only when the database counted it and said yes. */
+export async function hitKeyedStrict(client: Rpc, bucket: RateBucket, keyHash: string): Promise<boolean> {
+  try {
+    const { data, error } = await client.rpc("rate_limit_hit", { p_bucket: bucket, p_key_hash: keyHash });
+    if (error) {
+      console.error("rate_limit_unavailable_closed", bucket, error.code ?? "");
+      return false;
+    }
+    return data === true;
+  } catch (e) {
+    console.error("rate_limit_unavailable_closed", bucket, e instanceof Error ? e.name : "unknown");
+    return false;
+  }
+}
+
 // In-memory front limiters, one per instance, slightly looser than the database.
 export const signinEmailMemory: RateLimiter = createRateLimiter({ limit: 5, windowMs: 60 * 60 * 1000 });
 export const signinIpMemory: RateLimiter = createRateLimiter({ limit: 20, windowMs: 60 * 60 * 1000 });
@@ -109,5 +143,35 @@ export async function signinAllowed(email: string, ip: string, deps: SigninLimit
   if (!memEmail || !memIp) return false;
   if (!deps.client) return true;
   const [byIp, byEmail] = await Promise.all([hitKeyed(deps.client, "signin_ip", ipKey), hitKeyed(deps.client, "signin_email", emailKey)]);
+  return byIp && byEmail;
+}
+
+export interface TenantSigninLimitDeps {
+  client: Rpc | null;
+  /** From strictLimiterSalt: null when LEAD_HASH_SALT is missing. */
+  salt: string | null;
+  memory?: { email: RateLimiter; ip: RateLimiter };
+}
+
+/**
+ * The check before a sign-in code is issued on a tenant host. The same
+ * buckets and limits as signinAllowed, but fail closed: with no salt, no
+ * database client, or a counter that errors, the answer is no. The database
+ * also bounds codes per tenant and address by itself
+ * (public.issue_tenant_sign_in_code, migration 0073), so this is the front
+ * check and the per-IP limit, not the only bound.
+ */
+export async function tenantSigninAllowed(email: string, ip: string, deps: TenantSigninLimitDeps): Promise<boolean> {
+  if (!deps.salt || !deps.client) {
+    console.error("rate_limit_unavailable_closed", "tenant_signin", deps.salt ? "no_client" : "no_salt");
+    return false;
+  }
+  const memory = deps.memory ?? { email: signinEmailMemory, ip: signinIpMemory };
+  const emailKey = rateKey("signin_email", email, deps.salt);
+  const ipKey = rateKey("signin_ip", ip, deps.salt);
+  const memEmail = memory.email.hit(emailKey);
+  const memIp = memory.ip.hit(ipKey);
+  if (!memEmail || !memIp) return false;
+  const [byIp, byEmail] = await Promise.all([hitKeyedStrict(deps.client, "signin_ip", ipKey), hitKeyedStrict(deps.client, "signin_email", emailKey)]);
   return byIp && byEmail;
 }

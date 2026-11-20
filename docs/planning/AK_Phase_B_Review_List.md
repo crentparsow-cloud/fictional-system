@@ -76,6 +76,7 @@ Items Crent must confirm before launch. Each line is a decision already built, s
 
 All are optional and the feature degrades quietly while blank.
 
+- [ ] TENANT_SIGN_IN (F-133). Set to 1 to let tenant hosts offer reader sign-in. Blank means off everywhere.
 - [ ] STRIPE_PRICE_ORG_SMALL_YEARLY
 - [ ] STRIPE_COUPON_REFERRAL_FRIEND
 - [ ] BOOK_AFFILIATE_TAGS
@@ -115,7 +116,30 @@ These were turned on for the demo period only (Crent, 30 October 2026). Each mus
 An outside reviewer read the core code (sealing, answers, checkout, webhook, tenancy, validator) without running anything. Four findings stand and are not yet closed. The rest of the report either confirmed the design or described work done since (Phase B, hardening, Stripe test purchases, publishing).
 
 - [ ] Accessibility: nobody has done the manual keyboard and screen reader pass on the signed-in player (docs/ACCESSIBILITY.md). Until it is done and the defects closed, /trust must not claim WCAG AA.
-- [ ] Shared identity on tenant hosts (F-133) is not built. Tenant hosts serve the catalogue and locked pages only, with no sign-in or checkout. Decide the route (sign in on the tenant host with its own cookie, or hop to the Akana apex and back) before selling any white-label deal.
+- [x] Shared identity on tenant hosts (F-133): decided on 20 November 2026. The reader signs in on the tenant host. Built behind a flag on branch f133-tenant-signin (migration 0073), off by default, not applied anywhere. The decisions to confirm are under "Tenant sign-in (F-133)" below.
 - [x] Progress durability: done on 7 November 2026 (migration 0071 and apps/web/lib/progress-client.ts, PR 11). One-off kinds are stored once and client writes queue and retry on the device.
 - [ ] Runtime headers: the Content-Security-Policy header was confirmed at runtime on the hardening-2 preview on 7 November. Still to confirm on the live site in a browser: the auth cookies are __Host- scoped.
 - [ ] Refund path: charge.refunded revokes entitlement in code, but a refund has not been exercised end to end with a test card. Run one refund and one cooling-off cancel in the Stripe sandbox alongside the approved live test purchase.
+
+## Tenant sign-in (F-133)
+
+Built on 20 November 2026 on branch f133-tenant-signin. Migration 0073. Off by default and not applied to any database. The design, the threat model and the go-live clicks are in docs/TENANT_SIGN_IN.md. Confirm each of these before it is switched on for any tenant.
+
+- [ ] The decision itself: a reader signs in on the tenant's own domain, with one shared Akana account. The same email is the same account on the Akana site and on every tenant site.
+- [ ] Privacy notice: the wording for shared identity needs the lawyer. It must say that an account made on a tenant site is an Akana account, that Akana is the controller, that the tenant cannot read answers, and that the same email signs in on other sites powered by Akana. The sign-in page already says this in plain words; the notice must match it.
+- [ ] Consent wording: the health data consent page on a tenant site changes one sentence (consent is withdrawn "on the Akana site, under You", because a tenant site has no You page) and adds that the tenant cannot read what is written. The lawyer should see it. The consent version recorded is the same as on the Akana site (health-2026-10).
+- [ ] Emails come from Akana, not the tenant. The sign-in email is Akana's template. It names the tenant's site, carries a code and no link, and names no workbook. Tenant-branded email is not built.
+- [ ] No checkout on tenant hosts yet. Only what is free opens: the free part of a listed title, and demo titles in the demo period. Paid parts say "Not on sale on this site yet". No membership either.
+- [ ] The access token hook must be enabled in Supabase before the flag is switched on for any tenant, on staging first. It must never be disabled while any tenant has sign-in on. Switch sign-in off first, which signs those readers out.
+- [x] Changed by the rework after the first red team pass: no tenant URL goes in the Supabase redirect allow list. There is no link and no callback on a tenant host. The reader types Akana's own code, which is good for that tenant and address only.
+- [ ] Only platform owners can switch sign-in on or off for a tenant (/admin/white-label, the tenant, "Reader sign-in on this site"). Confirm that is the right role. After the second red team pass the database also asks for a second factor in the owner's session and a reason every time.
+- [ ] An account with two-step sign-in cannot sign in on a tenant site and is told to use the Akana site. Changed after the second red team pass: a reader who turns on two-step sign-in while signed in on a tenant site is signed out there within the hour. Confirm that is acceptable for now.
+- [ ] A workbook on the Faith and Spirituality shelf cannot be read on a tenant site yet, because faith consent is not built there.
+- [ ] On a tenant site there is no export, deletion, consent withdrawal, Today, habit, friends, push, gifts, referrals, marks or saved reading place. The account page links to the Akana site for export, deletion and consent. Confirm readers of a tenant site should be sent to the Akana site for those.
+- [ ] Reader activity on tenant sites is not counted in the funnel figures.
+- [ ] Open risk to accept, narrowed by the rework: someone who takes over a tenant's domain can put up their own sign-in page and ask readers for the emailed code. The code is now Akana's own, for that tenant and address. It opens that reader's work in that one tenant and nothing else: not the Akana account, not another tenant. The email names the site that asked. See docs/TENANT_SIGN_IN.md section 7.
+- [ ] New after the second red team pass: a reader who has ever withdrawn health data consent cannot give it again on a tenant site. They are sent to the Akana site, under You. Confirm the wording ("This consent cannot be given on this site. Manage this on the Akana site, under You.") and that the lawyer is content with it.
+- [ ] New, and needs a decision: withdrawals are recorded from migration 0073 onwards (a new table, health_consent_withdrawals). A withdrawal made before 0073 is applied left no record, so a tenant session could record consent once for such an account. Either accept that, or before go-live ask every account with no health consent on record to consent on the Akana site first. Nothing in the data can tell the two apart.
+- [ ] New: while an account's deletion is pending it is read only on tenant sites too. The tenant site says only that the account cannot be added to there, and links to the Akana site. It does not say a deletion is pending.
+- [ ] New: asking for a code on a tenant site is limited to five an hour per site and address by the database itself, and is refused outright if the rate limit counter is down or LEAD_HASH_SALT is missing. So a limiter outage stops tenant sign-in until it is fixed. The Akana site's sign-in is unchanged and still lets readers in during such an outage. Confirm that trade.
+- [ ] Ten things could only be proved on the real Supabase (docs/TENANT_SIGN_IN.md section 10). Run the staging test in section 9E before production.

@@ -17,6 +17,10 @@ const MESSAGES: Record<string, { tone: "ok" | "error"; text: string }> = {
   shelf_saved: { tone: "ok", text: "Shelf page saved." },
   shelf_invalid: { tone: "error", text: "Check the shelf page. The line is up to 280 characters and the featured title must be a real AK code." },
   denied: { tone: "error", text: "Your role cannot do that. Nothing changed." },
+  // Reader sign-in on a tenant host (F-133, 0073)
+  tenant_sign_in_on: { tone: "ok", text: "Reader sign-in is on for this site. It can take a minute to show." },
+  tenant_sign_in_off: { tone: "ok", text: "Reader sign-in is off for this site, and readers signed in there have been signed out." },
+  tenant_sign_in_checks: { tone: "error", text: "Tick the box first: the access token hook must be enabled in Supabase. Nothing changed." },
   stale: { tone: "error", text: "The status changed before your action landed. Check the row and try again." },
   failed: { tone: "error", text: "The change did not save. Try again." },
   // Review queue and release gate (0016)

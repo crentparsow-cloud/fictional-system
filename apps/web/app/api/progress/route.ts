@@ -74,6 +74,11 @@ export async function POST(request: NextRequest) {
   if (error?.code === "23505") return NextResponse.json({ ok: true, duplicate: true }, { headers: NO_STORE });
   if (error) return NextResponse.json({ error: "write_failed" }, { status: 500, headers: NO_STORE });
 
+  // F-133: on a tenant host the event is stored and that is all. Funnel
+  // counts, marks, friends and the check-in partner belong to the Akana site;
+  // a tenant-scoped session has no access to any of them.
+  if (check.session.scope === "tenant") return NextResponse.json({ ok: true }, { headers: NO_STORE });
+
   // F-141: daily counts with ids only. The first opening of unit 1 starts the
   // free week; the first check-in on a unit completes a week; the first time
   // a step is done it is a step finished, counted against its unit (0036, the

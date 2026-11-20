@@ -7,6 +7,7 @@ import { TenantShell } from "@/components/tenant/TenantShell";
 import { TenantUnavailable } from "@/components/tenant/TenantUnavailable";
 import { getWorkbookBySlug } from "@/lib/catalogue";
 import { BADGE_LABELS, unitWord } from "@/lib/catalogue-guard";
+import { tenantRequest } from "@/lib/tenant-reader";
 import { getTenantSite, loadTenantSite, tenantListing, type TenantSite } from "@/lib/tenant-site";
 import { tenantPriceLine } from "@/lib/tenant-standards";
 
@@ -16,8 +17,9 @@ import { tenantPriceLine } from "@/lib/tenant-standards";
  * catalogue (public.tenant_catalogue), so a tenant cannot show a title it
  * has not chosen or is not allowed to list. Same outline as the marketplace
  * page, in the tenant's branding, with the tenant's price line. Nothing is
- * sold here: there is no tenant checkout yet, and reading on tenant hosts
- * arrives with shared identity (F-133).
+ * sold here: there is no tenant checkout yet. With reader sign-in on for the
+ * tenant (F-133) the page links to /read/<slug>, where the free part opens
+ * after sign-in; with it off the page says reading is coming soon, as before.
  */
 export const dynamic = "force-dynamic";
 
@@ -68,9 +70,10 @@ export default async function TenantWorkbookPage({ params }: { params: Promise<P
   const outline = detail.listing?.outline ?? [];
   const count = detail.listing?.structure?.count ?? detail.card.unitCount;
   const wellbeing = card.safetyTier !== "none";
+  const signIn = (await tenantRequest())?.signIn === true;
 
   return (
-    <TenantShell site={site}>
+    <TenantShell site={site} reader={signIn}>
       <p className="tenant-crumbs">
         <Link href="/">{site.name}</Link> <span aria-hidden="true">/</span> {card.title}
       </p>
@@ -83,10 +86,18 @@ export default async function TenantWorkbookPage({ params }: { params: Promise<P
             {card.authors.length ? <p className="muted">By {card.authors.join(", ")}</p> : null}
             {card.cardLine ? <p className="wb-tagline">{card.cardLine}</p> : null}
             <p className="tenant-price">{tenantPriceLine(card)}</p>
+            {signIn && card.hasVersion && !card.isDemo ? <p className="muted small">The first part is free to read. You sign in with an email address.</p> : null}
             <div className="wb-actions">
-              <span className="btn secondary is-disabled" aria-disabled="true">
-                Reading on this site is coming soon
-              </span>
+              {signIn && card.hasVersion ? (
+                // A plain link: the reader route is never prefetched from a public page.
+                <a className="btn" href={`/read/${card.slug}`}>
+                  Start reading
+                </a>
+              ) : (
+                <span className="btn secondary is-disabled" aria-disabled="true">
+                  Reading on this site is coming soon
+                </span>
+              )}
               {wellbeing ? <HelpNowButton /> : null}
             </div>
           </div>
