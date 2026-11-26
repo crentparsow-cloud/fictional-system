@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
+import { tenantForHost } from "@/lib/tenant-id";
 import { listPublishers } from "@/lib/author-theme-pages";
 import { listThemes } from "@/lib/author-theme-queries";
 import { listLibrary } from "@/lib/catalogue";
@@ -19,7 +20,7 @@ export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const h = await headers();
-  const origin = siteOriginForRequest(h.get("x-akana-tenant-kind"), h.get("host"));
+  const origin = siteOriginForRequest((await tenantForHost(h))?.kind, h.get("host"));
   const [cards, themes] = await Promise.all([
     listLibrary({}).catch((err: unknown) => {
       console.error("sitemap: library read failed", err instanceof Error ? err.message : err);
