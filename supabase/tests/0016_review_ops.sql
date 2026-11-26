@@ -431,9 +431,10 @@ end $$;
 reset role;
 
 -- ---------------------------------------------------------------------------
--- 7. Support inbox.
+-- 7. Support inbox. From 0074 the server submits with the service role; anon
+-- could choose the ip_hash before (review finding M4) and is now refused.
 -- ---------------------------------------------------------------------------
-select pg_temp.as_anon();
+select pg_temp.as_service();
 do $$ declare i int; begin
   begin
     perform public.submit_support_message('refund', 'Jo', 'jo@test.example', 'Please refund', false, repeat('e', 64));
@@ -454,9 +455,17 @@ do $$ declare i int; begin
     perform public.submit_support_message('access', 'Jo', 'jo@test.example', 'Again', true, repeat('e', 64));
     raise exception 'the sixth message in an hour was stored';
   exception when sqlstate 'AKH29' then null; end;
+end $$;
+reset role;
+select pg_temp.as_anon();
+do $$ begin
   begin
     perform count(*) from public.support_messages;
     raise exception 'anon read support messages';
+  exception when insufficient_privilege then null; end;
+  begin
+    perform public.submit_support_message('access', 'Jo', 'jo@test.example', 'Hello', true, repeat('f', 64));
+    raise exception 'anon called submit_support_message with its own ip_hash';
   exception when insufficient_privilege then null; end;
 end $$;
 reset role;

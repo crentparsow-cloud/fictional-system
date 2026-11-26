@@ -109,6 +109,14 @@ insert into public.enrolments (id, user_id, tenant_id, workbook_id, version_id) 
 insert into public.answers (enrolment_id, field, sealed, key_id) values
   ('a2200000-0000-0000-0000-000000000921', 'exercise:x.y', 'v2.k1.SECRETCIPHERTEXT', 'k1');
 
+-- 0074: the notice forms are submitted by the server with the service role.
+create or replace function pg_temp.as_service() returns void
+language plpgsql as $$
+begin
+  perform set_config('request.jwt.claim.sub', '', true);
+  perform set_config('request.jwt.claims', '{"role": "service_role"}'::text, true);
+  execute 'set local role service_role';
+end $$;
 create or replace function pg_temp.as_anon() returns void
 language plpgsql as $$
 begin
@@ -338,9 +346,11 @@ reset role;
 -- 4. Notice and takedown (F-123)
 -- ---------------------------------------------------------------------------
 create temp table refs22 (k text primary key, ref text);
-grant select, insert, update on refs22 to anon, authenticated;
+grant select, insert, update on refs22 to anon, authenticated, service_role;
 
-select pg_temp.as_anon();
+-- From 0074 the server submits notices with the service role; anon could
+-- choose the ip_hash before (review finding M4) and is now refused.
+select pg_temp.as_service();
 do $$ declare r text; begin
   -- missing good faith statement
   begin
@@ -373,16 +383,26 @@ do $$ declare r text; begin
       'uploader', null, null, 'AK-T22A0', 'It is my own work.', true, true, true, 'Author X', (select ref from refs22 where k = 'a'), repeat('3', 64));
     raise exception 'a counter-notice to an open notice was accepted';
   exception when sqlstate 'AKN04' then null; end;
+end $$;
+reset role;
+select pg_temp.as_anon();
+do $$ begin
   -- anon has no grant on the notices at all
   begin
     perform 1 from public.takedown_notices;
     raise exception 'anon read notices';
   exception when insufficient_privilege then null; end;
+  -- and cannot call the function with an ip_hash of its own
+  begin
+    perform public.submit_takedown_notice('notice', 'other_illegal', 'Someone', 's@example.com', 'Somewhere', null,
+      'owner', null, null, 'AK-T22B0', 'Unlawful content.', true, true, null, 'Someone', null, repeat('9', 64));
+    raise exception 'anon called submit_takedown_notice with its own ip_hash';
+  exception when insufficient_privilege then null; end;
 end $$;
 reset role;
 
 -- Rate limit: 5 an hour from one address.
-select pg_temp.as_anon();
+select pg_temp.as_service();
 do $$ begin
   for i in 1..4 loop
     perform public.submit_takedown_notice('notice', 'other_illegal', 'Someone', 's@example.com', 'Somewhere', null,
@@ -513,7 +533,7 @@ reset role;
 update public.feature_flags set enabled = true where key = 'takedown_buyers_keep_access' and scope = 'global';
 
 -- A counter-notice on wa, then reinstatement.
-select pg_temp.as_anon();
+select pg_temp.as_service();
 do $$ declare r text; begin
   begin
     perform public.submit_takedown_notice('counter_notice', null, 'Author X', 'x@example.com', '2 Low St', '0207 946 0001',
@@ -578,7 +598,7 @@ do $$ declare v uuid; begin
   insert into refs22 values ('x', null);
 end $$;
 reset role;
-select pg_temp.as_anon();
+select pg_temp.as_service();
 do $$ begin
   update refs22 set ref = public.submit_takedown_notice('notice', 'copyright', 'Rights Holder', 'rights@example.com', '1 High St', '0207 946 0000',
     'owner', null, 'Another book', 'AK-T22C0', 'Copied again.', true, true, null, 'Rights Holder', null, repeat('6', 64)) where k = 'x';

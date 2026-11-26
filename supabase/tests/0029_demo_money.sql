@@ -50,6 +50,19 @@ begin
   end;
   raise exception 'not refused with AKQ01: %', p_what;
 end $$;
+-- 0074: a client holds no update grant on organisations, so an owner's direct
+-- update is refused by the grant before the demo guard (AKQ01) is reached.
+-- Either refusal passes; a write that goes through fails.
+create or replace function pg_temp.expect_refused(p_sql text, p_what text) returns void
+language plpgsql as $$
+begin
+  begin
+    execute p_sql;
+  exception when sqlstate 'AKQ01' or insufficient_privilege then
+    return;
+  end;
+  raise exception 'not refused: %', p_what;
+end $$;
 
 -- ---------------------------------------------------------------------------
 -- 1. Before any reset there is no demo money, and the migration wrote none.
@@ -260,14 +273,14 @@ do $$ begin
   end;
 end $$;
 -- Nor can the demo publisher turn the demo into a real organisation.
-select pg_temp.expect_akq01($q$
+select pg_temp.expect_refused($q$
   update public.organisations set is_demo = false where id = '00000000-0000-0000-0000-0000000000d0'
 $q$, 'demo owner clearing is_demo');
 reset role;
 
 -- A real owner cannot mark their own organisation a demo.
 select test_as('a2900000-0000-0000-0000-000000000003');
-select pg_temp.expect_akq01($q$
+select pg_temp.expect_refused($q$
   update public.organisations set is_demo = true where id = 'a2900000-0000-0000-0000-0000000000a1'
 $q$, 'real owner setting is_demo');
 reset role;
