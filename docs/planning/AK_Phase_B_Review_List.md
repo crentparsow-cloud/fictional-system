@@ -119,3 +119,48 @@ An outside reviewer read the core code (sealing, answers, checkout, webhook, ten
 - [x] Progress durability: done on 7 November 2026 (migration 0071 and apps/web/lib/progress-client.ts, PR 11). One-off kinds are stored once and client writes queue and retry on the device.
 - [ ] Runtime headers: the Content-Security-Policy header was confirmed at runtime on the hardening-2 preview on 7 November. Still to confirm on the live site in a browser: the auth cookies are __Host- scoped.
 - [ ] Refund path: charge.refunded revokes entitlement in code, but a refund has not been exercised end to end with a test card. Run one refund and one cooling-off cancel in the Stripe sandbox alongside the approved live test purchase.
+
+## Syracuse Program review of 21 November 2026
+
+The report is the project doc claude/akana-syracuse-review-2026-11-21.md. The code fixes are on branch review-fixes (migrations 0074 to 0077). These are the items that code cannot close.
+
+### Settings only Crent can change
+
+- [ ] Supabase production, Authentication, URL Configuration: remove `https://akana-one.vercel.app/**`, the preview wildcard and the localhost entry. Keep the one exact callback (H4).
+- [ ] Supabase production, Authentication, Sessions: set an inactivity timeout and a time box (M6).
+- [ ] Supabase production, Authentication, Attack Protection: turn on a CAPTCHA with a non-puzzle route, and set its keys in the app (M5).
+- [ ] Vercel: move the team to Pro before launch, set a spend limit with pause, and give production its own CRON_SECRET (M33). Hobby allows no spend cap and no test traffic.
+- [ ] Stripe: add the dispute, refund.failed and payout.failed events to the two webhook endpoints. Until then the new handling does nothing (M10, L7).
+- [ ] Resend: create the webhook to /api/email/resend for bounces and complaints and set RESEND_WEBHOOK_SECRET (M17).
+- [ ] Set SECURITY_CONTACT (M28), EMAIL_REPLY_TO as the support address (M12), and NEXT_PUBLIC_COMPANY_NUMBER once the company exists.
+- [ ] Backups: do the restore test and the off-site copy of uploaded files (L8).
+- [ ] GitHub: turn on required status checks for main, and Dependabot alerts (M27).
+
+### Decisions and paperwork, with the solicitor and accountant
+
+Drafts are in docs/compliance. All are unsigned.
+
+- [ ] Sign the data protection impact assessment before wellbeing titles take answers from anyone outside the team (H5).
+- [ ] Adopt the breach plan: name the roles and choose where the log is kept (H6).
+- [ ] Legal pages: company name, number, address and ICO registration are stated as fact today. Correct them or make them true (M12, M25). Gift and bundle terms (M13).
+- [ ] Decide: the age gate (M32), win-back email opt-out (M24), whether Google sign-in, Sentry and web push are on at launch and named in the notice (M22), whether Ireland opens at launch (M25), gift emails to people who are not users (M31), the cookie table (M23).
+- [ ] The solicitor's written view on the Online Safety Act (M15). The accountant's view on HMRC platform reporting for author payouts (M16).
+
+### Decisions built into the fixes, to confirm
+
+- [ ] Staff actions in the database now need a second-factor session and a row in platform_roles. A staff member with only the claim is refused everywhere, at once.
+- [ ] A reader who has turned on two-step sign-in must pass it before answers, marks and export will load.
+- [ ] Sign-in and export are refused when the rate limit counter cannot be kept. An outage of the counter stops sign-in until it is fixed.
+- [ ] A dispute suspends what the payment gave until it is won. A cooling-off cancel takes back the referrer's reward.
+- [ ] One live membership per reader. A second checkout that completes is cancelled and refunded by the webhook.
+- [ ] Erasing an account removes its uploaded files only where the person is or was a member of that organisation.
+- [ ] Retention periods are off until set. Money, consent, deletion and staff-privilege audit rows are never pruned. A legal hold stops every prune.
+
+### Still open in code
+
+- [ ] Nonce-based content security policy (M26). Zod 4 upgrade, assessed in docs (M30). Share previews on pages other than workbooks (L11).
+
+### Before launch at tier 4
+
+- [ ] An outside, human-led penetration test. The manual accessibility pass. A signed-out probe of the live app once the plan permits testing.
+
