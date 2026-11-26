@@ -37,7 +37,7 @@ export default function StudioHelpIndex() {
       <section className="info-section" aria-labelledby="sh-contact">
         <h2 id="sh-contact">Still have a question?</h2>
         <p>
-          Email {support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>}. A person reads every message.
+          {support.email ? <>Email <a href={`mailto:${support.email}`}>{support.label}</a>.</> : <>Write to us through <Link href="/contact">the contact page</Link>.</>} A person reads every message.
         </p>
       </section>
     </div>
