@@ -8,6 +8,7 @@ import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createUserClient } from "@/lib/supabase/server";
 import { adminJoinUrl, formatOrgDate, isCustomerKind, orgErrorNotice, seatJoinUrl, type OrgNotice } from "@/lib/org-pilot";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Server side of Akana for organisations (F-202 to F-204). Everything runs
@@ -71,7 +72,7 @@ export function withOrgParam(path: string, orgId: string, multi: boolean): strin
 function orgMailer() {
   return createMailer({
     env: mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("org", "org_mail"),
   });
 }

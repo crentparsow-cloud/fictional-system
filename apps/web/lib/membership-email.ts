@@ -2,6 +2,7 @@ import { createMailer, type MailerOptions, type ReaderProps, type SendResult } f
 import { ukDateWords } from "@/lib/membership-trial";
 import type { TermsReminder } from "@/lib/membership-reminders";
 import type { MembershipNotice } from "@/lib/stripe-webhook";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Sends the membership emails the webhook asks for (F-097): payment_failed,
@@ -49,7 +50,7 @@ export function renewalDateWords(iso: string): string {
 function mailerFor(deps: MembershipEmailDeps) {
   return createMailer({
     env: deps.env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: deps.log,
     claim: deps.claim,
     release: deps.release,

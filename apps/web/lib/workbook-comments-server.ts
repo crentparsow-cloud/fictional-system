@@ -7,6 +7,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 import { firstName } from "@/lib/support-actions";
 import { parseCommentBody, readComments, threadErrorNotice, type CommentRow, type ThreadNotice } from "@/lib/workbook-comments";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The workbook comment thread on the server (F-039, migration 0027).
@@ -66,7 +67,7 @@ async function notifyOtherSide(commentId: string, side: "org" | "staff", o: { en
     let people = (Array.isArray(data) ? data : []) as Recipient[];
     const env = o.env ?? mailerEnvFromProcess();
     const origin = siteOrigin();
-    const mailer = createMailer({ env, isSuppressed: () => false, log: mailLog("workbook-comments", "comment_mail"), ...(o.transport ? { transport: o.transport } : {}) });
+    const mailer = createMailer({ env, isSuppressed, log: mailLog("workbook-comments", "comment_mail"), ...(o.transport ? { transport: o.transport } : {}) });
 
     if (side === "org") {
       // An organisation comment goes to Akana. Fall back to the review inbox when nobody is assigned yet.
