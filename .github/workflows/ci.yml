@@ -91,7 +91,8 @@ jobs:
 
   e2e:
     name: End-to-end smoke (local build, signed out)
-    runs-on: ubuntu-latest
+    # Pinned: Playwright cannot install its browser dependencies on the newest runner image yet.
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     # The "local" Playwright project only: it serves the build with placeholder
     # Supabase settings and never signs in, so it needs no secrets (docs/TESTING.md).
