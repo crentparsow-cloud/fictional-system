@@ -5,6 +5,7 @@ import { sendMembershipNotice } from "@/lib/membership-email";
 import { reportOps } from "@/lib/ops-alerts";
 import { periodEndCancellation } from "@/lib/stripe-webhook";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * Retries the cancellation confirmation (R9, the 24-hour duty). Runs once a
@@ -96,11 +97,9 @@ async function run(request: NextRequest) {
   }
 }
 
-/** The public origin for links in the email. */
+/** The public origin for links in the email. Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
-  const proto = host.startsWith("localhost") ? "http" : "https";
-  return `${proto}://${host}`;
+  return linkOrigin(request.headers);
 }
 
 export const GET = run;
