@@ -3,6 +3,7 @@ import { createMailer, type MailerEnv, type SendResult } from "@akana/emails";
 import { mailLog } from "@/lib/mail-ops";
 import { confirmUrl, exerciseParagraphs, oneClickUrl, unsubscribeUrl, type DueIssue, type Recipient, type SendOutcome } from "@/lib/newsletter";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The server side of the newsletter (6.11): the service-role calls and the
@@ -25,7 +26,7 @@ export function mailerEnvFromProcess(env: NodeJS.ProcessEnv = process.env): Mail
 function mailer(admin: Admin) {
   return createMailer({
     env: mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("newsletter", "newsletter_email"),
     async claim(key) {
       const { data, error } = await admin.rpc("claim_email", { p_key: key });

@@ -45,10 +45,11 @@ describe("help centre (F-010)", () => {
     expect(page.html).toBe("<p>Lead line.</p>\n<h2>Part</h2>\n<p>Body.</p>");
   });
 
-  it("uses EMAIL_REPLY_TO for support, or shows a placeholder", () => {
+  it("uses EMAIL_REPLY_TO for support, or plain words that point to the contact page", () => {
     expect(supportContact({ EMAIL_REPLY_TO: "help@akana.example" })).toEqual({ email: "help@akana.example", label: "help@akana.example" });
     expect(supportContact({ EMAIL_REPLY_TO: "Akana <help@akana.example>" }).email).toBe("help@akana.example");
-    expect(supportContact({})).toEqual({ email: null, label: "[support email]" });
+    expect(supportContact({})).toEqual({ email: null, label: "the contact page" });
+    expect(supportContact({}).label).not.toContain("[");
     expect(supportContact({ EMAIL_REPLY_TO: "not-an-address" }).email).toBeNull();
   });
 });

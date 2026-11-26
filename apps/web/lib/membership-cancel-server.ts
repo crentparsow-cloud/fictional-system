@@ -22,9 +22,12 @@ export interface SubjectRow {
   paused_until: string | null;
   created_at: string;
   updated_at: string | null;
+  /** 0075: the cooling-off window's dates, from Stripe. Null on a row not seen since. */
+  started_at?: string | null;
+  trial_end?: string | null;
 }
 
-export type FlowSubject = CancelSubject & { createdAt: string; updatedAt: string | null };
+export type FlowSubject = CancelSubject & { createdAt: string; updatedAt: string | null; startedAt: string | null; trialEnd: string | null };
 
 export function subjectFromRow(r: SubjectRow): FlowSubject {
   return {
@@ -38,19 +41,21 @@ export function subjectFromRow(r: SubjectRow): FlowSubject {
     pausedUntil: r.paused_until,
     createdAt: r.created_at,
     updatedAt: r.updated_at,
+    startedAt: r.started_at ?? null,
+    trialEnd: r.trial_end ?? null,
   };
 }
 
 /** The reader's own subscription rows on this storefront, newest first. Own rows only, whatever the policy allows staff to see. */
 export async function loadSubjects(supabase: SupabaseClient, userId: string, tenantId: string): Promise<FlowSubject[]> {
-  const { data, error } = await supabase
-    .from("subscriptions")
-    .select("stripe_subscription_id, status, plan, current_period_end, cancel_at_period_end, cancel_at, paused_from, paused_until, created_at, updated_at")
-    .eq("user_id", userId)
-    .eq("tenant_id", tenantId)
-    .order("updated_at", { ascending: false });
+  const base = "stripe_subscription_id, status, plan, current_period_end, cancel_at_period_end, cancel_at, paused_from, paused_until, created_at, updated_at";
+  const read = (columns: string) =>
+    supabase.from("subscriptions").select(columns).eq("user_id", userId).eq("tenant_id", tenantId).order("updated_at", { ascending: false });
+  let { data, error } = await read(`${base}, started_at, trial_end`);
+  // Before migration 0075 is applied the two new columns do not exist: read without them, so cancelling never depends on it.
+  if (error && (error.code === "42703" || error.code === "PGRST204")) ({ data, error } = await read(base));
   if (error) throw new Error(`subscriptions read failed: ${error.code ?? "unknown"}`);
-  return ((data ?? []) as SubjectRow[]).map(subjectFromRow);
+  return ((data ?? []) as unknown as SubjectRow[]).map(subjectFromRow);
 }
 
 export function stripeSubscriptions(): StripeSubscriptionsApi {
