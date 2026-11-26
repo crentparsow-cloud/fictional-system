@@ -5,6 +5,7 @@ import { bandProration, billingErrorNotice, ORG_PLANS, orgPriceId, type BillingN
 import { loadPlanPrices, resolveStripePrice } from "@/lib/org-plans-server";
 import { testStripe } from "@/lib/org-stripe";
 import { createUserClient } from "@/lib/supabase/server";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Server side of organisation billing (F-220, F-226, F-228). STRIPE TEST
@@ -202,7 +203,7 @@ export async function startSelfServeCheckout(a: { userId: string; email: string 
     auto_seat: a.input.autoSeat ? "yes" : "no",
   };
   try {
-    const session = await stripe.checkout.sessions.create({
+    const params: Stripe.Checkout.SessionCreateParams = {
       mode: "subscription",
       line_items: [{ price, quantity: a.input.quantity }],
       customer_email: a.email ?? undefined,
@@ -213,7 +214,9 @@ export async function startSelfServeCheckout(a: { userId: string; email: string 
       subscription_data: { metadata: meta },
       success_url: `${a.origin}/org/start?done=1`,
       cancel_url: `${a.origin}/org/start`,
-    });
+    };
+    // L6: the same request inside a minute is one session.
+    const session = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("org_signup", a.userId, params) });
     return session.url ? { url: session.url } : "stripe_failed";
   } catch (e) {
     console.error("org_self_serve_checkout_failed", { reason: e instanceof Error ? e.name : "unknown" });

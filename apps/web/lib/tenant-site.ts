@@ -1,7 +1,7 @@
 import "server-only";
-import { headers } from "next/headers";
 import { createUserClient } from "@/lib/supabase/server";
 import { validateBrand, type TenantBrand } from "@/lib/tenant-brand";
+import { tenantForRequest } from "@/lib/tenant-id";
 
 /**
  * Reads for the tenant site (app/site, F-067 to F-069, F-074). Everything
@@ -9,7 +9,7 @@ import { validateBrand, type TenantBrand } from "@/lib/tenant-brand";
  * sees only what anon may see: public.tenant_site and public.tenant_catalogue
  * (migration 0023) and the public workbook sections.
  *
- * The tenant comes from the proxy's headers. A page refuses (null) unless
+ * The tenant comes from the request's Host, through the proxy's resolver (lib/tenant-id.ts). A page refuses (null) unless
  * the request is on a white-label host with a known tenant id and the tenant
  * is active.
  */
@@ -43,9 +43,10 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 
 /** The white-label tenant id for this request, or null on the marketplace or with no id. */
 export async function whiteLabelTenantId(): Promise<string | null> {
-  const h = await headers();
-  if (h.get("x-akana-tenant-kind") !== "white_label") return null;
-  const id = (h.get("x-akana-tenant-id") ?? "").toLowerCase();
+  // Review L4: from the Host through the resolver, never from the x-akana-* headers.
+  const tenant = await tenantForRequest();
+  if (tenant?.kind !== "white_label") return null;
+  const id = (tenant.id ?? "").toLowerCase();
   return UUID.test(id) ? id : null;
 }
 

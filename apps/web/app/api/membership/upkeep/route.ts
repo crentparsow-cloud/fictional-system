@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { sendGiftReceived, sendStudentEnded, sendStudentRecheck } from "@/lib/conversion-mail";
 import { cronAuthorised } from "@/lib/cron-auth";
+import { openGiftLink } from "@/lib/gift-link";
 import { reportOps } from "@/lib/ops-alerts";
 import { getStripe } from "@/lib/stripe";
 import { discountIsCoupon, studentCouponId, studentPercentFrom } from "@/lib/student";
@@ -41,7 +42,7 @@ type GiftRow = {
   recipient_name: string | null;
   sender_name: string | null;
   message: string | null;
-  claim_token: string;
+  stripe_checkout_session_id: string | null;
   claim_by: string | null;
 };
 
@@ -80,17 +81,22 @@ async function run(request: NextRequest) {
         const cutoff = new Date(Date.now() - 15 * 60_000).toISOString();
         const { data, error } = await admin
           .from("gift_memberships")
-          .select("id, months, recipient_email, recipient_name, sender_name, message, claim_token, claim_by")
+          .select("id, months, recipient_email, recipient_name, sender_name, message, stripe_checkout_session_id, claim_by")
           .eq("status", "paid")
           .is("delivered_at", null)
-          .not("claim_token", "is", null)
+          .not("claim_token_hash", "is", null)
           .not("recipient_email", "is", null)
           .lt("paid_at", cutoff)
           .limit(50);
         if (error) throw new SqlError(error.code);
-        return ((data ?? []) as GiftRow[]).map(
-          (g): UndeliveredGift => ({ id: g.id, months: g.months, recipientEmail: g.recipient_email, recipientName: g.recipient_name, senderName: g.sender_name, message: g.message, token: g.claim_token, claimBy: g.claim_by }),
-        );
+        // Only a hash of the link is stored (0076). The link is derived from the session id and registered.
+        const due: UndeliveredGift[] = [];
+        for (const g of (data ?? []) as GiftRow[]) {
+          const token = await openGiftLink(admin, { id: g.id, sessionId: g.stripe_checkout_session_id });
+          if (!token) continue;
+          due.push({ id: g.id, months: g.months, recipientEmail: g.recipient_email, recipientName: g.recipient_name, senderName: g.sender_name, message: g.message, token, claimBy: g.claim_by });
+        }
+        return due;
       },
       sendGift: (g) => sendGiftReceived({ id: g.id, months: g.months, recipientEmail: g.recipientEmail, recipientName: g.recipientName, senderName: g.senderName, message: g.message, token: g.token, claimBy: g.claimBy }),
       async markGiftDelivered(id) {

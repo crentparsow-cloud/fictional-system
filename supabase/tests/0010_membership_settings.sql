@@ -112,7 +112,10 @@ end $$;
 -- A platform editor cannot put a demo title in; the flag stays false.
 select test_as('a0100000-0000-0000-0000-000000000003', array['editor']);
 do $$ begin
-  update public.workbooks set in_membership = true where id = 'a0100000-0000-0000-0000-0000000000c2';
+  -- 0074: the direct update is refused outright (no client update grant). Either way the flag stays false.
+  begin
+    update public.workbooks set in_membership = true where id = 'a0100000-0000-0000-0000-0000000000c2';
+  exception when insufficient_privilege then null; end;
   if (select in_membership from public.workbooks where id = 'a0100000-0000-0000-0000-0000000000c2') then
     raise exception 'an editor put a demo title in the membership'; end if;
 end $$;
@@ -125,14 +128,20 @@ do $$ begin
     raise exception 'a direct update put a demo title in the membership'; end if;
 end $$;
 
--- An org owner who marks their own title as a demo takes it out, without
--- tripping the membership guard (they never set in_membership themselves).
+-- A title marked as a demo is taken out, without tripping the membership
+-- guard. Before 0074 an org owner could set is_demo and badge on their own
+-- title by a direct update, which was finding H1 of the November 2026 review;
+-- that is now refused, and the trigger is checked with the write the server makes.
 savepoint s_demo_flip;
 select test_as('a0100000-0000-0000-0000-000000000002');
 do $$ begin
-  update public.workbooks set is_demo = true, badge = 'demo' where id = 'a0100000-0000-0000-0000-0000000000c1';
+  begin
+    update public.workbooks set is_demo = true, badge = 'demo' where id = 'a0100000-0000-0000-0000-0000000000c1';
+    raise exception 'an org owner marked their own title as a demo';
+  exception when insufficient_privilege then null; end;
 end $$;
 reset role;
+update public.workbooks set is_demo = true, badge = 'demo' where id = 'a0100000-0000-0000-0000-0000000000c1';
 do $$ begin
   if (select in_membership from public.workbooks where id = 'a0100000-0000-0000-0000-0000000000c1') then
     raise exception 'a title marked as demo stayed in the membership'; end if;

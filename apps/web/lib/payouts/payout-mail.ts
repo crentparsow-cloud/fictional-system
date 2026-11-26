@@ -2,6 +2,7 @@ import "server-only";
 import { createMailer, type MailerEnv, type Transport } from "@akana/emails";
 import { mailLog } from "@/lib/mail-ops";
 import type { createAdminClient } from "@/lib/supabase/admin";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The security notice when payout details change (F-143). It goes to every
@@ -51,7 +52,7 @@ export async function sendPayoutChangeEmails(admin: Admin, m: PayoutChangeMail):
     const env = mailerEnv();
     const mailer = createMailer({
       env,
-      isSuppressed: () => false,
+      isSuppressed,
       log: mailLog("payouts", "payout_mail"),
       async claim(key) {
         const { data, error: cErr } = await admin.rpc("claim_email", { p_key: key });

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getReaderSession } from "@/lib/auth";
 import { CANCEL_COPY, cancelConsequence, cancelView, pickSubject } from "@/lib/cancel-flow";
-import { inCoolingOff } from "@/lib/membership-refund";
+import { coolingOffForRow } from "@/lib/membership-refund";
 import { PAUSE_MONTHS, pauseDateWords, pauseOptionLine } from "@/lib/membership-pause";
 import { loadSubjects, type FlowSubject } from "@/lib/membership-cancel-server";
 import { createUserClient } from "@/lib/supabase/server";
@@ -95,14 +95,15 @@ async function CancelBody({
   const pauseLines = periodEnd
     ? PAUSE_MONTHS.map((m) => ({ months: m, button: m === 1 ? "Pause for 1 month" : `Pause for ${m} months`, line: pauseOptionLine(periodEnd, m).replace(/^\d+ months?: /, "") }))
     : [];
-  const cooling = !view.trialing && inCoolingOff(new Date(subject.createdAt), now);
+  // The webhook's own rule (M11): 14 days from the first payment, which after a trial is the day the trial ended.
+  const cooling = coolingOffForRow({ status: subject.status, startedAt: subject.startedAt, trialEnd: subject.trialEnd, createdAt: subject.createdAt }, now);
   return (
     <>
       <p>{CANCEL_COPY.lead}</p>
       <CancelForm
         view={view}
         pauseLines={view.pausable ? pauseLines : []}
-        consequence={cancelConsequence(view, cooling, longDate)}
+        consequence={cancelConsequence(view, cooling.applies, longDate, cooling.afterTrial)}
       />
     </>
   );

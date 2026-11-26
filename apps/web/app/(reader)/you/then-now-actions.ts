@@ -1,7 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { getReaderSession } from "@/lib/auth";
+import { readerSecondFactorMissing } from "@/lib/mfa/reader-gate-server";
+import { readerVerifyHref } from "@/lib/mfa/reader-mfa";
 import { createUserClient } from "@/lib/supabase/server";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -11,6 +14,7 @@ export async function deleteThenNowEntry(formData: FormData): Promise<void> {
   const id = String(formData.get("id") ?? "");
   const session = await getReaderSession();
   if (!session || !UUID.test(id)) return;
+  if (await readerSecondFactorMissing(session)) redirect(readerVerifyHref("/you"));
   const supabase = await createUserClient();
   await supabase.from("then_now_entries").delete().eq("id", id).eq("user_id", session.userId);
   revalidatePath("/you");
@@ -20,6 +24,7 @@ export async function deleteThenNowEntry(formData: FormData): Promise<void> {
 export async function deleteAllThenNow(): Promise<void> {
   const session = await getReaderSession();
   if (!session) return;
+  if (await readerSecondFactorMissing(session)) redirect(readerVerifyHref("/you"));
   const supabase = await createUserClient();
   await supabase.from("then_now_entries").delete().eq("user_id", session.userId);
   revalidatePath("/you");

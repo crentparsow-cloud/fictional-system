@@ -11,6 +11,7 @@ import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { createUserClient } from "@/lib/supabase/server";
 import { ORG_FILES_BUCKET } from "@/lib/storage/file-rules";
 import { LICENCE_FILE, LICENCE_VERSION, hashToken, isUuid, joinUrl, mintToken, studioErrorNotice, type LicenceTextRow, type OrgRole, type StudioNotice } from "@/lib/studio";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Server side of the Studio and console. Everything reads through the
@@ -120,7 +121,7 @@ export const readLicenceTextRow = cache(async function readLicenceTextRow(versio
 function studioMailer() {
   return createMailer({
     env: mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("studio", "studio_mail"),
   });
 }

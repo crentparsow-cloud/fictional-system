@@ -273,9 +273,11 @@ export default function PublishPage() {
           <div className="d-stack-s">
             <h2 id="pub-enquiry">Start a conversation</h2>
             <p className="d-soft">Tell us about your book. We reply within {company.replyTime}.</p>
-            <p className="d-soft">
-              Prefer to write? Email {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}.
-            </p>
+            {contact.email ? (
+              <p className="d-soft">
+                Prefer to write? Email <a href={`mailto:${contact.email}`}>{contact.label}</a>.
+              </p>
+            ) : null}
             <p className="d-soft">
               Looking to bring {brand.name} to a school, charity or workplace? <Link href="/organisations">Go to organisations</Link>.
             </p>

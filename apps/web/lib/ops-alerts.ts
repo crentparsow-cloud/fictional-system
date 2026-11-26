@@ -22,6 +22,7 @@
 import { createDevTransport, createMailer, type MailerEnv, type SendLogEntry, type Transport } from "@akana/emails";
 import type { OpsKind } from "@/lib/admin/ops";
 import { opsKindLabel } from "@/lib/admin/ops";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 export type { OpsKind } from "@/lib/admin/ops";
 
@@ -81,7 +82,7 @@ export async function sendOpsAlert(
     : { EMAIL_MODE: "live", EMAIL_FROM: o.env.EMAIL_FROM || "Akana <dev@localhost>", POSTAL_ADDRESS: o.env.POSTAL_ADDRESS };
   const mailer = createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: o.log ?? ((e) => console.info("ops_alert_email", e.status, e.reason ?? "")),
     transport: o.transport ?? dev?.transport,
   });

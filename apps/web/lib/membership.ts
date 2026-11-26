@@ -186,6 +186,9 @@ export interface SubscriptionState {
   /** 14.25: the pause window, both dates or neither. See pauseWindowOf. */
   pausedFrom: string | null;
   pausedUntil: string | null;
+  /** When the subscription started and when its trial ends, for the cooling-off window (0075). */
+  startedAt: string | null;
+  trialEnd: string | null;
   /** When this state was read from Stripe. Older observations never overwrite newer ones. */
   observedAt: string;
 }
@@ -282,6 +285,8 @@ export function subscriptionStateFrom(
     canceledAt: iso(sub.canceled_at),
     endedAt: iso(sub.ended_at),
     ...pauseWindowOf(sub, observedAt),
+    startedAt: iso(sub.start_date),
+    trialEnd: iso(sub.trial_end),
     observedAt: observedAt.toISOString(),
   };
 }

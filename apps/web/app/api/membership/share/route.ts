@@ -5,6 +5,7 @@ import { inviteShareText } from "@/lib/shared-membership";
 import { hashInviteToken, inviteUrl, newInviteToken } from "@/lib/shared-membership-token";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { ownOrigin } from "@/lib/site-url";
 
 /**
  * Make or refresh the invitation for the second place on a two-person
@@ -44,9 +45,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({ url: inviteUrl(siteOrigin(request), token), text: inviteShareText() }, { headers: NO_STORE });
 }
 
-/** The public origin for the link, from the proxy's headers. */
+/** The public origin for the link: one of this deployment's own configured addresses (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }

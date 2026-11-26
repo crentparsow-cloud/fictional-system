@@ -3,6 +3,7 @@ import { createMailer, type MailerEnv, type SendResult, type Transport } from "@
 import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { giftUrl, longDateGB } from "@/lib/send-workbook";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The "Send this workbook" email (14.14). One template, gift_workbook, to the
@@ -21,7 +22,7 @@ export async function sendGiftEmail(
   const env = o.env ?? mailerEnvFromProcess();
   const mailer = createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("you/invite", "gift_email"),
     ...(o.transport ? { transport: o.transport } : {}),
   });

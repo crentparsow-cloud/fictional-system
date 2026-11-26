@@ -1,12 +1,13 @@
 import "server-only";
 import { NextResponse } from "next/server";
 import { getReaderSession, type ReaderSession } from "@/lib/auth";
+import { readerFactorRefusal } from "@/lib/mfa/reader-gate-server";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 
 /**
  * The checks every answers and progress route runs before it does anything:
- * a signed-in reader, a tenant we know, and an enrolment the reader can see
+ * a signed-in reader, the second factor when the reader has one, a tenant we know, and an enrolment the reader can see
  * through their own client. RLS on public.enrolments only returns the
  * reader's own rows, so "visible" means "owned".
  */
@@ -27,6 +28,12 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 export async function requireOwnedEnrolment(enrolmentId: string | null | undefined): Promise<EnrolmentCheck> {
   const session = await getReaderSession();
   if (!session) return { ok: false, response: NextResponse.json({ error: "sign_in_required" }, { status: 401 }) };
+
+  // Review M3: a reader with two-step sign-in must have given the code on
+  // this session. The layout asks too; this is the check that holds when a
+  // route is called directly.
+  const factor = await readerFactorRefusal(session);
+  if (factor) return { ok: false, response: factor };
 
   const tenantId = await tenantIdForRequest();
   if (!tenantId) return { ok: false, response: NextResponse.json({ error: "unknown_tenant" }, { status: 404 }) };

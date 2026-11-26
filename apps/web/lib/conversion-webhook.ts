@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { handleBundleEvent, type BundleRepo } from "@/lib/bundle-webhook";
 import { sendGiftReceived, sendGiftSent } from "@/lib/conversion-mail";
+import { openGiftLink } from "@/lib/gift-link";
 import { handleGiftEvent, type GiftMail, type GiftRepo, type PaidGift } from "@/lib/gift-webhook";
 import { reportOps } from "@/lib/ops-alerts";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -58,7 +59,8 @@ export function giftRepo(admin: Admin): GiftRepo {
         recipientName: r.recipient_name ?? null,
         senderName: r.sender_name ?? null,
         message: r.message ?? null,
-        token: r.token ?? null,
+        // Only a hash is stored (0076): the link is derived from the session id and registered.
+        token: await openGiftLink(admin, { id: r.id, sessionId: a.session }),
         claimBy: (row as { claim_by: string | null } | null)?.claim_by ?? null,
         delivered: Boolean(r.delivered),
         changed: Boolean(r.changed),

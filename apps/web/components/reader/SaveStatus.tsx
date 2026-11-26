@@ -40,6 +40,12 @@ export function SaveStatus({ state, cause = null, savedAt = null, onRetry, keptO
           Retry
         </button>
       ) : null}
+      {line.verify ? (
+        // A full page load on purpose: the verify page sits outside the reader shell.
+        <a className="save-retry" href={`/verify?for=reader&next=${encodeURIComponent(typeof window === "undefined" ? "/home" : window.location.pathname)}`}>
+          Enter code
+        </a>
+      ) : null}
     </p>
   );
 }

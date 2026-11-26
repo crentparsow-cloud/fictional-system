@@ -11,6 +11,7 @@ import { sendReviewAssigned } from "@/lib/review-mail";
 import { getStaffSession } from "@/lib/staff";
 import { createUserClient } from "@/lib/supabase/server";
 import { postComment } from "@/lib/workbook-comments-server";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * Review queue and release gate actions (F-084, F-085, F-155). Every write
@@ -60,8 +61,8 @@ export async function assignReview(fd: FormData): Promise<void> {
   if (typeof data === "string" && data && code) {
     try {
       const h = await headers();
-      const host = process.env.AKANA_HOST ?? h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-      const origin = `${host.startsWith("localhost") ? "http" : "https"}://${host}`;
+      // Review L2: the configured address, never the Host header.
+      const origin = linkOrigin(h);
       const env = process.env;
       mailed = await sendReviewAssigned(
         data,

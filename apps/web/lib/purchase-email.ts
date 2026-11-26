@@ -3,6 +3,7 @@ import type { FirstWeekPlan } from "@/lib/first-week-plan";
 import { TRIAL_REMINDER_LEAD_DAYS, addDaysUtc, daysWords } from "@/lib/membership-trial";
 import { dateWords, moneyWords, readerBase } from "@/lib/support-actions";
 import type { MembershipConfirmedNotice, ReaderMailNotice } from "@/lib/stripe-webhook";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Sends the confirmation emails the Stripe webhook asks for in outcome.mail
@@ -120,7 +121,7 @@ export async function sendPurchaseEmail(n: ReaderMailNotice, origin: string, dep
 function mailerFor(deps: PurchaseEmailDeps) {
   return createMailer({
     env: deps.env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: deps.log,
     claim: deps.claim,
     release: deps.release,

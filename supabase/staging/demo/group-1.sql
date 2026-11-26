@@ -5,7 +5,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'a5e3e213-4503-56bd-807b-343a25fdd042' and content_hash <> 'e57405504445835ce264a0d91836483948b0a48b8b647de9e0b16a7f81d05355') then raise warning 'version % is already published with other content; it is left as it is', 'a5e3e213-4503-56bd-807b-343a25fdd042'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Turn what you have done into a plan for a new line of work.', current_version_id = 'a5e3e213-4503-56bd-807b-343a25fdd042' where id = '02cc094f-3a72-5e23-ad98-3f100cc969a3';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'a5e3e213-4503-56bd-807b-343a25fdd042' and published_at is null) then perform app.publish_version('a5e3e213-4503-56bd-807b-343a25fdd042'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '02cc094f-3a72-5e23-ad98-3f100cc969a3' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -15,7 +16,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'd74e2484-dc63-5758-972f-a2e43dad4804' and content_hash <> 'a78ff5280650a0ea730afabd839d8dadf07377abc8e1d4510e23c7be42951bdd') then raise warning 'version % is already published with other content; it is left as it is', 'd74e2484-dc63-5758-972f-a2e43dad4804'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Write and send a monthly newsletter that your customers want to open.', current_version_id = 'd74e2484-dc63-5758-972f-a2e43dad4804' where id = '6bbd623a-0cd9-5169-8b78-8b39d417aab0';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'd74e2484-dc63-5758-972f-a2e43dad4804' and published_at is null) then perform app.publish_version('d74e2484-dc63-5758-972f-a2e43dad4804'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '6bbd623a-0cd9-5169-8b78-8b39d417aab0' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -25,7 +27,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '69a4084f-863b-5fa8-8dc4-9e7b629eecc5' and content_hash <> 'ca6ec1aac8176065bd8b0b9f6c617a0753db5b178a4b53feffbf3ec92635a435') then raise warning 'version % is already published with other content; it is left as it is', '69a4084f-863b-5fa8-8dc4-9e7b629eecc5'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Prepare a request, trade fairly and write the agreement down.', current_version_id = '69a4084f-863b-5fa8-8dc4-9e7b629eecc5' where id = 'd24a70aa-2835-5764-8055-8aa74708db5b';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '69a4084f-863b-5fa8-8dc4-9e7b629eecc5' and published_at is null) then perform app.publish_version('69a4084f-863b-5fa8-8dc4-9e7b629eecc5'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = 'd24a70aa-2835-5764-8055-8aa74708db5b' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -35,7 +38,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '96574b5c-b13c-53c8-ad6b-d3b75f261254' and content_hash <> '3d529532ba27d3132c16da996fcb78949edea9d87c21cec2265a1f84b784ef6d') then raise warning 'version % is already published with other content; it is left as it is', '96574b5c-b13c-53c8-ad6b-d3b75f261254'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Know your regulars by name and give them a fair reason to come back.', current_version_id = '96574b5c-b13c-53c8-ad6b-d3b75f261254' where id = '41bd1fee-7a96-59b2-a9a6-801942082d2f';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '96574b5c-b13c-53c8-ad6b-d3b75f261254' and published_at is null) then perform app.publish_version('96574b5c-b13c-53c8-ad6b-d3b75f261254'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '41bd1fee-7a96-59b2-a9a6-801942082d2f' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -45,7 +49,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '6a05ff62-5ad5-58fb-bc4a-b66fb73d95d7' and content_hash <> 'ca3f0d1735b1e5d33453d03dd2d41a32d2761f41ed8ffe4fbf4c6b97e30d4a13') then raise warning 'version % is already published with other content; it is left as it is', '6a05ff62-5ad5-58fb-bc4a-b66fb73d95d7'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Keep a decision log and explain your choices so people can follow them.', current_version_id = '6a05ff62-5ad5-58fb-bc4a-b66fb73d95d7' where id = 'c7ff75c7-f205-55d0-aecd-8fccd787d778';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '6a05ff62-5ad5-58fb-bc4a-b66fb73d95d7' and published_at is null) then perform app.publish_version('6a05ff62-5ad5-58fb-bc4a-b66fb73d95d7'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = 'c7ff75c7-f205-55d0-aecd-8fccd787d778' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -55,7 +60,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'ae5dee08-0d66-59ea-9fcb-779912450401' and content_hash <> '4ded6eaf6944e4f0628fda697412e475468f29933b0723b9fcb68cdcc71a97ca') then raise warning 'version % is already published with other content; it is left as it is', 'ae5dee08-0d66-59ea-9fcb-779912450401'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Protect one morning block for your best work and keep it when the week gets busy.', current_version_id = 'ae5dee08-0d66-59ea-9fcb-779912450401' where id = 'acff5c69-cff0-5596-9323-3eaf9e6aaa8d';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'ae5dee08-0d66-59ea-9fcb-779912450401' and published_at is null) then perform app.publish_version('ae5dee08-0d66-59ea-9fcb-779912450401'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = 'acff5c69-cff0-5596-9323-3eaf9e6aaa8d' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -65,7 +71,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'ea4d56e4-9c08-5a71-b06d-f71dd47ba2fe' and content_hash <> '99a0c93b2477ddd76a854b5468395a0844b4221f2ac09326873d86bad5d747d2') then raise warning 'version % is already published with other content; it is left as it is', 'ea4d56e4-9c08-5a71-b06d-f71dd47ba2fe'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Give feedback in short everyday conversations and ask for it in return.', current_version_id = 'ea4d56e4-9c08-5a71-b06d-f71dd47ba2fe' where id = '5196a048-9159-5ae7-800e-2abde0c5524e';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'ea4d56e4-9c08-5a71-b06d-f71dd47ba2fe' and published_at is null) then perform app.publish_version('ea4d56e4-9c08-5a71-b06d-f71dd47ba2fe'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '5196a048-9159-5ae7-800e-2abde0c5524e' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -75,7 +82,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'e4f22ee8-6006-5cdf-89c8-4b4731c98bb1' and content_hash <> '8c026c289f71ec15fc43303385f148ce587fa3c8896665349dcb624ff9c23fc1') then raise warning 'version % is already published with other content; it is left as it is', 'e4f22ee8-6006-5cdf-89c8-4b4731c98bb1'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Build and give a five-minute talk around one point.', current_version_id = 'e4f22ee8-6006-5cdf-89c8-4b4731c98bb1' where id = 'ea4f426c-7a7a-57e8-8a1d-4e26b753da41';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'e4f22ee8-6006-5cdf-89c8-4b4731c98bb1' and published_at is null) then perform app.publish_version('e4f22ee8-6006-5cdf-89c8-4b4731c98bb1'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = 'ea4f426c-7a7a-57e8-8a1d-4e26b753da41' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -85,7 +93,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '0cdef401-4ff0-50d6-aca9-0e93a5a467c3' and content_hash <> '6647d8e105f38ab0d457da76bad00ee08340bd7a776e0b6882f070bfe2bdbb9b') then raise warning 'version % is already published with other content; it is left as it is', '0cdef401-4ff0-50d6-aca9-0e93a5a467c3'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Define a role, hire fairly and plan the first month for a new team member.', current_version_id = '0cdef401-4ff0-50d6-aca9-0e93a5a467c3' where id = 'b46535f7-dd5e-599b-a6e9-c30b6ef38c0d';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '0cdef401-4ff0-50d6-aca9-0e93a5a467c3' and published_at is null) then perform app.publish_version('0cdef401-4ff0-50d6-aca9-0e93a5a467c3'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = 'b46535f7-dd5e-599b-a6e9-c30b6ef38c0d' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -95,7 +104,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '7eaa2c32-b641-521c-aaf5-66ce491b3ba2' and content_hash <> 'c23a3f479b825a0637e7b168fbe739d42707fea41f4aa16b87e2cecacf948d91') then raise warning 'version % is already published with other content; it is left as it is', '7eaa2c32-b641-521c-aaf5-66ce491b3ba2'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'List what only you can do, then hand the rest on with clear checkpoints.', current_version_id = '7eaa2c32-b641-521c-aaf5-66ce491b3ba2' where id = '4638e444-02ae-5331-8753-d46a62722696';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '7eaa2c32-b641-521c-aaf5-66ce491b3ba2' and published_at is null) then perform app.publish_version('7eaa2c32-b641-521c-aaf5-66ce491b3ba2'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '4638e444-02ae-5331-8753-d46a62722696' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -105,7 +115,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = 'afd46b09-8d22-5154-a11e-3a0049e12f12' and content_hash <> 'edeebf86b8831b9f1c01f01b0369e844f5eedcb564ace04ea1a406d04950438c') then raise warning 'version % is already published with other content; it is left as it is', 'afd46b09-8d22-5154-a11e-3a0049e12f12'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Draw up a team charter in which everyone speaks and is heard.', current_version_id = 'afd46b09-8d22-5154-a11e-3a0049e12f12' where id = '78480c1a-3f5d-506a-940d-d2008addaabc';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = 'afd46b09-8d22-5154-a11e-3a0049e12f12' and published_at is null) then perform app.publish_version('afd46b09-8d22-5154-a11e-3a0049e12f12'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '78480c1a-3f5d-506a-940d-d2008addaabc' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);
@@ -115,7 +126,8 @@ insert into public.workbook_versions (id, workbook_id, semver, schema_version, c
 do $check$ begin if exists (select 1 from public.workbook_versions where id = '1525cc21-4af3-5827-a9de-fe01defa8c7f' and content_hash <> 'eaf33403833976d65dd8df13732c3febdf0c838b3ddcca4e5696caa90c27b011') then raise warning 'version % is already published with other content; it is left as it is', '1525cc21-4af3-5827-a9de-fe01defa8c7f'; end if; end $check$;
 update public.workbooks set depth = 'full', short_title = null, card_line = 'Run a first mentoring relationship, from the opening meeting to a plan for next season.', current_version_id = '1525cc21-4af3-5827-a9de-fe01defa8c7f' where id = '63fcb9f4-21f3-5970-b96d-c8c68742eec0';
 -- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $publish$ begin if exists (select 1 from public.workbook_versions where id = '1525cc21-4af3-5827-a9de-fe01defa8c7f' and published_at is null) then perform app.publish_version('1525cc21-4af3-5827-a9de-fe01defa8c7f'::uuid); end if; end $publish$;
 update public.workbooks set status = 'live' where id = '63fcb9f4-21f3-5970-b96d-c8c68742eec0' and status is distinct from 'live';
 select set_config('request.jwt.claims', '', true);

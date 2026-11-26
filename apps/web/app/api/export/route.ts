@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { loadAccountData } from "@/lib/account-data-server";
 import { answerKeyRing, unseal } from "@/lib/answers";
 import { getReaderSession } from "@/lib/auth";
+import { readerSecondFactorMissing } from "@/lib/mfa/reader-gate-server";
 import { NO_STORE } from "@/lib/enrolment";
 import {
   buildExport,
@@ -13,7 +14,7 @@ import {
   type ExportAnswerInput,
   type ExportEnrolmentInput,
 } from "@/lib/export";
-import { EXPORT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
+import { EXPORT_BUSY_MESSAGE, EXPORT_UNAVAILABLE_MESSAGE, hitSelfState } from "@/lib/limits";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 
@@ -67,6 +68,8 @@ export async function GET(request: NextRequest) {
 
   const session = await getReaderSession();
   if (!session) return plain("Please sign in to download your work.", 401);
+  // Review M3: the download holds everything, so it needs the second factor when the reader has one.
+  if (await readerSecondFactorMissing(session)) return plain("Enter your sign-in code first, then download your work again. Go to /verify?for=reader to give the code.", 403);
   const tenantId = await tenantIdForRequest();
   if (!tenantId) return plain("This site is not set up yet.", 404);
 
@@ -78,7 +81,10 @@ export async function GET(request: NextRequest) {
 
   const supabase = await createUserClient();
   // F-143: at most 10 downloads an hour per reader (0027).
-  if (!(await hitSelf(supabase, "export_user"))) return plain(EXPORT_BUSY_MESSAGE, 429);
+  // Review M5: if the count cannot be kept the download waits (fail closed).
+  const limit = await hitSelfState(supabase, "export_user");
+  if (limit === "limited") return plain(EXPORT_BUSY_MESSAGE, 429);
+  if (limit === "unavailable") return plain(EXPORT_UNAVAILABLE_MESSAGE, 503);
   const { data: enrolData, error: enrolError } = await supabase
     .from("enrolments")
     .select("id, user_id, tenant_id, version_id, status, started_at, workbooks(code, title)")

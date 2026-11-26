@@ -89,7 +89,10 @@ end $$;
 -- ---------------------------------------------------------------------------
 do $$ declare t text; t2 text; st text; begin
   perform pg_temp.as_service();
-  select token into t from public.newsletter_subscribers where email = 'reader@example.test';
+  -- 0076: tokens are stored as hashes, so the token is no longer read from
+  -- the table. The link an issue would carry is used, as a reader would.
+  if exists (select 1 from public.newsletter_subscribers where token is not null) then raise exception 'a plain token is stored'; end if;
+  select token into t from public.newsletter_next_recipients(gen_random_uuid(), 10) where email = 'reader@example.test';
   if not public.newsletter_unsubscribe(t) then raise exception 'the token should unsubscribe'; end if;
   if not public.newsletter_unsubscribe(t) then raise exception 'unsubscribing twice is fine'; end if;
   if public.newsletter_unsubscribe('nope') then raise exception 'unknown token unsubscribed someone'; end if;

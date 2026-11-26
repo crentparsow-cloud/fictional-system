@@ -78,3 +78,13 @@ Read this at the start of every Cowork session on Akana, before any plan or agen
 48. The Stripe checkout hang was the Link prompt. In the test checkout use Pay without Link, and set the country before typing the card number.
 49. Never push to a branch another session is pushing to. Create a separate branch and open a pull request.
 50. Any SECURITY DEFINER function granted to authenticated that takes a caller-chosen hash, id or amount must be service role only. Wrap it so the server code passes the signed-in user and the database derives the rest (see 0068).
+51. Lesson 38 is out of date from migration 0074. The demo load files now publish as the longest-standing owner in platform_roles with a second-factor session, set inside the transaction. A bare staff claim is refused.
+52. A table-wide update grant with a guard trigger that lists protected columns leaves every other column writable. An author could change safety_tier on a published title this way. Use column grants, and list what clients may write, not what they may not.
+53. A second factor enforced only in the app is not enforced. The data API takes the same token. Any role or assurance rule must be checked in the database function or policy as well.
+54. The local test harness did not copy Supabase's default privileges on new tables, so a missed revoke passed every test. The harness now emulates them. Check live grants after any new table.
+55. A public function must never take its own rate limit key (an IP hash) as an argument. Forms that anyone can post go through the server with the service role.
+56. A legal page must not state a compliance fact (an assessment exists, a registration is held) until the evidence exists. A unit test now fails on square-bracket placeholders in legal pages.
+57. The same consumer-rights period was worked out in two places from different dates. One rule, one function, used by the page and the webhook.
+58. An exact framework pin with no dependency alerts hid a security release for five weeks. Dependabot and an audit step are now in the pipeline.
+59. The cloud workspace can restart mid-task and drop the agent's working memory. Each agent's brief and report must be on disk, and the chair must read the scratchpad and git state before assuming nothing was done.
+60. Fix agents' work needs a retest by an agent that did not write it. The retest of 26 November found six faults in the fixes, including a file erasure that could remove another party's manuscript.

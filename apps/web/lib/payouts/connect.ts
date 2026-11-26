@@ -5,6 +5,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 import type { ConnectRepo } from "@/lib/payouts/connect-webhook";
 import { accountCreateParams, accountIdempotencyKey, connectStatusFromAccount, isUuid, onboardingUrls } from "@/lib/payouts/status";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * Connect Express onboarding (F-099), the server part. Stripe test mode
@@ -111,6 +112,21 @@ export function connectRepo(admin: Admin, stripe: Stripe = getStripe()): Connect
       if (error) throw new Error(`note_payout_details_changed failed: ${error.code ?? error.message}`);
       return (data as string | null) ?? null;
     },
+    async notePayoutFailed(a) {
+      const { data, error } = await admin.rpc("note_connect_payout_failed", {
+        p_account: a.accountId,
+        p_payout: a.payoutId,
+        p_code: a.code,
+        p_amount_minor: a.amountMinor,
+        p_currency: a.currency,
+        p_livemode: a.livemode,
+      });
+      // Until 0075 is applied the function is not there: nothing is recorded and the alert still goes.
+      if (error && error.code === "PGRST202") return { orgId: null, recorded: false };
+      if (error) throw new Error(`note_connect_payout_failed failed: ${error.code ?? error.message}`);
+      const row = (Array.isArray(data) ? data[0] : data) as { org_id: string | null; recorded: boolean } | null;
+      return { orgId: row?.org_id ?? null, recorded: row?.recorded === true };
+    },
     async retrieveAccount(accountId) {
       try {
         return await stripe.accounts.retrieve(accountId);
@@ -121,9 +137,7 @@ export function connectRepo(admin: Admin, stripe: Stripe = getStripe()): Connect
   };
 }
 
-/** The public origin for links, from the configured host or the request headers. */
+/** The public origin for links: the configured address, never the Host header (review L2). */
 export function originFrom(headers: Headers): string {
-  const host = process.env.AKANA_HOST ?? headers.get("x-forwarded-host") ?? headers.get("host") ?? "localhost:3000";
-  const proto = host.startsWith("localhost") ? "http" : "https";
-  return `${proto}://${host}`;
+  return linkOrigin(headers);
 }

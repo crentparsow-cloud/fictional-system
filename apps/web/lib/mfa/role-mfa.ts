@@ -9,6 +9,8 @@
  * within ten minutes (lib/payouts/step-up.ts).
  */
 
+import { safeNextPath } from "@/lib/safe-next";
+
 /** Organisation roles that need a second factor. Readers, editors, authors and viewers do not. */
 export const MFA_ROLES: readonly string[] = ["owner", "finance"];
 
@@ -54,6 +56,6 @@ export function isRoleMfaError(code: string | null | undefined): boolean {
 
 /** The verify page, coming back to `next` afterwards. Only same-site paths are kept. */
 export function verifyHref(next: string): string {
-  const safe = next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : "/studio";
+  const safe = safeNextPath(next, "/studio");
   return `${VERIFY_PATH}?next=${encodeURIComponent(safe)}`;
 }

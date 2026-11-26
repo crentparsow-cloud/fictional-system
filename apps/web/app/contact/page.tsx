@@ -38,9 +38,11 @@ export default function ContactPage() {
       </p>
 
       <ContactForm />
-      <p className="d-soft small">
-        Prefer email? Write to {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}.
-      </p>
+      {contact.email ? (
+        <p className="d-soft small">
+          Prefer email? Write to <a href={`mailto:${contact.email}`}>{contact.label}</a>.
+        </p>
+      ) : null}
       </div>
     </main>
   );

@@ -84,17 +84,31 @@ do $$ begin
     update public.workbooks set in_membership = false where id = 'cdcdcdcd-0000-0000-0000-0000000000c1';
     raise exception 'an org owner took a title out of the membership';
   exception when insufficient_privilege then null; end;
-  -- other columns stay editable for the owner
-  update public.workbooks set card_line = 'New card' where id = 'cdcdcdcd-0000-0000-0000-0000000000c1';
+  -- 0074: no client holds an update grant on workbooks, so the card line is
+  -- refused too. Before 0074 this update went through.
+  begin
+    update public.workbooks set card_line = 'New card' where id = 'cdcdcdcd-0000-0000-0000-0000000000c1';
+    raise exception 'an org owner wrote the workbooks table directly';
+  exception when insufficient_privilege then null; end;
 end $$;
 reset role;
 select test_as('77777777-7777-7777-7777-777777777777', array['editor']);
+-- 0074: staff sessions are the authenticated role too, so the direct update is
+-- refused for them as well. The membership guard still lets a platform editor
+-- through, which is what a staff function relies on; that is checked here by
+-- running the same update as the owner with the editor's claims in place.
+do $$ begin
+  begin
+    update public.workbooks set in_membership = false where id = 'cdcdcdcd-0000-0000-0000-0000000000c1';
+    raise exception 'a platform editor wrote the workbooks table directly';
+  exception when insufficient_privilege then null; end;
+end $$;
+reset role;
 do $$ declare n int; begin
   update public.workbooks set in_membership = false where id = 'cdcdcdcd-0000-0000-0000-0000000000c1';
   get diagnostics n = row_count;
   if n <> 1 then raise exception 'a platform editor could not change the membership flag'; end if;
 end $$;
-reset role;
 rollback to savepoint s_catalogue;
 
 -- ---------------------------------------------------------------------------

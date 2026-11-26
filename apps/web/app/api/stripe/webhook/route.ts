@@ -6,10 +6,15 @@ import { sendPurchaseEmail, type TrialExtras } from "@/lib/purchase-email";
 import { loadFirstWeekPlan } from "@/lib/first-week-plan-server";
 import { PRICE_LADDER } from "@/lib/pricing";
 import { cancelInCoolingOff } from "@/lib/membership-refund";
+import { closeDuplicateSubscription } from "@/lib/duplicate-subscription";
 import { getStripe, getWebhookSecret } from "@/lib/stripe";
 import {
+  DuplicateLiveSubscriptionError,
   handleStripeEvent,
   SubscriptionInsertRaceError,
+  type DisputeResult,
+  type MoneyRepo,
+  type OpsNotice,
   type GrantDetails,
   type MembershipConfirmedNotice,
   type MembershipNotice,
@@ -28,6 +33,7 @@ import { handleOrgBillingWebhook, isOrgBillingEvent } from "@/lib/org-billing-we
 import { growthAfterStripeEvent } from "@/lib/growth-webhook";
 import { growthContext } from "@/lib/referral-stripe";
 import { handleConversionEvent } from "@/lib/conversion-webhook";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * Stripe platform webhook (F-096). POST /api/stripe/webhook
@@ -72,6 +78,14 @@ import { handleConversionEvent } from "@/lib/conversion-webhook";
  * The refund key is refund:<re_ id>, the one the refund console claims, so
  * the two never both send. Best effort, like the membership emails.
  *
+ * Review of 21 November 2026 (migration 0075). A second live membership for
+ * one reader is cancelled and refunded in Stripe (M9). A dispute suspends
+ * what the payment gave, a win gives it back, and staff are alerted (M10).
+ * A failed refund reopens a workbook the refund had closed and alerts staff
+ * (L7). These need charge.dispute.created, charge.dispute.closed and
+ * refund.failed (or charge.refund.updated) on the platform endpoint; until
+ * they are added Stripe does not send them and nothing here changes.
+ *
  * Always 200 once the signature is good,
  * so Stripe does not retry what we have already handled; a database error
  * is a 500 so Stripe does retry.
@@ -111,15 +125,17 @@ export async function POST(request: NextRequest) {
 
   try {
     const admin = createAdminClient();
-    const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin), ledgerRepo(admin, getStripe()));
-    const { notify, mail, ...logged } = outcome;
+    const outcome = await handleStripeEvent(event, supabaseRepo(admin), membershipRepo(admin), ledgerRepo(admin, getStripe()), moneyRepo(admin));
+    const { notify, mail, alerts, ...logged } = outcome;
     console.info("stripe webhook", logged);
+    // 0075: a dispute, a failed refund or a closed duplicate is raised with staff. Never throws.
+    for (const a of alerts ?? []) await raise(admin, a);
     if (notify) await sendNotice(admin, notify, siteOrigin(request));
     for (const n of mail ?? []) await sendMail(admin, n, siteOrigin(request));
     if (outcome.action === "granted") await countPurchase(admin, event);
     if (outcome.action === "subscription_applied" || outcome.action === "cooling_off_cancelled") await countMembership(admin, event);
     // Growth (6.3, 13.11, 14.13): the author share, referral rewards and credit. Throws on a failure so Stripe retries.
-    const growth = await growthAfterStripeEvent(event, growthContext(admin, getStripe()));
+    const growth = await growthAfterStripeEvent(event, growthContext(admin, getStripe()), { action: outcome.action, subscriptionId: outcome.subscriptionId ?? null });
     if (growth.length > 0) console.info("stripe webhook growth", { event: event.id, done: growth });
     return NextResponse.json({ received: true, action: outcome.action });
   } catch (err) {
@@ -212,6 +228,8 @@ function membershipRepo(admin: Admin): MembershipRepo {
         p_observed_at: st.observedAt,
       });
       if (error) {
+        // M9 (0075): the reader already has a live membership. The handler settles which one is the duplicate.
+        if (error.code === "23505" && /subscriptions_one_live_idx/.test(`${error.message ?? ""} ${error.details ?? ""}`)) throw new DuplicateLiveSubscriptionError();
         // 23505: a concurrent delivery inserted the same new subscription first. The handler retries once.
         if (error.code === "23505") throw new SubscriptionInsertRaceError();
         throw new Error(`upsert_subscription failed: ${error.code ?? error.message}`);
@@ -225,6 +243,14 @@ function membershipRepo(admin: Admin): MembershipRepo {
           p_until: st.pausedUntil,
         });
         if (pauseError) throw new Error(`record_subscription_pause failed: ${pauseError.code ?? pauseError.message}`);
+        // M11 (0075): the dates the cooling-off period is counted from, for the cancel page.
+        const { error: windowError } = await admin.rpc("record_subscription_window", {
+          p_subscription: st.subscriptionId,
+          p_started_at: st.startedAt,
+          p_trial_end: st.trialEnd,
+        });
+        // Until 0075 is applied the function is not there: the dates are picked up by a later event.
+        if (windowError && !notInstalled(windowError)) throw new Error(`record_subscription_window failed: ${windowError.code ?? windowError.message}`);
       }
       return result;
     },
@@ -267,7 +293,82 @@ function membershipRepo(admin: Admin): MembershipRepo {
         return null;
       }
     },
+    async otherLiveSubscriptions(st) {
+      let userId = st.userId;
+      let tenantId = st.tenantId;
+      if (!userId || !tenantId) {
+        // As upsert_subscription does: the reader is the one the customer's earlier subscription belongs to.
+        const { data, error } = await admin.from("subscriptions").select("user_id, tenant_id").eq("stripe_customer_id", st.customerId).order("created_at", { ascending: false }).limit(1);
+        if (error) throw new Error(`subscriptions lookup failed: ${error.code ?? error.message}`);
+        const row = (data ?? [])[0] as { user_id: string; tenant_id: string } | undefined;
+        if (!row) return [];
+        userId = row.user_id;
+        tenantId = row.tenant_id;
+      }
+      const { data, error } = await admin
+        .from("subscriptions")
+        .select("stripe_subscription_id")
+        .eq("user_id", userId)
+        .eq("tenant_id", tenantId)
+        .in("status", ["trialing", "active", "past_due"]);
+      if (error) throw new Error(`subscriptions lookup failed: ${error.code ?? error.message}`);
+      return ((data ?? []) as { stripe_subscription_id: string }[]).map((r) => r.stripe_subscription_id);
+    },
+    async closeDuplicate(id) {
+      return closeDuplicateSubscription(getStripe(), id);
+    },
   };
+}
+
+/** PostgREST's answer for a function that does not exist yet: migration 0075 has not been applied. */
+function notInstalled(error: { code?: string }): boolean {
+  return error.code === "PGRST202";
+}
+
+const NOT_MATCHED: DisputeResult = { kind: "unmatched", status: "open", changed: false, subscriptionId: null };
+
+/** Disputes and failed refunds over the service role client (migration 0075). */
+function moneyRepo(admin: Admin): MoneyRepo {
+  const result = (fn: string, data: unknown): DisputeResult => {
+    const j = (data ?? {}) as { kind?: DisputeResult["kind"]; status?: DisputeResult["status"]; changed?: boolean; subscription?: string | null };
+    if (!j.kind || !j.status) throw new Error(`${fn} failed: no result`);
+    return { kind: j.kind, status: j.status, changed: j.changed === true, subscriptionId: j.subscription ?? null };
+  };
+  return {
+    async openDispute(disputeId, paymentIntentId) {
+      const { data, error } = await admin.rpc("dispute_open", { p_dispute: disputeId, p_payment_intent: paymentIntentId, p_invoice: null });
+      if (error && notInstalled(error)) return NOT_MATCHED;
+      if (error) throw new Error(`dispute_open failed: ${error.code ?? error.message}`);
+      return result("dispute_open", data);
+    },
+    async closeDispute(disputeId, paymentIntentId, outcome) {
+      const { data, error } = await admin.rpc("dispute_close", { p_dispute: disputeId, p_payment_intent: paymentIntentId, p_outcome: outcome, p_invoice: null });
+      if (error && notInstalled(error)) return { ...NOT_MATCHED, status: outcome };
+      if (error) throw new Error(`dispute_close failed: ${error.code ?? error.message}`);
+      return result("dispute_close", data);
+    },
+    async endMembership(subscriptionId) {
+      const stripe = getStripe();
+      const sub = await stripe.subscriptions.retrieve(subscriptionId);
+      if (sub.status === "canceled" || sub.status === "incomplete_expired") return;
+      await stripe.subscriptions.cancel(subscriptionId, { invoice_now: false, prorate: false });
+    },
+    async refundedMinor(paymentIntentId) {
+      const refunds = await getStripe().refunds.list({ payment_intent: paymentIntentId, limit: 100 });
+      return refunds.data.filter((r) => r.status === "succeeded" || r.status === "pending").reduce((sum, r) => sum + r.amount, 0);
+    },
+    async restoreAfterFailedRefund(paymentIntentId, refundId, stillRefundedMinor) {
+      const { data, error } = await admin.rpc("restore_after_failed_refund", { p_payment_intent: paymentIntentId, p_refund: refundId, p_still_refunded_minor: stillRefundedMinor });
+      if (error && notInstalled(error)) return "none";
+      if (error) throw new Error(`restore_after_failed_refund failed: ${error.code ?? error.message}`);
+      return data as Awaited<ReturnType<MoneyRepo["restoreAfterFailedRefund"]>>;
+    },
+  };
+}
+
+/** One staff alert through lib/ops-alerts.ts. Best effort: reportOps never throws. */
+async function raise(admin: Admin, a: OpsNotice): Promise<void> {
+  await reportOps(admin, a.kind, a.source, a.code);
 }
 
 /**
@@ -356,11 +457,9 @@ async function trialExtras(admin: Admin, n: MembershipConfirmedNotice): Promise<
   return { firstWeek, renewalMinor };
 }
 
-/** The public origin for links in the email, from the proxy's headers. */
+/** The public origin for links in the email: the configured site address (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
-  const proto = host.startsWith("localhost") ? "http" : "https";
-  return `${proto}://${host}`;
+  return linkOrigin(request.headers);
 }
 
 /**

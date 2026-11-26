@@ -4,6 +4,7 @@ import { mailLog } from "@/lib/mail-ops";
 import { runMonthlyReport, type DigestRow, type ReportRun } from "@/lib/org-monthly-report";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import type { createAdminClient } from "@/lib/supabase/admin";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 type Admin = ReturnType<typeof createAdminClient>;
 
@@ -30,7 +31,7 @@ type DigestDbRow = {
 export async function sendOrgMonthlyReports(admin: Admin, origin: string, now = new Date()): Promise<ReportRun> {
   const mailer = createMailer({
     env: mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("org_billing", "org_monthly_report"),
     async claim(key) {
       const { data, error } = await admin.rpc("claim_email", { p_key: key });

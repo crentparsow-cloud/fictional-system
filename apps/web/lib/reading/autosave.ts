@@ -11,7 +11,7 @@
  * wording, which says whose decision it is. Pure, so the words are tested.
  */
 
-export type SaveStateName = "idle" | "unsaved" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "device" | "device_full";
+export type SaveStateName = "idle" | "unsaved" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "verify" | "device" | "device_full";
 
 /** Why a save did not go through, as the browser and the server told us. */
 export type SaveCause = "offline" | "network" | "busy" | "slow" | "server";
@@ -47,6 +47,8 @@ export interface SaveLine {
   /** Show the Retry button. */
   retry: boolean;
   tone: "quiet" | "warn";
+  /** Show the link to the sign-in code page (the session owes a second factor). */
+  verify?: boolean;
 }
 
 const JUST_NOW_MS = 60_000;
@@ -72,6 +74,8 @@ export function saveLine({ state, cause, savedAt, now = Date.now(), keptOnDevice
       return { text: "Not saved. Consent to store your answers is not in place.", retry: false, tone: "warn" };
     case "read_only":
       return { text: "Not saved. Your account is read only while its deletion is pending.", retry: false, tone: "warn" };
+    case "verify":
+      return { text: "Not saved yet. Enter your sign-in code to carry on. Your words are kept on this device.", retry: false, tone: "warn", verify: true };
     case "device":
       return { text: "Kept on this device. Sign in to save it to your account.", retry: false, tone: "quiet" };
     case "device_full":

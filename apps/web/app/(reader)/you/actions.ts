@@ -2,12 +2,17 @@
 
 import { redirect } from "next/navigation";
 import { isDeleteConfirmed, type YouNotice } from "@/lib/account";
+import { requireReaderFactor } from "@/lib/mfa/reader-gate-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
  * You tab actions (F-025). Each runs as the signed-in reader through the
  * user client, so the security definer functions in 0006 and 0007 see
  * app.uid() and act on that reader only. They return to /you with a notice.
+ *
+ * Review M3: a reader with two-step sign-in must have given the code on this
+ * session before any of these runs. The layout asks on the page; this holds
+ * when the action is posted directly.
  */
 
 const back = (notice: YouNotice): never => redirect(`/you?notice=${notice}#your-data`);
@@ -17,6 +22,7 @@ export async function requestDeletion(formData: FormData): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { error } = await supabase.rpc("request_account_deletion");
   if (error) back("deletion-failed");
   back("deletion-requested");
@@ -26,6 +32,7 @@ export async function cancelDeletion(): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { error } = await supabase.rpc("cancel_account_deletion");
   if (error) back("cancel-failed");
   back("deletion-cancelled");
@@ -36,6 +43,7 @@ export async function withdrawHealthConsent(): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { error } = await supabase.rpc("clear_health_consent");
   if (error) back("consent-failed");
   back("consent-withdrawn");
@@ -46,6 +54,7 @@ export async function withdrawFaithConsent(): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { error } = await supabase.rpc("clear_faith_consent");
   if (error) back("faith-consent-failed");
   back("faith-consent-withdrawn");
@@ -62,6 +71,7 @@ export async function removeSharedMember(): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { data: result, error } = await supabase.rpc("seat_remove", {});
   if (error) sharedBack("failed");
   sharedBack(result === "removed" ? "removed" : "withdrawn");
@@ -72,6 +82,7 @@ export async function leaveSharedMembership(): Promise<void> {
   const supabase = await createUserClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) redirect("/sign-in?next=/you");
+  await requireReaderFactor(data.user, "/you");
   const { data: result, error } = await supabase.rpc("seat_leave");
   if (error || result !== "left") sharedBack("failed");
   sharedBack("left");

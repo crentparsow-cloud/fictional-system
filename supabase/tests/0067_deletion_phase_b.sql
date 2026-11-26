@@ -191,10 +191,13 @@ do $$ begin
 
   -- Gift memberships stay as purchase records without names, messages or addresses.
   if exists (select 1 from public.gift_memberships where id in ('a6700000-0000-0000-0000-000000000541', 'a6700000-0000-0000-0000-000000000542')
-             and (recipient_email is not null or recipient_name is not null or sender_name is not null or message is not null or claim_token is not null)) then
+             and (recipient_email is not null or recipient_name is not null or sender_name is not null or message is not null or claim_token is not null
+                  or claim_token_hash is not null or claim_token_hash_alt is not null)) then
     raise exception 'a gift membership kept personal data'; end if;
   -- A paid gift still waiting to be claimed stays claimable, without the buyer's name.
-  if not exists (select 1 from public.gift_memberships where id = 'a6700000-0000-0000-0000-000000000543' and buyer_id is null and sender_name is null and claim_token is not null) then
+  if not exists (select 1 from public.gift_memberships where id = 'a6700000-0000-0000-0000-000000000543' and buyer_id is null and sender_name is null
+                    -- 0076: the link is kept as a hash, never in plain form.
+                    and claim_token is null and claim_token_hash is not null) then
     raise exception 'a waiting gift was broken or kept the buyer''s name'; end if;
   if not exists (select 1 from public.gift_memberships where id = 'a6700000-0000-0000-0000-000000000544' and message = 'Keep me' and recipient_email = 'other67@test.com') then
     raise exception 'another reader''s gift membership was changed'; end if;

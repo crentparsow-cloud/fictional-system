@@ -6,6 +6,7 @@ import { siteOrigin } from "@/lib/site-url";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { readerBase, refundProps, resendProps, type ResendContext } from "@/lib/support-actions";
 import { refundMailKey } from "@/lib/stripe-webhook";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Reader emails sent by staff actions (F-087, F-102): the refund
@@ -36,7 +37,7 @@ function adminOrNull() {
 function mailer(o: Opts, source: string, admin: ReturnType<typeof adminOrNull>) {
   return createMailer({
     env: o.env ?? mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog(source, "support_mail"),
     ...(admin
       ? {

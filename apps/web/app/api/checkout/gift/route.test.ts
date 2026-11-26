@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { deriveClaimToken } from "@/lib/gift-link";
 import { READER_TERMS_VERSION } from "@/lib/terms";
 
 /**
@@ -18,6 +19,7 @@ const fake = {
   created: [] as Record<string, unknown>[],
   expired: [] as string[],
   insertFails: false,
+  sessionTaken: false,
   stripeFails: false,
   config: [{ key: "gift_months", value: [1, 3, 6, 12] }] as { key: string; value: unknown }[],
   points: [
@@ -31,6 +33,7 @@ const fake = {
     this.created = [];
     this.expired = [];
     this.insertFails = false;
+    this.sessionTaken = false;
     this.stripeFails = false;
   },
 };
@@ -64,6 +67,7 @@ vi.mock("@/lib/supabase/admin", () => ({
     rpc: async (name: string, args: Record<string, unknown>) => {
       if (name !== "gift_create") return { data: null, error: { code: "42883" } };
       if (fake.insertFails) return { data: null, error: { code: "AKX21" } };
+      if (fake.sessionTaken) return { data: null, error: { code: "23505" } };
       fake.rows.push(args);
       return { data: "gift-1", error: null };
     },
@@ -75,7 +79,8 @@ vi.mock("@/lib/stripe", () => ({
     return {
       checkout: {
         sessions: {
-          create: async (params: Record<string, unknown>) => {
+          create: async (params: Record<string, unknown>, options?: { idempotencyKey?: string }) => {
+            keys.push(options?.idempotencyKey);
             fake.created.push(params);
             return { id: "cs_test_gift1", url: "https://checkout.stripe.test/cs_test_gift1" };
           },
@@ -90,11 +95,11 @@ vi.mock("@/lib/stripe", () => ({
 
 const { POST } = await import("@/app/api/checkout/gift/route");
 
-function post(body: Record<string, unknown>) {
+function post(body: Record<string, unknown>, extraHeaders: Record<string, string> = {}) {
   return POST(
     new NextRequest("https://akana.test/api/checkout/gift", {
       method: "POST",
-      headers: { host: "akana.test", "content-type": "application/json" },
+      headers: { host: "akana.test", "content-type": "application/json", ...extraHeaders },
       body: JSON.stringify(body),
     }),
   );
@@ -102,12 +107,55 @@ function post(body: Record<string, unknown>) {
 
 const good = { months: 3, recipientEmail: "Friend@Example.test", recipientName: "Fran", senderName: "Sam", message: "Happy reading.", terms: READER_TERMS_VERSION };
 
+/** L6: the idempotency key each Checkout Session was created with. */
+const keys = vi.hoisted(() => [] as (string | undefined)[]);
+
 describe("POST /api/checkout/gift", () => {
   beforeEach(() => {
     fake.reset();
+    vi.stubEnv("GIFT_LINK_SECRET", "a-test-gift-link-secret-of-32-chars!");
     vi.spyOn(console, "error").mockImplementation(() => {});
   });
-  afterEach(() => vi.restoreAllMocks());
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  describe("where Stripe sends the buyer back (review L2)", () => {
+    const urls = () => {
+      const p = fake.created[0] as { success_url: string; cancel_url: string };
+      return [p.success_url, p.cancel_url];
+    };
+    afterEach(() => vi.unstubAllEnvs());
+
+    it("uses the configured address in production, whatever Host and X-Forwarded-Host say", async () => {
+      vi.stubEnv("AKANA_HOST", "akana.example");
+      vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://akana.example");
+      await post(good, { host: "evil.example", "x-forwarded-host": "evil.example", "x-forwarded-proto": "http" });
+      expect(urls()).toEqual(["https://akana.example/gift?thanks=1", "https://akana.example/gift"]);
+    });
+
+    it("keeps a preview's own address when the request came in on it, and no other", async () => {
+      vi.stubEnv("AKANA_HOST", "");
+      vi.stubEnv("NEXT_PUBLIC_SITE_URL", "");
+      vi.stubEnv("VERCEL_ENV", "preview");
+      vi.stubEnv("VERCEL_BRANCH_URL", "akana-git-fix.vercel.app");
+      vi.stubEnv("VERCEL_URL", "akana-def456.vercel.app");
+      await post(good, { host: "akana-def456.vercel.app" });
+      expect(urls()[0]).toBe("https://akana-def456.vercel.app/gift?thanks=1");
+      fake.reset();
+      await post(good, { host: "evil.example" });
+      expect(urls()[0]).toBe("https://akana-git-fix.vercel.app/gift?thanks=1");
+    });
+
+    it("works on localhost on any port", async () => {
+      vi.stubEnv("AKANA_HOST", "localhost:3000");
+      vi.stubEnv("NEXT_PUBLIC_SITE_URL", "");
+      for (const k of ["VERCEL_ENV", "VERCEL_BRANCH_URL", "VERCEL_URL", "VERCEL_PROJECT_PRODUCTION_URL"]) vi.stubEnv(k, "");
+      await post(good, { host: "localhost:3101" });
+      expect(urls()).toEqual(["http://localhost:3101/gift?thanks=1", "http://localhost:3101/gift"]);
+    });
+  });
 
   it("starts a one-off payment at the worked-out price and records a pending gift", async () => {
     const res = await post(good);
@@ -120,7 +168,18 @@ describe("POST /api/checkout/gift", () => {
     expect(JSON.stringify(params)).not.toMatch(/friend|Fran|Happy/i);
     const row = fake.rows[0]!;
     expect(row).toMatchObject({ p_session: "cs_test_gift1", p_months: 3, p_recipient_email: "friend@example.test", p_amount_minor: 2397, p_buyer: "user-1", p_currency: "GBP" });
-    expect(String(row.p_token)).toHaveLength(32);
+    // 0076 (review finding L12): the token is derived from the session id, so the database need only keep its hash.
+    expect(String(row.p_token)).toHaveLength(43);
+    expect(row.p_token).toBe(deriveClaimToken("cs_test_gift1", "a-test-gift-link-secret-of-32-chars!"));
+  });
+
+  it("starts no gift, and leaves no payable session, when there is no secret to derive the link from", async () => {
+    vi.stubEnv("GIFT_LINK_SECRET", "");
+    vi.stubEnv("SUPABASE_SERVICE_ROLE_KEY", "");
+    const res = await post(good);
+    expect(res.status).toBe(503);
+    expect(fake.rows).toHaveLength(0);
+    expect(fake.expired).toEqual(["cs_test_gift1"]);
   });
 
   it("uses the annual price for 12 months", async () => {
@@ -173,5 +232,40 @@ describe("POST /api/checkout/gift", () => {
     fake.insertFails = true;
     expect((await post(good)).status).toBe(500);
     expect(fake.expired).toEqual(["cs_test_gift1"]);
+  });
+});
+
+describe("POST /api/checkout/gift: one Checkout Session for one attempt (L6)", () => {
+  beforeEach(() => {
+    fake.reset();
+    keys.length = 0;
+    vi.stubEnv("GIFT_LINK_SECRET", "a-test-gift-link-secret-of-32-chars!");
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllEnvs();
+  });
+
+  it("gives the same gift asked for twice the same key, and a different gift a different one", async () => {
+    vi.useFakeTimers({ now: new Date("2026-11-25T10:00:10Z"), toFake: ["Date"] });
+    try {
+      expect((await post(good)).status).toBe(200);
+      expect((await post(good)).status).toBe(200);
+      expect((await post({ ...good, recipientEmail: "other@example.test" })).status).toBe(200);
+    } finally {
+      vi.useRealTimers();
+    }
+    expect(keys[0]).toMatch(/^akana-checkout-gift-[0-9a-f]{48}$/);
+    expect(keys[1]).toBe(keys[0]);
+    expect(keys[2]).not.toBe(keys[0]);
+  });
+
+  it("when the repeat finds the gift already recorded, the session stands and is not expired", async () => {
+    fake.sessionTaken = true;
+    const res = await post(good);
+    expect(res.status).toBe(200);
+    expect(await res.json()).toEqual({ url: "https://checkout.stripe.test/cs_test_gift1" });
+    expect(fake.expired).toEqual([]);
   });
 });

@@ -1,8 +1,9 @@
 import type Stripe from "stripe";
 import { subscriptionStateFrom, type SubscriptionState } from "@/lib/membership";
-import { coolingOffOpensAt, inCoolingOff, inTrial, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
+import { coolingOffCancelApplies, type CoolingOffCancelResult, type RefundOutcome, type RefundState } from "@/lib/membership-refund";
 import type { MembershipPricePointId } from "@/lib/pricing";
 import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
+import { DUPLICATE_MARK, type DuplicateClosed } from "@/lib/duplicate-subscription";
 
 /**
  * What the Stripe webhook does with an event, as a pure function over a
@@ -90,6 +91,23 @@ import { disputeInfo, type LedgerRepo } from "@/lib/money/ledger";
  *    dashboard refund now sends one too.
  * Each key is claimed in public.email_claims (0010) before the send and
  * released if the send fails.
+ *
+ * Review of 21 November 2026, when the route passes a money repo (0075):
+ *  - M9. One live membership per reader. When the database refuses a second
+ *    live subscription, the other one is read fresh from Stripe. If that one
+ *    has ended, it is recorded and this one is kept. If both are live, this
+ *    one is cancelled in Stripe, its latest payment is refunded in full, and
+ *    it is stored as cancelled. Nothing throws, so Stripe does not retry for
+ *    ever, and staff get an alert.
+ *  - M10. charge.dispute.created suspends what the payment gave and
+ *    charge.dispute.closed gives it back when won (or when an enquiry closes
+ *    with no chargeback). Lost: a workbook stays closed and a membership is
+ *    ended in Stripe. Every dispute event raises an ops alert.
+ *  - L7. refund.failed, or charge.refund.updated with status failed: a
+ *    workbook a full refund closed is opened again, and staff are alerted.
+ * Each is safe to deliver twice and in any order: the SQL functions keep one
+ * row per dispute and change nothing on a repeat, and every Stripe write
+ * carries an idempotency key or checks what is already there.
  */
 
 export type PurchaseStatus = "pending" | "paid" | "refunded" | "failed";
@@ -161,9 +179,13 @@ export type WebhookAction =
   | "trial_reminder_no_address"
   | "cooling_off_cancelled"
   | "dispute_recorded"
+  | "dispute_lost"
+  | "subscription_duplicate_closed"
+  | "refund_failed_restored"
+  | "refund_failed_flagged"
   | "ignored";
 
-export type SubscriptionUpsertResult = "applied" | "unchanged" | "stale" | "unlinked";
+export type SubscriptionUpsertResult = "applied" | "unchanged" | "stale" | "unlinked" | "duplicate_closed";
 export type InvoiceRecordResult = "recorded" | "unchanged" | "unlinked";
 
 export interface InvoiceRecord {
@@ -199,7 +221,52 @@ export interface MembershipRepo {
    * it a portal cancel only stops the renewal. Throws on a Stripe error.
    */
   cancelInCoolingOff?(subscriptionId: string, requestedAt: Date): Promise<CoolingOffCancelResult>;
+  /**
+   * M9: the Stripe ids of the other live subscriptions on record for the
+   * reader this one belongs to. Optional: without it a refused second
+   * subscription throws as before.
+   */
+  otherLiveSubscriptions?(state: SubscriptionState): Promise<string[]>;
+  /**
+   * M9: cancel a duplicate subscription in Stripe and refund its latest
+   * payment in full (lib/duplicate-subscription.ts). Safe to repeat.
+   */
+  closeDuplicate?(subscriptionId: string): Promise<DuplicateClosed>;
 }
+
+/** What public.dispute_open and public.dispute_close answer (0075). */
+export interface DisputeResult {
+  kind: "workbook" | "membership" | "unmatched";
+  status: "open" | "won" | "lost";
+  changed: boolean;
+  /** The Stripe subscription, for a membership payment. */
+  subscriptionId: string | null;
+}
+
+/** The money side of the review fixes (0075). All of it is safe to repeat. */
+export interface MoneyRepo {
+  /** public.dispute_open: suspend what the payment gave. */
+  openDispute(disputeId: string, paymentIntentId: string): Promise<DisputeResult>;
+  /** public.dispute_close: give it back when won, keep it closed when lost. */
+  closeDispute(disputeId: string, paymentIntentId: string, outcome: "won" | "lost"): Promise<DisputeResult>;
+  /** End a membership in Stripe after a lost dispute, with no refund. Does nothing once it has ended. */
+  endMembership(subscriptionId: string): Promise<void>;
+  /** What Stripe still holds as refunded on a payment: refunds that went or are going. Throws when Stripe cannot be read. */
+  refundedMinor(paymentIntentId: string): Promise<number>;
+  /** public.restore_after_failed_refund */
+  restoreAfterFailedRefund(paymentIntentId: string, refundId: string, stillRefundedMinor: number): Promise<"none" | "unchanged" | "still_refunded" | "disputed" | "restored">;
+}
+
+/** An alert for staff, raised by the route through lib/ops-alerts.ts. Codes only, never a name or an amount. */
+export interface OpsNotice {
+  kind: "webhook_failure" | "payout_failure";
+  source: string;
+  code: string;
+}
+
+export const DISPUTE_ALERT_SOURCE = "api/stripe/webhook/dispute";
+export const REFUND_FAILED_ALERT_SOURCE = "api/stripe/webhook/refund-failed";
+export const DUPLICATE_ALERT_SOURCE = "api/stripe/webhook/duplicate-subscription";
 
 /** An email the route should send. Never carries a title; the template has no title prop (F-098). */
 export interface PaymentFailedNotice {
@@ -326,6 +393,8 @@ export interface WebhookOutcome {
   notify?: MembershipNotice;
   /** Confirmation emails the route should send (purchase, membership, refund). */
   mail?: ReaderMailNotice[];
+  /** Alerts the route should raise for staff (0075). */
+  alerts?: OpsNotice[];
 }
 
 export async function handleStripeEvent(
@@ -333,8 +402,14 @@ export async function handleStripeEvent(
   repo: PurchaseRepo,
   membership?: MembershipRepo,
   ledger?: LedgerRepo,
+  money?: MoneyRepo,
 ): Promise<WebhookOutcome> {
   const base = { eventId: event.id, type: event.type };
+  // Not every event type here is in the Stripe types for the pinned API version.
+  const type = event.type as string;
+  if (type === "refund.failed" || type === "charge.refund.updated") {
+    return refundFailed(event, base, ledger, money);
+  }
 
   switch (event.type) {
     case "checkout.session.completed":
@@ -416,6 +491,7 @@ export async function handleStripeEvent(
         }
       }
       const outcome: WebhookOutcome = { ...base, action: fresh ? `subscription_${fresh.result}` : "ignored", purchaseId: null, subscriptionId: sub.id };
+      if (fresh?.result === "duplicate_closed") return { ...outcome, alerts: [duplicateAlert()] };
       if (event.type === "customer.subscription.updated" && fresh && cancelAtPeriodEndRequested(fresh.sub)) {
         const to = await subscriberEmail(fresh.sub, membership);
         if (to) outcome.notify = periodEndCancellation(sub.id, to, fresh.state.cancelAt ?? fresh.state.currentPeriodEnd);
@@ -428,6 +504,7 @@ export async function handleStripeEvent(
       const sub = event.data.object;
       const fresh = await upsertFresh(sub.id, sub, event, membership);
       const outcome = { ...base, purchaseId: null, subscriptionId: sub.id };
+      if (fresh?.result === "duplicate_closed") return { ...outcome, action: "subscription_duplicate_closed", alerts: [duplicateAlert()] };
       const state = fresh?.state ?? null;
       // Nothing will be charged if the member has already cancelled or the trial is over.
       if (!fresh || !state || state.status !== "trialing" || state.cancelAtPeriodEnd || state.cancelAt) {
@@ -463,6 +540,9 @@ export async function handleStripeEvent(
       const failed = event.type === "invoice.payment_failed";
       // Refresh the subscription first so the invoice has a row to hang on.
       const fresh = await upsertFresh(subscriptionId, null, event, membership);
+      // M9: a payment that lands on a duplicate already closed is refunded too, whatever order the events came in.
+      const duplicate = fresh?.result === "duplicate_closed" || fresh?.sub.cancellation_details?.comment === DUPLICATE_MARK;
+      if (duplicate && !failed && fresh?.result !== "duplicate_closed" && membership.closeDuplicate) await membership.closeDuplicate(subscriptionId);
       const recorded = await membership.recordInvoice({
         invoiceId: invoice.id,
         subscriptionId,
@@ -478,6 +558,8 @@ export async function handleStripeEvent(
       // F-100: membership money waits in the pool month.
       if (ledger && !failed && recorded !== "unlinked") await ledger.recordMembership(invoice.id, event.livemode);
       const outcome: WebhookOutcome = { ...base, action: `invoice_${recorded}`, purchaseId: null, subscriptionId };
+      // A duplicate was closed and refunded: no welcome and no payment chase for it.
+      if (duplicate) return fresh?.result === "duplicate_closed" ? { ...outcome, alerts: [duplicateAlert()] } : outcome;
       // The membership email, on the first paid invoice only.
       if (!failed && recorded !== "unlinked" && invoice.billing_reason === "subscription_create") {
         const notice = await membershipConfirmed(invoice, subscriptionId, fresh?.state ?? null, repo);
@@ -506,6 +588,7 @@ export async function handleStripeEvent(
       const fresh = await upsertFresh(subscriptionId, null, event, membership);
       const state = fresh?.state ?? null;
       const outcome = { ...base, purchaseId: null, subscriptionId };
+      if (fresh?.result === "duplicate_closed") return { ...outcome, action: "subscription_duplicate_closed", alerts: [duplicateAlert()] };
 
       const plan = state?.plan ?? planFromInvoiceLines(invoice);
       // Monthly members get the six-monthly terms reminder from the daily
@@ -545,18 +628,80 @@ export async function handleStripeEvent(
 
     case "charge.dispute.created":
     case "charge.dispute.closed": {
-      if (!ledger) return { ...base, action: "ignored", purchaseId: null };
+      if (!ledger && !money) return { ...base, action: "ignored", purchaseId: null };
       const dispute = event.data.object;
+      const pi = idOf(dispute.payment_intent);
       const info = disputeInfo(dispute);
-      if (!info) return { ...base, action: "ignored", purchaseId: null };
-      if (event.type === "charge.dispute.closed" && dispute.status !== "won") return { ...base, action: "ignored", purchaseId: null };
-      await ledger.recordDispute(event.type === "charge.dispute.created" ? "dispute" : "dispute_reversal", info, event.livemode);
-      return { ...base, action: "dispute_recorded", purchaseId: null };
+      const created = event.type === "charge.dispute.created";
+      // Won, or an enquiry that closed with no chargeback: the money stayed, so what it gave comes back.
+      const won = dispute.status === "won" || dispute.status === "warning_closed";
+      const lost = dispute.status === "lost";
+      // A close with any other status (Stripe has none today) changes nothing.
+      if (!created && !won && !lost) return { ...base, action: "ignored", purchaseId: null };
+
+      // M10: access first, so a ledger problem never leaves a disputed payment open.
+      let result: DisputeResult | null = null;
+      if (money && pi) {
+        result = created ? await money.openDispute(dispute.id, pi) : await money.closeDispute(dispute.id, pi, won ? "won" : "lost");
+        // Lost on a membership payment: the bank took the money back, so the membership ends.
+        if (lost && !created && result.kind === "membership" && result.subscriptionId) await money.endMembership(result.subscriptionId);
+      }
+      // F-100: the author's share is reversed on the dispute and restored on a win.
+      let ledgered = false;
+      if (ledger && info && (created || won)) {
+        await ledger.recordDispute(created ? "dispute" : "dispute_reversal", info, event.livemode);
+        ledgered = true;
+      }
+      if (!money) return { ...base, action: ledgered ? "dispute_recorded" : "ignored", purchaseId: null };
+      const code = `${created ? "dispute_opened" : won ? "dispute_won" : "dispute_lost"}_${result?.kind ?? "unmatched"}`;
+      return {
+        ...base,
+        action: !created && lost ? "dispute_lost" : "dispute_recorded",
+        purchaseId: null,
+        subscriptionId: result?.subscriptionId ?? null,
+        alerts: [{ kind: "webhook_failure", source: DISPUTE_ALERT_SOURCE, code }],
+      };
     }
 
     default:
       return { ...base, action: "ignored", purchaseId: null };
   }
+}
+
+function duplicateAlert(): OpsNotice {
+  return { kind: "webhook_failure", source: DUPLICATE_ALERT_SOURCE, code: "duplicate_closed_and_refunded" };
+}
+
+/**
+ * L7: a refund did not reach the reader. refund.failed carries the refund;
+ * charge.refund.updated carries it too and is used only when its status is
+ * failed, so either event (or both, in any order) ends in the same place.
+ * A workbook a full refund closed is opened again, unless Stripe still holds
+ * the price as refunded or a dispute is open. Staff are alerted every time:
+ * the reader is owed money, and the ledger line for the refund needs a look.
+ */
+async function refundFailed(
+  event: Stripe.Event,
+  base: { eventId: string; type: string },
+  ledger: LedgerRepo | undefined,
+  money: MoneyRepo | undefined,
+): Promise<WebhookOutcome> {
+  const refund = event.data.object as unknown as Pick<Stripe.Refund, "id" | "status" | "payment_intent">;
+  if (!money || refund?.status !== "failed" || typeof refund.id !== "string") return { ...base, action: "ignored", purchaseId: null };
+  const pi = idOf(refund.payment_intent);
+  let restored = "none";
+  if (pi) {
+    const still = await money.refundedMinor(pi);
+    restored = await money.restoreAfterFailedRefund(pi, refund.id, still);
+    // Any other refund on the payment that did go is kept in step.
+    if (ledger) await ledger.syncRefunds(pi, event.livemode);
+  }
+  return {
+    ...base,
+    action: restored === "restored" ? "refund_failed_restored" : "refund_failed_flagged",
+    purchaseId: null,
+    alerts: [{ kind: "webhook_failure", source: REFUND_FAILED_ALERT_SOURCE, code: `refund_failed_${restored}` }],
+  };
 }
 
 /**
@@ -570,8 +715,8 @@ export function cancelRequestedInCoolingOff(sub: Stripe.Subscription, event: Pic
   if (typeof sub.start_date !== "number") return false;
   const requestedAt = new Date((sub.canceled_at ?? event.created) * 1000);
   // A cancel in the trial just stops the subscription at the trial's end.
-  if (inTrial(sub, requestedAt)) return false;
-  return inCoolingOff(coolingOffOpensAt(sub), requestedAt);
+  // One rule, shared with the cancel page (M11).
+  return coolingOffCancelApplies(sub, requestedAt);
 }
 
 /**
@@ -749,6 +894,17 @@ export class SubscriptionInsertRaceError extends Error {
   }
 }
 
+/**
+ * Thrown by a MembershipRepo when the database refuses a second live
+ * subscription for one reader and tenant (subscriptions_one_live_idx, 0075).
+ */
+export class DuplicateLiveSubscriptionError extends Error {
+  constructor(message = "upsert_subscription failed: second live subscription") {
+    super(message);
+    this.name = "DuplicateLiveSubscriptionError";
+  }
+}
+
 async function upsertTolerantOfRace(membership: MembershipRepo, state: SubscriptionState): Promise<SubscriptionUpsertResult> {
   try {
     return await membership.upsertSubscription(state);
@@ -758,6 +914,46 @@ async function upsertTolerantOfRace(membership: MembershipRepo, state: Subscript
     return membership.upsertSubscription(state);
   }
 }
+
+/**
+ * M9: the database refused this subscription because the reader already has
+ * a live one. Events can arrive out of order, so the one on record is read
+ * fresh first: if it has ended in Stripe it is recorded as ended and this
+ * one is kept. Only when the other is live in Stripe too is this one a
+ * duplicate: it is cancelled there, its latest payment refunded, and the
+ * cancelled state stored. When the other cannot be read the error stands, so
+ * Stripe retries later and nothing is cancelled on a guess.
+ */
+async function settleDuplicate(
+  membership: MembershipRepo,
+  state: SubscriptionState,
+  error: DuplicateLiveSubscriptionError,
+): Promise<{ result: SubscriptionUpsertResult; state: SubscriptionState; sub: Stripe.Subscription | null }> {
+  if (!membership.otherLiveSubscriptions || !membership.closeDuplicate || !membership.retrieveSubscription) throw error;
+  const others = (await membership.otherLiveSubscriptions(state)).filter((id) => id !== state.subscriptionId);
+  if (others.length === 0) throw error;
+  let stillLive = 0;
+  for (const id of others) {
+    const other = await membership.retrieveSubscription(id);
+    if (!other) throw error;
+    const otherState = subscriptionStateFrom(other, new Date(), { user_id: state.userId, tenant_id: state.tenantId });
+    if (!otherState) throw error;
+    if (LIVE_STATUSES.has(otherState.status)) stillLive += 1;
+    else await upsertTolerantOfRace(membership, otherState);
+  }
+  if (stillLive === 0) {
+    // The earlier membership had ended; its event was late. This one is the reader's membership.
+    return { result: await upsertTolerantOfRace(membership, { ...state, observedAt: new Date().toISOString() }), state, sub: null };
+  }
+  const closed = await membership.closeDuplicate(state.subscriptionId);
+  const closedState = subscriptionStateFrom(closed.subscription, new Date(), { user_id: state.userId, tenant_id: state.tenantId });
+  if (!closedState || LIVE_STATUSES.has(closedState.status)) throw new Error("duplicate subscription still live after cancel");
+  await upsertTolerantOfRace(membership, closedState);
+  return { result: "duplicate_closed", state: closedState, sub: closed.subscription };
+}
+
+/** The statuses the one-live index covers (0075). */
+const LIVE_STATUSES = new Set(["trialing", "active", "past_due"]);
 
 /**
  * Read the subscription fresh when the repo can, else use the event's copy
@@ -783,7 +979,13 @@ async function upsertFresh(
   if (!sub) return null;
   const state = subscriptionStateFrom(sub, observedAt, fallbackMeta);
   if (!state) return null;
-  return { result: await upsertTolerantOfRace(membership, state), state, sub };
+  try {
+    return { result: await upsertTolerantOfRace(membership, state), state, sub };
+  } catch (err) {
+    if (!(err instanceof DuplicateLiveSubscriptionError)) throw err;
+    const settled = await settleDuplicate(membership, state, err);
+    return { result: settled.result, state: settled.state, sub: settled.sub ?? sub };
+  }
 }
 
 async function settleMembershipCheckout(session: Stripe.Checkout.Session, event: Stripe.Event, membership: MembershipRepo): Promise<void> {

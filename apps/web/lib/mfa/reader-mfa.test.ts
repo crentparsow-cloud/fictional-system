@@ -6,6 +6,8 @@ describe("reader two-step sign-in", () => {
     expect(readerVerifyHref("/today")).toBe("/verify?for=reader&next=%2Ftoday");
     expect(readerVerifyHref("https://evil.example")).toBe("/verify?for=reader&next=%2Fhome");
     expect(readerVerifyHref("//evil.example")).toBe("/verify?for=reader&next=%2Fhome");
+    // Review M7: a tab is stripped by the URL parser, leaving //evil.example.
+    expect(readerVerifyHref("/\t/evil.example")).toBe("/verify?for=reader&next=%2Fhome");
   });
   it("shows a notice only for a known code", () => {
     expect(securityNoticeText("off")).toMatch(/off/);

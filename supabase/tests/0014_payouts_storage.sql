@@ -46,6 +46,7 @@ begin
   if p_totp_age is not null then
     v_amr := v_amr || jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint - p_totp_age));
   end if;
+  perform public.test_hold_platform_roles(p_user, p_roles);  -- 0074: a role counts only with its platform_roles row
   perform set_config('request.jwt.claim.sub', p_user::text, true);
   perform set_config('request.jwt.claims', jsonb_build_object('sub', p_user, 'role', 'authenticated', 'aal', p_aal, 'amr', v_amr,
     'app_metadata', jsonb_build_object('platform_roles', to_jsonb(p_roles)))::text, true);
@@ -61,23 +62,29 @@ begin
 end $$;
 
 -- ---------------------------------------------------------------------------
--- 1. The owner cannot write payout columns directly, but can still edit the name.
+-- 1. The owner cannot write payout columns directly. From 0074 the owner
+-- cannot write the organisations table directly at all (no client update
+-- grant), so the name is refused as well and the payout columns are refused
+-- by the grant before the payout guard (AKY01) is reached. Either refusal passes.
 -- ---------------------------------------------------------------------------
 select pg_temp.as_payee('a0140000-0000-0000-0000-000000000001', 'aal2', 10);
 do $$ begin
-  update public.organisations set display_name = 'Pay One Books' where id = 'a0140000-0000-0000-0000-0000000000a1';
+  begin
+    update public.organisations set display_name = 'Pay One Books' where id = 'a0140000-0000-0000-0000-0000000000a1';
+    raise exception 'owner wrote the organisations table directly';
+  exception when insufficient_privilege then null; end;
   begin
     update public.organisations set connect_status = 'verified' where id = 'a0140000-0000-0000-0000-0000000000a1';
     raise exception 'owner set connect_status directly';
-  exception when sqlstate 'AKY01' then null; end;
+  exception when sqlstate 'AKY01' or insufficient_privilege then null; end;
   begin
     update public.organisations set stripe_connect_id = 'acct_attacker1' where id = 'a0140000-0000-0000-0000-0000000000a1';
     raise exception 'owner set stripe_connect_id directly';
-  exception when sqlstate 'AKY01' then null; end;
+  exception when sqlstate 'AKY01' or insufficient_privilege then null; end;
   begin
     update public.organisations set tax_residence = 'US' where id = 'a0140000-0000-0000-0000-0000000000a1';
     raise exception 'owner set tax_residence directly';
-  exception when sqlstate 'AKY01' then null; end;
+  exception when sqlstate 'AKY01' or insufficient_privilege then null; end;
 end $$;
 reset role;
 

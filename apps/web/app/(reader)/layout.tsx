@@ -11,7 +11,7 @@ import { createUserClient } from "@/lib/supabase/server";
 import { getReaderSession } from "@/lib/auth";
 import { getT } from "@/lib/i18n";
 import { loadAccountReading } from "@/lib/reading/settings-server";
-import { getRoleMfaSession } from "@/lib/mfa/role-mfa-server";
+import { readerSecondFactorMissing } from "@/lib/mfa/reader-gate-server";
 import { readerVerifyHref } from "@/lib/mfa/reader-mfa";
 import { needsReaderTerms, termsHref } from "@/lib/terms";
 import { readerTermsAccepted } from "@/lib/terms-server";
@@ -33,7 +33,7 @@ export default async function ReaderLayout({ children }: { children: React.React
   const current = h.get("x-akana-path") ?? "/home";
   if (!session) redirect(`/sign-in?next=${encodeURIComponent(current)}`);
   if (!session.adultConfirmedAt) redirect(`/welcome?next=${encodeURIComponent(current)}`);
-  if (session.mfaEnrolled && !(await getRoleMfaSession()).verified) redirect(readerVerifyHref(current));
+  if (await readerSecondFactorMissing(session)) redirect(readerVerifyHref(current));
   // F-122: asked again when the reader terms version changes. If the status
   // cannot be read the tabs stay open (logged); checkout still refuses
   // without a recorded acceptance.

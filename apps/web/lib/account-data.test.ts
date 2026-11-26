@@ -91,9 +91,254 @@ function base(): AccountDataInput {
     studentVerification: { user_id: ME, email_hash: "9".repeat(64), email_domain: "uni.ac.uk", token_hash: "8".repeat(64), verified_at: "2026-10-01T00:00:00Z", expires_at: "2027-10-01T00:00:00Z", created_at: "2026-09-30T00:00:00Z" },
     bundles: [{ user_id: ME, currency: "GBP", amount_minor: 1999, status: "paid", created_at: "2026-10-02T00:00:00Z", stripe_checkout_session_id: "cs_secret", workbook_ids: [W1] }, { user_id: OTHER, amount_minor: 1 }],
     packs: [{ buyer_user_id: ME, workbook_id: W1, currency: "GBP", amount_minor: 4900, created_at: "2026-10-03T00:00:00Z", session_id: "cs_secret" }, { buyer_user_id: OTHER, amount_minor: 2 }],
+    profile: { user_id: ME, display_name: "Me", locale: "en-GB", country: "GB", adult_confirmed_at: "2026-09-01T00:00:00Z", created_at: "2026-09-01T00:00:00Z", updated_at: "2026-10-01T00:00:00Z", health_consent_at: "2026-09-02T00:00:00Z", health_consent_version: "v1", faith_consent_at: null, faith_consent_version: null },
+    consentHistory: [
+      { user_id: ME, kind: "faith", action: "withdrawn", version: "v1", at: "2026-09-04T00:00:00Z", source: "reader", subject_hash: "a".repeat(64) },
+      { user_id: ME, kind: "health", action: "given", version: "v1", at: "2026-09-02T00:00:00Z", source: "reader" },
+      { user_id: OTHER, kind: "health", action: "given", version: "THEIR_VERSION", at: "2026-09-02T00:00:00Z", source: "reader" },
+    ],
+    workbookPurchases: [
+      { user_id: ME, workbook_id: W1, kind: "workbook", channel: "web", currency: "GBP", amount_minor: 1499, tax_minor: 250, status: "paid", created_at: "2026-09-05T00:00:00Z", paid_at: "2026-09-05T00:01:00Z", refunded_at: null, stripe_payment_intent_id: "pi_secret", stripe_checkout_session_id: "cs_secret" },
+      { user_id: OTHER, workbook_id: W1, amount_minor: 3, status: "paid" },
+    ],
+    subscriptions: [
+      { user_id: ME, plan: "monthly", status: "active", current_period_end: "2026-12-01T00:00:00Z", cancel_at_period_end: false, created_at: "2026-09-06T00:00:00Z", stripe_customer_id: "cus_secret", stripe_subscription_id: "sub_secret" },
+      { user_id: OTHER, plan: "THEIR_PLAN", status: "active" },
+    ],
+    entitlements: [
+      { user_id: ME, workbook_id: W1, source: "purchase", status: "active", starts_at: "2026-09-05T00:00:00Z", ends_at: null, created_at: "2026-09-05T00:00:00Z", purchase_id: "PURCHASE_ID" },
+      { user_id: ME, workbook_id: null, source: "subscription", status: "active", starts_at: "2026-09-06T00:00:00Z", ends_at: null, created_at: "2026-09-06T00:00:00Z" },
+      { user_id: OTHER, workbook_id: W1, source: "THEIR_SOURCE", status: "active" },
+    ],
+    termsAcceptances: [
+      { user_id: ME, doc: "reader-terms", version: "1.0", context: "sign_up", was_draft: false, accepted_at: "2026-09-01T00:00:00Z" },
+      { user_id: OTHER, doc: "THEIR_DOC", version: "1.0", accepted_at: "2026-09-01T00:00:00Z" },
+    ],
+    checkoutConsents: [
+      { user_id: ME, kind: "digital_waiver", version: "2026-10", plan: null, workbook_id: W1, consented_at: "2026-09-05T00:00:00Z", stripe_checkout_session_id: "cs_secret" },
+      { user_id: OTHER, kind: "THEIR_KIND", consented_at: "2026-09-05T00:00:00Z" },
+    ],
+    enrolmentProgress: [
+      { id: E1, user_id: ME, status: "active", pace: "steady", started_at: "2026-09-07T00:00:00Z", finished_at: null, last_opened_at: "2026-10-20T00:00:00Z" },
+      { id: E_OTHER, user_id: OTHER, status: "THEIR_STATUS", started_at: "2026-09-07T00:00:00Z" },
+    ],
+    progressEvents: [
+      { enrolment_id: E1, kind: "step_finished", ref: "u1.s2", at: "2026-10-02T00:00:00Z" },
+      { enrolment_id: E1, kind: "week_completed", ref: "u1", at: "2026-10-01T00:00:00Z" },
+      { enrolment_id: E_OTHER, kind: "THEIR_EVENT", ref: "u9", at: "2026-10-01T00:00:00Z" },
+    ],
+    readerSettings: { user_id: ME, reading: { text_size: "large", theme: "dark" }, updated_at: "2026-10-03T00:00:00Z" },
+    todaySettings: [
+      { enrolment_id: E1, user_id: ME, reminders_on: true, reminder_days: [1, 3, 5], reminder_time: "08:00", timezone: "Europe/London", reminders_stopped_at: null, review_frequency: "weekly", pickup_on: true, calendar_token_hash: "b".repeat(64), updated_at: "2026-10-04T00:00:00Z" },
+      { enrolment_id: E_OTHER, user_id: OTHER, reminders_on: true, timezone: "THEIR_ZONE" },
+    ],
+    supportMessages: [
+      { user_id: ME, topic: "billing", name: "Me", email: "me@example.com", message: "Signed-in message", status: "open", consent_contact: true, created_at: "2026-10-05T00:00:00Z", ip_hash: "7".repeat(64) },
+      { user_id: null, topic: "other", name: "Me", email: "ME@example.com", message: "Signed-out message", status: "closed", consent_contact: true, created_at: "2026-10-06T00:00:00Z" },
+      { user_id: OTHER, topic: "other", name: "Them", email: "me@example.com", message: "THEIR MESSAGE", status: "open", created_at: "2026-10-06T00:00:00Z" },
+      { user_id: null, topic: "other", name: "Them", email: "other@example.com", message: "ANOTHER ADDRESS", status: "open", created_at: "2026-10-06T00:00:00Z" },
+    ],
+    emailDelivery: [{ reason: "bounced", since: "2026-10-07T00:00:00Z", address_hash: "6".repeat(64) }],
+    groupMemberships: [
+      { group_id: "g1", user_id: ME, seat_id: "SEAT_ID", role: "member", accepted_at: "2026-10-01T00:00:00Z", offered_role: null, offered_at: null, count_checkins: true, left_at: null, left_reason: null },
+      { group_id: "g1", user_id: OTHER, role: "leader", accepted_at: "2026-09-30T00:00:00Z", left_reason: "THEIR_REASON" },
+    ],
+    groupCheckins: [
+      { group_id: "g1", user_id: ME, unit_number: 2, choice: "found_it_hard", counted: true, at: "2026-10-09T00:00:00Z" },
+      { group_id: "g1", user_id: OTHER, unit_number: 2, choice: "THEIR_CHOICE", counted: true, at: "2026-10-09T00:00:00Z" },
+    ],
+    groups: [{ id: "g1", name: "Tuesday group", workbookId: W1 }],
+    orgSeats: [
+      { org_id: "o1", user_id: ME, roster_email: "me@work.example", claimed_at: "2026-09-20T00:00:00Z", released_at: null, released_reason: null, invitation_id: "INVITATION_ID", entitlement_id: "ENTITLEMENT_ID" },
+      { org_id: "o1", user_id: OTHER, roster_email: "THEIR_ROSTER@work.example", claimed_at: "2026-09-21T00:00:00Z" },
+    ],
+    organisations: [{ id: "o1", name: "Plain Org" }],
+    membershipSeats: [
+      { owner_user_id: ME, member_user_id: OTHER, status: "active", invited_at: "2026-10-01T00:00:00Z", accepted_at: "2026-10-02T00:00:00Z", ended_at: null, token_hash: "8".repeat(64) },
+      { owner_user_id: OTHER, member_user_id: ME, status: "left", invited_at: "2026-08-01T00:00:00Z", accepted_at: "2026-08-02T00:00:00Z", ended_at: "2026-09-01T00:00:00Z" },
+      { owner_user_id: OTHER, member_user_id: "33333333-3333-3333-3333-333333333333", status: "THEIR_SEAT", invited_at: "2026-08-01T00:00:00Z" },
+    ],
+    acknowledgements: [
+      { enrolment_id: E1, version_id: "VERSION_ID", user_id: ME, acknowledged_at: "2026-10-15T00:00:00Z" },
+      { enrolment_id: E_OTHER, version_id: "VERSION_ID", user_id: OTHER, acknowledged_at: "2026-10-16T00:00:00Z" },
+    ],
+    invoices: [
+      { user_id: ME, stripe_invoice_id: "in_secret", stripe_subscription_id: "sub_secret", status: "paid", currency: "GBP", amount_minor: 799, tax_minor: 133, billing_reason: "subscription_cycle", period_start: "2026-10-01T00:00:00Z", period_end: "2026-11-01T00:00:00Z", paid_at: "2026-10-01T00:01:00Z", failed_at: null, created_at: "2026-10-01T00:00:30Z" },
+      { user_id: OTHER, stripe_invoice_id: "in_theirs", status: "THEIR_INVOICE", currency: "GBP", amount_minor: 1 },
+    ],
+    comments: [
+      { id: "COMMENT_ID", author_id: ME, workbook_id: W1, org_id: "o1", side: "org", author_name: "Me", body: "My own comment", created_at: "2026-10-17T00:00:00Z" },
+      { id: "c2", author_id: OTHER, workbook_id: W1, org_id: "o1", side: "staff", author_name: "THEIR NAME", body: "THEIR COMMENT", created_at: "2026-10-18T00:00:00Z" },
+    ],
+    reminderLog: [
+      { id: 7, user_id: ME, enrolment_id: E1, kind: "step", ref: "u1.s2", local_date: "2026-10-19", sent_at: "2026-10-19T07:00:00Z" },
+      { id: 8, user_id: OTHER, enrolment_id: E_OTHER, kind: "THEIR_KIND", ref: "u9", local_date: "2026-10-19", sent_at: "2026-10-19T07:00:00Z" },
+    ],
     unavailable: [],
   };
 }
+
+describe("the sections added for the full right of access (review finding M19)", () => {
+  const d = buildAccountData(base());
+  const json = JSON.stringify(d);
+
+  it("states 34 sections and carries every one, in the JSON and on the printable page", () => {
+    expect(ACCOUNT_DATA_SECTIONS).toHaveLength(34);
+    for (const key of ["profile", "consent_history", "memberships", "entitlements", "terms_and_consents", "progress", "settings", "support_messages", "email_delivery"] as const) {
+      expect(ACCOUNT_DATA_SECTIONS).toContain(key);
+      expect(d).toHaveProperty(key);
+    }
+    const html = renderExportHtml(buildExport([], [], {}, new Date("2026-11-25T00:00:00Z"), null, d), { showTitles: true });
+    for (const heading of ["Your profile", "Consent history", "Memberships", "What you have access to", "Terms accepted and checkout consents", "Progress", "Settings", "Messages you sent us", "Email delivery", "Purchases"]) {
+      expect(html).toContain(`<h4>${heading}</h4>`);
+    }
+    expect(html).toContain("Signed-in message");
+  });
+
+  it("carries the profile with the current health and faith consent", () => {
+    expect(d.profile).toEqual({
+      email: "Me@Example.com",
+      display_name: "Me",
+      locale: "en-GB",
+      country: "GB",
+      adult_confirmed_at: "2026-09-01T00:00:00Z",
+      created_at: "2026-09-01T00:00:00Z",
+      updated_at: "2026-10-01T00:00:00Z",
+      health_consent: { given_at: "2026-09-02T00:00:00Z", version: "v1" },
+      faith_consent: null,
+    });
+  });
+
+  it("carries the consent history in date order, the reader's rows only", () => {
+    expect(d.consent_history).toEqual([
+      { kind: "health", action: "given", version: "v1", at: "2026-09-02T00:00:00Z", source: "reader" },
+      { kind: "faith", action: "withdrawn", version: "v1", at: "2026-09-04T00:00:00Z", source: "reader" },
+    ]);
+  });
+
+  it("carries workbook purchases, memberships and entitlements without any Stripe id", () => {
+    expect(d.purchases.workbooks).toEqual([
+      { workbook_code: "AK-BBBBB", workbook_title: "Gift Workbook", kind: "workbook", channel: "web", currency: "GBP", amount_minor: 1499, tax_minor: 250, status: "paid", created_at: "2026-09-05T00:00:00Z", paid_at: "2026-09-05T00:01:00Z", refunded_at: null },
+    ]);
+    expect(d.memberships).toHaveLength(1);
+    expect(d.memberships[0]).toMatchObject({ plan: "monthly", status: "active", current_period_end: "2026-12-01T00:00:00Z", cancel_at_period_end: false });
+    expect(d.entitlements.map((x) => [x.workbook_code, x.all_workbooks, x.source])).toEqual([
+      ["AK-BBBBB", false, "purchase"],
+      [null, true, "subscription"],
+    ]);
+  });
+
+  it("carries terms accepted and checkout consents", () => {
+    expect(d.terms_and_consents.terms_accepted).toEqual([{ doc: "reader-terms", version: "1.0", context: "sign_up", was_draft: false, accepted_at: "2026-09-01T00:00:00Z" }]);
+    expect(d.terms_and_consents.checkout_consents).toEqual([{ kind: "digital_waiver", version: "2026-10", plan: null, workbook_code: "AK-BBBBB", workbook_title: "Gift Workbook", consented_at: "2026-09-05T00:00:00Z" }]);
+  });
+
+  it("carries progress on the reader's own enrolments, in date order", () => {
+    expect(d.progress.workbooks).toEqual([{ workbook_code: "AK-AAAAA", workbook_title: "Plain Workbook", status: "active", pace: "steady", started_at: "2026-09-07T00:00:00Z", finished_at: null, last_opened_at: "2026-10-20T00:00:00Z" }]);
+    expect(d.progress.events).toEqual([
+      { workbook_code: "AK-AAAAA", kind: "week_completed", ref: "u1", at: "2026-10-01T00:00:00Z" },
+      { workbook_code: "AK-AAAAA", kind: "step_finished", ref: "u1.s2", at: "2026-10-02T00:00:00Z" },
+    ]);
+  });
+
+  it("carries reading settings and reminders, never the calendar token hash", () => {
+    expect(d.settings.reading).toEqual({ text_size: "large", theme: "dark" });
+    expect(d.settings.reminders).toEqual([
+      { workbook_code: "AK-AAAAA", workbook_title: "Plain Workbook", reminders_on: true, reminder_days: [1, 3, 5], reminder_time: "08:00", timezone: "Europe/London", reminders_stopped_at: null, review_frequency: "weekly", pickup_on: true, updated_at: "2026-10-04T00:00:00Z" },
+    ]);
+  });
+
+  it("carries the reader's support messages: sent signed in, or signed out from their address", () => {
+    expect(d.support_messages.map((m) => m.message)).toEqual(["Signed-in message", "Signed-out message"]);
+  });
+
+  it("says why the address is not being mailed, as a reason and a date only", () => {
+    expect(d.email_delivery).toEqual([{ reason: "bounced", since: "2026-10-07T00:00:00Z" }]);
+  });
+
+  it("never carries another person's row, an id from Stripe or a hash", () => {
+    for (const leak of ["THEIR", "ANOTHER ADDRESS", "pi_secret", "cs_secret", "cus_secret", "sub_secret", "PURCHASE_ID", "a".repeat(64), "b".repeat(64), "6".repeat(64), "7".repeat(64), OTHER]) {
+      expect(json).not.toContain(leak);
+    }
+  });
+
+  it("reads as nothing held when a caller passes none of the new parts", () => {
+    const old = base();
+    for (const key of ["profile", "consentHistory", "workbookPurchases", "subscriptions", "entitlements", "termsAcceptances", "checkoutConsents", "enrolmentProgress", "progressEvents", "readerSettings", "todaySettings", "supportMessages", "emailDelivery"] as const) {
+      delete old[key];
+    }
+    const out = buildAccountData(old);
+    expect(out.profile).toBeNull();
+    expect(out.consent_history).toEqual([]);
+    expect(out.purchases.workbooks).toEqual([]);
+    expect(out.progress).toEqual({ workbooks: [], events: [] });
+    expect(out.settings).toEqual({ reading: null, reading_updated_at: null, reminders: [] });
+    expect(out.support_messages).toEqual([]);
+  });
+});
+
+describe("the sections added after the retest (RX-5)", () => {
+  const d = buildAccountData(base());
+  const json = JSON.stringify(d);
+
+  it("carries the reader's own group place and check-ins and nobody else's", () => {
+    expect(d.groups.memberships).toEqual([
+      { group_name: "Tuesday group", workbook_code: "AK-BBBBB", workbook_title: "Gift Workbook", role: "member", accepted_at: "2026-10-01T00:00:00Z", offered_role: null, offered_at: null, count_checkins: true, left_at: null, left_reason: null },
+    ]);
+    expect(d.groups.check_ins).toEqual([{ group_name: "Tuesday group", unit_number: 2, choice: "found_it_hard", counted: true, at: "2026-10-09T00:00:00Z" }]);
+  });
+
+  it("carries organisation seats and both sides of a shared membership without naming the other person", () => {
+    expect(d.seats.organisation).toEqual([{ organisation: "Plain Org", roster_email: "me@work.example", claimed_at: "2026-09-20T00:00:00Z", released_at: null, released_reason: null }]);
+    expect(d.seats.shared_membership).toEqual([
+      { your_part: "member", status: "left", invited_at: "2026-08-01T00:00:00Z", accepted_at: "2026-08-02T00:00:00Z", ended_at: "2026-09-01T00:00:00Z" },
+      { your_part: "owner", status: "active", invited_at: "2026-10-01T00:00:00Z", accepted_at: "2026-10-02T00:00:00Z", ended_at: null },
+    ]);
+  });
+
+  it("carries acknowledgements, invoices, the reader's own comments and the reminder log", () => {
+    expect(d.acknowledgements).toEqual([{ workbook_code: "AK-AAAAA", workbook_title: "Plain Workbook", acknowledged_at: "2026-10-15T00:00:00Z" }]);
+    expect(d.membership_invoices).toEqual([
+      { status: "paid", currency: "GBP", amount_minor: 799, tax_minor: 133, billing_reason: "subscription_cycle", period_start: "2026-10-01T00:00:00Z", period_end: "2026-11-01T00:00:00Z", paid_at: "2026-10-01T00:01:00Z", failed_at: null, created_at: "2026-10-01T00:00:30Z" },
+    ]);
+    expect(d.comments).toEqual([{ workbook_code: "AK-BBBBB", workbook_title: "Gift Workbook", organisation: "Plain Org", written_as: "Me", body: "My own comment", created_at: "2026-10-17T00:00:00Z" }]);
+    expect(d.reminders_sent).toEqual([{ workbook_code: "AK-AAAAA", workbook_title: "Plain Workbook", kind: "step", ref: "u1.s2", local_date: "2026-10-19", sent_at: "2026-10-19T07:00:00Z" }]);
+  });
+
+  it("never carries another person's rows, ids, tokens or Stripe ids, and shows each section on the page", () => {
+    for (const leak of ["THEIR", "in_secret", "in_theirs", "sub_secret", "SEAT_ID", "INVITATION_ID", "ENTITLEMENT_ID", "VERSION_ID", "COMMENT_ID", "8".repeat(64), OTHER]) {
+      expect(json).not.toContain(leak);
+    }
+    const html = renderExportHtml(buildExport([], [], {}, new Date("2026-11-26T00:00:00Z"), null, d), { showTitles: true });
+    for (const heading of ["Groups and check-ins", "Organisation and shared membership seats", "Changes you acknowledged", "Membership invoices", "Comments you wrote", "Reminder emails sent"]) {
+      expect(html).toContain(`<h4>${heading}</h4>`);
+    }
+    expect(html).toContain("My own comment");
+  });
+
+  it("drops a reminder or an acknowledgement on an enrolment that is not the reader's", () => {
+    const x = base();
+    x.reminderLog = [{ user_id: ME, enrolment_id: E_OTHER, kind: "step", local_date: "2026-10-19", sent_at: "2026-10-19T07:00:00Z" }];
+    x.acknowledgements = [{ user_id: ME, enrolment_id: E_OTHER, acknowledged_at: "2026-10-19T07:00:00Z" }];
+    const out = buildAccountData(x);
+    expect(out.reminders_sent).toEqual([]);
+    expect(out.acknowledgements).toEqual([]);
+  });
+
+  it("reads as nothing held when a caller passes none of them", () => {
+    const old = base();
+    for (const key of ["groupMemberships", "groupCheckins", "groups", "orgSeats", "organisations", "membershipSeats", "acknowledgements", "invoices", "comments", "reminderLog"] as const) {
+      delete old[key];
+    }
+    const out = buildAccountData(old);
+    expect(out.groups).toEqual({ memberships: [], check_ins: [] });
+    expect(out.seats).toEqual({ organisation: [], shared_membership: [] });
+    expect(out.acknowledgements).toEqual([]);
+    expect(out.membership_invoices).toEqual([]);
+    expect(out.comments).toEqual([]);
+    expect(out.reminders_sent).toEqual([]);
+  });
+});
 
 describe("buildAccountData", () => {
   const d = buildAccountData(base());
@@ -218,7 +463,7 @@ describe("the export document", () => {
   });
   it("prints every section on the page and nothing from other readers", () => {
     const html = renderExportHtml(doc, { showTitles: false });
-    for (const h of ["Highlights and notes", "Then and now check-ins", "Daily run", "Milestones", "Companion", "Referrals and credits", "Gift memberships", "Workbook gifts", "Authors you follow", "Title requests", "Newsletter", "Reminders on your devices", "Programmes with a friend", "Certificates", "Sign-in methods", "Prompts you dismissed", "Marketing choices", "Student verification", "Bundles and group packs"]) {
+    for (const h of ["Highlights and notes", "Then and now check-ins", "Daily run", "Milestones", "Companion", "Referrals and credits", "Gift memberships", "Workbook gifts", "Authors you follow", "Title requests", "Newsletter", "Reminders on your devices", "Programmes with a friend", "Certificates", "Sign-in methods", "Prompts you dismissed", "Marketing choices", "Student verification", "Purchases"]) {
       expect(html).toContain(h);
     }
     expect(html).toContain("my note");

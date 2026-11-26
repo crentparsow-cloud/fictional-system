@@ -1,6 +1,7 @@
 import { createMailer, type MailerEnv, type SendResult, type Transport } from "@akana/emails";
 import { withEmailOps, type OpsReporter } from "@/lib/mail-ops";
 import { respondUrl, type ShareLevel } from "@/lib/partner";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Check-in partner emails (F-030) through the shared mailer. Four
@@ -44,7 +45,7 @@ export function createPartnerMail(deps: PartnerMailDeps) {
   const mailer = createMailer({
     env: deps.env,
     // Declined and reported addresses are refused in the database before any token is minted.
-    isSuppressed: () => false,
+    isSuppressed,
     log: withEmailOps("partner", (e) => log(e.status, e.template, e.reason), deps.report),
     ...(deps.transport ? { transport: deps.transport } : {}),
   });

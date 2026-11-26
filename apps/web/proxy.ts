@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { isTenantSiteInternalPath, resolveRequestTenant, routeDecision, tenantSiteRoute } from "@/lib/tenant-resolve";
+import { isTenantSiteInternalPath, proxyRequestHeaders, resolveRequestTenant, routeDecision, tenantSiteRoute } from "@/lib/tenant-resolve";
 import { refreshSession } from "@/lib/supabase/proxy";
 
 /**
@@ -26,14 +26,8 @@ export async function proxy(request: NextRequest) {
     return new NextResponse("Not found", { status: 404 });
   }
 
-  const headers = new Headers(request.headers);
-  headers.set("x-akana-tenant", tenant.slug);
-  headers.set("x-akana-tenant-kind", tenant.kind);
-  // Only the proxy may set the tenant id. A value sent by the client is dropped.
-  if (tenant.id) headers.set("x-akana-tenant-id", tenant.id);
-  else headers.delete("x-akana-tenant-id");
-  // The path, so a layout can send a reader back where they were heading after a gate.
-  headers.set("x-akana-path", path + request.nextUrl.search);
+  // Only the proxy may set x-akana-* headers. Anything the client sent with that prefix is dropped (L4).
+  const headers = proxyRequestHeaders(request.headers, tenant, path + request.nextUrl.search);
 
   // A white-label host serves the tenant site and Akana's locked pages only
   // (F-068, F-069). No session lives on a tenant host, because sign-in stays

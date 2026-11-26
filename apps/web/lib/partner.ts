@@ -11,6 +11,7 @@
  *  - Progress on a wellbeing workbook is shared only when the reader ticks
  *    that choice (isWellbeingTier in lib/consent.ts decides which is which).
  */
+import { ownOrigin } from "@/lib/site-url";
 
 export type ShareLevel = 1 | 2 | 3;
 export type PartnerStatus = "invited" | "accepted" | "declined" | "stopped";
@@ -308,9 +309,7 @@ export function isSameOriginPost(headers: { get(name: string): string | null }):
   }
 }
 
-/** This site's origin, from the request, the way the billing route works it out. */
+/** This site's origin for links and redirects: one of this deployment's own configured addresses, never the raw Host header (review L2). */
 export function originFrom(headers: { get(name: string): string | null }): string {
-  const host = headers.get("x-forwarded-host") ?? headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(headers);
 }

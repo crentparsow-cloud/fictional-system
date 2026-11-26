@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 /**
  * POST /api/membership/share over fakes: the server makes the token, only its
@@ -30,7 +30,8 @@ vi.mock("@/lib/supabase/server", () => ({
 const { POST } = await import("@/app/api/membership/share/route");
 const { hashInviteToken } = await import("@/lib/shared-membership-token");
 
-const call = () => POST(new NextRequest("https://akana.test/api/membership/share", { method: "POST", headers: { host: "akana.test" } }));
+// Review L2: the link comes from the configured site address, so the test sets one.
+const call = (host = "akana.test") => POST(new NextRequest("https://akana.test/api/membership/share", { method: "POST", headers: { host } }));
 
 describe("POST /api/membership/share", () => {
   beforeEach(() => {
@@ -38,6 +39,14 @@ describe("POST /api/membership/share", () => {
     fake.rpcs = [];
     fake.error = null;
     vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.stubEnv("AKANA_HOST", "akana.test");
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "");
+  });
+  afterEach(() => vi.unstubAllEnvs());
+
+  it("builds the link from the configured address, not from the Host header (review L2)", async () => {
+    const body = (await (await call("evil.example")).json()) as { url: string };
+    expect(body.url.startsWith("https://akana.test/share/")).toBe(true);
   });
 
   it("needs a signed-in buyer", async () => {

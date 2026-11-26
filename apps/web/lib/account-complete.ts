@@ -30,6 +30,9 @@ export { COOLING_OFF_DAYS, errorCode, proRataRefund, type RefundOutcome } from "
  *      with a code and counted, and never blocks the deletion.
  *   4. complete_due_deletions() runs, then each auth user is removed and
  *      stamped, as before.
+ *   5. The deleted readers' own uploaded files, which step 4 queued in the
+ *      database, are removed from Storage (lib/storage-erasure.ts). A file
+ *      that could not be removed stays queued for the next run.
  *
  * Ids are never logged or returned, only counts.
  */
@@ -62,6 +65,11 @@ export interface DeletionJobDeps {
   redactCustomer?(customerId: string): Promise<void>;
   /** A code and a short reason (a Stripe error code, never an id or an address). */
   log?(code: string, reason: string): void;
+  /**
+   * Remove the files queued by completed deletions from Storage (0076, lib/storage-erasure.ts).
+   * Runs last, every run, so a removal that failed is tried again. A failure never fails the job.
+   */
+  removeQueuedFiles?(): Promise<{ removed: number; failed: number }>;
 }
 
 export interface DeletionJobResult {
@@ -76,6 +84,9 @@ export interface DeletionJobResult {
   processed: number;
   auth_removed: number;
   auth_failed: number;
+  /** Present when the job was given removeQueuedFiles. */
+  files_removed?: number;
+  files_failed?: number;
 }
 
 export async function runDeletionJob(deps: DeletionJobDeps): Promise<DeletionJobResult> {
@@ -155,6 +166,20 @@ export async function runDeletionJob(deps: DeletionJobDeps): Promise<DeletionJob
     }
     if (await deps.markAuthRemoved(id)) result.auth_removed += 1;
     else result.auth_failed += 1;
+  }
+
+  // The deleted readers' own uploads, queued by the step above or left from an earlier night.
+  if (deps.removeQueuedFiles) {
+    result.files_removed = 0;
+    result.files_failed = 0;
+    try {
+      const files = await deps.removeQueuedFiles();
+      result.files_removed = files.removed;
+      result.files_failed = files.failed;
+    } catch (err) {
+      result.files_failed = 1;
+      deps.log?.("deletion_files_failed", errorCode(err));
+    }
   }
   return result;
 }

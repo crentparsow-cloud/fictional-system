@@ -17,6 +17,13 @@ import { connectStatusFromAccount } from "@/lib/payouts/status";
  * public.note_payout_details_changed and the route emails the owner and
  * finance contacts, once per event.
  *
+ * payout.failed (review L7, migration 0075): Stripe could not pay the
+ * author's bank. public.note_connect_payout_failed records it once per
+ * Stripe payout, stamps the organisation's latest payout and holds further
+ * payouts until staff release the hold. The route raises a payout_failure
+ * alert. The Connect endpoint must be sent payout.failed; until it is, the
+ * event never arrives and nothing changes.
+ *
  * Logs carry ids only: event id, type, account id, organisation id.
  */
 
@@ -27,6 +34,8 @@ export interface ConnectRepo {
   syncStatus(accountId: string, status: "pending" | "verified" | "action_needed", observedAt: string): Promise<{ result: ConnectSyncResult; orgId: string | null }>;
   /** public.note_payout_details_changed. Returns the organisation id, or null when the account is not linked. */
   noteDetailsChanged(accountId: string, change: "created" | "updated" | "deleted", eventId: string): Promise<string | null>;
+  /** public.note_connect_payout_failed. Optional: without it payout.failed is ignored. */
+  notePayoutFailed?(a: { accountId: string; payoutId: string; code: string | null; amountMinor: number | null; currency: string | null; livemode: boolean }): Promise<{ orgId: string | null; recorded: boolean }>;
   /** The account as Stripe has it now, or null when it cannot be read. Optional. */
   retrieveAccount?(accountId: string): Promise<Stripe.Account | null>;
 }
@@ -39,7 +48,15 @@ export interface PayoutDetailsNotice {
   dedupeKey: string;
 }
 
-export type ConnectAction = "status_applied" | "status_unchanged" | "status_stale" | "account_unlinked" | "details_changed" | "ignored";
+export type ConnectAction =
+  | "status_applied"
+  | "status_unchanged"
+  | "status_stale"
+  | "account_unlinked"
+  | "details_changed"
+  | "payout_failed"
+  | "payout_failed_already"
+  | "ignored";
 
 export interface ConnectOutcome {
   eventId: string;
@@ -48,6 +65,8 @@ export interface ConnectOutcome {
   accountId: string | null;
   orgId: string | null;
   notify?: PayoutDetailsNotice;
+  /** Set when the route should raise a payout_failure alert. A short code, never bank details. */
+  alertCode?: string;
 }
 
 /** True when the route should send this event here rather than to the platform handler. */
@@ -81,6 +100,23 @@ export async function handleConnectEvent(event: Stripe.Event, repo: ConnectRepo)
     const action: ConnectAction =
       result === "applied" ? "status_applied" : result === "unchanged" ? "status_unchanged" : result === "stale" ? "status_stale" : "account_unlinked";
     return { ...base, accountId: id, action, orgId };
+  }
+
+  if (event.type === "payout.failed") {
+    const payout = event.data.object as Stripe.Payout;
+    if (!accountId || !repo.notePayoutFailed || typeof payout?.id !== "string") return { ...base, action: "ignored", orgId: null };
+    const code = typeof payout.failure_code === "string" && /^[a-z0-9_]{1,60}$/.test(payout.failure_code) ? payout.failure_code : null;
+    const { orgId, recorded } = await repo.notePayoutFailed({
+      accountId,
+      payoutId: payout.id,
+      code,
+      amountMinor: typeof payout.amount === "number" ? payout.amount : null,
+      currency: payout.currency ?? null,
+      livemode: event.livemode,
+    });
+    if (!orgId) return { ...base, action: "account_unlinked", orgId: null };
+    // Alerted on a repeat too: the alert is one row until staff acknowledge it.
+    return { ...base, action: recorded ? "payout_failed" : "payout_failed_already", orgId, alertCode: `bank_${code ?? "unknown"}` };
   }
 
   const change = EXTERNAL[event.type];

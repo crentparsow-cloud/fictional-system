@@ -4,6 +4,7 @@ import { sendTermsReminder } from "@/lib/membership-email";
 import { runTermsReminders, type DueTermsReminder } from "@/lib/membership-reminders";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { reportOps } from "@/lib/ops-alerts";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * The six-monthly terms reminder for monthly members (UK DMCC Act
@@ -113,11 +114,9 @@ class SqlError extends Error {
   }
 }
 
-/** The public origin for links in the email. */
+/** The public origin for links in the email. Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
-  const proto = host.startsWith("localhost") ? "http" : "https";
-  return `${proto}://${host}`;
+  return linkOrigin(request.headers);
 }
 
 export const GET = run;

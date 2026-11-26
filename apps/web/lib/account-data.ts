@@ -12,6 +12,18 @@
  *
  * Added to the export on 28 Oct 2026 as `account_data`. Fields are only ever
  * added, never renamed.
+ *
+ * 25 Nov 2026 (review finding M19): the profile, the consent history,
+ * workbook purchases, memberships, entitlements, terms and checkout
+ * consents, progress, settings, support messages and the email delivery
+ * state were missing and are now carried. Stripe ids, IP hashes and the
+ * calendar token hash are not.
+ *
+ * 26 Nov 2026 (retest finding RX-5): group membership and check-ins,
+ * organisation and shared membership seats, acknowledgements of a changed
+ * edition, membership invoices, comments the reader wrote on a workbook and
+ * the reminder log are now carried. Only the reader's own rows: no other
+ * member of a group, no other holder of a seat, no one else's comment.
  */
 
 export type Row = Record<string, unknown>;
@@ -53,6 +65,45 @@ export interface AccountDataInput {
   studentVerification: Row | null;
   bundles: Row[];
   packs: Row[];
+  /** Added for M19. Each is optional so an older caller still builds; a missing one reads as nothing held. */
+  profile?: Row | null;
+  consentHistory?: Row[];
+  workbookPurchases?: Row[];
+  subscriptions?: Row[];
+  entitlements?: Row[];
+  termsAcceptances?: Row[];
+  checkoutConsents?: Row[];
+  /** The reader's own enrolments with their dates, for the progress section. */
+  enrolmentProgress?: Row[];
+  /** Progress events on the reader's own enrolments. */
+  progressEvents?: Row[];
+  readerSettings?: Row | null;
+  todaySettings?: Row[];
+  /** Contact form messages sent while signed in, or from the sign-in address. */
+  supportMessages?: Row[];
+  /** Why the sign-in address is not being mailed (a bounce or a complaint), if it is not. */
+  emailDelivery?: Row[];
+  /** Added for RX-5. Optional for the same reason. */
+  /** The reader's own places in organisation groups. */
+  groupMemberships?: Row[];
+  /** The reader's own weekly check-ins. */
+  groupCheckins?: Row[];
+  /** Group id to its name and workbook, only for groups the reader has a place in. */
+  groups?: { id: string; name: string | null; workbookId: string | null }[];
+  /** Seats the reader holds or held on an organisation's licence. */
+  orgSeats?: Row[];
+  /** Organisation id to its name, only for the reader's own seats and comments. */
+  organisations?: { id: string; name: string | null }[];
+  /** Shared membership places, as the owner who gave one or the person who took one. */
+  membershipSeats?: Row[];
+  /** "I have seen what changed" marks on the reader's own enrolments. */
+  acknowledgements?: Row[];
+  /** Membership invoices. */
+  invoices?: Row[];
+  /** Comments the reader wrote on a workbook in the studio. */
+  comments?: Row[];
+  /** Reminder emails sent to the reader. */
+  reminderLog?: Row[];
   /** Sections the loader could not read, or rows it could not open. Said plainly in the file. */
   unavailable: string[];
 }
@@ -115,7 +166,51 @@ export interface AccountData {
   purchases: {
     bundles: { currency: string | null; amount_minor: number | null; status: string; created_at: string | null; paid_at: string | null; refunded_at: string | null }[];
     group_packs: { workbook_code: string | null; workbook_title: string | null; currency: string | null; amount_minor: number | null; created_at: string | null }[];
+    /** Added for M19. */
+    workbooks: { workbook_code: string | null; workbook_title: string | null; kind: string | null; channel: string | null; currency: string | null; amount_minor: number | null; tax_minor: number | null; status: string; created_at: string | null; paid_at: string | null; refunded_at: string | null }[];
   };
+  profile: {
+    email: string | null;
+    display_name: string | null;
+    locale: string | null;
+    country: string | null;
+    adult_confirmed_at: string | null;
+    created_at: string | null;
+    updated_at: string | null;
+    health_consent: { given_at: string; version: string | null } | null;
+    faith_consent: { given_at: string; version: string | null } | null;
+  } | null;
+  consent_history: { kind: string; action: string; version: string | null; at: string | null; source: string | null }[];
+  memberships: { plan: string | null; status: string; current_period_end: string | null; cancel_at_period_end: boolean | null; cancel_at: string | null; canceled_at: string | null; ended_at: string | null; paused_from: string | null; paused_until: string | null; created_at: string | null }[];
+  entitlements: { workbook_code: string | null; workbook_title: string | null; all_workbooks: boolean; source: string | null; status: string; starts_at: string | null; ends_at: string | null; created_at: string | null }[];
+  terms_and_consents: {
+    terms_accepted: { doc: string; version: string | null; context: string | null; was_draft: boolean | null; accepted_at: string | null }[];
+    checkout_consents: { kind: string; version: string | null; plan: string | null; workbook_code: string | null; workbook_title: string | null; consented_at: string | null }[];
+  };
+  progress: {
+    workbooks: { workbook_code: string | null; workbook_title: string | null; status: string | null; pace: string | null; started_at: string | null; finished_at: string | null; last_opened_at: string | null }[];
+    events: { workbook_code: string | null; kind: string; ref: string | null; at: string | null }[];
+  };
+  settings: {
+    reading: Record<string, unknown> | null;
+    reading_updated_at: string | null;
+    reminders: { workbook_code: string | null; workbook_title: string | null; reminders_on: boolean | null; reminder_days: unknown; reminder_time: string | null; timezone: string | null; reminders_stopped_at: string | null; review_frequency: string | null; pickup_on: boolean | null; updated_at: string | null }[];
+  };
+  support_messages: { topic: string | null; name: string | null; email: string | null; message: string | null; status: string | null; consent_contact: boolean | null; created_at: string | null }[];
+  email_delivery: { reason: string; since: string | null }[];
+  /** Added for RX-5. */
+  groups: {
+    memberships: { group_name: string | null; workbook_code: string | null; workbook_title: string | null; role: string | null; accepted_at: string | null; offered_role: string | null; offered_at: string | null; count_checkins: boolean | null; left_at: string | null; left_reason: string | null }[];
+    check_ins: { group_name: string | null; unit_number: number | null; choice: string | null; counted: boolean | null; at: string | null }[];
+  };
+  seats: {
+    organisation: { organisation: string | null; roster_email: string | null; claimed_at: string | null; released_at: string | null; released_reason: string | null }[];
+    shared_membership: { your_part: "owner" | "member"; status: string; invited_at: string | null; accepted_at: string | null; ended_at: string | null }[];
+  };
+  acknowledgements: { workbook_code: string | null; workbook_title: string | null; acknowledged_at: string | null }[];
+  membership_invoices: { status: string; currency: string | null; amount_minor: number | null; tax_minor: number | null; billing_reason: string | null; period_start: string | null; period_end: string | null; paid_at: string | null; failed_at: string | null; created_at: string | null }[];
+  comments: { workbook_code: string | null; workbook_title: string | null; organisation: string | null; written_as: string | null; body: string | null; created_at: string | null }[];
+  reminders_sent: { workbook_code: string | null; workbook_title: string | null; kind: string | null; ref: string | null; local_date: string | null; sent_at: string | null }[];
 }
 
 const s = (v: unknown): string | null => (typeof v === "string" && v !== "" ? v : null);
@@ -140,6 +235,10 @@ export function buildAccountData(input: AccountDataInput): AccountData {
   const wb = new Map(input.workbooks.map((w) => [w.id, w]));
   const ownEnrolment = (id: string) => enrol.get(id);
   const wbOf = (id: unknown) => (typeof id === "string" ? wb.get(id) : undefined);
+  const groupById = new Map((input.groups ?? []).map((g) => [g.id, g]));
+  const groupOf = (id: unknown) => (typeof id === "string" ? groupById.get(id) : undefined);
+  const orgById = new Map((input.organisations ?? []).map((o) => [o.id, o]));
+  const orgOf = (id: unknown) => (typeof id === "string" ? orgById.get(id) : undefined);
 
   const highlights = input.marks
     .filter((m) => m.userId === uid && enrol.has(m.enrolmentId))
@@ -165,6 +264,27 @@ export function buildAccountData(input: AccountDataInput): AccountData {
       taken_at: t.takenAt,
     }))
     .sort((x, y) => x.taken_at.localeCompare(y.taken_at));
+
+  // M19. The same rule as everywhere above: a row is carried only if it is the reader's own.
+  const emailLower = (input.email ?? "").trim().toLowerCase();
+  const pr = input.profile && input.profile.user_id === uid ? input.profile : null;
+  const consentOf = (at: unknown, version: unknown) => (s(at) ? { given_at: s(at) as string, version: s(version) } : null);
+  const profile = pr
+    ? {
+        email: input.email,
+        display_name: s(pr.display_name),
+        locale: s(pr.locale),
+        country: s(pr.country),
+        adult_confirmed_at: s(pr.adult_confirmed_at),
+        created_at: s(pr.created_at),
+        updated_at: s(pr.updated_at),
+        health_consent: consentOf(pr.health_consent_at, pr.health_consent_version),
+        faith_consent: consentOf(pr.faith_consent_at, pr.faith_consent_version),
+      }
+    : null;
+  const ownEnrolmentRows = mine(input.enrolmentProgress ?? [], "user_id").filter((r) => typeof r.id === "string" && enrol.has(r.id as string));
+  const readerSettings = input.readerSettings && input.readerSettings.user_id === uid ? input.readerSettings : null;
+  const reading = readerSettings && typeof readerSettings.reading === "object" && readerSettings.reading !== null && !Array.isArray(readerSettings.reading) ? (readerSettings.reading as Record<string, unknown>) : null;
 
   const hs = input.habitSettings && input.habitSettings.user_id === uid ? input.habitSettings : null;
   const settings = hs
@@ -354,7 +474,183 @@ export function buildAccountData(input: AccountDataInput): AccountData {
           amount_minor: n(p.amount_minor),
           created_at: s(p.created_at),
         })),
+      workbooks: mine(input.workbookPurchases ?? [], "user_id")
+        .sort(byDate("created_at"))
+        .map((p) => ({
+          workbook_code: wbOf(p.workbook_id)?.code ?? null,
+          workbook_title: wbOf(p.workbook_id)?.title ?? null,
+          kind: s(p.kind),
+          channel: s(p.channel),
+          currency: s(p.currency),
+          amount_minor: n(p.amount_minor),
+          tax_minor: n(p.tax_minor),
+          status: s(p.status) ?? "unknown",
+          created_at: s(p.created_at),
+          paid_at: s(p.paid_at),
+          refunded_at: s(p.refunded_at),
+        })),
     },
+    profile,
+    consent_history: mine(input.consentHistory ?? [], "user_id")
+      .sort(byDate("at"))
+      .map((c) => ({ kind: s(c.kind) ?? "unknown", action: s(c.action) ?? "unknown", version: s(c.version), at: s(c.at), source: s(c.source) })),
+    memberships: mine(input.subscriptions ?? [], "user_id")
+      .sort(byDate("created_at"))
+      .map((m) => ({
+        plan: s(m.plan),
+        status: s(m.status) ?? "unknown",
+        current_period_end: s(m.current_period_end),
+        cancel_at_period_end: b(m.cancel_at_period_end),
+        cancel_at: s(m.cancel_at),
+        canceled_at: s(m.canceled_at),
+        ended_at: s(m.ended_at),
+        paused_from: s(m.paused_from),
+        paused_until: s(m.paused_until),
+        created_at: s(m.created_at),
+      })),
+    entitlements: mine(input.entitlements ?? [], "user_id")
+      .sort(byDate("created_at"))
+      .map((x) => ({
+        workbook_code: wbOf(x.workbook_id)?.code ?? null,
+        workbook_title: wbOf(x.workbook_id)?.title ?? null,
+        all_workbooks: x.workbook_id === null || x.workbook_id === undefined,
+        source: s(x.source),
+        status: s(x.status) ?? "unknown",
+        starts_at: s(x.starts_at),
+        ends_at: s(x.ends_at),
+        created_at: s(x.created_at),
+      })),
+    terms_and_consents: {
+      terms_accepted: mine(input.termsAcceptances ?? [], "user_id")
+        .sort(byDate("accepted_at"))
+        .map((t) => ({ doc: s(t.doc) ?? "unknown", version: s(t.version), context: s(t.context), was_draft: b(t.was_draft), accepted_at: s(t.accepted_at) })),
+      checkout_consents: mine(input.checkoutConsents ?? [], "user_id")
+        .sort(byDate("consented_at"))
+        .map((c) => ({
+          kind: s(c.kind) ?? "unknown",
+          version: s(c.version),
+          plan: s(c.plan),
+          workbook_code: wbOf(c.workbook_id)?.code ?? null,
+          workbook_title: wbOf(c.workbook_id)?.title ?? null,
+          consented_at: s(c.consented_at),
+        })),
+    },
+    progress: {
+      workbooks: ownEnrolmentRows.sort(byDate("started_at")).map((r) => ({
+        workbook_code: ownEnrolment(r.id as string)?.code ?? null,
+        workbook_title: ownEnrolment(r.id as string)?.title ?? null,
+        status: s(r.status),
+        pace: s(r.pace),
+        started_at: s(r.started_at),
+        finished_at: s(r.finished_at),
+        last_opened_at: s(r.last_opened_at),
+      })),
+      events: (input.progressEvents ?? [])
+        .filter((ev) => typeof ev.enrolment_id === "string" && enrol.has(ev.enrolment_id as string))
+        .sort(byDate("at"))
+        .map((ev) => ({ workbook_code: ownEnrolment(ev.enrolment_id as string)?.code ?? null, kind: s(ev.kind) ?? "unknown", ref: s(ev.ref), at: s(ev.at) })),
+    },
+    settings: {
+      reading,
+      reading_updated_at: readerSettings ? s(readerSettings.updated_at) : null,
+      reminders: mine(input.todaySettings ?? [], "user_id")
+        .filter((t) => typeof t.enrolment_id === "string" && enrol.has(t.enrolment_id as string))
+        .sort(byDate("updated_at"))
+        .map((t) => ({
+          workbook_code: ownEnrolment(t.enrolment_id as string)?.code ?? null,
+          workbook_title: ownEnrolment(t.enrolment_id as string)?.title ?? null,
+          reminders_on: b(t.reminders_on),
+          reminder_days: Array.isArray(t.reminder_days) ? t.reminder_days : null,
+          reminder_time: s(t.reminder_time),
+          timezone: s(t.timezone),
+          reminders_stopped_at: s(t.reminders_stopped_at),
+          review_frequency: s(t.review_frequency),
+          pickup_on: b(t.pickup_on),
+          updated_at: s(t.updated_at),
+        })),
+    },
+    // A message counts as the reader's when it was sent signed in, or from their sign-in address.
+    support_messages: (input.supportMessages ?? [])
+      .filter((m) => m.user_id === uid || (emailLower !== "" && typeof m.email === "string" && m.email.trim().toLowerCase() === emailLower && (m.user_id === null || m.user_id === undefined)))
+      .sort(byDate("created_at"))
+      .map((m) => ({ topic: s(m.topic), name: s(m.name), email: s(m.email), message: s(m.message), status: s(m.status), consent_contact: b(m.consent_contact), created_at: s(m.created_at) })),
+    email_delivery: (input.emailDelivery ?? [])
+      .filter((x) => s(x.reason) !== null)
+      .map((x) => ({ reason: s(x.reason) as string, since: s(x.since) })),
+    // RX-5. A group row is kept only when it is the reader's own place or check-in.
+    groups: {
+      memberships: mine(input.groupMemberships ?? [], "user_id")
+        .sort(byDate("accepted_at"))
+        .map((m) => ({
+          group_name: groupOf(m.group_id)?.name ?? null,
+          workbook_code: wbOf(groupOf(m.group_id)?.workbookId)?.code ?? null,
+          workbook_title: wbOf(groupOf(m.group_id)?.workbookId)?.title ?? null,
+          role: s(m.role),
+          accepted_at: s(m.accepted_at),
+          offered_role: s(m.offered_role),
+          offered_at: s(m.offered_at),
+          count_checkins: b(m.count_checkins),
+          left_at: s(m.left_at),
+          left_reason: s(m.left_reason),
+        })),
+      check_ins: mine(input.groupCheckins ?? [], "user_id")
+        .sort(byDate("at"))
+        .map((c) => ({ group_name: groupOf(c.group_id)?.name ?? null, unit_number: n(c.unit_number), choice: s(c.choice), counted: b(c.counted), at: s(c.at) })),
+    },
+    seats: {
+      organisation: mine(input.orgSeats ?? [], "user_id")
+        .sort(byDate("claimed_at"))
+        .map((x) => ({ organisation: orgOf(x.org_id)?.name ?? null, roster_email: s(x.roster_email), claimed_at: s(x.claimed_at), released_at: s(x.released_at), released_reason: s(x.released_reason) })),
+      // The other person in a shared membership is never named, whichever side the reader is on.
+      shared_membership: mine(input.membershipSeats ?? [], "owner_user_id", "member_user_id")
+        .sort(byDate("invited_at"))
+        .map((x) => ({
+          your_part: x.owner_user_id === uid ? ("owner" as const) : ("member" as const),
+          status: s(x.status) ?? "unknown",
+          invited_at: s(x.invited_at),
+          accepted_at: s(x.accepted_at),
+          ended_at: s(x.ended_at),
+        })),
+    },
+    acknowledgements: mine(input.acknowledgements ?? [], "user_id")
+      .filter((x) => typeof x.enrolment_id === "string" && enrol.has(x.enrolment_id as string))
+      .sort(byDate("acknowledged_at"))
+      .map((x) => ({ workbook_code: ownEnrolment(x.enrolment_id as string)?.code ?? null, workbook_title: ownEnrolment(x.enrolment_id as string)?.title ?? null, acknowledged_at: s(x.acknowledged_at) })),
+    membership_invoices: mine(input.invoices ?? [], "user_id")
+      .sort(byDate("created_at"))
+      .map((i) => ({
+        status: s(i.status) ?? "unknown",
+        currency: s(i.currency),
+        amount_minor: n(i.amount_minor),
+        tax_minor: n(i.tax_minor),
+        billing_reason: s(i.billing_reason),
+        period_start: s(i.period_start),
+        period_end: s(i.period_end),
+        paid_at: s(i.paid_at),
+        failed_at: s(i.failed_at),
+        created_at: s(i.created_at),
+      })),
+    comments: mine(input.comments ?? [], "author_id")
+      .sort(byDate("created_at"))
+      .map((c) => ({
+        workbook_code: wbOf(c.workbook_id)?.code ?? null,
+        workbook_title: wbOf(c.workbook_id)?.title ?? null,
+        organisation: orgOf(c.org_id)?.name ?? null,
+        written_as: s(c.author_name),
+        body: s(c.body),
+        created_at: s(c.created_at),
+      })),
+    reminders_sent: mine(input.reminderLog ?? [], "user_id")
+      .filter((x) => typeof x.enrolment_id === "string" && enrol.has(x.enrolment_id as string))
+      .sort(byDate("sent_at"))
+      .map((x) => ({
+        workbook_code: ownEnrolment(x.enrolment_id as string)?.code ?? null,
+        workbook_title: ownEnrolment(x.enrolment_id as string)?.title ?? null,
+        kind: s(x.kind),
+        ref: s(x.ref),
+        local_date: s(x.local_date),
+        sent_at: s(x.sent_at),
+      })),
   };
 }
 
@@ -379,4 +675,19 @@ export const ACCOUNT_DATA_SECTIONS = [
   "marketing",
   "student_verification",
   "purchases",
+  "profile",
+  "consent_history",
+  "memberships",
+  "entitlements",
+  "terms_and_consents",
+  "progress",
+  "settings",
+  "support_messages",
+  "email_delivery",
+  "groups",
+  "seats",
+  "acknowledgements",
+  "membership_invoices",
+  "comments",
+  "reminders_sent",
 ] as const satisfies readonly (keyof AccountData)[];

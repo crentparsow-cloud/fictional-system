@@ -4,6 +4,7 @@ import { portalCustomerId, type SubscriptionRow } from "@/lib/membership";
 import { getStripe } from "@/lib/stripe";
 import { createUserClient } from "@/lib/supabase/server";
 import { tenantIdForRequest } from "@/lib/tenant-id";
+import { ownOrigin } from "@/lib/site-url";
 
 /**
  * Stripe customer portal for members (F-097). POST /api/billing/portal from
@@ -60,8 +61,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// Review L2: one of this deployment's own configured addresses, never the raw Host header.
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }

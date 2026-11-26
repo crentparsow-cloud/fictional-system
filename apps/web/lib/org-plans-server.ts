@@ -18,6 +18,7 @@ import {
   type SmallOrgInput,
 } from "@/lib/org-plans";
 import { createUserClient } from "@/lib/supabase/server";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Server side of the Phase B organisation plans (6.6, 9.1, 9.5, 13.14, 14.37).
@@ -184,7 +185,9 @@ export async function startGroupLicenceCheckout(a: Who & { input: GroupLicenceIn
 
 async function checkout(stripe: Stripe, params: Stripe.Checkout.SessionCreateParams): Promise<Started> {
   try {
-    const session = await stripe.checkout.sessions.create(params);
+    // L6: the same request inside a minute is one session.
+    const userId = String((params.metadata as Record<string, string> | undefined)?.user_id ?? "");
+    const session = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("org_plan", userId, params) });
     return session.url ? { url: session.url } : "stripe_failed";
   } catch (e) {
     console.error("org_plan_checkout_failed", { reason: e instanceof Error ? e.name : "unknown" });

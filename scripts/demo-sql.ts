@@ -9,7 +9,8 @@
  *   1. insert the workbook_versions row, or update it while it is unpublished
  *      (a published version is immutable, 0002);
  *   2. update the workbook's current_version_id, depth, short_title and card_line;
- *   3. publish: set request.jwt.claims to a platform owner and call
+ *   3. publish: set request.jwt.claims to a platform owner (a real one, see
+ *      OWNER_CLAIMS_SQL) and call
  *      app.publish_version, which fills workbook_sections (LESSONS_LEARNED 38);
  *   4. set the workbook live, then report the section count.
  * Running a file twice is safe: an already published version is left alone.
@@ -38,7 +39,24 @@ if (!out) {
 }
 
 const GROUP_FILE_LIMIT = 300 * 1024;
-const OWNER_CLAIMS = JSON.stringify({ role: "authenticated", app_metadata: { platform_roles: ["owner"] } });
+// The claims of a platform owner, as a SQL expression. From migration 0074 a
+// staff claim counts only with a platform_roles row and a second-factor
+// session, so the SQL acts as the longest-standing owner in platform_roles;
+// the audit rows name that account. With no owner row the claims are empty
+// and app.publish_version refuses, which stops the file before any change is
+// committed. Only the SQL editor (role postgres) can set claims this way.
+// There is no service-role or job path to app.publish_version: it asks for a
+// platform owner or editor, so the file sets up, inside its own transaction,
+// exactly what a real owner session holds (the account, the role named in the
+// token and held in platform_roles, a second factor) and clears it before the
+// commit. The files are run by the owner, by hand, in the SQL editor.
+// supabase/tests/0077_review_integration.sql runs this prelude against a
+// version and scripts/demo-sql.test.ts holds the two in step.
+const OWNER_CLAIMS_SQL =
+  "(select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', " +
+  "'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), " +
+  "'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text " +
+  "from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1)";
 
 const q = (s: unknown) => (s === null || s === undefined ? "null" : `'${String(s).replace(/'/g, "''")}'`);
 
@@ -57,7 +75,8 @@ for (const w of demoRows) {
     `do $check$ begin if exists (select 1 from public.workbook_versions where id = ${vid} and content_hash <> ${q(v.content_hash)}) then raise warning 'version % is already published with other content; it is left as it is', ${vid}; end if; end $check$;`,
     `update public.workbooks set depth = ${q(w.depth)}, short_title = ${q(w.short_title)}, card_line = ${q(w.card_line)}, current_version_id = ${vid} where id = ${q(w.id)};`,
     "-- publish as a platform owner (LESSONS_LEARNED 38): fills workbook_sections, sets published_at and current_version_id",
-    `select set_config('request.jwt.claims', ${q(OWNER_CLAIMS)}, true);`,
+    "-- run by the owner in the SQL editor: the claims below are those of the longest-standing owner in platform_roles, with a second factor (0074)",
+    `select set_config('request.jwt.claims', ${OWNER_CLAIMS_SQL}, true);`,
     `do $publish$ begin if exists (select 1 from public.workbook_versions where id = ${vid} and published_at is null) then perform app.publish_version(${vid}::uuid); end if; end $publish$;`,
     `update public.workbooks set status = 'live' where id = ${q(w.id)} and status is distinct from 'live';`,
     "select set_config('request.jwt.claims', '', true);",
@@ -114,8 +133,9 @@ const mv = seed.workbooks.filter((w) => w.badge === "official" && !w.is_demo && 
 const mvCodes = `array[${mv.map((w) => q(w.code)).join(", ")}]::text[]`;
 const mvSql = [
   "begin;",
-  `-- Maya Vaughn titles to live: ${mv.length} title(s). Run in the SQL editor (role postgres).`,
-  `select set_config('request.jwt.claims', ${q(OWNER_CLAIMS)}, true);`,
+  `-- Maya Vaughn titles to live: ${mv.length} title(s). Run by the owner in the SQL editor (role postgres).`,
+  "-- The claims below are those of the longest-standing owner in platform_roles, with a second factor (0074).",
+  `select set_config('request.jwt.claims', ${OWNER_CLAIMS_SQL}, true);`,
   "do $mv$",
   "declare r record; n int := 0;",
   "begin",

@@ -12,6 +12,8 @@ import { isPace } from "@/lib/pace";
 import { PICKUP_GAP_DAYS } from "@/lib/today/gap";
 import { doneExerciseIds, nextStep, stepsFromUnitSections } from "@/lib/today/steps";
 import type { UnitWord } from "@/lib/today/week";
+import { linkOrigin } from "@/lib/site-url";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The real effects behind the three Today jobs (4.7, 14.3, 4.3, 4.9): the
@@ -36,10 +38,9 @@ export function cronSetup(request: NextRequest): CronSetup {
   }
 }
 
+/** The configured address, never the Host header (review L2). */
 export function siteOrigin(request: NextRequest): string {
-  const host = process.env.AKANA_HOST ?? request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
-  const proto = host.startsWith("localhost") ? "http" : "https";
-  return `${proto}://${host}`;
+  return linkOrigin(request.headers);
 }
 
 interface TargetRow {
@@ -110,7 +111,7 @@ const loadTargets = async (admin: SupabaseClient) => toTargets(await loadTargetR
 export function todayMailer(admin: SupabaseClient, origin: string, env: MailerEnv = mailerEnvFromProcess(), transport?: Transport) {
   const mailer = createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: (e) => console.info("today_mail", e.template, e.status, e.reason ?? ""),
     async claim(key) {
       const { data, error } = await admin.rpc("claim_email", { p_key: key });

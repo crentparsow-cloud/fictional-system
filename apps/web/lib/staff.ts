@@ -10,18 +10,21 @@ export type { PlatformRole, StaffDecision } from "@/lib/staff-access";
  * Staff gate for /admin (F-080).
  *
  * How roles are read. Migration 0001 keeps staff roles in platform_roles and
- * expects them mirrored into the token's app_metadata.platform_roles. Its
- * helpers (app.is_staff, app.is_platform) read that claim. The only client
- * read of platform_roles is the platform_roles_read policy, which itself
- * needs app.is_staff() to be true, so it cannot discover roles on its own.
+ * expects them mirrored into the token's app_metadata.platform_roles.
  *
- * So the gate does two things. It reads platform_roles from the verified
- * token (getClaims checks the signature). Then it selects the caller's own
- * rows from platform_roles through the user client, which RLS allows once the
- * token says staff. A role counts only when both agree, so a role deleted
- * from the table stops working at once, even on an unexpired token.
+ * The gate reads platform_roles from the verified token (getClaims checks the
+ * signature). Then it selects the caller's own rows from platform_roles
+ * through the user client. A role counts only when both agree, so a role
+ * deleted from the table stops working at once, even on an unexpired token.
  *
  * The second factor is required on top: the session must be aal2.
+ *
+ * From migration 0074 the database applies the same three rules itself
+ * (app.platform_roles: token, table and a second-factor session), so a staff
+ * function called straight on the API is held to them too. The own-rows read
+ * above is allowed at the first-factor level by the platform_roles_read_own
+ * policy; that is what lets this gate send staff who have not verified yet to
+ * /admin/mfa instead of a 404. Nothing else is open to them until they verify.
  */
 export interface StaffSession {
   userId: string;

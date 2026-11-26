@@ -13,6 +13,8 @@ import {
 } from "@/lib/org-billing-mail";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import type { createAdminClient } from "@/lib/supabase/admin";
+import { linkOrigin } from "@/lib/site-url";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The service-role side of organisation billing mail (0031). Used by the
@@ -32,7 +34,7 @@ class SqlError extends Error {
 function sender(admin: Admin): Send {
   const mailer = createMailer({
     env: mailerEnvFromProcess(),
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("org_billing", "org_billing_mail"),
     async claim(key) {
       const { data, error } = await admin.rpc("claim_email", { p_key: key });
@@ -169,8 +171,7 @@ export function isSqlError(e: unknown): e is SqlError {
   return e instanceof SqlError;
 }
 
-/** The public origin for links in organisation emails. */
-export function mailOrigin(fallbackHost?: string | null): string {
-  const host = process.env.AKANA_HOST ?? fallbackHost ?? "localhost:3000";
-  return `${host.startsWith("localhost") ? "http" : "https"}://${host}`;
+/** The public origin for links in organisation emails: the configured address, never the Host header (review L2). */
+export function mailOrigin(headers?: { get(name: string): string | null } | null): string {
+  return linkOrigin(headers);
 }

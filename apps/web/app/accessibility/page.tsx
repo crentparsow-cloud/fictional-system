@@ -82,8 +82,8 @@ export default function AccessibilityPage() {
             </p>
             <p>
               We have not yet checked every screen with every screen reader, and some parts may fall short of the standard. The lists below say
-              what we know. If something does not work for you, tell us at{" "}
-              {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}. We will reply within{" "}
+              what we know. If something does not work for you, tell us{" "}
+              {contact.email ? <>at <a href={`mailto:${contact.email}`}>{contact.label}</a></> : <>through <Link href="/contact">the contact page</Link></>}. We will reply within{" "}
               {company.replyTime} and try to put it right or offer another way to get what you need.
             </p>
             <p className="small d-soft">
@@ -125,7 +125,7 @@ export default function AccessibilityPage() {
             {A.contact.howTo} <Link href={A.contact.route}>Contact us</Link>.
           </p>
           <p>{A.contact.reply}</p>
-          <p className="d-strong">{contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}</p>
+          {contact.email ? <p className="d-strong"><a href={`mailto:${contact.email}`}>{contact.label}</a></p> : null}
           <p>
             If you are not happy with our reply, you can contact the Equality Advisory and Support Service, which gives free advice on
             discrimination and equality rights in Great Britain.

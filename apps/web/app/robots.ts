@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { headers } from "next/headers";
+import { tenantForHost } from "@/lib/tenant-id";
 import { buildRobots, siteOriginForRequest } from "@/lib/sitemap";
 
 /**
@@ -12,5 +13,5 @@ export const dynamic = "force-dynamic";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const h = await headers();
-  return buildRobots(siteOriginForRequest(h.get("x-akana-tenant-kind"), h.get("host")));
+  return buildRobots(siteOriginForRequest((await tenantForHost(h))?.kind, h.get("host")));
 }

@@ -14,6 +14,8 @@ import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { checkoutTermsDecision } from "@/lib/terms";
 import { acceptReaderTerms } from "@/lib/terms-server";
+import { ownOrigin } from "@/lib/site-url";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Buy a Theme bundle (5.8). POST /api/checkout/bundle
@@ -75,8 +77,7 @@ export async function POST(request: NextRequest) {
   const origin = siteOrigin(request);
   let checkout;
   try {
-    checkout = await stripe.checkout.sessions.create(
-      bundleCheckoutParams({
+    const params = bundleCheckoutParams({
         themeId: parsed.data.theme,
         themeName,
         titleCount: offer.titleCount,
@@ -88,8 +89,9 @@ export async function POST(request: NextRequest) {
         consentMeta: consentMetadata(consentId, consent.version),
         successUrl: `${origin}/my-workbooks?bundle=paid`,
         cancelUrl: `${origin}/themes/${parsed.data.theme}`,
-      }),
-    );
+      });
+    // L6: one session for one attempt, however often the request is sent.
+    checkout = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("bundle", session.userId, params) });
   } catch (err) {
     const code = err instanceof Error && "code" in err ? String((err as { code?: unknown }).code ?? "") : "";
     console.error("bundle_checkout_failed", { code, type: err instanceof Error ? err.name : typeof err });
@@ -127,9 +129,7 @@ async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): 
   }
 }
 
-/** The public origin for the redirect URLs, from the proxy's headers. */
+/** The public origin for the redirect URLs: one of this deployment's own configured addresses (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }
