@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getReaderSession } from "@/lib/auth";
 import { GIFT_NOTICES, claimUrl, giftDateWords, giftLength } from "@/lib/gift";
+import { buyerGiftLinks } from "@/lib/gift-link-server";
 import { loadGiftConfig } from "@/lib/gift-server";
 import { siteOrigin } from "@/lib/site-url";
 import { createUserClient } from "@/lib/supabase/server";
@@ -40,17 +41,19 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
   const config = open ? await loadGiftConfig(supabase) : null;
   const options = config?.options ?? [];
 
-  let gifts: { id: string; months: number; status: string; recipient_name: string | null; recipient_email: string | null; claim_token: string | null; created_at: string }[] = [];
+  let gifts: { id: string; months: number; status: string; recipient_name: string | null; recipient_email: string | null; created_at: string }[] = [];
   if (session && open) {
     const { data } = await supabase
       .from("gift_memberships")
-      .select("id, months, status, recipient_name, recipient_email, claim_token, created_at")
+      .select("id, months, status, recipient_name, recipient_email, created_at")
       .eq("buyer_id", session.userId)
       .in("status", ["paid", "claimed", "expired"])
       .order("created_at", { ascending: false })
       .limit(20);
     gifts = (data ?? []) as typeof gifts;
   }
+  // The database keeps only a hash of each link (0076). The links are derived here for the buyer's own waiting gifts.
+  const links = session ? await buyerGiftLinks(session.userId, gifts.filter((g) => g.status === "paid").map((g) => g.id)) : new Map<string, string>();
   const origin = siteOrigin();
 
   return (
@@ -89,11 +92,11 @@ export default async function GiftPage({ searchParams }: { searchParams: Promise
                 <li key={g.id}>
                   <strong>{giftLength(g.months)}</strong>, {STATUS_WORDS[g.status] ?? g.status}
                   {g.recipient_name ? ` for ${g.recipient_name}` : ""}, bought {giftDateWords(g.created_at)}.
-                  {g.status === "paid" && g.claim_token && origin ? (
+                  {g.status === "paid" && links.get(g.id) && origin ? (
                     <>
                       {" "}
                       <span className="b-small">Link to pass on yourself: </span>
-                      <code>{claimUrl(origin, g.claim_token)}</code>
+                      <code>{claimUrl(origin, links.get(g.id) ?? "")}</code>
                     </>
                   ) : null}
                 </li>
