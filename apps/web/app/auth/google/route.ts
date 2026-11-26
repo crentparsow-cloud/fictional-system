@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { safeNextPath } from "@/lib/auth";
+import { safeNextPath, sameOriginUrl } from "@/lib/auth";
 import { googleClientId, looksLikeIdToken, looksLikeNonce, postedFromThisSite } from "@/lib/google-signin";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -36,5 +36,5 @@ export async function POST(request: NextRequest) {
     console.error("sign_in_google_failed", error.status ?? "", error.code ?? error.name);
     return back("google");
   }
-  return NextResponse.redirect(new URL(next, url.origin), 303);
+  return NextResponse.redirect(sameOriginUrl(next, url.origin), 303);
 }
