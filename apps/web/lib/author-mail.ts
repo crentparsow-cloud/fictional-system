@@ -4,6 +4,7 @@ import { mailLog } from "@/lib/mail-ops";
 import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { siteOrigin } from "@/lib/site-url";
 import { createUserClient } from "@/lib/supabase/server";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Author status emails (F-043): submission accepted or declined, changes requested,
@@ -87,7 +88,7 @@ export async function sendAuthorStatus(
     const env = o.env ?? mailerEnvFromProcess();
     const mailer = createMailer({
       env,
-      isSuppressed: () => false,
+      isSuppressed,
       log: mailLog("admin/author-status", "author_status_mail"),
       ...(o.transport ? { transport: o.transport } : {}),
     });

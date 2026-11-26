@@ -8,6 +8,7 @@ import { siteOrigin } from "@/lib/site-url";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { readerBase } from "@/lib/support-actions";
 import type { CancelMailApi } from "@/lib/membership-cancel";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Emails sent straight from the cancel and pause actions (14.24, 14.25):
@@ -32,7 +33,7 @@ function mailerFor(env: MailerEnv, transport: Transport | undefined) {
   }
   return createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("membership/cancel", "selling_mail"),
     ...(admin
       ? {

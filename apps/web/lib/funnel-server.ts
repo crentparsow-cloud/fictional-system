@@ -1,6 +1,8 @@
 import "server-only";
 import { cookies, headers } from "next/headers";
 import { after } from "next/server";
+import { clientIp } from "@/lib/leads";
+import { eventAllowed } from "@/lib/limits";
 import { OPT_OUT_COOKIE, countFunnelEvent, type FunnelEvent } from "@/lib/funnel";
 import { scopedWorkbook, shouldCount, type ProductEvent } from "@/lib/product-events";
 import { createUserClient } from "@/lib/supabase/server";
@@ -13,6 +15,10 @@ import { tenantIdForRequest } from "@/lib/tenant-id";
  * The user id, when given, is hashed with the day and the salt before it
  * goes anywhere (lib/visitor-id.ts); the address and user agent are used the
  * same way for a signed-out visitor.
+ *
+ * Review M5: signed-out counts are limited per address in memory
+ * (lib/limits.ts eventAllowed, 600 in ten minutes). Over the limit the
+ * count is skipped and the page is served as normal.
  */
 export async function countView(event: Extract<FunnelEvent, "page_view" | "sample_view">, workbookId?: string | null, userId?: string | null): Promise<void> {
   try {
@@ -20,6 +26,7 @@ export async function countView(event: Extract<FunnelEvent, "page_view" | "sampl
     if (!tenantId) return;
     // Link prefetches render the page too; they are not views.
     if (h.get("next-router-prefetch") || h.get("purpose") === "prefetch") return;
+    if (!userId && !eventAllowed("funnel_anon", clientIp(h))) return;
     const snapshot = new Headers();
     for (const k of ["sec-gpc", "dnt", "x-forwarded-for", "x-real-ip", "user-agent"]) {
       const v = h.get(k);
@@ -53,6 +60,7 @@ export async function countEvent(event: ProductEvent, o: ProductEventOptions = {
     if (!shouldCount(event, o.tier)) return;
     const [h, jar, tenantId] = await Promise.all([headers(), cookies(), tenantIdForRequest()]);
     if (!tenantId) return;
+    if (!o.userId && !eventAllowed("funnel_anon", clientIp(h))) return;
     const snapshot = new Headers();
     for (const k of ["sec-gpc", "dnt", "x-forwarded-for", "x-real-ip", "user-agent"]) {
       const v = h.get(k);
