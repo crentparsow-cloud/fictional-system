@@ -2,7 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 import { getReaderSession } from "@/lib/auth";
 import { NO_STORE } from "@/lib/enrolment";
-import { GIFT_PROBLEM_WORDS, checkGiftInput, giftCheckoutParams, giftPriceMinor, newClaimToken } from "@/lib/gift";
+import { GIFT_PROBLEM_WORDS, checkGiftInput, giftCheckoutParams, giftPriceMinor } from "@/lib/gift";
+import { deriveClaimToken, giftLinkSecret } from "@/lib/gift-link";
 import { GIFT_CURRENCY, loadGiftConfig } from "@/lib/gift-server";
 import { CHECKOUT_BUSY_MESSAGE, hitSelf } from "@/lib/limits";
 import { getStripe } from "@/lib/stripe";
@@ -12,6 +13,8 @@ import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
 import { tenantIdForRequest } from "@/lib/tenant-id";
 import { checkoutTermsDecision } from "@/lib/terms";
 import { acceptReaderTerms } from "@/lib/terms-server";
+import { ownOrigin } from "@/lib/site-url";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Gift a membership (5.6, 5.7). POST /api/checkout/gift
@@ -89,8 +92,7 @@ export async function POST(request: NextRequest) {
   const origin = siteOrigin(request);
   let checkout;
   try {
-    checkout = await stripe.checkout.sessions.create(
-      giftCheckoutParams({
+    const params = giftCheckoutParams({
         months: input.months,
         priceMinor,
         currency: GIFT_CURRENCY,
@@ -99,20 +101,29 @@ export async function POST(request: NextRequest) {
         buyerEmail: session.email,
         successUrl: `${origin}/gift?thanks=1`,
         cancelUrl: `${origin}/gift`,
-      }),
-    );
+      });
+    // L6: the same gift asked for twice inside a minute is one session. The recipient and the
+    // message are not sent to Stripe, so they are part of the key here.
+    const extra = JSON.stringify([input.months, input.recipientEmail, input.recipientName, input.senderName, input.message]);
+    checkout = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("gift", session.userId, params, { extra }) });
   } catch (err) {
     const code = err instanceof Error && "code" in err ? String((err as { code?: unknown }).code ?? "") : "";
     console.error("gift_checkout_failed", { code, type: err instanceof Error ? err.name : typeof err });
     return refuse("Checkout could not start just now. Please try again later.", 502);
   }
 
+  // The claim token is derived from the session id, so only its hash is stored (0076).
+  const linkSecret = giftLinkSecret();
+  if (!linkSecret) {
+    await expireQuietly(stripe, checkout.id);
+    return refuse("Gifts are not open yet. Please try again soon.", 503);
+  }
   const admin = createAdminClient();
   const { error } = await admin.rpc("gift_create", {
     p_tenant: tenantId,
     p_buyer: session.userId,
     p_session: checkout.id,
-    p_token: newClaimToken(),
+    p_token: deriveClaimToken(checkout.id, linkSecret),
     p_months: input.months,
     p_recipient_email: input.recipientEmail,
     p_recipient_name: input.recipientName || null,
@@ -121,6 +132,12 @@ export async function POST(request: NextRequest) {
     p_currency: GIFT_CURRENCY,
     p_amount_minor: priceMinor,
   });
+  // L6: a repeat of the same request got the same session, and the first request has recorded
+  // the gift (the session id is unique). The session stands, so the reader is sent to it.
+  if (error && error.code === "23505") {
+    if (!checkout.url) return refuse("Could not start checkout.", 500);
+    return NextResponse.json({ url: checkout.url }, { headers: NO_STORE });
+  }
   if (error) {
     await expireQuietly(stripe, checkout.id);
     console.error("gift_checkout_row_failed", { session: checkout.id, code: error.code });
@@ -138,9 +155,7 @@ async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): 
   }
 }
 
-/** The public origin for the redirect URLs, from the proxy's headers. */
+/** The public origin for the redirect URLs: one of this deployment's own configured addresses (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }
