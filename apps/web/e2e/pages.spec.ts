@@ -6,7 +6,17 @@ import { DATA_PUBLIC_PAGES, GATED_PAGES, PUBLIC_PAGES, discoverDataPages, signIn
  * heading. Heading text is checked only where it is part of the contract
  * (Help now and Sign in); other pages are being rewritten in parallel, so
  * only the presence of one visible, non-empty h1 inside <main> is asserted.
+ *
+ * The sign-in page says "Sign in" in the line above its heading and
+ * "Welcome back" in the heading itself, since the redesign. Both are checked.
  */
+
+async function expectSignInPage(page: Page) {
+  const main = page.locator("main");
+  await expect(main.getByRole("heading", { level: 1 })).toHaveText(/welcome back/i);
+  await expect(main.locator(".eyebrow")).toHaveText(/sign in/i);
+  await expect(main.getByLabel("Email address")).toBeVisible();
+}
 
 async function expectMainHeading(page: Page, path: string) {
   const response = await page.goto(path);
@@ -53,9 +63,9 @@ test("/help-now heading says Help now", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(/help now/i);
 });
 
-test("/sign-in heading says Sign in", async ({ page }) => {
+test("/sign-in says Sign in above a Welcome back heading", async ({ page }) => {
   await page.goto("/sign-in");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(/sign in/i);
+  await expectSignInPage(page);
 });
 
 for (const path of GATED_PAGES) {
@@ -73,7 +83,7 @@ for (const path of GATED_PAGES) {
     expect(response!.status()).toBe(200);
     const url = new URL(page.url());
     expect(url.pathname + url.search).toBe(signInFor(path));
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(/sign in/i);
+    await expectSignInPage(page);
   });
 }
 
