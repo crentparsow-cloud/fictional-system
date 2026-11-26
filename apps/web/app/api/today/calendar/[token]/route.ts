@@ -5,6 +5,7 @@ import { buildFeed, scheduleSteps } from "@/lib/today/ics";
 import { nameStep } from "@/lib/today/reminders";
 import { doneExerciseIds, remainingSteps, stepsFromUnitSections } from "@/lib/today/steps";
 import type { UnitWord } from "@/lib/today/week";
+import { linkOrigin } from "@/lib/site-url";
 
 /**
  * The calendar feed for one programme (4.8): the steps still to do, one
@@ -63,8 +64,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
   const now = new Date();
   const placed = scheduleSteps(left, target.reminder_days, now, target.timezone);
-  const host = process.env.AKANA_HOST ?? request.headers.get("host") ?? "localhost:3000";
-  const origin = `${host.startsWith("localhost") ? "http" : "https"}://${host}`;
+  // Review L2: the configured address, never the Host header.
+  const origin = linkOrigin(request.headers);
   const body = buildFeed({
     feedId: hash.slice(0, 12),
     now,
