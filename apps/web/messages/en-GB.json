@@ -47,6 +47,7 @@
   "signIn.errorSend": "We're sorry. The link could not be sent just now. Please try again in a moment.",
   "signIn.errorLink": "That link has expired or was already used. Ask for a new one.",
   "signIn.errorBusy": "Too many sign-in links were asked for just now. Wait a few minutes, then try again.",
+  "signIn.errorLater": "Sign-in is not available just now. Please try again in a few minutes.",
   "signIn.errorGoogle": "We're sorry. Google sign-in did not work just now. Try again, or use an email link.",
   "signIn.google": "Continue with Google",
   "signIn.or": "or",
