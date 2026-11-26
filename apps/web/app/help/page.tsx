@@ -130,7 +130,7 @@ export default async function HelpIndexPage({ searchParams }: { searchParams: Pr
               Write to us and a real person will reply. We aim to answer within {company.replyTime}. Please write from the address on your account. We
               cannot reply to emergencies.
             </p>
-            <p className="d-strong">{support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>}</p>
+            <p className="d-strong">{support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <Link href="/contact">Use the contact page</Link>}</p>
           </div>
           <aside className="d-stack-s" aria-label={`${brand.name} is not a crisis service`}>
             <h2>Need to talk to someone today?</h2>
