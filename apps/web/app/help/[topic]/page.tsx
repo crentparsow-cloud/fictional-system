@@ -46,9 +46,7 @@ export default async function HelpTopicPage({ params }: { params: Promise<Params
         <section className="d-card d-after" aria-labelledby="help-contact">
           <h2 id="help-contact">Still need help?</h2>
           <p>
-            Email{" "}
-            {support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>} from the address on your
-            account.
+            {support.email ? <>Email <a href={`mailto:${support.email}`}>{support.label}</a> from the address on your account.</> : <>Write to us through <Link href="/contact">the contact page</Link>, and give the address on your account.</>}
           </p>
         </section>
         <InfoFooter />
