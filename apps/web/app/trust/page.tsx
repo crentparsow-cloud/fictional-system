@@ -3,6 +3,7 @@ import Link from "next/link";
 import { InfoFooter } from "@/components/InfoFooter";
 import { DHero } from "@/components/info/DHero";
 import { brand } from "@/lib/brand";
+import { securityContact, securityContactLabel } from "@/lib/security-txt";
 import { company, support } from "@/lib/company";
 import { ANALYTICS_RULE, EXPORT_PROMISE, NEVER_COLLECT, statusPageUrl, TRUST_CLAIMS, TRUST_COMPARISON } from "@/lib/trust";
 
@@ -10,7 +11,8 @@ import { ANALYTICS_RULE, EXPORT_PROMISE, NEVER_COLLECT, statusPageUrl, TRUST_CLA
  * The trust page (F-121, 11.1). Only what the code enforces today; each
  * statement names its mechanism in lib/trust.ts and a test keeps those files
  * in place. The comparison is general: no product is named. The status page
- * link shows only while STATUS_PAGE_URL is set (read at build, so a change
+ * link shows only while STATUS_PAGE_URL is set, and the security report
+ * line only while SECURITY_CONTACT is set (both read at build, so a change
  * needs a redeploy). Company details stay placeholders until gate O1 clears.
  */
 export const dynamic = "force-static";
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
 export default function TrustPage() {
   const status = statusPageUrl();
   const contact = support();
+  const security = securityContact();
   const toc: { href: string; label: string }[] = [
     { href: "#trust-compare", label: "What we never do" },
     { href: "#trust-analytics", label: ANALYTICS_RULE.title },
@@ -31,6 +34,7 @@ export default function TrustPage() {
     { href: "#trust-more", label: "More we do for you" },
     { href: "#trust-never", label: "What we never collect" },
     ...(status ? [{ href: "#trust-status", label: `Is ${brand.name} working?` }] : []),
+    ...(security ? [{ href: "#trust-security", label: "Report a security problem" }] : []),
     { href: "#trust-wellness", label: "Wellness, not treatment" },
     { href: "#trust-access", label: "Accessibility" },
     { href: "#trust-company", label: "Who we are" },
@@ -126,6 +130,15 @@ export default function TrustPage() {
             </section>
           ) : null}
 
+          {security ? (
+            <section id="trust-security" className="d-block" aria-labelledby="trust-security-h">
+              <h2 id="trust-security-h">Report a security problem</h2>
+              <p>
+                If you find a security problem, tell us at <a href={security}>{securityContactLabel(security)}</a>. Please do not include anyone&apos;s answers.
+              </p>
+            </section>
+          ) : null}
+
           <section id="trust-wellness" className="d-block" aria-labelledby="trust-wellness-h">
             <h2 id="trust-wellness-h">Wellness, not treatment</h2>
             <p>{brand.wellnessNotice} If you are worried about your health, talk to a doctor or another health professional.</p>
@@ -147,8 +160,8 @@ export default function TrustPage() {
             <h2 id="trust-company-h">Who we are</h2>
             <p>
               {brand.name} is the seller of every workbook and membership on the {brand.name} marketplace. {company.legalName}, {company.address.join(", ")}.
-              Company number: {company.registrationNumber}. Write to us at{" "}
-              {contact.email ? <a href={`mailto:${contact.email}`}>{contact.label}</a> : <span>{contact.label}</span>}.
+              {company.registrationNumber ? `Company number: ${company.registrationNumber}. ` : ""}
+              {contact.email ? <>Write to us at <a href={`mailto:${contact.email}`}>{contact.label}</a>.</> : <>Write to us through <Link href="/contact">the contact page</Link>.</>}
             </p>
             <p>
               The documents behind these points are the <Link href="/legal/terms">reader terms</Link>, the{" "}
