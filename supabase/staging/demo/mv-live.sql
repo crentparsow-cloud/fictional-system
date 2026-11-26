@@ -1,6 +1,7 @@
 begin;
--- Maya Vaughn titles to live: 20 title(s). Run in the SQL editor (role postgres).
-select set_config('request.jwt.claims', '{"role":"authenticated","app_metadata":{"platform_roles":["owner"]}}', true);
+-- Maya Vaughn titles to live: 20 title(s). Run by the owner in the SQL editor (role postgres).
+-- The claims below are those of the longest-standing owner in platform_roles, with a second factor (0074).
+select set_config('request.jwt.claims', (select jsonb_build_object('role', 'authenticated', 'sub', r.user_id, 'aal', 'aal2', 'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', extract(epoch from now())::bigint)), 'app_metadata', jsonb_build_object('platform_roles', jsonb_build_array('owner')))::text from public.platform_roles r where r.role = 'owner' order by r.created_at, r.user_id limit 1), true);
 do $mv$
 declare r record; n int := 0;
 begin
