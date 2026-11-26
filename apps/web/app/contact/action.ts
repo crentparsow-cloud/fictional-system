@@ -2,9 +2,15 @@
 
 import { headers } from "next/headers";
 import { clientIp, leadSalt, processSupport, supportLimiter, type SupportState } from "@/lib/support";
-import { createUserClient } from "@/lib/supabase/server";
+import { getReaderSession } from "@/lib/auth";
+import { submitSupportAsServer } from "@/lib/public-forms";
+import { createAdminClient } from "@/lib/supabase/admin";
 
-/** The contact form (F-090). The rules live in lib/support.ts; this gathers the request and the real effects. */
+/**
+ * The contact form (F-090). The rules live in lib/support.ts; this gathers the request and the real effects.
+ * The address hash is made here and the row is written with the service role, with the signed-in sender if
+ * there is one (0074), so a caller cannot choose the hash the rate limit counts.
+ */
 export async function sendSupportMessage(prev: SupportState, fd: FormData): Promise<SupportState> {
   const h = await headers();
   let salt: string;
@@ -19,10 +25,8 @@ export async function sendSupportMessage(prev: SupportState, fd: FormData): Prom
     salt,
     limiter: supportLimiter,
     submit: async (args) => {
-      const supabase = await createUserClient();
-      const { data, error } = await supabase.rpc("submit_support_message", args);
-      if (error) return { id: null, error: { code: error.code } };
-      return { id: typeof data === "string" ? data : null, error: null };
+      const session = await getReaderSession();
+      return submitSupportAsServer(createAdminClient, session?.userId ?? null)(args);
     },
   });
 }
