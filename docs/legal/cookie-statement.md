@@ -20,7 +20,7 @@ This cookie is strictly necessary to provide the service you have asked for. Und
 
 - No analytics cookies.
 - No advertising or marketing cookies.
-- No third-party scripts, pixels or tags on any page of any site on the platform. Our content security policy blocks them by construction.
+- No third-party scripts, pixels or tags, with one exception. If sign-in with Google is switched on for the site, Google's sign-in script loads from accounts.google.com when you open the sign-in page, and when the sign-in step appears at the end of a free first unit. It loads whether or not you choose Google, and on no other page. While sign-in with Google is switched off, no Google script loads anywhere. Our content security policy allows scripts from our own site, from Google on those two pages only, and from Stripe, our payment provider. No page loads a Stripe script today: you pay on Stripe's own page.
 - No cross-site tracking.
 
 Publisher sites on Akana use the same platform and the same rules. A publisher cannot add tracking to its site on Akana.

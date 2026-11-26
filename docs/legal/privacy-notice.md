@@ -44,7 +44,7 @@ Your work is protected in a way that goes beyond normal storage. In the words al
 
 In technical terms: every answer, check-in and daily check is sealed with AES-256-GCM before it reaches the database. The encryption keys are held server side and never stored with the data. Each sealed value is bound to your account, the site you used and the field you answered, so it cannot be moved or read in another context. Unsealing happens only in server code acting for you while you are signed in. There is no administrative tool that can unseal your work. No author, publisher, white-label partner or member of Akana staff can read what you write.
 
-Lawful basis: your explicit consent (UK GDPR Article 9(2)(a)). We have prepared a data protection impact assessment for this processing and review it when the processing changes.
+Lawful basis: your explicit consent (UK GDPR Article 9(2)(a)). We are completing a data protection impact assessment for this processing before launch, and we will review it when the processing changes.
 
 ## 4. Who we share data with
 
