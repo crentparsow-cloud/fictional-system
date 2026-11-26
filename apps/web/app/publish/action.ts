@@ -1,14 +1,19 @@
 "use server";
 
 import { headers } from "next/headers";
-import { leadLimiter, leadSalt, clientIp, notifyLead, processEnquiry, submitLeadWith } from "@/lib/leads";
-import { createUserClient } from "@/lib/supabase/server";
+import { leadLimiter, leadSalt, clientIp, notifyLead, processEnquiry } from "@/lib/leads";
+import { submitLeadAsServer } from "@/lib/public-forms";
+import { createAdminClient } from "@/lib/supabase/admin";
 import type { EnquiryState } from "./options";
+import { ownOrigin } from "@/lib/site-url";
 
 /**
  * The enquiry form on /publish (F-001). Validation, the honeypot, the
  * database call and the email to the Akana team live in lib/leads.ts. This
  * action only gathers the request details and the real effects.
+ *
+ * The address hash is made here and the row is written with the service role
+ * (0074), so a caller cannot choose the hash the rate limit counts.
  */
 export async function submitEnquiry(prev: EnquiryState, formData: FormData): Promise<EnquiryState> {
   const h = await headers();
@@ -33,7 +38,7 @@ export async function submitEnquiry(prev: EnquiryState, formData: FormData): Pro
     userAgent: h.get("user-agent") ?? "",
     salt,
     limiter: leadLimiter,
-    submit: async (args) => submitLeadWith(await createUserClient())(args),
+    submit: submitLeadAsServer(createAdminClient),
     notify: (lead) =>
       notifyLead(lead, {
         origin,
@@ -50,9 +55,7 @@ export async function submitEnquiry(prev: EnquiryState, formData: FormData): Pro
   });
 }
 
-/** The origin for the link in the email. The host has already passed tenant resolution in the proxy. */
+// Review L2: one of this deployment's own configured addresses, never the raw Host header.
 function siteOrigin(h: Headers): string {
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(h);
 }
