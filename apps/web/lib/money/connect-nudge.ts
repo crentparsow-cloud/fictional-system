@@ -1,5 +1,6 @@
 import { createMailer, type MailerOptions } from "@akana/emails";
 import { connectStepLeft, isoWeekKey } from "@/lib/money/studio-payments";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The weekly Connect nudge (build list 14.29). A title may go live before
@@ -89,7 +90,7 @@ export async function sendConnectNudges(store: NudgeStore, deps: NudgeDeps, live
   const now = deps.now?.() ?? new Date();
   const mailer = createMailer({
     env: deps.env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: deps.log,
     claim: store.claim,
     release: store.release,
