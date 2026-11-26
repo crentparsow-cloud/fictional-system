@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import type Stripe from "stripe";
 import { z } from "zod";
 import { getReaderSession } from "@/lib/auth";
 import { NO_STORE } from "@/lib/enrolment";
@@ -16,6 +17,8 @@ import { WORKBOOK_SUBMIT_NOTICE, checkoutConsentDecision, consentMetadata } from
 import { linkCheckoutConsent, recordCheckoutConsent } from "@/lib/checkout-consent-server";
 import { PROMO_MESSAGES, discountedMinor } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
+import { ownOrigin } from "@/lib/site-url";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Single workbook checkout (F-096). POST /api/checkout { workbook: slug }
@@ -198,7 +201,7 @@ export async function POST(request: NextRequest) {
 
   let checkout;
   try {
-    checkout = await stripe.checkout.sessions.create({
+    const params: Stripe.Checkout.SessionCreateParams = {
     mode: "payment",
     line_items: [
       {
@@ -226,7 +229,9 @@ export async function POST(request: NextRequest) {
     },
     success_url: `${origin}/read/${workbook.slug}?paid=1&session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/w/${workbook.slug}`,
-  });
+  };
+    // L6: one session for one attempt, however often the request is sent.
+    checkout = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("workbook", session.userId, params) });
   } catch (err) {
     // A Stripe refusal (for example Stripe Tax not set up) is logged by code, not
     // message, and the reader gets the same plain line as the other refusals.
@@ -290,9 +295,7 @@ async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): 
   }
 }
 
-/** The public origin for the redirect URLs, from the proxy's headers. */
+/** The public origin for the redirect URLs: one of this deployment's own configured addresses (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }

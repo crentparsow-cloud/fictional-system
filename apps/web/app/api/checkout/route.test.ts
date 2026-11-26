@@ -141,7 +141,8 @@ vi.mock("@/lib/stripe", () => ({
     },
     checkout: {
       sessions: {
-        create: async (params: Record<string, unknown>) => {
+        create: async (params: Record<string, unknown>, options?: { idempotencyKey?: string }) => {
+          keys.push(options?.idempotencyKey);
           fake.created.push(params);
           return { id: "cs_test_route1", url: "https://checkout.stripe.test/cs_test_route1" };
         },
@@ -166,6 +167,9 @@ function post(body: Record<string, unknown>) {
 }
 
 const good = { workbook: "calm-week", terms: READER_TERMS_VERSION, consent: CHECKOUT_CONSENTS.workbook.version };
+
+/** L6: the idempotency key each Checkout Session was created with. */
+const keys = vi.hoisted(() => [] as (string | undefined)[]);
 
 describe("POST /api/checkout: immediate-access consent", () => {
   beforeEach(() => {
@@ -320,5 +324,24 @@ describe("POST /api/checkout: promotion code from the /code page (item 5.9)", ()
     expect(res.status).toBe(409);
     expect((await res.json()).code).toBe("promo_invalid");
     expect(fake.created).toEqual([]);
+  });
+});
+
+describe("POST /api/checkout: one Checkout Session for one attempt (L6)", () => {
+  beforeEach(() => {
+    fake.reset();
+    keys.length = 0;
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => vi.restoreAllMocks());
+
+  it("sends an idempotency key made from the request, so a retried request cannot make a second session", async () => {
+    expect((await post(good)).status).toBe(200);
+    expect(keys).toHaveLength(1);
+    expect(keys[0]).toMatch(/^akana-checkout-workbook-[0-9a-f]{48}$/);
+    // The key is the hash of what was sent to Stripe: the same parameters give the same key.
+    const { checkoutIdempotencyKey } = await import("@/lib/checkout-idempotency");
+    expect(checkoutIdempotencyKey("workbook", "user-1", fake.created[0])).toBe(keys[0]);
+    expect(keys[0]).not.toContain("user-1");
   });
 });
