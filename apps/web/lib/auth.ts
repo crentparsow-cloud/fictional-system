@@ -1,5 +1,5 @@
 import "server-only";
-import { passkeyEnabled } from "@/lib/mfa/role-mfa-server";
+import { mfaEnrolledFor } from "@/lib/mfa/reader-gate-server";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -16,17 +16,10 @@ export async function getReaderSession(): Promise<ReaderSession | null> {
   const user = data.user;
   if (!user) return null;
   const { data: profile } = await supabase.from("profiles").select("adult_confirmed_at").eq("user_id", user.id).maybeSingle();
-  const factors = (user as { factors?: { factor_type?: string; status?: string }[] }).factors ?? [];
-  const verified = factors.filter((f) => f.status === "verified");
-  // A passkey counts only while passkeys are switched on, so turning the
-  // switch off can never lock out a reader whose only factor is a passkey.
-  const mfaEnrolled = verified.some((f) => f.factor_type !== "webauthn") || (verified.length > 0 && (await passkeyEnabled()));
+  // The rule for what counts as a factor is in lib/mfa/reader-gate.ts.
+  const mfaEnrolled = await mfaEnrolledFor(user);
   return { userId: user.id, email: user.email ?? null, adultConfirmedAt: (profile?.adult_confirmed_at as string | null | undefined) ?? null, mfaEnrolled };
 }
 
-/** Only ever send a reader to a path on this site. */
-export function safeNextPath(next: string | null | undefined, fallback = "/home"): string {
-  if (!next) return fallback;
-  if (!next.startsWith("/") || next.startsWith("//") || next.includes("\\")) return fallback;
-  return next;
-}
+/** Only ever send a reader to a path on this site. The rules are in lib/safe-next.ts. */
+export { safeNextPath, sameOriginUrl } from "@/lib/safe-next";

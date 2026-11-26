@@ -6,6 +6,7 @@
  */
 import { createDevTransport, createMailer, type MailerEnv, type SendLogEntry, type Transport } from "@akana/emails";
 import { mailLog } from "@/lib/mail-ops";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 export async function sendReviewAssigned(
   to: string,
@@ -17,7 +18,7 @@ export async function sendReviewAssigned(
   const env: MailerEnv = live ? o.env : { EMAIL_MODE: "live", EMAIL_FROM: o.env.EMAIL_FROM || "Akana <dev@localhost>", POSTAL_ADDRESS: o.env.POSTAL_ADDRESS };
   const mailer = createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: o.log ?? mailLog("admin/review/assign", "review_assigned_email"),
     transport: o.transport ?? dev?.transport,
   });

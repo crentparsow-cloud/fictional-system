@@ -1,15 +1,16 @@
 /**
  * Who runs Akana, and how to reach them. One place, so a change here is a
- * change everywhere (footer, legal pages, emails). Values marked PLACEHOLDER
- * are not decided yet; the site shows them in square brackets until they are.
+ * change everywhere (footer, legal pages, emails). A value that is not set
+ * yet is null, and each page leaves it out or points to the contact page. No
+ * page shows a square-bracket placeholder (review finding M12).
  */
 import { supportContact } from "@/lib/help";
 
 export const company = {
   legalName: "Akana Holdings",
   address: ["128 City Road", "London", "EC1V 2NX"],
-  /** PLACEHOLDER until Akana Holdings is registered and the number is known. */
-  registrationNumber: process.env.NEXT_PUBLIC_COMPANY_NUMBER?.trim() || "[company number]",
+  /** Null until Akana Holdings is registered and NEXT_PUBLIC_COMPANY_NUMBER is set. */
+  registrationNumber: (process.env.NEXT_PUBLIC_COMPANY_NUMBER?.trim() || null) as string | null,
   /** How quickly we aim to reply. Proposed, to confirm before launch. */
   replyTime: "2 working days",
 } as const;

@@ -42,11 +42,15 @@ export function listHelpPages(dir?: string): HelpPage[] {
   return HELP_TOPICS.map((slug) => getHelpPage(slug, dir));
 }
 
-/** How to reach support: EMAIL_REPLY_TO when set, otherwise a visible placeholder. */
+/**
+ * How to reach support: EMAIL_REPLY_TO when set. While it is blank, email is
+ * null and callers point to the contact page (/contact) instead. The label is
+ * plain words either way, never a square-bracket placeholder (M12).
+ */
 export function supportContact(env: Record<string, string | undefined> = process.env): { email: string | null; label: string } {
   const raw = env.EMAIL_REPLY_TO?.trim() ?? "";
   // Accept "Name <address>" as well as a bare address.
   const email = (/<([^<>]+)>/.exec(raw)?.[1] ?? raw).trim();
   if (email && /^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email)) return { email, label: email };
-  return { email: null, label: "[support email]" };
+  return { email: null, label: "the contact page" };
 }
