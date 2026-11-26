@@ -14,6 +14,8 @@ export const INFO_FOOTER_LINKS = [
   { href: "/legal/terms", label: "Reader terms" },
   { href: "/legal/privacy", label: "Privacy notice" },
   { href: "/legal/cookies", label: "Cookie statement" },
+  // The opt-out for first-party counting must be reachable from every page (review finding M23).
+  { href: "/counting", label: "What we count" },
   { href: "/legal/refunds", label: "Refund policy" },
   { href: "/takedown", label: "Report content" },
 ] as const;
