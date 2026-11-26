@@ -4,6 +4,7 @@ import { runDeletionJob, stripeCanceller, stripeSettlement, type DueSubscription
 import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { reportOps } from "@/lib/ops-alerts";
+import { removeQueuedFiles, type QueuedFile } from "@/lib/storage-erasure";
 
 /**
  * Finishes account deletions whose 7-day undo has passed (F-025).
@@ -11,7 +12,8 @@ import { reportOps } from "@/lib/ops-alerts";
  *   GET or POST /api/account/complete
  *   Authorization: Bearer <CRON_SECRET>   (Vercel Cron sends this itself)
  *   -> { processed, auth_removed, auth_failed, subscriptions_cancelled, subscriptions_failed,
- *        refunds_issued, refunds_failed, customers_redacted, redactions_failed }
+ *        refunds_issued, refunds_failed, customers_redacted, redactions_failed,
+ *        files_removed, files_failed }
  *
  * Step 0, membership (F-097, migration 0009): any live Stripe subscription
  * of a reader whose deletion is due is cancelled in Stripe at once and
@@ -33,6 +35,11 @@ import { reportOps } from "@/lib/ops-alerts";
  * Step 2, here: the auth user is removed with the service role, then the
  * request row is stamped auth_removed_at. A failure is retried on the next
  * run because the SQL function keeps returning that id until it is stamped.
+ *
+ * Step 3, here (review finding M18, migration 0076): the SQL step queues the
+ * paths of the deleted reader's own uploads. They are removed through the
+ * Storage API and marked done. A removal that fails is counted, reported and
+ * tried again on the next run. It never fails the deletion.
  *
  * With CRON_SECRET unset the route does nothing and says so. Ids are never
  * logged or returned, only counts.
@@ -99,6 +106,23 @@ async function run(request: NextRequest) {
         const { error } = await admin.rpc("mark_auth_removed", { p_user: id });
         return !error;
       },
+      removeQueuedFiles: () =>
+        removeQueuedFiles({
+          async due(limit) {
+            const { data, error } = await admin.rpc("storage_erasure_due", { p_limit: limit });
+            if (error) throw new SqlError(error.code);
+            return (data ?? []) as QueuedFile[];
+          },
+          async remove(bucket, paths) {
+            const { error } = await admin.storage.from(bucket).remove(paths);
+            return !error;
+          },
+          async mark(ids, removed) {
+            const { error } = await admin.rpc("storage_erasure_mark", { p_ids: ids, p_removed: removed });
+            if (error) throw new SqlError(error.code);
+          },
+          log: (code, reason) => console.error(code, reason),
+        }),
     });
   } catch (err) {
     console.error("complete_due_deletions_failed", err instanceof SqlError ? err.code : "unknown");
@@ -115,6 +139,10 @@ async function run(request: NextRequest) {
   if (counts.auth_failed) console.error("account_auth_removal_failed", counts.auth_failed);
   if (counts.refunds_failed) console.error("account_refund_failed_count", counts.refunds_failed);
   if (counts.redactions_failed) console.error("account_redaction_failed_count", counts.redactions_failed);
+  if (counts.files_failed) {
+    console.error("account_file_removal_failed_count", counts.files_failed);
+    await reportOps(admin, "cron_failure", "api/account/complete", "file_removal_failed");
+  }
   return NextResponse.json(counts, { headers: NO_STORE });
 }
 
