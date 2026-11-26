@@ -24,4 +24,6 @@ for f in supabase/tests/[0-9]*.sql; do
   echo "test  $f"
   psql "$TEST_URL" -v ON_ERROR_STOP=1 -q -f "$f"
 done
+# Two sessions race for the yearly referral cap (0074); a SQL file cannot do that.
+TEST_URL="$TEST_URL" bash supabase/tests/proofs/referral-cap-race.sh
 echo "database tests passed"
