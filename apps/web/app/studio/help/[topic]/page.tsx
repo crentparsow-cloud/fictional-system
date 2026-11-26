@@ -35,7 +35,7 @@ export default async function StudioHelpTopicPage({ params }: { params: Promise<
       <article className="legal-doc" dangerouslySetInnerHTML={{ __html: page.html }} />
       <section className="info-section" aria-labelledby="sht-contact">
         <h2 id="sht-contact">Still have a question?</h2>
-        <p>Email {support.email ? <a href={`mailto:${support.email}`}>{support.label}</a> : <span>{support.label}</span>}.</p>
+        <p>{support.email ? <>Email <a href={`mailto:${support.email}`}>{support.label}</a>.</> : <>Write to us through <Link href="/contact">the contact page</Link>.</>}</p>
       </section>
     </div>
   );
