@@ -32,9 +32,11 @@ It never uses supabase-js or the session cookies. The proxy may run on the edge 
 | `x-akana-path` | Path and query, for return-after-gate. Unchanged. |
 | `x-akana-tenant-id` | Tenant uuid, when known. New. |
 
-The proxy deletes any `x-akana-tenant-id` the client sent, then sets its own. `tenantIdForRequest()` in `lib/tenant-id.ts` prefers the header and falls back to the slug map, so existing callers keep working. It also refuses an `akana` slug carrying any id other than the marketplace id.
+The proxy drops every `x-akana-*` header the client sent, then sets its own (`proxyRequestHeaders` in `lib/tenant-resolve.ts`).
 
-One gap: paths the proxy matcher skips (`_next/static`, `_next/image`, `favicon.ico`, `icons/`, `fonts/`, `manifest.webmanifest`) never pass through the proxy, so a client-supplied header would reach them untouched. None of them read the tenant today. Any new route that reads the tenant must sit inside the matcher.
+Paths the proxy matcher skips (`_next/static`, `_next/image`, `favicon.ico`, `icons/`, `fonts/`, `manifest.webmanifest`) never pass through the proxy, so a client-supplied header reaches them untouched, and a server action can be posted to any path. For that reason nothing that decides access reads these headers (review L4, 25 November 2026). `tenantIdForRequest()`, `tenantForRequest()` and `whiteLabelTenantId()` resolve the tenant from the `Host` header through the same resolver the proxy uses. The marketplace, previews and the demo host need no lookup, and a database lookup is cached per instance. A request that skipped the proxy gets the tenant its host belongs to, whatever headers it carries. The headers remain for display only: the root layout reads the slug and kind for theming, and the layouts read `x-akana-path`, which is always passed through `safeNextPath`.
+
+Links in emails and return addresses for Stripe are built from the configured site address (`lib/site-url.ts`), never from `Host` or `X-Forwarded-Host` (review L2).
 
 ## 3. Cache
 
