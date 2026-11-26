@@ -6,6 +6,7 @@ import { mailerEnvFromProcess } from "@/lib/partner-mail";
 import { siteOrigin } from "@/lib/site-url";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { readerBase } from "@/lib/support-actions";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * The emails of the conversion work: the gift pair (5.6), the student price
@@ -30,7 +31,7 @@ function mailer(env: MailerEnv, transport: Transport | undefined) {
   }
   return createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: mailLog("conversion/mail", "conversion_mail"),
     ...(admin
       ? {

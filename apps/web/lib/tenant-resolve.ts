@@ -178,6 +178,25 @@ export async function resolveRequestTenant(rawHost: string, deps: ResolveDeps = 
   return resolveFromConfig(normaliseHost(rawHost));
 }
 
+/**
+ * The request headers the proxy passes on (review L4). Every x-akana-*
+ * header the client sent is dropped first, then the proxy sets its own, so
+ * nothing with that prefix reaches the app from outside on a matched route.
+ * Routes the matcher skips never get this treatment, which is why
+ * lib/tenant-id.ts resolves the tenant from the Host itself and does not
+ * read these headers for anything that decides access.
+ */
+export function proxyRequestHeaders(inbound: Headers, tenant: HostTenant, pathAndQuery: string): Headers {
+  const headers = new Headers(inbound);
+  for (const name of [...headers.keys()]) if (name.toLowerCase().startsWith("x-akana-")) headers.delete(name);
+  headers.set("x-akana-tenant", tenant.slug);
+  headers.set("x-akana-tenant-kind", tenant.kind);
+  if (tenant.id) headers.set("x-akana-tenant-id", tenant.id);
+  // The path, so a layout can send a reader back where they were heading after a gate.
+  headers.set("x-akana-path", pathAndQuery);
+  return headers;
+}
+
 const STAFF_ONLY = /^\/(admin|studio|console|payouts|files|org)(\/|$)/;
 
 /** Admin, studio, console, payouts (F-099), private files (F-135) and the organisation console (F-204) exist only on the Akana apex. */

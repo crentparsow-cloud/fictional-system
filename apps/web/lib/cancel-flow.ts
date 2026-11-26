@@ -170,9 +170,18 @@ export const CANCEL_COPY = {
 } as const;
 
 /** What happens to access when they press Cancel. */
-export function cancelConsequence(view: Extract<CancelView, { kind: "cancellable" }>, inCoolingOff: boolean, formatDate: (iso: string) => string): string {
+export function cancelConsequence(
+  view: Extract<CancelView, { kind: "cancellable" }>,
+  inCoolingOff: boolean,
+  formatDate: (iso: string) => string,
+  /** True when the 14 days run from the first payment after a trial (M11). */
+  afterTrial = false,
+): string {
   if (view.pauseRunning) return "Your membership is paused, so it ends today. Nothing more is charged.";
   if (view.trialing) return "You are in your trial, so you will not be charged. Your access ends when the trial ends.";
+  if (inCoolingOff && afterTrial) {
+    return "Your first payment was less than 14 days ago, so your membership ends today and you are refunded for the days you have not used. The email we send says how much.";
+  }
   if (inCoolingOff) {
     return "You started less than 14 days ago, so your membership ends today and you are refunded for the days you have not used. The email we send says how much.";
   }

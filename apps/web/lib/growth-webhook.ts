@@ -2,6 +2,7 @@ import type Stripe from "stripe";
 import { applyPendingCredits, processFirstPayment, reverseReferralReward, type PendingCredit, type ReversalDeps, type RewardDeps } from "@/lib/referral-reward";
 import { countEventServer } from "@/lib/funnel";
 import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
+import { inCoolingOff } from "@/lib/membership-refund";
 
 /**
  * What the growth features do when Stripe tells us about money (6.3, 13.11,
@@ -15,11 +16,27 @@ import { MARKETPLACE_TENANT_ID } from "@/lib/tenant";
  *                    ledger line, 12 months from their first payment), credit
  *                    still waiting for a customer, and the reader referral
  *                    reward when this is the friend's first payment of money
- *   charge.refunded  the share is reversed in proportion to the refund; a
- *                    full refund of the friend's first payment takes the
- *                    referral reward back (0068)
+ *   charge.refunded  the share is reversed in proportion to the refund. The
+ *                    referral reward goes back (0068) when the friend's first
+ *                    payment is refunded in full, or in any part within 14
+ *                    days of being taken: a cooling-off cancel refunds pro
+ *                    rata, so waiting for a full refund left the reward with
+ *                    the referrer (M8)
+ *   customer.subscription.updated, when the webhook ended the membership in
+ *                    cooling-off: the reward on the friend's first payment
+ *                    goes back even if no refund event follows
  *   charge.dispute.created  a dispute on that first payment takes it back too
+ *
+ * The reward reversal is safe to ask for more than once: the database hands
+ * the reward back until the reversal is recorded and nothing after that, and
+ * the Stripe write is keyed on the referral.
  */
+
+/** What the main handler did with the event, for the cases that depend on it. */
+export interface GrowthHints {
+  action?: string;
+  subscriptionId?: string | null;
+}
 
 export interface GrowthDb {
   rpc(name: string, args: Record<string, unknown>): Promise<{ data: unknown; error: { code?: string; message?: string } | null }>;
@@ -43,7 +60,7 @@ function invoiceSubscriptionId(invoice: Stripe.Invoice): string | null {
   return typeof ref === "string" ? ref : ref.id;
 }
 
-export async function growthAfterStripeEvent(event: Stripe.Event, ctx: GrowthContext): Promise<string[]> {
+export async function growthAfterStripeEvent(event: Stripe.Event, ctx: GrowthContext, hints: GrowthHints = {}): Promise<string[]> {
   const done: string[] = [];
   if (event.type === "invoice.paid") {
     const invoice = event.data.object;
@@ -76,11 +93,27 @@ export async function growthAfterStripeEvent(event: Stripe.Event, ctx: GrowthCon
     if (!pi || !(charge.amount_refunded > 0)) return done;
     const r = check("reverse_author_referral_share", await ctx.db.rpc("reverse_author_referral_share", { p_payment_intent: pi, p_refunded_minor: charge.amount_refunded, p_livemode: event.livemode }));
     if (r === "recorded") done.push("author_share_reversed");
-    // A full refund of the charge: if it was a friend's first payment, the reward goes back.
-    if (charge.refunded) {
+    // If this was a friend's first payment, the reward goes back on a full refund, and on any
+    // refund made within the cooling-off period (the pro rata refund of a cooling-off cancel).
+    const inWindow = typeof charge.created === "number" && inCoolingOff(new Date(charge.created * 1000), new Date(event.created * 1000));
+    if (charge.refunded || inWindow) {
       const back = await reverseReferralReward(pi, "refunded", ctx.reversal);
       if (back !== "nothing_to_reverse") done.push(`referral_${back}`);
     }
+    return done;
+  }
+
+  if (event.type === "customer.subscription.updated" && hints.action === "cooling_off_cancelled") {
+    const subscriptionId = hints.subscriptionId ?? event.data.object.id;
+    const sub = subscriptionId ? await ctx.db.subscription(subscriptionId) : null;
+    if (!sub) return done;
+    const found = await ctx.db.rpc("referral_first_payment_intent", { p_friend: sub.userId });
+    // Until 0075 is applied the function is not there. The refund event that follows still takes the reward back.
+    if (found.error?.code === "PGRST202") return done;
+    const pi = check("referral_first_payment_intent", found);
+    if (typeof pi !== "string" || !pi) return done;
+    const back = await reverseReferralReward(pi, "refunded", ctx.reversal);
+    if (back !== "nothing_to_reverse") done.push(`referral_${back}`);
     return done;
   }
 
