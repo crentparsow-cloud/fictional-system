@@ -35,7 +35,7 @@ import type { DraftStore, DraftWrite } from "@/lib/draft-store";
  * consent: refused because health data consent is not in place (F-026).
  * read_only: refused because an account deletion is pending (F-025).
  */
-export type SaveState = "idle" | "unsaved" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "device" | "device_full";
+export type SaveState = "idle" | "unsaved" | "saving" | "saved" | "retrying" | "failed" | "consent" | "read_only" | "verify" | "device" | "device_full";
 
 /** What the autosave line needs besides the state: why a save failed, and when one last went through. */
 export interface SaveDetail {
@@ -324,6 +324,8 @@ async function refusalState(res: Response): Promise<SaveState> {
     const body = (await res.json()) as { error?: unknown };
     if (body?.error === "consent_required") return "consent";
     if (body?.error === "read_only") return "read_only";
+    // Review M3: the session owes a sign-in code. The draft stays on the device.
+    if (body?.error === "second_factor_required") return "verify";
     return "failed";
   } catch {
     return "failed";
