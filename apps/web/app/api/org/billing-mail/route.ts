@@ -37,7 +37,7 @@ async function run(request: NextRequest) {
   } catch {
     return NextResponse.json({ error: "not_configured" }, { status: 503, headers: NO_STORE });
   }
-  const origin = mailOrigin(request.headers.get("x-forwarded-host") ?? request.headers.get("host"));
+  const origin = mailOrigin(request.headers);
   try {
     const billing = await sendOrgBillingMail(admin, origin);
     const reminders = await sendOrgTermsReminders(admin, origin);
