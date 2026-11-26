@@ -1,34 +1,21 @@
 import type { Metadata } from "next";
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import { InfoFooter } from "@/components/InfoFooter";
 import { notFound } from "next/navigation";
 import { LEGAL_DOCS, isLegalSlug, type LegalSlug } from "@/lib/legal-docs";
-import { markdownToHtml } from "@/lib/markdown";
+import { renderLegalDoc } from "@/lib/legal-render";
 import { READER_TERMS_VERSION } from "@/lib/terms";
 
 /**
  * F-121. Renders the four legal drafts from docs/legal at build time. The
  * files are lawyer drafts: every page carries the DRAFT banner and is noindex.
  * The Markdown subset is in lib/markdown.ts, shared with the help centre.
+ * lib/legal-render.ts fills the support address and company number from
+ * config, so no square-bracket placeholder reaches a reader (M12).
  */
 
 const DOCS = LEGAL_DOCS;
 type Slug = LegalSlug;
 const isSlug = isLegalSlug;
-
-// apps/web is two levels below the repo root, where docs/legal lives.
-const LEGAL_DIR = path.join(process.cwd(), "..", "..", "docs", "legal");
-
-const DRAFT_LINE = /^DRAFT(?: for the lawyer)?\./;
-
-function readDoc(slug: Slug) {
-  const raw = readFileSync(path.join(LEGAL_DIR, DOCS[slug].file), "utf8");
-  const lines = raw.split(/\r?\n/);
-  const banner = lines.find((l) => DRAFT_LINE.test(l)) ?? "DRAFT. To be reviewed before launch.";
-  const body = lines.filter((l) => !DRAFT_LINE.test(l)).join("\n");
-  return { banner, body };
-}
 
 export function generateStaticParams() {
   return (Object.keys(DOCS) as Slug[]).map((doc) => ({ doc }));
@@ -50,8 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ doc: stri
 export default async function LegalDocPage({ params }: { params: Promise<{ doc: string }> }) {
   const { doc } = await params;
   if (!isSlug(doc)) notFound();
-  const { banner, body } = readDoc(doc);
-  const html = markdownToHtml(body);
+  const { banner, html } = renderLegalDoc(doc);
   return (
     <main className="wrap d-page-pad d-narrow">
       <p className="badge demo info-draft d-draft" role="note">
