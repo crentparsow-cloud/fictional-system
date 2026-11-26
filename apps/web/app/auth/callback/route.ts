@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { safeNextPath } from "@/lib/auth";
+import { safeNextPath, sameOriginUrl } from "@/lib/auth";
 import { createUserClient } from "@/lib/supabase/server";
 
 /**
@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   if (code) {
     const supabase = await createUserClient();
     const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) return NextResponse.redirect(new URL(next, url.origin));
+    if (!error) return NextResponse.redirect(sameOriginUrl(next, url.origin));
   }
   return NextResponse.redirect(new URL(`/sign-in?error=link&next=${encodeURIComponent(next)}`, url.origin));
 }
