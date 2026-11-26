@@ -20,8 +20,10 @@ export async function handleConnectWebhook(event: Stripe.Event, origin: string):
   try {
     const admin = createAdminClient();
     const outcome = await handleConnectEvent(event, connectRepo(admin));
-    const { notify, ...logged } = outcome;
+    const { notify, alertCode, ...logged } = outcome;
     console.info("stripe connect webhook", logged);
+    // L7: a failed bank payout is raised with staff. Never throws.
+    if (alertCode) await reportOpsServer("payout_failure", "api/stripe/webhook/connect", alertCode);
     if (notify) {
       await sendPayoutChangeEmails(admin, {
         orgId: notify.orgId,

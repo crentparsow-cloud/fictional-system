@@ -19,6 +19,15 @@ class FakeRepo implements ConnectRepo {
   async retrieveAccount() {
     return this.fresh;
   }
+  failed = new Map<string, { code: string | null; amountMinor: number | null }>();
+  /** As public.note_connect_payout_failed: once per Stripe payout. */
+  async notePayoutFailed(a: { accountId: string; payoutId: string; code: string | null; amountMinor: number | null }) {
+    const orgId = this.linked.get(a.accountId) ?? null;
+    if (!orgId) return { orgId: null, recorded: false };
+    if (this.failed.has(a.payoutId)) return { orgId, recorded: false };
+    this.failed.set(a.payoutId, { code: a.code, amountMinor: a.amountMinor });
+    return { orgId, recorded: true };
+  }
 }
 
 const account = (o: Partial<Stripe.Account>): Stripe.Account =>
@@ -71,5 +80,36 @@ describe("payout bank changes", () => {
   it("ignores other events", async () => {
     const out = await handleConnectEvent(event("payout.paid", { id: "po_1" }), new FakeRepo());
     expect(out.action).toBe("ignored");
+  });
+});
+
+describe("a failed bank payout (L7)", () => {
+  const payout = { id: "po_1", object: "payout", amount: 4200, currency: "gbp", failure_code: "account_closed", status: "failed" };
+
+  it("records it once and asks for a payout_failure alert", async () => {
+    const repo = new FakeRepo();
+    const out = await handleConnectEvent(event("payout.failed", payout), repo);
+    expect(out).toMatchObject({ action: "payout_failed", orgId: "org-1", alertCode: "bank_account_closed" });
+    expect(repo.failed.get("po_1")).toEqual({ code: "account_closed", amountMinor: 4200 });
+    // Delivered again: nothing new is recorded.
+    const again = await handleConnectEvent(event("payout.failed", payout), repo);
+    expect(again.action).toBe("payout_failed_already");
+    expect(repo.failed.size).toBe(1);
+  });
+
+  it("never passes on a failure code that is not a short token", async () => {
+    const repo = new FakeRepo();
+    const out = await handleConnectEvent(event("payout.failed", { ...payout, failure_code: "Sort code 12-34-56 rejected" }), repo);
+    expect(out.alertCode).toBe("bank_unknown");
+    expect(repo.failed.get("po_1")?.code).toBeNull();
+  });
+
+  it("does nothing for an account that is not linked, or a repo that cannot record it", async () => {
+    const out = await handleConnectEvent(event("payout.failed", payout, "acct_other"), new FakeRepo());
+    expect(out).toMatchObject({ action: "account_unlinked", orgId: null });
+    expect(out.alertCode).toBeUndefined();
+    const bare = new FakeRepo();
+    (bare as { notePayoutFailed?: unknown }).notePayoutFailed = undefined;
+    expect((await handleConnectEvent(event("payout.failed", payout), bare)).action).toBe("ignored");
   });
 });
