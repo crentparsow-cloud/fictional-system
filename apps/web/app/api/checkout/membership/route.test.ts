@@ -91,7 +91,8 @@ vi.mock("@/lib/stripe", () => ({
   getStripe: () => ({
     checkout: {
       sessions: {
-        create: async (params: Record<string, unknown>) => {
+        create: async (params: Record<string, unknown>, options?: { idempotencyKey?: string }) => {
+          keys.push(options?.idempotencyKey);
           fake.created.push(params);
           return { id: "cs_test_member1", url: "https://checkout.stripe.test/cs_test_member1" };
         },
@@ -116,6 +117,9 @@ function post(body: Record<string, unknown>) {
 }
 
 const good = { plan: "monthly", workbook: "calm-week", terms: READER_TERMS_VERSION, consent: CHECKOUT_CONSENTS.membership.version };
+
+/** L6: the idempotency key each Checkout Session was created with. */
+const keys = vi.hoisted(() => [] as (string | undefined)[]);
 
 describe("POST /api/checkout/membership: pro rata refund consent", () => {
   beforeEach(() => {
@@ -306,3 +310,26 @@ describe("POST /api/checkout/membership: the trial does not depend on the reader
   });
 });
 
+describe("POST /api/checkout/membership: one Checkout Session for one attempt (L6)", () => {
+  beforeEach(() => {
+    fake.reset();
+    keys.length = 0;
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_MONTHLY", "price_test_monthly");
+    vi.stubEnv("STRIPE_PRICE_MEMBERSHIP_YEARLY", "price_test_yearly");
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it("sends an idempotency key made from the request, so a retried request cannot make a second session", async () => {
+    expect((await post({ ...good, plan: "yearly" })).status).toBe(200);
+    expect(keys).toHaveLength(1);
+    expect(keys[0]).toMatch(/^akana-checkout-membership-[0-9a-f]{48}$/);
+    // The key is the hash of what was sent to Stripe: the same parameters give the same key.
+    const { checkoutIdempotencyKey } = await import("@/lib/checkout-idempotency");
+    expect(checkoutIdempotencyKey("membership", "user-1", fake.created[0])).toBe(keys[0]);
+    expect(keys[0]).not.toContain("user-1");
+  });
+});

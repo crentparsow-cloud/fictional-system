@@ -31,6 +31,8 @@ import { PROMO_MESSAGES } from "@/lib/promo-code";
 import { lookupPromoCode } from "@/lib/promo-code-server";
 import { friendBenefit, referralConfigFrom, referralCouponId } from "@/lib/referral";
 import { discountedMinor, studentCouponId, studentDiscountApplies, studentPercentFrom, studentPlanAllowed, studentStatus } from "@/lib/student";
+import { ownOrigin } from "@/lib/site-url";
+import { checkoutIdempotencyKey } from "@/lib/checkout-idempotency";
 
 /**
  * Membership checkout (F-097). POST /api/checkout/membership
@@ -257,7 +259,8 @@ export async function POST(request: NextRequest) {
     const referralMeta: Record<string, string> = pendingReferral && benefit ? { referral_id: pendingReferral.id } : {};
     params.metadata = { ...params.metadata, ...consentMeta, ...referralMeta };
     params.subscription_data = { ...params.subscription_data, metadata: { ...params.subscription_data?.metadata, ...consentMeta, ...referralMeta } };
-    checkout = await stripe.checkout.sessions.create(params);
+    // L6: one session for one attempt, however often the request is sent.
+    checkout = await stripe.checkout.sessions.create(params, { idempotencyKey: checkoutIdempotencyKey("membership", session.userId, params) });
   } catch (err) {
     console.error("membership_checkout_failed", { reason: err instanceof Error ? err.name : "unknown" });
     return refuse("Checkout could not start just now. Please try again later.", 502);
@@ -335,9 +338,7 @@ async function expireQuietly(stripe: ReturnType<typeof getStripe>, id: string): 
   }
 }
 
-/** The public origin for the redirect URLs, from the proxy's headers. */
+/** The public origin for the redirect URLs: one of this deployment's own configured addresses (lib/site-url.ts). Review L2. */
 function siteOrigin(request: NextRequest): string {
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? process.env.AKANA_HOST ?? "localhost:3000";
-  const proto = request.headers.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  return `${proto}://${host}`;
+  return ownOrigin(request.headers);
 }
