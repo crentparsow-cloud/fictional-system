@@ -32,11 +32,15 @@ do $$ declare n int; begin
   select count(*) into n from public.org_members;
   if n <> 1 then raise exception 'owner A should see 1 membership row, saw %', n; end if;
 end $$;
--- Owner A cannot write organisation B (update touches 0 rows under RLS)
-do $$ declare n int; begin
-  update public.organisations set display_name = 'pwned' where id = 'bbbbbbbb-0000-0000-0000-000000000002';
-  get diagnostics n = row_count;
-  if n <> 0 then raise exception 'owner A updated organisation B'; end if;
+-- Owner A cannot write organisation B. Before 0074 the update touched 0 rows
+-- under RLS; from 0074 no client holds an update grant on the table at all.
+do $$ begin
+  begin
+    update public.organisations set display_name = 'pwned' where id = 'bbbbbbbb-0000-0000-0000-000000000002';
+    raise exception 'owner A wrote the organisations table directly' using errcode = 'AKT99';
+  exception when insufficient_privilege then null; end;
+  if exists (select 1 from public.organisations where display_name = 'pwned') then
+    raise exception 'owner A updated organisation B' using errcode = 'AKT99'; end if;
 end $$;
 -- Owner A cannot add themselves to organisation B
 do $$ begin

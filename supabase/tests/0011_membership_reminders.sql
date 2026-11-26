@@ -9,7 +9,16 @@ begin;
 insert into auth.users (id, email) values
   ('a0110000-0000-0000-0000-000000000001', 'reader-11a@test'),
   ('a0110000-0000-0000-0000-000000000002', 'reader-11b@test'),
-  ('a0110000-0000-0000-0000-000000000003', 'reader-11c@test');
+  ('a0110000-0000-0000-0000-000000000003', 'reader-11c@test'),
+  -- 0075: one live membership per reader, so each further subscription has its own reader
+  ('a0110000-0000-0000-0000-000000000101', 'reader-11x1@test'),
+  ('a0110000-0000-0000-0000-000000000102', 'reader-11x2@test'),
+  ('a0110000-0000-0000-0000-000000000103', 'reader-11x3@test'),
+  ('a0110000-0000-0000-0000-000000000104', 'reader-11x4@test'),
+  ('a0110000-0000-0000-0000-000000000105', 'reader-11x5@test'),
+  ('a0110000-0000-0000-0000-000000000106', 'reader-11x6@test'),
+  ('a0110000-0000-0000-0000-000000000107', 'reader-11x7@test'),
+  ('a0110000-0000-0000-0000-000000000108', 'reader-11x8@test');
 
 create or replace function pg_temp.as_service() returns void
 language plpgsql as $$
@@ -32,21 +41,21 @@ begin
   -- due: monthly, seven months in, renews in 7 days
   r := public.upsert_subscription('sub_e1', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
   -- renews too soon (2 days) and too late (20 days)
-  r := public.upsert_subscription('sub_e2', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '2 days', false, null, null, null, now());
-  r := public.upsert_subscription('sub_e3', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '20 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e2', 'cus_x1', 'a0110000-0000-0000-0000-000000000101', t, 'active', 'member_month', 'price_m', now() + interval '2 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e3', 'cus_x2', 'a0110000-0000-0000-0000-000000000102', t, 'active', 'member_month', 'price_m', now() + interval '20 days', false, null, null, null, now());
   -- only five months in
-  r := public.upsert_subscription('sub_e4', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e4', 'cus_x3', 'a0110000-0000-0000-0000-000000000103', t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
   -- set to end at period end, or by a cancel_at date
-  r := public.upsert_subscription('sub_e5', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '7 days', true, null, now(), null, now());
-  r := public.upsert_subscription('sub_e5b', 'cus_e1', a, t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, now() + interval '7 days', now(), null, now());
+  r := public.upsert_subscription('sub_e5', 'cus_x4', 'a0110000-0000-0000-0000-000000000104', t, 'active', 'member_month', 'price_m', now() + interval '7 days', true, null, now(), null, now());
+  r := public.upsert_subscription('sub_e5b', 'cus_x5', 'a0110000-0000-0000-0000-000000000105', t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, now() + interval '7 days', now(), null, now());
   -- annual: renewal_notice covers it
-  r := public.upsert_subscription('sub_e6', 'cus_e1', a, t, 'active', 'member_year', 'price_y', now() + interval '7 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e6', 'cus_x6', 'a0110000-0000-0000-0000-000000000106', t, 'active', 'member_year', 'price_y', now() + interval '7 days', false, null, null, null, now());
   -- reminded two months ago
   r := public.upsert_subscription('sub_e7', 'cus_e2', b, t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
   -- reminded six months and a day ago, no paid invoice on record
-  r := public.upsert_subscription('sub_e8', 'cus_e2', b, t, 'active', 'member_month', 'price_m', now() + interval '10 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e8', 'cus_x7', 'a0110000-0000-0000-0000-000000000107', t, 'active', 'member_month', 'price_m', now() + interval '10 days', false, null, null, null, now());
   -- past_due: not in good standing
-  r := public.upsert_subscription('sub_e9', 'cus_e2', b, t, 'past_due', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
+  r := public.upsert_subscription('sub_e9', 'cus_x8', 'a0110000-0000-0000-0000-000000000108', t, 'past_due', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
   -- due, but the reader is deleting their account
   r := public.upsert_subscription('sub_e10', 'cus_e3', c, t, 'active', 'member_month', 'price_m', now() + interval '7 days', false, null, null, null, now());
 

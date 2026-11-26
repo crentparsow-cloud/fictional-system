@@ -213,7 +213,10 @@ do $$ declare n int; b jsonb; begin
   if n <> 1 then raise exception 'publish should write 1 audit row, saw %', n; end if;
   -- publishing twice is refused
   begin
-    perform set_config('request.jwt.claims', jsonb_build_object('app_metadata', jsonb_build_object('platform_roles', array['editor']))::text, true);
+    -- 0074: a staff claim counts only on a second-factor session whose role row exists (held since test_as above).
+    perform set_config('request.jwt.claims', jsonb_build_object('sub', '44444444-4444-4444-4444-444444444444', 'aal', 'aal2',
+      'amr', jsonb_build_array(jsonb_build_object('method', 'totp', 'timestamp', 1)),
+      'app_metadata', jsonb_build_object('platform_roles', array['editor']))::text, true);
     perform app.publish_version('aaaaaaaa-0000-0000-0000-0000000000a6');
     raise exception 'version was published twice';
   exception when object_not_in_prerequisite_state then null; end;

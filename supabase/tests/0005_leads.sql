@@ -16,27 +16,19 @@ insert into auth.users (id, email) values
 insert into public.leads (created_at, kind, name, email, consent_contact, ip_hash)
 values (now() - interval '2 hours', 'author', 'Old Lead', 'old@test.example', true, repeat('a', 64));
 
--- Anonymous visitors submit through the function and read nothing.
+-- The server submits through the function with the service role. Before 0074
+-- anon called it with an ip_hash of its own choosing (review finding M4); the
+-- anon block further down now asserts that call is refused.
 savepoint s1;
-select set_config('request.jwt.claim.sub', '', true), set_config('request.jwt.claims', '{}', true);
-set local role anon;
+select set_config('request.jwt.claim.sub', '', true), set_config('request.jwt.claims', '{"role": "service_role"}', true);
+set local role service_role;
 do $$ declare v uuid; i int; begin
   v := public.submit_lead(
     p_kind => 'author', p_name => 'Ann Author', p_email => 'Ann@Example.test', p_consent => true,
     p_ip_hash => repeat('a', 64), p_user_agent_hash => repeat('b', 64),
     p_book_title => 'A Book', p_genre => 'wellbeing', p_interest => 'marketplace',
     p_message => 'Hello');
-  if v is null then raise exception 'anon submit returned no id'; end if;
-
-  begin
-    perform count(*) from public.leads;
-    raise exception 'anon read leads';
-  exception when insufficient_privilege then null; end;
-
-  begin
-    insert into public.leads (kind, name, email, consent_contact) values ('author', 'X', 'x@test.example', true);
-    raise exception 'anon inserted a lead directly';
-  exception when insufficient_privilege then null; end;
+  if v is null then raise exception 'submit returned no id'; end if;
 
   -- consent false is refused
   begin
@@ -85,6 +77,30 @@ do $$ declare v uuid; i int; begin
     p_consent => true, p_ip_hash => repeat('d', 64));
 end $$;
 reset role;
+
+-- Anonymous visitors read nothing, write nothing, and from 0074 cannot call
+-- the function themselves.
+select set_config('request.jwt.claim.sub', '', true), set_config('request.jwt.claims', '{"role": "anon"}', true);
+set local role anon;
+do $$ begin
+  begin
+    perform count(*) from public.leads;
+    raise exception 'anon read leads';
+  exception when insufficient_privilege then null; end;
+
+  begin
+    insert into public.leads (kind, name, email, consent_contact) values ('author', 'X', 'x@test.example', true);
+    raise exception 'anon inserted a lead directly';
+  exception when insufficient_privilege then null; end;
+
+  begin
+    perform public.submit_lead(p_kind => 'author', p_name => 'Anon', p_email => 'anon@test.example',
+      p_consent => true, p_ip_hash => repeat('f', 64));
+    raise exception 'anon called submit_lead with its own ip_hash';
+  exception when insufficient_privilege then null; end;
+end $$;
+reset role;
+select set_config('request.jwt.claims', '', true);
 do $$ declare n int; begin
   select count(*) into n from public.leads where ip_hash = repeat('a', 64) and created_at > now() - interval '1 hour';
   if n <> 5 then raise exception 'expected 5 recent leads for the limited hash, saw %', n; end if;

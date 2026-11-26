@@ -57,6 +57,7 @@ insert into public.org_join_links (id, org_id, licence_id, token_hash, max_uses,
 create or replace function pg_temp.as_level(p_user uuid, p_aal text, p_amr jsonb, p_roles text[] default '{}') returns void
 language plpgsql as $$
 begin
+  perform public.test_hold_platform_roles(p_user, p_roles);  -- 0074: a role counts only with its platform_roles row
   perform set_config('request.jwt.claim.sub', p_user::text, true);
   perform set_config('request.jwt.claims', jsonb_build_object('sub', p_user, 'role', 'authenticated', 'aal', p_aal, 'amr', p_amr,
     'app_metadata', jsonb_build_object('platform_roles', to_jsonb(p_roles)))::text, true);

@@ -7,6 +7,16 @@ do $$ begin
   if not exists (select 1 from pg_roles where rolname = 'service_role') then create role service_role nologin bypassrls; end if;
 end $$;
 
+-- Supabase gives anon, authenticated and service_role every privilege on
+-- tables, sequences and functions that postgres creates in public. The shim
+-- copies that, so a migration that forgets a revoke fails a test here rather
+-- than passing on plain Postgres and leaving the grant on the live project.
+-- supabase/tests/0074_review_permissions.sql sweeps the catalogue for it.
+grant usage on schema public to anon, authenticated, service_role;
+alter default privileges in schema public grant all on tables to anon, authenticated, service_role;
+alter default privileges in schema public grant all on sequences to anon, authenticated, service_role;
+alter default privileges in schema public grant all on functions to anon, authenticated, service_role;
+
 create schema if not exists auth;
 create table if not exists auth.users (
   id uuid primary key default gen_random_uuid(),
@@ -20,9 +30,24 @@ grant select on auth.users to authenticated, service_role;
 -- Helper for tests: act as a user with the given platform roles. The
 -- session has passed a second factor just now (aal2, TOTP in amr), as owners,
 -- finance and staff must from 0032; tests of the aal1 case set claims themselves.
+-- From 0074 a staff role counts only when platform_roles holds it too, so the
+-- helper adds the rows for the roles it is given (test_hold_platform_roles
+-- runs as the owner, because the caller may already be a client role). Tests
+-- of a token whose role row is gone delete the row themselves.
+create or replace function test_hold_platform_roles(p_user uuid, p_platform_roles text[]) returns void
+language plpgsql security definer set search_path = '' as $$
+begin
+  if coalesce(cardinality(p_platform_roles), 0) = 0 or to_regclass('public.platform_roles') is null then return; end if;
+  if not exists (select 1 from auth.users u where u.id = p_user) then return; end if;
+  insert into public.platform_roles (user_id, role)
+  select p_user, r from unnest(p_platform_roles) r
+  on conflict do nothing;
+end $$;
+
 create or replace function test_as(p_user uuid, p_platform_roles text[] default '{}') returns void
 language plpgsql as $$
 begin
+  perform public.test_hold_platform_roles(p_user, p_platform_roles);
   perform set_config('request.jwt.claim.sub', p_user::text, true);
   perform set_config('request.jwt.claims',
     jsonb_build_object('sub', p_user, 'role', 'authenticated', 'aal', 'aal2',
