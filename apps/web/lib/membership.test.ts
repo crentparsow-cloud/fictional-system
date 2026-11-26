@@ -141,8 +141,16 @@ describe("subscriptionStateFrom", () => {
       endedAt: null,
       pausedFrom: null,
       pausedUntil: null,
+      startedAt: null,
+      trialEnd: null,
       observedAt: at.toISOString(),
     });
+  });
+
+  it("carries the start and the trial's end, for the cooling-off window (0075)", () => {
+    const st = subscriptionStateFrom({ ...sub(), start_date: 1_790_000_000, trial_end: 1_791_209_600 } as never, at);
+    expect(st?.startedAt).toBe(new Date(1_790_000_000 * 1000).toISOString());
+    expect(st?.trialEnd).toBe(new Date(1_791_209_600 * 1000).toISOString());
   });
 
   it("carries a pause window from the metadata while Stripe holds the pause (14.25)", () => {

@@ -57,7 +57,11 @@ import { FEATURE_NAME as PARTNER_FEATURE, SHARE_LEVELS, type ShareLevel } from "
  * milestones, the companion, referrals, gifts, workbook gifts, follows, title
  * requests, newsletter, push devices (host only), friend pairs, certificates,
  * sign-in methods (names only), dismissed prompts, marketing choices, student
- * verification and bundle or pack purchases. See lib/account-data.ts.
+ * verification and bundle or pack purchases. Since 25 Nov 2026 it also holds
+ * the profile, the consent history, workbook purchases, memberships,
+ * entitlements, terms and checkout consents, progress, settings, support
+ * messages and the email delivery state: 28 sections in all. See
+ * lib/account-data.ts.
  *
  * Exports carry prompts (field labels) and answers, never the teaching text.
  * The check-in partner part carries the partner's first name, the share
@@ -420,7 +424,22 @@ const ACCOUNT_HEADINGS: Record<(typeof ACCOUNT_DATA_SECTIONS)[number], string> =
   prompts_dismissed: "Prompts you dismissed",
   marketing: "Marketing choices",
   student_verification: "Student verification",
-  purchases: "Bundles and group packs",
+  purchases: "Purchases",
+  profile: "Your profile",
+  consent_history: "Consent history",
+  memberships: "Memberships",
+  entitlements: "What you have access to",
+  terms_and_consents: "Terms accepted and checkout consents",
+  progress: "Progress",
+  settings: "Settings",
+  support_messages: "Messages you sent us",
+  email_delivery: "Email delivery",
+  groups: "Groups and check-ins",
+  seats: "Organisation and shared membership seats",
+  acknowledgements: "Changes you acknowledged",
+  membership_invoices: "Membership invoices",
+  comments: "Comments you wrote",
+  reminders_sent: "Reminder emails sent",
 };
 
 /** Any saved record as readable lines: "label: value", one per line, nested names joined. */

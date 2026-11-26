@@ -17,6 +17,7 @@ import {
 } from "@/app/publish/options";
 import { mailLog } from "@/lib/mail-ops";
 import { type RateLimiter, createRateLimiter } from "@/lib/rate-limit";
+import { isSuppressed } from "@/lib/mail-suppression";
 
 /**
  * Leads from the Publish with Akana page (F-001).
@@ -140,16 +141,7 @@ export type SubmitLeadArgs = {
 export type RpcError = { code?: string; message?: string };
 export type SubmitLead = (args: SubmitLeadArgs) => Promise<{ id: string | null; error: RpcError | null }>;
 
-/** Calls public.submit_lead through a Supabase client. anon is enough: the function is the gate. */
-export function submitLeadWith(client: {
-  rpc: (fn: string, args: SubmitLeadArgs) => PromiseLike<{ data: unknown; error: { code?: string; message?: string } | null }>;
-}): SubmitLead {
-  return async (args) => {
-    const { data, error } = await client.rpc("submit_lead", args);
-    if (error) return { id: null, error: { code: error.code, message: error.message } };
-    return { id: typeof data === "string" ? data : null, error: null };
-  };
-}
+/** The call itself is in lib/public-forms.ts: from 0074 only the service role may call public.submit_lead. */
 
 // ---------------------------------------------------------------------------
 // The notification to the Akana team
@@ -174,7 +166,7 @@ export async function notifyLead(
     : { EMAIL_MODE: "live", EMAIL_FROM: o.env.EMAIL_FROM || "Akana <dev@localhost>", POSTAL_ADDRESS: o.env.POSTAL_ADDRESS };
   const mailer = createMailer({
     env,
-    isSuppressed: () => false,
+    isSuppressed,
     log: o.log ?? mailLog("publish", "lead_notify"),
     transport: o.transport ?? dev?.transport,
   });

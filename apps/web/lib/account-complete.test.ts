@@ -344,3 +344,75 @@ describe("errorCode", () => {
     expect(errorCode(null)).toBe("unknown");
   });
 });
+
+describe("the deleted reader's files (review finding M18)", () => {
+  const base = (): DeletionJobDeps => ({
+    dueSubscriptions: async () => [],
+    cancelSubscription: async () => "cancelled",
+    markSubscriptionCancelled: async () => {},
+    completeDueDeletions: async () => ["u1"],
+    deleteAuthUser: async () => "removed",
+    markAuthRemoved: async () => true,
+  });
+
+  it("removes queued files after the auth user has gone and reports the counts", async () => {
+    const order: string[] = [];
+    const out = await runDeletionJob({
+      ...base(),
+      deleteAuthUser: async () => {
+        order.push("auth");
+        return "removed";
+      },
+      removeQueuedFiles: async () => {
+        order.push("files");
+        return { removed: 2, failed: 1 };
+      },
+    });
+    expect(order).toEqual(["auth", "files"]);
+    expect(out).toMatchObject({ status: "ok", processed: 1, auth_removed: 1, files_removed: 2, files_failed: 1 });
+  });
+
+  it("runs even when no deletion is due, so a failed removal is tried again", async () => {
+    let calls = 0;
+    const out = await runDeletionJob({
+      ...base(),
+      completeDueDeletions: async () => [],
+      removeQueuedFiles: async () => {
+        calls += 1;
+        return { removed: 1, failed: 0 };
+      },
+    });
+    expect(calls).toBe(1);
+    expect(out).toMatchObject({ processed: 0, files_removed: 1, files_failed: 0 });
+  });
+
+  it("never fails the deletion when Storage is away", async () => {
+    const log: string[] = [];
+    const out = await runDeletionJob({
+      ...base(),
+      removeQueuedFiles: async () => {
+        throw new Error("storage away");
+      },
+      log: (code) => log.push(code),
+    });
+    expect(out).toMatchObject({ status: "ok", auth_removed: 1, files_removed: 0, files_failed: 1 });
+    expect(log).toEqual(["deletion_files_failed"]);
+  });
+
+  it("removes no files while a membership could not be cancelled", async () => {
+    let calls = 0;
+    const out = await runDeletionJob({
+      ...base(),
+      dueSubscriptions: async () => [{ user_id: "u1", stripe_subscription_id: "sub_1" }],
+      cancelSubscription: async () => {
+        throw new Error("stripe away");
+      },
+      removeQueuedFiles: async () => {
+        calls += 1;
+        return { removed: 0, failed: 0 };
+      },
+    });
+    expect(out.status).toBe("blocked");
+    expect(calls).toBe(0);
+  });
+});

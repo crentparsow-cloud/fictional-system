@@ -102,11 +102,69 @@ describe("growthAfterStripeEvent", () => {
     expect(rpcs[0]).toBe('reverse_author_referral_share:{"p_payment_intent":"pi_1","p_refunded_minor":400,"p_livemode":true}');
   });
 
-  it("leaves the referral reward alone on a part refund", async () => {
+  it("leaves the referral reward alone on a part refund that is not in the cooling-off period", async () => {
     const { c, reward } = ctx({ reverse_author_referral_share: "recorded" });
     const ev = { type: "charge.refunded", livemode: true, data: { object: { payment_intent: "pi_1", amount_refunded: 400, refunded: false } } } as unknown as Stripe.Event;
     await growthAfterStripeEvent(ev, c);
     expect(reward.some((r) => r.startsWith("reverse:"))).toBe(false);
+  });
+
+  // M8: a cooling-off cancel refunds part of the friend's first payment, so a full refund never comes.
+  const DAY = 86_400;
+  const partRefund = (daysAfterCharge: number) =>
+    ({
+      type: "charge.refunded",
+      livemode: true,
+      created: 1_800_000_000 + daysAfterCharge * DAY,
+      data: { object: { payment_intent: "pi_1", amount: 799, amount_refunded: 400, refunded: false, created: 1_800_000_000 } },
+    }) as unknown as Stripe.Event;
+
+  it("takes the referral reward back on a part refund within 14 days of the payment (M8)", async () => {
+    const row: ReversalRow = { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null };
+    const { c, reward } = ctx({}, row);
+    expect(await growthAfterStripeEvent(partRefund(5), c)).toEqual(["referral_credit_taken_back"]);
+    expect(reward).toEqual(["reverse:pi_1:refunded", "debit:referral-reversal:r1", "reversed:r1"]);
+  });
+
+  it("leaves it alone on a part refund after the 14 days, and on a payment that is nobody's first", async () => {
+    const late = ctx({}, { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null });
+    expect(await growthAfterStripeEvent(partRefund(15), late.c)).toEqual([]);
+    expect(late.reward).toEqual([]);
+    // Within the window, but the database knows no referral for this payment.
+    const other = ctx({}, null);
+    expect(await growthAfterStripeEvent(partRefund(5), other.c)).toEqual([]);
+    expect(other.reward).toEqual(["reverse:pi_1:refunded"]);
+  });
+
+  it("takes it back when the webhook ended the membership in cooling-off, whether or not a refund event follows (M8)", async () => {
+    const row: ReversalRow = { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null };
+    const { c, rpcs, reward } = ctx({ referral_first_payment_intent: "pi_first" }, row);
+    const ev = { type: "customer.subscription.updated", livemode: true, created: 1_800_000_000, data: { object: { id: "sub_1" } } } as unknown as Stripe.Event;
+    expect(await growthAfterStripeEvent(ev, c, { action: "cooling_off_cancelled", subscriptionId: "sub_1" })).toEqual(["referral_credit_taken_back"]);
+    expect(rpcs[0]).toBe('referral_first_payment_intent:{"p_friend":"u1"}');
+    expect(reward[0]).toBe("reverse:pi_first:refunded");
+    // An ordinary update, and a friend with no referral, do nothing.
+    const plain = ctx({ referral_first_payment_intent: "pi_first" }, row);
+    expect(await growthAfterStripeEvent(ev, plain.c, { action: "subscription_applied", subscriptionId: "sub_1" })).toEqual([]);
+    expect(plain.rpcs).toEqual([]);
+    const none = ctx({}, row);
+    expect(await growthAfterStripeEvent(ev, none.c, { action: "cooling_off_cancelled", subscriptionId: "sub_1" })).toEqual([]);
+    expect(none.reward).toEqual([]);
+  });
+
+  it("asks once however many events say so: the database hands the reward back only until it is reversed", async () => {
+    let row: ReversalRow | null = { referralId: "r1", referrerId: "u_ref", action: "debit", value: 500, currency: "GBP", trialEndTarget: null };
+    const { c, reward } = ctx({ referral_first_payment_intent: "pi_1" }, null);
+    c.reversal.reverse = async () => row;
+    c.reversal.reversed = async (id) => {
+      reward.push(`reversed:${id}`);
+      row = null;
+    };
+    const cancelled = { type: "customer.subscription.updated", livemode: true, created: 1_800_000_000, data: { object: { id: "sub_1" } } } as unknown as Stripe.Event;
+    await growthAfterStripeEvent(cancelled, c, { action: "cooling_off_cancelled", subscriptionId: "sub_1" });
+    await growthAfterStripeEvent(partRefund(5), c);
+    await growthAfterStripeEvent(partRefund(5), c);
+    expect(reward.filter((r) => r.startsWith("debit:"))).toEqual(["debit:referral-reversal:r1"]);
   });
 
   it("takes the referral reward back when the first payment is fully refunded", async () => {

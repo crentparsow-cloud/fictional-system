@@ -68,6 +68,41 @@ export function coolingOffOpensAt(sub: Pick<Stripe.Subscription, "start_date" | 
 }
 
 /**
+ * The one rule for a cancel asked at a given moment (M11): true when the
+ * membership ends now with a pro rata refund, false when it simply stops
+ * renewing. In the trial nothing has been paid, so it is false. After that
+ * it is true for 14 days from coolingOffOpensAt. The webhook, the cancel
+ * that runs the refund and the cancel page all ask this function, so the
+ * page never promises something else.
+ */
+export function coolingOffCancelApplies(sub: Pick<Stripe.Subscription, "status" | "start_date" | "trial_end">, requestedAt: Date): boolean {
+  if (inTrial(sub, requestedAt)) return false;
+  return inCoolingOff(coolingOffOpensAt(sub), requestedAt);
+}
+
+/** The subscription row as the cancel page reads it (migration 0075 stores started_at and trial_end). */
+export interface CoolingOffRow {
+  status: string;
+  /** subscriptions.started_at, else the row's created_at for a row written before 0075. */
+  startedAt: string | null;
+  trialEnd: string | null;
+  createdAt: string;
+}
+
+/**
+ * coolingOffCancelApplies over the stored row. afterTrial says the window is
+ * counted from the first payment after a trial, so the page can say so.
+ */
+export function coolingOffForRow(row: CoolingOffRow, at: Date): { applies: boolean; afterTrial: boolean } {
+  const seconds = (iso: string | null) => (iso && Number.isFinite(Date.parse(iso)) ? Math.floor(Date.parse(iso) / 1000) : null);
+  const start = seconds(row.startedAt) ?? seconds(row.createdAt);
+  if (start === null) return { applies: false, afterTrial: false };
+  const trialEnd = seconds(row.trialEnd);
+  const sub = { status: row.status as Stripe.Subscription.Status, start_date: start, trial_end: trialEnd };
+  return { applies: coolingOffCancelApplies(sub, at), afterTrial: trialEnd !== null && trialEnd > start };
+}
+
+/**
  * True when an invoice is the first payment after a trial: its period starts
  * at the trial's end. That payment opens the cooling-off window like a first
  * payment does, whatever its billing reason says.
@@ -228,8 +263,7 @@ export async function cancelInCoolingOff(
   const sub = await api.subscriptions.retrieve(subscriptionId);
   if (ENDED.has(sub.status)) return { status: "already_ended" };
   if (!sub.cancel_at_period_end && !sub.cancel_at) return { status: "not_requested" };
-  if (inTrial(sub, opts.requestedAt)) return { status: "outside_cooling_off" };
-  if (!inCoolingOff(coolingOffOpensAt(sub), opts.requestedAt)) return { status: "outside_cooling_off" };
+  if (!coolingOffCancelApplies(sub, opts.requestedAt)) return { status: "outside_cooling_off" };
 
   const refund = await refundCoolingOff(api, subscriptionId, { now: opts.now, requestedAt: opts.requestedAt, reason: "cooling_off_cancel", subscription: sub });
   const ended = await api.subscriptions.cancel(subscriptionId, { invoice_now: false, prorate: false });
