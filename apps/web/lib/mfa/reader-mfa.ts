@@ -1,4 +1,5 @@
 import { VERIFY_PATH } from "@/lib/mfa/role-mfa";
+import { safeNextPath } from "@/lib/safe-next";
 
 /**
  * Optional two-step sign-in for readers (13.2), the pure part. A reader
@@ -11,7 +12,7 @@ export const READER_SECURITY_PATH = "/you/security";
 
 /** The verify page for a reader, coming back to `next`. Readers get reader copy there. */
 export function readerVerifyHref(next: string): string {
-  const safe = next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : "/home";
+  const safe = safeNextPath(next, "/home");
   return `${VERIFY_PATH}?for=reader&next=${encodeURIComponent(safe)}`;
 }
 
