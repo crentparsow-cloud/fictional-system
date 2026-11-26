@@ -33,7 +33,7 @@ async function run(request: NextRequest) {
   } catch {
     return NextResponse.json({ error: "not_configured" }, { status: 503, headers: NO_STORE });
   }
-  const origin = mailOrigin(request.headers.get("x-forwarded-host") ?? request.headers.get("host"));
+  const origin = mailOrigin(request.headers);
   try {
     const out = await sendOrgMonthlyReports(admin, origin);
     if (out.failed) await reportOps(admin, "email_failure", "api/org/monthly-report", "send_failed");
