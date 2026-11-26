@@ -16,7 +16,8 @@
 .d-hero h1 { margin: 0; font-size: clamp(2.1rem, 1.4rem + 3.4vw, 3.6rem); letter-spacing: -0.03em; text-wrap: balance; max-inline-size: 22ch; }
 .d-hero-center h1 { max-inline-size: 26ch; }
 .d-hero p { margin: 0; }
-.d-hero a { color: var(--brand-text); }
+/* Not buttons: a .btn keeps its own text colour, which is chosen to contrast with its fill. */
+.d-hero a:not(.btn) { color: var(--brand-text); }
 .d-eyebrow { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--brand-text); margin-block: 0; }
 .d-lead { font-size: clamp(1.05rem, 1rem + 0.5vw, 1.3rem); max-inline-size: 42rem; color: var(--ink); }
 .d-lead-s { font-size: 1.1rem; max-inline-size: var(--measure); }
@@ -76,6 +77,8 @@
 .d-tile-0 { background: var(--brand-wash); }
 .d-tile-1 { background: var(--surface-2); }
 .d-tile-2 { background: var(--highlight); }
+/* The soft ink does not reach 4.5:1 on the highlight fill, in light or dark. */
+.d-tile-2 span { color: var(--ink); }
 .d-tile-3 { background: var(--surface); }
 .d-tile-4 { background: var(--rose-soft); }
 .d-group h3 { font-size: 1.3rem; margin-block-end: 0.5rem; }
