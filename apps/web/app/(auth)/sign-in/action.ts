@@ -4,7 +4,8 @@ import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { safeNextPath } from "@/lib/auth";
 import { clientIp } from "@/lib/leads";
-import { limiterSalt, signinAllowed } from "@/lib/limits";
+import { signinDecision, signinSalt } from "@/lib/limits";
+import { ownOrigin } from "@/lib/site-url";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createUserClient } from "@/lib/supabase/server";
 
@@ -15,7 +16,8 @@ import { createUserClient } from "@/lib/supabase/server";
  * an hour per IP, counted in the database by salted hash, with an in-memory
  * counter in front. Supabase Auth's own email limits still apply behind
  * this. A limited request gets the same "wait a few minutes" answer whether
- * or not the address has an account.
+ * or not the address has an account. If the count cannot be read or written
+ * the request is refused too, with "try again in a few minutes" (M5).
  *
  * The outcome is the same whether or not the address has an account, so
  * nobody can use this form to find out who is a reader.
@@ -33,9 +35,13 @@ export async function requestMagicLink(formData: FormData): Promise<void> {
   if (!EMAIL.test(email) || email.length > 254) redirect(`${back}&error=invalid`);
 
   const h = await headers();
-  if (!(await signinAllowed(email, clientIp(h), { client: limiterClient(), salt: limiterSalt() }))) redirect(`${back}&error=busy`);
+  // Review M5: when the count cannot be kept, no link is sent (fail closed).
+  const limit = await signinDecision(email, clientIp(h), { client: limiterClient(), salt: signinSalt() });
+  if (limit !== "allowed") redirect(`${back}&error=${limit === "limited" ? "busy" : "later"}`);
 
-  const origin = await siteOrigin();
+  // Review L2: the link in the email is built from one of this deployment's own
+  // configured addresses, never from the raw Host header (lib/site-url.ts).
+  const origin = ownOrigin(h);
   const supabase = await createUserClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,
@@ -78,19 +84,11 @@ export async function verifyEmailCode(formData: FormData): Promise<void> {
   redirect(next);
 }
 
-/** The service role client for the counter, or null when it is not configured (the memory limit still holds). */
+/** The service role client for the counter, or null when it is not configured. In production that means no count, so no link. */
 function limiterClient() {
   try {
     return createAdminClient();
   } catch {
     return null;
   }
-}
-
-/** The origin for the callback URL. The host has already passed tenant resolution in the proxy. */
-async function siteOrigin(): Promise<string> {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "localhost:3000";
-  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https");
-  return `${proto}://${host}`;
 }
